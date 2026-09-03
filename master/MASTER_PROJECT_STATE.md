@@ -1743,6 +1743,32 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 | STAAD analysis run | STAAD.Pro is not available in this environment. The models were verified **structurally and numerically against this document**, not executed. |
 | Sentry post combination count | A.7.9 records **15** combinations from a screen capture; the file has **16** (101–113, 201, 202 and **203**, a second drift check in Z). The file was **not** altered — deleting 203 would remove a directional check required by IS 1893 Cl. 6.3.2.2. A.7.9's count is the record that is short. |
 
+## H.5 Mesh sensitivity / convergence study — 3 September 2026
+
+> **MS1 is a verification/QA study, not a design change.** It does not alter M1, any Part A/B
+> value, any load, or any support condition. It adds three auxiliary underground-box `.STD`
+> models at coarser and finer mesh density than the reconciled M1 model, to demonstrate
+> mesh-independence of the results for the capstone presentation. The reconciled model itself,
+> `Underground_Structure_WITH_LOADS_worked_example (4).STD`, was verified **byte-identical /
+> unchanged** after the study (see below).
+
+| # | Change implemented | Files | Basis | Status |
+|---|---|---|---|---|
+| **MS1** | Three mesh-density variants of the reconciled M1 underground box model built: **COARSE** (~1.9× the reference element size), **MEDIUM** (unmodified copy of the reference mesh), **FINE** (exact h/2 refinement of the reference mesh). Geometry (incl. all M1 values), thicknesses, materials, supports/soil springs, loads, load cases and combinations are identical in all three; only plate mesh density differs. Roof/escape-shaft/stair-shaft opening boundaries, the 22 000×6 200 footprint and the W5/W6/W7 centrelines are pixel-identical across all three (verified: net roof area 104.048 m² and hole area 15.792 m² match exactly in all three). Corner mat-spring `KFY` values and the EP1 earth+water row pressures were re-derived per mesh from the same physical formulas the reference model itself encodes (KFY = k_s×A_trib; EP1 p = 15.4071×depth − 10.8198 kN/m², depth = 6.700−Y, fitted from the reference model's own 6 data points, residual ≤ 0.01 kN/m²) — not re-guessed. | `Underground_Shelter_Mesh_Coarse.std`, `Underground_Shelter_Mesh_Medium.std`, `Underground_Shelter_Mesh_Fine.std` (all in `current/staad/`); methodology in `current/staad/MESH_SENSITIVITY_STUDY.md` | A.3, A.4, B.2–B.4, D.3.3, H.4 (M1-I2, C15) | **MODELS BUILT AND VALIDATED. STAAD.Pro is not available in this environment — no analysis has been run and no result (moment, displacement, shear, reaction) exists yet for any of the three models. Results and the convergence conclusion are OUTSTANDING pending a STAAD.Pro run.** |
+
+**Verified after build:** all three files terminate with `FINISH`; every element/joint reference
+in `SUPPORTS`, `ELEMENT LOAD`, `DESIGN ELEMENT` and `PRINT SUPPORT REACTION LIST` resolves;
+every plate has a `THICKNESS`; the reference `.STD` is confirmed byte-identical to its
+pre-study copy (`git diff` clean). The main staircase is not represented in this plate model
+(it is a separate `.std` and DXF set, per the Frozen section of `CLAUDE.md`) and was not
+touched. `Entry_Stairwell.std` and `Sentry_Post_Framed_Seismic.std` were not touched.
+
+**Not implemented, and why:**
+
+| Item | Reason |
+|---|---|
+| Actual STAAD.Pro analysis results for COARSE/MEDIUM/FINE | STAAD.Pro is not available in this environment (same constraint as H.4). The three models are built and file/numerically validated but **not executed**. Running them and completing the convergence table is outstanding. |
+
 ---
 
 # PART I — PROJECT FILE MANIFEST
