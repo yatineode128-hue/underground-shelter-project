@@ -171,6 +171,13 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 
 ## File inventory
 
+**`Revit/` — Phase 1 BIM build (BIM-P1, 3 Sep 2026, master H.6):** 6 Dynamo Python
+scripts (`Revit/scripts/`) that build the structural envelope (levels, grids, main
+box, headhouse, entry stairwell, main staircase, sentry post frame) when run inside
+Revit 2026 — **no `.rvt` exists, Revit is not executable in this environment.**
+Sentry post site position is ASSUMED (no coordinate exists in the project) — see
+`Revit/docs/02_QAQC_and_discrepancies.md`.
+
 **`current/cad/` — 11 DXF:** ten Rev F input drawings (directly editable) + `06_Underground_Plan_Services_Sump_BlastValves.dxf` = **sheet S-06**, the only output sheet present.
 **`current/staad/` — 3 STD:** underground plate model, sentry frame, entry stairwell frame.
 **`master/`** — `MASTER_PROJECT_STATE.md` (authority), `MASTER_PROJECT_STATE.pdf`, this file.

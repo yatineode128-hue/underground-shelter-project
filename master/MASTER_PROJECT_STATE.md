@@ -1769,6 +1769,36 @@ touched. `Entry_Stairwell.std` and `Sentry_Post_Framed_Seismic.std` were not tou
 |---|---|
 | Actual STAAD.Pro analysis results for COARSE/MEDIUM/FINE | STAAD.Pro is not available in this environment (same constraint as H.4). The three models are built and file/numerically validated but **not executed**. Running them and completing the convergence table is outstanding. |
 
+## H.6 Revit 2026 BIM — Phase 1 (audit, project setup, structural model) — 3 September 2026
+
+> **BIM-P1 is a new-format deliverable, not a design change.** It does not alter M1, any Part A/B
+> value, any load, or any support condition. It translates the already-finalised geometry,
+> thicknesses and materials of Parts A/B into native Revit 2026 elements via Dynamo Python
+> scripts, since Revit is not executable in this environment (same constraint STAAD.Pro has had
+> throughout — see H.4/H.5).
+
+| # | Change implemented | Files | Basis | Status |
+|---|---|---|---|---|
+| **BIM-P1** | No pre-existing `Revit/` folder, `.rvt`, or Revit/Dynamo automation was found anywhere in the repository (full scan at session start) — this contradicts the task's premise of an existing folder to reuse; flagged rather than silently created. A new `Revit/` folder was created holding 6 Dynamo Python Script node files (`01_levels_and_grids.py` … `06_structural_sentry_post.py`) that build, when run inside Revit 2026: 14 Levels and 11 Grids (Master A.4.1/A.4.3/A.4.8); the main box structural envelope (PCC blinding, mat, perimeter walls W1-W4, W5/W6/W7 with the two blast-door openings, roof slab with the stair-void + 2 escape-shaft openings); the headhouse (HW1-HW4, roof, inner security door opening); the covered entry stairwell (raft, 4 walls, top landing, sloped flight, platform, 3-piece raking roof); the main staircase (3 flight waist slabs + L1/L2 landings, **FROZEN geometry, unchanged**); and the sentry post frame (4 footings, plinth beam, 4 columns × 2 storeys, 4 beams × 2 storeys, 2 slabs, ground-storey infill). Reinforcement and material physical properties are explicitly deferred (see `Revit/docs/00_README_WORKFLOW.md`). | `Revit/scripts/01…06*.py`, `Revit/docs/00_README_WORKFLOW.md`, `Revit/docs/01_STAAD_comparison.md`, `Revit/docs/02_QAQC_and_discrepancies.md` | A.4, A.5, B.1–B.8, D (STAAD cross-check) | **SCRIPTS AUTHORED. NOT EXECUTED — Revit 2026 is not available in this environment; editing/authoring these scripts is not running Revit, exactly as H.4 states for STAAD.Pro. No `.rvt` file exists.** |
+| **U4 (new, open)** | **Sentry post absolute site position does not exist anywhere in the project** — Master A.2/A.4.8 and all four Rev F sentry DXF sheets state only "≥10 m clear of the shelter excavation," never a coordinate. BIM-P1 places it at an ASSUMED (11.000, 17.750) m — exactly the 10 m minimum, north of the entry stairwell — as a single, easily-relocated variable in the scripts. | `Revit/scripts/01_levels_and_grids.py`, `06_structural_sentry_post.py` | A.2, A.4.8 | **OPEN — needs the user's confirmation or a real site plan before Phase 2** |
+
+**Verified after authoring:** every dimension used by the scripts was re-derived from Master A/B
+(external/internal footprints, centreline offsets, level closures, stair rise/run) rather than
+copied without checking — see `Revit/docs/02_QAQC_and_discrepancies.md` for the closure checks
+performed. Main staircase geometry (24R @ 170.8333, 280 tread, 3 flights × 8, rise 4100, landings
+L1/L2, 1200 flight widths, 200 well) is **unchanged** from Parts A.4.4/B.5, and the FROZEN clause
+in `CLAUDE.md` was not touched.
+
+**Not implemented, and why:**
+
+| Item | Reason |
+|---|---|
+| The `.rvt` file itself | Revit 2026 cannot run in this (headless Linux) environment. See `Revit/docs/00_README_WORKFLOW.md`. |
+| Reinforcement (native Revit rebar) | Explicitly deferred to a later phase — Part B's bar schedules are complete, but detailing them in Revit is documentation-phase work, not structural-envelope work. |
+| Material physical/appearance properties | Types are named with their grade (M35/M30); IS-456 strength, appearance and thermal data are a later-stage task per the brief's own stage ordering. |
+| C16 (roof/platform junction) | Still open (H.4). BIM-P1 follows B.6/A.7.6/F.2 (250 mm) without editing A.4.7 or reconciling the headhouse/stairwell roof geometry — see `Revit/docs/02_QAQC_and_discrepancies.md` item 2. |
+| Architecture, rooms, finishes, schedules, sheets | Out of scope for this phase by the task's own instruction ("do not yet move to architecture"). |
+
 ---
 
 # PART I — PROJECT FILE MANIFEST
