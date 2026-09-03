@@ -34,14 +34,28 @@ This script follows B.6/A.7.6/F.2 (250 mm, matching current/staad/
 Entry_Stairwell.std) and does NOT extend or reconcile it with the headhouse
 roof built in script 03. Do not treat the small resulting gap/overlap as a
 modelling error — it is the geometric expression of C16, left open on
-purpose pending your ruling. Raise C16 before Phase 2 closes it either way.
+purpose pending your ruling. C16 does NOT block the rest of the structural
+model: every other element in this script (raft, walls, landing, flight,
+platform) is fully determined by the Master independently of how C16 is
+eventually resolved — see Revit/docs/02_QAQC_and_discrepancies.md.
+
+ASSUMPTION [ASSUMED] — RAFT_TOP_OFFSET_M below. "Stepped RC raft 300 thk on
+compacted fill" (A.4.7) has no stated founding level anywhere in the Master.
+This script assumes the raft's TOP sits flush with the UNDERSIDE of the
+250 mm slab it carries at each end (offset = 0.250 m, the slab thickness;
+no additional gap between raft and slab). Edit RAFT_TOP_OFFSET_M if you have
+a real founding level — it is the one place this assumption lives.
+
+RERUN SAFETY — every element carries a unique Mark; re-running skips marks
+already present on a Wall/Floor in the document.
 """
 import clr
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitServices')
 from Autodesk.Revit.DB import (
     XYZ, Line, CurveLoop, Wall, WallType, WallKind, Floor, FloorType,
-    Level, UnitUtils, UnitTypeId, FilteredElementCollector, BuiltInParameter
+    Level, UnitUtils, UnitTypeId, FilteredElementCollector, BuiltInParameter,
+    BuiltInCategory
 )
 from RevitServices.Persistence import DocumentManager
 from RevitServices.Transactions import TransactionManager
@@ -126,7 +140,25 @@ def mark_structural(elem):
         p.Set(1)
 
 
+def existing_marks(bic):
+    result = set()
+    for el in FilteredElementCollector(doc).OfCategory(bic).WhereElementIsNotElementType():
+        p = el.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)
+        if p:
+            v = p.AsString()
+            if v:
+                result.add(v)
+    return result
+
+
+def set_mark(elem, mark):
+    p = elem.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)
+    if p and not p.IsReadOnly:
+        p.Set(mark)
+
+
 created = []
+skipped = []
 
 TransactionManager.Instance.EnsureInTransaction(doc)
 
@@ -135,106 +167,118 @@ lvl_hh_floor = get_level("06 Headhouse Floor (T-O-Roof Slab)")
 lvl_hh_soffit = get_level("08 Headhouse Roof Soffit")
 lvl_hh_top = get_level("09 Headhouse Roof Top (Berm Crest)")
 
-wall_type = get_or_duplicate_wall_type("Structural Wall - CIP Concrete 250mm (M35) - Entry Stairwell", 250)
+wall_marks = existing_marks(BuiltInCategory.OST_Walls)
+floor_marks = existing_marks(BuiltInCategory.OST_Floors)
+
+RAFT_TOP_OFFSET_M = 0.250  # [ASSUMED] -- slab thickness, see module docstring
+
+
+def make_wall(mark, p0, p1, base_level, height_m):
+    if mark in wall_marks:
+        skipped.append(mark)
+        return None
+    wall_type = get_or_duplicate_wall_type("Structural Wall - CIP Concrete 250mm (M35) - Entry Stairwell", 250)
+    curve = Line.CreateBound(
+        XYZ(m_to_ft(p0[0]), m_to_ft(p0[1]), 0.0),
+        XYZ(m_to_ft(p1[0]), m_to_ft(p1[1]), 0.0),
+    )
+    w = Wall.Create(doc, curve, wall_type.Id, base_level.Id, m_to_ft(height_m), 0.0, False, True)
+    set_mark(w, mark)
+    wall_marks.add(mark)
+    created.append(mark)
+    return w
+
+
+def make_floor(mark, loop, floor_type, base_level):
+    if mark in floor_marks:
+        skipped.append(mark)
+        return None
+    f = Floor.Create(doc, [loop], floor_type.Id, base_level.Id)
+    mark_structural(f)
+    set_mark(f, mark)
+    floor_marks.add(mark)
+    created.append(mark)
+    return f
+
 
 # Side walls (both long walls): base = platform level -2.000, top = berm
 # crest +0.900 -> height 2.900 m, exactly the GOVERNING retained height in
 # B.6. See SIMPLIFICATION 1 above.
-side_h = m_to_ft(2.900)
-for mark, y in [("Stairwell South Side Wall", 5.875), ("Stairwell North Side Wall", 7.625)]:
-    curve = Line.CreateBound(
-        XYZ(m_to_ft(9.375), m_to_ft(y), 0.0),
-        XYZ(m_to_ft(15.925), m_to_ft(y), 0.0),
-    )
-    w = Wall.Create(doc, curve, wall_type.Id, lvl_hh_floor.Id, side_h, 0.0, False, True)
-    w.get_Parameter(BuiltInParameter.ALL_MODEL_MARK).Set(mark)
-    created.append(mark)
+make_wall("Stairwell South Side Wall", (9.375, 5.875), (15.925, 5.875), lvl_hh_floor, 2.900)
+make_wall("Stairwell North Side Wall", (9.375, 7.625), (15.925, 7.625), lvl_hh_floor, 2.900)
 
 # Headwall: base site grade (top landing level 0.000), height 2.200 m
 # (Master A.4.7: "roof soffit 2200 above the flight").
-curve = Line.CreateBound(
-    XYZ(m_to_ft(9.375), m_to_ft(5.875), 0.0),
-    XYZ(m_to_ft(9.375), m_to_ft(7.625), 0.0),
-)
-headwall = Wall.Create(doc, curve, wall_type.Id, lvl_grade.Id, m_to_ft(2.200), 0.0, False, True)
-headwall.get_Parameter(BuiltInParameter.ALL_MODEL_MARK).Set("Stairwell Headwall")
-created.append("Stairwell Headwall")
-# Entry door opening, 1000 x 2100, centred on the headwall, sill at grade.
-op_pt1 = XYZ(m_to_ft(9.375), m_to_ft(6.400), 0.0)
-op_pt2 = XYZ(m_to_ft(9.375), m_to_ft(7.400), mm_to_ft(2100))
-doc.Create.NewOpening(headwall, op_pt1, op_pt2)
-created.append("Headwall entry door opening 1000x2100")
+headwall = make_wall("Stairwell Headwall", (9.375, 5.875), (9.375, 7.625), lvl_grade, 2.200)
+if headwall is not None:
+    # Entry door opening, 1000 x 2100, centred on the headwall, sill at grade.
+    op_pt1 = XYZ(m_to_ft(9.375), m_to_ft(6.400), 0.0)
+    op_pt2 = XYZ(m_to_ft(9.375), m_to_ft(7.400), mm_to_ft(2100))
+    doc.Create.NewOpening(headwall, op_pt1, op_pt2)
+    created.append("Headwall entry door opening 1000x2100")
 
 # East wall (at the platform, movement joint against the headhouse): base
 # platform -2.000, height 2.400 m (top = headhouse roof soffit +0.400).
-curve = Line.CreateBound(
-    XYZ(m_to_ft(15.925), m_to_ft(5.875), 0.0),
-    XYZ(m_to_ft(15.925), m_to_ft(7.625), 0.0),
-)
-eastwall = Wall.Create(doc, curve, wall_type.Id, lvl_hh_floor.Id, m_to_ft(2.400), 0.0, False, True)
-eastwall.get_Parameter(BuiltInParameter.ALL_MODEL_MARK).Set("Stairwell East Wall (movement joint to headhouse)")
-created.append("Stairwell East Wall")
+make_wall("Stairwell East Wall (movement joint to headhouse)", (15.925, 5.875), (15.925, 7.625), lvl_hh_floor, 2.400)
 
 # --------------------------------------------------------- FLOOR SLABS ----
 slab250 = get_or_duplicate_floor_type("Slab - Entry Stairwell 250mm (M35)", 250)
 
 # Top landing, X 9500-11000, external Y 5750-7750, flat at 0.000
-top_landing_loop = rect_loop_xy(9.500, 5.750, 11.000, 7.750, m_to_ft(0.000))
-top_landing = Floor.Create(doc, [top_landing_loop], slab250.Id, lvl_grade.Id)
-mark_structural(top_landing)
-created.append("Top landing slab")
+make_floor("Top Landing Slab", rect_loop_xy(9.500, 5.750, 11.000, 7.750, m_to_ft(0.000)), slab250, lvl_grade)
 
 # Platform, X 14300-15800, external Y 5750-7750, flat at -2.000, 1500x1500 clear
-platform_loop = rect_loop_xy(14.300, 5.750, 15.800, 7.750, m_to_ft(-2.000))
-platform = Floor.Create(doc, [platform_loop], slab250.Id, lvl_hh_floor.Id)
-mark_structural(platform)
-created.append("Platform slab")
+make_floor("Platform Slab", rect_loop_xy(14.300, 5.750, 15.800, 7.750, m_to_ft(-2.000)), slab250, lvl_hh_floor)
 
 # Flight waist, sloped, X 11000 (Z 0.000) to X 14300 (Z -2.000), full width.
 # 12R @ 166.6667 over 11 goings x 300 = 3300 run, total rise 2.000 m --
 # matches 0.000 (top landing) to -2.000 (platform) exactly.
-flight_loop = sloped_rect_loop(11.000, 0.000, 14.300, -2.000, 5.750, 7.750)
-flight = Floor.Create(doc, [flight_loop], slab250.Id, lvl_hh_floor.Id)
-mark_structural(flight)
-created.append("Flight waist slab (sloped, 12R @ 166.6667/300)")
+make_floor(
+    "Flight Waist Slab (sloped, 12R @ 166.6667-300)",
+    sloped_rect_loop(11.000, 0.000, 14.300, -2.000, 5.750, 7.750),
+    slab250, lvl_hh_floor,
+)
 
 # ------------------------------------------------------- RAKING ROOF ------
 # 3 pieces: flat over the top landing, sloped over the flight (soffit 2.200
 # above the flight, i.e. flight Z + 2.200), flat starter piece over the
 # platform. See SIMPLIFICATION 2 / C16 above -- NOT reconciled with the
 # headhouse roof.
-roof_top_landing_loop = rect_loop_xy(9.250, 5.750, 11.000, 7.750, m_to_ft(2.200))
-roof_top_landing = Floor.Create(doc, [roof_top_landing_loop], slab250.Id, lvl_hh_floor.Id)
-mark_structural(roof_top_landing)
-created.append("Stairwell roof over top landing (flat)")
-
-roof_flight_loop = sloped_rect_loop(11.000, 2.200, 14.300, 0.200, 5.750, 7.750)
-roof_flight = Floor.Create(doc, [roof_flight_loop], slab250.Id, lvl_hh_floor.Id)
-mark_structural(roof_flight)
-created.append("Stairwell roof over flight (sloped, soffit +2.200 above flight)")
-
-roof_platform_loop = rect_loop_xy(14.300, 5.750, 15.800, 7.750, m_to_ft(0.200))
-roof_platform = Floor.Create(doc, [roof_platform_loop], slab250.Id, lvl_hh_floor.Id)
-mark_structural(roof_platform)
-created.append("Stairwell roof over platform (flat starter piece -- C16 NOT resolved)")
+make_floor(
+    "Stairwell Roof over Top Landing (flat)",
+    rect_loop_xy(9.250, 5.750, 11.000, 7.750, m_to_ft(2.200)),
+    slab250, lvl_hh_floor,
+)
+make_floor(
+    "Stairwell Roof over Flight (sloped, soffit +2.200 above flight)",
+    sloped_rect_loop(11.000, 2.200, 14.300, 0.200, 5.750, 7.750),
+    slab250, lvl_hh_floor,
+)
+make_floor(
+    "Stairwell Roof over Platform (flat starter piece -- C16 NOT resolved)",
+    rect_loop_xy(14.300, 5.750, 15.800, 7.750, m_to_ft(0.200)),
+    slab250, lvl_hh_floor,
+)
 
 # ------------------------------------------------------------- RAFT -------
 # Stepped RC raft, 300 mm, on compacted fill (Master A.4.7). Founding level
-# is NOT stated in the Master beyond "on compacted fill"; this script
-# ASSUMES the raft top sits 300 mm below the underside of the slab it
-# carries at each end -- flag before relying on it for real bearing design.
+# ASSUMED via RAFT_TOP_OFFSET_M -- see module docstring.
 raft300 = get_or_duplicate_floor_type("Slab - Entry Stairwell Raft 300mm", 300)
 
-raft_top_landing_loop = rect_loop_xy(9.250, 5.750, 11.000, 7.750, m_to_ft(-0.250))
-raft_top_landing = Floor.Create(doc, [raft_top_landing_loop], raft300.Id, lvl_grade.Id)
-mark_structural(raft_top_landing)
-created.append("Raft under top landing [ASSUMED founding level]")
-
-raft_platform_loop = rect_loop_xy(14.300, 5.750, 16.050, 7.750, m_to_ft(-2.250))
-raft_platform = Floor.Create(doc, [raft_platform_loop], raft300.Id, lvl_hh_floor.Id)
-mark_structural(raft_platform)
-created.append("Raft under platform [ASSUMED founding level]")
+make_floor(
+    "Raft under Top Landing [ASSUMED founding level]",
+    rect_loop_xy(9.250, 5.750, 11.000, 7.750, m_to_ft(0.000 - RAFT_TOP_OFFSET_M)),
+    raft300, lvl_grade,
+)
+make_floor(
+    "Raft under Platform [ASSUMED founding level]",
+    rect_loop_xy(14.300, 5.750, 16.050, 7.750, m_to_ft(-2.000 - RAFT_TOP_OFFSET_M)),
+    raft300, lvl_hh_floor,
+)
 
 TransactionManager.Instance.TransactionTaskDone()
 
-OUT = "Entry stairwell structural elements created:\n" + "\n".join(created)
+OUT = (
+    "Entry stairwell structural elements created:\n" + "\n".join(created) +
+    "\n\nSkipped (already present):\n" + "\n".join(skipped)
+)

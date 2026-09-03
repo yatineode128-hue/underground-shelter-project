@@ -17,13 +17,19 @@ slab built in script 02, exactly like HW1/HW2/HW4. HW4 aligns exactly with
 box wall W7's centreline (X 18.200) — Master A.4.6 states M1 made this
 alignment exact; this script places HW4 at the same X and the coincidence is
 a check, not a coding choice.
+
+RERUN SAFETY — every element here carries a unique Mark; the script skips
+any Mark already present on a Wall/Floor in the document, so re-running does
+not duplicate the headhouse. The HW2 door opening is only cut when HW2 is
+newly created in this run (a pre-existing HW2 already has its opening).
 """
 import clr
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitServices')
 from Autodesk.Revit.DB import (
     XYZ, Line, CurveLoop, Wall, WallType, WallKind, Floor, FloorType,
-    Level, UnitUtils, UnitTypeId, FilteredElementCollector, BuiltInParameter
+    Level, UnitUtils, UnitTypeId, FilteredElementCollector, BuiltInParameter,
+    BuiltInCategory
 )
 from RevitServices.Persistence import DocumentManager
 from RevitServices.Transactions import TransactionManager
@@ -95,7 +101,25 @@ def mark_structural(elem):
         p.Set(1)
 
 
+def existing_marks(bic):
+    result = set()
+    for el in FilteredElementCollector(doc).OfCategory(bic).WhereElementIsNotElementType():
+        p = el.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)
+        if p:
+            v = p.AsString()
+            if v:
+                result.add(v)
+    return result
+
+
+def set_mark(elem, mark):
+    p = elem.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)
+    if p and not p.IsReadOnly:
+        p.Set(mark)
+
+
 created = []
+skipped = []
 
 TransactionManager.Instance.EnsureInTransaction(doc)
 
@@ -103,48 +127,62 @@ lvl_hh_floor = get_level("06 Headhouse Floor (T-O-Roof Slab)")
 lvl_hh_soffit = get_level("08 Headhouse Roof Soffit")
 lvl_hh_top = get_level("09 Headhouse Roof Top (Berm Crest)")
 
+wall_marks = existing_marks(BuiltInCategory.OST_Walls)
+floor_marks = existing_marks(BuiltInCategory.OST_Floors)
+
 # ---------------------------------------------------------- HH WALLS ------
 # 400 mm, M35. External 4800 x 5800 (X 13600-18400, Y 200-6000); internal
 # 4000 x 5000 (X 14000-18000, Y 600-5600) -> centrelines X 13.800/18.200,
 # Y 0.400/5.800 (Master A.4.6).
-hh_wall_type = get_or_duplicate_wall_type("Structural Wall - CIP Concrete 400mm (M35) - Headhouse", 400)
 wall_height = m_to_ft(2.400)
-
-hh_segments = {
-    "HW1 - Headhouse South Wall": ((13.800, 0.400), (18.200, 0.400)),
-    "HW2 - Headhouse North Wall": ((13.800, 5.800), (18.200, 5.800)),
-    "HW3 - Headhouse West Wall":  ((13.800, 0.400), (13.800, 5.800)),
-    "HW4 - Headhouse East Wall":  ((18.200, 0.400), (18.200, 5.800)),
-}
-walls_by_mark = {}
-for mark, (p0, p1) in hh_segments.items():
+hh_segments = [
+    ("HW1 - Headhouse South Wall", (13.800, 0.400), (18.200, 0.400)),
+    ("HW2 - Headhouse North Wall", (13.800, 5.800), (18.200, 5.800)),
+    ("HW3 - Headhouse West Wall",  (13.800, 0.400), (13.800, 5.800)),
+    ("HW4 - Headhouse East Wall",  (18.200, 0.400), (18.200, 5.800)),
+]
+for mark, p0, p1 in hh_segments:
+    if mark in wall_marks:
+        skipped.append(mark)
+        continue
+    hh_wall_type = get_or_duplicate_wall_type("Structural Wall - CIP Concrete 400mm (M35) - Headhouse", 400)
     curve = Line.CreateBound(
         XYZ(m_to_ft(p0[0]), m_to_ft(p0[1]), 0.0),
         XYZ(m_to_ft(p1[0]), m_to_ft(p1[1]), 0.0),
     )
     w = Wall.Create(doc, curve, hh_wall_type.Id, lvl_hh_floor.Id, wall_height, 0.0, False, True)
-    w.get_Parameter(BuiltInParameter.ALL_MODEL_MARK).Set(mark)
-    walls_by_mark[mark] = w
+    set_mark(w, mark)
+    wall_marks.add(mark)
     created.append(mark)
 
-# Inner security door opening, 900 x 2100, in HW2 at X 14450-15350, NOT blast
-# rated (Master A.4.6). Sill at headhouse floor -2.000.
-hw2 = walls_by_mark["HW2 - Headhouse North Wall"]
-op_pt1 = XYZ(m_to_ft(14.450), m_to_ft(5.800), m_to_ft(-2.000))
-op_pt2 = XYZ(m_to_ft(15.350), m_to_ft(5.800), m_to_ft(-2.000) + mm_to_ft(2100))
-doc.Create.NewOpening(hw2, op_pt1, op_pt2)
-created.append("HW2 inner security door opening 900x2100")
+    if mark == "HW2 - Headhouse North Wall":
+        # Inner security door opening, 900 x 2100, at X 14450-15350, NOT
+        # blast rated (Master A.4.6). Sill at headhouse floor -2.000. Only
+        # reached when HW2 was just created above.
+        op_pt1 = XYZ(m_to_ft(14.450), m_to_ft(5.800), m_to_ft(-2.000))
+        op_pt2 = XYZ(m_to_ft(15.350), m_to_ft(5.800), m_to_ft(-2.000) + mm_to_ft(2100))
+        doc.Create.NewOpening(w, op_pt1, op_pt2)
+        created.append("HW2 inner security door opening 900x2100")
 
 # ---------------------------------------------------------- HH ROOF -------
 # 500 mm M35, external footprint 4800 x 5800 (bears on wall tops), top at
 # +0.900 (berm crest), bottom at +0.400 (soffit). No openings (Master A.4.6).
-hh_roof_type = get_or_duplicate_floor_type("Slab - Headhouse Roof 500mm (M35)", 500)
-z_hh_roof_top = m_to_ft(0.900)
-hh_roof_loop = rect_loop(13.600, 0.200, 18.400, 6.000, z_hh_roof_top)
-hh_roof = Floor.Create(doc, [hh_roof_loop], hh_roof_type.Id, lvl_hh_top.Id)
-mark_structural(hh_roof)
-created.append("Headhouse roof slab")
+MARK_HH_ROOF = "Headhouse Roof Slab"
+if MARK_HH_ROOF in floor_marks:
+    skipped.append(MARK_HH_ROOF)
+else:
+    hh_roof_type = get_or_duplicate_floor_type("Slab - Headhouse Roof 500mm (M35)", 500)
+    z_hh_roof_top = m_to_ft(0.900)
+    hh_roof_loop = rect_loop(13.600, 0.200, 18.400, 6.000, z_hh_roof_top)
+    hh_roof = Floor.Create(doc, [hh_roof_loop], hh_roof_type.Id, lvl_hh_top.Id)
+    mark_structural(hh_roof)
+    set_mark(hh_roof, MARK_HH_ROOF)
+    floor_marks.add(MARK_HH_ROOF)
+    created.append(MARK_HH_ROOF)
 
 TransactionManager.Instance.TransactionTaskDone()
 
-OUT = "Headhouse structural elements created:\n" + "\n".join(created)
+OUT = (
+    "Headhouse structural elements created:\n" + "\n".join(created) +
+    "\n\nSkipped (already present):\n" + "\n".join(skipped)
+)

@@ -27,6 +27,21 @@ material definition.
 
 REINFORCEMENT IS NOT MODELLED IN THIS SCRIPT — see B.1-B.4 for the bar
 schedule; native Revit rebar is deferred to a later phase.
+
+ASSUMPTION [ASSUMED] — PCC_EXTENT_M below. The Master gives PCC blinding
+thickness (100 mm) but never states a plan extent beyond the mat. This
+script assumes the same 22.000 x 6.200 footprint as the mat itself (no
+projection). Edit PCC_EXTENT_M if you want the usual 100-150 mm oversize —
+it is the one place this assumption lives.
+
+RERUN SAFETY — every element this script creates carries a unique Mark
+(Identity Data). Before creating anything, the script reads the Marks
+already present on Walls/Floors in this document and skips any mark that is
+already there, so running this script twice does NOT duplicate geometry.
+Types (WallType/FloorType) were already idempotent by name in the version
+reviewed at Phase 1B; instances are what changed. Renaming the level/grid
+names this script depends on breaks the lookups in get_level(), by design —
+that is meant to fail loudly, not silently create a second copy elsewhere.
 """
 import clr
 clr.AddReference('RevitAPI')
@@ -34,7 +49,7 @@ clr.AddReference('RevitServices')
 from Autodesk.Revit.DB import (
     XYZ, Line, Arc, CurveLoop, Wall, WallType, WallKind, Floor, FloorType,
     Level, UnitUtils, UnitTypeId, FilteredElementCollector, BuiltInParameter,
-    StructuralType
+    BuiltInCategory
 )
 from RevitServices.Persistence import DocumentManager
 from RevitServices.Transactions import TransactionManager
@@ -103,10 +118,10 @@ def rect_loop(x0, y0, x1, y1, z_ft):
 def circle_loop(cx, cy, dia_mm, z_ft):
     r = mm_to_ft(dia_mm) / 2.0
     c = XYZ(m_to_ft(cx), m_to_ft(cy), z_ft)
-    p0 = c + XYZ(r, 0, 0)
-    p1 = c + XYZ(-r, 0, 0)
-    arc1 = Arc.Create(p0, p1, c + XYZ(0, r, 0))
-    arc2 = Arc.Create(p1, p0, c + XYZ(0, -r, 0))
+    p0 = c.Add(XYZ(r, 0, 0))
+    p1 = c.Add(XYZ(-r, 0, 0))
+    arc1 = Arc.Create(p0, p1, c.Add(XYZ(0, r, 0)))
+    arc2 = Arc.Create(p1, p0, c.Add(XYZ(0, -r, 0)))
     loop = CurveLoop()
     loop.Append(arc1)
     loop.Append(arc2)
@@ -119,7 +134,28 @@ def mark_structural(elem):
         p.Set(1)
 
 
+def existing_marks(bic):
+    """Marks already present on real (non-type) elements of this category —
+    used so re-running this script skips work already done instead of
+    duplicating it."""
+    result = set()
+    for el in FilteredElementCollector(doc).OfCategory(bic).WhereElementIsNotElementType():
+        p = el.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)
+        if p:
+            v = p.AsString()
+            if v:
+                result.add(v)
+    return result
+
+
+def set_mark(elem, mark):
+    p = elem.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)
+    if p and not p.IsReadOnly:
+        p.Set(mark)
+
+
 created = []
+skipped = []
 
 TransactionManager.Instance.EnsureInTransaction(doc)
 
@@ -128,75 +164,103 @@ lvl_us_mat = get_level("01 US Mat")
 lvl_roof_top = get_level("06 Headhouse Floor (T-O-Roof Slab)")
 lvl_roof_soffit = get_level("05 Roof Soffit")
 
+wall_marks = existing_marks(BuiltInCategory.OST_Walls)
+floor_marks = existing_marks(BuiltInCategory.OST_Floors)
+
 # ------------------------------------------------------- PCC BLINDING -----
-# 100 mm M15, real footprint assumed = mat footprint (extent beyond the mat
-# edge is not stated in the Master) [ASSUMED — flagged in the Phase 1 report]
-pcc_type = get_or_duplicate_floor_type("Slab - PCC Blinding 100mm (M15)", 100)
-pcc_loop = rect_loop(0.0, 0.0, 22.000, 6.200, m_to_ft(-6.700))
-pcc = Floor.Create(doc, [pcc_loop], pcc_type.Id, lvl_us_mat.Id)
-mark_structural(pcc)
-created.append("PCC blinding floor")
+# 100 mm M15. PCC_EXTENT_M is [ASSUMED] -- see the module docstring.
+PCC_EXTENT_M = (0.0, 0.0, 22.000, 6.200)
+MARK_PCC = "PCC Blinding"
+if MARK_PCC in floor_marks:
+    skipped.append(MARK_PCC)
+else:
+    pcc_type = get_or_duplicate_floor_type("Slab - PCC Blinding 100mm (M15)", 100)
+    pcc_loop = rect_loop(*PCC_EXTENT_M, z_ft=m_to_ft(-6.700))
+    pcc = Floor.Create(doc, [pcc_loop], pcc_type.Id, lvl_us_mat.Id)
+    mark_structural(pcc)
+    set_mark(pcc, MARK_PCC)
+    floor_marks.add(MARK_PCC)
+    created.append(MARK_PCC)
 
 # ------------------------------------------------------------ MAT ---------
 # 600 mm M35, real footprint 22.000 x 6.200 (Master B.3; "REAL 22.000 x 6.200
 # = 136.40 m2 underside" per the STAAD file's own comment)
-mat_type = get_or_duplicate_floor_type("Slab - Mat Foundation 600mm (M35)", 600)
-mat_loop = rect_loop(0.0, 0.0, 22.000, 6.200, m_to_ft(-6.100))
-mat = Floor.Create(doc, [mat_loop], mat_type.Id, lvl_mat_top.Id)
-mark_structural(mat)
-created.append("Mat foundation floor")
+MARK_MAT = "Mat Foundation"
+if MARK_MAT in floor_marks:
+    skipped.append(MARK_MAT)
+else:
+    mat_type = get_or_duplicate_floor_type("Slab - Mat Foundation 600mm (M35)", 600)
+    mat_loop = rect_loop(0.0, 0.0, 22.000, 6.200, m_to_ft(-6.100))
+    mat = Floor.Create(doc, [mat_loop], mat_type.Id, lvl_mat_top.Id)
+    mark_structural(mat)
+    set_mark(mat, MARK_MAT)
+    floor_marks.add(MARK_MAT)
+    created.append(MARK_MAT)
 
 # ------------------------------------------------------ PERIMETER WALLS ---
 # W1-W4, 600 mm thick, M35. Base = Shelter Floor (-6.100), height = 3.200 m
 # to Roof Soffit (-2.900). Centrelines at wall-centreline X 0.300/21.700,
 # Y 0.300/5.900 (Master A.4.2 external 22.000x6.200, internal 20800x5000).
-perim_type = get_or_duplicate_wall_type("Structural Wall - CIP Concrete 600mm (M35)", 600)
 wall_height = m_to_ft(3.200)
-
-perimeter_segments = {
-    "W1 - South Perimeter Wall": ((0.300, 0.300), (21.700, 0.300)),
-    "W2 - North Perimeter Wall": ((0.300, 5.900), (21.700, 5.900)),
-    "W3 - West Perimeter Wall":  ((0.300, 0.300), (0.300, 5.900)),
-    "W4 - East Perimeter Wall":  ((21.700, 0.300), (21.700, 5.900)),
-}
-for mark, (p0, p1) in perimeter_segments.items():
+perimeter_segments = [
+    ("W1 - South Perimeter Wall", (0.300, 0.300), (21.700, 0.300)),
+    ("W2 - North Perimeter Wall", (0.300, 5.900), (21.700, 5.900)),
+    ("W3 - West Perimeter Wall",  (0.300, 0.300), (0.300, 5.900)),
+    ("W4 - East Perimeter Wall",  (21.700, 0.300), (21.700, 5.900)),
+]
+for mark, p0, p1 in perimeter_segments:
+    if mark in wall_marks:
+        skipped.append(mark)
+        continue
+    perim_type = get_or_duplicate_wall_type("Structural Wall - CIP Concrete 600mm (M35)", 600)
     curve = Line.CreateBound(
         XYZ(m_to_ft(p0[0]), m_to_ft(p0[1]), 0.0),
         XYZ(m_to_ft(p1[0]), m_to_ft(p1[1]), 0.0),
     )
     w = Wall.Create(doc, curve, perim_type.Id, lvl_mat_top.Id, wall_height, 0.0, False, True)
-    w.get_Parameter(BuiltInParameter.ALL_MODEL_MARK).Set(mark)
+    set_mark(w, mark)
+    wall_marks.add(mark)
     created.append(mark)
 
 # ------------------------------------------------------------- W5 ---------
 # 200 mm, Bay 5/6 fire+gas seal only, no blast rating, no opening.
-w5_type = get_or_duplicate_wall_type("Structural Wall - CIP Concrete 200mm (M35) - W5", 200)
-curve = Line.CreateBound(
-    XYZ(m_to_ft(12.700), m_to_ft(0.600), 0.0),
-    XYZ(m_to_ft(12.700), m_to_ft(5.600), 0.0),
-)
-w5 = Wall.Create(doc, curve, w5_type.Id, lvl_mat_top.Id, wall_height, 0.0, False, True)
-w5.get_Parameter(BuiltInParameter.ALL_MODEL_MARK).Set("W5 - Bay 5-6 Divider")
-created.append("W5")
+MARK_W5 = "W5 - Bay 5-6 Divider"
+if MARK_W5 in wall_marks:
+    skipped.append(MARK_W5)
+else:
+    w5_type = get_or_duplicate_wall_type("Structural Wall - CIP Concrete 200mm (M35) - W5", 200)
+    curve = Line.CreateBound(
+        XYZ(m_to_ft(12.700), m_to_ft(0.600), 0.0),
+        XYZ(m_to_ft(12.700), m_to_ft(5.600), 0.0),
+    )
+    w5 = Wall.Create(doc, curve, w5_type.Id, lvl_mat_top.Id, wall_height, 0.0, False, True)
+    set_mark(w5, MARK_W5)
+    wall_marks.add(MARK_W5)
+    created.append(MARK_W5)
 
 # ------------------------------------------------------- W6 / W7 ----------
 # 400 mm (MOD M1), M35, protective boundary. Each carries a 1200 x 2100
 # blast-door opening at Y 600-1800 (Master A.3, QUICK_STATE, B.2).
-w67_type = get_or_duplicate_wall_type("Structural Wall - CIP Concrete 400mm (M35) - W6-W7", 400)
-
-w67_segments = {
-    "W6 - Blast Boundary (Bay 6-7)": 15.000,
-    "W7 - Blast Boundary (Bay 7-8)": 18.200,
-}
-for mark, x in w67_segments.items():
+w67_segments = [
+    ("W6 - Blast Boundary (Bay 6-7)", 15.000),
+    ("W7 - Blast Boundary (Bay 7-8)", 18.200),
+]
+for mark, x in w67_segments:
+    if mark in wall_marks:
+        skipped.append(mark)
+        continue
+    w67_type = get_or_duplicate_wall_type("Structural Wall - CIP Concrete 400mm (M35) - W6-W7", 400)
     curve = Line.CreateBound(
         XYZ(m_to_ft(x), m_to_ft(0.600), 0.0),
         XYZ(m_to_ft(x), m_to_ft(5.600), 0.0),
     )
     w = Wall.Create(doc, curve, w67_type.Id, lvl_mat_top.Id, wall_height, 0.0, False, True)
-    w.get_Parameter(BuiltInParameter.ALL_MODEL_MARK).Set(mark)
+    set_mark(w, mark)
+    wall_marks.add(mark)
     created.append(mark)
-    # Blast door opening: 1200 (Y 0.600-1.800) x 2100 high from floor (-6.100)
+    # Blast door opening: 1200 (Y 0.600-1.800) x 2100 high from floor (-6.100).
+    # Only cut on a wall we just created -- a skipped (pre-existing) wall
+    # already has its opening from the run that made it.
     op_pt1 = XYZ(m_to_ft(x), m_to_ft(0.600), m_to_ft(-6.100))
     op_pt2 = XYZ(m_to_ft(x), m_to_ft(1.800), m_to_ft(-4.000))
     doc.Create.NewOpening(w, op_pt1, op_pt2)
@@ -207,18 +271,25 @@ for mark, x in w67_segments.items():
 # bottom at -2.900 (roof soffit). Three openings: the stair-shaft void
 # (2800 x 3160, X 15.200-18.000 / Y 0.600-3.760) and two 1400 dia escape
 # shafts at (2.050, 2.050) and (19.900, 2.050) [M1: ESC2 shifted to 19.900].
-roof_type = get_or_duplicate_floor_type("Slab - Roof (Pressure) Slab 900mm (M35)", 900)
-z_roof_top = m_to_ft(-2.000)
-
-outer = rect_loop(0.0, 0.0, 22.000, 6.200, z_roof_top)
-stair_void = rect_loop(15.200, 0.600, 18.000, 3.760, z_roof_top)
-esc1 = circle_loop(2.050, 2.050, 1400, z_roof_top)
-esc2 = circle_loop(19.900, 2.050, 1400, z_roof_top)
-
-roof = Floor.Create(doc, [outer, stair_void, esc1, esc2], roof_type.Id, lvl_roof_top.Id)
-mark_structural(roof)
-created.append("Roof slab with stair-void + 2 escape-shaft openings")
+MARK_ROOF = "Roof (Pressure) Slab"
+if MARK_ROOF in floor_marks:
+    skipped.append(MARK_ROOF)
+else:
+    roof_type = get_or_duplicate_floor_type("Slab - Roof (Pressure) Slab 900mm (M35)", 900)
+    z_roof_top = m_to_ft(-2.000)
+    outer = rect_loop(0.0, 0.0, 22.000, 6.200, z_roof_top)
+    stair_void = rect_loop(15.200, 0.600, 18.000, 3.760, z_roof_top)
+    esc1 = circle_loop(2.050, 2.050, 1400, z_roof_top)
+    esc2 = circle_loop(19.900, 2.050, 1400, z_roof_top)
+    roof = Floor.Create(doc, [outer, stair_void, esc1, esc2], roof_type.Id, lvl_roof_top.Id)
+    mark_structural(roof)
+    set_mark(roof, MARK_ROOF)
+    floor_marks.add(MARK_ROOF)
+    created.append(MARK_ROOF + " with stair-void + 2 escape-shaft openings")
 
 TransactionManager.Instance.TransactionTaskDone()
 
-OUT = "Main box structural elements created:\n" + "\n".join(created)
+OUT = (
+    "Main box structural elements created:\n" + "\n".join(created) +
+    "\n\nSkipped (already present, Mark matched an existing element):\n" + "\n".join(skipped)
+)
