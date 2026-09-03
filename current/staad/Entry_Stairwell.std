@@ -1,0 +1,184 @@
+STAAD PLANE  COVERED ENTRY STAIRWELL - TRANSVERSE FRAME, 1 m STRIP
+*
+* ==========================================================================
+*  COVERED ENTRY STAIRWELL - UNDERGROUND CBRN SHELTER, PUNE   REV F
+*
+*  WHY THIS STRUCTURE EXISTS
+*  The Rev E approach was an OPEN cut 4.800 x 1.500, 2.000 deep, with the
+*  outer door at its foot.  Three faults, all fixed by roofing it:
+*    (a) no gravity outfall - every drop of rain had to be pumped, so a
+*        pump failure flooded the only entrance;
+*    (b) the entrance sat at the bottom of a permanent sump, which is where
+*        dense CBRN agents collect - the worst possible place for the door
+*        of a CBRN shelter;
+*    (c) it could not simply be lidded at grade: the headroom at the top of
+*        the steps would have been ZERO.
+*  Rev F roofs the stair and moves the external door to GRADE at the head
+*  of the stair, with the ground falling away from it.
+*
+*  THIS MODEL is the transverse box frame at the platform end, where the
+*  walls retain the most.  A 1 m strip, PLANE frame.  The stair, the
+*  headhouse and the shelter below are NOT in this model and do not change.
+*
+*  clear width 1.500   walls 250   floor 250   roof 250
+*  floor -2.000   roof soffit +0.400   berm over the roof +0.950
+*  wall span (c/c) 2.650   roof span (c/c) 1.750
+*  M30 / Fe500,  Ec = 27.386 x 10^6 kN/m2
+*
+*  SOIL
+*   engineered fill  gamma = 18.0 kN/m3,  phi = 30 deg
+*   at rest  K0 = 1 - sin(phi) = 0.50   (propped wall, so at-rest and
+*   not active - the roof props the head and the floor props the foot)
+*   construction surcharge 10.0 kPa -> K0 x q = 5.0 kPa
+*   earth over the roof 0.300 m -> 5.40 kN/m2
+*   subgrade modulus 100000 kN/m3, as adopted for the shelter mat
+*
+*  Units: metre, kilonewton.  X across the stairwell, Y up.
+* ==========================================================================
+*
+START JOB INFORMATION
+ENGINEER DATE 25-Aug-2026
+JOB NAME ENTRY STAIRWELL - REV F
+END JOB INFORMATION
+*
+INPUT WIDTH 79
+UNIT METER KN
+JOINT COORDINATES
+1 0.0000 -2.1250 0.0;
+2 0.2917 -2.1250 0.0;
+3 0.5833 -2.1250 0.0;
+4 0.8750 -2.1250 0.0;
+5 1.1667 -2.1250 0.0;
+6 1.4583 -2.1250 0.0;
+7 1.7500 -2.1250 0.0;
+8 0.0000 -1.4625 0.0;
+9 0.0000 -0.8000 0.0;
+10 0.0000 -0.1375 0.0;
+11 0.0000 0.5250 0.0;
+12 1.7500 -1.4625 0.0;
+13 1.7500 -0.8000 0.0;
+14 1.7500 -0.1375 0.0;
+15 1.7500 0.5250 0.0;
+16 0.2917 0.5250 0.0;
+17 0.5833 0.5250 0.0;
+18 0.8750 0.5250 0.0;
+19 1.1667 0.5250 0.0;
+20 1.4583 0.5250 0.0;
+*
+MEMBER INCIDENCES
+1 1 2;
+2 2 3;
+3 3 4;
+4 4 5;
+5 5 6;
+6 6 7;
+7 1 8;
+8 8 9;
+9 9 10;
+10 10 11;
+11 7 12;
+12 12 13;
+13 13 14;
+14 14 15;
+15 11 16;
+16 16 17;
+17 17 18;
+18 18 19;
+19 19 20;
+20 20 15;
+*
+START GROUP DEFINITION
+MEMBER
+_FLOOR 1 TO 6
+_WALL_S 7 TO 10
+_WALL_N 11 TO 14
+_ROOF 15 TO 20
+END GROUP DEFINITION
+*
+DEFINE MATERIAL START
+ISOTROPIC M30
+E 27386128
+POISSON 0.2
+DENSITY 25.0
+ALPHA 1e-05
+DAMP 0.05
+TYPE CONCRETE
+STRENGTH FCU 30000
+END DEFINE MATERIAL
+*
+MEMBER PROPERTY
+* 1 m strip: ZD = 1.000, YD = the element thickness
+1 TO 6 PRIS YD 0.250 ZD 1.000
+7 TO 14 PRIS YD 0.250 ZD 1.000
+15 TO 20 PRIS YD 0.250 ZD 1.000
+*
+CONSTANTS
+MATERIAL M30 ALL
+*
+SUPPORTS
+* floor on elastic foundation: a vertical spring at each floor joint,
+* k = subgrade x tributary length x 1 m strip.  FX released at one joint
+* only, to restrain the frame horizontally without inventing a prop.
+2 FIXED BUT FX MZ KFY 29167
+3 FIXED BUT FX MZ KFY 29167
+4 FIXED BUT FX MZ KFY 29167
+5 FIXED BUT FX MZ KFY 29167
+6 FIXED BUT FX MZ KFY 29167
+7 FIXED BUT FX MZ KFY 14583
+* one joint also holds FX - it stands for base friction and passive
+* resistance on the floor slab, which are not modelled explicitly
+1 FIXED BUT MZ KFY 14583
+*
+* ============================ LOADING =====================================
+LOAD 1 LOADTYPE Dead TITLE DL SELFWEIGHT PLUS EARTH OVER THE ROOF
+SELFWEIGHT Y -1.0
+MEMBER LOAD
+* 0.300 m of berm over the roof = 5.40 kN/m2
+15 TO 20 UNI GY -5.400
+*
+LOAD 2 LOADTYPE Live TITLE LL ON THE BERM OVER THE ROOF
+MEMBER LOAD
+15 TO 20 UNI GY -1.500
+*
+LOAD 3 LOADTYPE Soil TITLE EARTH AT REST BOTH WALLS
+MEMBER LOAD
+* TRAP values computed PER MEMBER - STAAD's TRAP has no datum, so one
+* trapezoid per wall would give a sawtooth that the statics check misses.
+7 TRAP GX 27.6750 21.7125
+8 TRAP GX 21.7125 15.7500
+9 TRAP GX 15.7500 9.7875
+10 TRAP GX 9.7875 3.8250
+11 TRAP GX -27.6750 -21.7125
+12 TRAP GX -21.7125 -15.7500
+13 TRAP GX -15.7500 -9.7875
+14 TRAP GX -9.7875 -3.8250
+*
+LOAD 4 LOADTYPE Soil TITLE SURCHARGE 10 kPa AT REST BOTH WALLS
+MEMBER LOAD
+7 TO 10 UNI GX 5.0000
+11 TO 14 UNI GX -5.0000
+*
+LOAD 5 LOADTYPE Soil TITLE EARTH ONE SIDE ONLY - BACKFILLING CASE
+MEMBER LOAD
+7 TRAP GX 27.6750 21.7125
+8 TRAP GX 21.7125 15.7500
+9 TRAP GX 15.7500 9.7875
+10 TRAP GX 9.7875 3.8250
+*
+* ---- IS 456 : 2000 Cl 36.4.1 and Table 18 -------------------------------
+LOAD COMB 101 1.5 DL + 1.5 LL + 1.5 EARTH + 1.5 SURCHARGE
+1 1.5 2 1.5 3 1.5 4 1.5
+LOAD COMB 102 1.5 DL + 1.5 EARTH + 1.5 SURCHARGE  NO ROOF LL
+1 1.5 3 1.5 4 1.5
+LOAD COMB 103 0.9 DL + 1.5 EARTH + 1.5 SURCHARGE  MINIMUM RESTRAINT
+1 0.9 3 1.5 4 1.5
+LOAD COMB 104 1.5 DL + 1.5 EARTH ONE SIDE  CONSTRUCTION
+1 1.5 5 1.5
+LOAD COMB 201 1.0 DL + 1.0 LL + 1.0 EARTH + 1.0 SURCHARGE  SERVICE
+1 1.0 2 1.0 3 1.0 4 1.0
+*
+PERFORM ANALYSIS PRINT STATICS CHECK
+*
+PRINT SUPPORT REACTION ALL
+PRINT MEMBER FORCES ALL
+FINISH

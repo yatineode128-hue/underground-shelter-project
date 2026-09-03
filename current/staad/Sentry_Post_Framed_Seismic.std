@@ -1,0 +1,261 @@
+STAAD SPACE SENTRY POST - RC MOMENT FRAME WITH BALLISTIC INFILL
+*
+* ==========================================================================
+*  SENTRY POST - UNDERGROUND CBRN SHELTER COMPLEX, PUNE
+*  FRAMED SCHEME.  Supersedes the load-bearing wall model for design of the
+*  frame members.  Same building, same levels, different lateral system.
+*
+*  FRAME     4 corner columns + 4 beams per level, 2 storeys
+*  GRID      3.650 (X) x 4.650 (Z) centre to centre of columns
+*            column outer faces flush with the 4.000 x 5.000
+*            external faces, so they project inward only
+*  COLUMNS   350 x 350 square
+*  BEAMS     250 wide x 450 deep, all beams both levels
+*  SLAB      150 two-way, load shed to the beams by 45 deg lines
+*  INFILL    200 RC ballistic panels, NON structural - carried by
+*            the beam at the foot of each storey as a UDL
+*  LEVELS    base +0.450   first floor +3.650   roof +6.700
+*  MATERIAL  M30 / Fe500,  Ec = 27.386 x 10^6 kN/m2
+*  SIZE      12 joints, 16 members, 4 fixed supports
+*
+* --------------------------------------------------------------------------
+*  SEISMIC BASIS - IS 1893 (Part 1) : 2016
+* --------------------------------------------------------------------------
+*  Pune, Zone III                 Z = 0.16    Table 3
+*  Defence installation           I = 1.5     Table 8, critical/lifeline
+*  Response reduction             R = 3.0     Table 9 - SEE THE NOTE BELOW
+*
+*  WHY R = 3.0 AND NOT 5.0.  The four faces carry 200 mm RC ballistic
+*  panels.  Unless every panel is positively separated from the frame, they
+*  are far stiffer than the columns and the building resists the earthquake
+*  as a WALL system, not as a special moment frame.  R = 3.0 is therefore
+*  adopted, the same value as the wall scheme, and the frame members are
+*  designed for the whole of that base shear - a conservative lower bound.
+*  If the panels are isolated from the frame and IS 13920 SMRF detailing is
+*  provided, R = 5.0 applies and every seismic force here scales by 3/5
+*  (VB would fall from 73.18 kN to 43.91 kN).
+*
+*  Cl 7.6.2   Ta = 0.09 h / sqrt(d)  for buildings with infills
+*             h = 6.250 m
+*             X:  d = 4.000  ->  Ta = 0.2812 s
+*             Z:  d = 5.000  ->  Ta = 0.2516 s
+*             bare RC MRF, 0.075 h^0.75, would give 0.2965 s
+*             all three lie inside 0.10 - 0.40 s where Sa/g = 2.50 for
+*             soil types I, II and III alike, so neither the soil class nor
+*             the choice of period formula changes the base shear.
+*
+*  Cl 6.4.2   Ah = (Z/2)(Sa/g)(I/R)
+*                = (0.16/2)(2.50)(1.5/3.0) = 0.1000
+*
+*  SEISMIC WEIGHT   Cl 7.3.1, 7.3.2 and Table 10
+*     roof   +6.700    W2 =   331.46 kN
+*     floor  +3.650    W1 =   400.34 kN
+*                      W  =   731.80 kN
+*  Cl 7.6.1   VB = Ah W = 0.1000 x 731.80 = 73.18 kN
+*  Cl 7.6.3   Qi = VB Wi hi^2 / SUM( Wj hj^2 )
+*     Q2 =  55.58 kN at +6.700 -> 13.8954 kN at each of 4 joints
+*     Q1 =  17.60 kN at +3.650 -> 4.3996 kN at each of 4 joints
+*
+*  CARRIED BY THE PLINTH BEAM, NOT BY THIS FRAME:
+*     ground storey infill 13.750 kN/m over 16.600 m = 228.25 kN
+*     design the 250 x 400 plinth beam and the
+*     footings separately from the support reactions.  The weight IS
+*     included in W1 above, per Cl 7.3.1.
+*
+*  NOT MODELLED: openings in the infill (conservative for load); accidental
+*  torsion, Cl 7.8.2 - add +/- 0.05 b; the external spiral stair.
+*  Units: metre, kilonewton.  Y is vertical.
+* ==========================================================================
+*
+START JOB INFORMATION
+ENGINEER DATE 24-Aug-2026
+JOB NAME SENTRY POST - FRAMED - SEISMIC
+END JOB INFORMATION
+*
+INPUT WIDTH 79
+UNIT METER KN
+JOINT COORDINATES
+1 0.175 0.45 0.175; 2 0.175 0.45 4.825; 11 3.825 0.45 0.175;
+12 3.825 0.45 4.825; 101 0.175 3.65 0.175; 102 0.175 3.65 4.825;
+111 3.825 3.65 0.175; 112 3.825 3.65 4.825; 201 0.175 6.7 0.175;
+202 0.175 6.7 4.825; 211 3.825 6.7 0.175; 212 3.825 6.7 4.825;
+*
+MEMBER INCIDENCES
+1 1 101; 2 2 102; 3 11 111; 4 12 112; 5 101 201; 6 102 202; 7 111 211;
+8 112 212; 9 101 111; 10 102 112; 11 101 102; 12 111 112; 13 201 211;
+14 202 212; 15 201 202; 16 211 212;
+*
+START GROUP DEFINITION
+MEMBER
+_COL_GF 1 TO 4
+_COL_FF 5 TO 8
+_BEAM_FF 9 TO 12
+_BEAM_RF 13 TO 16
+END GROUP DEFINITION
+*
+DEFINE MATERIAL START
+ISOTROPIC M30
+E 2.73861e+07
+POISSON 0.2
+DENSITY 25
+ALPHA 1e-05
+DAMP 0.05
+TYPE CONCRETE
+STRENGTH FCU 30000
+END DEFINE MATERIAL
+*
+MEMBER PROPERTY
+* columns 350 square - square, so the BETA angle cannot matter
+1 TO 8 PRIS YD 0.35 ZD 0.35
+* beams 250 x 450, YD is the depth
+9 TO 16 PRIS YD 0.45 ZD 0.25
+*
+CONSTANTS
+MATERIAL M30 ALL
+*
+SUPPORTS
+1 2 11 12 FIXED
+*
+* ============================ LOADING =====================================
+LOAD 1 LOADTYPE Dead  TITLE DL SELFWEIGHT SLAB INFILL PARAPET
+SELFWEIGHT Y -1 
+MEMBER LOAD
+* first floor slab + finish 4.750 kN/m2 on a 3.650 x 4.650 two-way panel
+9 TRAP GY 0 -8.6688 0 1.825
+9 TRAP GY -8.6688 0 1.825 3.65
+10 TRAP GY 0 -8.6688 0 1.825
+10 TRAP GY -8.6688 0 1.825 3.65
+11 TRAP GY 0 -8.6688 0 1.825
+11 UNI GY -8.6688 1.825 2.825
+11 TRAP GY -8.6688 0 2.825 4.65
+12 TRAP GY 0 -8.6688 0 1.825
+12 UNI GY -8.6688 1.825 2.825
+12 TRAP GY -8.6688 0 2.825 4.65
+* first storey infill on the FF beams: 200 x 2.600 high = 13.000 kN/m
+9 TO 12 UNI GY -13
+* roof slab + finish 5.250 kN/m2
+13 TRAP GY 0 -9.5813 0 1.825
+13 TRAP GY -9.5813 0 1.825 3.65
+14 TRAP GY 0 -9.5813 0 1.825
+14 TRAP GY -9.5813 0 1.825 3.65
+15 TRAP GY 0 -9.5813 0 1.825
+15 UNI GY -9.5813 1.825 2.825
+15 TRAP GY -9.5813 0 2.825 4.65
+16 TRAP GY 0 -9.5813 0 1.825
+16 UNI GY -9.5813 1.825 2.825
+16 TRAP GY -9.5813 0 2.825 4.65
+* roof projection 300 + parapet 300 x 150 = 69.08 kN
+13 TO 16 UNI GY -4.1617
+*
+LOAD 2 LOADTYPE Live  TITLE LL AS PER IS 875 PART 2
+MEMBER LOAD
+* first floor 3.000 kN/m2
+9 TRAP GY 0 -5.475 0 1.825
+9 TRAP GY -5.475 0 1.825 3.65
+10 TRAP GY 0 -5.475 0 1.825
+10 TRAP GY -5.475 0 1.825 3.65
+11 TRAP GY 0 -5.475 0 1.825
+11 UNI GY -5.475 1.825 2.825
+11 TRAP GY -5.475 0 2.825 4.65
+12 TRAP GY 0 -5.475 0 1.825
+12 UNI GY -5.475 1.825 2.825
+12 TRAP GY -5.475 0 2.825 4.65
+* roof 1.500 kN/m2, flat roof with access
+13 TRAP GY 0 -2.7375 0 1.825
+13 TRAP GY -2.7375 0 1.825 3.65
+14 TRAP GY 0 -2.7375 0 1.825
+14 TRAP GY -2.7375 0 1.825 3.65
+15 TRAP GY 0 -2.7375 0 1.825
+15 UNI GY -2.7375 1.825 2.825
+15 TRAP GY -2.7375 0 2.825 4.65
+16 TRAP GY 0 -2.7375 0 1.825
+16 UNI GY -2.7375 1.825 2.825
+16 TRAP GY -2.7375 0 2.825 4.65
+*
+LOAD 3 LOADTYPE Seismic-H  TITLE EQ+X IS 1893 VB 73.18 KN
+JOINT LOAD
+101 FX 4.3996
+102 FX 4.3996
+111 FX 4.3996
+112 FX 4.3996
+201 FX 13.8954
+202 FX 13.8954
+211 FX 13.8954
+212 FX 13.8954
+*
+LOAD 4 LOADTYPE Seismic-H  TITLE EQ-X IS 1893 VB 73.18 KN
+JOINT LOAD
+101 FX -4.3996
+102 FX -4.3996
+111 FX -4.3996
+112 FX -4.3996
+201 FX -13.8954
+202 FX -13.8954
+211 FX -13.8954
+212 FX -13.8954
+*
+LOAD 5 LOADTYPE Seismic-H  TITLE EQ+Z IS 1893 VB 73.18 KN
+JOINT LOAD
+101 FZ 4.3996
+102 FZ 4.3996
+111 FZ 4.3996
+112 FZ 4.3996
+201 FZ 13.8954
+202 FZ 13.8954
+211 FZ 13.8954
+212 FZ 13.8954
+*
+LOAD 6 LOADTYPE Seismic-H  TITLE EQ-Z IS 1893 VB 73.18 KN
+JOINT LOAD
+101 FZ -4.3996
+102 FZ -4.3996
+111 FZ -4.3996
+112 FZ -4.3996
+201 FZ -13.8954
+202 FZ -13.8954
+211 FZ -13.8954
+212 FZ -13.8954
+*
+* ---- LOAD COMBINATIONS -------------------------------------------------
+* IS 456 : 2000 Cl 36.4.1 and Table 18, with EL in place of WL, and
+* IS 1893 (Part 1) : 2016 Cl 6.3.4.1.
+* 202 and 203 carry no load factors - drift check, Cl 7.11.1.1
+LOAD COMB 101 1.5DL + 1.5LL
+1 1.5 2 1.5 
+LOAD COMB 102 1.2DL + 1.2LL + 1.2EQ+X
+1 1.2 2 1.2 3 1.2 
+LOAD COMB 103 1.2DL + 1.2LL + 1.2EQ-X
+1 1.2 2 1.2 4 1.2 
+LOAD COMB 104 1.2DL + 1.2LL + 1.2EQ+Z
+1 1.2 2 1.2 5 1.2 
+LOAD COMB 105 1.2DL + 1.2LL + 1.2EQ-Z
+1 1.2 2 1.2 6 1.2 
+LOAD COMB 106 1.5DL + 1.5EQ+X
+1 1.5 3 1.5 
+LOAD COMB 107 1.5DL + 1.5EQ-X
+1 1.5 4 1.5 
+LOAD COMB 108 1.5DL + 1.5EQ+Z
+1 1.5 5 1.5 
+LOAD COMB 109 1.5DL + 1.5EQ-Z
+1 1.5 6 1.5 
+LOAD COMB 110 0.9DL + 1.5EQ+X
+1 0.9 3 1.5 
+LOAD COMB 111 0.9DL + 1.5EQ-X
+1 0.9 4 1.5 
+LOAD COMB 112 0.9DL + 1.5EQ+Z
+1 0.9 5 1.5 
+LOAD COMB 113 0.9DL + 1.5EQ-Z
+1 0.9 6 1.5 
+LOAD COMB 201 1.0DL + 1.0LL SERVICE
+1 1.0 2 1.0 
+LOAD COMB 202 1.0DL + 1.0EQ+X DRIFT CHECK CL 7.11.1.1
+1 1.0 3 1.0 
+LOAD COMB 203 1.0DL + 1.0EQ+Z DRIFT CHECK CL 7.11.1.1
+1 1.0 5 1.0 
+*
+PERFORM ANALYSIS PRINT STATICS CHECK
+*
+PRINT SUPPORT REACTION ALL
+PRINT JOINT DISPLACEMENTS LIST 101 102 111 112 201 202 211 212
+PRINT MEMBER FORCES ALL
+FINISH
