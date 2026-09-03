@@ -1192,9 +1192,9 @@ ANCHORAGE  Column starters T16: Ld,compression = 37 × 16 = 592 mm
 # PART D — STAAD.PRO MASTER MODEL SPECIFICATION
 
 > ## ⚠ CRITICAL LIMITATION — READ FIRST
-> **The `.std` files themselves were NEVER uploaded to this project.** Everything in Part D was extracted from **nineteen screen captures** of the STAAD.Pro interface. Node tables, member tables, load-case titles and reaction tables were read directly from those images and are marked **[CONFIRMED]**. Anything derived by back-calculation is marked **[RECONSTRUCTED]**. Anything not visible in a screenshot is marked **[NOT AVAILABLE — DO NOT INVENT]**.
+> **⚠ UPDATED 3 September 2026 — the three `.std` files ARE now in the workspace** (`Underground_Structure_WITH_LOADS_worked_example (4).STD`, `Sentry_Post_Framed_Seismic.std`, and `Entry_Stairwell.std`, which is not registered anywhere else in this document). Part D below was written **before** they arrived and its evidence tags are left exactly as written. Everything in Part D was extracted from **nineteen screen captures** of the STAAD.Pro interface. Node tables, member tables, load-case titles and reaction tables were read directly from those images and are marked **[CONFIRMED]**. Anything derived by back-calculation is marked **[RECONSTRUCTED]**. Anything not visible in a screenshot is marked **[NOT AVAILABLE — DO NOT INVENT]**. Where Part D and a `.std` file now disagree, **the file is the primary evidence** — see the K.1 update note.
 >
-> **A future Claude must ask the user to upload the actual `.std` files before making any claim about the model that is not listed below.**
+> **The `.std` files are now available, so a claim about the model must be checked against the file itself rather than against Part D.** Part D is retained as the screenshot-derived record and as the audit trail for what was known before 3 Sep 2026.
 
 ## D.1 Model inventory
 
@@ -1683,7 +1683,7 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 
 | # | Change | Previous | New | Reason | Affected files | Status |
 |---|---|---|---|---|---|---|
-| **M1** | **Walls W6/W7 thickened; box lengthened** | 200 thk; box 21 600; shaft 15000–17800; Bay 8 18000–21000; ESC 2 at 19500 | **400 thk; box 22 000; shaft 15200–18000; Bay 8 18400–21400; ESC 2 at 19900** | **Finding F1** — 200 mm cannot carry 383 kPa (M<sub>u,lim</sub> 138 < 245 demand). 400 cannot come from Bay 8 (750 clearance) or the shaft (2800 = 2×1200+200) | ALL sheets; headhouse and stairwell shift +200 | **CURRENT — awaiting client approval** |
+| **M1** | **Walls W6/W7 thickened; box lengthened** | 200 thk; box 21 600; shaft 15000–17800; Bay 8 18000–21000; ESC 2 at 19500 | **400 thk; box 22 000; shaft 15200–18000; Bay 8 18400–21400; ESC 2 at 19900** | **Finding F1** — 200 mm cannot carry 383 kPa (M<sub>u,lim</sub> 138 < 245 demand). 400 cannot come from Bay 8 (750 clearance) or the shaft (2800 = 2×1200+200) | ALL sheets; headhouse and stairwell shift +200 | **CURRENT — APPROVED AND IMPLEMENTED 3 Sep 2026, see H.4** |
 | F2 | Stair-void cantilever pad designed | not designed | T25 @ 150 top (56 %) + **T12 4L @ 250 throughout the pad** + edge thickening + corner trimmers | M(root) 758.6 > midspan 700.2 | S-03 | **CURRENT** |
 | C6 | Mat one-way shear checked | flexure only | **T12 @ 250 × 250 link grid** | IS 4991 Cl. 10.3.1.1 forbids dynamic increase on shear | S-02 | **CURRENT** |
 | C2 | Headhouse roof recomputed | 3.0 m span, 1.0 m cover | **4.0 m span, no cover, w = 396.5 kPa** | Report O.12 stale vs Rev F | S-05 | **CURRENT** |
@@ -1713,6 +1713,35 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 | **C9** | STAAD states V<sub>b</sub> = 73.18 kN; hand check gives 59.3 kN | **Design uses the higher STAAD value.** Print the STAAD seismic-weight summary in Phase 3 | **OPEN — documentation gap, not a safety gap** |
 | **C10** | Report designs headhouse walls for 113 kPa drag only | **Raised to the full 383 kPa envelope.** Cost: T12 4L @ 250 in all four walls | RESOLVED |
 | — | Report J.7 places the service-entry plate "between Bay 5 and Bay 8" — those bays are not adjacent | **Superseded.** Single plate placed in the north perimeter wall (W2) at Bay 5, X ≈ 11 800 | RESOLVED |
+
+## H.4 Implementation of Modification M1 — 3 September 2026
+
+> **M1 was approved by the user on 3 September 2026 and has been implemented in the project files.** Parts A, B, F and L already carried the M1 values; **not one design value in them was changed.** This section records only that the CAD and STAAD files were brought into agreement with them.
+
+| # | Change implemented | Files | Basis | Status |
+|---|---|---|---|---|
+| **M1-I1** | M1 geometry propagated into the six affected architectural DXFs — W6 14800–15200 (400), W7 18000–18400 (400), box 22 000, shaft 15200–18000, void 15200–18000, ESC 2 at X 19 900, headhouse 13600–18400, covered stairwell 9250–16050, and the dependent dimension text | `1_Underground_Level_Plan`, `2_Side_Section_with_Stairs`, `2_Ground_Plan_Headhouse_Berm`, `3_Headhouse_Section_Cutaway`, `5_Entry_Headhouse_Stair_Section`, `5_Front_Elevation` | A.3, A.4.2, A.4.4–A.4.7 | **IMPLEMENTED** |
+| **M1-I2** | M1 geometry propagated into the underground plate model — X grid rebuilt on the post-M1 mid-surface (31 lines, W6 c/l 15.000, W7 c/l 18.200, east wall c/l 21.700, ESC 2 opening 19.2–20.6); internal wall thickness split **W5 200 / W6+W7 400** | `Underground_Structure_WITH_LOADS_worked_example (4).STD` | A.3, B.2, F.1 | **IMPLEMENTED** |
+| **M1-I3** | **`LOAD 11 BL3 BLAST IN THE STAIR SHAFT ON W6 AND W7 383 KN/M2`** added, acting out of the shaft on both faces, and included in **COMB 103** — the demand Finding F1 identified and that M1 exists to carry. The model previously applied blast to the external walls only | same | A.7.1, B.2 (Finding F1) | **IMPLEMENTED** |
+| **C11** | Entry stairwell concrete grade — model declared **M30**; A.5 places stairs in **M35** and B.6 / F.2 detail them at L<sub>d</sub> = 40 φ (T16 = 640 mm), the M35 value. In M30 the same bar needs 46 φ = 736 and every stairwell lap would be 13 % short | `Entry_Stairwell.std` | A.5, B.6, F.2 | **RESOLVED — M35, E<sub>c</sub> 29 580 N/mm² adopted** |
+| **C12** | Entry stairwell roof imposed load — model applied **1.5 kPa**; A.7.6 / B.6 specify **20 kPa**, taken deliberately for a stray vehicle on the berm | `Entry_Stairwell.std` | A.7.6, B.6 | **RESOLVED — 20 kPa adopted** |
+| **C13** | Entry stairwell roof waterproofing / screed **2.0 kPa** was absent from the model | `Entry_Stairwell.std` | A.7.6, B.6 | **RESOLVED — added; roof now 6.25 + 2.0 + 5.4 + 20.0 = 33.65 kPa, matching A.7.6 exactly** |
+| **C14** | Entry stairwell fill — model used **γ = 18 kN/m³** to a +0.950 berm; A.6 gives **γ = 20** and A.4.7 a **+0.900** crest | `Entry_Stairwell.std` | A.6, A.4.7, B.6 | **RESOLVED — gradient 10.0 kPa/m gives 29.0 kPa at the platform and 34.0 kPa with surcharge, reproducing B.6** |
+| **C15** | Underground model — mat corner joints 1, 10, 301, 310 carried `FIXED BUT FY MX MY MZ` with **no `KFY`**, leaving them with no vertical restraint, contrary to D.3.3. The file's own comment stated the value was required | `Underground_Structure_WITH_LOADS_worked_example (4).STD` | D.3.3 | **RESOLVED — KFY restated per corner from the post-M1 tributary areas (6891 / 8269 / 7219 / 8663 kN/m)** |
+| **C16** | Roof / platform junction — A.4.7 reads *"over the platform it becomes the 500 headhouse roof"*, while B.6 designs, A.7.6 loads and F.2 registers a **250** stairwell roof, and the headhouse footprint (Y 200–6000) does not overlap the platform (Y 6000–7500) | `Entry_Stairwell.std` | A.4.7 **vs** B.6 / A.7.6 / F.2 | **MODEL RESOLVED AT 250 on the authority of M.2 (Parts A, B, L primary). The A.4.7 clause is left exactly as written and the conflict is NOT closed — see below** |
+
+> **C16 — what was decided and what was not.** The model keeps a 250 roof because Part B designs one, A.7.6 loads one and F.2 registers one, and because the headhouse roof of B.7.1 is a 396.5 kPa blast element on a footprint that does not extend over the platform. **The clause in A.4.7 has not been edited.** This is a genuine textual conflict inside this document and needs the user's ruling before the junction detail is drawn.
+
+**Verified after implementation:** every M1 control value in A.3 / A.4 / L was checked against the modified files; the main staircase (24R @ 170.8333 / 280, 3 flights × 8, rise 4100, landings, 1200 flight widths, 200 well) was confirmed **unchanged**; and `1_Staircase_Section.dxf` plus the three sentry post drawings were left **byte-identical**. `Sentry_Post_Framed_Seismic.std` was checked against A.4.8, A.5, A.7.7, A.7.8 and D.2.3 and **required no change**.
+
+**Not implemented, and why:**
+
+| Item | Reason |
+|---|---|
+| Output sheets **S-01 to S-08** | The Part E.4 Python toolchain (`proj.py`, `dxflib.py`, `d01_wall.py`…`d08_sentryslab.py`, `validate.py`, `render.py`) is **not in the workspace**, and M.12 forbids editing a generated DXF directly. **S-06 is the only output sheet present and already carries M1, so it was not touched.** The other seven cannot be regenerated until the toolchain is supplied. |
+| Second k<sub>s</sub> bound | A.6 and K.2 **A4** require the mat model at **both** 100 000 and 500 000 kN/m³. Only the lower bound exists. k<sub>s</sub> stays **[ASSUMED]** and the second run is outstanding. |
+| STAAD analysis run | STAAD.Pro is not available in this environment. The models were verified **structurally and numerically against this document**, not executed. |
+| Sentry post combination count | A.7.9 records **15** combinations from a screen capture; the file has **16** (101–113, 201, 202 and **203**, a second drift check in Z). The file was **not** altered — deleting 203 would remove a directional check required by IS 1893 Cl. 6.3.2.2. A.7.9's count is the record that is short. |
 
 ---
 
@@ -1773,7 +1802,7 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 | Wall links T12 @ 250 | T12 @ 200 | — |
 | B1 3-T16 / B2 4-T16 | **B1 4-T16 / B2 3-T20** | C9 |
 
-> **⚠ There is no file in the uploaded set that reflects Modification M1.** Every input DXF is at the pre-M1 geometry (box 21 600). **The M1 geometry exists only in the output drawings S-01 to S-08 and in this document.** A future Claude must not treat the input DXFs as current for anything east of X = 14 800.
+> **⚠ SUPERSEDED 3 September 2026 — M1 is now implemented in the files.** This block previously read: *"There is no file in the uploaded set that reflects Modification M1. Every input DXF is at the pre-M1 geometry (box 21 600)."* That is **no longer true**. The six affected input DXFs and the underground `.std` were updated to the M1 geometry on 3 Sep 2026 (see H.4). Sheet S-06 already carried it. **Sheets S-01 to S-05, S-07 and S-08 are absent from the workspace and could not be regenerated — see H.4.**
 
 ---
 
@@ -1848,6 +1877,12 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 | **U7** | Beam 16 (211→212), sentry post | Not visible; required for a closed frame | Upload the `.std` file |
 | **U8** | Roof projection + parapet 4.162 kN/m | Given on the framing plan, not independently derived | Recompute from the parapet detail |
 
+> **Update, 3 September 2026 — the `.std` files are now in the workspace. No tag above has been changed.**
+> **U4** and **U5** are answerable from them directly: both models end with `PERFORM ANALYSIS PRINT STATICS CHECK` and no P-Delta; the underground model has **1 138 shell elements** in four thickness groups (mat 600 / roof 900 / perimeter 600 / internal 200–400) on `ELASTIC MAT DIRECT Y SUBGRADE 100000`. Note that its closing `START CONCRETE DESIGN … DESIGN ELEMENT 509 TO 688 869 TO 922` block contradicts its own `NO DESIGN` header comment; it has been left in place.
+> **U6** — the sentry model has **twelve joints. There is no node 213.**
+> **U7** — beam `16 211 212` is present, exactly as reconstructed.
+> **U1** — the sentry model does now print the seismic-weight summary the item asks for: roof 331.46 + floor 400.34 = **W 731.80 kN**, V<sub>b</sub> = 0.100 × 731.80 = 73.18 kN, so V<sub>b</sub>/W returns A<sub>h</sub> = 0.1000 exactly. **[DERIVED, requires the user's confirmation before U1 is closed]** rebuilding both storey weights from the model's own load blocks reproduces 331.46 and 400.34 exactly, and the 139.1 kN gap to the B.8 hand check resolves as (i) 107.9 kN — half the first-storey infill, which the B.8 floor line does not allocate — plus (ii) 31.1 kN, the model taking the full 450 beam depth in `SELFWEIGHT` while also applying the full slab pressure, where B.8 nets the beam to 300. **U1 remains open. U2, U3 and U8 are untouched.**
+
 ## K.2 ASSUMED — must be confirmed before construction
 
 | # | Assumption | Impact if wrong | Verify by |
@@ -1871,7 +1906,7 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 
 | # | Item |
 |---|---|
-| **F1** | Protective boundary was not continuous — **resolved by M1, awaiting client approval of the 400 mm box lengthening** |
+| **F1** | Protective boundary was not continuous — **resolved by M1 — APPROVED AND IMPLEMENTED 3 Sep 2026, see H.4** |
 | **F2** | Stair-void cantilever M(root) 758.6 > midspan 700.2 — **resolved, links added** |
 | **ERR-1** | My own yield-line coefficient error, 324.4 → 162.2 — **corrected; no reinforcement change** |
 | Flotation | FoS 0.33 at the mat-only stage — **a design output, mitigation is mandatory and on S-02** |
@@ -1943,7 +1978,7 @@ STATUS      STAAD    2 models exist; .std NOT uploaded; screenshots only
 
 **2. Treat PART A (Current Authoritative Project State), PART B (Structural Design) and PART L (Final Register) as the primary source of truth.** Everything else supports them.
 
-**3. Treat superseded revisions as historical only.** Part H tells you what was superseded and why. **Critically: every uploaded input DXF is at the PRE-M1 geometry (box 21 600). The M1 geometry exists only in the output drawings and in this document.** Do not read a current dimension off an input DXF east of X = 14 800.
+**3. Treat superseded revisions as historical only.** Part H tells you what was superseded and why. **Superseded 3 Sep 2026: the input DXFs are no longer pre-M1.** The six affected drawings and the underground `.std` were brought to the M1 geometry on that date (H.4), so a dimension east of X = 14 800 may now be read from them. The seven missing output sheets S-01–S-05, S-07 and S-08 remain unregenerated.
 
 **4. When project files are uploaded, compare them against this document before using them.** Parse them; do not assume.
 
