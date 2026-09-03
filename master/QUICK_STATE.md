@@ -171,12 +171,16 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 
 ## File inventory
 
-**`Revit/` — Phase 1 BIM build (BIM-P1, 3 Sep 2026, master H.6):** 6 Dynamo Python
-scripts (`Revit/scripts/`) that build the structural envelope (levels, grids, main
-box, headhouse, entry stairwell, main staircase, sentry post frame) when run inside
-Revit 2026 — **no `.rvt` exists, Revit is not executable in this environment.**
-Sentry post site position is ASSUMED (no coordinate exists in the project) — see
-`Revit/docs/02_QAQC_and_discrepancies.md`.
+**`Revit/` — Phase 1 + 1B BIM build (BIM-P1/BIM-P1B, 3 Sep 2026, master H.6/H.7):**
+6 Dynamo Python scripts (`Revit/scripts/`) that build the structural envelope
+(levels, grids, main box, headhouse, entry stairwell, main staircase, sentry post
+frame) when run inside Revit 2026 — **no `.rvt` exists, Revit is not executable in
+this environment.** Rerun-safe since BIM-P1B (Mark-guarded, no duplication on a
+second run). Sentry post site position is ASSUMED (no coordinate exists in the
+project) and, since BIM-P1B, derived live from the SA/S1 grids by script 06 rather
+than duplicated as a constant — see `Revit/docs/00_README_WORKFLOW.md` and
+`Revit/docs/02_QAQC_and_discrepancies.md`. C16 reviewed and deliberately left open
+(does not block the rest of the structural model).
 
 **`current/cad/` — 11 DXF:** ten Rev F input drawings (directly editable) + `06_Underground_Plan_Services_Sump_BlastValves.dxf` = **sheet S-06**, the only output sheet present.
 **`current/staad/` — 3 STD:** underground plate model, sentry frame, entry stairwell frame.

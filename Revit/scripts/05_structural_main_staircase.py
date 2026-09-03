@@ -13,6 +13,8 @@ total rise 4100 mm... Never change any of this unless the user explicitly
 asks again in a new request." Every number below is copied from Master A.4.4
 and B.5 unchanged. If you are editing this file to change the stair, stop --
 that requires a new, explicit user instruction, not a Phase-2 convenience.
+This file was touched at Phase 1B ONLY to add rerun-safety (Marks); no
+dimension, level, or riser/tread number was changed.
 
 ROUTING, re-derived and cross-checked against A.4.4/B.5 (shown here so the
 logic is auditable, not just the numbers):
@@ -34,13 +36,17 @@ thickening 900 -> 1200 mm over a 600 mm band at the void's Y 3760 boundary,
 and the diagonal corner trimmers, both from Master B.4.1(b). These are local
 refinements to the uniform 900 mm roof slab script 02 already built; carry
 them into the QA/QC list, do not add them here without re-touching script 02.
+
+RERUN SAFETY — every element carries a unique Mark; re-running skips marks
+already present on a Floor in the document.
 """
 import clr
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitServices')
 from Autodesk.Revit.DB import (
     XYZ, Line, CurveLoop, Floor, FloorType, Level,
-    UnitUtils, UnitTypeId, FilteredElementCollector, BuiltInParameter
+    UnitUtils, UnitTypeId, FilteredElementCollector, BuiltInParameter,
+    BuiltInCategory
 )
 from RevitServices.Persistence import DocumentManager
 from RevitServices.Transactions import TransactionManager
@@ -107,46 +113,87 @@ def mark_structural(elem):
         p.Set(1)
 
 
+def existing_marks(bic):
+    result = set()
+    for el in FilteredElementCollector(doc).OfCategory(bic).WhereElementIsNotElementType():
+        p = el.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)
+        if p:
+            v = p.AsString()
+            if v:
+                result.add(v)
+    return result
+
+
+def set_mark(elem, mark):
+    p = elem.get_Parameter(BuiltInParameter.ALL_MODEL_MARK)
+    if p and not p.IsReadOnly:
+        p.Set(mark)
+
+
 created = []
+skipped = []
 
 TransactionManager.Instance.EnsureInTransaction(doc)
 
 lvl_floor = get_level("02 Shelter Floor (Internal-T-O-Mat)")
 
+floor_marks = existing_marks(BuiltInCategory.OST_Floors)
+
+
+def make_floor(mark, loop, floor_type):
+    if mark in floor_marks:
+        skipped.append(mark)
+        return None
+    f = Floor.Create(doc, [loop], floor_type.Id, lvl_floor.Id)
+    mark_structural(f)
+    set_mark(f, mark)
+    floor_marks.add(mark)
+    created.append(mark)
+    return f
+
+
 waist200 = get_or_duplicate_floor_type("Slab - Main Stair Waist 200mm (M35)", 200)
 landing200 = get_or_duplicate_floor_type("Slab - Main Stair Landing 200mm (M35)", 200)
 
 # Flight 1 -- arrival (Y1.800, -6.100) to L1 (Y3.760, -4.7333)
-f1_loop = sloped_rect_loop_y(15.300, 16.500, 1.800, -6.100, 3.760, -4.7333)
-f1 = Floor.Create(doc, [f1_loop], waist200.Id, lvl_floor.Id)
-mark_structural(f1)
-created.append("Flight 1 waist slab (arrival to L1)")
+make_floor(
+    "Main Stair Flight 1 (arrival to L1)",
+    sloped_rect_loop_y(15.300, 16.500, 1.800, -6.100, 3.760, -4.7333),
+    waist200,
+)
 
 # Flight 2 -- L1 (Y3.760, -4.7333) to L2 (Y1.800, -3.3667), doubles back
-f2_loop = sloped_rect_loop_y(16.700, 17.900, 3.760, -4.7333, 1.800, -3.3667)
-f2 = Floor.Create(doc, [f2_loop], waist200.Id, lvl_floor.Id)
-mark_structural(f2)
-created.append("Flight 2 waist slab (L1 to L2)")
+make_floor(
+    "Main Stair Flight 2 (L1 to L2)",
+    sloped_rect_loop_y(16.700, 17.900, 3.760, -4.7333, 1.800, -3.3667),
+    waist200,
+)
 
 # Flight 3 -- L2 (Y1.800, -3.3667) to shaft top (Y3.760, -2.000), stacked
 # over flight 1's plan footprint
-f3_loop = sloped_rect_loop_y(15.300, 16.500, 1.800, -3.3667, 3.760, -2.000)
-f3 = Floor.Create(doc, [f3_loop], waist200.Id, lvl_floor.Id)
-mark_structural(f3)
-created.append("Flight 3 waist slab (L2 to shaft top)")
+make_floor(
+    "Main Stair Flight 3 (L2 to shaft top)",
+    sloped_rect_loop_y(15.300, 16.500, 1.800, -3.3667, 3.760, -2.000),
+    waist200,
+)
 
 # Landing L1, full shaft width, Y 3760-4960, flat at -4.7333
-l1_loop = rect_loop_xy(15.200, 3.760, 18.000, 4.960, m_to_ft(-4.7333))
-l1 = Floor.Create(doc, [l1_loop], landing200.Id, lvl_floor.Id)
-mark_structural(l1)
-created.append("Landing L1")
+make_floor(
+    "Main Stair Landing L1",
+    rect_loop_xy(15.200, 3.760, 18.000, 4.960, m_to_ft(-4.7333)),
+    landing200,
+)
 
 # Landing L2, full shaft width, Y 600-1800, flat at -3.3667
-l2_loop = rect_loop_xy(15.200, 0.600, 18.000, 1.800, m_to_ft(-3.3667))
-l2 = Floor.Create(doc, [l2_loop], landing200.Id, lvl_floor.Id)
-mark_structural(l2)
-created.append("Landing L2")
+make_floor(
+    "Main Stair Landing L2",
+    rect_loop_xy(15.200, 0.600, 18.000, 1.800, m_to_ft(-3.3667)),
+    landing200,
+)
 
 TransactionManager.Instance.TransactionTaskDone()
 
-OUT = "Main staircase elements created (FROZEN geometry, unchanged from Master):\n" + "\n".join(created)
+OUT = (
+    "Main staircase elements created (FROZEN geometry, unchanged from Master):\n" +
+    "\n".join(created) + "\n\nSkipped (already present):\n" + "\n".join(skipped)
+)

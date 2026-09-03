@@ -1799,6 +1799,38 @@ in `CLAUDE.md` was not touched.
 | C16 (roof/platform junction) | Still open (H.4). BIM-P1 follows B.6/A.7.6/F.2 (250 mm) without editing A.4.7 or reconciling the headhouse/stairwell roof geometry — see `Revit/docs/02_QAQC_and_discrepancies.md` item 2. |
 | Architecture, rooms, finishes, schedules, sheets | Out of scope for this phase by the task's own instruction ("do not yet move to architecture"). |
 
+## H.7 Revit 2026 BIM — Phase 1B (script review + execution preparation) — 3 September 2026
+
+> **BIM-P1B is a review/hardening pass on the BIM-P1 scripts, not a design change or new
+> geometry.** No dimension, level, thickness, material grade, or the FROZEN main-staircase
+> geometry was touched. It fixes a real coherence risk found on review (duplicated sentry-siting
+> constants) and adds rerun-safety that BIM-P1 lacked.
+
+| # | Change implemented | Files | Basis | Status |
+|---|---|---|---|---|
+| **BIM-P1B-1** | **Rerun safety added.** BIM-P1's scripts 02-06 had no guard against re-running — every wall/floor/column/beam would duplicate on a second run (script 01 was already idempotent). Every element created by 02-06 now carries a unique Mark, checked against the document before creation; skips are reported separately from creates in each script's `OUT`. | `Revit/scripts/02…06*.py` | Phase 1B review, item 4 (duplication safety) | **IMPLEMENTED, NOT YET RUN IN REVIT** |
+| **BIM-P1B-2** | **Sentry post siting de-duplicated.** BIM-P1 had the ASSUMED site-position constants (`SENTRY_ORIGIN_X_M/Y_M`, `SENTRY_ROTATION_DEG`) hardcoded separately in BOTH `01_levels_and_grids.py` and `06_structural_sentry_post.py` — a real risk that editing one without the other silently misplaces the frame relative to its own grids. Script 06 now derives the sentry post's origin and orientation live from the actual "SA"/"S1" Grid elements script 01 creates (line-intersection + direction-vector math on the real grid geometry), so there is structurally one source of truth, not two copies that happen to agree today. The [ASSUMED] (11.000, 17.750) m / 0° position itself is UNCHANGED — only how script 06 obtains it changed. | `Revit/scripts/01_levels_and_grids.py`, `06_structural_sentry_post.py` | Phase 1B review, item 5 (assumption control) | **IMPLEMENTED, NOT YET RUN IN REVIT — still OPEN pending the user's confirmation of the real site position, per U4 above** |
+| **BIM-P1B-3** | **Column parameter setting made more robust.** Sentry column/beam base/top level and offset now set via the correct `BuiltInParameter` enums first (`FAMILY_BASE_LEVEL_PARAM` etc. — stable across localization/renaming) with name-guessing only as a fallback for width/depth, which has no stable enum. Family/type selection now prefers a loaded symbol whose name matches "concrete"/"rectangular" instead of blindly taking whichever one Revit lists first, and reports a warning in `OUT` when nothing loaded is a good match. | `Revit/scripts/06_structural_sentry_post.py` | Phase 1B review, item 1 (robustness) | **IMPLEMENTED, NOT YET RUN IN REVIT** |
+| **BIM-P1B-4** | **Assumptions promoted to named constants.** PCC blinding extent (`PCC_EXTENT_M`) and the entry-stairwell raft founding offset (`RAFT_TOP_OFFSET_M`) were inline literals in BIM-P1; both are now single named constants near the top of their script, cross-referenced from a new "Assumption control" table in the README. The raft docstring's wording was also corrected — it previously said the raft sits "300 mm below the slab underside" while the code actually placed it flush with the underside (offset = slab thickness, 0.250 m); the geometry itself did not change, only the (previously inaccurate) description of it. | `Revit/scripts/02_structural_main_box.py`, `04_structural_entry_stairwell.py` | Phase 1B review, item 5 (assumption control) | **IMPLEMENTED, NOT YET RUN IN REVIT** |
+| **BIM-P1B-5** | **C16 reviewed, deliberately left open.** Determination recorded: C16 does not block the rest of the structural model — every element in scripts 02-06 except one provisional Floor in script 04 is fully determined by the Master independent of C16's resolution. Not arbitrarily resolved; see the dedicated C16 section added to the README. | `Revit/docs/00_README_WORKFLOW.md` | Phase 1B review, item 6 | **STILL OPEN — needs the user's ruling, contained to one element** |
+| **BIM-P1B-6** | Documentation rewritten: `00_README_WORKFLOW.md` gained a full beginner-exact "Run the scripts in Revit 2026" walkthrough (template choice, Dynamo access, per-script expected results, save procedure), a script order/dependency table, a Dynamo-vs-other-Revit-Python-environment note, an assumption-control table, and the C16 determination. `02_QAQC_and_discrepancies.md` gained script-review findings, a duplication-safety section, and a model-integrity/coherence risk table. | `Revit/docs/00_README_WORKFLOW.md`, `Revit/docs/02_QAQC_and_discrepancies.md` | Phase 1B review, items 2, 7, 8 | **IMPLEMENTED** |
+
+**Verified after this pass:** all 6 scripts re-parsed as syntactically valid Python (`ast.parse`,
+this environment's only available check — see Limitations). Every element-creation call site in
+scripts 02-06 was re-read and confirmed wrapped in the new Mark-guard pattern; no creation call was
+missed. The FROZEN main-staircase file (`05_structural_main_staircase.py`) had its rerun-safety
+wrapper added but **zero dimension, level, or riser/tread value was touched** — confirmed by diff
+against the BIM-P1 version.
+
+**Not implemented, and why:**
+
+| Item | Reason |
+|---|---|
+| Actually running the scripts in Revit 2026 | Still not available in this environment — see H.6. This remains a source-level review, not an execution. |
+| Resolving C16 | Explicitly out of scope — "do NOT arbitrarily resolve C16" per this phase's own instructions. Left open, contained, documented. |
+| New architectural elements | Explicitly out of scope — "do not create additional architectural elements yet" per this phase's own instructions. |
+| Sentry post's real site position | Still genuinely unknown — the grid-derivation fix (BIM-P1B-2) makes the ASSUMED position consistent and easy to relocate, it does not supply the real one. |
+
 ---
 
 # PART I — PROJECT FILE MANIFEST

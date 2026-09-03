@@ -22,13 +22,33 @@ would plausibly guard. CONFIRM THE REAL SITE POSITION AND ROTATION before this
 is treated as final; both are single variables below (SENTRY_ORIGIN_X_M,
 SENTRY_ORIGIN_Y_M, SENTRY_ROTATION_DEG) so relocating it later is a one-line
 change, not a rebuild.
+
+THIS IS THE ONLY PLACE THE ASSUMPTION LIVES. 06_structural_sentry_post.py does
+NOT repeat these constants — it reads the actual "SA" and "S1" Grid elements
+this script creates and derives every sentry post point from their real
+geometry in the document, every time it runs.
+
+HOW TO ACTUALLY RELOCATE IT (read this before assuming "just edit and
+re-run" works — this script's own idempotency guard will NOT move a grid
+that already exists under the same name, it will just skip it):
+  (a) In Revit, delete the 4 sentry grids (SA, SB, S1, S2) -- Modify tab,
+      select, Delete. Edit the three constants below. Re-run THIS script
+      (creates the 4 grids fresh, at the new position/rotation). Re-run
+      06_structural_sentry_post.py (rebuilds the frame from the new grids;
+      anything 06 already built under the OLD position is not auto-deleted
+      -- delete it by hand first if you don't want both).
+  (b) Or skip the constants entirely: drag the 4 sentry grids to the
+      correct position by hand in Revit, then just re-run
+      06_structural_sentry_post.py. It reads whatever the grids say.
+Either way there is exactly one source of truth (the grids in the model),
+not two files that have to be kept in sync by hand.
 """
 import clr
 clr.AddReference('RevitAPI')
 clr.AddReference('RevitServices')
 from Autodesk.Revit.DB import (
     XYZ, Line, Level, Grid, UnitUtils, UnitTypeId,
-    FilteredElementCollector, BuiltInCategory, Transform
+    FilteredElementCollector, BuiltInCategory
 )
 from RevitServices.Persistence import DocumentManager
 from RevitServices.Transactions import TransactionManager
