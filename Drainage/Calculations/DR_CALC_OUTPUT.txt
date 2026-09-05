@@ -1,0 +1,532 @@
+DRAINAGE CALCULATIONS  -  OUTPUT OF dr_calc.py
+UNDERGROUND CBRN-HARDENED PROTECTIVE STRUCTURE, PUNE  -  GEOMETRY REV F + M1
+PACKAGE REVISION DR1   05.09.2026   FOR REVIEW - NOT FOR CONSTRUCTION
+SENTRY POST EXCLUDED
+
+====================================================================================================
+D.1   WETTED AREA AND STRUCTURAL SEEPAGE  -  verification of the S-06 figure
+====================================================================================================
+
+Sheet S-06 states:  structural seepage = 0.5 L/m2/day x 401 m2 = 200 L/day.
+The 401 m2 is not defined on the sheet.  It is reproduced here so that the
+sump duty rests on an area a checker can see, not on an unexplained number.
+
+  External box                       22.000 x 6.200 m           [C] A.4.2
+  Design GWT                         (-2.000)                       [A] A2
+  Underside of mat                   (-6.700)                       [C] A.4.3
+  Submerged wall height  -2.000 - (-6.700)  = 4.700 m
+  External perimeter     2 x (22.0 + 6.2)     = 56.40 m
+  Submerged wall area    56.40 x 4.700      = 265.08 m2
+  Mat underside area     22.0 x 6.2          = 136.40 m2
+  TOTAL WETTED EXTERNAL ENVELOPE                = 401.48 m2
+
+  S-06 uses 401 m2.  Difference 0.48 m2 = 0.12 %.
+  [R] CONFIRMED BY RECONSTRUCTION: the 401 m2 on S-06 is the area of the
+      external envelope standing below the design groundwater table -
+      the four perimeter walls from (-2.000) to (-6.700) plus the whole
+      mat underside.  It is NOT the internal wetted area.
+
+  Seepage = 0.5 L/m2/day x 401.48 m2 = 200.7 L/day     [A] A8 on the rate
+  S-06 states 200 L/day.  Adopted for this package: 200 L/day.
+  *** THE RATE 0.5 L/m2/day IS [ASSUMED] (master K.2 A8) AND THE GWT IS
+      [ASSUMED] (A2).  BOTH REQUIRE SITE CONFIRMATION.  The sump store
+      below is directly proportional to both. ***
+
+====================================================================================================
+D.2   CLEAN SUMP  -  storage, cycling and alarm margin
+====================================================================================================
+
+  Pit                1500 x 1500 x 1500 internal, invert (-7.600), base (-8.000)   [C] S-06 / A.4.3
+  Gross volume       1.5 x 1.5 x 1.5 = 3.375 m3   (S-06 states 3.375 m3)   [C]
+  Pumps              2 No. submersible, 1.5 L/s, DUTY / STANDBY AUTO-ALTERNATING, plus a hand pump   [C]
+  Levels above invert   start 900   stop 300   high alarm 1200   [C]
+
+  Design inflow to the sump, S-06 flow table:
+      structural seepage                     200 L/day   [C]/[A8]
+      condensate + washdown                  200 L/day   [C]
+      TOTAL                                  400 L/day = 0.00463 L/s   [R]
+
+  Gross store / inflow      3375 / 400      = 8.44 days
+      S-06 states '8 days store'; master K.2 A8 states 8.4 days.  Both refer to
+      this number.  [R] 8.44 days confirmed.
+
+  Working volume, stop to start   2.25 m2 x 0.600 m = 1.350 m3 = 1350 L   [R]
+  Time to draw down at 1.5 L/s        1350 / 1.5 = 900 s = 15.0 min   [R]
+  Time to refill at 400 L/day       1350 / 16.67 L/h = 81 h = 3.4 days   [R]
+  Duty ratio                         0.31 % of the time   [R]
+
+  *** OPERATIONAL FINDING - DR-F1 ***
+      One start every 3.4 days, 15 minutes per start, and with
+      auto-alternation each pump runs about every 6.8 days.  That
+      cycling is acceptable and no anti-stagnation timer is needed on
+      hydraulic grounds.  What IS needed is a witnessed monthly test of the
+      STANDBY path and of the hand pump, because at a 0.3 % duty ratio a
+      failed standby would not be discovered by use.  [A] this package -
+      a commissioning and O&M requirement, not a change to the pump duty.
+
+  Alarm margin, start to high alarm   2.25 x 0.300 = 675 L
+  Warning time at the design inflow   675 / 16.67 L/h = 40 h   [R]
+  Freeboard above high alarm          300 mm to the floor at (-6.100)   [R]
+
+  Sump top   (-7.600) + 1.500 = (-6.100) = the internal floor level.  [R] consistent with A.4.3.
+
+  *** C18 REMAINS OPEN.  Master F.1 and the A.4.3 levels give a 400 pit base;
+      the text on S-06 says 300.  400 IS HELD, unchanged by this package.
+      The drainage design is unaffected either way - the invert is fixed at
+      (-7.600) and the storage is measured from it. ***
+
+====================================================================================================
+D.3   SUMP DISCHARGE  -  rising main, static lift and the envelope crossing
+====================================================================================================
+
+  The rising main is the ONLY drainage item that crosses the protective
+  envelope.  S-06: it passes through the service entry plate - the MCT frame
+  that is 'the only penetration of the envelope' - and discharges through
+  four devices IN SERIES, all inside the envelope:   [C] S-06
+      1  ISOLATION VALVE
+      2  GAS-TIGHT NON-RETURN VALVE
+      3  BLAST CHECK VALVE
+      4  DEEP-SEAL TRAP
+
+  DN40  bore 40 mm   A = 1.257 x 10-3 m2   v = 0.0015 / A = 1.19 m/s   self-cleansing OK
+  DN50  bore 50 mm   A = 1.963 x 10-3 m2   v = 0.0015 / A = 0.76 m/s   self-cleansing OK
+  DN65  bore 65 mm   A = 3.318 x 10-3 m2   v = 0.0015 / A = 0.45 m/s   BELOW 0.75 m/s - not self-cleansing
+
+  ADOPTED  DN50 rising main, ductile iron or stainless, welded/flanged, no
+  push-fit joint inside the envelope.  [A] this package.
+  Velocity 0.76 m/s is above the 0.75 m/s
+  self-cleansing minimum and below the 2.4 m/s at which a rising main starts
+  to hammer.  DN40 is the alternative if a higher scouring velocity is wanted.
+
+  Static lift, stop level (-7.300) to grade 0.000 = 7.30 m   [R]
+  Static lift, invert     (-7.600) to grade 0.000 = 7.60 m   [R]
+
+  TOTAL PUMP HEAD - DATA REQUIRED.
+      Static lift is computable and is given above.  Friction and fitting
+      losses cannot be computed until the final route length is fixed, and
+      the discharge point level is not recorded anywhere in the project
+      (open item D3).  The pump DUTY (1.5 L/s) is confirmed on S-06; the
+      HEAD is not stated there and is not derived here.  It must be fixed
+      at procurement against the built route.  [N]
+
+====================================================================================================
+D.4   INTERNAL DRAINAGE  -  pipe capacity, gradient and self-cleansing velocity
+====================================================================================================
+
+  Manning:  Q = (1/n) A R^(2/3) S^(1/2),  R = D/4 running full.
+  n = 0.010 for uPVC / HDPE / stainless [A] - a standard tabulated value for
+  smooth plastic pipe; the source code is not in the workspace (open item M2).
+
+  PIPE     BORE   GRADIENT     Q full    v full   NOTE
+  DN50      50        1:60      1.37 L/s     0.70 m/s   below 0.75 m/s
+  DN50      50        1:80      1.18 L/s     0.60 m/s   below 0.75 m/s
+  DN50      50       1:100      1.06 L/s     0.54 m/s   below 0.75 m/s
+  DN50      50       1:150      0.86 L/s     0.44 m/s   below 0.75 m/s
+  DN75      75        1:60      4.03 L/s     0.91 m/s   self-cleansing
+  DN75      75        1:80      3.49 L/s     0.79 m/s   self-cleansing
+  DN75      75       1:100      3.12 L/s     0.71 m/s   below 0.75 m/s
+  DN75      75       1:150      2.55 L/s     0.58 m/s   below 0.75 m/s
+  DN100    100        1:60      8.67 L/s     1.10 m/s   self-cleansing
+  DN100    100        1:80      7.51 L/s     0.96 m/s   self-cleansing
+  DN100    100       1:100      6.72 L/s     0.85 m/s   self-cleansing
+  DN100    100       1:150      5.48 L/s     0.70 m/s   below 0.75 m/s
+  DN150    150        1:60     25.56 L/s     1.45 m/s   self-cleansing
+  DN150    150        1:80     22.14 L/s     1.25 m/s   self-cleansing
+  DN150    150       1:100     19.80 L/s     1.12 m/s   self-cleansing
+  DN150    150       1:150     16.17 L/s     0.91 m/s   self-cleansing
+
+  Design flow to the sump           0.00463 L/s   [R] from D.2
+  DN100 at 1:100 full-bore capacity 6.72 L/s
+  CAPACITY RATIO                    1450 : 1
+
+  CONCLUSION.  Internal drainage is governed by MINIMUM PIPE SIZE and by
+  SELF-CLEANSING VELOCITY, not by flow.  Sizing therefore follows minimum
+  practical bores and the gradients above, and the flow check is recorded
+  only to show that flow is not the constraint.  No washdown or hose design
+  flow is stated anywhere in the project; if a washdown regime is specified
+  later the branch sizes must be re-checked.  [N] washdown design flow.
+
+====================================================================================================
+D.5   FLOOR FALLS, SCREED AND THE EFFECT ON CLEAR HEIGHT
+====================================================================================================
+
+  The internal floor at (-6.100) IS the top of the 600 mat - a structural
+  surface inside the tanked envelope.  Falls to a gully must NOT be cut into
+  it: that would reduce the mat thickness and the 75 mm cover to the bottom
+  curtain locally.  Falls are therefore formed in the FLOOR SCREED.  [A]
+
+  THE ADOPTED GRADING IS SET IN D.15, where it is checked against the mat
+  SIDL allowance - that allowance, not hydraulics, is what sizes it:
+      transverse   1:80 wet areas (lavatory, CBRN plant, decon airlock)
+                   1:100 elsewhere,   2500 run each side to the spine
+      spine        1:400 east to the sump, Y 3100, through the door gaps
+      minimum      25 mm at the sump edge
+
+  Screed at the sump edge                     25 mm   [A]
+  Screed at the far corner  25 + 28 + 25          = 78 mm   [R]
+
+  Structural clear height   (-6.100) to (-2.900)        = 3200 mm   [C]
+  FINISHED clear height, sump edge   3200 - 25          = 3175 mm   [R]
+  FINISHED clear height, far corner  3200 - 78          = 3122 mm   [R]
+
+  *** COORDINATION FINDING - DR-F2 ***
+      The 3200 clear height in the master is measured between STRUCTURAL
+      surfaces.  A drained floor screed reduces the FINISHED clear height
+      to between 3122 and 3175 mm.  Still ample, but the two
+      figures are different and a number quoted to a client must say which
+      of the two it is.  Recorded for the architect; NO STRUCTURAL DIMENSION
+      IS CHANGED and the 3200 itself is untouched.
+
+====================================================================================================
+D.6   TRAP SEALS AGAINST SHELTER OVERPRESSURE
+====================================================================================================
+
+  The clean zone is held at +50 to +100 Pa, and is leak-tested at +300 Pa.
+  [C] S-06.  A water trap on any drain inside that zone is a pressure
+  boundary: if the seal is shallower than the overpressure it blows through
+  and the shelter vents to the drain.
+
+  1 mm water gauge = 9.81 Pa.
+       50 mm seal  holds     490 Pa   = 4.9 x the +100 Pa operating overpressure, 1.6 x the +300 Pa test
+       75 mm seal  holds     736 Pa   = 7.4 x the +100 Pa operating overpressure, 2.5 x the +300 Pa test
+      100 mm seal  holds     981 Pa   = 9.8 x the +100 Pa operating overpressure, 3.3 x the +300 Pa test
+
+  ADOPTED  75 mm DEEP-SEAL TRAPS throughout the gas-tight envelope (bays 1-6)
+  and on the sump discharge train.  [A] this package.
+  Margin at 75 mm: 736 Pa against a 300 Pa test = 2.5 : 1.
+  Every trap inside the envelope must also be a PRIMED trap - an unused
+  floor gully evaporates dry and then leaks air both ways.  Trap primers or
+  a written weekly priming task are required.  [A]
+
+====================================================================================================
+D.7   RAINWATER  -  catchments and flows at the recorded intensity
+====================================================================================================
+
+  DESIGN INTENSITY   50 mm/h   [C] Rev F drawing 5, note 1
+      This is the only rainfall intensity stated anywhere in the project.
+      NO return period, storm duration or IDF source is recorded with it.
+      *** OPEN ITEM D1 - VERIFY AGAINST IMD PUNE DATA BEFORE CONSTRUCTION ***
+
+  Q = C i A / 3600   with i in mm/h, A in m2, Q in L/s.
+  C = 1.00 adopted for RC roofs and for the engineered cover in the monsoon
+  (saturated topsoil).  A lower C for turf is defensible but is not taken -
+  the conservative bound is used.  [A]
+
+  CATCHMENT                                      AREA m2     C    Q L/s  CLASS
+  Headhouse roof  13600-18400 x 200-6000           27.84  1.00    0.387  [R] from [C] A.4.6
+  Covered stairwell roof  9250-16050 x 5750-7750     13.60  1.00    0.189  [R] from [C] A.4.7
+     less overlap of the two footprints            -0.61  1.00   -0.009  [R]
+  Engineered cover over the box  22.0 x 6.2       136.40  1.00    1.894  [R] from [C] A.4.2
+  SUB-TOTAL, structures and cover                 177.23          2.461  [R]
+
+  Berm, approach, hardstanding and the rest of the site:  DATA REQUIRED.
+  No site plan, boundary, contour or external area exists in the project, so
+  the total site catchment CANNOT be closed.  The figures above are the
+  catchments of the structures themselves and are complete for those.  [N]
+
+  *** THE ENGINEERED COVER IS NOT DRAINED BY PIPEWORK. ***
+  A.4.3 records finished grade as crowned, falling 1:50 away from the
+  structure; A.7.3 gives 300 topsoil/turf over a 150 GRANULAR FILTER layer
+  over the burster slab.  Rain on the cover sheds at the surface and what
+  infiltrates is intercepted by the granular filter and dispersed at the
+  berm toe.  There is no roof outlet, no downpipe and no rainwater pipe on
+  the buried roof, and none is added by this package: a pipe penetrating
+  the cover would breach the radiation mass and the roof membrane.  [C]/[A]
+
+====================================================================================================
+D.8   ENTRY THRESHOLD  -  the catchment that reaches the stairwell
+====================================================================================================
+
+  Rev F drawing 5 records the design history explicitly:
+      note 1  the Rev E OPEN cut was 7.2 m2 of open pit; at 50 mm/h that is
+              0.10 L/s that had to be pumped, and a pump failure flooded the
+              only entrance
+      note 5  at Rev F the approach is roofed, the door is at grade, the
+              ground falls away 1:50 and a channel and grating cross the
+              threshold.  'WITH THE DOOR SHUT THE CATCHMENT IS ZERO.'
+      note 9  a 1.0 m3 sump takes 32 hours to fill at the worst door-open
+              driving-rain rate; pump 2 L/s duty + standby, NRV on the main
+
+  Check of note 1:  7.2 m2 x 50 mm/h / 3600 = 0.100 L/s   -> the 0.10 L/s is reproduced exactly.  [R]
+
+  Check of note 9:  1000 L / 32 h = 31.2 L/h = 0.0087 L/s
+                    equivalent catchment at 50 mm/h = 0.625 m2
+  The driving-rain entry area behind note 9 is NOT stated on the drawing.
+  It is recorded here as a reconstruction only.  [R]/[U]
+
+  *** CONFLICT RAISED BY THIS PACKAGE - DR-C1 ***
+      The S-06 'DESIGN FLOWS' table still carries 0.1 L/s for
+      'Stairwell / approach surface water'.  That is the REV E open-cut
+      figure (note 1 above).  At Rev F the approach is covered and the
+      design case is the door-open driving-rain rate of note 9, which is
+      about 12 times smaller.  The S-06 number is CONSERVATIVE and
+      nothing is unsafe, but it is a superseded catchment carried forward.
+      NOT CHANGED HERE - S-06 is an issued sheet and the correction needs a
+      ruling.  Both figures are shown on D-103 so no reviewer is misled.
+
+  Stairwell sump   1.0 m3, pump 2.0 L/s DUTY + STANDBY, NON-RETURN VALVE ON THE RISING MAIN   [C]
+  At the note-9 rate the 2.0 L/s pump empties the sump in 8.3 min against a 32 h fill.  [R]
+  At the superseded 0.10 L/s the pump is still 20 times the inflow.  [R]  The pump is not sensitive to DR-C1.
+
+====================================================================================================
+D.9   SEPTIC TANK  -  IS 2470 (Part 1):1985 re-check
+====================================================================================================
+
+  Design population         10 [C] S-06 - 'sentry-post shift crews +
+                            shelter maintenance'.  TAKEN VERBATIM, NOT
+                            RE-DERIVED.  The sentry post itself is outside
+                            the scope of this package; only the tank that
+                            already exists in the project is carried forward.
+  Sewage flow               45 lpcd x 10 = 450 L/day   [C]
+  Detention 24 h, Cl. 6.2   = 450 L                    [C]
+  Sludge, Cl. 6.3           30 L/person/yr x 10 x 2 yr = 600 L   [C]
+  REQUIRED                  450 + 600 = 1050 L   [R]
+  PROVIDED, Table 1         1.5 x 0.75 x 1.0 = 1125 L   [C]
+  CHECK                     1125 >= 1050   PASS   margin 7.1 %   [R]
+  L/B = 1.5/0.75 = 2.0   Cl. 6.5 wants 2 to 4      PASS
+  B = 750 mm >= 750, depth 1.00 m >= 1.0 m   Cl. 6.6   PASS
+  Freeboard 300 -> overall depth 1.30 m   [C]
+  Two compartments, baffle AT 2/3 L, inlet and outlet tees, vent 50 COWLED, >= 2 m ABOVE GRADE   Cl. 6.9   [C]
+
+  ALL CHECKS REPRODUCE THE S-06 VALUES EXACTLY.  No change.
+
+====================================================================================================
+D.10   SOAK PIT  -  IS 2470 (Part 2):1985 re-check   *** A SHORTFALL IS FOUND ***
+====================================================================================================
+
+  Effluent to disperse      450 L/day   [C]
+  Design absorption         20 L/m2/day   [A] master K.2 A7
+  AREA REQUIRED             450 / 20 = 22.50 m2   [R]
+  Pit 2.0 dia x 3.5 effective
+  SIDE AREA pi.D.h          pi x 2.0 x 3.5 = 21.99 m2   [R]
+      (the base is not counted - it clogs; S-06 states this and it is correct)
+
+  CHECK                     21.99 vs 22.50 m2 required   ->  SHORT BY 0.51 m2  =  2.3 %
+
+  *** CONFLICT RAISED BY THIS PACKAGE - DR-C2 ***
+      Sheet S-06 prints '22.0 m2   OK' against a stated requirement of
+      '22.5 m2'.  21.99 m2 is NOT >= 22.50 m2.  The pit as drawn is 2.3 % short.
+      This is arithmetic, not judgement.
+
+      Either of these closes it, and both are single-dimension changes:
+        (a) effective depth 3.5 -> 3.58 m  (say 3.6 m), diameter unchanged
+        (b) diameter 2.0 -> 2.05 m  (say 2.1 m), depth unchanged
+      Option (a) at 3.6 m gives 22.62 m2, +0.5 % on requirement.
+
+      NOT RESOLVED HERE.  S-06 is an issued sheet and A7 (the 20 L/m2/day
+      absorption) is itself [ASSUMED] and MUST be replaced by a percolation
+      test to Cl. 4 before construction.  The test may move the requirement
+      by far more than 2.3 %, so re-sizing the pit before the test would be
+      false precision.  The shortfall is recorded, flagged on D-305 and
+      D-001, and referred for a ruling.
+
+  *** AND THE LARGER RISK, ALREADY IN THE MASTER (K.2 A7) ***
+      'Soak pit will not work if lower - LIKELY ON BASALT.'  A percolation
+      test to IS 2470 (Pt 2) Cl. 4 is MANDATORY.  If the measured rate is
+      below 20 L/m2/day the answer is not a bigger pit: it is a dispersion
+      trench (Cl. 5) or a sealed holding tank emptied on a schedule.
+
+====================================================================================================
+D.11   STORM SOAKAWAY  -  the clean sump outfall
+====================================================================================================
+
+  S-06 sends the clean sump discharge to a 'storm soakaway', separate from
+  the foul soak pit.  NO SIZE, LEVEL OR POSITION IS GIVEN FOR IT ANYWHERE
+  IN THE PROJECT.  [N]  It is sized here for the first time.
+
+  Discharge to disperse     400 L/day  (seepage + condensate/washdown)   [R]
+  Design absorption         20 L/m2/day   [A] A7, same caveat
+  AREA REQUIRED             400 / 20 = 20.0 m2   [R]
+
+  ADOPTED  a pit of the SAME construction as the foul soak pit -
+           2.0 m dia x 3.5 m effective, side area 21.99 m2   [A]
+  CHECK    21.99 >= 20.0 m2   PASS, margin 10 %   [R]
+  Standardising the two pits means one construction detail, one cover slab
+  and one spare set of materials on site.
+
+  SEPARATION.  The storm soakaway takes clean groundwater and condensate; the
+  soak pit takes septic effluent.  They are NOT combined.  S-06 is explicit -
+  'STORM SOAKAWAY - CLEAN SUMP DISCHARGE.  SEPARATE FROM FOUL.'  [C]
+  IS 2470 (Pt 2) offset rules apply to the foul pit: >= 15 m from any well,
+  >= 5 m from the septic tank, >= 2 m from any building.  [C] S-06
+  *** THOSE OFFSETS CANNOT BE DEMONSTRATED - no site plan, no well position
+      and no boundary exist in the project.  DATA REQUIRED (D3). ***
+
+====================================================================================================
+D.12   STAIRWELL SOAKAWAY  -  the storage check the low absorption rate forces
+====================================================================================================
+
+  The stairwell sump discharges to its 'own soakaway' [C].  Unlike the two
+  pits above, this one takes a STORM EVENT, not a steady daily flow, so it
+  is a storage problem: the pit must hold the event and then empty before
+  the next one.
+
+  Event volume, one sump-full          1000 L   [C]
+  Emptying rate of a 2.0 x 3.5 pit   20 x 21.99 = 440 L/day   [R]
+  TIME TO EMPTY                        1000 / 440 = 54.6 h   [R]
+
+  *** FINDING - DR-F3 ***
+      At the [ASSUMED] 20 L/m2/day the pit takes 55 hours to
+      recover from one sump-full.  Good practice for a rainwater soakaway is
+      half-emptying inside 24 h.  This is NOT a defect in the layout - it is
+      the [ASSUMED] absorption rate showing through.  It is the third
+      independent reason the PERCOLATION TEST (A7) is on the critical path.
+      If the measured rate does not support infiltration, the stairwell sump
+      discharges to a holding tank or to a positive outfall instead, and the
+      final discharge question (D3) has to be answered first.
+
+====================================================================================================
+D.15   FLOOR SCREED AGAINST THE MAT SIDL ALLOWANCE  -  the governing constraint
+====================================================================================================
+
+  The internal floor is the top of the 600 mat.  A drained floor needs a
+  screed, and the screed is dead load on a mat that master A.7.2 allows only
+  1.0 kPa of SIDL.  That allowance, not hydraulics, sizes the falls.
+
+  Mat SIDL allowance                 1.0 kPa            [C] A.7.2
+  Screed density                     24 kN/m3          [C] A.7.3 uses 24 for screed
+  MAXIMUM AVERAGE SCREED             1.0 / 24 = 42 mm   [R]
+
+  ADOPTED FLOOR GRADING - zone 1, bays 1 to 5, falling east to the sump:
+      minimum screed at the sump edge                       25 mm   [A]
+      longitudinal fall 1:400 over 11200            = 28 mm   [A]
+      transverse fall 1:100 over 2500 each side       = 25 mm   [A]
+      screed at the sump edge  25 mm  ->  at the far corner 78 mm   [R]
+      AREA-AVERAGE SCREED                                   52 mm   [R]
+
+  Screed load    52 mm x 24 kN/m3 = 1.24 kPa
+  Allowance                                1.00 kPa
+  EXCESS                                   +0.24 kPa = +24 %
+  Over the 104.0 m2 internal floor          = +25 kN   [R]
+  For scale: the mat itself weighs 2046 kN, and the hydrostatic
+  uplift on it is 6289 kN (master B.3).  The excess is 1.2 % of the mat weight
+  and 0.39 % of the uplift, and it acts in the FAVOURABLE
+  direction for flotation.
+
+  *** FINDING - DR-F4.  REFERRED, NOT ASSUMED. ***
+      A drained floor cannot be built inside a 1.0 kPa SIDL allowance at
+      24 kN/m3: 42 mm of screed is all the allowance buys, and 42 mm
+      does not contain a fall over a 2.5 m run plus a minimum thickness at
+      the outlet.  Three ways out, for the structural engineer to choose:
+        (a) accept the +0.24 kPa (+25 kN) as a revision to the mat SIDL
+        (b) use a lightweight or thin-set levelling system and re-check
+        (c) reduce the falls, accepting standing water between washdowns
+      THIS PACKAGE DRAWS (a) AND FLAGS IT.  It is a change to a stated
+      design load in master A.7.2 and is not made silently.
+
+====================================================================================================
+D.16   COLLECTION DRAIN IN THE MAT  -  builder's work request BW-01
+====================================================================================================
+
+  Only ONE buried drain is needed inside the envelope: the lavatory branch
+  from bay 2 to the sump in bay 5.  Everything else either falls to the sump
+  across the floor or is segregated.  That branch has to sit somewhere, and
+  the only place is the top of the mat.
+
+  From  GY-02, bay 2 lavatory, X 4510
+  To    clean sump west face,  X 11068     run = 6558 mm   [R]
+  DN100 at 1:100   full-bore 6.72 L/s at 0.85 m/s - self-cleansing   [R] D.4
+  Fall over the run              6558 / 100 = 66 mm
+  Recess at the head             150 mm  (110 OD pipe + surround)   [A]
+  RECESS AT THE SUMP             150 + 66 = 216 mm   [R]
+  Invert at the head             (-6.250)
+  Invert at the sump             (-6.316)
+  LOCAL MAT THICKNESS            600 - 216 = 384 mm over a 300 wide band
+  Section loss                   36 % of the mat depth, locally
+
+  *** BUILDER'S WORK REQUEST BW-01 - NOT ACCEPTED, NOT ASSUMED ***
+      The mat is the MOST HEAVILY UTILISED element in the project at 84 %
+      (master B.3) and it is part of the tank.  A 300 wide recess taking
+      36 % of its depth, on the line of the peak transverse sagging
+      moment, cannot be adopted by a drainage package.  It is issued to the
+      structural engineer as builder's work.  IF IT IS REFUSED, the fallback
+      is drawn on D-201 note 6: the lavatory waste discharges over a tundish
+      to the graded floor, and there is no buried drain inside the envelope
+      at all.  Both are shown; neither is presented as decided.
+
+  No other drain is buried.  The rising main leaves the sump ABOVE the mat.
+
+====================================================================================================
+D.17   HYDRAULIC ZONING  -  what the protective boundary does to drainage
+====================================================================================================
+
+  The protective boundary (blast doors 1 and 2 at (-)6.100, plus W6 and W7)
+  and the gas-tight sub-division at W5 cut the shelter into THREE
+  hydraulically separate zones.  Water may not cross between them.
+
+  ZONE 1  CLEAN            bays 1-5, inside the gas-tight envelope
+          destination      clean sump, bay 5              CONFIRMED, complete
+
+  ZONE 2  DECON AIRLOCK    bay 6, inside the gas-tight envelope but dirty
+          destination      S-06 assigns airlock stages 1 and 2 to the
+                           1000 L decon effluent tank - WHICH S-06 DRAWS IN
+                           BAY 8, at X 20198-21398, Y 4400-5600.
+          *** ANY PIPED ROUTE FROM BAY 6 TO BAY 8 CROSSES THE PROTECTIVE
+              BOUNDARY TWICE - W6 AND W7 - AND PASSES THROUGH THE STAIR
+              SHAFT.  NO SUCH ROUTE IS DRAWN OR DESCRIBED ANYWHERE IN THE
+              PROJECT.  [U] ***
+
+  ZONE 3  GREY             bays 7 and 8, outside the gas-tight envelope
+          destination      NONE RECORDED.  Bay 8 holds the effluent tank but
+                           has no drainage outlet of its own, and bay 7 (the
+                           stair shaft, arrival landing at (-)6.100) cannot
+                           drain into zone 1 without breaching the boundary.
+          [N] DATA REQUIRED
+
+  *** FINDING - DR-F5 ***
+      Two of the three hydraulic zones have no closed drainage destination.
+      This is not a layout error - it is a consequence of the protective
+      boundary, and closing it is a PROTECTIVE-DESIGN decision (a blast and
+      gas-tight boundary crossing, or manual transfer in sealed containers),
+      not a drainage one.  This package:
+        - drains zone 1 completely;
+        - drains zone 2 to a collection point at the W6 side of bay 6 and
+          marks the onward route to the bay 8 tank UNDEFINED on D-203;
+        - provides threshold upstands at W5 and at blast door 1 so that no
+          water can run from zone 2 or zone 3 into zone 1;   [A]
+        - records zone 3 as having no destination.
+      ENGINEER TO CONFIRM.  Nothing is assumed across the boundary.
+
+====================================================================================================
+D.13   SUMMARY OF FLOWS  -  the whole system on one page
+====================================================================================================
+
+  SOURCE                                         FLOW       COLLECTION    CONVEYANCE  DISCHARGE
+  Groundwater seepage, 401 m2 envelope      200 L/day    floor gullies gravity DN100  clean sump -> storm soakaway
+  Condensate + washdown                     200 L/day    floor gullies gravity DN100  clean sump -> storm soakaway
+  Clean sump, pumped                          1.5 L/s    sump 3.375 m3 DN50 rising main  storm soakaway
+  Decon effluent, airlock stages 1+2           on use      1000 L tank segregated DN100  TANKER ONLY
+  Foul, peacetime, 10 users                 450 L/day  septic 1.125 m3 gravity DN100  soak pit
+  Stairwell, door-open driving rain       1 m3 / 32 h      1.0 m3 sump DN50 rising main  own soakaway
+  Headhouse washdown / floor gully             on use    trapped gully gravity DN100  external soakaway
+  Roofs and engineered cover                 2.46 L/s surface, 1:50 falls sheds at grade  ground at the berm toe
+
+  FINAL DISCHARGE OF THE WHOLE SITE IS TO GROUND, ON SITE.
+  No municipal sewer connection, no municipal storm connection, no outfall
+  and no receiving watercourse appears anywhere in the project.  Whether one
+  is available at this site is OPEN ITEM D3 - DATA REQUIRED.  Every
+  discharge above therefore depends on the percolation test (A7).
+
+====================================================================================================
+D.14   WHAT THIS PACKAGE DOES NOT CALCULATE, AND WHY
+====================================================================================================
+
+  - Site-wide storm runoff
+        no site plan, boundary, contour or external paved area exists  [N]
+  - Rainwater return period / IDF curve
+        only a bare 50 mm/h is recorded, with no duration or period  [U] D1
+  - Runoff coefficient for the berm and turf
+        no soil infiltration data; C = 1.00 used as the conservative bound  [A]
+  - Total pump head for either sump
+        route length not fixed and no discharge level recorded  [N]
+  - Foul drainage from the Bay 2 lavatory
+        no route exists in the project - open item D2  [U]
+  - Washdown / hose design flow
+        no washdown regime is specified anywhere  [N]
+  - Uplift or flotation
+        already designed in master B.3; NOT re-opened by a drainage package
+  - Groundwater lowering / permanent dewatering
+        the box is a TANK, not a drained structure - by design  [C]
+====================================================================================================
+END OF DRAINAGE CALCULATIONS
+====================================================================================================

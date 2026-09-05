@@ -1,0 +1,18 @@
+FILE                                                         ENTS  TEXT  DIM  LAY  RESULT
+--------------------------------------------------------------------------------------------------------------
+D-001_General_Drainage_Notes_Legend_Design_Basis.dxf          596   353    1   23  PASS
+D-002_Drainage_Symbols_and_Pipe_Coding.dxf                    306   207    0   19  PASS
+D-101_Above_Ground_Entry_Level_Drainage_Plan.dxf              580   114    2   21  PASS
+D-102_Rainwater_Catchment_and_Surface_Water_Plan.dxf          544   101    3   15  PASS
+D-103_Entry_Stairwell_and_Headhouse_Drainage.dxf              404    69    1   17  PASS
+D-201_Underground_Drainage_Plan.dxf                           467   185    3   23  PASS
+D-203_Underground_Wastewater_and_Sanitary_Plan.dxf            331   165    1   18  PASS
+D-204_Sump_and_Pumping.dxf                                    282    92    3   16  PASS
+D-301_Drainage_Sections.dxf                                   892    74    4   18  PASS
+D-304_Pipe_Penetration_and_Waterproofing_Details.dxf          116    76    3   14  PASS
+D-305_Septic_Tank_Soak_Pit_and_Chamber_Details.dxf            151   105    4   17  PASS
+DR-H1_Drainage_Above_Ground.dxf                               278    80    0   15  PASS / 1 warn
+      warn    1 duplicate geometry entities
+DR-H2_Drainage_Underground.dxf                                180    88    0   16  PASS
+--------------------------------------------------------------------------------------------------------------
+13 files   0 errors   1 warnings

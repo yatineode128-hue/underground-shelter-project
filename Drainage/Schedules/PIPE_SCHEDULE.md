@@ -1,0 +1,27 @@
+# PIPE SCHEDULE
+
+**Underground CBRN-hardened protective structure — Pune** · GEOMETRY REV F + M1
+Drainage package revision **DR1** · 05.09.2026 · **FOR REVIEW - NOT FOR CONSTRUCTION**
+**Sentry post excluded.** Evidence class: `[C]` confirmed · `[R]` reconstructed · `[A]` assumed by this package · `[U]` unresolved · `[N]` not available — DATA REQUIRED
+
+
+| ID | SERVICE | FROM | TO | DN | GRADIENT | IL START | IL END | LENGTH m | CLASS | NOTES |
+|---|---|---|---|---|---|---|---|---|---|---|
+| PD-01 | WASTE | GY-02 | SU-01 clean sump | 100 | 1:100 | (-6.250) | (-6.316) | 6.56 | [A] | CAST IN THE TOP OF THE MAT - BUILDER'S WORK BW-01, 216 recess at the sump end, local mat 384. STRUCTURAL ACCEPTANCE REQUIRED |
+| PD-02 | WASTE | GY-01 / GY-03 / GY-04 | graded floor | — | - | — | — | — | [A] | NO PIPE. Bays 1, 3 and 4 fall to the spine and the spine falls 1:400 east to the sump. Gullies are rodding and washdown points only |
+| PD-03 | EFFLUENT | GY-06 / GY-07 / GY-08 | CP-01 bay 6 | 100 | 1:100 | (-6.250) | (-6.290) | 4.00 | [A] | SEGREGATED. Never connected to PD-01 or to the clean sump |
+| PD-04 | EFFLUENT | CP-01 bay 6 | TK-01 decon tank, bay 8 | — | - | — | — | — | [U] | *** ROUTE NOT DEFINED. Crosses the protective boundary at W6 and W7 and passes through the stair shaft. PROTECTIVE-DESIGN DECISION - ENGINEER TO CONFIRM *** |
+| PD-05 | RISING MAIN | SU-01 pumps | service entry plate | 50 | - | (-7.300) | — | 3.20 | [C]/[A] | Isolation valve, gas-tight NRV, blast check valve, 75 deep-seal trap IN SERIES, all inside the envelope. v = 0.76 m/s at 1.5 L/s |
+| PD-06 | RISING MAIN | service entry plate | SK-02 storm soakaway | 50 | - | — | — | — | [N] | LENGTH NOT DETERMINABLE - no soakaway position exists in the project (open item D3) |
+| PD-07 | WASTE | GY-09 bay 8 | no destination | 100 | 1:100 | — | — | — | [N] | *** ZONE 3 HAS NO DRAINAGE DESTINATION. DATA REQUIRED *** |
+| PD-10 | STORM | CH-10 threshold channel | CP-10 catchpit | 100 | 1:100 | (-0.250) | — | 2.00 | [A] | Discharges AWAY from the entry. Ground already falls away 1:50 for 2000, so the channel is an interception, not a collection |
+| PD-11 | STORM | CP-10 | SK-02 storm soakaway | 100 | 1:100 | — | — | — | [N] | LENGTH NOT DETERMINABLE - open item D3 |
+| PD-12 | STORM | GY-10 platform gully | SU-02 stairwell sump | 100 | 1:80 | (-2.150) | (-2.169) | 1.50 | [C]/[A] | Platform (-)2.000, 1500 x 1500 |
+| PD-13 | RISING MAIN | SU-02 pumps | SK-03 own soakaway | 50 | - | — | — | — | [C]/[N] | NON-RETURN VALVE ON THE RISING MAIN [C]. Length not determinable |
+| PD-14 | WASTE | GY-11 headhouse gully | SK-04 external soakaway | 100 | 1:80 | (-2.150) | — | — | [C]/[N] | TRAPPED GULLY -> EXTERNAL SOAKAWAY, NEVER TO THE CLEAN SUMP [C]. Length not determinable |
+| PD-15 | FOUL | Bay 2 lavatory  (CASE B ONLY) | ST-01 septic tank | 100 | PUMPED | — | — | — | [U] | *** PROVISIONAL - CASE B OF OPEN ITEM D2 ONLY. Needs a macerator or packaged pumping unit AND A SECOND ENVELOPE PENETRATION. Not specified, not sized, not adopted *** |
+| PD-16 | FOUL | ST-01 septic tank | SK-01 soak pit | 100 | 1:100 | — | — | — | [C]/[N] | Length not determinable - no site plan (open item D3) |
+
+Full-bore capacity DN100 at 1:100 = **6.72 L/s at 0.85 m/s**; the design flow to the clean sump is **0.00463 L/s**, a capacity ratio of **1450 : 1**. Sizing is governed by minimum bore and self-cleansing velocity, not by flow (calculation D.4).
+
+At the design flow no practical gradient produces a self-cleansing velocity in service; the drains are cleansed by the periodic washdown the decontamination regime requires in any case. Rodding access is provided at every change of direction.

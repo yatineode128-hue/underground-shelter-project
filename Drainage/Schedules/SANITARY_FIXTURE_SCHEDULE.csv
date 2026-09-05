@@ -1,0 +1,7 @@
+TAG,FIXTURE,ROOM,DISCHARGE,TRAP,CLASS,NOTES
+SN-01,WASH BASIN,U-02 lavatory,DN40 waste,75 bottle trap,[A],Discharges over the GY-02 grating with an air gap - no buried connection inside the envelope
+SN-02,MEDICAL WASH-UP,U-02 medical,DN40 waste,75 bottle trap,[A],"As SN-01, over GY-02"
+SN-03,SEALED-CASSETTE CHEMICAL TOILET,U-02 lavatory,NO DISCHARGE,-,[C],"PROTECTIVE MODE: 'the shelter is SEALED and uses sealed-cassette chemical toilets - nothing is discharged' [C] S-06. Cassette handling route is an O&M item, not a drainage item"
+SN-04,"DECON SHOWER, STAGE 2",U-06 airlock stage 2,to GY-07,75 deep seal,[C]/[N],SEGREGATED - effluent to TK-01. Number of shower positions is not recorded anywhere in the project
+SN-05,HOSE-DOWN POINT,Headhouse (-)2.000,to GY-11,75 deep seal,[C],Confirmed on the Rev F ground plan
+SN-06,"WC, PEACETIME  (CASE B ONLY)",U-02 lavatory,DN100 soil - PROVISIONAL,-,[U],"*** ONLY IF CASE B OF OPEN ITEM D2 IS ADOPTED. Not specified, not sized, not adopted. Fixture count NOT RECORDED anywhere ***"
