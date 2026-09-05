@@ -1713,6 +1713,8 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 | **C9** | STAAD states V<sub>b</sub> = 73.18 kN; hand check gives 59.3 kN | **Design uses the higher STAAD value.** Print the STAAD seismic-weight summary in Phase 3 | **OPEN — documentation gap, not a safety gap** |
 | **C10** | Report designs headhouse walls for 113 kPa drag only | **Raised to the full 383 kPa envelope.** Cost: T12 4L @ 250 in all four walls | RESOLVED |
 | — | Report J.7 places the service-entry plate "between Bay 5 and Bay 8" — those bays are not adjacent | **Superseded.** Single plate placed in the north perimeter wall (W2) at Bay 5, X ≈ 11 800 | RESOLVED |
+| **C17** | **Engineered cover build-up.** A.7.3 states a total of **40.65 kPa**; the same table's own column sums to **39.15 kPa**. Every individual line is arithmetically correct — the total row is not the sum of the column | **40.65 HELD** (A.7.4, Part L and `DL2` in every underground `.std` all carry it, and it is the larger value). Roof COMB 103 stays 448.15 kPa. **No reinforcement effect** — at 39.15, M<sub>p</sub> 697.9 and utilisation 51.2 % vs 51.4 % | **OPEN — raised by SC1, 4 Sep 2026. User ruling required (K.1 U9)** |
+| **C18** | **Sump-pit base thickness.** F.1 gives "walls/base **300/400**", and the A.4.3 levels ((−)7.600 invert to (−)8.000 base) independently give **400**; the text on sheet S-06 says **300** for both | **400 HELD** — the level difference is independent corroboration | **OPEN — raised by SC1, 4 Sep 2026. User ruling required (K.1 U10)** |
 
 ## H.4 Implementation of Modification M1 — 3 September 2026
 
@@ -1830,6 +1832,88 @@ against the BIM-P1 version.
 | Resolving C16 | Explicitly out of scope — "do NOT arbitrarily resolve C16" per this phase's own instructions. Left open, contained, documented. |
 | New architectural elements | Explicitly out of scope — "do not create additional architectural elements yet" per this phase's own instructions. |
 | Sentry post's real site position | Still genuinely unknown — the grid-derivation fix (BIM-P1B-2) makes the ASSUMED position consistent and easy to relocate, it does not supply the real one. |
+
+---
+
+## H.8 Structural CAD reinforcement package — revision SC1 — 4 September 2026
+
+> **SC1 is a DELIVERABLE, not a design change. Not one value in Parts A, B, F or L was altered by
+> it.** It takes the reinforcement design those parts already carry, verifies it independently,
+> details it, schedules it and draws it. Three conflicts are raised (two of them new) and **none
+> is resolved**.
+
+**Scope:** the underground shelter only — mat, perimeter and internal walls, pressure slab, main
+staircase, entry stairwell, headhouse, entrance and all significant openings.
+**THE SENTRY POST IS COMPLETELY EXCLUDED** by the instruction that commissioned SC1. Parts B.8
+and F.4 were not used and no sentry-post output exists in the package.
+
+### What was produced — all under `Structural CAD/`
+
+| # | Deliverable | Location | Extent |
+|---|---|---|---|
+| **SC1-D1** | Input audit | `QAQC/00_INPUT_AUDIT.md` | every dependency parsed; missing and conflicting information listed |
+| **SC1-D2** | Design basis | `Calculations/01_DESIGN_BASIS.md` | materials, covers, L<sub>d</sub>, loads, combinations, methodology |
+| **SC1-D3** | Element design | `Calculations/02_ELEMENT_DESIGN.md` | 16-step record for every in-scope element |
+| **SC1-D4** | Independent verification | `Calculations/00_PartB_verification_output.txt` | **212 Part B values recomputed** |
+| **SC1-D5** | Bar bending schedules | `Schedules/` | **92 marks + 1 fabric item, 70 457 kg** |
+| **SC1-D6** | Drawings | `DXF/` | **30 A1 sheets**, AutoCAD 2010 ASCII |
+| **SC1-D7** | Detail register | `Details/DETAIL_REGISTER.md` | every detail issued, and every detail deliberately not issued |
+| **SC1-D8** | Generation scripts | `Scripts/` | 17 modules; `build_all.py` rebuilds the whole package |
+| **SC1-D9** | QA/QC | `QAQC/` | main report, IS 456 matrix, IS 13920 matrix, legibility QA, DXF validation, bar-mark cross-check |
+| **SC1-D10** | Documentation | `Documentation/` | README, drawing index, CAD standards, model consistency |
+
+### Verification actually performed
+
+| Check | Method | Result |
+|---|---|---|
+| Part B recomputed from first principles | `Scripts/verify_partB.py` | **212 values · 211 agree · 1 differs → C17** |
+| IS 456 Table 19 τ<sub>c</sub> column corroborated | 8 independent Part B values reproduced | agrees to ≤ 0.1 % |
+| Geometry re-extracted from the primary DXF | `ezdxf` parse of `1_Underground_Level_Plan.dxf` | **all 18 controlling dimensions agree with A.3 / A.4** |
+| Load and combination register | parse of all four underground `.std` plus `Entry_Stairwell.std` | 11 cases and 5 combinations match verbatim |
+| Revit leg | geometry constants read from the 6 Dynamo scripts | c/l 15.000 / 18.200, ESC 2 at 19.900, 22.000 × 6.200 — all agree |
+| Bar mark ↔ schedule ↔ drawing | `Scripts/qa_crosscheck.py`, re-reading the finished DXFs | **0 orphans · all 92 + 1 drawn · 0 broken references** |
+| DXF structural validation | `Scripts/validate_dxf.py`, 30 files | **0 errors, 0 review items** |
+| **Main staircase** | frozen values re-extracted and compared | **CONFIRMED UNCHANGED** |
+
+### Conflicts raised by SC1 — NONE RESOLVED
+
+| # | Conflict | Held | Status |
+|---|---|---|---|
+| **C17** | **NEW.** The A.7.3 engineered-cover table states a total of **40.65 kPa**; its own column sums to **39.15 kPa** — a 1.50 kPa difference. Every individual line is arithmetically correct; the total row is not the sum of the column | **40.65 kPa held** — it is the value in A.7.3's total row, A.7.4, Part L and `DL2` in all four underground `.std`, and it is the larger value. At 39.15 the roof total would be 446.65 kPa, M<sub>p</sub> 697.9 and utilisation 51.2 % instead of 51.4 %. **No bar, spacing or link changes** | **UNRESOLVED — the A.7.3 total row and its own column disagree and one of them must be corrected. User ruling required** |
+| **C18** | **NEW.** Sump-pit base thickness: F.1 gives "walls/base 300/400" and the A.4.3 levels ((−)7.600 invert to (−)8.000 base) independently give **400**; the text on sheet S-06 says **300** for both | **400 held** | **UNRESOLVED — user ruling required** |
+| **C16** | Carried forward, not closed. Roof / platform junction | **250 detailed**, on the authority of M.2; **the A.4.7 clause is NOT edited**. Flagged on R-001, R-603, R-702, R-703, R-803, R-804 | **UNRESOLVED — unchanged by SC1** |
+
+### Declared deviations from the Part E output standard
+
+| # | Item | Part E standard | SC1 | Reason |
+|---|---|---|---|---|
+| **X1** | DXF format | E.3.1 R12 ASCII | **AC1024** | R12 does not carry usable DIMENSION / MTEXT / HATCH / LEADER entities, which the SC1 brief requires |
+| **X2** | Layer names | E.3.2 22-layer table | **`S-*` system** | required by the SC1 brief; **a one-to-one mapping to the 22-layer table is issued** in `Documentation/02_CAD_STANDARDS.md` and printed on drawing R-002 |
+| **X4** | Bar bending standard | Part G names BS 8666 + SP 34 | **project rule PBR-1** | neither document, nor IS 2502, is in the workspace. Only the four unambiguous BS 8666 shape codes are used; everything else is coded 99 |
+| **X5** | Title block | E.3.1 180 × 62 | **180 × 100**, same position | more fields than 62 mm holds legibly |
+
+**S-01…S-08 and the ten Rev F input drawings were NOT modified.** S-06 was read (it supplied the
+sump-pit position and size, `[CONFIRMED]`) and left byte-identical. The seven missing output
+sheets were **not regenerated and not fabricated** — their toolchain is still absent, per M.12
+and the `CLAUDE.md` working rules.
+
+### Not implemented, and why
+
+| Item | Reason |
+|---|---|
+| Column, framed-beam and beam–column-joint drawings (R-501/502/503) | **No such element exists in the underground shelter.** B.3 already declares punching NOT APPLICABLE for the same reason. Drawing one would be fabrication. Recorded on R-001 and R-401 |
+| Resolution of C16, C17 or C18 | All three are genuine conflicts inside the project record. M.5 and M.6 forbid silently choosing |
+| Any STAAD analysis | STAAD.Pro is not available. **No result of any kind exists**, and every SC1 design action is labelled `MANUAL CALCULATION — NOT DIRECT STAAD OUTPUT` |
+| Clause verification at source | **No code document is in the workspace.** SC1 cites clause numbers **only** from the Part G register and reports anything else as CLAUSE NOT VERIFIABLE |
+| Second k<sub>s</sub> bound | Still outstanding — A.6 and K.2-A4 unchanged |
+| Phase 3 SDOF support rotation | Unchanged. **Blast capacity remains not demonstrated** |
+| Blast-valve, service-entry-plate and CBRN-penetration details | No structural design basis exists in the record. Reported NOT DETERMINABLE and **not fabricated**; a generic trimming rule is issued on R-003 and labelled as not a substitute for a designed detail |
+
+### Status of the package
+
+**NOT construction-ready.** `QAQC/Reinforcement_QAQC_Report.md` §5 lists **13 items requiring
+review by a qualified structural engineer**. No part of SC1 claims "fully code compliant" — that
+claim is not available while no code document is held.
 
 ---
 
@@ -1964,6 +2048,8 @@ against the BIM-P1 version.
 | **U6** | Node 213, sentry post | Row visible, values cut off | Upload the `.std` file |
 | **U7** | Beam 16 (211→212), sentry post | Not visible; required for a closed frame | Upload the `.std` file |
 | **U8** | Roof projection + parapet 4.162 kN/m | Given on the framing plan, not independently derived | Recompute from the parapet detail |
+| **U9** | **Engineered cover build-up (C17)** — raised by SC1, 4 Sep 2026 | A.7.3 states a total of **40.65 kPa**; the same table's column sums to **39.15 kPa** | **User ruling.** 40.65 is held (the value in A.7.4, Part L and every `.std`, and the larger). **No reinforcement effect.** One of the two numbers in A.7.3 must be corrected |
+| **U10** | **Sump-pit base thickness (C18)** — raised by SC1, 4 Sep 2026 | F.1 "300/400" and the A.4.3 levels give **400**; the text on sheet S-06 says **300** | **User ruling.** 400 is held |
 
 > **Update, 3 September 2026 — the `.std` files are now in the workspace. No tag above has been changed.**
 > **U4** and **U5** are answerable from them directly: both models end with `PERFORM ANALYSIS PRINT STATICS CHECK` and no P-Delta; the underground model has **1 138 shell elements** in four thickness groups (mat 600 / roof 900 / perimeter 600 / internal 200–400) on `ELASTIC MAT DIRECT Y SUBGRADE 100000`. Note that its closing `START CONCRETE DESIGN … DESIGN ELEMENT 509 TO 688 869 TO 922` block contradicts its own `NO DESIGN` header comment; it has been left in place.

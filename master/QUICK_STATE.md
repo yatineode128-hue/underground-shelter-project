@@ -166,6 +166,8 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 | U1 / C9 | Sentry V_b 73.18 (STAAD) vs 59.3 (hand). Design uses 73.18. The `.std` now prints W = 731.80 kN; gap traced but **not closed** — needs confirmation. |
 | U2 · U3 | Is a direct hit a requirement? · DBT yield. Both need client / military sign-off. |
 | U8 | Roof projection + parapet 4.162 kN/m not independently reproducible. |
+| **C17** | **Engineered cover.** A.7.3 states **40.65 kPa**; its own column sums to **39.15**. 40.65 held (larger, and the value in every `.std`). **No reinforcement effect.** Raised by SC1 — needs a ruling. |
+| **C18** | **Sump-pit base.** F.1 + the levels give **400**; sheet S-06 text says **300**. 400 held. Raised by SC1 — needs a ruling. |
 
 ---
 
@@ -184,6 +186,15 @@ than duplicated as a constant — see `Revit/docs/00_README_WORKFLOW.md` and
 
 **`current/cad/` — 11 DXF:** ten Rev F input drawings (directly editable) + `06_Underground_Plan_Services_Sump_BlastValves.dxf` = **sheet S-06**, the only output sheet present.
 **`current/staad/` — 3 STD:** underground plate model, sentry frame, entry stairwell frame.
+
+**`Structural CAD/` — reinforcement package, revision SC1 (4 Sep 2026, master H.8):**
+**30 A1 DXF reinforcement drawings** (R-001…R-805, AutoCAD 2010 ASCII, validated 0 errors),
+**92 bar marks / 70.46 t** of schedules, design basis and element-design calculations, an
+independent recomputation of **212 Part B values** (211 agree), IS 456 and IS 13920 compliance
+matrices, QA/QC and legibility reports, and 17 Python generators (`Scripts/build_all.py` rebuilds
+everything). **Sentry post completely excluded. No column sheets — no RC column exists.**
+Raised **C17** and **C18**; **C16 left open**. **Not construction-ready** — 13 items need
+engineering review. **Design values in Parts A/B/F/L unchanged.**
 **`master/`** — `MASTER_PROJECT_STATE.md` (authority), `MASTER_PROJECT_STATE.pdf`, this file.
 
 **Changed in the M1 reconciliation (9):**

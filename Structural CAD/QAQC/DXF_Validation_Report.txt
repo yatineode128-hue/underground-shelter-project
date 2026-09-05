@@ -1,0 +1,127 @@
+================================================================================================
+DXF VALIDATION  --  Structural CAD reinforcement package
+30 files  ·  sheet numbers present: 30
+================================================================================================
+
+R-401_Beam_Type_Element_Location_Plan.dxf   [PASS]
+    ver AC1024  ents 307  layers 16  text 175  dim 14  lead 2  hatch 4  blk 1
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 0
+
+R-402_Beam_Type_Element_Details.dxf   [PASS]
+    ver AC1024  ents 320  layers 12  text 152  dim 10  lead 7  hatch 12  blk 7
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 7
+
+R-702_Entrance_Reinforcement.dxf   [PASS]
+    ver AC1024  ents 360  layers 14  text 181  dim 6  lead 6  hatch 29  blk 7
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 6
+
+R-703_Blast_Door_Opening_Details.dxf   [PASS]
+    ver AC1024  ents 395  layers 15  text 187  dim 5  lead 5  hatch 51  blk 5
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 9
+
+R-101_Mat_Foundation_Reinforcement_Plan.dxf   [PASS]
+    ver AC1024  ents 432  layers 15  text 248  dim 16  lead 9  hatch 2  blk 11
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 13
+
+R-102_Mat_Foundation_Sections.dxf   [PASS]
+    ver AC1024  ents 463  layers 17  text 160  dim 7  lead 10  hatch 100  blk 5
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 0
+
+R-103_Foundation_Wall_Details.dxf   [PASS]
+    ver AC1024  ents 325  layers 13  text 130  dim 5  lead 3  hatch 59  blk 3
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 3
+
+R-001_General_Reinforcement_Notes.dxf   [PASS]
+    ver AC1024  ents 228  layers 3  text 207  dim 0  lead 0  hatch 0  blk 0
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 0
+
+R-002_Reinforcement_Legend_and_Symbols.dxf   [PASS]
+    ver AC1024  ents 318  layers 17  text 213  dim 0  lead 1  hatch 6  blk 3
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 1
+
+R-003_Typical_Reinforcement_Details.dxf   [PASS]
+    ver AC1024  ents 141  layers 11  text 106  dim 3  lead 1  hatch 1  blk 0
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 0
+
+R-004_Reinforcement_Schedule.dxf   [PASS]
+    ver AC1024  ents 1111  layers 4  text 954  dim 0  lead 0  hatch 0  blk 0
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 0
+
+R-701_Headhouse_Reinforcement.dxf   [PASS]
+    ver AC1024  ents 528  layers 17  text 256  dim 7  lead 7  hatch 4  blk 13
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 14
+
+R-301_Roof_Slab_Reinforcement_Plan.dxf   [PASS]
+    ver AC1024  ents 751  layers 15  text 291  dim 16  lead 7  hatch 0  blk 10
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 23
+
+R-302_Roof_Sections.dxf   [PASS]
+    ver AC1024  ents 338  layers 13  text 94  dim 4  lead 4  hatch 83  blk 6
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 4
+
+R-303_Roof_Opening_Details.dxf   [PASS]
+    ver AC1024  ents 552  layers 15  text 173  dim 8  lead 8  hatch 90  blk 8
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 8
+
+R-304_Roof_Wall_Junction_Details.dxf   [PASS]
+    ver AC1024  ents 394  layers 13  text 115  dim 6  lead 5  hatch 101  blk 7
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 5
+
+R-601_Main_Staircase_Reinforcement_Plan.dxf   [PASS]
+    ver AC1024  ents 329  layers 15  text 168  dim 7  lead 3  hatch 4  blk 6
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 6
+
+R-602_Main_Staircase_Sections.dxf   [PASS]
+    ver AC1024  ents 366  layers 14  text 145  dim 10  lead 7  hatch 50  blk 11
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 5
+
+R-603_Entry_Stairwell_Reinforcement.dxf   [PASS]
+    ver AC1024  ents 443  layers 13  text 176  dim 7  lead 7  hatch 80  blk 10
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 16
+
+R-604_Stair_Connection_Details.dxf   [PASS]
+    ver AC1024  ents 220  layers 12  text 154  dim 2  lead 6  hatch 4  blk 6
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 5
+
+R-801_Anchorage_and_Development.dxf   [PASS]
+    ver AC1024  ents 186  layers 10  text 131  dim 4  lead 0  hatch 4  blk 0
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 0
+
+R-802_Lap_and_Splice_Details.dxf   [PASS]
+    ver AC1024  ents 194  layers 10  text 110  dim 3  lead 0  hatch 2  blk 0
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 0
+
+R-803_Wall_Slab_Connections.dxf   [PASS]
+    ver AC1024  ents 368  layers 14  text 132  dim 3  lead 5  hatch 74  blk 6
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 5
+
+R-804_Construction_Joints.dxf   [PASS]
+    ver AC1024  ents 253  layers 13  text 100  dim 2  lead 3  hatch 50  blk 0
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 0
+
+R-805_Waterproofing_Structural_Interface.dxf   [PASS]
+    ver AC1024  ents 294  layers 11  text 105  dim 2  lead 0  hatch 75  blk 0
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 0
+
+R-201_External_Wall_Reinforcement.dxf   [PASS]
+    ver AC1024  ents 458  layers 14  text 188  dim 4  lead 4  hatch 84  blk 6
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 6
+
+R-202_Internal_Wall_Reinforcement.dxf   [PASS]
+    ver AC1024  ents 517  layers 13  text 183  dim 6  lead 5  hatch 87  blk 4
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 9
+
+R-203_Wall_Elevations.dxf   [PASS]
+    ver AC1024  ents 437  layers 14  text 165  dim 5  lead 4  hatch 1  blk 6
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 10
+
+R-204_Wall_Sections.dxf   [PASS]
+    ver AC1024  ents 300  layers 11  text 131  dim 6  lead 7  hatch 51  blk 7
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 7
+
+R-205_Opening_Reinforcement_Details.dxf   [PASS]
+    ver AC1024  ents 317  layers 13  text 142  dim 5  lead 7  hatch 18  blk 6
+    extents (0.0, 0.0, 841.0, 594.0)   marks on sheet 6
+
+================================================================================================
+TOTAL: 30 files, 0 errors, 0 review items

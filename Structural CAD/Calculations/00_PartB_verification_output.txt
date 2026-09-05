@@ -1,0 +1,221 @@
+====================================================================================================
+VERIFICATION OF MASTER PART B  --  MANUAL CALCULATION, NOT DIRECT STAAD OUTPUT
+====================================================================================================
+ITEM                                        MASTER    RECOMPUTED  UNIT          DELTA  RESULT
+----------------------------------------------------------------------------------------------------
+B.1 W1-W4 d                                    517           517  mm           +0.00%  OK
+B.1 Mp = 383 x 3.2^2/16                      245.1         245.1  kNm/m        +0.01%  OK
+B.1 Mu,lim                                    1556          1555  kNm/m        +0.05%  OK
+B.1 Ast,req                                    894           894  mm2/m        +0.00%  OK
+B.1 Ast prov T16@150                          1340          1340  mm2/m        +0.03%  OK
+B.1 Mu provided                              362.8         362.9  kNm/m        +0.02%  OK
+B.1 xu                                        46.3         46.28  mm           +0.05%  OK
+B.1 xu/d                                     0.089       0.08951  -            +0.57%  OK
+B.1 V at d                                   414.8         414.8  kN/m         +0.00%  OK
+B.1 tau_v                                    0.802        0.8023  N/mm2        +0.04%  OK
+B.1 pt                                       0.259        0.2593  %            +0.10%  OK
+B.1 tau_c (STATIC M35)                       0.375        0.3748  N/mm2        +0.05%  OK
+B.1 tau_c,max                                  3.7           3.7  N/mm2        +0.00%  OK
+B.1 Vus                                      220.8           221  kN/m         +0.09%  OK
+B.1 Asv/sv                                   0.982        0.9827  mm2/mm       +0.07%  OK
+B.1 sv for T12 2L                              230         230.2  mm           +0.08%  OK
+B.1 sv,max Cl.26.5.1.5                         300           300  mm           +0.00%  OK
+B.1 min vert 0.0012t                           720           720  mm2/m        +0.00%  OK
+B.1 min horiz 0.0020t                         1200          1200  mm2/m        +0.00%  OK
+B.1 IS3370 surface zone                        875           875  mm2/m/face   +0.00%  OK
+B.2 W6/W7 d                                    342           342  mm           +0.00%  OK
+B.2 200 wall Mu,lim (why 200 fails)          138.0           138  kNm/m        +0.00%  OK
+B.2 Mp                                       245.1         245.1  kNm/m        +0.01%  OK
+B.2 Mu,lim 400                               680.6         680.6  kNm/m        +0.00%  OK
+B.2 Ast,req                                   1400          1400  mm2/m        +0.01%  OK
+B.2 Ast prov T20@150                          2094          2094  mm2/m        +0.02%  OK
+B.2 Mu provided                              355.3         355.4  kNm/m        +0.03%  OK
+B.2 xu/d                                     0.211        0.2114  -            +0.20%  OK
+B.2 V at d                                   481.8         481.8  kN/m         +0.00%  OK
+B.2 tau_v                                    1.409         1.409  N/mm2        +0.01%  OK
+B.2 pt                                       0.612        0.6124  %            +0.06%  OK
+B.2 tau_c                                     0.54        0.5405  N/mm2        +0.09%  OK
+B.2 Vus                                      297.2           297  kN/m         +0.08%  OK
+B.2 Asv/sv                                   1.998         1.996  mm2/mm       +0.09%  OK
+B.2 sv for T12 4L                              226         226.6  mm           +0.28%  OK
+B.2 sv,max Cl.26.5.1.5                         257         256.5  mm           +0.19%  OK
+B.2 jamb steel interrupted 2094x1.2           2513          2513  mm2/face     +0.01%  OK
+B.2 per jamb                                  1256          1256  mm2          +0.03%  OK
+B.2 4-T20 provided                            1257          1257  mm2          +0.03%  OK
+B.2 header w                                   402         402.2  kN/m         +0.04%  OK
+B.2 header M = wL^2/12                        48.2         48.26  kNm          +0.12%  OK
+B.2 header V                                   241         241.3  kN           +0.12%  OK
+B.3 mat d                                      517           517  mm           +0.00%  OK
+B.3 uplift 4.700 x 9.81                      46.11         46.11  kPa          +0.01%  OK
+B.3 net uplift 46.11-15.0                     31.1         31.11  kPa          +0.03%  OK
+B.3 Case 1 Mp                                 48.6         48.61  kNm/m        +0.02%  OK
+B.3 Case 2 soft band M = qL^2/12             303.7         303.7  kNm/m        +0.01%  OK
+B.3 Ast,req                                   1115          1115  mm2/m        +0.03%  OK
+B.3 Mu provided                              362.8         362.9  kNm/m        +0.02%  OK
+B.3 utilisation                                 84          83.7  %            +0.36%  OK
+B.3 t=500 Ast,req                             1407          1407  mm2/m        +0.02%  OK
+B.3 t=700 Ast,req                              926           925  mm2/m        +0.10%  OK
+B.3 V at d from band edge                    398.0           398  kN/m         +0.00%  OK
+B.3 tau_v                                     0.77        0.7699  N/mm2        +0.02%  OK
+B.3 tau_c                                    0.375        0.3748  N/mm2        +0.05%  OK
+B.3 Vus                                      204.2         204.2  kN/m         +0.02%  OK
+B.3 Asv/sv                                   0.908        0.9081  mm2/mm       +0.02%  OK
+B.3 supplied Asv/sv 4x113.1/250               1.81          1.81  mm2/mm       +0.02%  OK
+B.4 roof d                                   812.5         812.5  mm           +0.00%  OK
+B.4 COMB103 total w                         448.15         448.1  kPa          +0.00%  OK
+B.4 static ULS 101 on roof                   127.7         127.7  kPa          +0.02%  OK
+B.4 blast:static ratio                        3.51         3.509  :1           +0.02%  OK
+B.4 Mp                                       700.2         700.2  kNm/m        +0.00%  OK
+B.4 Mu,lim                                    3841          3841  kNm/m        +0.01%  OK
+B.4 Ast,req                                   1632          1632  mm2/m        +0.01%  OK
+B.4 min 0.12 % x 900                          1080          1080  mm2/m        +0.00%  OK
+B.4 Ast prov T25@150                          3272          3272  mm2/m        +0.01%  OK
+B.4 Mu provided                             1362.4          1363  kNm/m        +0.01%  OK
+B.4 xu                                       113.0           113  mm           +0.02%  OK
+B.4 xu/d                                     0.139         0.139  -            +0.04%  OK
+B.4 V at support face                         1120          1120  kN/m         +0.03%  OK
+B.4 V at d                                   756.3         756.3  kN/m         +0.01%  OK
+B.4 tau_v                                    0.931        0.9308  N/mm2        +0.02%  OK
+B.4 pt                                       0.403        0.4028  %            +0.06%  OK
+B.4 tau_c                                     0.45        0.4494  N/mm2        +0.12%  OK
+B.4 Vus                                      390.8         391.1  kN/m         +0.07%  OK
+B.4 Asv/sv                                   1.106         1.107  mm2/mm       +0.05%  OK
+B.4 direct shear 0.16 fck,dyn b d             5688          5688  kN/m         +0.01%  OK
+B.4 study t=600 Mp                             689         688.5  kNm/m        +0.07%  OK
+B.4 study t=600 Ast,req                       2673          2669  mm2/m        +0.14%  OK
+B.4 study t=800 Mp                             696         696.3  kNm/m        +0.05%  OK
+B.4 study t=800 Ast,req                       1868          1867  mm2/m        +0.04%  OK
+B.4 study t=1000 Mp                            704         704.1  kNm/m        +0.02%  OK
+B.4 study t=1000 Ast,req                      1453          1452  mm2/m        +0.06%  OK
+B.4.1a interrupted steel 3272x1.4             4581          4581  mm2/face/dir   +0.00%  OK
+B.4.1a trimmer each side                      2291          2290  mm2          +0.03%  OK
+B.4.1a 5-T25 provided                         2454          2454  mm2          +0.01%  OK
+B.4.1b cantilever M(root)                    758.6         758.6  kNm/m        +0.00%  OK
+B.4.1b Ast,req TOP                            1772          1772  mm2/m        +0.02%  OK
+B.4.1b utilisation                              56         55.68  %            +0.57%  OK
+B.4.1b V(root)                               824.6         824.6  kN/m         +0.00%  OK
+B.4.1b tau_v                                 1.015         1.015  N/mm2        +0.01%  OK
+B.4.1b Vus                                   459.4         459.5  kN/m         +0.01%  OK
+B.4.1b Asv/sv                                  1.3           1.3  mm2/mm       +0.00%  OK
+B.5 flight d                                   164           164  mm           +0.00%  OK
+B.5 flight angle                              31.4         31.39  deg          +0.04%  OK
+B.5 cos theta                               0.8535        0.8537  -            +0.02%  OK
+B.5 waist self 0.2x25/cos                    5.858         5.857  kPa          +0.01%  OK
+B.5 steps 0.5x0.170833x25                    2.135         2.135  kPa          +0.02%  OK
+B.5 wu                                        21.0         20.99  kPa          +0.05%  OK
+B.5 Leff                                      3160          3160  mm           +0.00%  OK
+B.5 M = wu Leff^2/8                           26.2          26.2  kNm/m        +0.00%  OK
+B.5 Ast,req                                    380         379.8  mm2/m        +0.05%  OK
+B.5 T12@150 provided                           754           754  mm2/m        +0.00%  OK
+B.5 Mu provided                               50.3         50.26  kNm/m        +0.08%  OK
+B.5 utilisation                                 52         52.13  %            +0.25%  OK
+B.5 min 0.12 % x 200                           240           240  mm2/m        +0.00%  OK
+B.5 flight V                                  33.2         33.16  kN/m         +0.11%  OK
+B.5 flight tau_v                             0.202        0.2022  N/mm2        +0.11%  OK
+B.5 flight tau_c                             0.479        0.4791  N/mm2        +0.02%  OK
+B.5 flight tau_c x k1.20                     0.575        0.5749  N/mm2        +0.02%  OK
+B.5 landing w                                 44.2          44.2  kPa          +0.00%  OK
+B.5 landing M                                 49.7         49.73  kNm/m        +0.05%  OK
+B.5 landing Ast,req                            745         745.4  mm2/m        +0.06%  OK
+B.5 T12@125 provided                           905         904.8  mm2/m        +0.02%  OK
+B.5 landing Mu                                59.5         59.46  kNm/m        +0.07%  OK
+B.5 landing utilisation                         84         83.63  %            +0.44%  OK
+B.5 landing V                                 66.3          66.3  kN/m         +0.00%  OK
+B.5 landing tau_v                            0.404        0.4043  N/mm2        +0.07%  OK
+B.5 landing tau_c                            0.519        0.5186  N/mm2        +0.07%  OK
+B.6 flight d                                   214           212  mm           +0.93%  OK
+B.6 flight angle                             29.05         29.05  deg          +0.02%  OK
+B.6 waist self                                7.15          7.15  kPa          +0.00%  OK
+B.6 steps                                    2.083         2.083  kPa          +0.02%  OK
+B.6 wu                                       22.85         22.85  kPa          +0.00%  OK
+B.6 Leff                                      4800          4800  mm           +0.00%  OK
+B.6 M                                         65.8         65.81  kNm/m        +0.01%  OK
+B.6 Ast,req                                    744         751.7  mm2/m        +1.03%  OK
+B.6 T16@200 provided                          1005          1005  mm2/m        +0.03%  OK
+B.6 Mu                                        87.3         86.43  kNm/m        +1.00%  OK
+B.6 x/d                                      0.162        0.1637  -            +1.06%  OK
+B.6 utilisation                                 75         76.14  %            +1.52%  OK
+B.6 V                                         54.8         54.84  kN/m         +0.07%  OK
+B.6 tau_v                                    0.256        0.2587  N/mm2        +1.04%  OK
+B.6 tau_c                                    0.484        0.4866  N/mm2        +0.53%  OK
+B.6 side wall sigma_h base                      34            34  kPa          +0.00%  OK
+B.6 side wall M ~ wL^2/12 (20 kPa)            14.0         14.02  kNm/m        +0.12%  OK
+B.6 side wall min vert                         300           300  mm2/m        +0.00%  OK
+B.6 side wall min horiz                        500           500  mm2/m        +0.00%  OK
+B.6 roof wu                                   50.5         50.47  kPa          +0.05%  OK
+B.6 roof M = wl^2/12                           9.5         9.469  kNm/m        +0.33%  OK
+B.6 top landing M                             21.0         21.02  kNm/m        +0.08%  OK
+B.7.1 HH roof d                                415           415  mm           +0.00%  OK
+B.7.1 w                                      396.5         396.5  kPa          +0.00%  OK
+B.7.1 Mu,lim                                  1002          1002  kNm/m        +0.01%  OK
+B.7.1 M one-way (adopted)                    396.5         396.5  kNm/m        +0.00%  OK
+B.7.1 M Table 26 a=0.045                     285.5         285.5  kNm/m        +0.01%  OK
+B.7.1 Ast,req                                 1879          1879  mm2/m        +0.02%  OK
+B.7.1 min 0.12 % x 500                         600           600  mm2/m        +0.00%  OK
+B.7.1 Mu provided                            438.5         438.5  kNm/m        +0.01%  OK
+B.7.1 utilisation                               90         90.41  %            +0.46%  OK
+B.7.1 xu                                      72.3         72.31  mm           +0.01%  OK
+B.7.1 x/d                                    0.174        0.1742  -            +0.13%  OK
+B.7.1 V at d                                 628.4         628.5  kN/m         +0.01%  OK
+B.7.1 tau_v                                  1.514         1.514  N/mm2        +0.02%  OK
+B.7.1 pt                                     0.505        0.5047  %            +0.06%  OK
+B.7.1 tau_c                                  0.502        0.5017  N/mm2        +0.06%  OK
+B.7.1 Vus                                    420.0         420.3  kN/m         +0.06%  OK
+B.7.1 Asv/sv                                 2.327         2.328  mm2/mm       +0.04%  OK
+B.7.1 sv T12 4L                                194         194.3  mm           +0.17%  OK
+B.7.1 sv,max                                   300           300  mm           +0.00%  OK
+B.7.2 HW Mp CASE B 383 kPa                   137.9         137.9  kNm/m        +0.01%  OK
+B.7.2 HW Mp CASE A 113 kPa                    40.7         40.68  kNm/m        +0.05%  OK
+B.7.2 Ast,req CASE B                           766         765.9  mm2/m        +0.01%  OK
+B.7.2 Ast,req CASE A                           221         220.8  mm2/m        +0.10%  OK
+B.7.2 min vert                                 480           480  mm2/m        +0.00%  OK
+B.7.2 min horiz                                800           800  mm2/m        +0.00%  OK
+B.7.2 Mu provided                            235.2         235.3  kNm/m        +0.05%  OK
+B.7.2 utilisation                               59          58.6  %            +0.69%  OK
+B.7.2 x/d                                    0.135        0.1353  -            +0.23%  OK
+B.7.2 V at d                                 328.6         328.6  kN/m         +0.00%  OK
+B.7.2 tau_v                                  0.961        0.9609  N/mm2        +0.01%  OK
+B.7.2 pt                                     0.392        0.3919  %            +0.02%  OK
+B.7.2 tau_c                                  0.444        0.4438  N/mm2        +0.04%  OK
+B.7.2 Vus                                    176.9         176.8  kN/m         +0.04%  OK
+B.7.2 Asv/sv                                 1.189         1.189  mm2/mm       +0.03%  OK
+B.7.2 sv,max                                   256         256.5  mm           +0.20%  OK
+B.7.2 door jamb interrupted 1340x0.9          1206          1206  mm2/face     +0.00%  OK
+B.7.2 2-T20 provided                           628         628.3  mm2          +0.05%  OK
+B.7.2 edge band w                              402         402.2  kN/m         +0.04%  OK
+B.7.2 edge band M                             27.1         27.15  kNm          +0.17%  OK
+B.7.2 edge band V                              181           181  kN           +0.02%  OK
+B.7.2 edge band d                              742           742  mm           +0.00%  OK
+B.7.2 edge band tau_v                         0.61        0.6098  N/mm2        +0.03%  OK
+B.7.3 b_eff                                    2.5           2.5  m            +0.00%  OK
+B.7.3 CASE 1 equivalent UDL                    226         226.5  kPa          +0.22%  OK
+B.7.3 CASE 1 M                                 354         353.9  kNm/m        +0.03%  OK
+B.7.3 CASE 1 % of 1362                          26         25.98  %            +0.09%  OK
+B.7.3 CASE 2 equivalent UDL                    353         353.3  kPa          +0.08%  OK
+B.7.3 CASE 2 M                                 552           552  kNm/m        +0.01%  OK
+A.5 Ld M35 T8                                  320         319.9  mm           +0.05%  OK
+A.5 lap 50phi T8                               400           400  mm           +0.00%  OK
+A.5 Ld M35 T10                                 400         399.8  mm           +0.05%  OK
+A.5 lap 50phi T10                              500           500  mm           +0.00%  OK
+A.5 Ld M35 T12                                 480         479.8  mm           +0.05%  OK
+A.5 lap 50phi T12                              600           600  mm           +0.00%  OK
+A.5 Ld M35 T16                                 640         639.7  mm           +0.05%  OK
+A.5 lap 50phi T16                              800           800  mm           +0.00%  OK
+A.5 Ld M35 T20                                 800         799.6  mm           +0.05%  OK
+A.5 lap 50phi T20                             1000          1000  mm           +0.00%  OK
+A.5 Ld M35 T25                                1000         999.5  mm           +0.05%  OK
+A.5 lap 50phi T25                             1250          1250  mm           +0.00%  OK
+A.5 Ld,c M35 T25                             800.0         799.6  mm           +0.05%  OK
+A.7.1 DLF = mu/(mu-0.5)                      1.111         1.111  -            +0.01%  OK
+A.7.1 design blast 344.7 x DLF                 383           383  kPa          +0.00%  OK
+A.7.1 fck,dyn                                43.75         43.75  N/mm2        +0.00%  OK
+A.7.1 fy,dyn                                   625           625  N/mm2        +0.00%  OK
+A.7.2 lateral gradient K0.g'+gw              15.41         15.41  kPa/m        +0.03%  OK
+A.7.2 at roof soffit (0.9 m + ...)            33.9          33.9  kPa          +0.01%  OK
+A.7.2 at floor                                83.2         83.21  kPa          +0.02%  OK
+A.7.3 cover total                            40.65         39.15  kPa          +3.69%  **DIFF**
+A.6 submerged gamma                          11.19         11.19  kN/m3        +0.00%  OK
+----------------------------------------------------------------------------------------------------
+212 values recomputed   ·   211 agree   ·   1 differ
+
+ALL VALUES ABOVE ARE MANUAL CALCULATION -- NOT DIRECT STAAD OUTPUT.
