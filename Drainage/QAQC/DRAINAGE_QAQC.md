@@ -168,6 +168,14 @@ Machine output: `QAQC/DXF_VALIDATION_REPORT.txt`.
 | **A8** | Structural seepage 0.5 L/m²/day — packer permeability tests |
 | — | Washdown / hose design flow; sanitary fixture counts and positions; total pump head for both sumps; the level of the service entry plate |
 
+## 12A Coordination findings added at the cross-discipline check (5 Sep 2026)
+
+| Ref | Finding | Result |
+|---|---|---|
+| **CO-1** | **The rising main cannot run at low level through Bay 5.** The two NBC filter trains occupy X 11098–12548 from Y 2700 to Y 5550 — the full bay width less **58 mm west and 52 mm east** — and the direct line from the sump to the service entry plate passes through both. | **RESOLVED HERE.** PD-05 **rises at the sump and runs at high level over the trains** (D-201 note 8). **Consequence referred:** the service entry plate must therefore also be at high level, **and its level is not recorded anywhere in the project.** |
+| **CO-1b** | **S-06 draws the rising main diagrammatically** — east across W5 into Bay 6, then west within the line of the north perimeter wall. Taken literally that crosses the Bay 5/6 gas-tight wall twice and runs longitudinally inside a 600 blast wall. | **READ AS A SCHEMATIC LINE.** DR1 routes the main directly from the sump to the plate within Bay 5 — 2.9 m instead of ~8 m, one wall crossing avoided. **If the S-06 route is literal, W5 needs two gas-tight sleeves and the north wall a longitudinal void — both structural.** Recorded on D-201 note 9. |
+| **CO-2** | *"The only penetration of the envelope"* on S-06 sits on a sheet that also shows five blast valves. | **BOTH ARE CORRECT** — the plate is the only **services** penetration; the valves are **protective** penetrations. **This package creates no new penetration of any kind.** |
+
 ## 13 Unresolved conflicts
 
 | Ref | Conflict | Held position |

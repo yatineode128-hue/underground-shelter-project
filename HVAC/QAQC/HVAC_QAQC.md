@@ -137,6 +137,13 @@ Machine output: `QAQC/DXF_VALIDATION_REPORT.txt`.
 | X4 | Envelope penetrations | **PASS** — drainage crosses once (service entry plate), HVAC crosses at five confirmed valve positions. **No new penetration is created by either package** |
 | X5 | Ceiling zone vs drainage screed | **PASS** — HVAC occupies the top 150 mm, drainage the bottom 25–78 mm. No conflict |
 
+## 9A Coordination findings added at the cross-discipline check (5 Sep 2026)
+
+| Ref | Finding | Result |
+|---|---|---|
+| **HV-C1** | **The master and S-06 disagree on the filter train duty.** Master A.3 describes Bay 5 as *"2 × **250** m³/h filters"*. Sheet S-06 states **300 m³/h in nine separate places** — the design flow, the train label *"EACH 300 m³/h (TRUE N+1)"*, both train annotations, the blast-valve schedule, the DN100 velocity sizing, the airlock purge and the closed-mode arithmetic. **At 250 m³/h one train is below the 264 m³/h FEMA 453 rate S-06 itself computes**, so the "true N+1, not 2 × 150" claim fails on the sheet's own criterion. Every other S-06 figure reproduces only at 300. | **300 USED THROUGHOUT HV1**, stated on every sheet carrying a flow. **NOT RESOLVED** — the master is the authority and `CLAUDE.md` forbids silently choosing. **One of the two numbers must change. User ruling required** (master C21 / K.1 U13). |
+| **CO-3** | **Bay 5 is 80 % occupied as drawn.** 7.800 m² of floor; sump 2.250 + train 1 2.393 + train 2 1.595 = **6.237 m²**. The 1.562 m² left is in **four strips, the widest 300 mm**. Master A.3 also requires the **CO₂/O₂ plant and the dehumidifier** in this bay — no space is shown for either. The partition door gap at Y 2500–3400 opens onto train 2 at Y 2700, leaving **200 mm on the door line**. | **RAISED, NOT RESOLVED.** Two readings: the S-06 footprints are **indicative zones** (their X extents sit inside the bay by 42 and 52 mm, which is what a drawn-to-fit zone looks like), **or** the Bay 5 layout needs resolving. The plant positions are confirmed on an issued sheet. Recorded on M-101 note 11 and M-001. |
+
 ## 10 Assumptions made by this package
 
 | Ref | Assumption |

@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461289.6731134257
+2461289.847974537
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461289.6731134257
+2461289.847974537
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-32B
+336
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{F4A0D9B5-E600-4D42-8ACE-94E8341C315A}
+{221776C6-4425-4DC3-9E03-BD38544FEE2E}
   9
 $VERSIONGUID
   2
-{894704CC-0C72-4233-8668-B13585287570}
+{F561B721-96E3-4097-A40E-8CD6617D284F}
   9
 $EXTNAMES
 290
@@ -1323,9 +1323,9 @@ ISM
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -1339,9 +1339,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -4989,7 +4989,7 @@ AcAecLayerStandard
   0
 APPID
   5
-328
+333
 330
 3
 100
@@ -5003,7 +5003,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-329
+334
 330
 3
 100
@@ -12853,7 +12853,7 @@ AcDbText
  40
 1.4
   1
-PD-05  DN50 RISING MAIN
+PD-05  DN50 RISING MAIN  -  HIGH LEVEL OVER THE TRAINS, CO-1
  50
 -90.0
   7
@@ -22137,7 +22137,7 @@ OpenSans
 100
 AcDbText
   0
-LWPOLYLINE
+TEXT
   5
 2FD
 330
@@ -22145,29 +22145,29 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbText
  10
-14.0
+16.0
  20
-141.0999999999997
- 10
-410.0
- 20
-141.0999999999997
- 10
-410.0
- 20
-258.0
- 10
-14.0
- 20
-258.0
+143.0999999999997
+ 30
+0.0
+ 40
+2.4
+  1
+8  CO-1 - PD-05 RISES AT THE SUMP AND RUNS AT HIGH LEVEL OVER THE FILTER TRAINS.  It cannot run at low
+  7
+OpenSans
+ 11
+16.0
+ 21
+143.0999999999997
+ 31
+0.0
+100
+AcDbText
   0
 TEXT
   5
@@ -22177,25 +22177,25 @@ TEXT
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
 AcDbText
  10
 16.0
  20
-129.6999999999997
+138.7999999999997
  30
 0.0
  40
-2.5
+2.4
   1
-EVIDENCE CLASS - APPLIED TO EVERY VALUE ON THIS SHEET
+   level: the two NBC trains occupy X 11098-12548 across bay 5 from Y 2700 to Y 5550, leaving 58 mm at
   7
 OpenSans
  11
 16.0
  21
-129.6999999999997
+138.7999999999997
  31
 0.0
 100
@@ -22215,19 +22215,19 @@ AcDbText
  10
 16.0
  20
-125.6999999999997
+134.4999999999997
  30
 0.0
  40
-2.0
+2.4
   1
-[C] CONFIRMED       traceable to the master, to a Rev F drawing or to sheet S-06
+   the west side and 52 mm at the east, and the direct line from the sump to the service entry plate
   7
 OpenSans
  11
 16.0
  21
-125.6999999999997
+134.4999999999997
  31
 0.0
 100
@@ -22247,19 +22247,19 @@ AcDbText
  10
 16.0
  20
-122.2999999999997
+130.19999999999968
  30
 0.0
  40
-2.0
+2.4
   1
-[R] RECONSTRUCTED   computed here from confirmed values; the arithmetic is shown
+   passes straight through both.  THE ROUTE SHOWN IS THEREFORE A HIGH-LEVEL ROUTE.  It follows that the
   7
 OpenSans
  11
 16.0
  21
-122.2999999999997
+130.19999999999968
  31
 0.0
 100
@@ -22279,19 +22279,19 @@ AcDbText
  10
 16.0
  20
-118.8999999999997
+125.89999999999968
  30
 0.0
  40
-2.0
+2.4
   1
-[A] ASSUMED         an engineering selection made by this package - confirm before construction
+   SERVICE ENTRY PLATE MUST ALSO BE AT HIGH LEVEL - and its level is not recorded anywhere in the
   7
 OpenSans
  11
 16.0
  21
-118.8999999999997
+125.89999999999968
  31
 0.0
 100
@@ -22311,19 +22311,19 @@ AcDbText
  10
 16.0
  20
-115.49999999999969
+121.59999999999968
  30
 0.0
  40
-2.0
+2.4
   1
-[U] UNRESOLVED      competing values exist in the project, or the input does not
+   project.  DATA REQUIRED, and now for a reason.  See the coordination report.
   7
 OpenSans
  11
 16.0
  21
-115.49999999999969
+121.59999999999968
  31
 0.0
 100
@@ -22343,19 +22343,147 @@ AcDbText
  10
 16.0
  20
-112.09999999999968
+117.29999999999968
  30
 0.0
  40
-2.0
+2.4
   1
-[N] NOT AVAILABLE   no source exists anywhere in the project - DATA REQUIRED
+9  S-06 SHOWS THE RISING MAIN DIAGRAMMATICALLY, running east across W5 into bay 6 and then west within
   7
 OpenSans
  11
 16.0
  21
-112.09999999999968
+117.29999999999968
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+304
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+112.99999999999969
+ 30
+0.0
+ 40
+2.4
+  1
+   the line of the north perimeter wall.  Taken literally that route crosses the bay 5/6 gas-tight wall
+  7
+OpenSans
+ 11
+16.0
+ 21
+112.99999999999969
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+305
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+108.69999999999969
+ 30
+0.0
+ 40
+2.4
+  1
+   twice and runs longitudinally inside a 600 blast wall.  This package reads it as a schematic line
+  7
+OpenSans
+ 11
+16.0
+ 21
+108.69999999999969
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+306
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+104.3999999999997
+ 30
+0.0
+ 40
+2.4
+  1
+   and routes the main directly from the sump to the plate within bay 5.  IF THE S-06 ROUTE IS LITERAL,
+  7
+OpenSans
+ 11
+16.0
+ 21
+104.3999999999997
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+307
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+100.0999999999997
+ 30
+0.0
+ 40
+2.4
+  1
+   W5 needs two gas-tight sleeves and the north wall needs a longitudinal void - both structural.
+  7
+OpenSans
+ 11
+16.0
+ 21
+100.0999999999997
  31
 0.0
 100
@@ -22363,7 +22491,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-304
+308
 330
 17
 100
@@ -22379,23 +22507,247 @@ AcDbPolyline
  10
 14.0
  20
-106.69999999999968
+93.7999999999997
  10
-182.0
+410.0
  20
-106.69999999999968
+93.7999999999997
  10
-182.0
+410.0
  20
-133.0999999999997
+258.0
  10
 14.0
  20
-133.0999999999997
+258.0
   0
 TEXT
   5
-305
+309
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbText
+ 10
+16.0
+ 20
+82.3999999999997
+ 30
+0.0
+ 40
+2.5
+  1
+EVIDENCE CLASS - APPLIED TO EVERY VALUE ON THIS SHEET
+  7
+OpenSans
+ 11
+16.0
+ 21
+82.3999999999997
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+30A
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+78.3999999999997
+ 30
+0.0
+ 40
+2.0
+  1
+[C] CONFIRMED       traceable to the master, to a Rev F drawing or to sheet S-06
+  7
+OpenSans
+ 11
+16.0
+ 21
+78.3999999999997
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+30B
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+74.99999999999969
+ 30
+0.0
+ 40
+2.0
+  1
+[R] RECONSTRUCTED   computed here from confirmed values; the arithmetic is shown
+  7
+OpenSans
+ 11
+16.0
+ 21
+74.99999999999969
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+30C
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+71.59999999999968
+ 30
+0.0
+ 40
+2.0
+  1
+[A] ASSUMED         an engineering selection made by this package - confirm before construction
+  7
+OpenSans
+ 11
+16.0
+ 21
+71.59999999999968
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+30D
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+68.19999999999968
+ 30
+0.0
+ 40
+2.0
+  1
+[U] UNRESOLVED      competing values exist in the project, or the input does not
+  7
+OpenSans
+ 11
+16.0
+ 21
+68.19999999999968
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+30E
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+64.79999999999967
+ 30
+0.0
+ 40
+2.0
+  1
+[N] NOT AVAILABLE   no source exists anywhere in the project - DATA REQUIRED
+  7
+OpenSans
+ 11
+16.0
+ 21
+64.79999999999967
+ 31
+0.0
+100
+AcDbText
+  0
+LWPOLYLINE
+  5
+30F
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+14.0
+ 20
+59.39999999999967
+ 10
+182.0
+ 20
+59.39999999999967
+ 10
+182.0
+ 20
+85.7999999999997
+ 10
+14.0
+ 20
+85.7999999999997
+  0
+TEXT
+  5
+310
 330
 17
 100
@@ -22427,7 +22779,7 @@ AcDbText
   0
 TEXT
   5
-306
+311
 330
 17
 100
@@ -22459,7 +22811,7 @@ AcDbText
   0
 LINE
   5
-307
+312
 330
 17
 100
@@ -22483,7 +22835,7 @@ AcDbLine
   0
 TEXT
   5
-308
+313
 330
 17
 100
@@ -22517,7 +22869,7 @@ AcDbText
   0
 TEXT
   5
-309
+314
 330
 17
 100
@@ -22551,7 +22903,7 @@ AcDbText
   0
 TEXT
   5
-30A
+315
 330
 17
 100
@@ -22583,7 +22935,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-30B
+316
 330
 17
 100
@@ -22615,7 +22967,7 @@ AcDbPolyline
   0
 LINE
   5
-30C
+317
 330
 17
 100
@@ -22639,7 +22991,7 @@ AcDbLine
   0
 LINE
   5
-30D
+318
 330
 17
 100
@@ -22663,7 +23015,7 @@ AcDbLine
   0
 LINE
   5
-30E
+319
 330
 17
 100
@@ -22687,7 +23039,7 @@ AcDbLine
   0
 LINE
   5
-30F
+31A
 330
 17
 100
@@ -22711,7 +23063,7 @@ AcDbLine
   0
 LINE
   5
-310
+31B
 330
 17
 100
@@ -22735,7 +23087,7 @@ AcDbLine
   0
 LINE
   5
-311
+31C
 330
 17
 100
@@ -22759,7 +23111,7 @@ AcDbLine
   0
 LINE
   5
-312
+31D
 330
 17
 100
@@ -22783,7 +23135,7 @@ AcDbLine
   0
 TEXT
   5
-313
+31E
 330
 17
 100
@@ -22815,7 +23167,7 @@ AcDbText
   0
 TEXT
   5
-314
+31F
 330
 17
 100
@@ -22847,7 +23199,7 @@ AcDbText
   0
 TEXT
   5
-315
+320
 330
 17
 100
@@ -22879,7 +23231,7 @@ AcDbText
   0
 TEXT
   5
-316
+321
 330
 17
 100
@@ -22911,7 +23263,7 @@ AcDbText
   0
 TEXT
   5
-317
+322
 330
 17
 100
@@ -22943,7 +23295,7 @@ AcDbText
   0
 TEXT
   5
-318
+323
 330
 17
 100
@@ -22975,7 +23327,7 @@ AcDbText
   0
 LINE
   5
-319
+324
 330
 17
 100
@@ -22999,7 +23351,7 @@ AcDbLine
   0
 TEXT
   5
-31A
+325
 330
 17
 100
@@ -23031,7 +23383,7 @@ AcDbText
   0
 TEXT
   5
-31B
+326
 330
 17
 100
@@ -23063,7 +23415,7 @@ AcDbText
   0
 TEXT
   5
-31C
+327
 330
 17
 100
@@ -23095,7 +23447,7 @@ AcDbText
   0
 TEXT
   5
-31D
+328
 330
 17
 100
@@ -23127,7 +23479,7 @@ AcDbText
   0
 TEXT
   5
-31E
+329
 330
 17
 100
@@ -23159,7 +23511,7 @@ AcDbText
   0
 TEXT
   5
-31F
+32A
 330
 17
 100
@@ -23191,7 +23543,7 @@ AcDbText
   0
 TEXT
   5
-320
+32B
 330
 17
 100
@@ -23223,7 +23575,7 @@ AcDbText
   0
 TEXT
   5
-321
+32C
 330
 17
 100
@@ -23255,7 +23607,7 @@ AcDbText
   0
 TEXT
   5
-322
+32D
 330
 17
 100
@@ -23287,7 +23639,7 @@ AcDbText
   0
 TEXT
   5
-323
+32E
 330
 17
 100
@@ -23319,7 +23671,7 @@ AcDbText
   0
 TEXT
   5
-324
+32F
 330
 17
 100
@@ -23351,7 +23703,7 @@ AcDbText
   0
 TEXT
   5
-325
+330
 330
 17
 100
@@ -23383,7 +23735,7 @@ AcDbText
   0
 TEXT
   5
-326
+331
 330
 17
 100
@@ -23415,7 +23767,7 @@ AcDbText
   0
 TEXT
   5
-327
+332
 330
 17
 100
@@ -24535,7 +24887,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-32A
+335
   0
 DICTIONARYVAR
   5
@@ -24547,7 +24899,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-05T16:09:17.571141+00:00
+1.4.4 @ 2026-09-05T20:21:05.302643+00:00
   0
 VISUALSTYLE
   5
@@ -25251,7 +25603,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-32A
+335
 330
 2D
 100
@@ -25259,7 +25611,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-05T16:09:17.597400+00:00
+1.4.4 @ 2026-09-05T20:21:05.329973+00:00
   0
 ENDSEC
   0

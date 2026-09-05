@@ -56,7 +56,7 @@ def m001():
     sh = sheet("M-001", "HVAC GENERAL NOTES, DESIGN BASIS AND LEGEND",
                "PROTECTED VENTILATION - 300 m3/h TRUE N+1 - FIVE OPERATING "
                "MODES",
-               flags=("HV-F1", "HV-F2", "HV-D1", "HV-D2", "HV-D3", "HV-D4"),
+               flags=("HV-C1", "HV-F1", "HV-F2", "HV-D1", "HV-D2", "HV-D3", "HV-D4", "CO-3"),
                of="1 OF 6")
 
     # ---------------- column A
@@ -239,6 +239,13 @@ def m001():
     sh.text("8   OPEN ITEMS CARRIED ON THIS SET   -   none of them is resolved here",
             (CC, y - 8), T["panel_head"], "M-TITLE")
     yC = sh.table(CC, y - 13, [30, 212], [
+        ("HV-C1", "*** THE MASTER AND S-06 DISAGREE ON THE TRAIN DUTY.  Master A.3 says"),
+        ("", "     '2 x 250 m3/h filters'; S-06 states 300 m3/h in nine places.  At 250 one"),
+        ("", "     train is BELOW the 264 m3/h FEMA rate S-06 itself computes, so N+1 would"),
+        ("", "     fail on the sheet's own criterion.  300 USED THROUGHOUT.  USER RULING ***"),
+        ("CO-3", "BAY 5 IS 80 % OCCUPIED by the sump and the two trains as drawn.  The CO2/O2"),
+        ("", "     plant and the dehumidifier that master A.3 also requires have no space,"),
+        ("", "     and the door line leaves 200 mm.  Footprints indicative, or layout open?"),
         ("HV-F1", "THE SODA LIME, NOT THE OXYGEN, LIMITS CLOSED MODE.  48 h against 80 h."),
         ("", "     Not stated on S-06.  It is the number a shelter commander needs"),
         ("HV-F2", "THE RAW-AIR DUCT RUNS 11.2 m UNFILTERED THROUGH THE CLEAN ZONE,"),
@@ -298,7 +305,7 @@ def m101():
     sh = sheet("M-101", "UNDERGROUND HVAC AND VENTILATION PLAN",
                "SUPPLY - CASCADE - EXHAUST - DAY AND NIGHT BALANCE - "
                "LEVEL (-)6.100",
-               flags=("HV-F2", "HV-D3", "HV-D4"), of="2 OF 6")
+               flags=("HV-C1", "HV-F2", "HV-D3", "HV-D4", "CO-3"), of="2 OF 6")
 
     sc = 45.0
     M = X.vw(sc, 40.0, 400.0)
@@ -393,6 +400,18 @@ def m101():
         "   before terminals are ordered - a berthing space for 9 is exactly where a noisy diffuser is felt.",
         "9  CONDENSATE from DH-1 discharges to the clean sump through a 75 mm DEEP-SEAL TRAP with an air gap.",
         "   That trap is a pressure boundary at +300 Pa - see the DRAINAGE package, calculation D.6.",
+        "10 *** HV-C1 - THE MASTER AND S-06 DISAGREE ON THE TRAIN DUTY. ***  Master A.3 describes bay 5 as",
+        "   '2 x 250 m3/h filters'.  Sheet S-06 states 300 m3/h in nine separate places - the design flow, the",
+        "   train label 'EACH 300 m3/h (TRUE N+1)', the blast valve schedule, the DN100 sizing, the purge and",
+        "   the closed-mode figures.  AT 250 m3/h ONE TRAIN WOULD BE BELOW THE 264 m3/h FEMA 453 RATE THAT S-06",
+        "   ITSELF COMPUTES, so the N+1 claim would fail on the sheet's own criterion.  THIS PACKAGE USES 300",
+        "   THROUGHOUT.  NOT RESOLVED HERE - the master is the authority and the correction is the user's.",
+        "11 *** CO-3 - BAY 5 IS 80 % OCCUPIED BY THE SUMP AND THE TWO TRAINS AS DRAWN ON S-06. ***  7.80 m2 of",
+        "   floor; sump 2.25, train 1 2.39, train 2 1.60 = 6.24 m2.  The 1.56 m2 left is in four strips, the",
+        "   widest 300 mm.  Master A.3 also requires the CO2/O2 plant AND the dehumidifier in this bay, and the",
+        "   partition door gap at Y 2500-3400 opens onto train 2 at Y 2700 - leaving 200 mm on the door line.",
+        "   EITHER THE FOOTPRINTS ON S-06 ARE INDICATIVE RATHER THAN DIMENSIONAL, OR THE BAY 5 LAYOUT NEEDS",
+        "   RESOLVING.  Raised, not resolved - the plant positions are confirmed on an issued sheet.",
     ], h=NOTE, lead=LEAD)
     sh.text("V4   DUCT SCHEDULE", (CA, y - 9), T["view_title"], "M-TITLE")
     yD = sh.table(CA, y - 17, [24, 44, 78, 26, 40, 34, 150], [

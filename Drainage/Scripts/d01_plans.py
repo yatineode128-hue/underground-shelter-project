@@ -361,7 +361,7 @@ def d201():
         sh.text(f"PU-0{i}", M(px, py - 600), NOTE, "P-EQUIP", "BC")
     sh.rect(*M(*D.SERVICE_PLATE[:2]), *M(*D.SERVICE_PLATE[2:]), "P-DRAIN-RISING")
     sh.pipe([M(11800, 2400), M(11800, 5600)], "P-DRAIN-RISING",
-            "PD-05  DN50 RISING MAIN")
+            "PD-05  DN50 RISING MAIN  -  HIGH LEVEL OVER THE TRAINS, CO-1")
     sh.text("SERVICE ENTRY PLATE - THE ONLY ENVELOPE PENETRATION  [C]",
             M(11800, 6450), NOTE, "M-FLAG", "BC")
 
@@ -475,6 +475,17 @@ def d201():
         "   boundary - ROUTE UNDEFINED, see D-203.  ZONE 3 (bays 7 and 8) HAS NO DRAINAGE DESTINATION AT ALL.",
         "   50 UPSTANDS AT W5 AND AT BLAST DOOR 1 keep zone 2 and zone 3 water out of zone 1.",
         "7  ALL TRAPS 75 mm DEEP SEAL, PRIMED.  See D-001 note 6.",
+        "8  CO-1 - PD-05 RISES AT THE SUMP AND RUNS AT HIGH LEVEL OVER THE FILTER TRAINS.  It cannot run at low",
+        "   level: the two NBC trains occupy X 11098-12548 across bay 5 from Y 2700 to Y 5550, leaving 58 mm at",
+        "   the west side and 52 mm at the east, and the direct line from the sump to the service entry plate",
+        "   passes straight through both.  THE ROUTE SHOWN IS THEREFORE A HIGH-LEVEL ROUTE.  It follows that the",
+        "   SERVICE ENTRY PLATE MUST ALSO BE AT HIGH LEVEL - and its level is not recorded anywhere in the",
+        "   project.  DATA REQUIRED, and now for a reason.  See the coordination report.",
+        "9  S-06 SHOWS THE RISING MAIN DIAGRAMMATICALLY, running east across W5 into bay 6 and then west within",
+        "   the line of the north perimeter wall.  Taken literally that route crosses the bay 5/6 gas-tight wall",
+        "   twice and runs longitudinally inside a 600 blast wall.  This package reads it as a schematic line",
+        "   and routes the main directly from the sump to the plate within bay 5.  IF THE S-06 ROUTE IS LITERAL,",
+        "   W5 needs two gas-tight sleeves and the north wall needs a longitudinal void - both structural.",
     ], h=NOTE, lead=LEAD)
 
     X.evidence_key(sh, CA, y - 8)
