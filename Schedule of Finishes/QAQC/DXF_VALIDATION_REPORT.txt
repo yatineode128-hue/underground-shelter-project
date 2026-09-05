@@ -1,0 +1,7 @@
+FILE                                                         ENTS  TEXT  DIM  LAY  RESULT
+--------------------------------------------------------------------------------------------------------------
+A-601_Finish_Legend_Notes_and_Typical_Details.dxf             397   292    0   13  PASS
+A-611_Entry_Level_Finish_Plan.dxf                             662   145    2   18  PASS
+A-612_Underground_Level_Finish_Plan.dxf                       335   243    1   17  PASS
+--------------------------------------------------------------------------------------------------------------
+3 files   0 errors   0 warnings
