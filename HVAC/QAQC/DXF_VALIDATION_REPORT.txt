@@ -1,0 +1,12 @@
+FILE                                                         ENTS  TEXT  DIM  LAY  RESULT
+--------------------------------------------------------------------------------------------------------------
+M-001_HVAC_General_Notes_and_Design_Basis.dxf                 445   301    0   21  PASS
+M-101_Underground_HVAC_Ventilation_Plan.dxf                   548   257    2   22  PASS
+M-102_Fresh_Air_and_Exhaust_Plan.dxf                          196   109    1   19  PASS
+M-201_HVAC_Sections.dxf                                       289    78    3   16  PASS
+M-202_Duct_and_Equipment_Details.dxf                          143    99    2   16  PASS
+M-203_Emergency_Protective_Ventilation_Schematic.dxf          282   188    0   14  PASS
+HV-H1_HVAC_Normal_Operation.dxf                               222   113    0   19  PASS
+HV-H2_HVAC_Emergency_Protective_Operation.dxf                 176   113    0   10  PASS
+--------------------------------------------------------------------------------------------------------------
+8 files   0 errors   0 warnings

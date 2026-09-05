@@ -1,0 +1,495 @@
+HVAC CALCULATIONS  -  OUTPUT OF hv_calc.py
+UNDERGROUND CBRN-HARDENED PROTECTIVE STRUCTURE, PUNE  -  GEOMETRY REV F + M1
+PACKAGE REVISION HV1   05.09.2026   FOR REVIEW - NOT FOR CONSTRUCTION
+SENTRY POST EXCLUDED
+
+====================================================================================================
+H.1   ROOMS, VOLUMES AND THE TWO ENVELOPE FIGURES  -  verification of S-06
+====================================================================================================
+
+  S-06 states, without deriving them:  gas-tight envelope 67.8 m2 / 217.0 m3;
+  clean zone 57.8 m2 (used for the FEMA 453 rate); occupied volume with the
+  airlock shut 185.0 m3.  All three are reproduced below from the bay
+  schedule and the 3200 clear height, so the whole air basis rests on
+  geometry a checker can see.
+
+  Internal width, every bay      5.000 m        [C] master A.4.2
+  Internal clear height          3.200 m        [C] master A.4.2
+
+  ROOM    BAY USE                                CLEAR     AREA    VOLUME  ZONE
+  U-01      1 EMERGENCY STORES / ESC 1           2900    14.50 m2    46.40 m3  clean
+  U-02      2 LAVATORY + MEDICAL                 1800     9.00 m2    28.80 m3  clean
+  U-03      3 OPS ROOM & HAZARD PLOTTING         3500    17.50 m2    56.00 m3  clean
+  U-04      4 BERTHING - 9 BERTHS                1800     9.00 m2    28.80 m3  clean
+  U-05      5 CBRN PLANT + SUMP                  1560     7.80 m2    24.96 m3  clean
+  U-06      6 DECON AIRLOCK - 3 STAGE            2000    10.00 m2    32.00 m3  airlock
+  U-07      7 STAIR SHAFT                        2800    14.00 m2    44.80 m3  OUTSIDE
+  U-08      8 GENERATOR / SERVICES               3000    15.00 m2    48.00 m3  OUTSIDE
+
+  GAS-TIGHT ENVELOPE, bays 1-6   67.80 m2   216.96 m3
+  S-06 states                     67.8 m2    217.0 m3   ->  BOTH REPRODUCED  [R]
+
+  CLEAN ZONE, bays 1-5           57.80 m2   184.96 m3
+  S-06 states                     57.8 m2    185.0 m3   ->  BOTH REPRODUCED  [R]
+
+  [R] THE CLEAN ZONE IS THE GAS-TIGHT ENVELOPE LESS THE DECON AIRLOCK.
+      67.8 - 10.0 (bay 6, 2000 x 5000) = 57.8 m2.  S-06 does not say this;
+      it is worth recording, because the FEMA 453 rate is applied to the
+      CLEAN ZONE area and not to the whole envelope.
+
+====================================================================================================
+H.2   FRESH AIR  -  the three criteria and the design flow
+====================================================================================================
+
+  Occupancy                      9 persons        [C] S-06
+  Design endurance               96 h              [C] S-06
+
+  CRITERION 1 - SURVIVAL RATE
+      5 m3/h/person x 9                    = 45 m3/h    [C] S-06
+  CRITERION 2 - WORKING SHELTER RATE
+      15 m3/h/person x 9                   = 135 m3/h    [C] S-06
+  CRITERION 3 - FEMA 453, 0.25 cfm/ft2 OVER THE CLEAN ZONE
+      57.8 m2 x 10.76391                        = 622.2 ft2
+      x 0.25 cfm/ft2                                 = 155.5 cfm
+      x 1.699011 m3/h per cfm                        = 264.3 m3/h
+      S-06 states 264 m3/h  ->  REPRODUCED  [R]  (0.10 % apart)
+
+  DESIGN FLOW ADOPTED IN THE PROJECT                 = 300 m3/h   [C]
+      = 1.14 x the FEMA rate, 2.22 x the working rate, 6.7 x the survival rate   [R]
+      = 33.3 m3/h per person   [R]
+
+  CONFIGURATION  2 x 300 m3/h trains, each able to carry the whole
+  duty on its own  ->  TRUE N+1, not 2 x 150.   [C] S-06
+
+  AIR CHANGE RATE, whole envelope   300 / 217.0   = 1.38 ACH   [R]
+  AIR CHANGE RATE, clean zone       300 / 185.0   = 1.62 ACH   [R]
+  Neither figure is a criterion in this project - the design is set by the
+  three rates above.  They are recorded because ACH is what a reviewer will
+  ask for.
+
+====================================================================================================
+H.3   LEAKAGE AND OVERPRESSURE
+====================================================================================================
+
+  Envelope volume                217.0 m3          [R] = S-06's 217.0
+  Specified leakage              <= 0.15 vol/h at +300 Pa   [C] S-06
+  Leakage flow  0.15 x 217.0      = 32.5 m3/h        [R]
+      S-06 states 32.5 m3/h  ->  REPRODUCED  [R]
+  As a fraction of ONE train     10.8 %          [R]   (S-06 says '11 %')
+
+  OPERATING OVERPRESSURE         +50 to +100 Pa      [C] S-06
+  CASCADE                        0 -> +10 -> +20 -> +35 -> +50 Pa   [C] S-06
+
+  [R] THE CASCADE MAPS EXACTLY ONTO THE THREE-STAGE AIRLOCK:
+        clean zone, bays 1-5 ............ +50 Pa
+        decon stage 3, clean side ....... +35 Pa
+        decon stage 2 ................... +20 Pa
+        decon stage 1, dirty side ....... +10 Pa
+        outside / stair shaft ...........   0 Pa
+      Air therefore flows FROM the clean zone TOWARD the airlock and out
+      through BV-3.  Every leak is outward.  The airlock is not a dead end -
+      it is the exhaust path, and that is why the supply is delivered to
+      bays 1-5 and nothing is supplied directly to bay 6.
+
+  The leak test is at +300 Pa [C].  Every water trap inside the envelope is
+  therefore a pressure boundary - see the DRAINAGE package, calculation D.6:
+  75 mm deep seals, which hold 736 Pa.
+
+====================================================================================================
+H.4   CLOSED MODE  -  CO2, O2 AND WHAT ACTUALLY LIMITS IT
+====================================================================================================
+
+  CLOSED MODE = all valves shut, e.g. immediately post-detonation.  S-06 is
+  explicit that it is A BRIDGE, NOT A SURVIVAL MODE.
+
+  Occupied volume, airlock shut  185.0 m3          [R] = S-06's 185.0
+  CO2 production at rest         9 x 0.02 = 0.18 m3/h    [C] S-06
+  Rise to the 1.0 % CO2 limit    0.0096 volume fraction   [C] implied by S-06
+  TIME TO 1.0 % CO2  (0.0096 x 185.0) / 0.18 = 9.9 h   [R]
+      S-06 states 9.9 h  ->  REPRODUCED  [R]
+
+  SODA LIME                      20 kg/day  ->  40 kg for 48 h   [C] S-06
+  OXYGEN                         4.5 m3/day, store 2 x 50 L AT 150 bar (15 m3)   [C] S-06
+  O2 store endurance             15.0 / 4.5 = 3.33 days = 80 h   [R]
+
+  *** FINDING - HV-F1.  WHAT LIMITS CLOSED MODE IS THE SODA LIME, NOT THE O2. ***
+      unscrubbed, CO2 alone .................... 9.9 h
+      with the 40 kg soda-lime store .......... 48 h    [C]
+      with the 15 m3 oxygen store ............. 80 h    [R]
+      The O2 store outlasts the scrubbant by about 5:3, and both outlast the
+      unscrubbed 9.9 h by a wide margin.  SO THE CONSUMABLE TO COUNT AND
+      TO WRITE ON THE DRILL CARD IS SODA LIME.  This is not stated on S-06
+      and it is the number a shelter commander needs.
+
+  Against the 96 h design endurance: closed mode covers 48 of the 96 h.
+  The other 48 h REQUIRE the filter trains to be running.  Closed mode is
+  not an alternative to filtration; it is the bridge to it.
+
+====================================================================================================
+H.5   AIRLOCK PURGE  -  and the manning constraint it creates
+====================================================================================================
+
+  Decon stage 1                  2000 x 2000 x 3200   [C] master A.3
+  Volume                         = 12.8 m3          [R]  (S-06 states 12.8)
+  Purge at 5 air changes     = 64 m3          [R]  (S-06 states 64)
+  Time at 300 m3/h            = 12.8 min        [R]  (S-06 states 13)
+
+  ->  4-5 PERSONS PER HOUR.  S-06 records this as 'a manning constraint,
+      not a plant figure', and master K.3 already flags it for the drill card.
+      IT IS NOT SOLVED BY A BIGGER FAN: doubling the flow halves the purge
+      but doubles the filter and cylinder consumption for the same protection.
+
+====================================================================================================
+H.6   ROOM-BY-ROOM AIRFLOW  -  developed by this package
+====================================================================================================
+
+  S-06 gives the TOTAL, 300 m3/h.  It does not distribute it.  The split
+  below is an engineering selection by this package [A], made on function
+  and occupancy, and it sums exactly to the confirmed total.
+
+  Nothing is supplied directly to bay 6: the airlock is the EXHAUST path and
+  receives the whole 300 m3/h as transfer air, which is what makes the
+  confirmed pressure cascade work (H.3).
+
+  The 9 occupants are NOT in two places at once: they work in the ops room
+  and they sleep in the berthing space.  A single fixed split would starve
+  whichever of the two is occupied.  The distribution is therefore
+  BALANCED IN TWO MODES with volume control dampers on those two branches,
+  and the duct is sized on the worse of the two at every segment.  [A]
+
+  ROOM   USE                              VOL |           DAY |         NIGHT |  EXTR
+                                           m3 |  m3/h  ACH occ |  m3/h  ACH occ |  m3/h
+  U-01   EMERGENCY STORES / ESC 1       46.40 |    30 0.65  0 |    30 0.65  0 |     0
+  U-02   LAVATORY + MEDICAL             28.80 |    30 1.04  1 |    30 1.04  1 |    45
+  U-03   OPS ROOM & HAZARD PLOTTING     56.00 |   135 2.41  9 |    45 0.80  0 |     0
+  U-04   BERTHING - 9 BERTHS            28.80 |    45 1.56  0 |   135 4.69  9 |     0
+  U-05   CBRN PLANT + SUMP              24.96 |    60 2.40  0 |    60 2.40  0 |     0
+  U-06   DECON AIRLOCK - transfer       32.00 |   300 9.38  0 |   300 9.38  0 |      
+         TOTAL SUPPLY                         |   300         |   300
+
+  CHECK  day 300 and night 300 m3/h against the confirmed design flow 300 m3/h
+         -> BOTH EXACT
+
+  BASIS OF THE SPLIT  [A]
+    THE OCCUPIED ROOM GETS 135 m3/h IN EITHER MODE - 135 / 9 = 15.0 m3/h per
+    person, exactly the working-shelter rate S-06 names as criterion 2.
+    The unoccupied one of the pair drops to 45 m3/h, which still turns its
+    air over about 1.6 times an hour.
+    U-05 CBRN PLANT gets 60 m3/h in both modes - it holds the filter trains,
+        the CO2/O2 plant and the dehumidifier, all of which reject heat.
+    U-01 and U-02 get 30 m3/h each.  U-02 is EXTRACTED at 45 against a 30
+        supply so it runs slightly negative to the rest of the clean zone -
+        the lavatory must not be the source of the cascade.
+
+  *** PER-PERSON RATES, STATED PLAINLY ***
+      whole shelter        300 / 9   = 33.3 m3/h/person   2.2 x the working rate
+      occupied room        135 / 9   = 15.0 m3/h/person   = the working rate exactly
+      unoccupied of the pair 45 / 9    = 5.0 m3/h/person   = the 5 m3/h survival rate exactly
+
+      A FIXED SPLIT CANNOT DO THIS.  Without the two dampers, holding 15
+      m3/h/person in both rooms simultaneously would need 270 of the 300
+      m3/h and would leave 30 m3/h for the stores, the lavatory AND the
+      plant room.  The dampers are not a refinement; they are what makes
+      the confirmed 300 m3/h sufficient.
+
+      If a reviewer requires 15 m3/h/person in BOTH rooms at once, the total
+      has to rise above 300 m3/h and that is a change to a confirmed design
+      value on S-06.  RAISED, NOT TAKEN.
+
+====================================================================================================
+H.7   DUCT SIZING AND VELOCITY
+====================================================================================================
+
+  Q = 300 m3/h = 0.08333 m3/s for the whole system.  Sizes are selected for
+  a target 3 to 5 m/s in distribution ductwork - low enough to be quiet in a
+  berthing space, high enough to keep the ducts small under a 3200 ceiling.
+  The DN100 throat at the blast valves is NOT a design choice: it is fixed
+  on S-06 and gives 10.6 m/s, which S-06 itself notes is 'inside the usual
+  10-15 m/s throat range'.
+
+  REF    SERVES                                   m3/h SIZE                 AREA m2   v m/s  NOTE
+  FA-1   Blast valve throat, BV-1                  300 DN100 circular        0.0079   10.61  [C] fixed by S-06
+  FA-2   Raw air, BV-1 to filter train 1           300 200 dia circular      0.0314    2.65  [A] this package
+  FA-3   Raw air, BV-2 to filter train 2           300 200 dia circular      0.0314    2.65  [A] this package
+  SA-1   Plenum bay 5 -> bay 4, main               240 200 x 100 rect        0.0200    3.33  [A] this package
+  SA-2   Bay 4 -> bay 3                            195 150 x 100 rect        0.0150    3.61  [A] this package
+  SA-3   Bay 3 -> bay 2                             60 100 dia circular      0.0079    2.12  [A] this package
+  SA-4   Bay 2 -> bay 1                             30 100 dia circular      0.0079    1.06  [A] this package   size-governed
+  SA-5   Branch to U-05, CBRN plant                 60 100 dia circular      0.0079    2.12  [A] this package
+  EA-1   Lavatory extract, U-02 to the airlock      45 100 dia circular      0.0079    1.59  [A] this package   size-governed
+  EA-2   Airlock transfer to BV-3                  300 DN100 circular        0.0079   10.61  [C] fixed by S-06
+  GA-1   Generator intake, BV-4                   2600 DN350 circular        0.0962    7.51  [C] fixed by S-06
+  GA-2   Generator exhaust, BV-5                  2600 DN350 circular        0.0962    7.51  [C] fixed by S-06
+
+  Checks against the S-06 figures:
+      DN100 at 300 m3/h  ->  10.6 m/s   S-06 states 10.6 m/s   REPRODUCED  [R]
+      DN350 at 2600 m3/h ->  7.5 m/s   S-06 states 7.5 m/s    REPRODUCED  [R]
+
+  *** THE SMALL BRANCHES ARE GOVERNED BY THE PRACTICAL MINIMUM DUCT SIZE,
+      NOT BY VELOCITY.  At 30 m3/h a duct sized for 4 m/s would be about
+      100 x 25 mm - not buildable, not cleanable and not sealable to the
+      standard this envelope needs.  100 dia is adopted as the minimum, and
+      the resulting velocities of 1 to 2 m/s are a consequence, not a
+      defect.  The same logic governs the drainage package: below a certain
+      flow, size is set by buildability. ***
+
+====================================================================================================
+H.8   DUCT PRESSURE LOSS
+====================================================================================================
+
+  Darcy-Weisbach with the Colebrook-White friction factor.
+      dp = lambda (L/Dh) (rho v^2 / 2)
+      rho = 1.204 kg/m3, nu = 1.51e-05 m2/s, epsilon = 0.15 mm   [A]
+  These are standard tabulated air properties and a standard roughness for
+  galvanised steel.  THE SOURCE DOCUMENT IS NOT IN THE WORKSPACE (master
+  open item M2), so they are tagged [A] and not attributed to a code.
+
+  REF  ROUTE                                                      L m      v         Re  lambda   dp Pa
+  FA   Fresh air: BV-1 -> filter train 1, bay 1 west wall to bay 5  11.2   2.65      35134  0.0247    20.7
+       friction 5.9 Pa  +  fittings k=3.5 -> 14.8 Pa
+  SA   Supply: plenum bay 5 -> bay 1, worst index run            10.6   3.33      29433  0.0263    40.8
+       friction 14.0 Pa  +  fittings k=4.0 -> 26.8 Pa
+  EA   Extract: U-02 lavatory -> airlock, bay 2 to bay 6          9.3   1.59      10540  0.0327     8.5
+       friction 4.6 Pa  +  fittings k=2.5 -> 3.8 Pa
+
+  Fitting k values are a nominal allowance for the bends, the transitions and
+  the terminal on each route.  THE FITTING SCHEDULE IS NOT FIXED UNTIL THE
+  ROUTES ARE SET ON SITE - these are coordination-level figures.  [A]
+
+====================================================================================================
+H.9   FAN DUTY  -  what can be built up, and what cannot
+====================================================================================================
+
+  ONE TRAIN, 300 m3/h.  Working from the intake inwards:
+
+  1  Weather louvre, sand and debris trap ......... VENDOR DATA REQUIRED  [N]
+  2  Blast valve BV-1, open ....................... VENDOR DATA REQUIRED  [N]
+  3  Raw-air duct, 11.2 m .........................   20.7 Pa   [R]
+  4  Pre-filter G4 / F7, clean -> dirty ........... VENDOR DATA REQUIRED  [N]
+  5  HEPA EN 1822 H14, clean -> dirty ............. VENDOR DATA REQUIRED  [N]
+  6  Carbon ASZM-TEDA bed ......................... VENDOR DATA REQUIRED  [N]
+  7  Supply ductwork and terminals, 10.6 m ........   40.8 Pa   [R]
+  8  Plenum overpressure to be maintained .........  100.0 Pa   [C] S-06
+
+  DUCTWORK AND OVERPRESSURE, THE PART THAT CAN BE CALCULATED  = 161 Pa   [R]
+
+  *** THE FAN DUTY CANNOT BE CLOSED HERE. ***
+      Items 1, 2, 4, 5 and 6 are VENDOR DATA and in a CBRN filter train they
+      dominate: a loaded H14 HEPA and a carbon bed together are normally
+      several times the ductwork loss.  Quoting a fan duty without them
+      would be a fabricated number.
+
+      WHAT MUST BE SPECIFIED WHEN THE VENDOR IS SELECTED:
+        - the CLEAN and the DIRTY (change-out) pressure drop of every stage;
+        - the fan selected on the DIRTY figure, not the clean one;
+        - the hand-crank drive sized on the same duty  [C] S-06 shows one;
+        - the plenum held at +50 to +100 Pa across the whole range.
+
+      A FLOW METER AND A DIFFERENTIAL-PRESSURE GAUGE ACROSS EVERY STAGE are
+      already required by S-06 - 'the only way to know a filter is spent'.
+      They are what turns the vendor's dirty figure into a maintenance
+      trigger.
+
+====================================================================================================
+H.10   COOLING, HEATING AND HUMIDITY  -  NOT CALCULATED, AND WHY
+====================================================================================================
+
+  NO COOLING LOAD IS CALCULATED IN THIS PACKAGE.  The inputs do not exist.
+
+  WHAT WOULD BE NEEDED, AND WHAT THE PROJECT ACTUALLY HAS:
+    outdoor design dry-bulb / wet-bulb, Pune ......... NOT IN THE PROJECT  [N]
+    indoor design condition and tolerance ............ NOT IN THE PROJECT  [N]
+    occupant sensible and latent gain rates .......... NOT IN THE PROJECT  [N]
+    equipment heat: filter fans, CO2/O2 plant,
+        dehumidifier, comms, lighting ................ NOT IN THE PROJECT  [N]
+    generator heat rejection into bay 8 .............. NOT IN THE PROJECT  [N]
+        (the 15 kVA rating is confirmed; its heat
+         rejection and whether bay 8 is conditioned
+         at all are not)
+    ground temperature at (-)6.100 in basalt ......... NOT IN THE PROJECT  [N]
+    U-value of the buried envelope ................... NOT IN THE PROJECT  [N]
+        (600 walls / 900 roof / 600 mat are confirmed,
+         but no thermal conductivity is given for M35
+         or for the surrounding rock)
+
+  A dehumidifier IS confirmed in bay 5 (master A.3) and condensate IS in the
+  drainage flow table at 200 L/day combined with washdown [C].  Its DUTY is
+  not stated anywhere and is not derived here.
+
+  *** WHAT CAN BE SAID WITHOUT INVENTING ANYTHING ***
+  A buried structure surrounded by 4.7 m of rock is a very large thermal
+  flywheel: 22.0 x 6.2 external, 600 walls, 900 roof and 600 mat of M35.
+  Its steady-state condition is governed by the ROCK TEMPERATURE, not by the
+  outside air, and the rock temperature is the missing number.  Until it is
+  measured, a cooling load calculated from air-side data alone would be
+  wrong in both directions and by an unknown amount.
+
+  AN UPPER BOUND ON THE CLOSED-MODE AIR TEMPERATURE RISE - clearly bounded,
+  clearly assumed, and useful only as a bound:
+    air mass in the clean zone   185.0 x 1.204 = 222.7 kg   [R]
+    heat capacity of that air    222.7 x 1005.0 = 223.8 kJ/K   [R]
+    at 60 W/person sensible [A]   540 W  ->  8.7 K/h  IF THE STRUCTURE ABSORBED NOTHING
+    at 75 W/person sensible [A]   675 W  ->  10.9 K/h  IF THE STRUCTURE ABSORBED NOTHING
+    at 100 W/person sensible [A]   900 W  ->  14.5 K/h  IF THE STRUCTURE ABSORBED NOTHING
+
+  THAT IS AN UPPER BOUND ONLY.  It ignores the concrete entirely, and the
+  concrete is the dominant term - which is exactly why the real answer needs
+  a transient model and a measured rock temperature.  DO NOT SIZE PLANT ON
+  THESE NUMBERS.  They are here to show the magnitude of what is missing.
+
+====================================================================================================
+H.11   PROTECTIVE VENTILATION  -  the blast valves and the filter train
+====================================================================================================
+
+  ALL OF THIS IS CONFIRMED ON S-06 AND IS CARRIED FORWARD UNCHANGED.
+
+  TAG    SIZE    SERVES                 m3/h         v DESIGN PRESSURE      FORCE
+  BV-1   DN100   FRESH AIR TRAIN 1       300  10.6 m/s 383 kPa RECESSED    3.0 kN
+  BV-2   DN100   FRESH AIR TRAIN 2       300  10.6 m/s 383 kPa RECESSED    3.0 kN
+  BV-3   DN100   EXHAUST + OPRV          300  10.6 m/s 383 kPa RECESSED    3.0 kN
+  BV-4   DN350   GENERATOR INTAKE       2600   7.5 m/s 383 kPa RECESSED   36.8 kN
+  BV-5   DN350   GENERATOR EXHAUST      2600   7.5 m/s 383 kPa RECESSED   36.8 kN
+
+  POSITIONS, read out of sheet S-06 by parsing its geometry:
+      BV-1  (598, 2200)     west perimeter wall of bay 1
+      BV-2  (598, 4000)     west perimeter wall of bay 1
+      BV-3  (14998, 4900)   IN W6 - exhaust and OPRV, discharging to bay 7
+      BV-4  (21398, 1300)   east perimeter wall of bay 8, generator intake
+      BV-5  (21398, 4700)   east perimeter wall of bay 8, generator exhaust
+
+  RECESSING.  S-06: 'RECESS EVERY VALVE.  IS 4991 Cl 6.2.1.'  A valve flush
+  in a vertical face sees the REFLECTED pressure p_r = 1366 kPa, 3.6 times
+  the 383 kPa side-on value - 131 kN on a DN350 disc instead of 36.8 kN.
+
+  FILTER TRAIN, in order  [C] S-06:
+      WEATHER LOUVRE     SAND + DEBRIS TRAP
+      BLAST VALVE        < 2 ms CLOSE, HOLDS 1.3 s
+      PRE-FILTER         G4 / F7
+      HEPA               EN 1822 H14, 99.995 % MPPS
+      CARBON             ASZM-TEDA, 300 000 mg.min/m3
+      FAN                + HAND CRANK
+      PLENUM             +50 to +100 Pa
+
+  THE THREE THINGS A BLAST VALVE MUST DO  [C] S-06, reproduced because they
+  are the specification, not commentary:
+      1  CLOSE FAST ENOUGH.  At 50 psi the shock front travels ~600 m/s, so
+         in 2 ms it moves 1.2 m.  Keep >= 2.0 m of duct between the valve
+         and the plenum and the leak-through is trivial.
+      2  STAY SHUT.  The nuclear positive phase is 0.13-1.33 s - a thousand
+         times longer than a grenade.  SPECIFY THE HOLD TIME, not just the
+         closing time.  A valve that reopens at 50 ms is useless here.
+      3  SURVIVE THE SUCTION.  The negative phase pulls the disc the other
+         way at roughly 0.25 p_so ~ 86 kPa.  It must be rated in reverse.
+
+  *** THE 2.0 m RULE IS A ROUTING CONSTRAINT ON THIS PACKAGE. ***
+      BV-1 and BV-2 are in the west wall at X 598; the filter trains are in
+      bay 5 at X 11098-12548.  The raw-air duct is 11.2 m long, so the
+      2.0 m rule is satisfied more than five times over.  Recorded because
+      it is the reason the trains are NOT put next to the valves.
+
+====================================================================================================
+H.12   THE RAW-AIR DUCT  -  a protective element, not a duct
+====================================================================================================
+
+  *** FINDING - HV-F2 ***
+      S-06 puts the fresh-air blast valves in the WEST WALL OF BAY 1 and the
+      NBC filter trains in BAY 5.  Between them the air is UNFILTERED, and
+      the duct carrying it runs 11.2 m THROUGH THE CLEAN ZONE - bays 1,
+      2, 3 and 4, past the stores, the lavatory, the ops room and the berths.
+
+      Over that length the duct wall is THE ONLY BARRIER between the clean
+      zone and unfiltered outside air.  A pinhole in it in the design event
+      admits agent directly into the occupied space, downstream of nothing.
+
+      THIS PACKAGE DOES NOT MOVE THE TRAINS - their position is confirmed on
+      an issued sheet.  It specifies the duct as a PROTECTIVE ELEMENT:
+        - fully welded stainless or heavy-gauge galvanised, NO push-fit and
+          NO slip joints anywhere inside the envelope;
+        - pressure tested to the ENVELOPE standard (+300 Pa) and not to a
+          ductwork standard, witnessed, before any ceiling is closed;
+        - run at high level on visible supports, NOT buried, NOT boxed in,
+          NOT inside a ceiling void - it must be inspectable along its whole
+          length;
+        - labelled RAW AIR - UNFILTERED at not more than 2 m centres;
+        - and it must be re-tested after any work in bays 1 to 4.
+
+      ALTERNATIVELY, and this is the question for the protective designer:
+      SHOULD THE TRAINS MOVE TO BAY 1, next to the valves?  Bay 1 is 2900
+      wide against bay 5's 1560, it already holds ESC 1 and the 1000 L tank,
+      and moving them would remove the raw-air run from the clean zone
+      entirely.  THAT IS A PROTECTIVE-DESIGN DECISION, NOT A VENTILATION
+      ONE.  It is raised, not taken.
+
+====================================================================================================
+H.13   OPERATING MODES
+====================================================================================================
+
+  1  NORMAL, UNFILTERED
+      when      peacetime
+      what      One train, filters bypassed if a bypass is fitted (not shown on S-06).
+      flow      300 m3/h
+      pressure  atmospheric
+
+  2  FILTERED / PROTECTIVE
+      when      CBRN warning to all-clear
+      what      One train through the full filter set; second train standby.
+      flow      300 m3/h
+      pressure  +50 to +100 Pa
+
+  3  CLOSED
+      when      detonation to all-clear, or filter change
+      what      All five blast valves shut.  Soda lime and O2 only.
+      flow      0
+      pressure  sealed
+
+  4  PURGE
+      when      each entry through the airlock
+      what      5 air changes of decon stage 1.  13 minutes, 4-5 persons per hour.
+      flow      300 m3/h
+      pressure  cascade held
+
+  5  GENERATOR RUNNING
+      when      power or battery charging
+      what      BV-4 and BV-5 open, 2600 m3/h through bay 8 ONLY.  Bay 8 is the grey
+      flow      2600 m3/h
+      pressure  bay 8 not pressurised
+
+  *** MODE 5 IS INDEPENDENT OF MODES 1 TO 4. ***  The generator air path
+  (BV-4, BV-5, bay 8) does not touch the gas-tight envelope: bay 8 is outside
+  it, behind blast door 2 and W7.  Running the generator does not
+  depressurise the clean zone and does not consume filter life.
+
+  *** MODE 1 - A GAP ON S-06.  A filter bypass for peacetime running is not
+      shown anywhere.  Without one, every hour of peacetime ventilation
+      spends carbon-bed life that is only replaceable by a filter change,
+      which itself needs mode 3.  ENGINEER TO CONFIRM whether a bypass with
+      gas-tight isolation is intended.  NOT ADDED HERE - adding a bypass
+      adds a leak path to the envelope and that is a protective decision. ***
+
+====================================================================================================
+H.14   WHAT THIS PACKAGE DOES NOT CALCULATE, AND WHY
+====================================================================================================
+
+  - Cooling load, sensible or latent
+        eight separate inputs are missing - see H.10  [N]
+  - Heating load
+        no indoor design condition and no ground temperature  [N]
+  - Dehumidifier duty
+        the unit is confirmed; no latent load and no target RH exist  [N]
+  - Total fan static pressure
+        five of the eight components are vendor data - see H.9  [N]
+  - Filter change-out interval and carbon bed life
+        vendor data plus a challenge concentration; neither exists  [N]
+  - Sound levels in the berthing space
+        no criterion is stated anywhere in the project  [N]
+  - Generator heat rejection into bay 8
+        only the 15 kVA rating is confirmed  [N]
+  - Blast valve closing and hold times
+        vendor tested, master C.1 - not a civil deliverable  [C]
+  - Shock propagation down the entry shaft
+        master Part C: Phase 3, CFD or shock tube  [C]
+  - EMP performance of the duct penetrations
+        MIL-STD-188-125-1; the cast-in frames are welded to the cage for continuity, but the shielding survey is a separate scope  [C]
+====================================================================================================
+END OF HVAC CALCULATIONS
+====================================================================================================
