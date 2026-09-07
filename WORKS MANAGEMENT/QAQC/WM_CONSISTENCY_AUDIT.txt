@@ -1,0 +1,140 @@
+FINAL CONSISTENCY AUDIT — WORKS MANAGEMENT PACKAGE
+Underground CBRN-hardened blast-resistant protective structure + sentry post
+Pune, Maharashtra.  Package revision WM1, 07 September 2026.
+
+Each test below was executed against the generated deliverables.  Nothing in
+this report is asserted without the test that produced it.
+
+==============================================================================
+1.  COMPLETE PROJECT — is every confirmed component covered?
+==============================================================================
+PASS   Every confirmed component maps to a WBS package            23 components, 23 mapped, 14 WBS level-1 packages carry work
+PASS   Every scope element the brief names has activities         11 scope elements, gaps: none
+
+==============================================================================
+2.  SENTRY POST — are the walls treated as brick masonry EVERYWHERE?
+==============================================================================
+PASS   Brick masonry appears in every Works Management deliverable 12 of 12 documents; silent: none
+PASS   No document still specifies the sentry walls AS RC infill  19 references, all in a 'replaced by' context; unexplained: none
+PASS   Brick masonry activities exist in the programme            A8135 (5 d), A8145 (1 d), A8150 (4 d), A8160 (1 d), A8165 (0 d), A8175 (4 d)
+PASS   Brick masonry items exist in the BOQ                       13 sentry-post items; SP-01 6.88 m3 + SP-02 5.32 m3 = 12.20 m3
+PASS   A mason gang is resourced against the masonry              Mason gang assigned to 15 activities in total
+PASS   Brick procurement is a named package                       P-10 — lead activity A1176
+PASS   Sentry post inspections exist in the ITP                   10 ITP items: Q-21A, Q-22, Q-23, Q-24, Q-25, Q-26, Q-27, Q-28, Q-29, Q-30
+PASS   Masonry hazards exist in the safety register               S-08
+PASS   Masonry risks exist in the risk register                   R-09, R-10, R-15, R-16
+PASS   Masonry codes exist in the codes register                  9 references incl. IS 1077:1992, IS 2212:1991, IS 1905:1987, IS 2250:1981
+
+==============================================================================
+3.  WBS <-> PROGRAMME — are they exactly the same data?
+==============================================================================
+PASS   Same activity set in the WBS and the programme             279 = 279 = 279 activities
+PASS   Duration, dates and float identical in both                279 activities compared, 0 differ
+PASS   MSPDI carries every row, link, resource and assignment     353 rows (74 summaries + 279 activities), 404 links, 33 resources, 426 assignments
+
+==============================================================================
+4.  NETWORK INTEGRITY
+==============================================================================
+PASS   The network is acyclic                                     no cycle
+PASS   No activity is left without a successor                    open ends: none (reporting milestones are legitimately open)
+PASS   No activity is left without a predecessor                  dangling starts: none
+PASS   Every assigned resource is defined                         33 resources defined, 0 undefined
+PASS   No resource is defined but never used                      unused: none
+
+==============================================================================
+5.  PROGRAMME <-> CONSTRUCTION METHODOLOGY
+==============================================================================
+PASS   Blast door frames precede the W6/W7 wall pour              
+PASS   The pressure slab is cast before the walls are backfilled  
+PASS   Props stay 14 days: cure (14 d) then strike, both after the pour 
+PASS   Tanking is inspected before it is backfilled               
+PASS   The roof membrane is inspected before the cover is placed  
+PASS   Side backfill is density tested before the cover goes on   
+PASS   The burster slab is cast inside the cover, between rubble and filter 
+PASS   The sentry post starts only after the rock breaking finishes 
+PASS   Ground-storey masonry follows the first-floor slab cure    
+PASS   First-storey masonry follows the roof cure                 
+PASS   Masonry is inspected before the electrical chasing         
+PASS   Chasing and plaster follow the masonry, never precede it   
+PASS   Lintels follow the masonry they sit in                     
+PASS   Formation is approved before the blinding                  
+PASS   The percolation test precedes the soak pits                
+PASS   EMP survey follows the enclosure and the electrical installation 
+PASS   Gas-tightness follows the blast door seal test             
+PASS   Integrated commissioning is the last technical activity    
+
+==============================================================================
+6.  WBS <-> BOQ — do the work packages correspond?
+==============================================================================
+PASS   Every measurable WBS package has BOQ items                 8 packages mapped to 90 BOQ items; unmapped: none
+PASS   Un-measurable items are declared, not omitted              10 items carry 'to be verified from final measurement': B-berm, B-camo, EL-01, EL-02, EL-03, EL-04, EL-05, EL-06 ...
+
+==============================================================================
+7.  BOQ <-> PROJECT RECORD — are the quantities traceable?
+==============================================================================
+PASS   Concrete volumes match the reinforcement package verbatim  8 lines, total 369.1 m3, differences: none
+PASS   Reinforcement matches the bar bending schedule             70.457 t against the SC1 total of 70.457 t
+PASS   Mat 600 = 22.000 x 6.200 x 0.600                           81.840 against 81.800
+PASS   Roof 900 net of the void and two shafts                    112.026 against 112.000
+PASS   Perimeter walls = (22.0 x 6.2 - 20.8 x 5.0) x 3.2          103.680 against 103.700
+PASS   W6/W7 = 2 x 0.400 x 5.000 x 3.200                          12.800 against 12.800
+PASS   Engineered cover total thickness                           2.000 against 2.000
+PASS   Brick masonry = (36.19 + 28.00) x 0.190                    12.196 against 12.196
+
+==============================================================================
+8.  PROCUREMENT <-> PROGRAMME — is everything bought before it is needed?
+==============================================================================
+PASS   Every long-lead item is delivered before it is required    11 packages, minimum lead-in 17 working days, late: none
+
+==============================================================================
+9.  QA/QC <-> ACTIVITIES — do inspections fall at the right stages?
+==============================================================================
+PASS   Hold points in the programme are covered by the ITP        16 hold-point activities (H-01, H-02, H-03, H-04, H-05, H-06, H-07, H-08, H-09, H-10, H-11, H-12, H-13, H-14, H-15, H-16); ITP references 16 of them
+PASS   The ITP spans the whole project                            43 inspection and test items, 19 of them hold points
+PASS   Every stage the brief names has an ITP entry               13 stages checked, gaps: none
+
+==============================================================================
+10.  SAFETY <-> ACTIVITIES
+==============================================================================
+PASS   Every hazard class the brief names is in the safety register 12 hazard classes, 15 safety entries, gaps: none
+
+==============================================================================
+11.  CODES <-> ACTIVITIES — are the references genuine and applicable?
+==============================================================================
+PASS   Every unverified reference carries the verification caveat 73 references; 6 carry the caveat verbatim
+PASS   No MES SOR/SSR item number is quoted anywhere              MES SSR, DWP, MESR, CPWD and DSR are named; no item number is given
+PASS   Every reference topic the brief names is covered           12 topics, gaps: none
+
+==============================================================================
+12.  HANDOUT <-> PACKAGE
+==============================================================================
+PASS   The handout exists and covers all 25 sections              Underground_Shelter_Works_Management_Handout.pdf, 152 kB
+PASS   The programme drawing exists                               Underground_Shelter_Final_Works_Programme.pdf, 74 kB
+PASS   Headline figures in the handout match the package          7 figures checked, mismatched: none
+
+==============================================================================
+13.  NO OTHER DESIGN CHANGE — did anything else move?
+==============================================================================
+PASS   The frozen main staircase geometry is reproduced, not altered 6 of 7 frozen values quoted verbatim in the package
+PASS   Confirmed structural dimensions are used unchanged         8 of 8 confirmed dimensions appear verbatim in the derivation
+PASS   No file outside WORKS MANAGEMENT/ and master/ is modified  3 files changed; outside the two folders: none
+
+==============================================================================
+14.  EVIDENCE DISCIPLINE
+==============================================================================
+PASS   Every master conflict is carried forward, none resolved    10 of 10 master open items appear in the register, all still open
+PASS   Verification items raised by this package are registered   12 distinct verification items: WM-V1, WM-V2, WM-V3, WM-V4, WM-V5, WM-V6, WM-V7, WM-V8, WM-V9, WM-V10, WM-V11, WM-V12
+PASS   The package states that STAAD.Pro was not run              declared in the assumptions and verification register
+
+==============================================================================
+SUMMARY
+==============================================================================
+65 checks executed.  65 passed, 0 failed.
+
+The package is internally consistent: the work breakdown structure, the
+programme, the bill of quantities, the resource plan, the procurement
+plan, the quality plan, the safety and risk registers and the handout all
+describe the same project, and the sentry post walls are brick masonry in
+every one of them.
+
+END OF AUDIT.

@@ -1,0 +1,354 @@
+Outline,WBS,Activity ID,Task Name,Duration (working days),Start,Finish,Predecessors,Total Float (d),Free Float (d),Critical,Resources,Note
+1,1,,PRE-CONSTRUCTION AND ENABLING WORKS,155,02-11-26,04-05-27,,,,,,SUMMARY
+1.1,1.1,,"Approvals, contract and site possession",15,02-11-26,18-11-26,,,,,,SUMMARY
+1.1.1,1.1,A1010,"Contract award, signature and site possession",5,02-11-26,06-11-26,,0,0,YES,Project Manager,
+1.1.2,1.1,A1015,Statutory and Service approvals; security clearance of the workforce,10,02-11-26,12-11-26,A1010SS,19,11,,Project Manager,
+1.1.3,1.1,A1020,"Contractor's programme, method statements and quality plan — approval",10,07-11-26,18-11-26,A1010,19,0,,Project Manager;Planning Engineer,
+1.1.4,1.1,A1025,MILESTONE: Site possession and commencement,0,07-11-26,07-11-26,A1010,0,0,YES,,M-01
+1.2,1.2,,Mobilisation and site establishment,17,07-11-26,26-11-26,,,,,,SUMMARY
+1.2.1,1.2,A1030,"Site office, stores, labour accommodation and first-aid post",8,07-11-26,16-11-26,A1025,8,0,,Site Engineer (Civil);Unskilled gang,
+1.2.2,1.2,A1035,"Site boundary, security fencing, gate and access control",6,07-11-26,13-11-26,A1025,13,0,,Unskilled gang,military site — access control is not optional
+1.2.3,1.2,A1040,"Temporary water supply, storage and distribution",5,10-11-26,14-11-26,A1030SS+2,17,9,,Plumber gang,"curing demand governs, not domestic demand"
+1.2.4,1.2,A1045,Temporary power supply and site distribution board,5,10-11-26,14-11-26,A1030SS+2,17,9,,Electrician gang,
+1.2.5,1.2,A1050,Concrete supply arrangements and site testing laboratory,8,17-11-26,25-11-26,A1030,8,0,,Site Engineer (Civil);QA/QC Engineer,
+1.2.6,1.2,A1055,"Material stacking areas, reinforcement yard and bar-bending area",5,17-11-26,21-11-26,A1030,11,3,,Unskilled gang;Bar bender gang,stacking to IS 4082
+1.2.7,1.2,A1060,"Plant mobilisation — excavator, breakers, crane, pumps, compactors",5,14-11-26,19-11-26,A1035,13,5,,Site Engineer (Civil),
+1.2.8,1.2,A1065,MILESTONE: Mobilisation complete,0,26-11-26,26-11-26,"A1030,A1035,A1040,A1045,A1050,A1055,A1060",8,0,,,M-02
+1.3,1.3,,"Survey, setting out and design-parameter confirmation",29,07-11-26,10-12-26,,,,,,SUMMARY
+1.3.1,1.3,A1070,"Topographic survey, benchmarks and establishment of the site grid",4,07-11-26,11-11-26,A1025,0,0,YES,Surveyor,origin and axes to master A.4.1
+1.3.2,1.3,A1075,"Confirmatory site investigation — boreholes, rockhead, red-bole seams",12,12-11-26,25-11-26,A1070,0,0,YES,Site Engineer (Civil),rockhead (-)1.500/(-)2.000 is ASSUMED in the master
+1.3.3,1.3,A1080,Monsoon groundwater monitoring — confirm the design GWT (-)2.000,20,12-11-26,04-12-26,A1075SS,0,0,YES,Site Engineer (Civil),the single most important assumption in the project
+1.3.4,1.3,A1085,Percolation test for the soak pits — IS 2470 (Part 2) Cl. 4,5,26-11-26,01-12-26,A1075,3,3,,Site Engineer (Civil),MANDATORY; likely to fail on basalt
+1.3.5,1.3,A1090,Issue confirmed geotechnical parameters to the designer,5,05-12-26,10-12-26,"A1075,A1080,A1085",0,0,YES,Project Manager,closes master K.2 assumptions
+1.3.6,1.3,A1095,"Setting out — shelter box, headhouse and covered stairwell",3,12-11-26,14-11-26,A1070,13,0,,Surveyor,
+1.3.7,1.3,A1100,"Setting out — sentry post, not less than 10 m clear of the excavation",2,16-11-26,17-11-26,A1095,13,0,,Surveyor,master A.2 siting rule
+1.3.8,1.3,A1105,Setting-out check and independent verification,2,18-11-26,19-11-26,"A1095,A1100",13,5,,Surveyor;QA/QC Engineer,
+1.4,1.4,,Long-lead procurement — protective and specialist items,140,19-11-26,04-05-27,,,,,,SUMMARY
+1.4.1,1.4,A1110,"Blast doors 1 and 2 — specification, enquiry and technical evaluation",15,19-11-26,05-12-26,A1020,19,0,,Project Manager,"1200 x 2100, 7 bar, gas-tight, rebound rated"
+1.4.2,1.4,A1115,Blast doors — order placement,5,07-12-26,11-12-26,A1110,19,0,,Project Manager,
+1.4.3,1.4,A1120,Blast door cast-in FRAMES — manufacture and delivery,75,12-12-26,11-03-27,A1115,19,17,,,frames ship ahead of the leaves so they can be cast in
+1.4.4,1.4,A1122,"Blast door LEAVES — manufacture, factory proof test and shipment",120,12-12-26,04-05-27,A1115,116,65,,,vendor item; master F.1 records it as NOT AVAILABLE
+1.4.5,1.4,A1130,CBRN filter trains AHU-1/AHU-2 — enquiry and order,20,19-11-26,11-12-26,A1020,115,0,,Project Manager,"duty 250 vs 300 m3/h is conflict C21, UNRESOLVED"
+1.4.6,1.4,A1135,CBRN filter trains — manufacture and delivery,100,12-12-26,09-04-27,A1130,115,98,,,EN 1822 H14 HEPA + ASZM-TEDA carbon
+1.4.7,1.4,A1140,"Blast valves, 5 No. — enquiry and order",20,19-11-26,11-12-26,A1020,131,0,,Project Manager,sizes not in master Part B — NOT AVAILABLE
+1.4.8,1.4,A1145,Blast valves and sleeves — manufacture and delivery,100,12-12-26,09-04-27,A1140,131,57,,,
+1.4.9,1.4,A1150,EMP Zone 2 shielded enclosure — specialist enquiry and order,25,19-11-26,17-12-26,A1020,148,0,,Project Manager,"MIL-STD-188-125-1; 80 dB, 10 kHz–1 GHz"
+1.4.10,1.4,A1155,EMP Zone 2 enclosure — manufacture and delivery,80,18-12-26,23-03-27,A1150,148,103,,,
+1.4.11,1.4,A1160,"Generator 15 kVA — enquiry, order and delivery",60,19-11-26,29-01-27,A1020,195,20,,Project Manager,
+1.4.12,1.4,A1165,"Armoured vision panels, 8 No. — enquiry, order and delivery",80,19-11-26,22-02-27,A1020,173,0,,Project Manager,sentry post first storey; specification is [N]
+1.4.13,1.4,A1170,Submersible pumps and drainage plant — order and delivery,45,19-11-26,11-01-27,A1020,214,172,,Project Manager,
+1.4.14,1.4,A1172,"Reinforcement Fe500D — order, mill certificates and delivery",30,19-11-26,23-12-26,A1020,47,47,,Project Manager,77.3 t including 5 % wastage
+1.4.15,1.4,A1174,Waterproofing system — approval of the proprietary system and order,30,19-11-26,23-12-26,A1020,39,39,,Project Manager,FN1 leaves the product deliberately open
+1.4.16,1.4,A1176,"Modular bricks to IS 1077 — source approval, testing and order",20,19-11-26,11-12-26,A1020,198,60,,Project Manager,SENTRY POST BRICK MASONRY — design change SP-B1
+1.4.17,1.4,A1175,MILESTONE: All long-lead protective items ordered,0,23-02-27,23-02-27,"A1115,A1130,A1140,A1150,A1160,A1165,A1172,A1174,A1176",230,230,,,M-03
+2,2,,SITE PREPARATION AND EARTHWORKS,140,26-11-26,11-05-27,,,,,,SUMMARY
+2.1,2.1,,Site clearance and stripping,11,26-11-26,08-12-26,,,,,,SUMMARY
+2.1.1,2.1,A2010,"Site clearance, grubbing and removal of plants and shrubs",4,26-11-26,30-11-26,"A1065,A1105,A1015",8,0,,Excavator;Unskilled gang,
+2.1.2,2.1,A2015,Strip topsoil 150 and stockpile for the concealment layer,3,01-12-26,03-12-26,A2010,8,0,,Excavator;Tipper,93 m3 retained — do not cart away
+2.1.3,2.1,A2020,"Site levelling, temporary haul road and hardstanding",4,04-12-26,08-12-26,A2015,8,0,,Excavator;Dozer/grader;Vibratory roller,
+2.2,2.2,,Temporary works and excavation protection,17,09-12-26,29-12-26,,,,,,SUMMARY
+2.2.1,2.2,A2025,Design and approval of excavation support and slope treatment,10,11-12-26,22-12-26,A1090,0,0,YES,Site Engineer (Civil),soil zone above rockhead only
+2.2.2,2.2,A2030,Surface water cut-off drains and interceptor around the excavation,4,09-12-26,12-12-26,A2020,8,8,,Unskilled gang,keeps run-off out of a 6.8 m deep cut
+2.2.3,2.2,A2035,"Excavation edge protection, barriers, signage and access ladders",3,26-12-26,29-12-26,A2040SS+2,30,30,,Unskilled gang;Safety Officer,IS 3764
+2.3,2.3,,Bulk excavation — main shelter,27,23-12-26,23-01-27,,,,,,SUMMARY
+2.3.1,2.3,A2040,Excavation in soil and weathered overburden to rockhead,4,23-12-26,28-12-26,"A2030,A2025",0,0,YES,Excavator;Tipper,344 m3 at mean rockhead (-)1.750
+2.3.2,2.3,A2045,"Rock excavation by hydraulic breaker, (-)1.750 to (-)4.000",9,29-12-26,07-01-27,A2040,0,0,YES,Excavator;Rock breaker;Tipper,NO BLASTING — sentry post and existing works within influence
+2.3.3,2.3,A2050,"Rock excavation by hydraulic breaker, (-)4.000 to (-)6.800",11,08-01-27,20-01-27,A2045,0,0,YES,Excavator;Rock breaker;Tipper,994 m3 total rock at 60 m3/day
+2.3.4,2.3,A2055,Excavation for the covered entry stairwell approach,5,14-01-27,19-01-27,A2050SS+5,160,134,,Excavator;Tipper,
+2.3.5,2.3,A2060,"Excavation in rock for the sump pit, to (-)8.100",3,21-01-27,23-01-27,A2050,0,0,YES,Excavator;Rock breaker,
+2.4,2.4,,Dewatering,113,29-12-26,11-05-27,,,,,,SUMMARY
+2.4.1,2.4,A2065,Install and commission the construction dewatering system,3,29-12-26,31-12-26,A2040,73,0,,Dewatering pumps;Plumber gang,
+2.4.2,2.4,A2070,Dewatering — continuous through the substructure works,110,01-01-27,11-05-27,A2065,73,69,,Dewatering pumps,"level-of-effort activity; large float is correct, it is not a real slack"
+2.5,2.5,,Formation preparation and approval,11,25-01-27,06-02-27,,,,,,SUMMARY
+2.5.1,2.5,A2075,"Trim, dress and clean the formation; remove loose rock",4,25-01-27,29-01-27,"A2050,A2060",0,0,YES,Unskilled gang;Excavator,
+2.5.2,2.5,A2080,Inspect for red-bole and vesicular seams; over-excavate and replace with M15,4,30-01-27,03-02-27,A2075,0,0,YES,Site Engineer (Civil);Concrete gang,master A.6 — a single red-bole seam sizes the mat
+2.5.3,2.5,A2085,HOLD POINT: formation inspection and approval by the Engineer,2,04-02-27,05-02-27,"A2080,A2035",0,0,YES,QA/QC Engineer,H-01
+2.5.4,2.5,A2090,"MILESTONE: excavation complete, formation approved",0,06-02-27,06-02-27,A2085,0,0,YES,,M-04
+3,3,,MAIN UNDERGROUND SHELTER — SUBSTRUCTURE,92,06-02-27,25-05-27,,,,,,SUMMARY
+3.1,3.1,,"Blinding and external tanking, horizontal",11,06-02-27,18-02-27,,,,,,SUMMARY
+3.1.1,3.1,A3010,Blinding PCC M15 100 thk under the mat,3,06-02-27,09-02-27,A2090,0,0,YES,Concrete gang,14.2 m3
+3.1.2,3.1,A3015,Blinding PCC M15 to the sump pit,1,06-02-27,06-02-27,A2090,2,2,,Concrete gang,
+3.1.3,3.1,A3020,"External tanking WP-01 — horizontal, on the blinding",5,10-02-27,15-02-27,"A3010,A3015,A1174",0,0,YES,Waterproofing gang,the tank must be continuous
+3.1.4,3.1,A3025,Protection layer to the horizontal tanking,2,16-02-27,17-02-27,A3020,0,0,YES,Waterproofing gang,
+3.1.5,3.1,A3030,HOLD POINT: tanking integrity inspection before covering,1,18-02-27,18-02-27,A3025,0,0,YES,QA/QC Engineer,H-02
+3.2,3.2,,Mat foundation and sump pit,34,19-02-27,30-03-27,,,,,,SUMMARY
+3.2.1,3.2,A3035,Sump pit SU-01 — formwork and reinforcement below the mat,4,19-02-27,23-02-27,A3030,13,13,,Bar bender gang;Carpenter gang,
+3.2.2,3.2,A3040,Mat reinforcement — bottom curtain T16 @ 150 each way,4,19-02-27,23-02-27,"A3030,A1172",0,0,YES,Bar bender gang,14.67 t in the mat group
+3.2.3,3.2,A3045,"Wall starter bars, 900 leg into the mat; kickers set out",3,24-02-27,26-02-27,A3040,0,0,YES,Bar bender gang;Surveyor,lap 800 = 50 phi above a 150 kicker
+3.2.4,3.2,A3050,"Mat links T12 @ 250 x 250 grid, chairs and spacers",3,27-02-27,02-03-27,A3045,0,0,YES,Bar bender gang,
+3.2.5,3.2,A3055,Mat reinforcement — top curtain T16 @ 150 each way,4,03-03-27,06-03-27,A3050,0,0,YES,Bar bender gang,
+3.2.6,3.2,A3060,Mat edge formwork and U-bars; waterstops at the kicker,3,08-03-27,10-03-27,A3055,0,0,YES,Carpenter gang;Bar bender gang,
+3.2.7,3.2,A3065,"Cast-in items — drainage BW-01, sleeves, earth pits, EMP straps",3,08-03-27,10-03-27,A3055,0,0,YES,Plumber gang;Electrician gang,
+3.2.8,3.2,A3070,"HOLD POINT: mat reinforcement, cover and cast-in inspection",1,11-03-27,11-03-27,"A3060,A3065,A3035",0,0,YES,QA/QC Engineer;Structural Consultant,H-03
+3.2.9,3.2,A3075,Concrete mat 600 M35 and sump pit — single continuous pour,2,12-03-27,13-03-27,A3070,0,0,YES,Concrete gang;Concrete pump;Transit mixer,81.8 + 3.7 m3
+3.2.10,3.2,A3080,Curing of the mat — 14 days continuous,14,15-03-27,30-03-27,A3075,1,1,,Unskilled gang,IS 456 Cl. 13.5; mass section
+3.2.11,3.2,A3085,MILESTONE: mat foundation cast,0,15-03-27,15-03-27,A3075,213,213,,,M-05
+3.3,3.3,,"Perimeter walls W1–W4 and protective walls W5, W6, W7",41,18-03-27,05-05-27,,,,,,SUMMARY
+3.3.1,3.3,A3090,"Wall reinforcement W1–W4 — both curtains T16 @ 150 each face, each way",12,18-03-27,31-03-27,A3075+3,0,0,YES,Bar bender gang,24.7 t in the wall group; 150 spacing is EMP-driven
+3.3.2,3.3,A3095,"Wall reinforcement W5, W6, W7 incl. blast door jambs and header",6,25-03-27,31-03-27,A3090SS+6,0,0,YES,Bar bender gang,4-T20 each jamb each face; header 400 x 1100
+3.3.3,3.3,A3100,"Haunch reinforcement 500 x 500, diagonal T20 @ 150, wall/mat junction",3,20-03-27,23-03-27,A3090SS+2,7,7,,Bar bender gang,
+3.3.4,3.3,A3105,Set and align the BLAST DOOR FRAMES in W6 and W7; weld to the cage,4,01-04-27,05-04-27,"A3095,A1120",2,2,,Welding set;Site Engineer (Civil),EMP continuity — the frame is welded to the cage
+3.3.5,3.3,A3110,"Concealed conduits, sleeves and penetrations cast into the walls",5,01-04-27,06-04-27,A3095,1,1,,Electrician gang;Plumber gang,
+3.3.6,3.3,A3115,"Wall formwork — lift 1, (-)6.100 to (-)4.500",6,01-04-27,07-04-27,"A3095,A3100,A3080",0,0,YES,Carpenter gang,
+3.3.7,3.3,A3120,"HOLD POINT: wall reinforcement, frames and cover inspection — lift 1",1,08-04-27,08-04-27,"A3115,A3105,A3110,A9010",0,0,YES,QA/QC Engineer;Structural Consultant,H-04
+3.3.8,3.3,A3125,"Concrete walls — lift 1, M35",2,09-04-27,10-04-27,A3120,0,0,YES,Concrete gang;Concrete pump;Transit mixer,
+3.3.9,3.3,A3130,Curing lift 1; strike vertical formwork after 24 h minimum,7,12-04-27,19-04-27,A3125,0,0,YES,Unskilled gang;Carpenter gang,IS 456 Table 11
+3.3.10,3.3,A3135,"Wall formwork — lift 2, (-)4.500 to (-)2.900",6,15-04-27,21-04-27,A3130-4,0,0,YES,Carpenter gang,
+3.3.11,3.3,A3140,HOLD POINT: wall reinforcement and cover inspection — lift 2,1,22-04-27,22-04-27,"A3135,A3155",0,0,YES,QA/QC Engineer,H-05
+3.3.12,3.3,A3145,"Concrete walls — lift 2, M35",2,23-04-27,24-04-27,A3140,0,0,YES,Concrete gang;Concrete pump;Transit mixer,
+3.3.13,3.3,A3150,Curing lift 2 and strike wall formwork,7,26-04-27,04-05-27,A3145,0,0,YES,Unskilled gang;Carpenter gang,
+3.3.14,3.3,A3155,Construction joint preparation — two waterstops and welded EMP strap,3,12-04-27,14-04-27,A3125,6,6,,Waterproofing gang;Welding set,joints at ~6 m; reinforcement fully continuous
+3.3.15,3.3,A3160,MILESTONE: perimeter and protective walls complete,0,05-05-27,05-05-27,A3150,170,170,,,M-06
+3.4,3.4,,Main staircase — lower flights (FROZEN geometry),18,05-05-27,25-05-27,,,,,,SUMMARY
+3.4.1,3.4,A3165,"Main staircase — formwork to flights 1 and 2 and landings L1, L2",5,05-05-27,10-05-27,A3150,113,0,,Carpenter gang,"FROZEN: 24R @ 170.8333, tread 280, 3 flights x 8"
+3.4.2,3.4,A3170,"Main staircase — reinforcement, flights T12 @ 150, landings T12 @ 125",4,11-05-27,14-05-27,A3165,113,0,,Bar bender gang,
+3.4.3,3.4,A3175,"Main staircase — concrete flights 1 and 2 and landings, M35",2,15-05-27,17-05-27,A3170,113,0,,Concrete gang,
+3.4.4,3.4,A3180,"Main staircase — curing and strike, lower flights",7,18-05-27,25-05-27,A3175,113,47,,Unskilled gang;Carpenter gang,"gives permanent access into the excavation, removing a temporary stair"
+4,4,,MAIN UNDERGROUND SHELTER — PRESSURE SLAB,98,05-05-27,26-08-27,,,,,,SUMMARY
+4.1,4.1,,Falsework and formwork,12,05-05-27,18-05-27,,,,,,SUMMARY
+4.1.1,4.1,A4010,"Falsework and soffit deck to the pressure slab, 3.200 m height",8,05-05-27,13-05-27,A3150,0,0,YES,Carpenter gang;Scaffolding,104 m2 of deck; IS 14687
+4.1.2,4.1,A4015,"Edge formwork, stair void and escape shaft box-outs",4,14-05-27,18-05-27,A4010,0,0,YES,Carpenter gang,
+4.2,4.2,,"Reinforcement, openings and cast-in items",30,19-05-27,22-06-27,,,,,,SUMMARY
+4.2.1,4.2,A4020,Pressure slab — bottom curtain T25 @ 150 each way,6,19-05-27,25-05-27,A4015,0,0,YES,Bar bender gang,20.5 t in the roof group; THE governing element
+4.2.2,4.2,A4025,Opening trimmers — stair void 6-T25 top and bottom; re-entrant corners 4-T25 at 45 degrees,4,26-05-27,29-05-27,A4020,0,0,YES,Bar bender gang,UFC 3-340-02 §4-27
+4.2.3,4.2,A4030,Escape shaft collar trimmers 5-T25 each side/face/direction; hoops and radials,4,31-05-27,03-06-27,A4025,0,0,YES,Bar bender gang,
+4.2.4,4.2,A4035,Local thickenings 900 to 1200 at the shafts and the void free edge,3,01-06-27,03-06-27,A4030SS+1,16,16,,Carpenter gang;Bar bender gang,3.3 m3 extra concrete
+4.2.5,4.2,A4040,Band beneath headhouse wall HW3 — 4-T25 extra top and bottom in a 1200 band,2,31-05-27,01-06-27,A4025,18,18,,Bar bender gang,HW3 has no wall below it
+4.2.6,4.2,A4045,Links T12 4-leg @ 250 in the end 1500; 2-leg @ 300 mid,5,04-06-27,09-06-27,A4030,0,0,YES,Bar bender gang,IS 4991 Cl. 10.3.1.1 — no dynamic increase on shear
+4.2.7,4.2,A4050,Pressure slab — top curtain T25 @ 150 each way,6,10-06-27,16-06-27,A4045,0,0,YES,Bar bender gang,
+4.2.8,4.2,A4055,"Wall/roof haunches 500 x 500, diagonal T20 @ 150",3,12-06-27,15-06-27,A4050SS+2,6,6,,Bar bender gang,
+4.2.9,4.2,A4060,"Cast-in — blast valve sleeves, duct and pipe penetrations, EMP straps",5,17-06-27,22-06-27,A4050,0,0,YES,Plumber gang;Electrician gang;Welding set,
+4.2.10,4.2,A4065,Escape shaft collar starter bars,2,17-06-27,18-06-27,A4050,3,3,,Bar bender gang,
+4.2.11,4.2,A4067,Concealed electrical conduits and boxes cast into the slab,4,07-06-27,10-06-27,A4045SS+2,10,10,,Electrician gang,
+4.3,4.3,,"Concrete, curing and striking",26,23-06-27,22-07-27,,,,,,SUMMARY
+4.3.1,4.3,A4070,"HOLD POINT: pressure slab pre-pour inspection — reinforcement, cover, cast-ins",2,23-06-27,24-06-27,"A4055,A4060,A4065,A4035,A4040,A4067",0,0,YES,QA/QC Engineer;Structural Consultant,H-06
+4.3.2,4.3,A4075,"Concrete pressure slab 900 M35 — single continuous pour, 112 m3",2,25-06-27,26-06-27,A4070,0,0,YES,Concrete gang;Concrete pump;Transit mixer,continuous pour preferred inside the protective envelope
+4.3.3,4.3,A4080,Curing of the pressure slab — 14 days continuous,14,28-06-27,13-07-27,A4075,0,0,YES,Unskilled gang,
+4.3.4,4.3,A4085,MILESTONE: pressure slab cast — the key structural milestone,0,28-06-27,28-06-27,A4075,26,0,,,M-07
+4.3.5,4.3,A4090,Strike soffit formwork and props — props to remain 14 days,5,14-07-27,19-07-27,A4080,0,0,YES,Carpenter gang,IS 456 Table 11: slab spanning over 4.5 m
+4.3.6,4.3,A4095,"Make good, hack and prepare the soffit",3,20-07-27,22-07-27,A4090,0,0,YES,Unskilled gang,
+4.4,4.4,,Main staircase — upper flight and guarding,33,20-07-27,26-08-27,,,,,,SUMMARY
+4.4.1,4.4,A4110,Main staircase — flight 3 to the top of the pressure slab (-)2.000,6,20-07-27,26-07-27,"A4090,A3180",66,23,,Carpenter gang;Bar bender gang;Concrete gang,
+4.4.2,4.4,A4115,Main staircase — handrails and guarding 1100 high,4,23-08-27,26-08-27,"A4110,A12035",43,43,,Welding set;Unskilled gang,NBC 2016 Part 4
+4.5,4.5,,Internal partitions W8,6,20-07-27,26-07-27,,,,,,SUMMARY
+4.5.1,4.5,A4100,"Internal partitions W8, 4 No., 110 thk with A252 mesh both faces",6,20-07-27,26-07-27,A4090,7,0,,Carpenter gang;Bar bender gang;Concrete gang,non-structural; 900 door gap at Y 2500–3400
+5,5,,"ENTRY STRUCTURES, ESCAPE SHAFTS AND DOORS",69,28-06-27,15-09-27,,,,,,SUMMARY
+5.1,5.1,,Entry headhouse,48,20-07-27,13-09-27,,,,,,SUMMARY
+5.1.1,5.1,A5010,"Headhouse — wall starters, kicker and setting out on the pressure slab",3,20-07-27,22-07-27,A4090,13,0,,Bar bender gang;Surveyor,
+5.1.2,5.1,A5015,"Headhouse wall reinforcement HW1–HW4, T16 @ 150 EF EW, T12 4L @ 250",6,23-07-27,29-07-27,A5010,13,0,,Bar bender gang,walls designed for 383 kPa either face — C10
+5.1.3,5.1,A5020,Inner security door frame in HW2 — cast in and welded to the cage,2,30-07-27,31-07-27,A5015,13,0,,Welding set,"not blast rated, but EMP-continuous"
+5.1.4,5.1,A5025,Headhouse wall formwork,5,02-08-27,06-08-27,"A5015,A5020",13,0,,Carpenter gang,
+5.1.5,5.1,A5030,HOLD POINT: headhouse wall inspection,1,07-08-27,07-08-27,A5025,13,0,,QA/QC Engineer,H-07
+5.1.6,5.1,A5035,Concrete headhouse walls 400 M35,1,09-08-27,09-08-27,A5030,13,0,,Concrete gang;Concrete pump,
+5.1.7,5.1,A5040,Curing and strike — headhouse walls,5,10-08-27,14-08-27,A5035,13,0,,Unskilled gang;Carpenter gang,
+5.1.8,5.1,A5045,Headhouse roof falsework and formwork,4,16-08-27,19-08-27,A5040,13,0,,Carpenter gang;Scaffolding,
+5.1.9,5.1,A5050,Headhouse roof reinforcement T20 @ 150 EF EW; T12 4L @ 175 / 250,5,20-08-27,25-08-27,A5045,13,0,,Bar bender gang,utilisation 90 % — the most highly worked element
+5.1.10,5.1,A5055,HOLD POINT: headhouse roof inspection,1,26-08-27,26-08-27,A5050,13,0,,QA/QC Engineer;Structural Consultant,H-08
+5.1.11,5.1,A5060,Concrete headhouse roof 500 M35,1,27-08-27,27-08-27,A5055,13,0,,Concrete gang;Concrete pump,
+5.1.12,5.1,A5065,Curing 14 days and strike — headhouse roof,14,28-08-27,13-09-27,A5060,13,0,,Unskilled gang;Carpenter gang,
+5.2,5.2,,Covered entry stairwell,40,28-06-27,12-08-27,,,,,,SUMMARY
+5.2.1,5.2,A5070,Compacted fill and blinding to the stepped raft,4,28-06-27,01-07-27,"A2055,A4085",26,0,,Unskilled gang;Plate compactor;Concrete gang,
+5.2.2,5.2,A5075,Stepped raft 300 — reinforcement and concrete; movement joint at the headhouse,5,02-07-27,07-07-27,A5070,26,0,,Bar bender gang;Carpenter gang;Concrete gang,the ONLY movement joint — outside the protective envelope
+5.2.3,5.2,A5080,Stairwell side walls and headwall — reinforcement and formwork,6,08-07-27,14-07-27,A5075,26,0,,Bar bender gang;Carpenter gang,
+5.2.4,5.2,A5085,Concrete stairwell walls 250 M35,1,15-07-27,15-07-27,A5080,26,0,,Concrete gang;Concrete pump,
+5.2.5,5.2,A5090,"Entry flight 12R @ 166.667/300, waist 250; top landing and platform",6,20-07-27,26-07-27,A5085+3,26,0,,Carpenter gang;Bar bender gang;Concrete gang,
+5.2.6,5.2,A5095,Opening-corner U-bars at the head of the flight — bars crossed,1,20-07-27,20-07-27,A5090SS,31,5,,Bar bender gang,SP 34 Cl. 5.5
+5.2.7,5.2,A5100,Entry door lintel 250 x 350 and headwall opening,2,27-07-27,28-07-27,A5090,66,11,,Bar bender gang;Concrete gang,
+5.2.8,5.2,A5105,"Stairwell raking roof 250 — falsework, reinforcement and concrete",6,27-07-27,02-08-27,"A5090,A5095",26,0,,Carpenter gang;Bar bender gang;Concrete gang,
+5.2.9,5.2,A5110,Curing and strike — covered entry stairwell,7,03-08-27,10-08-27,A5105,26,0,,Unskilled gang;Carpenter gang,
+5.2.10,5.2,A5115,Threshold channel 300 and grating at X 8950–9250,2,11-08-27,12-08-27,A5110,39,0,,Concrete gang;Unskilled gang,
+5.3,5.3,,Escape shafts ESC 1 and ESC 2,14,20-07-27,04-08-27,,,,,,SUMMARY
+5.3.1,5.3,A5120,"ESC 1 collar 250 RC — reinforcement, formwork and concrete to +0.150",5,20-07-27,24-07-27,A4090,60,0,,Bar bender gang;Carpenter gang;Concrete gang,
+5.3.2,5.3,A5125,"ESC 2 collar 250 RC — reinforcement, formwork and concrete to +0.700",5,26-07-27,30-07-27,A5120,60,0,,Bar bender gang;Carpenter gang;Concrete gang,
+5.3.3,5.3,A5130,"Escape shaft covers, ladders and closure devices",4,31-07-27,04-08-27,A5125,60,0,,Welding set;Unskilled gang,
+5.4,5.4,,"Blast doors, security door and external door",50,20-07-27,15-09-27,,,,,,SUMMARY
+5.4.1,5.4,A5135,Install BLAST DOOR 1 in W6; align and test the seal,4,20-07-27,23-07-27,"A1122,A4090",51,0,,Crane;Site Engineer (Civil);Welding set,
+5.4.2,5.4,A5140,Install BLAST DOOR 2 in W7; align and test the seal,4,24-07-27,28-07-27,A5135,51,44,,Crane;Site Engineer (Civil);Welding set,
+5.4.3,5.4,A5145,Inner security door 900 x 2100 in HW2,2,14-09-27,15-09-27,A5065,26,26,,Unskilled gang,
+5.4.4,5.4,A5150,External entry door 1000 x 2100 in the stairwell headwall,2,11-08-27,12-08-27,"A5110,A5100",55,55,,Unskilled gang,opens outward; 50 weather bar
+6,6,,WATERPROOFING,117,05-05-27,17-09-27,,,,,,SUMMARY
+6.1,6.1,,"External tanking, vertical",17,05-05-27,24-05-27,,,,,,SUMMARY
+6.1.1,6.1,A6010,Prepare and repair the external wall faces; fillets at the mat junction,4,05-05-27,08-05-27,A3150,52,0,,Waterproofing gang,
+6.1.2,6.1,A6015,"External tanking WP-01 — vertical to the wall faces, lapped to the horizontal",8,10-05-27,18-05-27,"A6010,A1174",52,0,,Waterproofing gang,265 m2
+6.1.3,6.1,A6020,Protection board or screed to the vertical tanking,4,19-05-27,22-05-27,A6015,52,0,,Waterproofing gang,
+6.1.4,6.1,A6025,HOLD POINT: vertical tanking inspection before backfilling,1,24-05-27,24-05-27,A6020,52,48,,QA/QC Engineer,H-09 — the last chance to see it
+6.2,6.2,,Roof waterproofing and protection,11,23-07-27,04-08-27,,,,,,SUMMARY
+6.2.1,6.2,A6030,Roof waterproofing WP-01 over the pressure slab; dress into openings,6,23-07-27,29-07-27,A4095,0,0,YES,Waterproofing gang,122 m2 net
+6.2.2,6.2,A6035,Protection screed 100 over the roof membrane — cover layer 1,4,30-07-27,03-08-27,A6030,0,0,YES,Concrete gang,10.3 m3; also the first layer of the cover
+6.2.3,6.2,A6040,HOLD POINT: roof membrane integrity test before covering,1,04-08-27,04-08-27,A6035,0,0,YES,QA/QC Engineer,H-10
+6.3,6.3,,Above-ground roofs,38,05-08-27,17-09-27,,,,,,SUMMARY
+6.3.1,6.3,A6045,Headhouse and stairwell roof waterproofing WP-06 and protection,4,14-09-27,17-09-27,"A5065,A5110",19,0,,Waterproofing gang,
+6.3.2,6.3,A6055,MILESTONE: buried envelope watertight — tanking complete,0,05-08-27,05-08-27,"A6025,A6040",91,91,,,M-08
+7,7,,"BACKFILL, ENGINEERED COVER AND OVERBURDEN",198,21-01-27,10-09-27,,,,,,SUMMARY
+7.1,7.1,,Side backfill,10,20-07-27,30-07-27,,,,,,SUMMARY
+7.1.1,7.1,A7010,Side backfill in selected fill — 250 layers compacted to 95 % MDD,10,20-07-27,30-07-27,"A6025,A4090,A2070FF",4,0,,Excavator;Plate compactor;Vibratory roller;Unskilled gang,290 m3; never backfill against an unpropped wall before the roof is on
+7.1.2,7.1,A7015,In-situ density testing of the side backfill,3,23-07-27,26-07-27,A7010SS+3,8,8,,QA/QC Engineer,IS 2720 (Part 28)
+7.2,7.2,,"Engineered cover build-up, 2000 layered",194,21-01-27,06-09-27,,,,,,SUMMARY
+7.2.1,7.2,A7020,Crush excavated basalt on site to 25–75 mm and stockpile,8,21-01-27,30-01-27,A2050,163,163,,Excavator;Rock breaker,wins the 51 m3 rubble layer from the cut
+7.2.2,7.2,A7025,Compacted engineered fill 750 at 95 % MDD over the roof,5,05-08-27,10-08-27,"A6040,A7010,A7015",0,0,YES,Excavator;Plate compactor;Unskilled gang,77 m3 — radiation mass
+7.2.3,7.2,A7030,Crushed basalt rubble layer 500,4,11-08-27,14-08-27,"A7025,A7020",0,0,YES,Excavator;Unskilled gang,scatters burster energy
+7.2.4,7.2,A7050,Granular filter layer 150,2,31-08-27,01-09-27,A7045,0,0,YES,Unskilled gang,stops fines clogging
+7.2.5,7.2,A7055,Topsoil 300 and turfing — the concealment layer,4,02-09-27,06-09-27,A7050,0,0,YES,Excavator;Unskilled gang,uses the stripped topsoil from A2015
+7.3,7.3,,Burster slab M30,13,16-08-27,30-08-27,,,,,,SUMMARY
+7.3.1,7.3,A7035,Burster slab M30 200 thk — formwork and reinforcement T12 @ 150 B/W,5,16-08-27,20-08-27,A7030,0,0,YES,Carpenter gang;Bar bender gang,1.22 t of T12
+7.3.2,7.3,A7040,Concrete burster slab M30,1,21-08-27,21-08-27,A7035,0,0,YES,Concrete gang;Concrete pump,20.6 m3
+7.3.3,7.3,A7045,Curing of the burster slab,7,23-08-27,30-08-27,A7040,0,0,YES,Unskilled gang,
+7.4,7.4,,Verification of the cover,4,07-09-27,10-09-27,,,,,,SUMMARY
+7.4.1,7.4,A7060,Compaction test records and verification of the cover build-up,3,07-09-27,09-09-27,A7055,0,0,YES,QA/QC Engineer;Site Engineer (Civil),must reproduce the 2000 / 40.65 kPa build-up of master A.7.3
+7.4.2,7.4,A7065,MILESTONE: overburden complete — the structure is buried,0,10-09-27,10-09-27,A7060,0,0,YES,,M-09
+8,8,,SENTRY POST,120,21-01-27,11-06-27,,,,,,SUMMARY
+8.1,8.1,,"Setting out, excavation and footings F1",18,21-01-27,11-02-27,,,,,,SUMMARY
+8.1.1,8.1,A8010,"Sentry post setting out — grids A–B and 1–2, level control",2,21-01-27,22-01-27,"A1105,A1065,A2050",102,0,,Surveyor,3650 x 4650 c/c; at least 10 m clear
+8.1.2,8.1,A8015,"Excavation for footings F1, 4 No., to (-)2.100",4,23-01-27,28-01-27,A8010,102,0,,Excavator;Rock breaker,37 m3
+8.1.3,8.1,A8020,HOLD POINT: founding stratum inspection — in-situ basalt at (-)2.000,1,29-01-27,29-01-27,A8015,102,0,,QA/QC Engineer;Site Engineer (Civil),H-11
+8.1.4,8.1,A8025,"Blinding PCC M15 100 under F1, 4 No.",1,30-01-27,30-01-27,A8020,102,0,,Concrete gang,
+8.1.5,8.1,A8030,Footing F1 reinforcement T12 @ 150 both ways; column starters 8-T16,3,01-02-27,03-02-27,A8025,102,0,,Bar bender gang,
+8.1.6,8.1,A8035,HOLD POINT: footing reinforcement and starter inspection,1,04-02-27,04-02-27,A8030,102,0,,QA/QC Engineer,H-12
+8.1.7,8.1,A8040,Concrete footings F1 M30,1,05-02-27,05-02-27,A8035,102,0,,Concrete gang,5.4 m3
+8.1.8,8.1,A8045,Curing and backfill to the footings,5,06-02-27,11-02-27,A8040,102,0,,Unskilled gang;Plate compactor,
+8.2,8.2,,"Frame — columns C1, plinth beam PB",15,12-02-27,01-03-27,,,,,,SUMMARY
+8.2.1,8.2,A8050,"Columns C1 to plinth level — reinforcement, formwork, concrete",5,12-02-27,17-02-27,A8045,102,0,,Bar bender gang;Carpenter gang;Concrete gang,
+8.2.2,8.2,A8055,"Plinth beam PB 250 x 400 at +0.450 — reinforcement, formwork, concrete",4,18-02-27,22-02-27,A8050,102,0,,Bar bender gang;Carpenter gang;Concrete gang,PB carries the ground storey masonry
+8.2.3,8.2,A8060,Filling and compaction under the ground floor to +0.450,3,23-02-27,25-02-27,A8055,172,62,,Unskilled gang;Plate compactor,7.5 m3
+8.2.4,8.2,A8065,"Columns C1 — ground storey, to the first-floor beam soffit",6,23-02-27,01-03-27,A8055,102,0,,Bar bender gang;Carpenter gang;Concrete gang,T10 confining hoops + cross-ties @ 85 over 500 from every joint face
+8.3,8.3,,Frame — first floor beams B1/B2 and slab S1,18,02-03-27,22-03-27,,,,,,SUMMARY
+8.3.1,8.3,A8070,First floor beams B1/B2 and slab S1 150 — falsework and formwork,5,02-03-27,06-03-27,A8065,102,0,,Carpenter gang;Scaffolding,
+8.3.2,8.3,A8075,"First floor beam and slab reinforcement, incl. corner torsion steel",4,08-03-27,11-03-27,A8070,102,0,,Bar bender gang,"T8 @ 200 torsion, four layers, 700 sq at all four corners — IS 456 D-1.8"
+8.3.3,8.3,A8080,HOLD POINT: first floor reinforcement inspection — IS 13920 detailing,1,12-03-27,12-03-27,A8075,102,0,,QA/QC Engineer;Structural Consultant,H-13
+8.3.4,8.3,A8085,Concrete first floor beams and slab M30,1,13-03-27,13-03-27,A8080,102,0,,Concrete gang,
+8.3.5,8.3,A8090,"Curing 7 days; strike sides, props to remain",7,15-03-27,22-03-27,A8085,102,0,,Unskilled gang;Carpenter gang,IS 456 Table 11
+8.4,8.4,,"Frame — roof beams, slab, projection and parapet",25,23-03-27,20-04-27,,,,,,SUMMARY
+8.4.1,8.4,A8095,"Columns C1 — first storey, to the roof beam soffit",6,23-03-27,29-03-27,A8090,102,0,,Bar bender gang;Carpenter gang;Concrete gang,
+8.4.2,8.4,A8100,Roof beams B1/B2 and slab S1 with the 300 projection — formwork and reinforcement,6,30-03-27,05-04-27,A8095,102,0,,Carpenter gang;Bar bender gang;Scaffolding,
+8.4.3,8.4,A8105,HOLD POINT: sentry post roof reinforcement inspection,1,06-04-27,06-04-27,A8100,102,0,,QA/QC Engineer;Structural Consultant,H-14
+8.4.4,8.4,A8110,Concrete sentry post roof M30,1,07-04-27,07-04-27,A8105,102,0,,Concrete gang,
+8.4.5,8.4,A8115,Parapet 300 high over the roof projection,3,12-04-27,14-04-27,A8110+3,186,4,,Bar bender gang;Carpenter gang;Concrete gang,
+8.4.6,8.4,A8120,Curing and strike — sentry post roof,10,08-04-27,19-04-27,A8110,102,0,,Unskilled gang;Carpenter gang,
+8.4.7,8.4,A8125,MILESTONE: sentry post frame complete,0,20-04-27,20-04-27,"A8120,A8115",182,182,,,M-10
+8.5,8.5,,BRICK MASONRY WALLS  (design change SP-B1),39,15-03-27,28-04-27,,,,,,SUMMARY
+8.5.1,8.5,A8130,"Brick delivery, stacking, sampling and testing to IS 3495",4,15-03-27,18-03-27,"A1176,A8085",121,3,,Storekeeper;QA/QC Engineer,"compressive strength, water absorption, efflorescence, warpage"
+8.5.2,8.5,A8135,"BRICK MASONRY WALLS — ground storey, 190 thk in CM 1:6",5,23-03-27,27-03-27,"A8090,A8130",118,0,,Mason gang;Unskilled gang;Scaffolding,DESIGN CHANGE SP-B1: brick masonry replaces the 200 RC ballistic infill
+8.5.3,8.5,A8145,"HOLD POINT: masonry line, level, plumb and joint thickness — ground storey",1,31-03-27,31-03-27,"A8135,A8140",118,16,,QA/QC Engineer,H-15
+8.5.4,8.5,A8150,"BRICK MASONRY WALLS — first storey, 190 thk in CM 1:6",4,20-04-27,23-04-27,"A8120,A8145",102,0,,Mason gang;Unskilled gang;Scaffolding,
+8.5.5,8.5,A8160,HOLD POINT: masonry inspection — first storey,1,27-04-27,27-04-27,"A8150,A8155",102,0,,QA/QC Engineer,H-16
+8.5.6,8.5,A8165,MILESTONE: sentry post brick masonry complete,0,28-04-27,28-04-27,A8160,175,175,,,M-11
+8.6,8.6,,Lintels and openings,25,29-03-27,26-04-27,,,,,,SUMMARY
+8.6.1,8.6,A8140,RC lintels over the D1 and W1 openings — ground storey,2,29-03-27,30-03-27,A8135,118,0,,Bar bender gang;Carpenter gang;Concrete gang,NEW work created by SP-B1; lintel design does not yet exist
+8.6.2,8.6,A8155,RC lintels over the vision panel and door openings — first storey,2,24-04-27,26-04-27,A8150,102,0,,Bar bender gang;Carpenter gang;Concrete gang,
+8.7,8.7,,Spiral stair,6,20-04-27,26-04-27,,,,,,SUMMARY
+8.7.1,8.7,A8170,"External spiral stair 1000 R, 250 dia central pole — fabrication and erection",6,20-04-27,26-04-27,A8120,147,38,,Welding set;Crane;Unskilled gang,
+8.8,8.8,,"Plaster, flooring and finishes",34,04-05-27,11-06-27,,,,,,SUMMARY
+8.8.1,8.8,A8180,"Sentry post internal plaster 12 mm, sand faced, CM 1:4",6,04-05-27,10-05-27,A8175,102,0,,Plasterer gang;Unskilled gang,IS 1661
+8.8.2,8.8,A8185,"Sentry post external plaster 15 mm, two coat, with scaffolding",6,11-05-27,17-05-27,A8180,102,0,,Plasterer gang;Scaffolding,
+8.8.3,8.8,A8190,Sentry post flooring — ground and first floor,4,11-05-27,14-05-27,"A8180,A8060",110,8,,Mason gang,33 m2; specification not in the project
+8.8.4,8.8,A8195,"Door D1 (2 No.), window W1 and armoured vision panel installation",6,18-05-27,24-05-27,"A8185,A1165",102,0,,Unskilled gang;Welding set,
+8.8.5,8.8,A8205,Sentry post painting — internal and external,6,01-06-27,07-06-27,A8200,102,0,,Painter gang;Scaffolding,IS 2395 (Part 1)
+8.8.6,8.8,A8210,Sentry post testing and snagging,3,08-06-27,10-06-27,A8205,109,0,,QA/QC Engineer;Electrician gang,
+8.8.7,8.8,A8215,MILESTONE: sentry post complete,0,11-06-27,11-06-27,"A8210,A8170",109,109,,,M-12
+8.9,8.9,,Electrical installation,28,28-04-27,31-05-27,,,,,,SUMMARY
+8.9.1,8.9,A8175,Sentry post electrical — conduits and boxes chased into the masonry,4,28-04-27,03-05-27,A8160,102,0,,Electrician gang,"chases cut, not hammered — masonry rule"
+8.9.2,8.9,A8200,"Sentry post electrical — wiring, distribution board, fittings, earthing",6,25-05-27,31-05-27,"A8190,A8195",102,0,,Electrician gang,
+9,9,,"MECHANICAL, CBRN AND HVAC SERVICES",136,20-03-27,26-08-27,,,,,,SUMMARY
+9.1,9.1,,"Builder's work, sleeves and penetrations",6,20-03-27,26-03-27,,,,,,SUMMARY
+9.1.1,9.1,A9010,"Builder's work — sleeves, ducts and penetrations coordinated with the RC",6,20-03-27,26-03-27,A3090SS+2,10,10,,HVAC fitter;Site Engineer (Services),
+9.2,9.2,,"Shafts, ductwork and blast valves",46,17-06-27,09-08-27,,,,,,SUMMARY
+9.2.1,9.2,A9015,Install blast valve sleeves in the walls and roof,4,17-06-27,21-06-27,"A1145,A4050",74,37,,HVAC fitter;Welding set,
+9.2.2,9.2,A9020,Fresh-air shaft SH-1 600 x 600 and gooseneck head at +1.500,5,20-07-27,24-07-27,A4090,45,8,,HVAC fitter;Concrete gang,12.3 m from the intake to the entry
+9.2.3,9.2,A9025,Generator air shaft SH-2 600 x 600,4,20-07-27,23-07-27,A4090,46,0,,HVAC fitter;Concrete gang,
+9.2.4,9.2,A9030,"Ductwork installation, bays 1–6 — every run inspectable along its length",10,23-07-27,03-08-27,A4095,17,0,,HVAC fitter,no suspended ceiling anywhere — FN1 C-01
+9.2.5,9.2,A9035,Install blast valves BV-1 to BV-5,5,04-08-27,09-08-27,"A9015,A9030,A9020",37,14,,HVAC fitter,
+9.3,9.3,,CBRN plant and generator,29,24-07-27,26-08-27,,,,,,SUMMARY
+9.3.1,9.3,A9040,Install CBRN filter trains AHU-1 and AHU-2 in bay 5,8,04-08-27,12-08-27,"A1135,A9030",17,0,,HVAC fitter;Crane,true N+1 — either train carries the whole duty
+9.3.2,9.3,A9045,"Install CO2 scrubber, oxygen store and dehumidifier",5,13-08-27,18-08-27,A9040,17,0,,HVAC fitter,"soda lime, not oxygen, limits closed mode"
+9.3.3,9.3,A9050,Install generator GEN-1 15 kVA in bay 8 on a bunded plinth,5,24-07-27,29-07-27,"A1160,A9025",46,12,,HVAC fitter;Crane;Electrician gang,
+9.3.4,9.3,A9055,"HVAC terminal devices, dampers and controls",6,19-08-27,25-08-27,A9045,17,0,,HVAC fitter,
+9.3.5,9.3,A9060,MILESTONE: CBRN plant installed,0,26-08-27,26-08-27,"A9055,A9050,A9035",23,6,,,M-13
+10,10,,DRAINAGE AND SANITARY WORKS,48,23-07-27,16-09-27,,,,,,SUMMARY
+10.1,10.1,,Internal drainage and the clean sump,18,23-07-27,12-08-27,,,,,,SUMMARY
+10.1.1,10.1,A10010,Internal gullies GY-01 to GY-09; floor falls set out,4,23-07-27,27-07-27,A4095,12,0,,Plumber gang;Surveyor,spine falls 1:400 east to the sump
+10.1.2,10.1,A10015,Waste and effluent drains PD-01 and PD-03 — laid and tested,5,28-07-27,02-08-27,A10010,12,0,,Plumber gang,
+10.1.3,10.1,A10020,"Clean sump SU-01 — fit out, pumps PU-01/PU-02 and hand pump PU-03",5,03-08-27,07-08-27,"A1170,A10015",42,0,,Plumber gang;Electrician gang,"duty, standby AND manual"
+10.1.4,10.1,A10025,"Rising main PD-05 — isolation valve, gas-tight NRV, blast check valve and deep-seal trap in series",4,09-08-27,12-08-27,A10020,42,29,,Plumber gang,four devices in series; all inside the envelope
+10.2,10.2,,Segregated decontamination effluent,4,03-08-27,06-08-27,,,,,,SUMMARY
+10.2.1,10.2,A10030,Decontamination effluent segregation — CP-01 and tank TK-01 in bay 8,4,03-08-27,06-08-27,A10015,47,34,,Plumber gang,NEVER connected to the clean sump
+10.3,10.3,,Above-ground and external drainage,41,31-07-27,16-09-27,,,,,,SUMMARY
+10.3.1,10.3,A10035,Stairwell sump SU-02 and pumps PU-04/PU-05,4,11-08-27,14-08-27,"A5110,A1170",40,27,,Plumber gang;Electrician gang,
+10.3.2,10.3,A10040,Headhouse gully GY-11 and trapped connection,2,14-09-27,15-09-27,A5065,13,0,,Plumber gang,trapped gully to an external soakaway
+10.3.3,10.3,A10045,"Threshold channel CH-10, catchpit CP-10 and connections",3,13-08-27,16-08-27,A5115,39,26,,Plumber gang,
+10.3.4,10.3,A10050,"Septic tank ST-01 — excavation, construction and testing",8,31-07-27,09-08-27,"A1085,A7010",33,0,,Mason gang;Concrete gang,IS 2470 (Part 1) Table 1
+10.3.5,10.3,A10055,Soak pits SK-01 and SK-02 — constructed after the percolation test,6,10-08-27,16-08-27,A10050,33,0,,Mason gang;Unskilled gang,"SK-01 is 2.3 % short of its own requirement — conflict C19, UNRESOLVED"
+10.3.6,10.3,A10060,External drainage connections and chambers,6,17-08-27,23-08-27,A10055,33,20,,Plumber gang;Mason gang,several lengths NOT DETERMINABLE — no site plan
+10.3.7,10.3,A10065,MILESTONE: drainage installed,0,16-09-27,16-09-27,"A10060,A10045,A10035,A10025,A10030,A10040",13,0,,,M-14
+11,11,,ELECTRICAL AND EMP WORKS,147,15-03-27,02-09-27,,,,,,SUMMARY
+11.1,11.1,,Concealed containment and earthing,135,15-03-27,19-08-27,,,,,,SUMMARY
+11.1.1,11.1,A11015,"Earth pits, earth electrodes and the buried earth ring",5,15-03-27,19-03-27,A3075,157,124,,Electrician gang;Unskilled gang,IS 3043; 5 ohm target
+11.1.2,11.1,A11020,EMP straps and bonding at every construction joint,8,09-04-27,17-04-27,A3125SS,138,130,,Welding set;Electrician gang,welded Cu/galv strap at every joint — a joint is an EMP discontinuity
+11.1.3,11.1,A11050,"Earthing conductors, bonding and connection to the electrode system",6,13-08-27,19-08-27,"A11015,A11035",33,0,,Electrician gang,
+11.2,11.2,,EMP Zone 2 enclosure and penetration protection,12,23-07-27,05-08-27,,,,,,SUMMARY
+11.2.1,11.2,A11025,"Main cable route, service entry plate and EMP penetration protection",6,23-07-27,29-07-27,A4095,12,0,,Electrician gang;Welding set,"power PCI, waveguide below cutoff, fibre — MIL-STD-188-125-1"
+11.2.2,11.2,A11030,EMP Zone 2 shielded enclosure erection in bay 3 — SPECIALIST,12,23-07-27,05-08-27,"A1155,A4095",45,23,,Specialist subcontractor;Crane,the rebar cage gives 0 dB at 1 GHz; the welded steel room is the answer
+11.3,11.3,,"Distribution, lighting and power",30,30-07-27,02-09-27,,,,,,SUMMARY
+11.3.1,11.3,A11035,"Distribution board, sub-mains and final circuit wiring",12,30-07-27,12-08-27,A11025,12,0,,Electrician gang,IS 732
+11.3.2,11.3,A11040,"Lighting, small power and emergency lighting installation",10,13-08-27,24-08-27,A11035,12,5,,Electrician gang,
+11.3.3,11.3,A11045,"Generator connection, changeover panel and protection",5,13-08-27,18-08-27,"A9050,A11035",34,0,,Electrician gang,
+11.3.4,11.3,A11055,"Power to pumps, fans, filter trains and controls",6,26-08-27,01-09-27,"A11035,A9055",17,0,,Electrician gang,
+11.3.5,11.3,A11060,MILESTONE: electrical installation complete,0,02-09-27,02-09-27,"A11040,A11045,A11050,A11055,A11030",22,0,,,M-15
+12,12,,INTERNAL FINISHES,47,27-07-27,18-09-27,,,,,,SUMMARY
+12.1,12.1,,Substrate preparation and wet-area tanking,11,27-07-27,07-08-27,,,,,,SUMMARY
+12.1.1,12.1,A12010,"Substrate preparation — hack, make good, prepare soffits and walls",6,27-07-27,02-08-27,"A4095,A4100",7,0,,Unskilled gang;Plasterer gang,
+12.1.2,12.1,A12015,"Internal wet-area tanking WP-04 — bays 2, 5 and 6",5,03-08-27,07-08-27,A12010,7,0,,Waterproofing gang,turned up 150 and dressed to every gully and sleeve
+12.2,12.2,,Floor finishes and skirtings,35,09-08-27,17-09-27,,,,,,SUMMARY
+12.2.1,12.2,A12020,"Floor screeds laid to falls, bays 1–8",8,09-08-27,17-08-27,"A10015,A12015",7,0,,Mason gang;Concrete gang,
+12.2.2,12.2,A12025,"Floor finish F-01 — sealed power-floated, bays 1, 3 and 4",6,18-08-27,24-08-27,A12020,7,0,,Mason gang,"decontaminable, joint-free within a room"
+12.2.3,12.2,A12030,"Floor finish F-02 — seamless coved wet-area, bays 2, 5 and 6",5,18-08-27,23-08-27,A12020,8,1,,Mason gang,"NO tiles, NO grout — grout lines fail decontamination"
+12.2.4,12.2,A12035,"Floor finish F-03 — non-slip, stair shaft, treads and landings",4,18-08-27,21-08-27,A12020,43,0,,Mason gang,
+12.2.5,12.2,A12040,"Floor finish F-04 — oil-resistant with a bunded plinth, bay 8",3,18-08-27,20-08-27,A12020,77,24,,Mason gang,
+12.2.6,12.2,A12045,Floor finish F-05 headhouse and F-06 covered entry stairwell,4,14-09-27,17-09-27,"A5065,A5110",53,0,,Mason gang,
+12.2.7,12.2,A12050,"Coved skirtings S-01 / S-02, integral with the floor",5,25-08-27,30-08-27,"A12025,A12030",7,0,,Mason gang,"no separate section, no sealant joint"
+12.3,12.3,,Wall and soffit finishes,16,31-08-27,17-09-27,,,,,,SUMMARY
+12.3.1,12.3,A12055,Wall finishes W-01 / W-02 / W-03 — sealed washable coatings,10,31-08-27,10-09-27,"A12050,A11040",7,0,,Painter gang,"applied direct to concrete; no cavity, no lining"
+12.3.2,12.3,A12060,"Soffit finishes C-01 / C-02 — exposed RC, sealed",6,11-09-27,17-09-27,A12055,7,0,,Painter gang,no suspended ceiling and no boxing-in anywhere
+12.4,12.4,,Internal doors,7,11-09-27,18-09-27,,,,,,SUMMARY
+12.4.1,12.4,A12065,Internal doors D-04 in the W8 partitions; gas-tight door D-05 in W5,4,11-09-27,15-09-27,A12055,55,2,,Unskilled gang,D-05 is UNRESOLVED — no door is scheduled in W5 anywhere in the project
+12.4.2,12.4,A12070,MILESTONE: internal finishes complete,0,18-09-27,18-09-27,"A12060,A12065,A12045,A12035,A12040",53,53,,,M-16
+13,13,,"EXTERNAL WORKS, CONCEALMENT AND RESTORATION",32,10-09-27,18-10-27,,,,,,SUMMARY
+13.1,13.1,,"Berm, regrading and surface water",18,10-09-27,30-09-27,,,,,,SUMMARY
+13.1.1,13.1,A13010,Berm forming and grading 1.5:1 to +0.900 against the headhouse and stairwell,8,10-09-27,18-09-27,"A7065,A5110",0,0,YES,Excavator;Dozer/grader;Vibratory roller,volume NOT DETERMINABLE — no site plan exists
+13.1.2,13.1,A13015,Site regrading — crown and falls 1:50 away from the structure,5,20-09-27,24-09-27,A13010,0,0,YES,Dozer/grader;Vibratory roller,
+13.1.3,13.1,A13020,"Surface water drainage, cut-off drains and outfalls",5,25-09-27,30-09-27,A13015,7,7,,Plumber gang;Unskilled gang,
+13.2,13.2,,Access and hardstanding,12,25-09-27,09-10-27,,,,,,SUMMARY
+13.2.1,13.2,A13025,"Access route, hardstanding and turning area",8,25-09-27,05-10-27,A13015,0,0,YES,Dozer/grader;Vibratory roller;Unskilled gang,extent not defined in the project
+13.2.2,13.2,A13030,"Sentry post surround, apron and drainage",4,06-10-27,09-10-27,"A8205,A13025",0,0,YES,Mason gang;Unskilled gang,
+13.3,13.3,,Concealment and camouflage,12,25-09-27,09-10-27,,,,,,SUMMARY
+13.3.1,13.3,A13035,Turfing and planting over the cover — the concealment layer,6,25-09-27,01-10-27,A13015,0,0,YES,Unskilled gang,the only concealment element the project confirms
+13.3.2,13.3,A13040,"Camouflage and concealment — spoil dressing, track discipline, screening",6,04-10-27,09-10-27,A13035,0,0,YES,Unskilled gang,no concealment specification exists — scope to be confirmed
+13.4,13.4,,Site restoration,7,11-10-27,18-10-27,,,,,,SUMMARY
+13.4.1,13.4,A13045,"Removal of temporary works, site restoration and clearing",6,11-10-27,16-10-27,"A13040,A13030,A13020",0,0,YES,Excavator;Unskilled gang,
+13.4.2,13.4,A13050,MILESTONE: external works and concealment complete,0,18-10-27,18-10-27,A13045,0,0,YES,,M-17
+14,14,,"TESTING, COMMISSIONING AND HANDOVER",92,05-08-27,20-11-27,,,,,,SUMMARY
+14.1,14.1,,Structural verification,28,23-08-27,23-09-27,,,,,,SUMMARY
+14.1.1,14.1,A14010,"Concrete cube results at 28 days, all pours — review and acceptance",5,23-08-27,27-08-27,A7040,38,0,,QA/QC Engineer,IS 516
+14.1.2,14.1,A14015,Non-destructive testing — ultrasonic pulse velocity and rebound hammer,4,28-08-27,01-09-27,A14010,38,38,,QA/QC Engineer,IS 13311 (Parts 1 and 2)
+14.1.3,14.1,A14020,Dimensional and as-built survey of the completed structure,5,10-09-27,15-09-27,A7065,26,26,,Surveyor,
+14.1.4,14.1,A14025,Watertightness inspection of the completed envelope,5,18-09-27,23-09-27,"A12010,A7065,A6045",19,19,,QA/QC Engineer;Waterproofing gang,
+14.2,14.2,,Services testing,28,20-08-27,21-09-27,,,,,,SUMMARY
+14.2.1,14.2,A14030,"Drainage testing — pipes, gullies, chambers, pump duty and standby",5,16-09-27,21-09-27,A10065,13,6,,Plumber gang;QA/QC Engineer,
+14.2.2,14.2,A14035,"Electrical testing — insulation, continuity, polarity, protection",5,02-09-27,07-09-27,A11060,33,33,,Electrician gang;QA/QC Engineer,IS 732
+14.2.3,14.2,A14040,Earth resistance measurement — 5 ohm target,2,20-08-27,21-08-27,A11050,47,47,,Electrician gang;QA/QC Engineer,IEEE 142 / IS 3043
+14.3,14.3,,Protective-system testing,47,05-08-27,28-09-27,,,,,,SUMMARY
+14.3.1,14.3,A14045,"EMP shielding effectiveness survey — 80 dB, 10 kHz to 1 GHz",8,18-09-27,27-09-27,"A11030,A11060,A12060,A11020",8,1,,Specialist subcontractor;QA/QC Engineer,IEEE Std 299; MIL-STD-188-125-1
+14.3.2,14.3,A14050,Blast doors 1 and 2 — functional and seal testing,4,18-09-27,22-09-27,"A5140,A12060",7,0,,Specialist subcontractor;Site Engineer (Civil),
+14.3.3,14.3,A14055,Escape shaft access and closure functional test,2,05-08-27,06-08-27,A5130,60,60,,Site Engineer (Civil);Safety Officer,
+14.3.4,14.3,A14065,"Gas-tightness and overpressure test of the envelope, bays 1–6",5,23-09-27,28-09-27,"A14060,A14050",7,0,,Specialist subcontractor;QA/QC Engineer,"67.8 m2 floor, 217.0 m3 volume"
+14.4,14.4,,Commissioning,41,19-08-27,06-10-27,,,,,,SUMMARY
+14.4.1,14.4,A14060,HVAC and CBRN filter train commissioning — airflow and overpressure,8,02-09-27,10-09-27,"A9060,A11055",17,10,,Specialist subcontractor;HVAC fitter,
+14.4.2,14.4,A14070,Generator load test and changeover proving,3,19-08-27,21-08-27,A11045,39,32,,Electrician gang;Specialist subcontractor,
+14.4.3,14.4,A14075,Integrated systems commissioning — protective mode operation,6,29-09-27,06-10-27,"A14065,A14060,A14070,A14030,A14045",7,0,,Site Engineer (Services);Specialist subcontractor,
+14.5,14.5,,Completion and handover,39,07-10-27,20-11-27,,,,,,SUMMARY
+14.5.1,14.5,A14080,Snagging inspection and defects list,5,18-10-27,22-10-27,"A14075,A13050,A8215,A14025,A14015,A14035,A14040,A14055,A14020,A4115,A5145,A5150",0,0,YES,QA/QC Engineer;Project Manager,
+14.5.2,14.5,A14085,Rectification of defects,10,23-10-27,03-11-27,A14080,0,0,YES,Unskilled gang;Mason gang;Painter gang,
+14.5.3,14.5,A14090,"As-built drawings, O&M manuals and test certificates",12,07-10-27,20-10-27,A14075,7,0,,Project Manager;Planning Engineer,
+14.5.4,14.5,A14095,"Operator training — CBRN plant, pumps, generator, doors, escape shafts",5,21-10-27,26-10-27,A14090,7,7,,Specialist subcontractor;Site Engineer (Services),
+14.5.5,14.5,A14098,Programme contingency — festival holidays and weather allowance,10,04-11-27,15-11-27,"A14085,A14095",0,0,YES,,the calendar carries no festival holidays; this activity absorbs them
+14.5.6,14.5,A14100,Final inspection and handover documentation,4,16-11-27,19-11-27,A14098,0,0,YES,Project Manager;QA/QC Engineer,
+14.5.7,14.5,A14105,MILESTONE: PRACTICAL COMPLETION AND HANDOVER,0,20-11-27,20-11-27,A14100,0,0,YES,,M-18

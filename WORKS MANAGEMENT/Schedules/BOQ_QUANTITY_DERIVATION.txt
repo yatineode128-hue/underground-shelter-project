@@ -1,0 +1,798 @@
+QUANTITY DERIVATION FOR THE WORKS MANAGEMENT BILL OF QUANTITIES
+Underground CBRN-hardened blast-resistant protective structure + sentry post
+Pune, Maharashtra.  Works Management package revision WM1.
+Geometry: architectural Rev F, structural Phase 2 Rev A + M1.
+
+Evidence classes:  [C] confirmed   [D] derived here   [A] assumed by this
+package   [N] not available from the project record.
+
+ALL DIMENSIONS IN METRES UNLESS STATED.  Origin, axes and levels are those of
+master A.4.1: X east 0-22.000, Y north 0-6.200, levels relative to grade 0.000.
+
+==============================================================================
+0.  INPUTS AND THEIR SOURCES
+==============================================================================
+ 1.  [C]      Box external 22000 x 6200
+     source: master A.4.2 / L
+ 2.  [C]      Box internal 20800 x 5000
+     source: master A.4.2 / L
+ 3.  [C]      Perimeter wall 600, roof 900, mat 600, PCC 100 M15
+     source: master A.4.2
+ 4.  [C]      Internal clear height 3200
+     source: master A.4.2
+ 5.  [C]      Levels: grade 0.000, T/slab -2.000, soffit -2.900, floor -6.100, u/s mat -6.700, formation -6.800
+     source: master A.4.3
+ 6.  [C]      W5 200 @ 12600-12800; W6 400 @ 14800-15200; W7 400 @ 18000-18400
+     source: master A.3
+ 7.  [C]      W8 partitions x4 @ 110, each with a 900 door gap at Y 2500-3400
+     source: master A.3 / F.1
+ 8.  [C]      Stair void 15200-18000 x 600-3760; pad 3760-5600
+     source: master A.4.4
+ 9.  [C]      ESC 1 (2050,2050), ESC 2 (19900,2050); 1400 dia clear, 250 collar, OD 1900
+     source: master A.4.5
+10.  [C]      ESC head levels +0.150 (ESC 1) and +0.700 (ESC 2)
+     source: master QUICK_STATE / A.4.3
+11.  [C]      Roof locally thickened 900->1200 over a 600 annulus at each shaft, and over 600 at the stair-void free edge
+     source: master F.1
+12.  [C]      Headhouse external 13600-18400 x 200-6000; internal 14000-18000 x 600-5600; walls 400; roof 500; soffit +0.400; top +0.900; no earth cover
+     source: master A.4.6
+13.  [C]      Covered entry stairwell external 9250-16050 x 5750-7750; internal 9500-15800 x 6000-7500; walls 250; raft 300; roof 250 raking
+     source: master A.4.7
+14.  [C]      Entry stairwell 12R @ 166.6667, going 300, waist 250; platform 1500 x 1500 at -2.000; top landing 9500-11000 at 0.000
+     source: master A.4.7
+15.  [C]      Main staircase FROZEN: 24R @ 170.8333, tread 280, 3 flights x 8, waist 200, flights 1200 wide, total rise 4100
+     source: master A.4.4; frozen by project instruction
+16.  [C]      Engineered cover 2000 layered = 40.65 kPa, six layers
+     source: master A.7.3
+17.  [C]      Burster slab M30 200 thk, T12 @ 150 B/W, inside the cover
+     source: master A.7.3
+18.  [C]      Sump SU-01 1500 x 1500 x 1500; invert -7.600; base slab -8.000; walls 300 / base 400 (C18 open, 400 held)
+     source: Drainage DR1 sump schedule / master F.1
+19.  [C]      Concrete volumes: mat 81.8, roof net 112.0, perimeter walls 103.7, W6/W7 12.8, W5 3.2, headhouse 32.7, main stair 3.0, entry stairwell 19.9 = 369.2 m3
+     source: Structural CAD SC1, REINFORCEMENT_SUMMARY.md
+20.  [C]      Reinforcement 70.457 t total; T12 20.318 t, T16 23.707 t, T20 10.923 t, T25 15.439 t, T10 0.063 t, T8 0.006 t
+     source: Structural CAD SC1 BBS_MASTER
+21.  [C]      Sentry post external 4000 x 5000, internal 3600 x 4600; grid 3650 x 4650 c/c; C1 350 x 350 x4; B1/B2 250 x 450; S1 150; PB 250 x 400 at +0.450; F1 1500 x 1500 x 600 at -2.000
+     source: master A.4.8 / L
+22.  [C]      Sentry levels +0.450 GF, +3.650 first floor, +6.700 roof, +7.000 parapet
+     source: master A.4.3
+23.  [C]      Sentry roof 300 projection with 300 high parapet over
+     source: Rev F drawing 4 text
+24.  [C]      Sentry openings: D1 900 in the west wall at Y 1000-1900 both floors; W1 1200 in the east wall at Y 1900-3100 (ground); eight armoured vision panels 1200 wide, two per face (first floor)
+     source: Rev F drawings 3 and 4, parsed
+25.  [C]      Sentry infill height 2600 (0.200 x 2.600 x 25 = 13.000 kN/m)
+     source: master A.7.7 / Rev F drawing 6
+26.  [C]      Sentry reinforcement: S1 T8@150 B/W + T8@300 edge + T8@200 torsion 700sq x4 corners; B1 4-T16/2-T16; B2 3-T20/2-T20; hoops T8@100 over 2d / @150; C1 8-T16 with T10 hoops+cross-ties @85 over 500 and T8@150 elsewhere; PB 3-T12+3-T12; F1 T12@150 B/W
+     source: master F.4
+27.  [C]      Sentry cover 30 beams+slabs, 40 columns, 50 footings; M30; Ld 46 phi
+     source: master A.5
+28.  [A] in the master Rockhead -1.500 to -2.000
+     source: master A.6
+29.  [A] in the master Design GWT -2.000 (monsoon)
+     source: master A.6
+
+==============================================================================
+1.  EARTHWORK
+==============================================================================
+
+------------------------------------------------------------------------------
+1.1  Working space and excavation envelope
+------------------------------------------------------------------------------
+Box external footprint                       = 22.000 x 6.200 = 136.40 m2  [C]
+Working space outside the external wall face = 1.000 m each side       [A]
+  Basis: the external wall face carries a formed finish (50 cover, master A.5)
+  and a continuous external tanking membrane WP-01 with a protection layer
+  (Schedule of Finishes FN1).  Both are applied from outside the structure, so
+  the excavation cannot be taken to the wall face.  1.000 m is the minimum
+  practical working width for membrane application and inspection.
+Excavation plan                              = 24.000 x 8.200 = 196.80 m2  [D]
+
+Faces are taken VERTICAL, unbenched.  Basis: master A.6 records the ground as
+Deccan basalt with rockhead at (-)1.500 to (-)2.000, i.e. only the top ~1.75 m
+is soil.  The rock face stands unsupported; the soil face above it is battered
+or supported as temporary works (WBS 2.2).  No batter volume is added, so the
+figure is a LOWER BOUND on bulk excavation.  [A]
+
+------------------------------------------------------------------------------
+1.2  Bulk excavation, main shelter
+------------------------------------------------------------------------------
+Formation (-)6.800, grade 0.000  ->  depth = 6.800 m  [C]
+Total bulk excavation = 196.80 x 6.800 = 1338.2 m3  [D]
+
+Split by stratum — the rockhead is [A] in the master at (-)1.500 to (-)2.000,
+so the split is given at BOTH bounds and at the mean.  The total is unaffected.
+
+  rockhead      soil m3        rock m3
+  (-)1.500        295.2         1043.0
+  (-)1.750        344.4          993.8   <- mean adopted
+  (-)2.000        393.6          944.6
+
+------------------------------------------------------------------------------
+1.3  Site clearance and stripping
+------------------------------------------------------------------------------
+Cleared area = excavation envelope + 5.0 m working margin all round  [A]
+             = 34.000 x 18.200 = 618.8 m2
+Excludes the sentry post compound and the access route: NO SITE PLAN EXISTS in
+the project (Drainage DR1 open item D3), so the true cleared area is [N].
+
+------------------------------------------------------------------------------
+1.4  Sump pit SU-01, additional excavation below formation
+------------------------------------------------------------------------------
+Pit clear 1.500 x 1.500 x 1.500; invert (-)7.600; base slab (-)8.000  [C]
+Walls 300 / base 400 (master F.1; conflict C18 open, 400 held)          [C]
+Pit external = 1.500 + 2 x 0.300 = 2.100 m square
+Excavation with 0.300 working space = 2.700 m square                    [A]
+Depth below the main formation = (-)8.100 (u/s blinding) - (-)6.800 = 1.300 m
+Volume = 2.700^2 x 1.300 = 9.48 m3 in rock  [D]
+
+------------------------------------------------------------------------------
+1.5  Covered entry stairwell — excavation outside the box envelope
+------------------------------------------------------------------------------
+Stairwell external 9250-16050 (X) x 5750-7750 (Y)  [C]
+The box excavation envelope already extends to Y = 6.200 + 1.000 = 7.200.
+Additional strip = Y 7.200 to 7.750 = 0.550 wide, plus 1.000 working space
+            = 1.550 wide x 8.800 long
+Mean depth: the raft steps from 0.000 at the head to (-)2.000 at the platform;
+u/s of the 300 raft on 100 blinding -> (-)0.400 to (-)2.400.  Mean 1.400 m  [A]
+Volume = 1.550 x 8.800 x 1.400 = 19.1 m3  [D]
+Plus the stepped excavation WITHIN the box envelope, which is part of E-02.
+
+------------------------------------------------------------------------------
+1.6  Sentry post — excavation
+------------------------------------------------------------------------------
+F1 1500 x 1500 x 600, 4 No., founded on in-situ basalt at (-)2.000  [C]
+Excavation to u/s of 100 blinding = (-)2.100; site grade taken as 0.000  [A]
+  (no sentry-post site level exists in the project; +0.450 GF FFL implies a
+   plinth of 450 above the surrounding ground - master A.4.3)
+Pit 2.100 square (0.300 working space) x 2.100 deep, 4 No.
+Volume = 4 x 2.100^2 x 2.100 = 37.04 m3  [D]
+
+Filling under the sentry post ground floor: internal 3.600 x 4.600 = 16.56 m2
+from grade 0.000 to FFL +0.450 = 7.452 m3  [D]
+
+------------------------------------------------------------------------------
+1.7  Backfill and disposal
+------------------------------------------------------------------------------
+Side working-space plan area = 196.80 - 136.40 = 60.40 m2  [D]
+Side backfill, formation (-)6.800 to top of slab (-)2.000, depth 4.800 m
+           = 60.40 x 4.800 = 289.9 m3  [D]
+Above (-)2.000 the side zone merges into the engineered cover and the berm and
+is measured in section 5.
+
+Surplus for disposal / re-use:
+  total excavated  = 1338.2 + 9.5 + 19.1 + 37.0 = 1403.9 m3
+  less side backfill                             = 289.9 m3
+  gross surplus (bank measure, no bulking)       = 1113.9 m3  [D]
+Bulking on rock excavation is typically 40-60 %; the loose volume to be handled
+is therefore materially larger.  Bulking factor not applied - [A] not stated in
+the project.  Excavated basalt is a DESIGNATED SOURCE for the 500 crushed
+rubble layer of the engineered cover (section 5) - see the methodology note.
+
+==============================================================================
+2.  CONCRETE — MAIN SHELTER AND ENTRY STRUCTURES
+==============================================================================
+
+------------------------------------------------------------------------------
+2.1  Structural concrete volumes carried forward from Structural CAD SC1
+------------------------------------------------------------------------------
+The following are taken verbatim from Structural CAD/Schedules/
+REINFORCEMENT_SUMMARY.md (package SC1, 4 Sep 2026) and are re-derived here as
+an arithmetic check only.  They are NOT re-designed.
+
+  Mat 600 (M35)                                           81.8 m3   check 22.000 x 6.200 x 0.600 = 81.84  OK
+  Pressure slab 900, net of openings (M35)               112.0 m3   check 22.000 x 6.200 x 0.900 - void 2.800 x 3.160 x 0.900 - 2 x pi/4 x 1.400^2 x 0.900 = 112.03  OK
+  Perimeter walls 600 (M35)                              103.7 m3   check (22.000 x 6.200 - 20.800 x 5.000) x 3.200 = 103.68  OK
+  Walls W6 / W7 400 (M35)                                 12.8 m3   check 2 x 0.400 x 5.000 x 3.200 = 12.80  OK
+  Wall W5 200 (M35)                                        3.2 m3   check 0.200 x 5.000 x 3.200 = 3.20  OK
+  Headhouse walls 400 + roof 500 (M35)                    32.7 m3   check (4.800 x 5.800 - 4.000 x 5.000) x 2.400 + 4.800 x 5.800 x 0.500 = 32.74  OK
+  Main staircase, waist and landings (M35)                 3.0 m3   (composite - accepted from SC1)
+  Entry stairwell: walls, roof, raft, flight, landings (M35)    19.9 m3   (composite - accepted from SC1)
+  TOTAL, SC1 in-scope                                    369.1 m3
+
+Six of the eight lines reproduce exactly.  The main staircase and the entry
+stairwell are composite figures that SC1 built element by element; they are
+accepted as they stand and are not re-derived here.
+
+------------------------------------------------------------------------------
+2.2  Concrete NOT in the SC1 figure — derived here
+------------------------------------------------------------------------------
+SC1 explicitly excludes the blinding, the sump pit, the burster slab, the
+escape-shaft collars, the local roof thickenings and the sentry post.
+
+Blinding M15 100 thk under the mat, projecting 100 all round:
+  = 22.200 x 6.400 x 0.100 = 14.21 m3  [D]
+Blinding M15 under the sump pit    = 2.300^2 x 0.100 = 0.53 m3  [D]
+Blinding M15 under F1, 4 No.       = 4 x 1.700^2 x 0.100 = 1.16 m3  [D]
+Blinding M15 under the stairwell raft = 6.800 x 2.000 x 0.100 = 1.36 m3  [D]
+
+Sump pit SU-01, below the mat soffit (-)6.700:
+  walls 300, (-)6.700 to (-)7.600 = (2.100^2 - 1.500^2) x 0.900 = 1.94 m3
+  base slab 400, (-)8.000 to (-)7.600 = 2.100^2 x 0.400 = 1.76 m3
+  total = 3.71 m3 M35  [D]
+NOTE: the 81.8 m3 mat volume is NOT reduced for the 1.500 x 1.500 pit opening
+through the 600 mat (1.35 m3).  SC1 measured the mat gross; that convention is
+kept, so the BOQ is conservative by 1.35 m3.  DECLARED, not hidden.
+
+Escape shaft collars, 250 RC, OD 1900 / ID 1400:
+  annulus area = pi/4 x (1.900^2 - 1.400^2) = 1.296 m2
+  ESC 1: top of roof slab (-)2.000 to head +0.150 = 2.150 m
+  ESC 2: top of roof slab (-)2.000 to head +0.700 = 2.700 m
+  volume = 1.296 x (2.150 + 2.700) = 6.29 m3 M35  [D]
+
+Local roof thickenings 900 -> 1200 (master F.1):
+  at each shaft, over a 600 annulus: pi x (1.550^2 - 0.950^2) = 4.712 m2
+    2 No. x 4.712 x 0.300 extra = 2.83 m3
+  at the stair-void free edge, 2.800 long x 600 wide x 0.300 extra = 0.50 m3
+  total = 3.33 m3 M35  [D]
+
+W8 partitions, 4 No. @ 110, 5.000 long x 3.200 high, each with a 900 door gap
+  door opening taken 900 wide x 2100 high  [A] - the master confirms the 900
+  gap at Y 2500-3400 but states no head height; 2100 is the project convention
+  for every other door (master A.2, A.4.6, A.4.7).
+  = 4 x 0.110 x (5.000 x 3.200 - 0.900 x 2.100) = 6.21 m3
+  W8 is NON-STRUCTURAL, A252 mesh both faces (master F.1).  Material grade is
+  not stated - measured as M35 with the rest of the box.  [A]
+
+TOTAL M35 STRUCTURAL CONCRETE, shelter + entry structures = 388.6 m3  [D]
+TOTAL M15 BLINDING                                        = 17.3 m3  [D]
+
+==============================================================================
+3.  REINFORCEMENT
+==============================================================================
+
+------------------------------------------------------------------------------
+3.1  Shelter and entry structures — carried forward from SC1
+------------------------------------------------------------------------------
+  T8           5.7 kg
+  T10         63.3 kg
+  T12      20318.3 kg
+  T16      23707.1 kg
+  T20      10922.8 kg
+  T25      15439.4 kg
+  TOTAL    70456.6 kg = 70.457 t  [C]
+
+Fe500D to IS 1786:2008.  SENTRY POST EXPLICITLY EXCLUDED from this figure.
+SC1 declares the basis: cut length = sum of scheduled legs with NO bend
+deduction, laps at 50 phi added, stock bar 12 000.  Conservative by about
+2 phi per 90 degree bend.  Bend deductions to BS 8666 Table 3 are the
+fabricator's on the approved schedule.
+
+------------------------------------------------------------------------------
+3.2  Reinforcement NOT in the SC1 figure
+------------------------------------------------------------------------------
+SC1 excludes: the burster slab, the sentry post, waterstops, EMP straps,
+spacers, chairs and tying wire.  The first two are derived below; the
+remainder are measured as separate items and are not reinforcement.
+
+BURSTER SLAB, M30, 200 thk, T12 @ 150 both ways (master A.7.3):
+  area = box footprint 136.40 - headhouse 27.84 - shaft heads 5.67 = 102.89 m2
+  (the headhouse has NO earth cover - master A.4.6 - so the cover, and with it
+   the burster slab, stops at the headhouse walls)
+  bar length = 102.89 m2 x 2 x (1 / 0.150) = 1372 m
+  weight     = 1372 x 0.888 kg/m = 1218 kg = 1.218 t  [D]
+  laps and wastage NOT added - [A], add 5 % at procurement (section 3.4).
+
+------------------------------------------------------------------------------
+3.3  Sentry post reinforcement — derived from master F.4
+------------------------------------------------------------------------------
+The sentry post has never been quantified anywhere in the project.  The
+reinforcement below is derived from the CONFIRMED arrangement in master F.4.
+It is an ESTIMATING quantity for tender only and must be replaced by the
+fabricator's approved bar bending schedule.  [D]
+
+  FOOTINGS F1, 4 No., 1500 x 1500 x 600, T12 @ 150 both ways bottom:
+    4 footings x 2 ways x 11 bars x 1.400 long                     T12    123.2 m
+  COLUMNS C1, 4 No., 350 x 350, 8-T16 from footing top (-)1.400 to +6.700:
+    4 col x 8 bars x (8.100 + one lap 46phi = 0.920)               T16    288.6 m
+    confining hoops T10 + 1 cross-tie each way @ 85 over 500 from every joint
+    face, top and bottom, and through the joint (master F.4):
+    24 zones x 6 hoops x (hoop 1.280 + 2 ties 0.740)               T10    397.4 m
+    general ties T8 @ 150 elsewhere, 4 col x 35                    T8     179.2 m
+  BEAMS B1 (3650 c/c, 2 No. per level) and B2 (4650 c/c, 2 No. per level),
+  250 x 450, at first floor and roof = 2 levels:
+    B1 4-T16 top at supports, 2 lvl x 2 bm x 4                     T16     71.2 m
+    B1 2-T16 bottom continuous, 2 lvl x 2 bm x 2                   T16     35.6 m
+    B2 3-T20 top at supports, 2 lvl x 2 bm x 3                     T20     65.4 m
+    B2 2-T20 bottom continuous, 2 lvl x 2 bm x 2                   T20     43.6 m
+    B1 hoops @100 over 2d=810 each end, @150 mid, hoop 1.320       T8     169.0 m
+    B2 hoops @100 over 2d=810 each end, @150 mid                   T8     205.9 m
+  PLINTH BEAM PB 250 x 400, 15.200 m clear total, 3-T12 top + 3-T12 bottom:
+    PB 6 bars x 15.200                                             T12     91.2 m
+    PB hoops T8 @ 150                                              T8     124.4 m
+  SLAB S1 150, two levels.  First floor 4.000 x 5.000; roof 4.600 x 5.600
+  (300 projection all round - Rev F drawing 4):
+    S1 first floor bottom T8 @ 150 both ways                       T8     271.0 m
+    S1 first floor edge top T8 @ 300, 0.400 into the span, 4 edges T8      24.8 m
+    S1 first floor torsion T8 @ 200, 4 layers, 700 sq, 4 corners   T8      89.6 m
+    S1 roof bottom T8 @ 150 both ways                              T8     348.4 m
+    S1 roof edge top T8 @ 300, 0.400 into the span, 4 edges        T8      28.0 m
+    S1 roof torsion T8 @ 200, 4 layers, 700 sq, 4 corners          T8      89.6 m
+  PARAPET 300 high over the roof projection, perimeter 2 x (4.600 + 5.600):
+    reinforcement NOT DESIGNED anywhere in the project  [N]
+    nominal T8 @ 200 vertical + 2-T8 horizontal allowed for estimating  [A]
+    parapet nominal [A]                                            T8     102.0 m
+
+  SENTRY POST REINFORCEMENT SUMMARY
+    T8      1631.9 m x 0.395 kg/m =    644.6 kg
+    T10      397.4 m x 0.617 kg/m =    245.2 kg
+    T12      214.4 m x 0.888 kg/m =    190.4 kg
+    T16      395.4 m x 1.578 kg/m =    624.0 kg
+    T20      109.0 m x 2.466 kg/m =    268.8 kg
+    TOTAL SENTRY POST                        1973.0 kg = 1.973 t  [D]
+
+  Cut lengths are scheduled leg lengths with no bend deduction, the same
+  convention SC1 declares.  Laps are included only where explicitly noted.
+
+  SANITY CHECK.  Sentry post frame concrete is derived in section 7.1 as
+  20.95 m3, giving a steel density of about 94 kg/m3.  For a small two-storey
+  RC frame with IS 13920 ductile detailing (T10 confining hoops at 85 c/c over
+  500 from every joint face) that is a plausible figure.  It is a SANITY CHECK,
+  NOT a design check.
+
+------------------------------------------------------------------------------
+3.4  Procurement allowance
+------------------------------------------------------------------------------
+Rolling margin, offcuts and wastage on cut-and-bend reinforcement are
+conventionally 3-5 %.  5 % is adopted for ordering.  [A]
+Order quantity = (70457 + 1218 + 1973) x 1.05 = 77.33 t  [D]
+
+==============================================================================
+4.  FORMWORK
+==============================================================================
+Measured to IS 1200 (Part 5) principles: contact area of shuttering.
+Rates of re-use are a contractor's matter and are not assumed here.
+
+  Mat 600 - edges only                                           33.8 m2
+  Perimeter walls 600 - external face                           180.5 m2
+  Perimeter walls 600 - internal face                           165.1 m2
+  Wall W5 200 - both faces                                       32.0 m2
+  Walls W6 / W7 400 - both faces                                 64.0 m2
+  Pressure slab 900 - soffit (net of the stair void)             95.2 m2
+  Pressure slab 900 - external edge                              50.8 m2
+  Pressure slab 900 - void and opening edges                     14.7 m2
+  Headhouse walls 400 - both faces                               94.1 m2
+  Headhouse roof 500 - soffit and edge                           30.6 m2
+  Escape shaft collars - internal and external                   25.1 m2
+  Sump pit SU-01                                                 16.6 m2
+  Main staircase - waist soffit, 3 flights x 8R                   8.6 m2
+  Main staircase - risers                                         4.9 m2
+  Main staircase - landing soffits L1 and L2                      6.7 m2
+  Entry stairwell - walls 250 both faces                         83.0 m2
+  Entry stairwell - raking roof soffit and flight waist          15.1 m2
+  Entry stairwell - risers, landings and raft edges              12.8 m2
+  W8 partitions 110 - both faces                                112.9 m2
+  Burster slab M30 - edge only                                   11.3 m2
+  TOTAL, shelter and entry structures                          1057.7 m2  [D]
+
+Falsework to the pressure slab soffit: 104 m2 of deck at 3.200 m height, and
+IS 456 Table 11 requires the props to a slab spanning over 4.5 m (this one spans
+5.000 m clear) to stay in place 14 DAYS.  That is a programme driver, not just a
+quantity - see the schedule basis note.
+
+==============================================================================
+5.  ENGINEERED COVER, BACKFILL AND CONCEALMENT
+==============================================================================
+Build-up from master A.7.3, read from the TOP down; construction order is the
+reverse.  Total 2000 = 40.65 kPa  [C]
+
+Plan area of the cover:
+  box footprint                         136.40 m2
+  less headhouse (no earth cover)     -  27.84 m2   master A.4.6
+  less escape shaft heads, 2 x OD 1900 -   5.67 m2
+  cover area                            102.89 m2  [D]
+
+  Topsoil / turf - concealment and erosion         0.300 m    30.87 m3
+  Granular filter                                  0.150 m    15.43 m3
+  RC burster slab M30, T12 @ 150 B/W               0.200 m    20.58 m3
+  Crushed basalt rubble 25-75 mm                   0.500 m    51.44 m3
+  Compacted engineered fill @ 95 % MDD             0.750 m    77.17 m3
+  Protection screed over the membrane              0.100 m    10.29 m3
+  TOTAL ENGINEERED COVER                           2.000 m   205.78 m3  [D]
+
+The 500 crushed basalt rubble layer (51.4 m3) is to be won from the rock
+excavation (E-02b, 994 m3 available) and crushed on site to 25-75 mm.  This is
+the single largest cost saving available on the job and it removes 51 m3 of
+import and the same volume of cart-away.
+
+BERM: graded 1.5:1 against the headhouse and stairwell walls to +0.900, toe at
+grade over 1350 (master A.4.6 / A.4.7).  Its volume CANNOT be determined - no
+site plan or ground model exists in the project (Drainage DR1 open item D3).
+
+==============================================================================
+6.  WATERPROOFING
+==============================================================================
+  WP-01 tanking, horizontal on blinding under the mat                 142.1 m2
+  WP-01 tanking, vertical to external wall faces, (-)6.700 to (-)2.000    265.1 m2
+  WP-01 tanking, roof membrane, net of the void and shafts            121.9 m2
+  WP-01 upstands, fillets and dressing to openings and penetrations     37.1 m2
+  WP-02 protection screed 100 over the roof membrane (also cover layer 1)    102.9 m2
+  WP-06 headhouse and stairwell roofs, external grade + protection     41.4 m2
+  WP-04 internal wet-area tanking - bays 2, 5 and 6, floor and walls to 2.000   [N] see below
+  TOTAL (excluding WP-04)                                             710.5 m2  [D]
+
+WP-04 wet areas are bay 2 (lavatory 1800 x 2000 + medical 1800 x 3000), bay 5
+(CBRN plant, 1560 wide) and bay 6 (decon airlock, 2000 wide) - master A.3 [C].
+  floor area = 26.80 m2;  wall area to 2.000 high = 81.44 m2  [D]
+Schedule of Finishes FN1 states WP-04 is 'turned up 150 and dressed to every
+gully and pipe sleeve'; the turn-up height for the full wall finish W-02 is
+'floor to soffit'.  2.000 m is adopted here for measurement only.  [A]
+
+==============================================================================
+7.  SENTRY POST — CONCRETE, BRICK MASONRY AND FINISHES
+==============================================================================
+THE ONLY DESIGN CHANGE IN THIS PACKAGE: the sentry post walls are BRICK
+MASONRY, replacing the 200 RC ballistic infill panels of Rev F.  Reference SP-B1.
+Everything else in the sentry post is as the current project documentation.
+
+------------------------------------------------------------------------------
+7.1  Sentry post concrete (M30)
+------------------------------------------------------------------------------
+  Footings F1, 4 No., 1500 x 1500 x 600                         5.40 m3
+  Columns C1, 4 No., 350 x 350, (-)1.400 to +6.700              3.97 m3
+  Plinth beam PB 250 x 400, 15.200 m clear                      1.52 m3
+  Beams B1 / B2 250 x 450, rib below slab, 2 levels             2.28 m3
+  Slab S1 150, first floor, 4.000 x 5.000                       3.00 m3
+  Slab S1 150, roof, 4.600 x 5.600 incl. the 300 projection     3.86 m3
+  Parapet 300 high x 150 thk [A] over the roof projection       0.92 m3
+  TOTAL M30, sentry post frame                                 20.95 m3  [D]
+
+Clear beam / plinth-beam length 15.200 m is derived once and used throughout:
+  B1 (grid A-B) 3.650 c/c - 0.350 column = 3.300, 2 No. = 6.600
+  B2 (grid 1-2) 4.650 c/c - 0.350 column = 4.300, 2 No. = 8.600
+  total clear run per level = 15.200 m  [D]
+
+GROUND FLOOR SLAB ON GRADE: NOT DESIGNED anywhere in the project.  The member
+schedule on Rev F drawing 6 lists S1 at 'both levels', meaning the first floor
+and the roof only.  Carried as a provisional item.  [N]
+
+------------------------------------------------------------------------------
+7.2  Sentry post BRICK MASONRY WALLS — reference SP-B1
+------------------------------------------------------------------------------
+Wall run between columns, per storey (the same 15.200 m derived above):
+  north and south walls: 4.000 - 2 x 0.350 = 3.300 each, 2 No. = 6.600 m
+  east and west walls:   5.000 - 2 x 0.350 = 4.300 each, 2 No. = 8.600 m
+  total run per storey                                        = 15.200 m  [D]
+
+Height of the masonry panel = 2.600 m  [C]
+  This is the project's OWN confirmed figure: master A.7.7 gives the infill load
+  as 13.000 kN/m = 0.200 x 2.600 x 25, verified.  Rev F drawing 6 repeats
+  '200 x 2600 high'.
+  Geometric check, first storey: roof slab top +6.700 less 0.450 beam depth =
+  soffit +6.250; first floor +3.650; panel = 2.600 m  -> AGREES.
+  Geometric check, ground storey: first floor +3.650 less 0.450 = soffit +3.200;
+  GF FFL +0.450; panel = 2.750 m  -> 150 mm MORE than the project's own figure.
+  The project's confirmed 2.600 is used for BOTH storeys and the 150 mm
+  difference is carried as a verification item.  DECLARED, not resolved.  [U]
+
+Structural infill zone between the column faces = 0.200 m, unchanged from the
+Rev F infill.  [C]
+  The masonry is built as ONE-BRICK-THICK work in MODULAR bricks to IS 1077
+  (190 x 90 x 90), giving a 190 mm wall inside the 200 mm zone.  The residual
+  10 mm is taken up at the INTERNAL face and absorbed in the plaster, so the
+  external face stays flush with the column faces and the CONFIRMED 4000 x 5000
+  external envelope is preserved exactly.  [A]
+  Brickwork is therefore MEASURED at its actual 0.190 thickness (IS 1200 Pt 3),
+  not at the 200 zone width.
+  Conventional 230 x 110 x 75 bricks would give a 230 wall and would change the
+  external envelope - NOT PERMITTED without a further design change.
+
+Gross masonry area per storey = 15.200 x 2.600 = 39.52 m2  [D]
+
+GROUND STOREY deductions (Rev F drawing 3, parsed):
+  D1 door   900 wide x 2.100 high  [A height - project convention]  = 1.89 m2
+  W1 window 1200 wide x 1.200 high [A height - NOT STATED anywhere] = 1.44 m2
+  net ground storey masonry = 39.52 - 3.33 = 36.19 m2
+  volume = 36.19 x 0.190 = 6.88 m3  [D]
+
+FIRST STOREY deductions (Rev F drawing 4, parsed):
+  8 No. armoured vision panels 1200 wide, 2 per face, height [A] 1.200
+  1 No. D1 door 900 wide - it lies WITHIN the west panel at Y 1000-2200, so the
+    UNION is deducted once, not both.  The overlap is a source-drawing matter
+    and is carried as a verification item.  [U]
+  deduction = 8 x 1.200 x 1.200 = 11.52 m2
+  net first storey masonry = 39.52 - 11.52 = 28.00 m2
+  volume = 28.00 x 0.190 = 5.32 m3  [D]
+
+TOTAL BRICK MASONRY = 6.88 + 5.32 = 12.20 m3  (64.19 m2 face area)  [D]
+
+MATERIAL CONSTANTS for procurement (modular brick 190 x 90 x 90 laid with a
+10 mm joint -> nominal module 200 x 100 x 100):
+  nominal module (brick + 10 mm joint) = 0.200 x 0.100 x 0.100 = 0.002 m3
+  bricks per m3 of finished masonry = 1 / 0.002 = 500 No.
+  bricks per m2 of a 190 wall       = 500 x 0.190 = 95 No.
+  add 5 % breakage and wastage  [A]  -> 525 No./m3
+  ORDER = 12.20 m3 x 525 = 6403 bricks, say 7 thousand  [D]
+
+  mortar fraction = 1 - (0.190 x 0.090 x 0.090)/(0.200 x 0.100 x 0.100) = 0.231
+    i.e. brick 0.001539 m3 in a 0.002 m3 module.  This is the conventional
+    23 % figure for modular brickwork and is slightly conservative for a
+    one-brick wall, where the thickness carries no joint.  [A]
+  wet mortar = 12.20 x 0.231 = 2.81 m3;  x 1.25 for dry volume = 3.51 m3  [D]
+  CM 1:6 -> cement = 3.51 / 7 x 1440 = 723 kg = 14.5 bags of 50 kg  [D]
+            sand   = 3.51 x 6 / 7 = 3.01 m3  [D]
+
+------------------------------------------------------------------------------
+7.3  Sentry post lintels, plaster, flooring and finishes
+------------------------------------------------------------------------------
+LINTELS.  With brick masonry the openings need lintels; the Rev F RC infill
+panels did not.  This is a CONSEQUENCE of SP-B1 and is a NEW work item.
+  ground storey: D1 900 clear, W1 1200 clear
+  first storey:  8 vision panels 1200 clear, 1 door 900 clear (see the overlap)
+Bearing 200 each end  [A].  RC lintel 200 wide x 150 deep  [A].
+*** LINTEL DESIGN DOES NOT EXIST IN THE PROJECT.  Section, reinforcement and
+    bearing are to be designed by the structural discipline.  The dimensions
+    above are for ESTIMATING ONLY.  [N] ***
+  total lintel length = 17.00 m;  volume = 0.51 m3 M30  [D]
+
+PLASTER.  12 mm internal sand-faced CM 1:4 [A]; 15 mm external two-coat CM 1:4/1:6 [A].
+  IS 1661 governs application; thicknesses are NOT stated in the project.
+  internal wall faces  = 2 storeys x 32.09 net masonry     = 64.19 m2
+  soffits (S1 first floor and roof, 4.000 x 5.000 each)  = 40.00 m2
+  columns and beams, both faces, allowance                = 20.96 m2
+  INTERNAL PLASTER TOTAL                                  = 125.15 m2  [D]
+  EXTERNAL PLASTER TOTAL (incl. parapet both faces)       = 97.39 m2  [D]
+
+==============================================================================
+8.  BUILDING SERVICES — QUANTITIES CARRIED FROM THE DISCIPLINE PACKAGES
+==============================================================================
+Drainage DR1, HVAC HV1 and Schedule of Finishes FN1 are existing packages.
+Their schedules are the quantity source; nothing is re-derived here.
+
+DRAINAGE (Drainage/Schedules) - principal items:
+   SU-01 clean sump 1500 x 1500 x 1500 at (-)7.600, with PU-01/PU-02 submersible pumps 1.5 L/s duty+standby and PU-03 hand pump                            [C]
+   SU-02 stairwell sump 1.0 m3 at (-)2.000 with PU-04/PU-05 2 L/s             [C]
+   TK-01 decon effluent tank 1000 L, bay 8, tanker emptying only              [C]
+   TK-02 potable water tank 1000 L, bay 1                                     [C]
+   ST-01 septic tank 1.50 x 0.75 x 1.00 liquid, IS 2470 (Pt 1) Table 1        [C]
+   SK-01 foul soak pit 2.0 dia x 3.5 effective - 2.3 % SHORT, conflict C19    [U]
+   SK-02 storm soakaway 2.0 dia x 3.5 effective, position not fixed           [A]
+   SK-03 / SK-04 stairwell and headhouse soakaways - NOT SIZED anywhere       [N]
+   PD-01 to PD-16 drains DN100 / rising mains DN50 - several lengths NOT
+     DETERMINABLE because no site plan exists (open item D3)                  [N]
+   PD-04 decon effluent route across the protective boundary - NOT DEFINED    [U]
+   PD-07 bay 8 (zone 3) has NO drainage destination                           [N]
+
+HVAC / CBRN (HVAC/Schedules) - principal items:
+   AHU-1 / AHU-2 NBC filter trains, 300 m3/h each, true N+1                   [C]
+     (duty 250 vs 300 m3/h is CONFLICT C21 - UNRESOLVED; HV1 uses 300)        [U]
+   FAN-1 / FAN-2 supply fans with electric drive AND HAND CRANK               [C]
+     fan static pressure NOT DERIVABLE - five of eight loss components are
+     vendor data (HVAC calc H.9)                                              [N]
+   CO2-1 soda-lime scrubber 20 kg/day, 40 kg store = 48 h closed mode         [C]
+   O2-1 oxygen store, 2 x 50 L at 150 bar = 15 m3 = 80 h                      [C]
+   DH-1 dehumidifier - DUTY NOT STATED anywhere                               [N]
+   GEN-1 generator 15 kVA, bay 8 grey zone, 2600 m3/h combustion+cooling air  [C]
+   SH-1 fresh-air shaft 600 x 600 west; SH-2 generator air shaft 600 x 600 east [C]
+   Blast valves - 5 No. on sheet S-06; sizes and sleeve details NOT in Part B [N]
+
+ELECTRICAL AND EMP:
+   *** NO ELECTRICAL DESIGN PACKAGE EXISTS IN THIS PROJECT. ***
+   The scope is CONFIRMED by the master (EMP Zone 2 enclosure in bay 3, master
+   A.3; generator 15 kVA; earthing to IEEE 142 / IS 3043 with a 5 ohm target,
+   master G; MIL-STD-188-125-1 80 dB over 10 kHz - 1 GHz; IEEE Std 299
+   verification survey), but NO circuit, cable, luminaire, DB or earth-electrode
+   schedule exists.  Every electrical quantity is therefore:
+       To be verified from final measurement.  [N]
+   The Works Management programme, resources, procurement, QA/QC and safety
+   documents still cover the electrical WORKS, because the works are confirmed
+   even though the quantities are not.
+
+==============================================================================
+9.  CEMENT, AGGREGATE AND WATER — INDICATIVE PROCUREMENT VOLUMES
+==============================================================================
+Mix proportions are NOT stated in the project.  IS 456 Table 5 fixes the
+MINIMUM cement content at 340 kg/m3 and w/c <= 0.45 for the M35 (very severe
+exposure) concrete - that IS confirmed (master A.5).  A trial mix to IS 10262
+must fix the actual proportions.  The figures below use the code MINIMUM and
+are therefore a LOWER BOUND on cement.  [A]
+
+  M35 assumed 400 kg/m3 (>= 340 minimum, allowing for the crystalline admixture
+      and the 0.45 w/c cap)                                          [A]
+  M30 assumed 360 kg/m3                                              [A]
+  M15 assumed 240 kg/m3                                              [A]
+
+  M35 total = 388.6 m3  ->  155.5 t cement
+  M30 total = 42.0 m3 (sentry 21.0 + burster 20.6 + lintels 0.5)  ->  15.1 t
+  M15 total = 17.3 m3  ->  4.1 t cement
+  cement in concrete            = 174.7 t
+  cement in masonry mortar      = 0.7 t
+  cement in plaster (CM 1:4)    = 1.1 t
+  screeds, bedding, grout, 10 pct = 17.7 t  [A]
+  ORDER, cement, all works      = 194 t = 3883 bags of 50 kg  [D]
+
+  aggregate (coarse + fine) at ~1.85 t/m3 of concrete  [A]
+            = 447.9 m3 x 1.85 = 829 t  [D]
+  water for concrete at w/c 0.45 on 175 t cement = 79 m3, plus curing water
+  Curing water for 1058 m2 of exposed concrete over 14 days is the larger demand
+  and drives the site water supply.  Quantity [A] - depends on the curing method.
+
+==============================================================================
+10.  SUMMARY BILL
+==============================================================================
+CODE     DESCRIPTION                                                UNIT       QUANTITY CLASS
+-----------------------------------------------------------------------------------------------
+E-02     Bulk excavation, main shelter, 0.000 to (-)6.800, all stra m3             1338 [D]  
+E-02a      of which excavation in soil / weathered overburden       m3           344.40 [D]  
+           note: rockhead (-)1.750 mean; range 295.2-393.6
+E-02b      of which excavation in rock (Deccan basalt)              m3           993.84 [D]  
+           note: rockhead (-)1.750 mean; range 944.6-1043.0
+E-01     Site clearance, grubbing and stripping topsoil 150 thk, sh m2           618.80 [A]  
+           note: no site plan exists - re-measure
+E-01a      topsoil stripped and stockpiled for re-use in the concea m3            92.82 [A]  
+E-03     Excavation in rock for sump pit SU-01, below general forma m3             9.48 [D]  
+E-04     Excavation for the covered entry stairwell, outside the bo m3            19.10 [D]  
+E-05     Excavation for sentry post footings F1, 4 No., in soil and m3            37.04 [D]  
+E-06     Filling in compacted granular fill under the sentry post g m3             7.45 [D]  
+E-07     Side backfill in selected granular fill, 250 layers to 95  m3           289.92 [D]  
+E-08     Surplus excavated material - re-use on site as engineered  m3             1114 [D]  
+           note: bank measure; bulking not applied
+C-01     Mat 600 (M35)                                              m3            81.80 [C]  
+           note: Structural CAD SC1
+C-02     Pressure slab 900, net of openings (M35)                   m3           112.00 [C]  
+           note: Structural CAD SC1
+C-03     Perimeter walls 600 (M35)                                  m3           103.70 [C]  
+           note: Structural CAD SC1
+C-04     Walls W6 / W7 400 (M35)                                    m3            12.80 [C]  
+           note: Structural CAD SC1
+C-05     Wall W5 200 (M35)                                          m3             3.20 [C]  
+           note: Structural CAD SC1
+C-06     Headhouse walls 400 + roof 500 (M35)                       m3            32.70 [C]  
+           note: Structural CAD SC1
+C-07     Main staircase, waist and landings (M35)                   m3             3.00 [C]  
+           note: Structural CAD SC1
+C-08     Entry stairwell: walls, roof, raft, flight, landings (M35) m3            19.90 [C]  
+           note: Structural CAD SC1
+C-09     Blinding / PCC M15, 100 thk under the mat                  m3            14.21 [D]  
+C-10     Blinding / PCC M15, 100 thk, sump pit, footings F1 and sta m3             3.05 [D]  
+C-11     Sump pit SU-01 walls 300 and base 400 below the mat soffit m3             3.71 [D]  
+C-12     Escape shaft collars ESC 1 and ESC 2, 250 RC, OD 1900 (M35 m3             6.29 [D]  
+C-13     Local thickenings of the pressure slab 900->1200 at openin m3             3.33 [D]  
+C-14     Internal partitions W8, 4 No., 110 thk, non-structural     m3             6.21 [D]  
+R-T8     Reinforcement T8 Fe500D, shelter and entry structures      t              0.01 [C]  
+           note: Structural CAD SC1
+R-T10    Reinforcement T10 Fe500D, shelter and entry structures     t              0.06 [C]  
+           note: Structural CAD SC1
+R-T12    Reinforcement T12 Fe500D, shelter and entry structures     t             20.32 [C]  
+           note: Structural CAD SC1
+R-T16    Reinforcement T16 Fe500D, shelter and entry structures     t             23.71 [C]  
+           note: Structural CAD SC1
+R-T20    Reinforcement T20 Fe500D, shelter and entry structures     t             10.92 [C]  
+           note: Structural CAD SC1
+R-T25    Reinforcement T25 Fe500D, shelter and entry structures     t             15.44 [C]  
+           note: Structural CAD SC1
+R-BS     Reinforcement T12 Fe500 to the burster slab (M30)          t              1.22 [D]  
+R-S8     Reinforcement T8 Fe500, sentry post                        t              0.64 [D]  
+R-S10    Reinforcement T10 Fe500, sentry post                       t              0.25 [D]  
+R-S12    Reinforcement T12 Fe500, sentry post                       t              0.19 [D]  
+R-S16    Reinforcement T16 Fe500, sentry post                       t              0.62 [D]  
+R-S20    Reinforcement T20 Fe500, sentry post                       t              0.27 [D]  
+R-ORD    Reinforcement ORDER quantity, all works, incl. 5 % wastage t             77.33 [D]  
+F-01     Formwork, shelter and entry structures, contact area       m2             1058 [D]  
+F-02     Falsework to the pressure slab soffit, 3.200 m height, pro m2           104.00 [D]  
+B-concealment Topsoil / turf - concealment and erosion                   m3            30.87 [D]  
+B-filter Granular filter                                            m3            15.43 [D]  
+B-burster RC burster slab M30, T12 @ 150 B/W                         m3            20.58 [D]  
+B-rubble Crushed basalt rubble 25-75 mm                             m3            51.44 [D]  
+B-fill   Compacted engineered fill @ 95 % MDD                       m3            77.17 [D]  
+B-screed Protection screed over the membrane                        m3            10.29 [D]  
+B-berm   Berm forming and grading, 1.5:1 to +0.900 against the head m3              TBV [N]  
+           note: no site plan exists
+B-camo   Camouflage and concealment measures beyond the 300 topsoil item            TBV [N]  
+           note: no concealment specification exists in the project
+W-01     WP-01 tanking, horizontal on blinding under the mat        m2           142.08 [D]  
+W-02     WP-01 tanking, vertical to external wall faces, (-)6.700 t m2           265.08 [D]  
+W-03     WP-01 tanking, roof membrane, net of the void and shafts   m2           121.88 [D]  
+W-04     WP-01 upstands, fillets and dressing to openings and penet m2            37.14 [D]  
+W-05     WP-02 protection screed 100 over the roof membrane (also c m2           102.89 [D]  
+W-06     WP-06 headhouse and stairwell roofs, external grade + prot m2            41.44 [D]  
+W-08     WP-04 internal wet-area tanking, floors                    m2            26.80 [D]  
+W-09     WP-04 internal wet-area tanking, walls, 2.000 high [A]     m2            81.44 [A]  
+W-10     Waterstops, 2 No. at every construction joint (WP-05), ~6  m            109.76 [A]  
+           note: joint positions not fixed in the project - re-measure
+SC-01    Sentry post: Footings F1, 4 No., 1500 x 1500 x 600         m3             5.40 [D]  
+SC-02    Sentry post: Columns C1, 4 No., 350 x 350, (-)1.400 to +6. m3             3.97 [D]  
+SC-03    Sentry post: Plinth beam PB 250 x 400, 15.200 m clear      m3             1.52 [D]  
+SC-04    Sentry post: Beams B1 / B2 250 x 450, rib below slab, 2 le m3             2.28 [D]  
+SC-05    Sentry post: Slab S1 150, first floor, 4.000 x 5.000       m3             3.00 [D]  
+SC-06    Sentry post: Slab S1 150, roof, 4.600 x 5.600 incl. the 30 m3             3.86 [D]  
+SC-07    Sentry post: Parapet 300 high x 150 thk [A] over the roof  m3             0.92 [D]  
+SC-08    Sentry post ground floor slab on grade - PROVISIONAL, not  m2            16.56 [N]  
+           note: thickness and specification to be confirmed
+SC-09    Sentry post: blinding / PCC M15 100 thk under F1, 4 No.    m3             1.16 [D]  
+SC-10    Sentry post: external spiral stair, 1000 R, 250 dia centra item           1.00 [C]  
+           note: fabrication detail not in the project record
+SP-01    Brick masonry, ground storey, 190 thk in a 200 zone, CM 1: m3             6.88 [D]  
+SP-02    Brick masonry, first storey, 190 thk in a 200 zone, CM 1:6 m3             5.32 [D]  
+SP-03    Modular burnt clay bricks class 10 to IS 1077, delivered   No.            6403 [D]  
+           note: incl. 5 % breakage
+SP-04    Cement for masonry mortar CM 1:6                           bag           14.46 [D]  
+SP-05    Sand for masonry mortar, to IS 2116                        m3             3.01 [D]  
+SP-06    RC lintels over openings, 200 x 150 PROVISIONAL - design r m3             0.51 [N]  
+SP-07    Internal cement plaster 12 mm, sand faced, CM 1:4 [A]      m2           125.15 [D]  
+SP-08    External cement plaster 15 mm, two coat [A]                m2            97.39 [D]  
+SP-09    Flooring, ground and first floor, 3.600 x 4.600 each       m2            33.12 [D]  
+           note: specification not in the project - [N]
+SP-10    Painting, internal and external, to IS 2395 (Part 1)       m2           222.54 [D]  
+           note: specification not in the project - [N]
+SP-11    Door D1 900 x 2100 [A height], 2 No. (ground and first flo No.            2.00 [C]  
+SP-12    Window W1 1200 wide, ground storey, 1 No.                  No.            1.00 [C]  
+           note: height not stated - [N]
+SP-13    Armoured vision panels 1200 wide, 8 No., first storey - SP No.            8.00 [C]  
+           note: specification not in the project - [N]
+EL-01    Conduits, boxes and concealed work, cast into RC - builder item            TBV [N]  
+           note: no electrical design package exists
+EL-02    Cabling, distribution board and final circuits             item            TBV [N]  
+           note: no electrical design package exists
+EL-03    EMP Zone 2 shielded enclosure, bay 3 - SPECIALIST          item            TBV [N]  
+           note: no electrical design package exists
+EL-04    Earthing installation, 5 ohm target, IS 3043               item            TBV [N]  
+           note: no electrical design package exists
+EL-05    Lighting, small power and emergency lighting               item            TBV [N]  
+           note: no electrical design package exists
+EL-06    Generator connection, changeover and protection            item            TBV [N]  
+           note: no electrical design package exists
+EL-07    EMP protection to every service penetration (power PCI, wa item            TBV [N]  
+           note: no electrical design package exists
+M-01     Cement, OPC 43 grade to IS 269, all works                  t            194.17 [D]  
+M-02     Coarse and fine aggregate to IS 383, all concrete          t            828.66 [D]  
+M-03     Water for concrete, mortar and curing - site supply        item            TBV [A]  
+-----------------------------------------------------------------------------------------------
+TBV = To be verified from final measurement.
+
+==============================================================================
+11.  ITEMS THAT CANNOT BE QUANTIFIED — DECLARED
+==============================================================================
+  Berm volume, site regrading, access road and hardstanding - NO SITE PLAN OR
+    GROUND MODEL EXISTS (Drainage DR1 open item D3).                         [N]
+  Camouflage and concealment beyond the 300 topsoil / turf layer - no
+    concealment specification exists in the project.                         [N]
+  All electrical quantities - no electrical design package exists.           [N]
+  Blast door leaves, frames and anchorage - vendor items, master F.1 declares
+    them NOT AVAILABLE.                                                      [N]
+  Blast valves x5, sleeves and trimming - sizes not in master Part B.        [N]
+  Service-entry plate at W2, X ~ 11800 - plate size NOT AVAILABLE.           [N]
+  Ventilation and CBRN duct penetrations - no penetration schedule exists.   [N]
+  EMP Zone 2 shielded enclosure - specification is [N] in FN1 (code W-04).   [N]
+  Armoured vision panels - specification not in the project.                 [N]
+  Sentry post ground floor slab on grade - not designed.                     [N]
+  Sentry post lintel design - does not exist; a CONSEQUENCE of SP-B1.        [N]
+  Finishes: FN1 states every finish is a PERFORMANCE REQUIREMENT with the
+    product deliberately left open.  Areas can be measured; rates cannot.    [N]
+  Sentry post window and vision-panel HEIGHTS - not stated on any drawing.   [N]
+  Drainage pipe lengths PD-06, PD-11, PD-13, PD-14, PD-16 - not determinable.[N]
+
+==============================================================================
+12.  VERIFICATION ITEMS RAISED BY THIS DERIVATION
+==============================================================================
+  WM-V1  Sentry post ground-storey masonry height: the project's confirmed
+         2.600 m (master A.7.7) against the 2.750 m implied by +0.450 FFL and
+         the +3.200 beam soffit.  2.600 used.  150 mm difference OPEN.
+  WM-V2  First-floor west wall: the D1 door (Y 1000-1900) lies inside the
+         armoured vision panel (Y 1000-2200) on the Rev F drawing.  The union
+         is deducted once.  Source-drawing clash, OPEN.
+  WM-V3  Sentry post window W1 and vision-panel heights are not stated
+         anywhere.  1200 assumed for measurement.  OPEN.
+  WM-V4  Brick wall thickness: 190 modular brickwork inside the 200 structural
+         zone preserves the confirmed external envelope.  Needs the designer's
+         confirmation, or a formal change to accept 230 conventional brickwork.
+  WM-V5  Lintels over the sentry post openings are a NEW requirement created by
+         SP-B1.  No lintel design exists.  Structural design required.
+  WM-V6  Seismic weight of the sentry post changes when 200 RC infill (13.000
+         kN/m, master A.7.7) becomes brick masonry.  Brickwork at 20 kN/m3 over
+         0.190 x 2.600 gives 9.88 kN/m, LIGHTER than 13.000, so the existing
+         V_b = 73.18 kN is conservative - BUT this is a STRUCTURAL matter and
+         must be re-checked by that discipline.  NOT resolved here.
+  WM-V7  Ballistic performance.  The Rev F panels are described as '200 RC
+         BALLISTIC INFILL'.  Brick masonry does not give the same ballistic
+         protection.  This is a consequence of the instructed change and is
+         recorded so that the decision is visible, not buried.
+  WM-V8  Mat volume measured gross, with no deduction for the 1.5 x 1.5 sump
+         opening (1.35 m3).  SC1's convention, kept.  Conservative.
+  WM-V9  Working space of 1.000 m and vertical unbenched faces are assumptions
+         of this package.  A slope-stability assessment of the soil zone above
+         rockhead is required before excavation.
+  WM-V10 Bulking on rock excavation is not applied.  Loose volumes for haulage
+         and stockpiling will be 40-60 % greater.
+
+END OF QUANTITY DERIVATION.  Works Management package revision WM1.
+Nothing in this derivation was invented.  Every input is named in section 0.

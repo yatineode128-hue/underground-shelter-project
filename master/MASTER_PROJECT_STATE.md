@@ -6,6 +6,7 @@
 **Compiled:** 2 September 2026
 **Compiled from:** Phase 1 Design Report Rev D (126 KB, 2000 lines), ten Rev F architectural DXF files, nineteen STAAD.Pro screen captures, and the full Phase 2 structural design work.
 **Covers:** Phase 1 (architectural + basis of design, complete) and Phase 2 (structural design + drawings, substantially complete).
+**Discipline packages:** Structural CAD **SC1** · Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** · Works Management **WM1** (7 Sep 2026, Part H.10).
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, sentry post drawing S-07 equivalent.
 
 ---
@@ -217,6 +218,18 @@ Storey heights         ground 3200 (+0.450 → +3.650), first 3050 (+3.650 → +
 Siting                 >= 10 m clear of the shelter excavation
 ```
 
+> **SP-B1 — WALLS CHANGED TO BRICK MASONRY, 7 September 2026 (Part H.10).** The Rev F text
+> above is preserved unaltered. By instruction, the **ground storey "200 RC ballistic
+> infill" is now 190 mm one-brick modular brickwork to IS 1077 laid in CM 1:6**, built
+> inside the **unchanged 200 mm structural zone** between the column faces, with the
+> residual 10 mm taken up at the internal face in the plaster. **Every other value in this
+> block — the 4000 × 5000 external envelope, 3600 × 4600 internal, the A–B / 1–2 grid, C1,
+> B1, B2, S1, PB, F1, the storey heights, the spiral stair and the siting rule — is
+> UNCHANGED.** The armoured vision panels remain vision panels; they are openings in the
+> wall, not wall construction. Consequences (lintels now required, ties now required,
+> seismic weight reduced, ballistic function lost) are recorded in H.10 as **WM-V5, WM-V11,
+> WM-V6 and WM-V7** and **none of them is resolved.** `[C] instruction / [A] 190-in-200`
+
 ## A.5 Materials — CURRENT
 
 | Item | Shelter / stairs / headhouse | Sentry post | Source |
@@ -391,6 +404,7 @@ Static ULS 101 on the roof = 1.5 × (40.65 + 2.0 + 22.5 + 20) = 127.7 kPa → **
 | Peak two-way intensity, LL floor | 5.475 kN/m | 3.00 × 1.825 ✔ |
 | Peak two-way intensity, LL roof | 2.737 kN/m | 1.50 × 1.825 ✔ |
 | Infill on first-floor beams | 13.000 kN/m | 0.200 × 2.600 × 25 ✔ |
+| — SP-B1 note, 7 Sep 2026 | **13.000 kN/m STANDS** | Brick masonry at ≈ 20 kN/m³ over 0.190 × 2.600 gives ≈ 9.9 kN/m, i.e. **lighter**, so the design value and V<sub>b</sub> = 73.18 kN remain **conservative**. **A direction, not a verification — the structural discipline must re-run the check (WM-V6). NOT changed here.** |
 | Roof projection + parapet | 4.162 kN/m | [C] as drawn, not independently derived |
 | w<sub>u</sub> floor = 1.5(4.75 + 3.00) | **11.625 kPa** | governs the slab |
 | w<sub>u</sub> roof = 1.5(5.25 + 1.50) | 10.125 kPa | |
@@ -1697,6 +1711,7 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 | **ERR-1** | **Yield-line coefficient corrected** | **324.4 kNm/m** (used the simply-supported coefficient 24) | **162.2 kNm/m** (fixed-4-edges coefficient 48) | **My own arithmetic error.** Validation: as b→∞, 48/3 = 16 = w·L²/16 ✔ | Part B.7.1, S-05 | **CURRENT. No reinforcement change — the one-way value 396.5 was adopted, so nothing depended on it** |
 | Sump relocated | outside the wall, below mat level | **inside, Bay 5, 1500³, invert (−)7.600** | Unprotected envelope breach below the water table, impossible to inspect | S-02, S-06 | **CURRENT** |
 | Wall links | T12 @ 250 | **T12 @ 200** | Recalculated V<sub>us</sub> | S-01 | **CURRENT** |
+| **SP-B1** | **Sentry post walls = BRICK MASONRY** — instructed design change, 7 Sep 2026 | RC 200 ballistic infill (Rev F) | **190 one-brick modular brickwork to IS 1077 in CM 1:6, inside the confirmed 200 structural zone** | Instructed by the user; the only design change in WM1. Preserves the confirmed 4000 × 5000 envelope. Creates a lintel requirement and a tie requirement that did not exist, reduces the infill line load 13.000 → ≈ 9.9 kN/m (conservative for V<sub>b</sub>, referred to the structural discipline, **not verified here**), and removes the ballistic function the Rev F panels were named for | Part H.10, `WORKS MANAGEMENT/` | **CURRENT** |
 
 ## H.3 Conflict register — full
 
@@ -2007,6 +2022,147 @@ without vendor and site data.
 
 ---
 
+## H.10 Works Management package — revision WM1 — 7 September 2026
+
+**Scope.** A complete Works Management package for the **entire project** — the main
+underground box, the entry headhouse and covered stairwell, the escape shafts, the
+engineered cover, the **sentry post**, the services, the external works, the concealment
+works and completion — from mobilisation to handover. Everything lives in a new
+`WORKS MANAGEMENT/` folder.
+
+**Inputs.** The user supplied a preliminary Microsoft Project schedule,
+`UG CBRN HDRND OPS ROOM MCS — R0` (130 lines, 224 working days, 02.11.26 → 26.07.27) and
+its two-page A3 PDF export. Both were parsed. The package also reads master Parts A, B, F,
+G and L, the Rev F sentry-post drawings 3, 4 and 6, and the SC1, DR1, HV1 and FN1 schedules.
+
+### THE ONE DESIGN CHANGE — reference SP-B1
+
+| | |
+|---|---|
+| **Instruction** | **The sentry post walls shall be BRICK MASONRY WALLS** |
+| Replaces | The "200 RC BALLISTIC INFILL PANELS" of Rev F (A.4.8, drawings 3, 4 and 6) |
+| Adopted construction | **190 mm one-brick modular brickwork to IS 1077 (190 × 90 × 90) in CM 1:6**, built inside the **confirmed 200 mm structural zone**, the residual 10 mm taken up at the internal face in the plaster |
+| Why 190 and not 230 | 230 conventional brickwork would project 30 mm past the column faces and change the **confirmed 4000 × 5000 external envelope**. 190 preserves every confirmed dimension. `[A]` — needs the designer's confirmation (WM-V4) |
+| Panel height | **2.600 m** — the project's OWN confirmed figure (A.7.7: 13.000 kN/m = 0.200 × 2.600 × 25, verified; drawing 6 repeats "200 × 2600 high") |
+| Quantity | **12.20 m³ / 64.19 m² face** — 6.88 m³ ground storey, 5.32 m³ first storey, net of openings. ≈ 6 400 bricks, 14.5 bags cement, 3.0 m³ sand |
+| Openings | Read from the Rev F drawings: ground D1 900 + W1 1200; first storey 8 armoured vision panels 1200 wide + D1 900 |
+
+**Consequences of SP-B1, recorded not buried:**
+
+1. **Lintels are now required** over all nine openings. The RC panels needed none.
+   **No lintel design exists anywhere in the project** — carried as WM-V5 and as
+   provisional BOQ item `SP-06`.
+2. **A wall tie detail is now required** between the masonry and the columns. None exists —
+   WM-V11.
+3. **The seismic weight of the frame changes.** Brickwork at ≈ 20 kN/m³ over 0.190 × 2.600
+   gives ≈ 9.9 kN/m against the **confirmed 13.000 kN/m** of the 200 RC infill, so the
+   seismic weight falls and the existing **V<sub>b</sub> = 73.18 kN is conservative**.
+   **That is a direction, not a verification.** Referred to the structural discipline as
+   WM-V6. **A.7.8, B.8 and F.4 are UNCHANGED by this package.**
+4. **Ballistic performance.** Rev F names the panels "200 RC **BALLISTIC** INFILL". Brick
+   masonry does not provide equivalent ballistic protection. The instructed change removes
+   a stated protective function from a structure the project already declares **not blast
+   designed and expendable**. Recorded as WM-V7 so the decision is visible.
+
+### What was produced — all under `WORKS MANAGEMENT/`
+
+| Deliverable | Contents |
+|---|---|
+| `Underground_Shelter_Works_Management_Handout.pdf` | **44 pages, 25 sections** — the final-semester handout, covering the whole project |
+| `Programme/Underground_Shelter_Final_Works_Programme.xml` | **The master programme, MSPDI** — Microsoft Project's own published XML schema |
+| `Programme/…_Programme.pdf` | **7 A3 sheets** — basis and milestone register, summary Gantt, 5 sheets of detailed Gantt with the critical path |
+| `Programme/…_Programme.csv` | Task list for import into any other planning tool |
+| `Underground_Shelter_WBS.md` / `.csv` | **279 activities, 18 milestones, 404 logic links**, 3-level WBS, 14 level-1 packages |
+| `Underground_Shelter_BOQ.md` / `.csv` | **90 items in 10 sections**, whole project |
+| `Underground_Shelter_Resource_Plan.md` / `.csv` | **33 resources, 426 assignments** — every resource used on the programme |
+| `Underground_Shelter_Procurement_Plan.md` / `.csv` | 16 packages, all tied to programme activities; long-lead register |
+| `Underground_Shelter_QA_QC_Plan.md` / `.csv` | **42 ITP items, 16 hold points that are activities in the programme** |
+| `Underground_Shelter_Safety_Risk_Register.md` / `.csv` | 15 hazard classes, **25 risks** |
+| `Underground_Shelter_Codes_References.md` / `.csv` | **78 references** |
+| `Documentation/` (5 files) | Component register · construction methodology · **sentry post brick masonry (SP-B1)** · progress monitoring · assumptions and verification register |
+| `Schedules/BOQ_QUANTITY_DERIVATION.txt` | ~800 lines of quantity working with the source of every input |
+| `Schedules/WM_CPM_OUTPUT.txt` | Critical-path calculation and milestone dates |
+| `QAQC/WM_CONSISTENCY_AUDIT.txt` | **65 executed consistency checks, 65 pass** |
+| `Scripts/` (9 files) | `wm_build_all.py` regenerates the entire package from `wm_data.py` + `wm_content.py` |
+
+### The programme
+
+| | |
+|---|---|
+| Start | **Monday 2 November 2026** — carried from the supplied R0 schedule `[A]` |
+| Finish | **Saturday 20 November 2027** |
+| Duration | **326 working days** (384 calendar days) against R0's 224 |
+| Calendar | **Six-day week, Mon–Sat**, Sunday non-working — *read from* R0 (266 calendar days − 38 Sundays ≈ its stated 224), plus five date-certain national holidays. **Festival holidays are NOT fabricated**; a 10-day contingency activity `A14098` absorbs them |
+| Critical path | 75 activities at TF = 0: possession → SI and **monsoon GWT monitoring** → excavation support design → rock excavation → formation → tanking → mat → walls → pressure slab (**14-day cure + 14-day props, IS 456 Table 11**) → roof membrane → six-layer cover incl. burster slab → external works → snag → contingency → handover |
+| Sentry post | Deliberately started only **after the rock breaking finishes** (no green concrete within 10 m of a hydraulic breaker). Carries **118 days of float** |
+
+### Verification actually performed
+
+* **65 consistency checks executed and passed** (`QAQC/WM_CONSISTENCY_AUDIT.txt`), covering
+  component coverage, brick masonry consistency across all 12 documents, WBS ↔ programme
+  identity, network integrity (acyclic, no open ends, no undefined or unused resources),
+  18 sequencing rules, WBS ↔ BOQ, BOQ ↔ project record, procurement ↔ programme, QA/QC ↔
+  activities, safety ↔ activities, codes, handout ↔ package, and that no file outside
+  `WORKS MANAGEMENT/` and `master/` was modified.
+* **Six SC1 concrete volumes independently re-derived and reproduce exactly** — mat 81.84,
+  roof net 112.03, perimeter walls 103.68, W6/W7 12.80, W5 3.20, headhouse 32.74.
+* **Reinforcement reconciled to the SC1 bar bending schedule**: 70.457 t.
+* **The MSPDI file was read back with MPXJ 16.7.0** and every task count, summary count,
+  milestone count, link count, resource count, assignment count, calendar day type,
+  calendar exception and date compared against the CPM that produced it. All agree.
+* **The engineered cover build-up reproduces A.7.3**: six layers summing to 2 000 mm.
+
+### Conflicts raised by WM1 — NONE RESOLVED
+
+Twelve verification items, **WM-V1 to WM-V12**, all left open. The ones that matter:
+**WM-V1** ground-storey panel height, the project's confirmed 2.600 against the 2.750 the
+levels imply (2.600 used); **WM-V2** the first-floor west wall, where D1 lies inside the
+vision panel on the Rev F drawing; **WM-V3** window and vision-panel heights, stated
+nowhere; **WM-V5** the missing lintel design; **WM-V6** the changed seismic weight;
+**WM-V7** the lost ballistic function. Full list in
+`Documentation/WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md`.
+
+### Master items carried forward untouched
+
+**C16, C17, C18, C19, C20, C21, U1, U2, U3, U8** — all ten appear in the WM1 verification
+register and **none is resolved, downgraded or deleted.** C21 (filter duty 250 vs 300 m³/h)
+is flagged as needing a ruling **before the filter trains are ordered**, which is why the
+programme puts the enquiry activity `A1130` ahead of the delivery `A1135`.
+
+### Information the project does not contain — 13 items, each dated against the programme
+
+The largest is that **no electrical design package exists**: the scope is confirmed
+(EMP Zone 2 enclosure, 15 kVA generator, earthing to 5 Ω, penetration protection) but no
+circuit, cable, luminaire, DB or earth-electrode schedule does. Every electrical quantity
+reads *"To be verified from final measurement"* and no electrical enquiry can be issued.
+Also missing: the site plan (blocks the berm, access, hardstanding and five drainage runs),
+the sentry post lintel design and wall tie detail, blast door and blast valve vendor
+details, the service-entry plate size, the duct penetration schedule, the EMP enclosure and
+vision panel specifications, the sentry ground-floor slab design, the finish product
+selections, and the W5 gas-tight door D-05.
+
+### Not implemented, and why
+
+| Item | Why |
+|---|---|
+| A native `.mpp` file | **Microsoft Project's `.mpp` is an undocumented binary (OLE2) format writable only by Microsoft Project itself.** Verified here against MPXJ 16.7.0 — `org.mpxj.writer.FileFormat` offers JSON, MPX, MSPDI, Planner, PMXML, XER and SDEF, and no MPP writer exists. The master programme is issued as **MSPDI**, Microsoft's own published XML schema for Project; *File → Open* then *File → Save As → Project (\*.mpp)* produces the binary in one step with nothing lost. **Not imitated, not renamed, not faked.** |
+| Rates in the BOQ | Rates come from the **MES SSR**. No item number could be verified from the material available, and inventing one would put false authority on a document an executing engineer might rely on. Every such entry carries *"To be verified against the applicable MES SOR/SSR/specification edition."* |
+| Any change to A.7.8, B.8 or F.4 for the sentry post | The seismic re-check that SP-B1 implies is a **structural** matter. Direction noted (conservative), verification referred. |
+| Resolution of any master conflict | M.5 and M.6 forbid silently choosing |
+| Any STAAD work | **STAAD.Pro is not available and no analysis was run.** Reading a `.std` file is not running an analysis |
+| Any change to a drawing, model, calculation or design file | Out of scope by instruction. **No design file was touched.** |
+
+### Status of the package
+
+**FOR REVIEW — not a construction issue.** Every output rate and vendor lead time is
+`[A]` and must be re-tested against the appointed contractor. Twelve verification items and
+thirteen information gaps are open. **The main staircase is unchanged** — 24R @ 170.8333,
+tread 280, 3 flights × 8, total rise 4100, flights 1200 wide, 200 well, 2533 headroom,
+reproduced in the programme exactly as frozen. **No design value in Parts A, B, F or L was
+altered.**
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -2057,6 +2213,22 @@ without vendor and site data.
 | `HVAC/` | **6 A1 DXF** M-001…M-203 · 7 schedules · `HV_CALC_OUTPUT.txt`, 14 sections · **two-page A4 handout**, 2 DXF + `HVAC_HANDOUT.pdf` · design basis · drawing index · QA/QC + validation report · 5 Python generators · `Revit/08_hvac_model.py` |
 | `Schedule of Finishes/` | **3 A1 DXF** A-601, A-611, A-612 · 6 schedules covering **all 13 spaces** · drawing index · QA/QC + validation report · 3 Python generators · `Revit/09_room_finishes.py` |
 | `MEP_AND_FINISHES_COORDINATION.md` | The cross-discipline check across all three — ten items, four aligned, one resolved, five referred |
+
+### Added by WM1, 7 September 2026 — see H.10
+
+| Folder | Contents |
+|---|---|
+| `WORKS MANAGEMENT/` | **8 principal deliverables** (`.md` + `.csv`): WBS · BOQ · Resource Plan · Procurement Plan · QA/QC Plan · Safety & Risk Register · Codes & References · **`Underground_Shelter_Works_Management_Handout.pdf`, 44 pages, 25 sections** |
+| `WORKS MANAGEMENT/Programme/` | **`Underground_Shelter_Final_Works_Programme.xml`** — the master programme in **MSPDI**, Microsoft Project's own published XML schema (279 activities, 18 milestones, 404 links, 33 resources, 426 assignments, six-day calendar with 5 exceptions) · **`.pdf`, 7 A3 sheets** with the summary and detailed Gantt · `.csv` task list |
+| `WORKS MANAGEMENT/Documentation/` | Project component register · construction methodology · **sentry post brick masonry, design change SP-B1** · progress monitoring · assumptions and verification register |
+| `WORKS MANAGEMENT/Schedules/` | `BOQ_QUANTITY_DERIVATION.txt` (~800 lines, every input sourced) · `WM_CPM_OUTPUT.txt` |
+| `WORKS MANAGEMENT/QAQC/` | `WM_CONSISTENCY_AUDIT.txt` — **65 executed checks, 65 pass** |
+| `WORKS MANAGEMENT/Scripts/` | 9 Python files. `wm_build_all.py` regenerates the whole package from `wm_data.py` + `wm_content.py`; no date, quantity or float in any deliverable is typed by hand |
+
+> **No `.mpp`.** Microsoft Project's native format is an undocumented binary writable only
+> by Microsoft Project. MSPDI is Microsoft's own interchange schema and opens directly;
+> *File → Save As → Project (\*.mpp)* produces the binary. Verified by reading the file back
+> with MPXJ 16.7.0 and comparing every count and date against the CPM. See H.10.
 
 > **Shared modules** — `mep_proj.py`, `mep_dxf.py`, `mep_views.py`, `mep_validate.py`,
 > `mep_render.py` — live in `Drainage/Scripts/` and are used by all three packages. `mep_dxf.py`
@@ -2163,6 +2335,31 @@ without vendor and site data.
 > **U6** — the sentry model has **twelve joints. There is no node 213.**
 > **U7** — beam `16 211 212` is present, exactly as reconstructed.
 > **U1** — the sentry model does now print the seismic-weight summary the item asks for: roof 331.46 + floor 400.34 = **W 731.80 kN**, V<sub>b</sub> = 0.100 × 731.80 = 73.18 kN, so V<sub>b</sub>/W returns A<sub>h</sub> = 0.1000 exactly. **[DERIVED, requires the user's confirmation before U1 is closed]** rebuilding both storey weights from the model's own load blocks reproduces 331.46 and 400.34 exactly, and the 139.1 kN gap to the B.8 hand check resolves as (i) 107.9 kN — half the first-storey infill, which the B.8 floor line does not allocate — plus (ii) 31.1 kN, the model taking the full 450 beam depth in `SELFWEIGHT` while also applying the full slab pressure, where B.8 nets the beam to 300. **U1 remains open. U2, U3 and U8 are untouched.**
+
+> **Update, 7 September 2026 — Works Management package WM1 (H.10). No tag above has been
+> changed and no item above has been closed.** WM1 carries all ten of C16–C21, U1, U2, U3
+> and U8 forward into its own verification register untouched. It adds twelve items of its
+> own, **WM-V1 to WM-V12**, all open, of which four arise directly from the instructed
+> design change **SP-B1** (sentry post walls = brick masonry):
+> **WM-V5** no lintel design exists for the nine sentry-post openings — a requirement the
+> brick masonry creates and the RC panels did not have;
+> **WM-V6** the sentry post seismic weight changes when 200 RC infill (13.000 kN/m,
+> confirmed in A.7.8/A.7.7) becomes 190 brickwork (≈ 9.9 kN/m), which makes the existing
+> **V<sub>b</sub> = 73.18 kN conservative — a direction, not a verification**, referred to the
+> structural discipline and **not resolved**;
+> **WM-V7** brick masonry does not provide the ballistic protection that the Rev F "200 RC
+> BALLISTIC INFILL" panels were named for, so the instructed change removes a stated
+> protective function from a structure already declared not blast designed;
+> **WM-V11** no wall tie detail exists between the masonry and the columns.
+> The remaining eight concern measurement: the ground-storey panel height (**WM-V1**, the
+> project's confirmed 2.600 against the 2.750 the levels imply — 2.600 used), the
+> door/vision-panel overlap on the Rev F first-floor plan (**WM-V2**), unstated opening
+> heights (**WM-V3**), the 190-in-200 brickwork thickness (**WM-V4**), the gross mat measure
+> (**WM-V8**), excavation working space and face treatment (**WM-V9**), bulking on rock
+> (**WM-V10**) and the W8 door head height (**WM-V12**). Full text in
+> `WORKS MANAGEMENT/Documentation/WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md`.
+> **C21 must be ruled on BEFORE the CBRN filter trains are ordered** — the WM1 programme
+> places the enquiry activity ahead of the order for that reason.
 
 ## K.2 ASSUMED — must be confirmed before construction
 

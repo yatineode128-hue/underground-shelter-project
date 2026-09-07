@@ -1,0 +1,74 @@
+Group,Reference,Title,Used for,Class
+Structural design,IS 456:2000,Plain and reinforced concrete — code of practice,"All RC design and construction; Cl. 11.3 Table 11 formwork striking; Cl. 13.4 construction joints; Cl. 13.5 curing; Cl. 15 and 16 acceptance; Cl. 26.2 development and laps; Cl. 26.4.2 and Table 16 cover; Table 5 exposure, minimum cement and w/c.",[C] master Part G
+Structural design,IS 1786:2008,High strength deformed steel bars and wires for concrete reinforcement,"Fe500D for the shelter, Fe500 for the sentry post.",[C] master Part G
+Structural design,IS 13920:2016,Ductile design and detailing of reinforced concrete structures subjected to seismic forces,"Sentry post frame detailing, Zone III.",[C] master Part G
+Structural design,IS 1893 (Part 1):2016,Criteria for earthquake resistant design of structures — general provisions and buildings,Seismic design of the sentry post and the box.,[C] master Part G
+Structural design,"IS 875 (Parts 1, 2, 3, 5)",Code of practice for design loads (other than earthquake),Dead loads and unit weights; imposed loads; wind on the sentry post; load combinations.,[C] master Part G
+Structural design,IS 3370 (Parts 1 and 2):2021,Concrete structures for the storage of liquids,Crack width limit 0.2 mm and surface-zone steel.,[C] master Part G
+Structural design,IS 4991:1968,Criteria for blast resistant design of structures for explosions above ground,Blast loading rules and dynamic material strengths ONLY. Cl. 1.1 EXPLICITLY EXCLUDES NUCLEAR and that exclusion is quoted in every deliverable. Cl. 10.3.1.1 — NO dynamic increase on shear.,[C] master Part G
+Structural design,SP 34:1987,Handbook on concrete reinforcement and detailing,Shape codes; Cl. 5.5 opening-corner detailing.,[C] master Part G
+Structural design,SP 16:1980,Design aids for reinforced concrete,"Column interaction charts, cross-checked against first-principles calculation.",[C] master Part G
+Structural design,BS 8666,"Scheduling, dimensioning, bending and cutting of steel reinforcement for concrete","Bar shape codes and bend deductions in all bar bending schedules, used alongside SP 34.",[C] master Part G
+Structural design,IS 1904:1986,Design and construction of foundations in soils — general requirements,"Presumptive bearing capacity, Table 1, hard rock 3240 kPa.",[C] master Part G
+Structural design,IS 12070:1987,Design and construction of shallow foundations on rocks,Settlement on sound basalt.,[C] master Part G
+Materials,IS 269:2015,Ordinary Portland Cement — specification,"Cement for all concrete, mortar and plaster.",[C]
+Materials,IS 1489 (Part 1):1991,Portland pozzolana cement — fly ash based,Alternative binder if approved.,[C]
+Materials,IS 383:2016,Coarse and fine aggregate for concrete — specification,All concrete aggregate.,[C]
+Materials,IS 2386 (Parts 1 to 8):1963,Methods of test for aggregates for concrete,Aggregate acceptance testing.,[C]
+Materials,IS 2116:1980,Sand for masonry mortars — specification,SENTRY POST brick masonry mortar.,[C]
+Materials,IS 1542:1992,Sand for plaster — specification,Sentry post internal and external plaster.,[C]
+Materials,IS 2645:2003,Integral waterproofing compounds for cement mortar and concrete,The integral crystalline admixture required by master A.5.,[C]
+Materials,IS 4031,Methods of physical tests for hydraulic cement,Cement acceptance testing. Multi-part standard — cite the relevant part for each test.,[C]
+Construction,IS 10262:2019,Concrete mix proportioning — guidelines,Trial mix design for M35 and M30.,[C]
+Construction,IS 1199,"Fresh concrete — methods of sampling, testing and analysis",Slump and sampling at the pour. Multi-part; confirm the current part and edition before citing a clause.,[C] / edition to confirm
+Construction,IS 516,Hardened concrete — methods of test,Cube compressive strength. Confirm the current part and edition before citing a clause.,[C] / edition to confirm
+Construction,IS 13311 (Parts 1 and 2):1992,Non-destructive testing of concrete — ultrasonic pulse velocity; rebound hammer,NDT of the pressure slab and protective walls.,[C]
+Construction,IS 14687:1999,Falsework for concrete structures — guidelines,Falsework to the pressure slab soffit at 3.200 m.,[C]
+Construction,IS 9077:1979,Corrosion protection of steel reinforcement in RB and RCC construction,Reinforcement protection in a very severe exposure environment.,[C]
+Construction,IS 2720 (Part 8):1983,Methods of test for soils — determination of water content–dry density relation using heavy compaction,MDD for the backfill and the engineered cover.,[C]
+Construction,IS 2720 (Part 28):1974,Methods of test for soils — determination of dry density of soils in place by the sand replacement method,Field density testing of every compacted layer.,[C]
+SENTRY POST masonry,IS 1077:1992,Common burnt clay building bricks — specification,"Class designation 10 modular bricks, 190 x 90 x 90, for the sentry post walls. DESIGN CHANGE SP-B1.",[C]
+SENTRY POST masonry,IS 2212:1991,Code of practice for brickwork,"Laying, bond, joint filling, soaking, lift heights and curing.",[C]
+SENTRY POST masonry,IS 1905:1987,Code of practice for structural use of unreinforced masonry,"Infill panel proportions, slenderness and the frame interface.",[C]
+SENTRY POST masonry,IS 2250:1981,Code of practice for preparation and use of masonry mortars,"CM 1:6 preparation, gauge boxes, working time.",[C]
+SENTRY POST masonry,IS 3495 (Parts 1 to 4):1992,"Methods of tests of burnt clay building bricks — compressive strength, water absorption, efflorescence, warpage",Brick acceptance testing before order and on delivery.,[C]
+SENTRY POST masonry,IS 5454:1978,Method for sampling of clay building bricks,Sample size and selection for the IS 3495 tests.,[C]
+SENTRY POST masonry,IS 1661:1972,Code of practice for application of cement and cement-lime plaster finishes,Sentry post internal and external plaster.,[C]
+SENTRY POST masonry,IS 2395 (Part 1):1994,"Code of practice for painting concrete, masonry and plaster surfaces",Sentry post painting.,[C]
+SENTRY POST masonry,IS 2571:1970,Code of practice for laying in-situ cement concrete flooring,Sentry post flooring.,[C]
+Waterproofing,IS 3067:1988,Code of practice for general design details and preparatory work for damp-proofing and waterproofing of buildings,"Substrate preparation, fillets, terminations for WP-01.",[C]
+Waterproofing,IS 6494:1988,Code of practice for waterproofing of underground water reservoirs and swimming pools,Principles applied to the buried envelope and the sump pit.,[C]
+Drainage,IS 2470 (Part 1):1985,Code of practice for installation of septic tanks — design criteria and construction,"Septic tank ST-01; Cl. 6.2, 6.3, 6.5, 6.6, 6.9 and Table 1.",[C] master Part G
+Drainage,IS 2470 (Part 2):1985,Code of practice for installation of septic tanks — secondary treatment and disposal,Cl. 4 — the PERCOLATION TEST IS MANDATORY before the soak pits are built.,[C] master Part G
+Electrical,IS 732:2019,Code of practice for electrical wiring installations,"Wiring, distribution and testing.",[C]
+Electrical,IS 3043:2018,Code of practice for earthing,Earthing installation and the 5 ohm target.,[C] master Part G
+Electrical,IEEE 142,Recommended practice for grounding of industrial and commercial power systems,"Earthing target, cited alongside IS 3043.",[C] master Part G
+Electrical,IS 694:2010,PVC insulated cables for working voltages up to and including 1100 V,Final circuit cabling.,[C]
+Electrical,IS 1554 (Part 1):1988,PVC insulated (heavy duty) electric cables for working voltages up to and including 1100 V,Sub-mains and generator cabling.,[C]
+Electrical,IS 3646 (Part 1):1992,Code of practice for interior illumination,Internal lighting levels.,[C]
+Protective,MIL-STD-188-125-1,High-altitude electromagnetic pulse protection for ground-based C4I facilities,"EMP requirement: 80 dB over 10 kHz to 1 GHz; §5.4 access, §5.5 waveguide below cutoff, §5.7.2.1 power PCI, §5.7.4.1 fibre, §5.7.6 RF.",[C] master Part G
+Protective,IEEE Std 299,Standard method for measuring the effectiveness of electromagnetic shielding enclosures,The shielding effectiveness survey at handover.,[C] master Part G
+Protective,EN 1822,"High efficiency air filters (EPA, HEPA and ULPA)",H14 classification of the CBRN filter train HEPA stage.,[C] master Part G
+Protective,FEMA 453,Safe rooms and shelters,Shelter ventilation criteria and carbon adsorber performance.,[C] master Part G
+Protective,UFC 3-340-02,Structures to resist the effects of accidental explosions,"Cited AS US criteria: §4-27 opening trimmers, §4-30 direct shear.",[C] master Part G
+Safety,IS 3764:1992,Code of safety for excavation work,The 6.8 m deep excavation and its edge protection.,[C]
+Safety,IS 3696 (Part 1):1987,Safety code for scaffolds and ladders — scaffolds,"Masonry, plaster and slab-edge scaffolding.",[C]
+Safety,IS 3696 (Part 2):1991,Safety code for scaffolds and ladders — ladders,Access into the excavation and to working platforms.,[C]
+Safety,IS 4014 (Part 2):1967,Code of practice for steel tubular scaffolding — safety regulations,"Erection, alteration and dismantling of tubular scaffold.",[C]
+Safety,IS 7969:1975,Safety code for handling and storage of building materials,"Reinforcement, brick, cement and aggregate handling.",[C]
+Safety,IS 4082:1996,Recommendations on stacking and storage of construction materials and components at site,Site stacking discipline.,[C]
+Safety,IS 13416 (Parts 1 to 5),Recommendations for preventive measures against hazards at work places,"General site safety, falling material, fire and excavation.",[C]
+Safety,IS 5216 (Part 1):1982,Guide for safety procedures and practices in electrical work,Electrical safety and permit-to-work.,[C]
+Life safety,NBC 2016 Part 4,Fire and life safety,"Stair geometry, 1100 guarding and means of escape.",[C] master Part G
+Measurement,IS 1200 (Part 1):1992,Methods of measurement of building and civil engineering works — earthwork,"Measurement of excavation, filling and disposal.",[C]
+Measurement,IS 1200 (Part 2):1974,Methods of measurement — concrete works,Measurement of all concrete.,[C]
+Measurement,IS 1200 (Part 3):1976,Methods of measurement — brickwork,"SENTRY POST brick masonry, measured at its actual 190 thickness.",[C]
+Measurement,IS 1200 (Part 5):1982,Methods of measurement — formwork,Formwork contact area.,[C]
+Measurement,IS 1200 (Part 12):1976,Methods of measurement — plastering and pointing,Sentry post plaster.,[C]
+Measurement,IS 1200 (Part 13):1994,"Methods of measurement — whitewashing, colour washing, distempering and painting of buildings",Painting.,[C] / edition to confirm
+Government,"MES Standard Schedule of Rates (SSR), Part I — Rates and Part II — Specifications","The Military Engineer Services schedule governing measurement, specification and rates for Service works.","Measurement conventions, specification clauses and rates for every item of this BOQ. NO ITEM NUMBER IS QUOTED because none could be verified from the material available.",[N] — To be verified against the applicable MES SOR/SSR/specification edition.
+Government,Defence Works Procedure (DWP),"The procedure governing the sanction, execution and acceptance of defence works.","Approvals, sanction stages, acceptance of works and handover to the user Service.",[N] — edition and clause To be verified against the applicable MES SOR/SSR/specification edition.
+Government,MES Regulations (MESR),Standing regulations of the Military Engineer Services.,"Contract administration, measurement, and the Engineer's authority.",[N] — edition and clause To be verified against the applicable MES SOR/SSR/specification edition.
+Government,"CPWD Specifications 2019, Volumes 1 and 2",Central Public Works Department specifications for building works.,"Workmanship clauses for earthwork, concrete, brickwork, plaster, flooring and painting where the MES SSR defers to them.",[C] document exists / [N] clause numbers — To be verified against the applicable MES SOR/SSR/specification edition.
+Government,CPWD Works Manual,Central Public Works Department procedure for the execution of works.,"Quality control, measurement books and inspection procedure.",[C] document exists / [N] clause numbers — To be verified against the applicable MES SOR/SSR/specification edition.
+Government,Delhi Schedule of Rates (DSR),CPWD schedule of rates used as a comparator where an MES SSR item is not available.,Rate comparison only. NO ITEM NUMBER IS QUOTED.,[N] — To be verified against the applicable MES SOR/SSR/specification edition.

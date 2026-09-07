@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+
+# Works Management build artefacts
+WORKS MANAGEMENT/Scripts/__pycache__/

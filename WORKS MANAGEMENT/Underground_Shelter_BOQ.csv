@@ -1,0 +1,91 @@
+Section,Section name,Item,Description,Unit,Quantity,Status,Evidence class,Notes
+A,SITE PREPARATION AND EARTHWORKS,E-02,"Bulk excavation, main shelter, 0.000 to (-)6.800, all strata",m3,1338.24,,[D],
+A,SITE PREPARATION AND EARTHWORKS,E-02a,  of which excavation in soil / weathered overburden,m3,344.4,,[D],rockhead (-)1.750 mean; range 295.2-393.6
+A,SITE PREPARATION AND EARTHWORKS,E-02b,  of which excavation in rock (Deccan basalt),m3,993.84,,[D],rockhead (-)1.750 mean; range 944.6-1043.0
+A,SITE PREPARATION AND EARTHWORKS,E-01,"Site clearance, grubbing and stripping topsoil 150 thk, shelter area",m2,618.8,,[A],no site plan exists - re-measure
+A,SITE PREPARATION AND EARTHWORKS,E-01a,  topsoil stripped and stockpiled for re-use in the concealment layer,m3,92.82,,[A],
+A,SITE PREPARATION AND EARTHWORKS,E-03,"Excavation in rock for sump pit SU-01, below general formation",m3,9.477,,[D],
+A,SITE PREPARATION AND EARTHWORKS,E-04,"Excavation for the covered entry stairwell, outside the box envelope",m3,19.096,,[D],
+A,SITE PREPARATION AND EARTHWORKS,E-05,"Excavation for sentry post footings F1, 4 No., in soil and rock",m3,37.044,,[D],
+A,SITE PREPARATION AND EARTHWORKS,E-06,Filling in compacted granular fill under the sentry post ground floor,m3,7.452,,[D],
+A,SITE PREPARATION AND EARTHWORKS,E-07,"Side backfill in selected granular fill, 250 layers to 95 % MDD",m3,289.92,,[D],
+A,SITE PREPARATION AND EARTHWORKS,E-08,"Surplus excavated material - re-use on site as engineered fill / crushed rubble, remainder to spoil",m3,1113.937,,[D],bank measure; bulking not applied
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-01,Mat 600 (M35),m3,81.8,,[C],Structural CAD SC1
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-02,"Pressure slab 900, net of openings (M35)",m3,112.0,,[C],Structural CAD SC1
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-03,Perimeter walls 600 (M35),m3,103.7,,[C],Structural CAD SC1
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-04,Walls W6 / W7 400 (M35),m3,12.8,,[C],Structural CAD SC1
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-05,Wall W5 200 (M35),m3,3.2,,[C],Structural CAD SC1
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-06,Headhouse walls 400 + roof 500 (M35),m3,32.7,,[C],Structural CAD SC1
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-07,"Main staircase, waist and landings (M35)",m3,3.0,,[C],Structural CAD SC1
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-08,"Entry stairwell: walls, roof, raft, flight, landings (M35)",m3,19.9,,[C],Structural CAD SC1
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-09,"Blinding / PCC M15, 100 thk under the mat",m3,14.208,,[D],
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-10,"Blinding / PCC M15, 100 thk, sump pit, footings F1 and stairwell raft",m3,3.045,,[D],
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-11,Sump pit SU-01 walls 300 and base 400 below the mat soffit (M35),m3,3.708,,[D],
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-12,"Escape shaft collars ESC 1 and ESC 2, 250 RC, OD 1900 (M35)",m3,6.285,,[D],
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-13,Local thickenings of the pressure slab 900->1200 at openings (M35),m3,3.331,,[D],
+B,MAIN UNDERGROUND SHELTER — CONCRETE,C-14,"Internal partitions W8, 4 No., 110 thk, non-structural",m3,6.208,,[D],
+C,REINFORCEMENT — ALL WORKS,R-T8,"Reinforcement T8 Fe500D, shelter and entry structures",t,0.006,,[C],Structural CAD SC1
+C,REINFORCEMENT — ALL WORKS,R-T10,"Reinforcement T10 Fe500D, shelter and entry structures",t,0.063,,[C],Structural CAD SC1
+C,REINFORCEMENT — ALL WORKS,R-T12,"Reinforcement T12 Fe500D, shelter and entry structures",t,20.318,,[C],Structural CAD SC1
+C,REINFORCEMENT — ALL WORKS,R-T16,"Reinforcement T16 Fe500D, shelter and entry structures",t,23.707,,[C],Structural CAD SC1
+C,REINFORCEMENT — ALL WORKS,R-T20,"Reinforcement T20 Fe500D, shelter and entry structures",t,10.923,,[C],Structural CAD SC1
+C,REINFORCEMENT — ALL WORKS,R-T25,"Reinforcement T25 Fe500D, shelter and entry structures",t,15.439,,[C],Structural CAD SC1
+C,REINFORCEMENT — ALL WORKS,R-BS,Reinforcement T12 Fe500 to the burster slab (M30),t,1.218,,[D],
+C,REINFORCEMENT — ALL WORKS,R-S8,"Reinforcement T8 Fe500, sentry post",t,0.645,,[D],
+C,REINFORCEMENT — ALL WORKS,R-S10,"Reinforcement T10 Fe500, sentry post",t,0.245,,[D],
+C,REINFORCEMENT — ALL WORKS,R-S12,"Reinforcement T12 Fe500, sentry post",t,0.19,,[D],
+C,REINFORCEMENT — ALL WORKS,R-S16,"Reinforcement T16 Fe500, sentry post",t,0.624,,[D],
+C,REINFORCEMENT — ALL WORKS,R-S20,"Reinforcement T20 Fe500, sentry post",t,0.269,,[D],
+C,REINFORCEMENT — ALL WORKS,R-ORD,"Reinforcement ORDER quantity, all works, incl. 5 % wastage",t,77.33,,[D],
+D,FORMWORK AND FALSEWORK,F-01,"Formwork, shelter and entry structures, contact area",m2,1057.743,,[D],
+D,FORMWORK AND FALSEWORK,F-02,"Falsework to the pressure slab soffit, 3.200 m height, props to remain 14 days (IS 456 Table 11)",m2,104.0,,[D],
+E,"ENGINEERED COVER, OVERBURDEN AND CONCEALMENT",B-concealment,Topsoil / turf - concealment and erosion,m3,30.867,,[D],
+E,"ENGINEERED COVER, OVERBURDEN AND CONCEALMENT",B-filter,Granular filter,m3,15.433,,[D],
+E,"ENGINEERED COVER, OVERBURDEN AND CONCEALMENT",B-burster,"RC burster slab M30, T12 @ 150 B/W",m3,20.578,,[D],
+E,"ENGINEERED COVER, OVERBURDEN AND CONCEALMENT",B-rubble,Crushed basalt rubble 25-75 mm,m3,51.445,,[D],
+E,"ENGINEERED COVER, OVERBURDEN AND CONCEALMENT",B-fill,Compacted engineered fill @ 95 % MDD,m3,77.167,,[D],
+E,"ENGINEERED COVER, OVERBURDEN AND CONCEALMENT",B-screed,Protection screed over the membrane,m3,10.289,,[D],
+E,"ENGINEERED COVER, OVERBURDEN AND CONCEALMENT",B-berm,"Berm forming and grading, 1.5:1 to +0.900 against the headhouse and covered stairwell",m3,,To be verified from final measurement,[N],no site plan exists
+E,"ENGINEERED COVER, OVERBURDEN AND CONCEALMENT",B-camo,Camouflage and concealment measures beyond the 300 topsoil / turf layer,item,,To be verified from final measurement,[N],no concealment specification exists in the project
+F,WATERPROOFING,W-01,"WP-01 tanking, horizontal on blinding under the mat",m2,142.08,,[D],
+F,WATERPROOFING,W-02,"WP-01 tanking, vertical to external wall faces, (-)6.700 to (-)2.000",m2,265.08,,[D],
+F,WATERPROOFING,W-03,"WP-01 tanking, roof membrane, net of the void and shafts",m2,121.881,,[D],
+F,WATERPROOFING,W-04,"WP-01 upstands, fillets and dressing to openings and penetrations",m2,37.145,,[D],
+F,WATERPROOFING,W-05,WP-02 protection screed 100 over the roof membrane (also cover layer 1),m2,102.889,,[D],
+F,WATERPROOFING,W-06,"WP-06 headhouse and stairwell roofs, external grade + protection",m2,41.44,,[D],
+F,WATERPROOFING,W-08,"WP-04 internal wet-area tanking, floors",m2,26.8,,[D],
+F,WATERPROOFING,W-09,"WP-04 internal wet-area tanking, walls, 2.000 high [A]",m2,81.44,,[A],
+F,WATERPROOFING,W-10,"Waterstops, 2 No. at every construction joint (WP-05), ~6 m centres",m,109.76,,[A],joint positions not fixed in the project - re-measure
+G,SENTRY POST — CONCRETE AND FRAME,SC-01,"Sentry post: Footings F1, 4 No., 1500 x 1500 x 600",m3,5.4,,[D],
+G,SENTRY POST — CONCRETE AND FRAME,SC-02,"Sentry post: Columns C1, 4 No., 350 x 350, (-)1.400 to +6.700",m3,3.969,,[D],
+G,SENTRY POST — CONCRETE AND FRAME,SC-03,"Sentry post: Plinth beam PB 250 x 400, 15.200 m clear",m3,1.52,,[D],
+G,SENTRY POST — CONCRETE AND FRAME,SC-04,"Sentry post: Beams B1 / B2 250 x 450, rib below slab, 2 levels",m3,2.28,,[D],
+G,SENTRY POST — CONCRETE AND FRAME,SC-05,"Sentry post: Slab S1 150, first floor, 4.000 x 5.000",m3,3.0,,[D],
+G,SENTRY POST — CONCRETE AND FRAME,SC-06,"Sentry post: Slab S1 150, roof, 4.600 x 5.600 incl. the 300 projection",m3,3.864,,[D],
+G,SENTRY POST — CONCRETE AND FRAME,SC-07,Sentry post: Parapet 300 high x 150 thk [A] over the roof projection,m3,0.918,,[D],
+G,SENTRY POST — CONCRETE AND FRAME,SC-08,"Sentry post ground floor slab on grade - PROVISIONAL, not designed",m2,16.56,,[N],thickness and specification to be confirmed
+G,SENTRY POST — CONCRETE AND FRAME,SC-09,"Sentry post: blinding / PCC M15 100 thk under F1, 4 No.",m3,1.156,,[D],
+G,SENTRY POST — CONCRETE AND FRAME,SC-10,"Sentry post: external spiral stair, 1000 R, 250 dia central pole",item,1,,[C],fabrication detail not in the project record
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-01,"Brick masonry, ground storey, 190 thk in a 200 zone, CM 1:6, incl. scaffolding",m3,6.876,,[D],
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-02,"Brick masonry, first storey, 190 thk in a 200 zone, CM 1:6, incl. scaffolding",m3,5.32,,[D],
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-03,"Modular burnt clay bricks class 10 to IS 1077, delivered",No.,6402.952,,[D],incl. 5 % breakage
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-04,Cement for masonry mortar CM 1:6,bag,14.458,,[D],
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-05,"Sand for masonry mortar, to IS 2116",m3,3.012,,[D],
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-06,"RC lintels over openings, 200 x 150 PROVISIONAL - design required",m3,0.51,,[N],
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-07,"Internal cement plaster 12 mm, sand faced, CM 1:4 [A]",m2,125.15,,[D],
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-08,"External cement plaster 15 mm, two coat [A]",m2,97.39,,[D],
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-09,"Flooring, ground and first floor, 3.600 x 4.600 each",m2,33.12,,[D],specification not in the project - [N]
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-10,"Painting, internal and external, to IS 2395 (Part 1)",m2,222.54,,[D],specification not in the project - [N]
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-11,"Door D1 900 x 2100 [A height], 2 No. (ground and first floor)",No.,2,,[C],
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-12,"Window W1 1200 wide, ground storey, 1 No.",No.,1,,[C],height not stated - [N]
+H,SENTRY POST — BRICK MASONRY AND FINISHES  (design change SP-B1),SP-13,"Armoured vision panels 1200 wide, 8 No., first storey - SPECIALIST",No.,8,,[C],specification not in the project - [N]
+I,ELECTRICAL AND EMP INSTALLATION,EL-01,"Conduits, boxes and concealed work, cast into RC - builder's work",item,,To be verified from final measurement,[N],no electrical design package exists
+I,ELECTRICAL AND EMP INSTALLATION,EL-02,"Cabling, distribution board and final circuits",item,,To be verified from final measurement,[N],no electrical design package exists
+I,ELECTRICAL AND EMP INSTALLATION,EL-03,"EMP Zone 2 shielded enclosure, bay 3 - SPECIALIST",item,,To be verified from final measurement,[N],no electrical design package exists
+I,ELECTRICAL AND EMP INSTALLATION,EL-04,"Earthing installation, 5 ohm target, IS 3043",item,,To be verified from final measurement,[N],no electrical design package exists
+I,ELECTRICAL AND EMP INSTALLATION,EL-05,"Lighting, small power and emergency lighting",item,,To be verified from final measurement,[N],no electrical design package exists
+I,ELECTRICAL AND EMP INSTALLATION,EL-06,"Generator connection, changeover and protection",item,,To be verified from final measurement,[N],no electrical design package exists
+I,ELECTRICAL AND EMP INSTALLATION,EL-07,"EMP protection to every service penetration (power PCI, waveguide-below-cutoff, fibre)",item,,To be verified from final measurement,[N],no electrical design package exists
+J,PRINCIPAL MATERIALS — PROCUREMENT VOLUMES,M-01,"Cement, OPC 43 grade to IS 269, all works",t,194.169,,[D],
+J,PRINCIPAL MATERIALS — PROCUREMENT VOLUMES,M-02,"Coarse and fine aggregate to IS 383, all concrete",t,828.661,,[D],
+J,PRINCIPAL MATERIALS — PROCUREMENT VOLUMES,M-03,"Water for concrete, mortar and curing - site supply",item,,To be verified from final measurement,[A],

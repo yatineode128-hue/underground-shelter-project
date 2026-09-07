@@ -1,0 +1,34 @@
+Group,Resource,Composition,Peak,No. of activities,Driven by,Activities
+Staff,Project Manager,1 No.,1,18,Overall responsibility; MES/Service liaison; procurement of protective items,A1010;A1015;A1020;A1090;A1110;A1115;A1130;A1140;A1150;A1160;A1165;A1170;A1172;A1174;A1176;A14080;A14090;A14100
+Staff,Planning Engineer,1 No.,1,2,"Programme, progress measurement, look-ahead, as-built records",A1020;A14090
+Staff,Site Engineer (Civil),2 No.,2,15,"Excavation, RC works, backfill, sentry post",A1030;A1050;A1060;A1075;A1080;A1085;A14050;A14055;A2025;A2080;A3105;A5135;A5140;A7060;A8020
+Staff,Site Engineer (Services),1 No.,1,3,"HVAC, CBRN, drainage, electrical coordination",A14075;A14095;A9010
+Staff,Surveyor,1 No. + chainman,1,9,Setting out to the master A.4.1 grid; level control; as-built survey,A10010;A1070;A1095;A1100;A1105;A14020;A3045;A5010;A8010
+Staff,QA/QC Engineer,1 No.,1,32,"Inspection and test plan, hold points, records",A1050;A1105;A14010;A14015;A14025;A14030;A14035;A14040;A14045;A14065;A14080;A14100;A2085;A3030;A3070;A3120;A3140;A4070;A5030;A5055;A6025;A6040;A7015;A7060;A8020;A8035;A8080;A8105;A8130;A8145;A8160;A8210
+Staff,Safety Officer,1 No.,1,2,"Deep excavation, confined space, work at height, lifting",A14055;A2035
+Staff,Storekeeper,1 No.,1,1,"Material receipt, stacking to IS 4082, issue",A8130
+Staff,Structural Consultant,visiting,1,6,Attends the reinforcement hold points — carried from the R0 schedule,A3070;A3120;A4070;A5055;A8080;A8105
+Labour,Bar bender gang,1 gang = 1 fitter + 3 helpers,4,44,Peak on the pressure slab: 20.5 t of T25 at 150 both faces both ways,A1055;A3035;A3040;A3045;A3050;A3055;A3060;A3090;A3095;A3100;A3170;A4020;A4025;A4030;A4035;A4040;A4045;A4050;A4055;A4065;A4100;A4110;A5010;A5015;A5050;A5075;A5080;A5090;A5095;A5100;A5105;A5120;A5125;A7035;A8030;A8050;A8055;A8065;A8075;A8095;A8100;A8115;A8140;A8155
+Labour,Carpenter gang,1 gang = 1 carpenter + 2 helpers,4,37,"Peak on the pressure slab falsework, 104 m2 of deck at 3.200 m",A3035;A3060;A3115;A3130;A3135;A3150;A3165;A3180;A4010;A4015;A4035;A4090;A4100;A4110;A5025;A5040;A5045;A5065;A5075;A5080;A5090;A5105;A5110;A5120;A5125;A7035;A8050;A8055;A8065;A8070;A8090;A8095;A8100;A8115;A8120;A8140;A8155
+Labour,Concrete gang,1 gang = 1 mason + 6 helpers,2,38,"Continuous pours: mat 85 m3, pressure slab 112 m3",A10050;A12020;A2080;A3010;A3015;A3075;A3125;A3145;A3175;A4075;A4100;A4110;A5035;A5060;A5070;A5075;A5085;A5090;A5100;A5105;A5115;A5120;A5125;A6035;A7040;A8025;A8040;A8050;A8055;A8065;A8085;A8095;A8110;A8115;A8140;A8155;A9020;A9025
+Labour,Mason gang,1 gang = 1 mason + 2 helpers,3,15,SENTRY POST BRICK MASONRY; screeds; floor finishes; chambers,A10050;A10055;A10060;A12020;A12025;A12030;A12035;A12040;A12045;A12050;A13030;A14085;A8135;A8150;A8190
+Labour,Plasterer gang,1 gang = 1 plasterer + 1 helper,2,3,Sentry post internal and external plaster,A12010;A8180;A8185
+Labour,Painter gang,1 gang = 1 painter + 1 helper,2,4,Sealed washable coatings internally; sentry post painting,A12055;A12060;A14085;A8205
+Labour,Waterproofing gang,"specialist, 1 gang = 4 No.",4,10,Tanking is a specialist trade — 532 m2 of continuous membrane,A12015;A14025;A3020;A3025;A3155;A6010;A6015;A6020;A6030;A6045
+Labour,Electrician gang,1 gang = 1 electrician + 1 helper,3,22,"Conduits, cabling, earthing, EMP bonding",A10020;A10035;A1045;A11015;A11020;A11025;A11035;A11040;A11045;A11050;A11055;A14035;A14040;A14070;A3065;A3110;A4060;A4067;A8175;A8200;A8210;A9050
+Labour,Plumber gang,1 gang = 1 plumber + 1 helper,2,16,"Drainage, sumps, rising mains",A10010;A10015;A10020;A10025;A10030;A10035;A10040;A10045;A10060;A1040;A13020;A14030;A2065;A3065;A3110;A4060
+Labour,HVAC fitter,1 gang = 1 fitter + 1 helper,2,11,"Ductwork, blast valves, CBRN plant",A14060;A9010;A9015;A9020;A9025;A9030;A9035;A9040;A9045;A9050;A9055
+Labour,Unskilled gang,general labour,20,48,"Curing, handling, backfill, cleaning",A10055;A1030;A1035;A1055;A11015;A12010;A12065;A13020;A13025;A13030;A13035;A13040;A13045;A14085;A2010;A2030;A2035;A2075;A3080;A3130;A3150;A3180;A4080;A4095;A4115;A5040;A5065;A5070;A5110;A5115;A5130;A5145;A5150;A7010;A7025;A7030;A7045;A7050;A7055;A8045;A8060;A8090;A8120;A8135;A8150;A8170;A8180;A8195
+Labour,Specialist subcontractor,as required,1,8,"EMP enclosure, blast doors, CBRN commissioning, gas-tightness test",A11030;A14045;A14050;A14060;A14065;A14070;A14075;A14095
+Plant,Excavator,0.9 m3 tracked,2,17,"Bulk excavation, backfill, cover",A13010;A13045;A2010;A2015;A2020;A2040;A2045;A2050;A2055;A2060;A2075;A7010;A7020;A7025;A7030;A7055;A8015
+Plant,Rock breaker,"hydraulic, excavator mounted",2,5,994 m3 of basalt; NO BLASTING permitted near the sentry post,A2045;A2050;A2060;A7020;A8015
+Plant,Tipper,10 t,4,5,Spoil haulage; peak during rock excavation,A2015;A2040;A2045;A2050;A2055
+Plant,Dozer/grader,1 No.,1,4,"Berm, regrading, access",A13010;A13015;A13025;A2020
+Plant,Vibratory roller,1 No.,1,5,Backfill and cover compaction to 95 % MDD,A13010;A13015;A13025;A2020;A7010
+Plant,Plate compactor,2 No.,2,5,Confined backfill in 250 layers,A5070;A7010;A7025;A8045;A8060
+Plant,Concrete pump,boom pump,1,8,112 m3 continuous pour to the pressure slab,A3075;A3125;A3145;A4075;A5035;A5060;A5085;A7040
+Plant,Transit mixer,6 m3,4,4,Peak on the pressure slab pour,A3075;A3125;A3145;A4075
+Plant,Crane,20 t mobile,1,6,"Blast doors, filter trains, EMP enclosure, spiral stair",A11030;A5135;A5140;A8170;A9040;A9050
+Plant,Dewatering pumps,duty + standby,2,2,Continuous through the substructure; GWT (-)2.000 is ASSUMED,A2065;A2070
+Plant,Scaffolding,tube and fitting,1,8,"Slab falsework, masonry, plaster; IS 3696 / IS 4014",A4010;A5045;A8070;A8100;A8135;A8150;A8185;A8205
+Plant,Welding set,2 No.,2,13,EMP straps and blast door frames welded to the reinforcement cage,A11020;A11025;A3105;A3155;A4060;A4115;A5020;A5130;A5135;A5140;A8170;A8195;A9015
