@@ -1,0 +1,104 @@
+Project start   : Monday 02 November 2026
+Project finish  : Saturday 20 November 2027
+Working days    : 326
+Calendar days   : 384
+Activities      : 279  (of which 18 milestones)
+Critical (TF=0) : 75 activities
+
+CRITICAL PATH
+ID       WBS    ACTIVITY                                                          DUR START     FINISH       TF
+A1010    1.1    Contract award, signature and site possession                       5 02-11-26  06-11-26      0
+A1025    1.1    MILESTONE: Site possession and commencement                         0 07-11-26  07-11-26      0
+A1070    1.3    Topographic survey, benchmarks and establishment of the site gri    4 07-11-26  11-11-26      0
+A1075    1.3    Confirmatory site investigation — boreholes, rockhead, red-bole    12 12-11-26  25-11-26      0
+A1080    1.3    Monsoon groundwater monitoring — confirm the design GWT (-)2.000   20 12-11-26  04-12-26      0
+A1090    1.3    Issue confirmed geotechnical parameters to the designer             5 05-12-26  10-12-26      0
+A2025    2.2    Design and approval of excavation support and slope treatment      10 11-12-26  22-12-26      0
+A2040    2.3    Excavation in soil and weathered overburden to rockhead             4 23-12-26  28-12-26      0
+A2045    2.3    Rock excavation by hydraulic breaker, (-)1.750 to (-)4.000          9 29-12-26  07-01-27      0
+A2050    2.3    Rock excavation by hydraulic breaker, (-)4.000 to (-)6.800         11 08-01-27  20-01-27      0
+A2060    2.3    Excavation in rock for the sump pit, to (-)8.100                    3 21-01-27  23-01-27      0
+A2075    2.5    Trim, dress and clean the formation; remove loose rock              4 25-01-27  29-01-27      0
+A2080    2.5    Inspect for red-bole and vesicular seams; over-excavate and repl    4 30-01-27  03-02-27      0
+A2085    2.5    HOLD POINT: formation inspection and approval by the Engineer       2 04-02-27  05-02-27      0
+A2090    2.5    MILESTONE: excavation complete, formation approved                  0 06-02-27  06-02-27      0
+A3010    3.1    Blinding PCC M15 100 thk under the mat                              3 06-02-27  09-02-27      0
+A3020    3.1    External tanking WP-01 — horizontal, on the blinding                5 10-02-27  15-02-27      0
+A3025    3.1    Protection layer to the horizontal tanking                          2 16-02-27  17-02-27      0
+A3030    3.1    HOLD POINT: tanking integrity inspection before covering            1 18-02-27  18-02-27      0
+A3040    3.2    Mat reinforcement — bottom curtain T16 @ 150 each way               4 19-02-27  23-02-27      0
+A3045    3.2    Wall starter bars, 900 leg into the mat; kickers set out            3 24-02-27  26-02-27      0
+A3050    3.2    Mat links T12 @ 250 x 250 grid, chairs and spacers                  3 27-02-27  02-03-27      0
+A3055    3.2    Mat reinforcement — top curtain T16 @ 150 each way                  4 03-03-27  06-03-27      0
+A3060    3.2    Mat edge formwork and U-bars; waterstops at the kicker              3 08-03-27  10-03-27      0
+A3065    3.2    Cast-in items — drainage BW-01, sleeves, earth pits, EMP straps     3 08-03-27  10-03-27      0
+A3070    3.2    HOLD POINT: mat reinforcement, cover and cast-in inspection         1 11-03-27  11-03-27      0
+A3075    3.2    Concrete mat 600 M35 and sump pit — single continuous pour          2 12-03-27  13-03-27      0
+A3090    3.3    Wall reinforcement W1–W4 — both curtains T16 @ 150 each face, ea   12 18-03-27  31-03-27      0
+A3095    3.3    Wall reinforcement W5, W6, W7 incl. blast door jambs and header     6 25-03-27  31-03-27      0
+A3115    3.3    Wall formwork — lift 1, (-)6.100 to (-)4.500                        6 01-04-27  07-04-27      0
+A3120    3.3    HOLD POINT: wall reinforcement, frames and cover inspection — li    1 08-04-27  08-04-27      0
+A3125    3.3    Concrete walls — lift 1, M35                                        2 09-04-27  10-04-27      0
+A3130    3.3    Curing lift 1; strike vertical formwork after 24 h minimum          7 12-04-27  19-04-27      0
+A3135    3.3    Wall formwork — lift 2, (-)4.500 to (-)2.900                        6 15-04-27  21-04-27      0
+A3140    3.3    HOLD POINT: wall reinforcement and cover inspection — lift 2        1 22-04-27  22-04-27      0
+A3145    3.3    Concrete walls — lift 2, M35                                        2 23-04-27  24-04-27      0
+A3150    3.3    Curing lift 2 and strike wall formwork                              7 26-04-27  04-05-27      0
+A4010    4.1    Falsework and soffit deck to the pressure slab, 3.200 m height      8 05-05-27  13-05-27      0
+A4015    4.1    Edge formwork, stair void and escape shaft box-outs                 4 14-05-27  18-05-27      0
+A4020    4.2    Pressure slab — bottom curtain T25 @ 150 each way                   6 19-05-27  25-05-27      0
+A4025    4.2    Opening trimmers — stair void 6-T25 top and bottom; re-entrant c    4 26-05-27  29-05-27      0
+A4030    4.2    Escape shaft collar trimmers 5-T25 each side/face/direction; hoo    4 31-05-27  03-06-27      0
+A4045    4.2    Links T12 4-leg @ 250 in the end 1500; 2-leg @ 300 mid              5 04-06-27  09-06-27      0
+A4050    4.2    Pressure slab — top curtain T25 @ 150 each way                      6 10-06-27  16-06-27      0
+A4060    4.2    Cast-in — blast valve sleeves, duct and pipe penetrations, EMP s    5 17-06-27  22-06-27      0
+A4070    4.3    HOLD POINT: pressure slab pre-pour inspection — reinforcement, c    2 23-06-27  24-06-27      0
+A4075    4.3    Concrete pressure slab 900 M35 — single continuous pour, 112 m3     2 25-06-27  26-06-27      0
+A4080    4.3    Curing of the pressure slab — 14 days continuous                   14 28-06-27  13-07-27      0
+A4090    4.3    Strike soffit formwork and props — props to remain 14 days          5 14-07-27  19-07-27      0
+A4095    4.3    Make good, hack and prepare the soffit                              3 20-07-27  22-07-27      0
+A6030    6.2    Roof waterproofing WP-01 over the pressure slab; dress into open    6 23-07-27  29-07-27      0
+A6035    6.2    Protection screed 100 over the roof membrane — cover layer 1        4 30-07-27  03-08-27      0
+A6040    6.2    HOLD POINT: roof membrane integrity test before covering            1 04-08-27  04-08-27      0
+A7025    7.2    Compacted engineered fill 750 at 95 % MDD over the roof             5 05-08-27  10-08-27      0
+A7030    7.2    Crushed basalt rubble layer 500                                     4 11-08-27  14-08-27      0
+A7035    7.3    Burster slab M30 200 thk — formwork and reinforcement T12 @ 150     5 16-08-27  20-08-27      0
+A7040    7.3    Concrete burster slab M30                                           1 21-08-27  21-08-27      0
+A7045    7.3    Curing of the burster slab                                          7 23-08-27  30-08-27      0
+A7050    7.2    Granular filter layer 150                                           2 31-08-27  01-09-27      0
+A7055    7.2    Topsoil 300 and turfing — the concealment layer                     4 02-09-27  06-09-27      0
+A7060    7.4    Compaction test records and verification of the cover build-up      3 07-09-27  09-09-27      0
+A7065    7.4    MILESTONE: overburden complete — the structure is buried            0 10-09-27  10-09-27      0
+A13010   13.1   Berm forming and grading 1.5:1 to +0.900 against the headhouse a    8 10-09-27  18-09-27      0
+A13015   13.1   Site regrading — crown and falls 1:50 away from the structure       5 20-09-27  24-09-27      0
+A13025   13.2   Access route, hardstanding and turning area                         8 25-09-27  05-10-27      0
+A13035   13.3   Turfing and planting over the cover — the concealment layer         6 25-09-27  01-10-27      0
+A13040   13.3   Camouflage and concealment — spoil dressing, track discipline, s    6 04-10-27  09-10-27      0
+A13030   13.2   Sentry post surround, apron and drainage                            4 06-10-27  09-10-27      0
+A13045   13.4   Removal of temporary works, site restoration and clearing           6 11-10-27  16-10-27      0
+A13050   13.4   MILESTONE: external works and concealment complete                  0 18-10-27  18-10-27      0
+A14080   14.5   Snagging inspection and defects list                                5 18-10-27  22-10-27      0
+A14085   14.5   Rectification of defects                                           10 23-10-27  03-11-27      0
+A14098   14.5   Programme contingency — festival holidays and weather allowance    10 04-11-27  15-11-27      0
+A14100   14.5   Final inspection and handover documentation                         4 16-11-27  19-11-27      0
+A14105   14.5   MILESTONE: PRACTICAL COMPLETION AND HANDOVER                        0 20-11-27  20-11-27      0
+
+MILESTONE DATES
+  M-01  A1025     Site possession and commencement                         07-11-26   <- CRITICAL
+  M-02  A1065     Mobilisation complete                                    26-11-26   float 8 d
+  M-03  A1175     All long-lead protective items ordered                   23-02-27   float 230 d
+  M-04  A2090     Excavation complete, formation approved                  06-02-27   <- CRITICAL
+  M-05  A3085     Mat foundation cast                                      15-03-27   float 213 d
+  M-06  A3160     Perimeter and protective walls complete                  05-05-27   float 170 d
+  M-07  A4085     Pressure slab cast — key structural milestone            28-06-27   float 26 d
+  M-08  A6055     Buried envelope watertight — tanking complete            05-08-27   float 91 d
+  M-09  A7065     Overburden complete — structure buried                   10-09-27   <- CRITICAL
+  M-10  A8125     Sentry post frame complete                               20-04-27   float 182 d
+  M-11  A8165     Sentry post brick masonry complete                       28-04-27   float 175 d
+  M-12  A8215     Sentry post complete                                     11-06-27   float 109 d
+  M-13  A9060     CBRN plant installed                                     26-08-27   float 23 d
+  M-14  A10065    Drainage installed                                       16-09-27   float 13 d
+  M-15  A11060    Electrical installation complete                         02-09-27   float 22 d
+  M-16  A12070    Internal finishes complete                               18-09-27   float 53 d
+  M-17  A13050    External works and concealment complete                  18-10-27   <- CRITICAL
+  M-18  A14105    PRACTICAL COMPLETION AND HANDOVER                        20-11-27   <- CRITICAL

@@ -4,6 +4,7 @@
 and the master disagree, the master is right and this file is stale.
 Compiled 3 Sep 2026 from the master (Parts A, B, F, L) plus the M1 reconciliation (Part H.4).
 Updated 5 Sep 2026 for the DR1 / HV1 / FN1 packages (Part H.9).
+Updated 7 Sep 2026 for the Works Management package WM1 (Part H.10).
 
 ---
 
@@ -15,6 +16,8 @@ Updated 5 Sep 2026 for the DR1 / HV1 / FN1 packages (Part H.9).
 | Objective | 9 occupants, 96 h, nuclear air-blast DBT, with CBRN / EMP / fallout hardening |
 | Architectural | **Rev F** · Design report **Rev D** · Structural **Phase 2 Rev A + M1** |
 | Services packages | Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** (5 Sep 2026, master H.9) |
+| Works Management | **WM1** (7 Sep 2026, master H.10) — whole project, mobilisation to handover |
+| **SP-B1** | **SENTRY POST WALLS = BRICK MASONRY** — instructed design change, 7 Sep 2026. The only design change in WM1 |
 | **M1** | **APPROVED and IMPLEMENTED 3 Sep 2026** (master H.4) |
 | Deliverable | P2 (AutoCAD + STAAD + manual calculations) |
 
@@ -125,9 +128,23 @@ surface) · store under L1 (Y 4960–5600). **Headroom 2533.** Inside the protec
 4000 × 5000 external, 3600 × 4600 internal. Grid A–B **3650** c/c (A x 175, B x 3825),
 1–2 **4650** c/c (1 z 175, 2 z 4825). C1 **350 × 350** ×4 · B1/B2 **250 × 450** · S1 **150**
 two-way · PB 250 × 400 at +0.450 · F1 **1500 × 1500 × 600** on in-situ basalt at −2.000.
-Ground storey 200 RC ballistic infill; first storey armoured vision panels 1200 wide.
+Ground storey 200 RC ballistic infill (**SUPERSEDED by SP-B1 — see below**);
+first storey armoured vision panels 1200 wide.
 Spiral stair 1000 R / 250 pole. **≥ 10 m clear of the shelter excavation. Not blast designed —
 a recorded decision.**
+
+**SP-B1 — sentry post walls are BRICK MASONRY** (7 Sep 2026, master H.10 / A.4.8 note).
+190 one-brick modular brickwork to **IS 1077** in **CM 1:6**, inside the **unchanged 200
+structural zone**; 10 mm taken up at the internal face in the plaster, so the confirmed
+4000 × 5000 envelope and flush column faces are preserved. Panel height **2.600** (the
+project's own confirmed figure, A.7.7). **12.20 m³ / 64.19 m² · ≈ 6 400 bricks.**
+Openings: ground D1 900 + W1 1200; first storey 8 vision panels 1200 + D1 900.
+**Nothing else in the sentry post changed. A.7.8, B.8 and F.4 are untouched.**
+Four consequences, all OPEN: lintels now needed and **no lintel design exists** (WM-V5);
+wall ties now needed and **no detail exists** (WM-V11); seismic weight falls to ≈ 9.9 kN/m
+from 13.000, so V_b = 73.18 kN is **conservative — a direction, not a verification**
+(WM-V6); **brick does not give the ballistic protection the Rev F panels were named for**
+(WM-V7).
 
 ---
 
@@ -173,6 +190,8 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 | **C19** | **Soak pit 2.3 % short.** S-06 prints "22.0 m² OK" against its own "22.5 m² required"; π × 2.0 × 3.5 = **21.99**. Not resized — the percolation test may move it further. Raised by DR1 — needs a ruling. |
 | **C20** | **S-06 carries the Rev E stairwell catchment** (0.10 L/s open cut). At Rev F the approach is covered and the catchment with the door shut is zero. Conservative. Raised by DR1 — needs a ruling. |
 | **C21** | **Filter duty 250 vs 300 m³/h.** Master A.3 says "2 × 250"; S-06 states 300 in nine places, and **250 fails S-06's own 264 m³/h FEMA criterion**. HV1 uses 300. Raised by HV1 — **needs a ruling**. |
+| **WM-V1…12** | **Twelve verification items raised by WM1, all OPEN.** Four from SP-B1 (WM-V5 lintel design, WM-V6 seismic weight, WM-V7 ballistic function, WM-V11 wall ties); eight on measurement. See `WORKS MANAGEMENT/Documentation/WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md`. |
+| **13 gaps** | **Information the project does not contain**, each dated against the WM1 programme. Largest: **no electrical design package exists** — scope confirmed, design absent, every electrical quantity 'to be verified from final measurement'. Also: no site plan, no sentry lintel or tie detail, blast door and blast valve vendor data, service-entry plate size, duct penetration schedule, EMP enclosure and vision panel specs, sentry GF slab, finish products, W5 door D-05. |
 
 ---
 
@@ -211,6 +230,19 @@ drawing or model file was modified** — only this file and master H.3 / H.9 / I
 The shared sheet library subclasses `Structural CAD/Scripts/sc_dxflib.py`, so the sheet standard
 matches the R-series.
 
+**`WORKS MANAGEMENT/` — Works Management package, revision WM1 (7 Sep 2026, master H.10):**
+the whole project from mobilisation to handover. **279 activities · 18 milestones · 404
+logic links · 326 working days, 2 Nov 2026 → 20 Nov 2027 · six-day week.** Eight principal
+deliverables (WBS · BOQ · Resource Plan · Procurement Plan · QA/QC Plan · Safety & Risk
+Register · Codes & References · **44-page handout PDF**), the master programme in **MSPDI**
+(`.xml`) plus a **7-sheet A3 programme drawing** and a `.csv` task list, five supporting
+documents, ~800 lines of quantity derivation, and **65 executed consistency checks, all
+passing**. `Scripts/wm_build_all.py` regenerates everything from two source files.
+**No `.mpp`** — Microsoft Project's binary format is writable only by Microsoft Project
+(verified against MPXJ 16.7.0); MSPDI is Microsoft's own schema and *Save As → .mpp* is one
+step. **No design file was modified** — only this file and master H.3 / H.10 / I.2 / K.1
+plus preserving notes at A.4.8 and A.7.7.
+
 **`master/`** — `MASTER_PROJECT_STATE.md` (authority), `MASTER_PROJECT_STATE.pdf`, this file.
 
 **Changed in the M1 reconciliation (9):**
@@ -231,6 +263,7 @@ matches the R-series.
 
 ## Limitations — state these, do not paper over them
 
+- **WM1 ran no analysis and changed no design.** Every output rate and vendor lead time in the programme is `[A]`. The main staircase is unchanged.
 - **STAAD.Pro was NOT executed in Claude Code.** Both models were reconciled and verified
   *structurally and numerically against the master*. No analysis was run and no results exist.
 - **Sheets S-01…S-05, S-07, S-08 cannot be regenerated** — the Part E.4 Python toolchain
