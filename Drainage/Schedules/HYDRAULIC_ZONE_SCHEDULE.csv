@@ -1,0 +1,4 @@
+ZONE,NAME,EXTENT,DESTINATION,STATUS,CLASS
+Z1,CLEAN,"bays 1-5, inside the gas-tight envelope","clean sump SU-01, bay 5",COMPLETE,[C]
+Z2,DECON,"bay 6, inside the envelope but dirty","1000 L tank TK-01 - DRAWN IN BAY 8, across the boundary",ROUTE UNDEFINED,[U]
+Z3,GREY,"bays 7 and 8, outside the gas-tight envelope",none recorded,NO DESTINATION,[N]

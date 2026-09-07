@@ -1715,6 +1715,9 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 | — | Report J.7 places the service-entry plate "between Bay 5 and Bay 8" — those bays are not adjacent | **Superseded.** Single plate placed in the north perimeter wall (W2) at Bay 5, X ≈ 11 800 | RESOLVED |
 | **C17** | **Engineered cover build-up.** A.7.3 states a total of **40.65 kPa**; the same table's own column sums to **39.15 kPa**. Every individual line is arithmetically correct — the total row is not the sum of the column | **40.65 HELD** (A.7.4, Part L and `DL2` in every underground `.std` all carry it, and it is the larger value). Roof COMB 103 stays 448.15 kPa. **No reinforcement effect** — at 39.15, M<sub>p</sub> 697.9 and utilisation 51.2 % vs 51.4 % | **OPEN — raised by SC1, 4 Sep 2026. User ruling required (K.1 U9)** |
 | **C18** | **Sump-pit base thickness.** F.1 gives "walls/base **300/400**", and the A.4.3 levels ((−)7.600 invert to (−)8.000 base) independently give **400**; the text on sheet S-06 says **300** for both | **400 HELD** — the level difference is independent corroboration | **OPEN — raised by SC1, 4 Sep 2026. User ruling required (K.1 U10)** |
+| **C19** | **Soak pit capacity.** Sheet S-06 prints "22.0 m² OK" against its own stated requirement of "area required 22.5 m²". π × 2.0 × 3.5 = **21.99 m²**, which is **not** ≥ 22.50 m² — the pit as drawn is **2.3 % short** | **NOT RESIZED.** The 20 L/m²/day absorption behind the requirement is itself `[ASSUMED]` (A7) and the mandatory percolation test may move it by far more than 2.3 %; re-sizing first would be false precision. Closed by depth 3.5 → 3.6 m **or** diameter 2.0 → 2.1 m | **OPEN — raised by DR1, 5 Sep 2026. User ruling required (K.1 U11)** |
+| **C20** | **Superseded catchment on S-06.** The design-flow table gives **0.10 L/s** for "stairwell / approach surface water". That is the **Rev E open-cut** figure — 7.2 m² of open pit at 50 mm/h, reproduced exactly by DR1. At Rev F the approach is covered, the door is at grade and drawing 5 note 5 states the catchment with the door shut is **zero**; the governing case is note 9's door-open driving-rain rate, ≈ 12 × smaller | **NOT CORRECTED.** Conservative — the 2 L/s stairwell pump is 20 × the superseded figure and 230 × the current one, so no selection is sensitive to it. Both figures are shown on D-103 | **OPEN — raised by DR1, 5 Sep 2026. User ruling required (K.1 U12)** |
+| **C21** | **Filter train duty — the master and S-06 disagree.** A.3 describes bay 5 as "2 × **250** m³/h filters". Sheet S-06 states **300 m³/h** in nine separate places: the design flow, the train label "EACH 300 m³/h (TRUE N+1)", both train annotations, the blast-valve schedule, the DN100 velocity sizing, the airlock purge and the closed-mode arithmetic. **At 250 m³/h one train is below the 264 m³/h FEMA 453 rate S-06 itself computes**, so the "true N+1, not 2 × 150" claim fails on the sheet's own criterion | **300 USED THROUGHOUT HV1** — it is the only value consistent with the rest of the confirmed basis, and every other S-06 figure reproduces only at 300. **The master is the authority and this is not a silent choice: one of the two numbers must change** | **OPEN — raised by HV1, 5 Sep 2026. User ruling required (K.1 U13)** |
 
 ## H.4 Implementation of Modification M1 — 3 September 2026
 
@@ -1917,6 +1920,93 @@ claim is not available while no code document is held.
 
 ---
 
+## H.9 Drainage, HVAC and Schedule of Finishes packages — revisions DR1 / HV1 / FN1 — 5 September 2026
+
+> **These three packages are DELIVERABLES, not design changes. Not one value in Parts A, B, F or L
+> was altered by them.** They take what the project already decides — sheet S-06's services and
+> ventilation basis, the Rev F architecture, the R-805 waterproofing interface — verify it
+> independently, develop what is missing, and record what cannot be determined. **Four conflicts are
+> raised (three of them new) and none is resolved.**
+
+**Scope:** the underground box, the entry headhouse and the covered entry stairwell.
+**THE SENTRY POST IS COMPLETELY EXCLUDED** by the instruction that commissioned this work. No sentry
+post element appears in any drawing, schedule, calculation or script in the three packages.
+**The main staircase geometry is untouched** — it is annotated and finished, never altered.
+
+### What was produced
+
+| Package | Rev | Contents |
+|---|---|---|
+| **`Drainage/`** | **DR1** | Design basis; **11 A1 sheets** D-001…D-305; 7 schedules; a 17-section calculation set; a **two-page A4 handout** (DXF + PDF); QA/QC; drawing index; one Revit script |
+| **`HVAC/`** | **HV1** | Design basis; **6 A1 sheets** M-001…M-203; 7 schedules; a 14-section calculation set; a **two-page A4 handout** (DXF + PDF); QA/QC; drawing index; one Revit script |
+| **`Schedule of Finishes/`** | **FN1** | **3 A1 sheets** A-601, A-611, A-612; 6 schedules covering **all 13 spaces**; QA/QC; drawing index; one Revit script |
+| **`MEP_AND_FINISHES_COORDINATION.md`** | — | The cross-discipline check across all three, ten items |
+
+**24 DXF, AutoCAD 2010 (AC1024) ASCII, all validated — 0 errors.** The sheet library subclasses
+`Structural CAD/Scripts/sc_dxflib.py`, so the sheet standard is identical to the issued R-series.
+Shared modules (`mep_proj.py`, `mep_dxf.py`, `mep_views.py`, `mep_validate.py`, `mep_render.py`) live
+in `Drainage/Scripts/` and are used by all three packages — one definition, three consumers.
+
+### Verification actually performed
+
+**Sheet S-06's own basis was reproduced from first principles rather than quoted.**
+
+| Reproduced | Result |
+|---|---|
+| Seepage wetted area **401 m²** — never defined on S-06 | 56.40 perimeter × 4.700 submerged + 136.40 mat = **401.48 m²**. It is the external envelope **below the design GWT**, not the internal area |
+| Gas-tight envelope **67.8 m² / 217.0 m³** | **67.80 / 216.96** ✔ |
+| Clean zone **57.8 m² / 185.0 m³** | **57.80 / 184.96** ✔ — and it is the envelope **less the decon airlock**, which S-06 does not state |
+| FEMA 453 rate **264 m³/h** | **264.3** ✔ |
+| Leakage **32.5 m³/h**, "11 %" | **32.5**, **10.8 %** ✔ |
+| Time to 1.0 % CO₂ **9.9 h** | **9.9** ✔ |
+| Airlock purge **13 min** | **12.8** ✔ |
+| DN100 **10.6 m/s**, DN350 **7.5 m/s** | **10.61 / 7.51** ✔ |
+| Septic tank, IS 2470 (Pt 1) | Every check reproduces exactly: 1050 required, 1125 provided |
+| Rev E open-cut catchment 7.2 m² at 50 mm/h | **0.10 L/s** ✔ — which is how DR-C1 was identified |
+
+**Twelve figures reproduce; one does not** — the soak pit, see C19.
+
+### Conflicts raised — NONE RESOLVED
+
+| Ref | Conflict |
+|---|---|
+| **C19** | **Soak pit is 2.3 % short of its own stated requirement.** S-06 prints "22.0 m² OK" against its own "area required 22.5 m²"; π × 2.0 × 3.5 = **21.99 m² < 22.50 m²**. Arithmetic, not judgement |
+| **C20** | **S-06's design-flow table carries a superseded catchment.** 0.10 L/s for stairwell surface water is the **Rev E open-cut** figure; at Rev F the approach is covered and drawing 5 note 5 states the catchment with the door shut is zero. Conservative, so nothing is unsafe |
+| **C21** | **The master and S-06 disagree on the filter train duty.** A.3 says "2 × **250** m³/h filters"; S-06 states **300 m³/h** in nine places. **At 250 one train is below the 264 m³/h FEMA rate S-06 itself computes**, so the "true N+1" claim fails on the sheet's own criterion |
+| **C16** | Carried, **not** resolved. Drainage has a dependency (which roof a 2.25 m² catchment belongs to — the total is unchanged either way); HVAC has none; finishes only the drip at the step |
+
+### Referred to other disciplines — decisions this work does not own
+
+**BW-01** mat recess for the one buried drain, *requested not accepted*, with a no-buried-drain
+fallback drawn · **DR-F4** floor screed exceeds the 1.0 kPa mat SIDL by 0.24 kPa (25 kN), acting
+favourably for flotation · **DR-F5** two of the three hydraulic zones the protective boundary creates
+have no drainage destination · **HV-F2** the raw-air duct runs 11.2 m unfiltered through the clean
+zone; whether the trains should move to bay 1 is *raised not taken* · **CO-3** bay 5 is 80 % occupied
+as drawn and the CO₂/O₂ plant and dehumidifier A.3 requires have no space · **FN-U1** no door is
+scheduled in W5 anywhere in the project, yet the airlock needs a clean-side exit.
+
+### Not implemented, and why
+
+| Item | Reason |
+|---|---|
+| Sheet **D-202**, underground rainwater | **There is no rainwater below ground.** The box is buried and tanked. Issuing an empty sheet would mislead |
+| Any **cooling or heating load** | **Eight inputs missing**, of which the rock temperature at (−)6.100 governs. No load is calculated and none is implied |
+| **Total fan duty** | Five of eight loss components are vendor data. The 161 Pa that *can* be calculated is given; a total would be fabricated |
+| **Finish products, thicknesses, colours** | **No finish specification exists anywhere in the project.** Every code is a performance requirement; nine missing items are listed |
+| Positions of the **soakaways, septic tank and external chambers** | **No site plan, boundary or contour exists.** Five pipe lengths and the IS 2470 (Pt 2) offsets are recorded as not determinable |
+| Resolution of **C16, C19, C20, C21** | M.5 and M.6 forbid silently choosing |
+| Any **STAAD** work | Unchanged — STAAD.Pro is not available and no result exists |
+
+### Status of the packages
+
+**NOT construction-ready and NOT a final design.** Each carries its own QA/QC report using
+PASS / REVIEW / DATA REQUIRED / NOT DETERMINABLE. **No code-compliance claim is made** — several
+standards are cited by title only because no code document is held (M2), the **percolation test
+(A7) is still mandatory and outstanding**, and the fan duty and cooling load cannot be closed
+without vendor and site data.
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -1958,6 +2048,20 @@ claim is not available while no code document is held.
 | `Presentation_Speaking_Notes.md` / `.pdf` | 7 pp | 90-minute run sheet + anticipated questions |
 | `Phase1_Design_Report_RevD.pdf` | 33 pp | The Rev D report, rendered |
 | Python toolchain (18 files) | `.py` | **DXF generators + verification scripts — see E.4** |
+
+### Added by DR1 / HV1 / FN1, 5 September 2026 — see H.9
+
+| Folder | Contents |
+|---|---|
+| `Drainage/` | **11 A1 DXF** D-001…D-305 · 7 schedules (`.md` + `.csv`) · `DR_CALC_OUTPUT.txt`, 17 sections · **two-page A4 handout**, 2 DXF + `DRAINAGE_HANDOUT.pdf` · design basis · drawing index · QA/QC + DXF validation report · 11 Python generators · `Revit/07_drainage_model.py` |
+| `HVAC/` | **6 A1 DXF** M-001…M-203 · 7 schedules · `HV_CALC_OUTPUT.txt`, 14 sections · **two-page A4 handout**, 2 DXF + `HVAC_HANDOUT.pdf` · design basis · drawing index · QA/QC + validation report · 5 Python generators · `Revit/08_hvac_model.py` |
+| `Schedule of Finishes/` | **3 A1 DXF** A-601, A-611, A-612 · 6 schedules covering **all 13 spaces** · drawing index · QA/QC + validation report · 3 Python generators · `Revit/09_room_finishes.py` |
+| `MEP_AND_FINISHES_COORDINATION.md` | The cross-discipline check across all three — ten items, four aligned, one resolved, five referred |
+
+> **Shared modules** — `mep_proj.py`, `mep_dxf.py`, `mep_views.py`, `mep_validate.py`,
+> `mep_render.py` — live in `Drainage/Scripts/` and are used by all three packages. `mep_dxf.py`
+> **subclasses `Structural CAD/Scripts/sc_dxflib.py`**, so the A1 sheet standard is identical to the
+> issued R-series. **24 DXF, all validated, 0 errors.**
 
 ## I.3 SUPERSEDED / ARCHIVED
 
@@ -2050,6 +2154,9 @@ claim is not available while no code document is held.
 | **U8** | Roof projection + parapet 4.162 kN/m | Given on the framing plan, not independently derived | Recompute from the parapet detail |
 | **U9** | **Engineered cover build-up (C17)** — raised by SC1, 4 Sep 2026 | A.7.3 states a total of **40.65 kPa**; the same table's column sums to **39.15 kPa** | **User ruling.** 40.65 is held (the value in A.7.4, Part L and every `.std`, and the larger). **No reinforcement effect.** One of the two numbers in A.7.3 must be corrected |
 | **U10** | **Sump-pit base thickness (C18)** — raised by SC1, 4 Sep 2026 | F.1 "300/400" and the A.4.3 levels give **400**; the text on sheet S-06 says **300** | **User ruling.** 400 is held |
+| **U11** | **Soak pit capacity (C19)** — raised by DR1, 5 Sep 2026 | S-06 prints "22.0 m² OK" against its own "22.5 m² required"; π × 2.0 × 3.5 = **21.99 m²** | **User ruling.** Not resized — the percolation test (A7) may move the requirement much further |
+| **U12** | **Superseded stairwell catchment (C20)** — raised by DR1, 5 Sep 2026 | S-06 carries the **Rev E open-cut** 0.10 L/s; Rev F drawing 5 note 5 gives zero with the door shut, note 9 gives 1 m³/32 h | **User ruling.** Conservative; both figures shown on D-103 |
+| **U13** | **Filter train duty, 250 vs 300 m³/h (C21)** — raised by HV1, 5 Sep 2026 | Master A.3 "2 × 250 m³/h"; S-06 states 300 m³/h in nine places. **250 fails S-06's own 264 m³/h FEMA criterion** | **User ruling.** 300 used throughout HV1. One of the two numbers must change |
 
 > **Update, 3 September 2026 — the `.std` files are now in the workspace. No tag above has been changed.**
 > **U4** and **U5** are answerable from them directly: both models end with `PERFORM ANALYSIS PRINT STATICS CHECK` and no P-Delta; the underground model has **1 138 shell elements** in four thickness groups (mat 600 / roof 900 / perimeter 600 / internal 200–400) on `ELASTIC MAT DIRECT Y SUBGRADE 100000`. Note that its closing `START CONCRETE DESIGN … DESIGN ELEMENT 509 TO 688 869 TO 922` block contradicts its own `NO DESIGN` header comment; it has been left in place.

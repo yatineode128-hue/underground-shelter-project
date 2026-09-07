@@ -1,0 +1,11 @@
+ELEMENT,MAIN STAIRCASE — U-07,COVERED ENTRY STAIRWELL — G-02,CLASS
+GEOMETRY,"24R @ 170.8333 / 280, 3 flights x 8, total rise 4100, 1200 wide, 200 well, 200 waist, headroom 2533  *** FROZEN ***","12R @ 166.6667 / 300, 1500 wide, 250 waist, 11 goings x 300 = 3300",[C]
+TREAD,"F-03 non-slip decontaminable, laid to the confirmed 280 going with no build-up at the nosing","F-06 in-situ concrete, non-slip",[A]
+RISER,"F-03 returned up the riser, coved to the tread. No open riser","F-06, closed riser",[A]
+NOSING,"CAST-IN non-slip nosing, contrasting. NOT an applied strip - an applied nosing changes the going and the going is FROZEN",Integral cast nosing,[A]
+LANDING,"F-03 to L1 (-)4.7333, L2 (-)3.3667 and the arrival landing (-)6.100, which is the mat surface",F-06 to the top landing 0.000 and the platform (-)2.000,[A]
+SOFFIT / WAIST,"C-02 sealed, on the 200 waist","C-03 external grade, on the 250 waist, at 2200 clear",[A]
+STRINGER / SIDE,W-03 sealed fair-face RC on the shaft walls,W-05 external grade on the 250 RC walls,[A]
+WALL,W-03 to full height of the shaft,W-05,[A]
+HANDRAIL,"Galvanised or stainless, continuous, fixed to CAST-IN sockets only. HEIGHT AND CONTINUITY TO NBC 2016 PART 4 - not a finish decision",As the main staircase,[C] requirement / [A] material
+GUARDING,1100 to the stair void edge in the headhouse [C],Not applicable - the stairwell is enclosed by its own 250 walls,[C]

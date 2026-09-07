@@ -1,0 +1,6 @@
+ITEM,FLOW,CAPACITY / STORE,DISCHARGES TO,SOURCE
+Structural seepage  0.5 L/m2/day x 401 m2,200 L/day,sump 3375 L,storm soakaway,S-06 `[C]`
+Condensate + washdown,200 L/day,= 8 days store,storm soakaway,S-06 `[C]`
+"Decon effluent, airlock stages 1 + 2",on use,1000 L tank,TANKER ONLY,S-06 `[C]`
+"Foul, peacetime, 10 users x 45 lpcd",450 L/day,septic 1.125 m3,soak pit,S-06 `[C]`
+Stairwell / approach surface water,0.10 L/s,1.0 m3 sump,own soakaway,S-06 `[C]`

@@ -3,6 +3,7 @@
 **Orientation digest, not an authority.** `MASTER_PROJECT_STATE.md` governs. Where this file
 and the master disagree, the master is right and this file is stale.
 Compiled 3 Sep 2026 from the master (Parts A, B, F, L) plus the M1 reconciliation (Part H.4).
+Updated 5 Sep 2026 for the DR1 / HV1 / FN1 packages (Part H.9).
 
 ---
 
@@ -13,6 +14,7 @@ Compiled 3 Sep 2026 from the master (Parts A, B, F, L) plus the M1 reconciliatio
 | Project | Underground CBRN-hardened, blast-resistant protective structure + sentry post, Pune |
 | Objective | 9 occupants, 96 h, nuclear air-blast DBT, with CBRN / EMP / fallout hardening |
 | Architectural | **Rev F** · Design report **Rev D** · Structural **Phase 2 Rev A + M1** |
+| Services packages | Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** (5 Sep 2026, master H.9) |
 | **M1** | **APPROVED and IMPLEMENTED 3 Sep 2026** (master H.4) |
 | Deliverable | P2 (AutoCAD + STAAD + manual calculations) |
 
@@ -168,6 +170,9 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 | U8 | Roof projection + parapet 4.162 kN/m not independently reproducible. |
 | **C17** | **Engineered cover.** A.7.3 states **40.65 kPa**; its own column sums to **39.15**. 40.65 held (larger, and the value in every `.std`). **No reinforcement effect.** Raised by SC1 — needs a ruling. |
 | **C18** | **Sump-pit base.** F.1 + the levels give **400**; sheet S-06 text says **300**. 400 held. Raised by SC1 — needs a ruling. |
+| **C19** | **Soak pit 2.3 % short.** S-06 prints "22.0 m² OK" against its own "22.5 m² required"; π × 2.0 × 3.5 = **21.99**. Not resized — the percolation test may move it further. Raised by DR1 — needs a ruling. |
+| **C20** | **S-06 carries the Rev E stairwell catchment** (0.10 L/s open cut). At Rev F the approach is covered and the catchment with the door shut is zero. Conservative. Raised by DR1 — needs a ruling. |
+| **C21** | **Filter duty 250 vs 300 m³/h.** Master A.3 says "2 × 250"; S-06 states 300 in nine places, and **250 fails S-06's own 264 m³/h FEMA criterion**. HV1 uses 300. Raised by HV1 — **needs a ruling**. |
 
 ---
 
@@ -195,6 +200,17 @@ matrices, QA/QC and legibility reports, and 17 Python generators (`Scripts/build
 everything). **Sentry post completely excluded. No column sheets — no RC column exists.**
 Raised **C17** and **C18**; **C16 left open**. **Not construction-ready** — 13 items need
 engineering review. **Design values in Parts A/B/F/L unchanged.**
+**`Drainage/` `HVAC/` `Schedule of Finishes/` — services and finishes packages, revisions
+DR1 / HV1 / FN1 (5 Sep 2026, master H.9):** **20 A1 DXF** (D-001…D-305, M-001…M-203, A-601/611/612)
+plus **two two-page A4 handouts** — **24 DXF in all, AutoCAD 2010 ASCII, validated 0 errors**;
+20 schedules; two calculation sets (17 and 14 sections); three QA/QC reports; three Revit scripts
+that **extend the existing model** and create nothing; and `MEP_AND_FINISHES_COORDINATION.md`.
+**S-06's ventilation and services basis was reproduced from first principles — twelve figures check,
+one does not (C19).** Sentry post completely excluded. Main staircase untouched. **No existing design,
+drawing or model file was modified** — only this file and master H.3 / H.9 / I.2 / K.1. Raised **C19, C20, C21**; **C16 left open**. **Not construction-ready.**
+The shared sheet library subclasses `Structural CAD/Scripts/sc_dxflib.py`, so the sheet standard
+matches the R-series.
+
 **`master/`** — `MASTER_PROJECT_STATE.md` (authority), `MASTER_PROJECT_STATE.pdf`, this file.
 
 **Changed in the M1 reconciliation (9):**

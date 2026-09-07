@@ -1,0 +1,44 @@
+# FINISH LEGEND — EVERY CODE DEFINED
+
+**Underground CBRN-hardened protective structure — Pune** · GEOMETRY REV F + M1
+Schedule of Finishes revision **FN1** · 05.09.2026 · **FOR REVIEW - NOT FOR CONSTRUCTION**
+**Sentry post excluded.** Evidence class: `[C]` confirmed · `[R]` reconstructed · `[A]` assumed by this package · `[U]` unresolved · `[N]` not available — DATA REQUIRED
+
+
+> **NO FINISH SPECIFICATION EXISTS ANYWHERE IN THIS PROJECT.** Every code below is a **performance requirement** derived from something the project does confirm — the exposure class, the decontamination duty, the gas-tight envelope, the EMP requirement, the wet areas, the frozen stair geometry. **The product that satisfies it is left open.** Anywhere a thickness, product, colour or manufacturer would normally appear, this schedule says so rather than inventing one.
+
+
+| CODE | GROUP | DESCRIPTION | PERFORMANCE REQUIREMENT | WHERE THE REQUIREMENT COMES FROM | CLASS |
+|---|---|---|---|---|---|
+| F-01 | FLOOR | SEALED POWER-FLOATED SCREED | Decontaminable, non-dusting, chemical- and washdown-resistant, laid to falls. Joint-free within a room; coved to the skirting. | Gas-tight CBRN envelope, bays 1-6 [C master A.2]. Falls and screed thickness from DRAINAGE calc D.15 / D.5 | [A] |
+| F-02 | FLOOR | SEAMLESS COVED HEAVY-DUTY WET-AREA FINISH | As F-01 plus fully impervious, coved 150 up every wall in one piece, resistant to decontaminant solution. NO joints, NO tiles, NO grout. | Wet areas: lavatory/medical, CBRN plant, decon airlock. Grout lines are a decontamination failure | [A] |
+| F-03 | FLOOR | NON-SLIP DECONTAMINABLE FLOOR AND TREAD FINISH | Wet-slip resistant when contaminated, abrasion resistant, no loose aggregate. Applied to treads, landings and the shaft floor. | Master A.5 designates the stair shaft faces a WET / DIRTY ZONE (30 mm cover) [C] | [A] |
+| F-04 | FLOOR | ABRASION- AND OIL-RESISTANT FLOOR | Fuel- and oil-resistant, abrasion resistant, laid to falls to GY-09, with a bunded plinth under the generator. | Bay 8 generator, the grey zone [C master A.3] | [A] |
+| F-05 | FLOOR | POWER-FLOATED NON-SLIP SLAB FINISH | External-grade, non-slip when wet, laid to the confirmed 1:80 fall to the floor gully. Hose-down duty. | Headhouse floor is the top of the 900 pressure slab at (-)2.000 with a hose-down point and a 1:80 gully [C Rev F ground plan] | [A] |
+| F-06 | FLOOR | IN-SITU CONCRETE, NON-SLIP, WITH A CAST NOSING | External-grade non-slip; nosing integral, not applied. | Covered entry stairwell, outside the protective boundary and DECLARED EXPENDABLE [C master A.2] | [A] |
+| S-01 | SKIRTING | COVED SKIRTING, 150 HIGH, INTEGRAL WITH THE FLOOR | Formed in one piece with the floor finish. No separate section, no sealant joint at the floor. | Decontamination: a butt skirting has a joint at the very place contaminant collects | [A] |
+| S-02 | SKIRTING | HARD SKIRTING, 100 HIGH | Impact resistant, sealed to the wall and floor. | Grey zone and stair shaft, where the decontamination duty does not apply but impact does | [A] |
+| S-03 | SKIRTING | NO SKIRTING | Wall finish returned to the floor and sealed. | External and semi-external areas | [A] |
+| W-01 | WALL | FAIR-FACE RC, SEALED WASHABLE COATING | Non-dusting, washable, resistant to decontaminant solution, applied direct to the concrete. NO cavity, NO dry lining, NO battens. | Gas-tight envelope. A lined cavity is a contamination trap that cannot be decontaminated or inspected | [A] |
+| W-02 | WALL | AS W-01 PLUS IMPERVIOUS FINISH TO FULL HEIGHT | Fully impervious floor-to-soffit, continuous with the F-02 cove. | Wet areas: lavatory/medical, CBRN plant, decon airlock | [A] |
+| W-03 | WALL | FAIR-FACE RC, SEALED | Non-dusting, washable. Impact-resistant at handling routes. | Grey zone, stair shaft | [A] |
+| W-04 | WALL | EMP ZONE 2 SHIELDED ENCLOSURE LINING | *** SPECIALIST. Welded steel room, shielding effectiveness verified to IEEE Std 299. Its finish is subordinate to its shielding. *** | Master A.3 places an EMP Zone 2 enclosure in bay 3; K.3 records that the rebar cage gives 0 dB at 1 GHz and 'a Zone 2 welded steel room is the answer' [C] | [C] requirement / [N] specification |
+| W-05 | WALL | FAIR-FACE RC, SEALED, EXTERNAL GRADE | UV and weather resistant on exposed faces; washable internally. | Headhouse and covered stairwell | [A] |
+| C-01 | CEILING / SOFFIT | EXPOSED RC SOFFIT, SEALED DECONTAMINABLE COATING | Applied direct to the soffit. *** NO SUSPENDED CEILING AND NO BOXING-IN ANYWHERE IN THE GAS-TIGHT ENVELOPE. *** | Three independent reasons, all confirmed: HVAC requires every duct inspectable along its length (HV-F2); DRAINAGE requires the same of every pipe; and a ceiling void is a contamination trap that cannot be decontaminated | [A] |
+| C-02 | CEILING / SOFFIT | EXPOSED RC SOFFIT, SEALED | As C-01 without the decontamination duty. | Grey zone, stair shaft | [A] |
+| C-03 | CEILING / SOFFIT | EXPOSED RC RAKING SOFFIT, SEALED, EXTERNAL GRADE | Follows the flight at 2200 clear. | Covered entry stairwell [C master A.4.7] | [A] |
+| D-01 | DOOR | BLAST DOOR - PROPRIETARY | 1200 x 2100, >= 7 bar, rebound-rated, gas-tight. FINISH IS THE VENDOR'S AND IS SUBORDINATE TO THE RATING - do not overcoat a tested assembly. | Blast doors 1 and 2 in W6 and W7, THE PROTECTIVE BOUNDARY [C master A.2 / B.2] | [C] / [N] finish |
+| D-02 | DOOR | INNER SECURITY DOOR - STEEL, NOT BLAST RATED | 900 x 2100. Frame cast in and WELDED TO THE CAGE for EMP continuity, even though the leaf is not blast rated. | In HW2 at X 14450-15350 [C master A.4.6 / B.7.2] | [C] / [A] finish |
+| D-03 | DOOR | EXTERNAL ENTRY DOOR - STEEL | 1000 x 2100, opens outward, threshold flush with a 50 weather bar. External-grade coating. | In the stairwell headwall at grade [C Rev F section C-C] | [C] / [A] finish |
+| D-04 | DOOR | INTERNAL DOOR IN A 110 PARTITION | 900 clear in the confirmed door gap. Light, washable, no cavity. | Four W8 partitions, door gap at Y 2500-3400 [C master A.3] | [A] |
+| D-05 | DOOR | GAS-TIGHT DOOR IN W5 | Clean-side exit from the decon airlock. Gas-tight, not blast rated. | *** W5 IS CONFIRMED AS 'FIRE + GAS-TIGHT' BUT NO DOOR IS SCHEDULED IN IT ANYWHERE IN THE PROJECT. The airlock must have a clean-side exit. ENGINEER TO CONFIRM SIZE AND POSITION *** | [U] |
+| WP-01 | WATERPROOFING | TANKING MEMBRANE - EXTERNAL, CONTINUOUS | On the blinding, turned up the external face, lapped to the roof membrane. A CONTINUOUS TANK. | R-805 [C] | [C] |
+| WP-02 | WATERPROOFING | 100 PROTECTION SCREED OVER THE ROOF MEMBRANE | Also the first layer of the engineered cover. | R-805 / A.7.3 [C] | [C] |
+| WP-03 | WATERPROOFING | INTEGRAL CRYSTALLINE WATERPROOFING ADMIXTURE | In the concrete. The membrane is not the only line of defence. | master A.5 / R-805 [C] | [C] |
+| WP-04 | WATERPROOFING | INTERNAL WET-AREA TANKING UNDER THE FINISH | Beneath F-02 and behind W-02 in every wet area, turned up 150 and dressed to every gully and pipe sleeve. | Wet areas identified from master A.3 and the DRAINAGE package | [C] |
+| WP-05 | WATERPROOFING | TWO WATERSTOPS AT EVERY CONSTRUCTION JOINT | R-804. | R-805 [C] | [C] |
+| WP-06 | WATERPROOFING | EXTERNAL-GRADE ROOF WATERPROOFING AND PROTECTION | Headhouse and covered stairwell roofs stand proud of the berm; membrane and protection screed [C Rev F section C-C] | [C] | [C] |
+
+Codes run `F-nn` floor · `S-nn` skirting · `W-nn` wall · `C-nn` ceiling/soffit · `D-nn` door · `WP-nn` waterproofing.
+
+**Every code is a requirement, not a product.** The column that would normally carry a manufacturer carries the reason the requirement exists instead.
