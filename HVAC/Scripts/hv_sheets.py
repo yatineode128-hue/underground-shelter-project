@@ -279,7 +279,8 @@ def m001():
     sh.text("AHU-1 / AHU-2", M(11800, 6600), T["small"], "M-EQUIP", "BC")
     for tag, x, y2 in H.BLAST_VALVE_PTS:
         sh.sym("BVALVE", M(x, y2), scale=0.5)
-        sh.text(tag, M(x, y2 - 900), T["small"], "M-DAMPER", "BC")
+        # QA1: at (-)900 the BV-3 caption landed on "STAIR SHAFT - FROZEN GEOMETRY"
+        sh.text(tag, M(x, y2 - 1600), T["small"], "M-DAMPER", "BC")
     sh.rect(*M(*H.GEN_SHAFT[:2]), *M(*H.GEN_SHAFT[2:]), "M-DUCT-FRESH")
     sh.rect(*M(*H.FRESH_SHAFT[:2]), *M(*H.FRESH_SHAFT[2:]), "M-DUCT-FRESH")
     sh.text("SH-1", M(-3300, 900), T["small"], "M-DUCT-FRESH", "BC")
@@ -342,7 +343,7 @@ def m101():
     sh.text("CASCADE  +50 -> +35 -> +20 -> +10 Pa   300 m3/h TRANSFER",
             M(13800, 2400), NOTE, "M-DUCT-RETURN", "BC")
     sh.sym("BVALVE", M(14998, 4900), scale=0.9)
-    sh.text("BV-3 + OPRV  ->  BAY 7", M(15400, 4900), NOTE, "M-DAMPER", "ML")
+    sh.text("BV-3 + OPRV  ->  BAY 7", M(15400, 5650), NOTE, "M-DAMPER", "ML")
 
     sh.dim_h(M(0, -1400), M(22000, -1400), M(0, -2200)[1], sc=sc)
 
@@ -615,7 +616,15 @@ def m202():
     for stage, spec, fn, cls in H.FILTERS:
         wd = 420 if stage in ("HEPA", "CARBON") else 300
         sh.rect(*M(x, 0), *M(x + wd, 1400), "M-EQUIP")
-        sh.text(stage, M(x + wd / 2, 1550), NOTE, "M-TITLE", "BC")
+        # QA1: "WEATHER LOUVRE" and "BLAST VALVE" are wider than their own
+        # 300-wide stage box, so consecutive captions ran into each other.
+        # Caption wraps onto two lines and is sized to the stage it names.
+        _cap = stage.split(" ")
+        if len(_cap) > 1:
+            sh.text(_cap[0], M(x + wd / 2, 1900), 1.7, "M-TITLE", "BC")
+            sh.text(" ".join(_cap[1:]), M(x + wd / 2, 1550), 1.7, "M-TITLE", "BC")
+        else:
+            sh.text(stage, M(x + wd / 2, 1550), NOTE, "M-TITLE", "BC")
         sh.text(spec[:22], M(x + wd / 2, 700), T["small"], "M-TEXT", "CENTER")
         if x:
             sh.flow(M(x - 60, 700), 0, 2.4, "M-AIRFLOW")

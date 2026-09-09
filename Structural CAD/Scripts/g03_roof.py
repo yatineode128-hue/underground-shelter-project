@@ -147,15 +147,17 @@ def r301():
             "STEEL SHOWN DIAGRAMMATICALLY, ACTUAL SPACING 150 BOTH WAYS BOTH FACES",
             (66, 372), TXT["small"], "S-TEXT")
 
-    V.markkey(sh, 66, 352, ["S01A", "S01B", "S02A", "S02B", "S02C", "S03A", "S03B",
-                            "S03C", "S04A", "S04B", "S04C", "S05", "S06", "S07"], 240)
-    V.markkey(sh, 66, 200, ["S08", "S09", "S10", "S11", "S12", "S13", "S14", "S15",
-                            "S16"], 240, "BAR MARK KEY - OPENINGS AND BANDS")
-    V.loading_panel(sh, 316, 352, 322, ROOF_BASIS, TXT["small"], 3.05,
-                    heading="PRESSURE SLAB - DESIGN BASIS")
-    V.bbs_extract(sh, 316, 220, ["S01A", "S01B", "S02A", "S02B", "S02C", "S03A",
+    yk = V.markkey(sh, 66, 352, ["S01A", "S01B", "S02A", "S02B", "S02C", "S03A",
                                  "S03B", "S03C", "S04A", "S04B", "S04C", "S05",
-                                 "S06", "S07"])
+                                 "S06", "S07"], 240)
+    # QA1: chained off the block above so the two can never collide
+    V.markkey(sh, 66, yk - 8, ["S08", "S09", "S10", "S11", "S12", "S13", "S14",
+                               "S15", "S16"], 240, "BAR MARK KEY - OPENINGS AND BANDS")
+    yb = V.loading_panel(sh, 316, 352, 322, ROOF_BASIS, TXT["small"], 3.05,
+                         heading="PRESSURE SLAB - DESIGN BASIS")
+    V.bbs_extract(sh, 316, yb - 8, ["S01A", "S01B", "S02A", "S02B", "S02C", "S03A",
+                                    "S03B", "S03C", "S04A", "S04B", "S04C", "S05",
+                                    "S06", "S07"])
     sh.panel(648, 552, 183, "THICKNESS STUDY - WHY 900 AND NOT 800", [
         "t     d      Mp     Ast,req  tau_v  VERDICT",
         "600  512.5   689    2673     1.71   links at 164, congested",

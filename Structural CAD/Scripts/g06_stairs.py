@@ -124,8 +124,9 @@ def r601():
                     heading="FROZEN GEOMETRY AND NBC 2016 CHECK")
     y = V.loading_panel(sh, 340, 470, 298, NOT_BLAST, TXT["small"], 3.05,
                         heading="STATUS - NOT A BLAST ELEMENT")
-    V.markkey(sh, 340, y - 6, ["ST01", "ST02", "ST03", "ST04", "ST05", "ST06"], 298)
-    V.bbs_extract(sh, 340, 240, ["ST01", "ST02", "ST03", "ST04", "ST05", "ST06"])
+    yk = V.markkey(sh, 340, y - 6, ["ST01", "ST02", "ST03", "ST04", "ST05", "ST06"], 298)
+    # QA1: chained off the block above so the two can never collide
+    V.bbs_extract(sh, 340, yk - 8, ["ST01", "ST02", "ST03", "ST04", "ST05", "ST06"])
     V.materials_panel(sh, 648, 552, 183)
     sh.titleblock(scale="1:25", sheet_of="19 OF 30")
     return sh.save(os.path.join(OUT, "R-601_Main_Staircase_Reinforcement_Plan.dxf"))

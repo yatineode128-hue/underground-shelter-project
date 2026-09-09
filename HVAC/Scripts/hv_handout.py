@@ -154,7 +154,7 @@ def page2():
             (12, 142), 2.6, "M-TITLE")
     bx = 12.0
     for stage, spec, fn, cls in H.FILTERS:
-        box(sh, bx, 136, 37, 15, [stage[:16], spec[:20]], "M-EQUIP", th=1.7)
+        box(sh, bx, 136, 37, 15, [stage, spec], "M-EQUIP", th=1.5)
         if bx > 12:
             arrow(sh, (bx - 3.5, 128.5), (bx - 0.5, 128.5))
         bx += 40
@@ -162,15 +162,18 @@ def page2():
             "-  THE ONLY WAY TO KNOW A FILTER IS SPENT  [C] S-06",
             (12, 116), 2.0, "M-FLAG")
 
-    sh.text("OPERATING MODES", (12, 108), 2.6, "M-TITLE")
-    sh.table(12, 104, [8, 40, 46, 62, 22, 32],
-             [(m, n[:20], wh[:24], wt[:34], f, p[:18])
-              for m, n, wh, wt, f, p in H.MODES],
+    # QA1: every cell in this table used to be hard-sliced ("NO FILTER BYPASS
+    # IS SHO", "bay 8 not pressuri"), which lost information on a sheet meant
+    # to be read in an emergency.  Full text now, with the table fitting its
+    # own columns inside the printable width.
+    sh.text("OPERATING MODES", (12, 112), 2.6, "M-TITLE")
+    sh.table(12, 108, [8, 34, 50, 78, 20, 30],
+             [(m, n, wh, wt, f, p) for m, n, wh, wt, f, p in H.MODES],
              header=["#", "MODE", "WHEN", "WHAT RUNS", "FLOW", "PRESSURE"],
-             h=1.8, rh=4.6, layer="M-TABLE")
+             h=1.8, rh=4.4, layer="M-TABLE", max_w=273)
 
-    sh.text("CLOSED MODE   -   WHAT RUNS OUT FIRST", (12, 66), 2.6, "M-TITLE")
-    sh.table(12, 62, [56, 22, 24, 76], [
+    sh.text("CLOSED MODE   -   WHAT RUNS OUT FIRST", (12, 76), 2.6, "M-TITLE")
+    sh.table(12, 72, [56, 22, 24, 76], [
         ("Unscrubbed, CO2 to 1.0 %", "9.9 h", "[R]",
          "(0.0096 x 185) / 0.18.  Reproduces S-06"),
         ("Soda lime, 40 kg", "48 h", "[C]", "*** THE GOVERNING CONSUMABLE ***"),
@@ -195,14 +198,15 @@ def page2():
         "scope item.  [N]",
     ], h=1.8, lead=2.9)
 
-    sh.panel(12, 34, 178, "OPERATING SEQUENCE", [
+    # QA1: this panel used to bottom out at y = 6, inside the A4 footer strip
+    sh.panel(12, 48, 178, "OPERATING SEQUENCE", [
         "1  WARNING - mode 2, filtered.  Confirm +50 Pa and the cascade at every stage.",
         "2  DETONATION - the five valves shut in under 2 ms and hold.  NO CREW ACTION IS POSSIBLE.  Mode 3.",
         "3  CLOSED - soda lime and oxygen, 48 h.  LOG THE SODA LIME, NOT THE OXYGEN.",
         "4  HAZARD ALLOWS - back to mode 2.  Confirm the cascade before standing down the scrubbant.",
         "5  ENTRY, any time in mode 2 - purge stage 1, 12.8 min, 4-5 persons per hour.  DO NOT SHORTEN IT.",
         "6  ALL-CLEAR - mode 1 or 2 by decision.  Change filters in mode 3.",
-    ], h=1.8, lead=2.9)
+    ], h=1.7, lead=2.6)
     sh.finish()
     return sh
 

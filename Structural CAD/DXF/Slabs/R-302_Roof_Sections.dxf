@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461289.097974537
+2461293.677349537
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461289.097974537
+2461293.677349537
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-24A
+245
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{65136B21-1400-417B-887F-3567C9184261}
+{8B1541AE-24CC-44DF-A0D9-5F4CA5B76115}
   9
 $VERSIONGUID
   2
-{13E36173-36D1-4BC6-B8E3-E24D076E311C}
+{BF7AF733-8C27-4354-9DEC-AC95EE0C0F40}
   9
 $EXTNAMES
 290
@@ -1323,9 +1323,9 @@ ISM
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -1339,9 +1339,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -3819,7 +3819,7 @@ AcAecLayerStandard
   0
 APPID
   5
-247
+242
 330
 3
 100
@@ -3833,7 +3833,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-248
+243
 330
 3
 100
@@ -21455,7 +21455,7 @@ AcDbLine
  30
 0.0
  11
-184.74
+207.84862692565306
  21
 550.2
  31
@@ -21507,7 +21507,7 @@ AcDbText
  10
 352.0
  20
-548.6
+547.5
  30
 0.0
  40
@@ -21519,7 +21519,7 @@ OpenSans
  11
 352.0
  21
-548.6
+547.5
  31
 0.0
 100
@@ -21539,11 +21539,11 @@ AcDbText
  10
 352.0
  20
-544.6
+543.375
  30
 0.0
  40
-1.4
+2.0
   1
 LAYER                       t     gamma   kPa   FUNCTION
   7
@@ -21551,7 +21551,7 @@ OpenSans
  11
 352.0
  21
-544.6
+543.375
  31
 0.0
 100
@@ -21571,11 +21571,11 @@ AcDbText
  10
 352.0
  20
-541.5500000000001
+540.325
  30
 0.0
  40
-1.4
+2.0
   1
 Topsoil / turf             300     18     5.40  concealment, erosion
   7
@@ -21583,7 +21583,7 @@ OpenSans
  11
 352.0
  21
-541.5500000000001
+540.325
  31
 0.0
 100
@@ -21603,11 +21603,11 @@ AcDbText
  10
 352.0
  20
-538.5000000000001
+537.2750000000001
  30
 0.0
  40
-1.4
+2.0
   1
 Granular filter            150     19     2.85  stops fines clogging
   7
@@ -21615,7 +21615,7 @@ OpenSans
  11
 352.0
  21
-538.5000000000001
+537.2750000000001
  31
 0.0
 100
@@ -21635,11 +21635,11 @@ AcDbText
  10
 352.0
  20
-535.4500000000002
+534.2250000000001
  30
 0.0
  40
-1.4
+2.0
   1
 RC burster slab M30        200     25     5.00  BREAKS UP A PENETRATOR
   7
@@ -21647,7 +21647,7 @@ OpenSans
  11
 352.0
  21
-535.4500000000002
+534.2250000000001
  31
 0.0
 100
@@ -21667,11 +21667,11 @@ AcDbText
  10
 352.0
  20
-532.4000000000002
+531.1750000000002
  30
 0.0
  40
-1.4
+2.0
   1
 Crushed basalt 25-75       500     17     8.50  scatters burster energy
   7
@@ -21679,7 +21679,7 @@ OpenSans
  11
 352.0
  21
-532.4000000000002
+531.1750000000002
  31
 0.0
 100
@@ -21699,11 +21699,11 @@ AcDbText
  10
 352.0
  20
-529.3500000000003
+528.1250000000002
  30
 0.0
  40
-1.4
+2.0
   1
 Compacted fill 95 % MDD    750     20    15.00  RADIATION MASS
   7
@@ -21711,7 +21711,7 @@ OpenSans
  11
 352.0
  21
-529.3500000000003
+528.1250000000002
  31
 0.0
 100
@@ -21731,11 +21731,11 @@ AcDbText
  10
 352.0
  20
-526.3000000000003
+525.0750000000003
  30
 0.0
  40
-1.4
+2.0
   1
 Protection screed          100     24     2.40  protects the membrane
   7
@@ -21743,7 +21743,7 @@ OpenSans
  11
 352.0
  21
-526.3000000000003
+525.0750000000003
  31
 0.0
 100
@@ -21763,11 +21763,11 @@ AcDbText
  10
 352.0
  20
-523.2500000000003
+522.0250000000003
  30
 0.0
  40
-1.4
+2.0
   1
 TOTAL                     2000           39.15   <- COLUMN SUM
   7
@@ -21775,7 +21775,7 @@ OpenSans
  11
 352.0
  21
-523.2500000000003
+522.0250000000003
  31
 0.0
 100
@@ -21795,11 +21795,11 @@ AcDbText
  10
 352.0
  20
-520.2000000000004
+518.9750000000004
  30
 0.0
  40
-1.4
+2.0
   1
 STATED IN THE MASTER                     40.65   <- HELD  *** C17 ***
   7
@@ -21807,7 +21807,7 @@ OpenSans
  11
 352.0
  21
-520.2000000000004
+518.9750000000004
  31
 0.0
 100
@@ -21827,19 +21827,19 @@ AcDbText
  10
 352.0
  20
-517.1500000000004
+512.8750000000005
  30
 0.0
  40
-1.4
+2.0
   1
-
+WHY 2.0 m - NOT BLAST AND NOT FALLOUT.  A buried roof takes full p_so
   7
 OpenSans
  11
 352.0
  21
-517.1500000000004
+512.8750000000005
  31
 0.0
 100
@@ -21859,19 +21859,19 @@ AcDbText
  10
 352.0
  20
-514.1000000000005
+509.82500000000044
  30
 0.0
  40
-1.4
+2.0
   1
-WHY 2.0 m - NOT BLAST AND NOT FALLOUT.  A buried roof takes full p_so
+regardless (IS 4991 Cl. 7.2), and 1.0 m already gives a protection
   7
 OpenSans
  11
 352.0
  21
-514.1000000000005
+509.82500000000044
  31
 0.0
 100
@@ -21891,19 +21891,19 @@ AcDbText
  10
 352.0
  20
-511.05000000000047
+506.77500000000043
  30
 0.0
  40
-1.4
+2.0
   1
-regardless (IS 4991 Cl. 7.2), and 1.0 m already gives a protection
+factor of about 2200 against a requirement of about 1000.  THE SECOND
   7
 OpenSans
  11
 352.0
  21
-511.05000000000047
+506.77500000000043
  31
 0.0
 100
@@ -21923,19 +21923,19 @@ AcDbText
  10
 352.0
  20
-508.00000000000045
+503.7250000000004
  30
 0.0
  40
-1.4
+2.0
   1
-factor of about 2200 against a requirement of about 1000.  THE SECOND
+METRE IS BOUGHT ENTIRELY FOR PROMPT NEUTRON AND GAMMA ATTENUATION,
   7
 OpenSans
  11
 352.0
  21
-508.00000000000045
+503.7250000000004
  31
 0.0
 100
@@ -21955,19 +21955,19 @@ AcDbText
  10
 352.0
  20
-504.95000000000044
+500.6750000000004
  30
 0.0
  40
-1.4
+2.0
   1
-METRE IS BOUGHT ENTIRELY FOR PROMPT NEUTRON AND GAMMA ATTENUATION,
+which needs mass and needs it ABOVE the slab.
   7
 OpenSans
  11
 352.0
  21
-504.95000000000044
+500.6750000000004
  31
 0.0
 100
@@ -21987,19 +21987,19 @@ AcDbText
  10
 352.0
  20
-501.90000000000043
+497.6250000000004
  30
 0.0
  40
-1.4
+2.0
   1
-which needs mass and needs it ABOVE the slab.
+Reducing 4.0 m to 2.0 m saved 2 m of rock excavation, 2 m of shaft,
   7
 OpenSans
  11
 352.0
  21
-501.90000000000043
+497.6250000000004
  31
 0.0
 100
@@ -22019,43 +22019,11 @@ AcDbText
  10
 352.0
  20
-498.8500000000004
+494.5750000000004
  30
 0.0
  40
-1.4
-  1
-Reducing 4.0 m to 2.0 m saved 2 m of rock excavation, 2 m of shaft,
-  7
-OpenSans
- 11
-352.0
- 21
-498.8500000000004
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-204
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-352.0
- 20
-495.8000000000004
- 30
-0.0
- 40
-1.4
+2.0
   1
 one stair flight and 2 m of headroom.
   7
@@ -22063,7 +22031,7 @@ OpenSans
  11
 352.0
  21
-495.8000000000004
+494.5750000000004
  31
 0.0
 100
@@ -22071,7 +22039,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-205
+204
 330
 17
 100
@@ -22087,11 +22055,11 @@ AcDbPolyline
  10
 350.0
  20
-490.7500000000004
+489.5250000000004
  10
 638.0
  20
-490.7500000000004
+489.5250000000004
  10
 638.0
  20
@@ -22103,7 +22071,7 @@ AcDbPolyline
   0
 TEXT
   5
-206
+205
 330
 17
 100
@@ -22115,7 +22083,7 @@ AcDbText
  10
 352.0
  20
-481.3500000000004
+479.0250000000004
  30
 0.0
  40
@@ -22127,7 +22095,39 @@ OpenSans
  11
 352.0
  21
-481.3500000000004
+479.0250000000004
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+206
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+352.0
+ 20
+474.9000000000004
+ 30
+0.0
+ 40
+2.0
+  1
+1  TOP AND BOTTOM CURTAINS T25 @ 150 BOTH WAYS, 75 COVER TO EACH FACE.
+  7
+OpenSans
+ 11
+352.0
+ 21
+474.9000000000004
  31
 0.0
 100
@@ -22147,19 +22147,19 @@ AcDbText
  10
 352.0
  20
-477.3500000000004
+471.85000000000036
  30
 0.0
  40
-1.4
+2.0
   1
-1  TOP AND BOTTOM CURTAINS T25 @ 150 BOTH WAYS, 75 COVER TO EACH FACE.
+2  TOP STEEL IS CONTINUOUS OVER EVERY SUPPORT and is anchored Ld = 1000
   7
 OpenSans
  11
 352.0
  21
-477.3500000000004
+471.85000000000036
  31
 0.0
 100
@@ -22179,19 +22179,19 @@ AcDbText
  10
 352.0
  20
-474.3000000000004
+468.80000000000035
  30
 0.0
  40
-1.4
+2.0
   1
-2  TOP STEEL IS CONTINUOUS OVER EVERY SUPPORT and is anchored Ld = 1000
+   into the wall.  Bottom steel is continuous, laps staggered at mid-span.
   7
 OpenSans
  11
 352.0
  21
-474.3000000000004
+468.80000000000035
  31
 0.0
 100
@@ -22211,19 +22211,19 @@ AcDbText
  10
 352.0
  20
-471.2500000000004
+465.75000000000034
  30
 0.0
  40
-1.4
+2.0
   1
-   into the wall.  Bottom steel is continuous, laps staggered at mid-span.
+3  LINKS:  T12 4-LEGGED @ 250 IN THE END 1500 EACH SIDE, T12 2-LEGGED @ 300
   7
 OpenSans
  11
 352.0
  21
-471.2500000000004
+465.75000000000034
  31
 0.0
 100
@@ -22243,19 +22243,19 @@ AcDbText
  10
 352.0
  20
-468.2000000000004
+462.70000000000033
  30
 0.0
  40
-1.4
+2.0
   1
-3  LINKS:  T12 4-LEGGED @ 250 IN THE END 1500 EACH SIDE, T12 2-LEGGED @ 300
+   ELSEWHERE.  The end-zone spacing is set by IS 456 Cl. 26.5.1.5 (limit 300),
   7
 OpenSans
  11
 352.0
  21
-468.2000000000004
+462.70000000000033
  31
 0.0
 100
@@ -22275,19 +22275,19 @@ AcDbText
  10
 352.0
  20
-465.1500000000004
+459.6500000000003
  30
 0.0
  40
-1.4
+2.0
   1
-   ELSEWHERE.  The end-zone spacing is set by IS 456 Cl. 26.5.1.5 (limit 300),
+   not by the shear demand, which would allow 409.
   7
 OpenSans
  11
 352.0
  21
-465.1500000000004
+459.6500000000003
  31
 0.0
 100
@@ -22307,19 +22307,19 @@ AcDbText
  10
 352.0
  20
-462.10000000000036
+456.6000000000003
  30
 0.0
  40
-1.4
+2.0
   1
-   not by the shear demand, which would allow 409.
+4  500 x 500 HAUNCH WITH T20 @ 150 DIAGONALS AT BOTH SUPPORTS - R-304.
   7
 OpenSans
  11
 352.0
  21
-462.10000000000036
+456.6000000000003
  31
 0.0
 100
@@ -22339,19 +22339,19 @@ AcDbText
  10
 352.0
  20
-459.05000000000035
+453.5500000000003
  30
 0.0
  40
-1.4
+2.0
   1
-4  500 x 500 HAUNCH WITH T20 @ 150 DIAGONALS AT BOTH SUPPORTS - R-304.
+5  THE WATERPROOFING MEMBRANE SITS DIRECTLY ON THE SLAB and is protected by
   7
 OpenSans
  11
 352.0
  21
-459.05000000000035
+453.5500000000003
  31
 0.0
 100
@@ -22371,19 +22371,19 @@ AcDbText
  10
 352.0
  20
-456.00000000000034
+450.5000000000003
  30
 0.0
  40
-1.4
+2.0
   1
-5  THE WATERPROOFING MEMBRANE SITS DIRECTLY ON THE SLAB and is protected by
+   the 100 screed, which is the first layer of the engineered cover - R-805.
   7
 OpenSans
  11
 352.0
  21
-456.00000000000034
+450.5000000000003
  31
 0.0
 100
@@ -22403,43 +22403,11 @@ AcDbText
  10
 352.0
  20
-452.95000000000033
+447.4500000000003
  30
 0.0
  40
-1.4
-  1
-   the 100 screed, which is the first layer of the engineered cover - R-805.
-  7
-OpenSans
- 11
-352.0
- 21
-452.95000000000033
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-210
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-352.0
- 20
-449.9000000000003
- 30
-0.0
- 40
-1.4
+2.0
   1
 6  NO MOVEMENT JOINT ANYWHERE IN THE SLAB.
   7
@@ -22447,7 +22415,7 @@ OpenSans
  11
 352.0
  21
-449.9000000000003
+447.4500000000003
  31
 0.0
 100
@@ -22455,7 +22423,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-211
+210
 330
 17
 100
@@ -22471,23 +22439,23 @@ AcDbPolyline
  10
 350.0
  20
-444.8500000000003
+442.40000000000026
  10
 638.0
  20
-444.8500000000003
+442.40000000000026
  10
 638.0
  20
-484.7500000000004
+483.5250000000004
  10
 350.0
  20
-484.7500000000004
+483.5250000000004
   0
 TEXT
   5
-212
+211
 330
 17
 100
@@ -22499,7 +22467,7 @@ AcDbText
  10
 650.0
  20
-548.6
+547.5
  30
 0.0
  40
@@ -22511,7 +22479,39 @@ OpenSans
  11
 650.0
  21
-548.6
+547.5
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+212
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+650.0
+ 20
+543.375
+ 30
+0.0
+ 40
+2.0
+  1
+CONCRETE          M35 to IS 456 Table 5.  w/c <= 0.45, cement >= 340 kg/m3.
+  7
+OpenSans
+ 11
+650.0
+ 21
+543.375
  31
 0.0
 100
@@ -22531,19 +22531,19 @@ AcDbText
  10
 650.0
  20
-544.6
+540.375
  30
 0.0
  40
-1.4
+2.0
   1
-CONCRETE          M35 to IS 456 Table 5.  w/c <= 0.45, cement >= 340 kg/m3.
+                  Integral crystalline waterproofing admixture.
   7
 OpenSans
  11
 650.0
  21
-544.6
+540.375
  31
 0.0
 100
@@ -22563,19 +22563,19 @@ AcDbText
  10
 650.0
  20
-541.6
+537.375
  30
 0.0
  40
-1.4
+2.0
   1
-                  Integral crystalline waterproofing admixture.
+                  Blinding M15, 100 thk.
   7
 OpenSans
  11
 650.0
  21
-541.6
+537.375
  31
 0.0
 100
@@ -22595,19 +22595,19 @@ AcDbText
  10
 650.0
  20
-538.6
+534.375
  30
 0.0
  40
-1.4
+2.0
   1
-                  Blinding M15, 100 thk.
+REINFORCEMENT     Fe500D to IS 1786:2008.
   7
 OpenSans
  11
 650.0
  21
-538.6
+534.375
  31
 0.0
 100
@@ -22627,19 +22627,19 @@ AcDbText
  10
 650.0
  20
-535.6
+531.375
  30
 0.0
  40
-1.4
+2.0
   1
-REINFORCEMENT     Fe500D to IS 1786:2008.
+Ec = 5000 sqrt(fck) = 29 580 N/mm2   (IS 456 Cl. 6.2.3.1)
   7
 OpenSans
  11
 650.0
  21
-535.6
+531.375
  31
 0.0
 100
@@ -22659,19 +22659,19 @@ AcDbText
  10
 650.0
  20
-532.6
+528.375
  30
 0.0
  40
-1.4
+2.0
   1
-Ec = 5000 sqrt(fck) = 29 580 N/mm2   (IS 456 Cl. 6.2.3.1)
+gamma_m           1.5 concrete / 1.15 steel  (IS 456 Cl. 36.4.2)
   7
 OpenSans
  11
 650.0
  21
-532.6
+528.375
  31
 0.0
 100
@@ -22691,19 +22691,19 @@ AcDbText
  10
 650.0
  20
-529.6
+522.375
  30
 0.0
  40
-1.4
+2.0
   1
-gamma_m           1.5 concrete / 1.15 steel  (IS 456 Cl. 36.4.2)
+BLAST CASE ONLY   IS 4991 Cl. 10.3.1:  fck,dyn 43.75  ·  fy,dyn 625
   7
 OpenSans
  11
 650.0
  21
-529.6
+522.375
  31
 0.0
 100
@@ -22723,19 +22723,19 @@ AcDbText
  10
 650.0
  20
-526.6
+519.375
  30
 0.0
  40
-1.4
+2.0
   1
-
+*** NO DYNAMIC INCREASE ON SHEAR - IS 4991 Cl. 10.3.1.1 ***
   7
 OpenSans
  11
 650.0
  21
-526.6
+519.375
  31
 0.0
 100
@@ -22755,19 +22755,19 @@ AcDbText
  10
 650.0
  20
-523.6
+516.375
  30
 0.0
  40
-1.4
+2.0
   1
-BLAST CASE ONLY   IS 4991 Cl. 10.3.1:  fck,dyn 43.75  ·  fy,dyn 625
+tau_c and tau_c,max are read at the STATIC M35 value in every check.
   7
 OpenSans
  11
 650.0
  21
-523.6
+516.375
  31
 0.0
 100
@@ -22787,19 +22787,19 @@ AcDbText
  10
 650.0
  20
-520.6
+510.375
  30
 0.0
  40
-1.4
+2.0
   1
-*** NO DYNAMIC INCREASE ON SHEAR - IS 4991 Cl. 10.3.1.1 ***
+COVER   75 cast against blinding · 50 formed earth face
   7
 OpenSans
  11
 650.0
  21
-520.6
+510.375
  31
 0.0
 100
@@ -22819,19 +22819,19 @@ AcDbText
  10
 650.0
  20
-517.6
+507.375
  30
 0.0
  40
-1.4
+2.0
   1
-tau_c and tau_c,max are read at the STATIC M35 value in every check.
+        40 internal · 30 stair-shaft faces
   7
 OpenSans
  11
 650.0
  21
-517.6
+507.375
  31
 0.0
 100
@@ -22851,19 +22851,19 @@ AcDbText
  10
 650.0
  20
-514.6
+504.375
  30
 0.0
  40
-1.4
+2.0
   1
-
+        The 5 mm reduction IS 456 Table 16 permits for M35 is NOT taken.
   7
 OpenSans
  11
 650.0
  21
-514.6
+504.375
  31
 0.0
 100
@@ -22883,19 +22883,19 @@ AcDbText
  10
 650.0
  20
-511.6
+498.375
  30
 0.0
  40
-1.4
+2.0
   1
-COVER   75 cast against blinding · 50 formed earth face
+Ld TENSION 40 phi  ·  Ld COMPRESSION 32 phi  ·  LAP 50 phi STAGGERED
   7
 OpenSans
  11
 650.0
  21
-511.6
+498.375
  31
 0.0
 100
@@ -22915,19 +22915,19 @@ AcDbText
  10
 650.0
  20
-508.6
+495.375
  30
 0.0
  40
-1.4
+2.0
   1
-        40 internal · 30 stair-shaft faces
+T8 320/400 · T10 400/500 · T12 480/600 · T16 640/800
   7
 OpenSans
  11
 650.0
  21
-508.6
+495.375
  31
 0.0
 100
@@ -22947,19 +22947,19 @@ AcDbText
  10
 650.0
  20
-505.6
+492.375
  30
 0.0
  40
-1.4
+2.0
   1
-        The 5 mm reduction IS 456 Table 16 permits for M35 is NOT taken.
+T20 800/1000 · T25 1000/1250        (Ld / lap, mm)
   7
 OpenSans
  11
 650.0
  21
-505.6
+492.375
  31
 0.0
 100
@@ -22979,19 +22979,19 @@ AcDbText
  10
 650.0
  20
-502.6
+489.375
  30
 0.0
  40
-1.4
+2.0
   1
-
+The IS 4991 Cl. 10.3.1.1 +25 % blast bond allowance is NOT taken.
   7
 OpenSans
  11
 650.0
  21
-502.6
+489.375
  31
 0.0
 100
@@ -23011,19 +23011,19 @@ AcDbText
  10
 650.0
  20
-499.6
+483.375
  30
 0.0
  40
-1.4
+2.0
   1
-Ld TENSION 40 phi  ·  Ld COMPRESSION 32 phi  ·  LAP 50 phi STAGGERED
+*** MAXIMUM BAR SPACING 150 BOTH CURTAINS - EMP REQUIREMENT ***
   7
 OpenSans
  11
 650.0
  21
-499.6
+483.375
  31
 0.0
 100
@@ -23043,171 +23043,11 @@ AcDbText
  10
 650.0
  20
-496.6
+480.375
  30
 0.0
  40
-1.4
-  1
-T8 320/400 · T10 400/500 · T12 480/600 · T16 640/800
-  7
-OpenSans
- 11
-650.0
- 21
-496.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-224
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-493.6
- 30
-0.0
- 40
-1.4
-  1
-T20 800/1000 · T25 1000/1250        (Ld / lap, mm)
-  7
-OpenSans
- 11
-650.0
- 21
-493.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-225
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-490.6
- 30
-0.0
- 40
-1.4
-  1
-The IS 4991 Cl. 10.3.1.1 +25 % blast bond allowance is NOT taken.
-  7
-OpenSans
- 11
-650.0
- 21
-490.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-226
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-487.6
- 30
-0.0
- 40
-1.4
-  1
-
-  7
-OpenSans
- 11
-650.0
- 21
-487.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-227
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-484.6
- 30
-0.0
- 40
-1.4
-  1
-*** MAXIMUM BAR SPACING 150 BOTH CURTAINS - EMP REQUIREMENT ***
-  7
-OpenSans
- 11
-650.0
- 21
-484.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-228
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-481.6
- 30
-0.0
- 40
-1.4
+2.0
   1
     stricter than IS 456 Cl. 26.3.3 and than every code minimum.
   7
@@ -23215,7 +23055,7 @@ OpenSans
  11
 650.0
  21
-481.6
+480.375
  31
 0.0
 100
@@ -23223,7 +23063,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-229
+224
 330
 17
 100
@@ -23239,11 +23079,11 @@ AcDbPolyline
  10
 648.0
  20
-476.6
+475.375
  10
 831.0
  20
-476.6
+475.375
  10
 831.0
  20
@@ -23255,7 +23095,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-22A
+225
 330
 17
 100
@@ -23287,7 +23127,7 @@ AcDbPolyline
   0
 LINE
   5
-22B
+226
 330
 17
 100
@@ -23304,6 +23144,126 @@ AcDbLine
 0.0
  11
 831.0
+ 21
+30.0
+ 31
+0.0
+  0
+LINE
+  5
+227
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
+42.0
+ 30
+0.0
+ 11
+831.0
+ 21
+42.0
+ 31
+0.0
+  0
+LINE
+  5
+228
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
+54.0
+ 30
+0.0
+ 11
+831.0
+ 21
+54.0
+ 31
+0.0
+  0
+LINE
+  5
+229
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
+66.0
+ 30
+0.0
+ 11
+831.0
+ 21
+66.0
+ 31
+0.0
+  0
+LINE
+  5
+22A
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
+88.0
+ 30
+0.0
+ 11
+831.0
+ 21
+88.0
+ 31
+0.0
+  0
+LINE
+  5
+22B
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbLine
+ 10
+763.0
+ 20
+10.0
+ 30
+0.0
+ 11
+763.0
  21
 30.0
  31
@@ -23321,126 +23281,6 @@ S-TITLE
 100
 AcDbLine
  10
-651.0
- 20
-42.0
- 30
-0.0
- 11
-831.0
- 21
-42.0
- 31
-0.0
-  0
-LINE
-  5
-22D
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-54.0
- 30
-0.0
- 11
-831.0
- 21
-54.0
- 31
-0.0
-  0
-LINE
-  5
-22E
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-66.0
- 30
-0.0
- 11
-831.0
- 21
-66.0
- 31
-0.0
-  0
-LINE
-  5
-22F
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-88.0
- 30
-0.0
- 11
-831.0
- 21
-88.0
- 31
-0.0
-  0
-LINE
-  5
-230
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbLine
- 10
-763.0
- 20
-10.0
- 30
-0.0
- 11
-763.0
- 21
-30.0
- 31
-0.0
-  0
-LINE
-  5
-231
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbLine
- 10
 797.0
  20
 10.0
@@ -23455,7 +23295,7 @@ AcDbLine
   0
 TEXT
   5
-232
+22D
 330
 17
 100
@@ -23487,7 +23327,7 @@ AcDbText
   0
 TEXT
   5
-233
+22E
 330
 17
 100
@@ -23519,7 +23359,7 @@ AcDbText
   0
 TEXT
   5
-234
+22F
 330
 17
 100
@@ -23551,7 +23391,7 @@ AcDbText
   0
 TEXT
   5
-235
+230
 330
 17
 100
@@ -23583,7 +23423,7 @@ AcDbText
   0
 TEXT
   5
-236
+231
 330
 17
 100
@@ -23615,7 +23455,7 @@ AcDbText
   0
 TEXT
   5
-237
+232
 330
 17
 100
@@ -23647,7 +23487,7 @@ AcDbText
   0
 LINE
   5
-238
+233
 330
 17
 100
@@ -23671,7 +23511,7 @@ AcDbLine
   0
 TEXT
   5
-239
+234
 330
 17
 100
@@ -23703,7 +23543,7 @@ AcDbText
   0
 TEXT
   5
-23A
+235
 330
 17
 100
@@ -23735,7 +23575,7 @@ AcDbText
   0
 TEXT
   5
-23B
+236
 330
 17
 100
@@ -23767,7 +23607,7 @@ AcDbText
   0
 TEXT
   5
-23C
+237
 330
 17
 100
@@ -23799,7 +23639,7 @@ AcDbText
   0
 TEXT
   5
-23D
+238
 330
 17
 100
@@ -23831,7 +23671,7 @@ AcDbText
   0
 TEXT
   5
-23E
+239
 330
 17
 100
@@ -23863,7 +23703,7 @@ AcDbText
   0
 TEXT
   5
-23F
+23A
 330
 17
 100
@@ -23895,7 +23735,7 @@ AcDbText
   0
 TEXT
   5
-240
+23B
 330
 17
 100
@@ -23927,7 +23767,7 @@ AcDbText
   0
 TEXT
   5
-241
+23C
 330
 17
 100
@@ -23959,7 +23799,7 @@ AcDbText
   0
 TEXT
   5
-242
+23D
 330
 17
 100
@@ -23991,7 +23831,7 @@ AcDbText
   0
 TEXT
   5
-243
+23E
 330
 17
 100
@@ -24023,7 +23863,7 @@ AcDbText
   0
 TEXT
   5
-244
+23F
 330
 17
 100
@@ -24055,7 +23895,7 @@ AcDbText
   0
 TEXT
   5
-245
+240
 330
 17
 100
@@ -24087,7 +23927,7 @@ AcDbText
   0
 TEXT
   5
-246
+241
 330
 17
 100
@@ -25207,7 +25047,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-249
+244
   0
 DICTIONARYVAR
   5
@@ -25219,7 +25059,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-05T02:21:05.864257+00:00
+1.4.4 @ 2026-09-09T16:15:23.444436+00:00
   0
 VISUALSTYLE
   5
@@ -25923,7 +25763,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-249
+244
 330
 2D
 100
@@ -25931,7 +25771,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-05T02:21:05.884541+00:00
+1.4.4 @ 2026-09-09T16:15:23.462850+00:00
   0
 ENDSEC
   0

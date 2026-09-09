@@ -203,7 +203,8 @@ def r202():
     V.balloon(sh, (40, 470), "W07", Pm(58, 2400))
     V.balloon(sh, (104, 500), "W08", Pm(342, 2600))
     V.balloon(sh, (40, 410), "W11", Pm(200, 1000))
-    sh.view_title((70, 552), "V1", "WALLS W6 / W7 - 400 THK (MODIFICATION M1)", "SCALE 1:20")
+    # QA1: V1's title is 125 mm long and used to run into V2's; both shifted left
+    sh.view_title((24, 552), "V1", "WALLS W6 / W7 - 400 THK (MODIFICATION M1)", "SCALE 1:20")
     sh.text("COVER 50 SHAFT FACE / 40 ROOM FACE.  SYMMETRICAL - THE WALL IS",
             (24, 316), TXT["small"], "S-TEXT")
     sh.text("DETAILED THE SAME BOTH FACES EVEN THOUGH IT IS LOADED FROM THE",
@@ -215,7 +216,7 @@ def r202():
     _wall_section(sh, Pm2, sc, 200, 3200, 40, 40, 12, 150, 12, 400, legs=2)
     sh.dim_h(Pm2(0, 0), Pm2(200, 0), Pm2(0, -900)[1], sc)
     V.balloon(sh, (166, 470), "W16", Pm2(46, 2400))
-    sh.view_title((175, 552), "V2", "WALL W5 - 200 THK", "SCALE 1:20")
+    sh.view_title((162, 552), "V2", "WALL W5 - 200 THK", "SCALE 1:20")
     sh.text("NO PRESSURE DIFFERENTIAL.  FIRE AND", (162, 316), TXT["small"], "S-TEXT")
     sh.text("GAS-TIGHT SEPARATION ONLY.  MINIMUM", (162, 311), TXT["small"], "S-TEXT")
     sh.text("STEEL GOVERNS - T12 @ 150 EF EW.", (162, 306), TXT["small"], "S-TEXT")
@@ -253,7 +254,9 @@ def r202():
     sh.text("W18", (387, yk - 7.0), TXT["small"], "S-CALLOUT", "CENTER")
     sh.text("FABRIC  A252 BOTH FACES - W8 PARTITIONS 110, NON-STRUCTURAL",
             (392, yk - 7.6), TXT["small"], "S-NOTE")
-    V.bbs_extract(sh, 380, 232, ["W07", "W08", "W09", "W10", "W11", "W12", "W16", "W17"])
+    # QA1: chained off the block above so the two can never collide
+    V.bbs_extract(sh, 380, yk - 21.0, ["W07", "W08", "W09", "W10", "W11", "W12",
+                                       "W16", "W17"])
     sh.panel(648, 552, 183, "MODIFICATION M1 - WHAT CHANGED AND WHY", [
         "M1 WAS APPROVED AND IMPLEMENTED ON 3 SEPTEMBER 2026.",
         "",
@@ -346,7 +349,9 @@ def r203():
     sh.text("BLAST DOOR 1  1200 x 2100, 7 BAR, AT Y 600 - 1800.  BLAST DOOR 2 IN W7 IS "
             "HANDED, OTHERWISE IDENTICAL.", (40, 128), TXT["small"], "S-TEXT")
 
-    y = sh.panel(300, 552, 340, "LAP AND SPLICE POLICY - WHY 50 phi AND NOT 40 phi", [
+    # QA1: this column used to start at x = 300, which put the mark key straight
+    # over the V1 wall elevation (22 000 at 1:60 reaches x = 407).  Moved clear.
+    y = sh.panel(420, 552, 218, "LAP AND SPLICE POLICY - WHY 50 phi AND NOT 40 phi", [
         "IS 456 Cl. 26.2.5.1(c) gives lap = Ld or 30 phi, whichever is greater = 40 phi.",
         "IS 456 Cl. 26.2.5.1 requires the lap to be increased by x1.4 if MORE THAN 50 %",
         "of the bars are lapped at one section.",
@@ -361,9 +366,11 @@ def r203():
         "LAP LENGTHS   T12 600  ·  T16 800  ·  T20 1000  ·  T25 1250",
         "Ld TENSION    T12 480  ·  T16 640  ·  T20  800  ·  T25 1000",
     ], TXT["small"], 3.05)
-    V.markkey(sh, 300, y - 6, ["W01", "W02", "W03", "W04", "W07", "W08", "W09",
-                               "W10", "W13"], 340)
-    V.bbs_extract(sh, 300, 300, ["W01", "W02", "W03", "W04", "W07", "W08", "W09", "W10"])
+    yk = V.markkey(sh, 420, y - 6, ["W01", "W02", "W03", "W04", "W07", "W08", "W09",
+                                    "W10", "W13"], 218)
+    # QA1: chained off the block above so the two can never collide
+    V.bbs_extract(sh, 420, yk - 8, ["W01", "W02", "W03", "W04", "W07", "W08",
+                                    "W09", "W10"])
     V.materials_panel(sh, 648, 552, 183)
     sh.titleblock(scale="1:60, 1:30", sheet_of="10 OF 30")
     return sh.save(os.path.join(OUT, "R-203_Wall_Elevations.dxf"))
@@ -537,8 +544,9 @@ def r205():
         "",
         "MANUAL CALCULATION - NOT DIRECT STAAD OUTPUT.",
     ], TXT["small"], 3.05)
-    V.markkey(sh, 330, y - 6, ["W13", "W14", "W15", "B01", "B02", "B03"], 310)
-    V.bbs_extract(sh, 330, 280, ["W13", "W14", "W15", "B01", "B02", "B03"])
+    yk = V.markkey(sh, 330, y - 6, ["W13", "W14", "W15", "B01", "B02", "B03"], 310)
+    # QA1: chained off the block above so the two can never collide
+    V.bbs_extract(sh, 330, yk - 8, ["W13", "W14", "W15", "B01", "B02", "B03"])
     sh.panel(648, 552, 183, "OTHER OPENINGS AND WHERE THEY ARE DETAILED", [
         "ESCAPE SHAFTS ESC 1 / ESC 2, 1400 dia    R-303",
         "STAIR VOID 2800 x 3160                   R-303",

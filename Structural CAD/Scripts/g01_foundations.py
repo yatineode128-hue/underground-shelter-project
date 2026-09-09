@@ -112,7 +112,7 @@ def r101():
     sh.view_title((66, 552), "V1", "MAT FOUNDATION PLAN - REINFORCEMENT", "SCALE 1:50")
     sh.secmark((58, 424), "A")
     sh.secmark((520, 424), "A")
-    sh.text("SECTION A-A  ->  R-102", (400, 380), TXT["small"], "S-SECTION", "CENTER")
+    sh.text("SECTION A-A  ->  R-102", (64, 416), TXT["small"], "S-SECTION")
 
     # enlarged sump part plan, 1:25, origin shifted so the pit sits at x = 66
     sc2 = 25
@@ -136,12 +136,17 @@ def r101():
             (66, 228), TXT["small"], "S-TEXT")
     sh.text("[CONFIRMED from sheet S-06]", (66, 224), TXT["small"], "S-TEXT")
 
-    V.markkey(sh, 200, 348, ["F01", "F02", "F03", "F04", "F05", "F06", "F07",
-                             "F08", "F09", "F10", "F11", "F12", "F13"], 235)
+    # QA1: the bar-mark key is 13 marks deep and used to run straight over the
+    # bar-schedule extract, which was pinned at a fixed y = 282.  Both blocks
+    # are now CHAINED off the height the key actually consumes, so they cannot
+    # collide however many marks a sheet nominates.
+    ymk = V.markkey(sh, 200, 348, ["F01", "F02", "F03", "F04", "F05", "F06", "F07",
+                                   "F08", "F09", "F10", "F11", "F12", "F13"], 235)
     V.loading_panel(sh, 445, 348, 195, MAT_LOADS, TXT["small"], 3.05,
                     heading="MAT - DESIGN BASIS")
-    V.bbs_extract(sh, 200, 282,
-                  ["F01", "F02", "F03", "F04", "F05", "F06", "F07", "F08", "F09", "F10"])
+    ybs = V.bbs_extract(sh, 200, ymk - 8,
+                        ["F01", "F02", "F03", "F04", "F05", "F06", "F07", "F08",
+                         "F09", "F10"])
     y = sh.panel(648, 556, 183, "OPEN ITEMS AFFECTING THIS SHEET", [
         "A2  DESIGN GWT (-)2.000 IS [ASSUMED].  Water is two-thirds of",
         "    the lateral load and ALL of the 46.11 kPa uplift.  Monsoon",
@@ -160,7 +165,9 @@ def r101():
     ], TXT["small"], 3.05)
     V.loading_panel(sh, 648, y - 6, 183, FLOTATION, TXT["small"], 3.05,
                     heading="FLOTATION - MANDATORY MITIGATION")
-    sh.panel(200, 200, 440, "MAT - CONSTRUCTION REQUIREMENTS THAT ARE DESIGN OUTPUTS", [
+    # chained below the schedule extract and stretched to fill the bottom band
+    sh.panel_column(200, ybs - 8, 22, 440, [
+        ("MAT - CONSTRUCTION REQUIREMENTS THAT ARE DESIGN OUTPUTS", [
         "1  THE HAZARD IS NOT THE BASALT - IT IS THE FLOW CONTACTS.  A single red-bole or",
         "   vesicular seam under the mat produces the differential-support case that SIZES",
         "   the mat.  OVER-EXCAVATE ANY RED-BOLE OR VESICULAR SEAM AT FOUNDING LEVEL AND",
@@ -176,7 +183,8 @@ def r101():
         "6  DEWATERING, PRESSURE-RELIEF PLUGS, PROGRAMME AND SYMMETRICAL BACKFILL ARE",
         "   MANDATORY - see the flotation panel.  FoS IS 0.33 AT THE MAT-ONLY STAGE.",
         "7  NO BAR MAY BE DISPLACED TO CLEAR A SERVICE.  Any clash is an RFI.",
-    ], TXT["small"], 3.05)
+        ]),
+    ])
     sh.titleblock(scale="1:50, 1:25", sheet_of="5 OF 30")
     return sh.save(os.path.join(OUT, "R-101_Mat_Foundation_Reinforcement_Plan.dxf"))
 
@@ -387,7 +395,7 @@ def r103():
     sh.barmark((520, 300), "F08", "T20 @ 150 EF, LAP 1000", leader_from=Pm3(600, 1000))
     sh.view_title((440, 548), "D3", "STARTER TO WALLS W6 / W7 (400, MOD M1)", "SCALE 1:10")
 
-    y = sh.panel(55, 300, 380, "JUNCTION DETAILING RULES", [
+    y = sh.panel(55, 290, 380, "JUNCTION DETAILING RULES", [
         "1  EVERY WALL SPRINGS FROM A STARTER CAST INTO THE MAT.  The starter's",
         "   horizontal leg lies IN THE BOTTOM CURTAIN, 900 long (600 for W5), and",
         "   is turned up to project 800 (50 phi) above a 150 kicker.",

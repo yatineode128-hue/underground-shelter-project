@@ -14,8 +14,13 @@ def r001():
                "MATERIALS · COVER · ANCHORAGE · LOADING · LIMITATIONS",
                flags=["C16", "C17"])
     sh.sheet_header()
-    y = sh.panel(16, 550, 300, "GENERAL NOTES", V.STD_NOTES, TXT["small"], 3.2)
-    y = sh.panel(16, y - 6, 300, "DESIGN BASIS - GOVERNING ACTION PER ELEMENT", [
+    # QA1 layout: the three note columns are laid out with panel_column so that
+    # they FILL the sheet height.  Previously every panel was drawn at the
+    # library minimum (1.4 mm text, 3.2 mm pitch), which left the bottom third
+    # of the sheet empty and the body text below legible print size.
+    sh.panel_column(16, 550, 16, 300, [
+        ("GENERAL NOTES", V.STD_NOTES),
+        ("DESIGN BASIS - GOVERNING ACTION PER ELEMENT", [
         "COMB 103 BLAST GOVERNS EVERY BLAST-RATED ELEMENT.",
         "",
         "MAT 600            soft / red-bole band, M = qL2/12 = 303.7 kNm/m     util 84 %",
@@ -33,8 +38,8 @@ def r001():
         "",
         "PROTECTIVE BOUNDARY = BLAST DOORS 1 AND 2 AT (-)6.100, WALLS W6/W7,",
         "THE PERIMETER WALLS, THE MAT AND THE PRESSURE SLAB.",
-    ], TXT["small"], 3.2)
-    sh.panel(16, y - 6, 300, "WHAT THIS PACKAGE DOES NOT DEMONSTRATE", [
+        ]),
+        ("WHAT THIS PACKAGE DOES NOT DEMONSTRATE", [
         "1  SUPPORT ROTATION / DUCTILITY FOR THE BLAST CASE.  mu = 5 needs a",
         "   non-linear SDOF check (IS 4991 Fig. 6 / Biggs).  PHASE 3.",
         "2  SHOCK PROPAGATION DOWN THE ENTRY SHAFT and the resulting door loading.",
@@ -47,12 +52,31 @@ def r001():
         "   by calculation.",
         "7  NO CODE DOCUMENT IS HELD.  Clause numbers are cited only from the",
         "   project's verified clause register (master Part G).",
-    ], TXT["small"], 3.2)
+        ]),
+        ("CODES RELIED ON", [
+        "IS 456:2000        all capacity, detailing, cover, Ld, laps, shear",
+        "IS 1786:2008       Fe500D",
+        "IS 3370 (1,2):2021 0.2 mm crack limit; 0.35 % surface-zone steel",
+        "IS 875 (1,2,5)     dead, imposed, combination",
+        "IS 1893 (Pt 1):2016 seismic - established as NOT governing",
+        "IS 13920:2016      applicability determined element by element;",
+        "                   Cl. 10.4 checked and NOT triggered",
+        "IS 4991:1968       BLAST LOADING RULES AND DYNAMIC STRENGTHS ONLY",
+        "IS 1904 · IS 2950(1) · IS 12070   bearing, raft, rock",
+        "SP 34:1987         detailing; Cl. 5.5 opening corner",
+        "NBC 2016 Part 4    stair geometry, 1100 guarding",
+        "SP 16 · BS 8666 · UFC 3-340-02 (cited AS US criteria)",
+        "",
+        "IS 2502 IS NAMED IN THE BRIEF BUT IS NOT HELD AND IS NOT CITED.",
+        "Bar bending uses declared project rule PBR-1 - see R-004.",
+        ]),
+    ])
 
     x = 324
-    y = V.materials_panel(sh, x, 550, 300)
     rows = [f"{n:<4} {t:<26} {f}" for n, t, f in P.COMBS]
-    y = V.loading_panel(sh, x, y - 6, 300, [
+    sh.panel_column(x, 550, 16, 300, [
+        (V.MATERIALS_HEAD, V.materials_lines()),
+        (V.LOADING_HEAD, [
         "BLAST   p_so 344.7 kPa (50 psi) · td 0.13-1.33 s · mu 5 · DLF 1.111",
         "        DESIGN 383 kPa ON THE ROOF AND ON THE WALLS  (Ka = 1.0)",
         "        Roof T = 13.4 ms, td/T = 10-100  ->  QUASI-STATIC",
@@ -72,28 +96,15 @@ def r001():
         "                - IS 4991 Cl. 11.1 FORBIDS COMBINING THEM WITH BLAST.",
         "",
         "LOAD COMBINATIONS (as built into the STAAD models):",
-    ] + rows, TXT["small"], 3.2)
-    V.open_items_panel(sh, x, y - 6, 300, ["C16", "C17", "A2", "A4", "M1", "M2", "P3"])
+        ] + rows),
+        (V.OPEN_ITEMS_HEAD,
+         V.open_items_lines(["C16", "C17", "A2", "A4", "M1", "M2", "P3"])),
+    ])
 
+    # right column stops at 118 so it never crowds the title block (y 10-110)
     x = 634
-    y = sh.panel(x, 550, 197, "CODES RELIED ON", [
-        "IS 456:2000        all capacity, detailing, cover, Ld, laps, shear",
-        "IS 1786:2008       Fe500D",
-        "IS 3370 (1,2):2021 0.2 mm crack limit; 0.35 % surface-zone steel",
-        "IS 875 (1,2,5)     dead, imposed, combination",
-        "IS 1893 (Pt 1):2016 seismic - established as NOT governing",
-        "IS 13920:2016      applicability determined element by element;",
-        "                   Cl. 10.4 checked and NOT triggered",
-        "IS 4991:1968       BLAST LOADING RULES AND DYNAMIC STRENGTHS ONLY",
-        "IS 1904 · IS 2950(1) · IS 12070   bearing, raft, rock",
-        "SP 34:1987         detailing; Cl. 5.5 opening corner",
-        "NBC 2016 Part 4    stair geometry, 1100 guarding",
-        "SP 16 · BS 8666 · UFC 3-340-02 (cited AS US criteria)",
-        "",
-        "IS 2502 IS NAMED IN THE BRIEF BUT IS NOT HELD AND IS NOT CITED.",
-        "Bar bending uses declared project rule PBR-1 - see R-004.",
-    ], TXT["small"], 3.2)
-    y = sh.panel(x, y - 6, 197, "BAR MARK SYSTEM", [
+    sh.panel_column(x, 550, 118, 197, [
+        ("BAR MARK SYSTEM", [
         "F   FOUNDATIONS - mat, starters, sump pit",
         "W   WALLS - perimeter, W5, W6/W7, openings",
         "S   SLAB - pressure (roof) slab and its openings",
@@ -110,8 +121,8 @@ def r001():
         "plate structure - mat, walls, roof slab.  Master B.3 declares",
         "punching shear NOT APPLICABLE because no column or pedestal",
         "bears on the mat.  No column or joint drawing is produced.",
-    ], TXT["small"], 3.2)
-    sh.panel(x, y - 6, 197, "DRAWING INDEX - THIS PACKAGE", [
+        ]),
+        ("DRAWING INDEX - THIS PACKAGE", [
         "R-001 GENERAL REINFORCEMENT NOTES",
         "R-002 REINFORCEMENT LEGEND AND SYMBOLS",
         "R-003 TYPICAL REINFORCEMENT DETAILS AND BAR SHAPES",
@@ -145,7 +156,8 @@ def r001():
         "",
         "NO R-501 / R-502 / R-503 (COLUMNS) - NO COLUMN EXISTS.",
         "NO SENTRY-POST DRAWING - OUT OF SCOPE.",
-    ], TXT["small"], 3.0)
+        ]),
+    ])
     sh.titleblock(scale="NOT TO SCALE", sheet_of="1 OF 30")
     return sh.save(os.path.join(OUT, "R-001_General_Reinforcement_Notes.dxf"))
 
@@ -279,7 +291,11 @@ def r002():
 def _shape_sketch(sh, x, y, code, name, dims, formula):
     """Small dimensioned bar-shape sketch."""
     sh.text(f"SHAPE {code}   {name}", (x, y), TXT["detail_label"], "S-TITLE")
-    yy = y - 8
+    # QA1: the sketches rise up to 22 mm above yy (shape 51 is a full link box),
+    # so an 8 mm drop put the bar outline and its A/B/C labels straight through
+    # the shape title.  Dropped clear of the title and the cut-length lines
+    # moved down to match.
+    yy = y - 30
     if code == "00":
         sh.line((x + 4, yy), (x + 64, yy), "S-REBAR-MAIN")
         sh.dim_h((x + 4, yy), (x + 64, yy), yy - 8, 1.0, "SC-DIM-S")
@@ -305,8 +321,8 @@ def _shape_sketch(sh, x, y, code, name, dims, formula):
         sh.pline([(x + 4, yy), (x + 24, yy + 16), (x + 46, yy + 16), (x + 64, yy)],
                  "S-REBAR-MAIN")
         sh.text("FULLY DIMENSIONED ON THE DETAIL", (x + 4, yy - 4), TXT["small"], "S-TEXT")
-    sh.text(f"CUT LENGTH = {formula}", (x, y - 34), TXT["small"], "S-NOTE")
-    sh.text(dims, (x, y - 37.6), TXT["small"], "S-NOTE")
+    sh.text(f"CUT LENGTH = {formula}", (x, y - 46), TXT["small"], "S-NOTE")
+    sh.text(dims, (x, y - 49.6), TXT["small"], "S-NOTE")
 
 
 def r003():

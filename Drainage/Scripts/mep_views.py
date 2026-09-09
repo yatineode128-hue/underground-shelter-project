@@ -58,8 +58,11 @@ def underground_plan(sh, M, scale, bays=True, rooms=True, stair=True,
     if bays:
         for no, x0, x1, cw, rno, rname in P.BAYS:
             xm = (x0 + x1) / 2.0
-            sh.circle(M(xm, B["y1"] + 520), 2.6, "M-GRID")
-            sh.text(str(no), M(xm, B["y1"] + 520), NOTE_H,
+            # QA1: the bay bubbles used to sit 520 above the box, which put the
+            # left-hand bubble straight through the "V1 ..." view title on every
+            # plan sheet.  Moved below the box, matching the R-series convention.
+            sh.circle(M(xm, B["y0"] - 900), 2.6, "M-GRID")
+            sh.text(str(no), M(xm, B["y0"] - 900), NOTE_H,
                     "M-GRID", "CENTER")
             if rooms:
                 sh.text(rno, M(xm, 5250), NOTE_H, "M-TEXT", "BC")

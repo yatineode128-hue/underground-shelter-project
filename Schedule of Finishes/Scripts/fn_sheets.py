@@ -33,15 +33,19 @@ def sheet(num, title, sub, flags=(), of=""):
 def fintag(sh, p, room, f, w, c, s, layer="A-FIN-TAG", th=None):
     """Four-part finish tag:  room / F  W / C  S."""
     th = th or 2.0
-    bw, bh = 26.0, 11.0
+    # QA1: "W-01 + W-04" is wider than a 13 mm half-cell at 2.0 mm, so the wall
+    # and ceiling halves ran into each other.  Tag widened, lower row sized to
+    # the cell it sits in.
+    bw, bh = 34.0, 11.0
     x, y = p
     sh.rect(x, y, x + bw, y + bh, layer)
     sh.line((x, y + bh / 2.0), (x + bw, y + bh / 2.0), layer)
     sh.line((x + bw / 2.0, y), (x + bw / 2.0, y + bh), layer)
     sh.text(room, (x + bw / 4.0, y + bh * 0.62), th, "A-FIN-TAG", "CENTER")
     sh.text(f, (x + bw * 0.75, y + bh * 0.62), th, "A-FIN-FLOOR", "CENTER")
-    sh.text(w, (x + bw / 4.0, y + bh * 0.14), th, "A-FIN-WALL", "CENTER")
-    sh.text(c + "/" + s, (x + bw * 0.75, y + bh * 0.14), th, "A-FIN-CEIL",
+    th2 = min(th, 1.75)
+    sh.text(w, (x + bw / 4.0, y + bh * 0.14), th2, "A-FIN-WALL", "CENTER")
+    sh.text(c + "/" + s, (x + bw * 0.75, y + bh * 0.14), th2, "A-FIN-CEIL",
             "CENTER")
 
 
@@ -161,11 +165,12 @@ def a601():
     sh.text("CURTAINS, AN EMP REQUIREMENT  [C]", N(-700, -440), NOTE,
             "A-FIN-TAG")
     sh.text("CAST-IN SOCKET", N(200, 200), NOTE, "M-DAMPER")
-    sh.text("*** NO DRILLED ANCHOR ANYWHERE IN THE TANKED", N(-700, 620), NOTE,
+    # QA1: this flag block sat above the detail and ran through the D2 title
+    sh.text("*** NO DRILLED ANCHOR ANYWHERE IN THE TANKED", N(-700, -700), NOTE,
             "M-FLAG")
-    sh.text("    ENVELOPE.  IT RISKS THE 40 COVER, THE MEMBRANE", N(-700, 460),
+    sh.text("    ENVELOPE.  IT RISKS THE 40 COVER, THE MEMBRANE", N(-700, -860),
             NOTE, "M-FLAG")
-    sh.text("    AND THE EMP CAGE - ALL THREE ***", N(-700, 320), NOTE,
+    sh.text("    AND THE EMP CAGE - ALL THREE ***", N(-700, -1020), NOTE,
             "M-FLAG")
 
     sh.panel(CC, yy, 242, "D3   FLOOR BUILD-UP  -  RULE R3", [

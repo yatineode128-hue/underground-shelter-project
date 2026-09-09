@@ -52,8 +52,8 @@ def d101():
             M((c0 + c1) / 2 - 300, 8100), NOTE, "P-DRAIN-STORM", "BC")
     sh.leader([M(c0 + 150, 7500), M(c0 - 400, 8000)], None)
     sh.sym("CHAMBER", M(8300, 5200), scale=0.9)
-    sh.text("CP-10  TRAPPED CATCHPIT, SILT BUCKET  [A]", M(8300, 4400), NOTE,
-            "P-EQUIP", "BC")
+    sh.text("CP-10  TRAPPED CATCHPIT, SILT BUCKET  [A]", M(6900, 3500), NOTE,
+            "P-EQUIP", "BC")     # QA1: clear of the PD-11 pipe tag
     sh.pipe([M(9100, 6000), M(9100, 5400), M(8300, 5200)], "P-DRAIN-STORM",
             "PD-10  DN100  1:100")
     sh.pipe([M(8300, 4900), M(6200, 3600)], "P-DRAIN-STORM", "PD-11 DN100")
@@ -73,7 +73,7 @@ def d101():
 
     # headhouse gully
     sh.sym("GULLY", M(14700, 1960), scale=0.9)
-    sh.text("GY-11  FALL 1:80  [C]", M(14700, 1500), NOTE, "P-EQUIP", "BC")
+    sh.text("GY-11  FALL 1:80  [C]", M(16100, 1500), NOTE, "P-EQUIP", "BC")
     sh.text("HOSE-DOWN POINT  [C]", M(14700, 2560), NOTE, "M-TEXT", "BC")
     sh.pipe([M(14700, 1960), M(13000, 1300)], "P-DRAIN-WASTE", "PD-14 DN100 1:80")
     sh.text("TRAPPED GULLY -> EXTERNAL SOAKAWAY SK-04.",
@@ -360,8 +360,11 @@ def d201():
         sh.sym("PUMP", M(px, py), scale=0.9)
         sh.text(f"PU-0{i}", M(px, py - 600), NOTE, "P-EQUIP", "BC")
     sh.rect(*M(*D.SERVICE_PLATE[:2]), *M(*D.SERVICE_PLATE[2:]), "P-DRAIN-RISING")
+    # QA1: the full description used to be carried as a 66 mm tag ROTATED along
+    # this vertical pipe, so it lay across U-05, SUMP, FF 1:80, GY-05 and SU-01.
+    # The pipe now carries a short tag; the route is stated in full in note 8.
     sh.pipe([M(11800, 2400), M(11800, 5600)], "P-DRAIN-RISING",
-            "PD-05  DN50 RISING MAIN  -  HIGH LEVEL OVER THE TRAINS, CO-1")
+            "PD-05  DN50", arrow_at=0.30)
     sh.text("SERVICE ENTRY PLATE - THE ONLY ENVELOPE PENETRATION  [C]",
             M(11800, 6450), NOTE, "M-FLAG", "BC")
 
@@ -540,7 +543,7 @@ def d203():
     sh.sym("CHAMBER", M(14500, 3100), scale=0.9)
     sh.text("CP-01  SEALED", M(14500, 3600), NOTE, "P-DRAIN-EFF", "BC")
     sh.pipe([M(13800, 4600), M(13800, 3100), M(14500, 3100)], "P-DRAIN-EFF",
-            "PD-03  DN100  SEGREGATED")
+            "PD-03  DN100", arrow_at=0.30)
 
     # the undefined route to TK-01
     sh.rect(*M(*D.DECON_TANK[:2]), *M(*D.DECON_TANK[2:]), "P-DRAIN-EFF")
