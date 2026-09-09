@@ -40,7 +40,7 @@ def d101():
 
     sc = 60.0
     M = X.vw(sc, 40.0, 300.0)
-    sh.view_title((20, 548), "V1", "ENTRY LEVEL DRAINAGE PLAN",
+    sh.view_title((20, 553), "V1", "ENTRY LEVEL DRAINAGE PLAN",
                   "SCALE 1:60   LEVELS 0.000 AND (-)2.000   ALL DIMENSIONS mm")
     V.ground_plan(sh, M, sc, box_below=True)
     V.underground_plan(sh, M, sc, bays=True, rooms=False, stair=True, esc=False,
@@ -84,7 +84,7 @@ def d101():
     # service entry plate
     sh.rect(*M(*D.SERVICE_PLATE[:2]), *M(*D.SERVICE_PLATE[2:]), "P-DRAIN-RISING")
     sh.text("SERVICE ENTRY PLATE - THE ONLY ENVELOPE PENETRATION  [C]",
-            M(11800, 6500), NOTE, "M-FLAG", "BC")
+            M(11800, 6250), NOTE, "M-FLAG", "BC")
 
     sh.dim_h(M(P.ASW["x0"], 4600), M(P.ASW["x1"], 4600), M(0, 4000)[1], sc=sc)
     sh.dim_h(M(P.HH["x0"], 3200), M(P.HH["x1"], 3200), M(0, 2600)[1], sc=sc)
@@ -143,7 +143,7 @@ def d102():
 
     sc = 60.0
     M = X.vw(sc, 40.0, 330.0)
-    sh.view_title((20, 548), "V1", "CATCHMENT PLAN",
+    sh.view_title((20, 553), "V1", "CATCHMENT PLAN",
                   "SCALE 1:60   CATCHMENT BOUNDARIES HEAVY   AREAS IN m2")
     V.ground_plan(sh, M, sc, box_below=True)
 
@@ -234,7 +234,7 @@ def d103():
     # ---- V1 plan 1:50
     sc = 50.0
     M = X.vw(sc, 30.0, 400.0)
-    sh.view_title((20, 548), "V1", "STAIRWELL AND HEADHOUSE - DRAINAGE PLAN",
+    sh.view_title((20, 553), "V1", "STAIRWELL AND HEADHOUSE - DRAINAGE PLAN",
                   "SCALE 1:50")
     V.ground_plan(sh, M, sc, box_below=False)
     sh.sym("GULLY", M(15050, 6750), scale=0.9)
@@ -346,7 +346,7 @@ def d201():
 
     sc = 45.0
     M = X.vw(sc, 40.0, 400.0)
-    sh.view_title((20, 548), "V1", "UNDERGROUND DRAINAGE PLAN",
+    sh.view_title((20, 553), "V1", "UNDERGROUND DRAINAGE PLAN",
                   "SCALE 1:45   FLOOR (-)6.100   FALLS, GULLIES AND COLLECTION")
     V.underground_plan(sh, M, sc, bays=True, rooms=True, stair=True, esc=True)
     V.bay_room_labels(sh, M, y=4850, h=NOTE)
@@ -366,7 +366,7 @@ def d201():
     sh.pipe([M(11800, 2400), M(11800, 5600)], "P-DRAIN-RISING",
             "PD-05  DN50", arrow_at=0.30)
     sh.text("SERVICE ENTRY PLATE - THE ONLY ENVELOPE PENETRATION  [C]",
-            M(11800, 6450), NOTE, "M-FLAG", "BC")
+            M(11800, 6250), NOTE, "M-FLAG", "BC")
 
     # gullies and the spine
     for tag, x, y, l, ty, seal, sv, z, c in D.DRAINS:
@@ -504,7 +504,7 @@ def d203():
 
     sc = 45.0
     M = X.vw(sc, 40.0, 400.0)
-    sh.view_title((20, 548), "V1", "WASTEWATER AND SANITARY PLAN",
+    sh.view_title((20, 553), "V1", "WASTEWATER AND SANITARY PLAN",
                   "SCALE 1:45   FLOOR (-)6.100")
     V.underground_plan(sh, M, sc, bays=True, rooms=True, stair=True, esc=True)
     V.bay_room_labels(sh, M, y=4850, h=NOTE)

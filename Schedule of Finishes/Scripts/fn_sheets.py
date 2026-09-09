@@ -226,7 +226,7 @@ def a611():
 
     sc = 50.0
     M = X.vw(sc, 60.0, 380.0)
-    sh.view_title((20, 548), "V1", "ENTRY LEVEL FINISH PLAN",
+    sh.view_title((20, 553), "V1", "ENTRY LEVEL FINISH PLAN",
                   "SCALE 1:50   FINISH TAGS IN EVERY SPACE   "
                   "ROOM / FLOOR over WALL / CEILING-SKIRTING")
     V.ground_plan(sh, M, sc, box_below=True)
@@ -301,7 +301,7 @@ def a612():
 
     sc = 45.0
     M = X.vw(sc, 40.0, 400.0)
-    sh.view_title((20, 548), "V1", "UNDERGROUND LEVEL FINISH PLAN",
+    sh.view_title((20, 553), "V1", "UNDERGROUND LEVEL FINISH PLAN",
                   "SCALE 1:45   FLOOR (-)6.100   FINISH TAGS IN EVERY SPACE")
     V.underground_plan(sh, M, sc, bays=True, rooms=False, stair=True, esc=True)
 

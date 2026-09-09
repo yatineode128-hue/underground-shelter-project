@@ -49,7 +49,9 @@ def page1():
                        esc=True)
     sh.rect(*M(*H.FILTER_T1[:2]), *M(*H.FILTER_T1[2:]), "M-EQUIP")
     sh.rect(*M(*H.FILTER_T2[:2]), *M(*H.FILTER_T2[2:]), "M-EQUIP")
-    sh.text("AHU-1 / AHU-2   2 x 300 m3/h   TRUE N+1", M(11800, 6600), 1.8,
+    # QA1: at 1:150 there is no room between the box and the bubbles, so this
+    # caption reads under the plan instead of over it.
+    sh.text("AHU-1 / AHU-2   2 x 300 m3/h   TRUE N+1", M(11800, -1900), 1.8,
             "M-EQUIP", "BC")
     for tag, x, yq in H.BLAST_VALVE_PTS[:3]:
         sh.sym("BVALVE", M(x, yq), scale=0.5)

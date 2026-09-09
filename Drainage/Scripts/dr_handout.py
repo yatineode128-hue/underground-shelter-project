@@ -174,9 +174,9 @@ def page2():
     sh.text("ROUTE NOT DEFINED", M(17400, 3600), 1.8, "M-FLAG", "BC")
     # QA1: the bay bubbles now sit at (-)900 and the concept strip is just
     # under the plan, so the zone strip moves ABOVE the box where it is clear.
-    sh.text("Z1  CLEAN", M(6000, 6350), 1.9, "P-DRAIN-WASTE", "BC")
-    sh.text("Z2  DECON", M(13800, 6350), 1.9, "P-DRAIN-EFF", "BC")
-    sh.text("Z3  GREY - NO DESTINATION", M(19700, 6350), 1.9, "M-FLAG", "BC")
+    sh.text("Z1  CLEAN", M(6000, -900), 1.9, "P-DRAIN-WASTE", "BC")
+    sh.text("Z2  DECON", M(13800, -900), 1.9, "P-DRAIN-EFF", "BC")
+    sh.text("Z3  GREY - NO DESTINATION", M(19700, -900), 1.9, "M-FLAG", "BC")
 
     # ---- concept strip
     sh.text("GROUNDWATER CONCEPT   -   THE BOX IS A TANK, NOT A DRAINED "

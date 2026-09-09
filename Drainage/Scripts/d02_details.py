@@ -37,7 +37,7 @@ def d204():
     # ---- V1 sump plan 1:20
     s1 = 20.0
     M = X.vw(s1, 30.0, 380.0)
-    sh.view_title((20, 548), "V1", "SUMP PLAN  -  BAY 5", "SCALE 1:20")
+    sh.view_title((20, 553), "V1", "SUMP PLAN  -  BAY 5", "SCALE 1:20")
     x0, y0, x1, y1 = D.SUMP_RECT
     sh.rect(*M(x0 - 300, y0 - 300), *M(x1 + 300, y1 + 300), "M-STRUCT")
     sh.rect(*M(x0, y0), *M(x1, y1), "P-EQUIP")
@@ -146,7 +146,7 @@ def d301():
 
     sc = 60.0
     M = X.vw(sc, 40.0, 530.0)
-    sh.view_title((20, 548), "V1", "SECTION A-A  -  LONGITUDINAL, ON THE "
+    sh.view_title((20, 553), "V1", "SECTION A-A  -  LONGITUDINAL, ON THE "
                   "DRAINAGE ROUTE", "SCALE 1:60   LEVELS m")
 
     B = P.BOX
@@ -248,7 +248,7 @@ def d304():
 
     # ---- D1 penetration through the tank
     M = X.vw(10.0, 96.0, 430.0)
-    sh.view_title((20, 548), "D1", "PIPE PENETRATION THROUGH THE TANKED WALL",
+    sh.view_title((20, 553), "D1", "PIPE PENETRATION THROUGH THE TANKED WALL",
                   "SCALE 1:10")
     sh.rect(*M(-300, -900), *M(300, 900), "M-STRUCT")
     sh.concrete_hatch([M(-300, -900), M(300, -900), M(300, 900), M(-300, 900)],
@@ -349,7 +349,7 @@ def d305():
 
     # ---- D1 septic tank section 1:25
     M = X.vw(25.0, 40.0, 520.0)
-    sh.view_title((20, 548), "D1", "SEPTIC TANK  -  SECTION", "SCALE 1:25")
+    sh.view_title((20, 553), "D1", "SEPTIC TANK  -  SECTION", "SCALE 1:25")
     S = P.SEPTIC
     L, Bw, dep = S["l"] * 1000, S["b"] * 1000, S["liquid_depth"] * 1000
     fb = S["freeboard"] * 1000
