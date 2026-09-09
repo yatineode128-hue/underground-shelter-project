@@ -171,8 +171,9 @@ def r002():
     sh.text("L1   CAD LAYER SYSTEM AND MAPPING TO THE PROJECT'S EXISTING 22-LAYER TABLE",
             (16, 548), TXT["view_title"], "S-TITLE")
     rows = [[k, str(v[0]), f"{v[1]/100:.2f}", v[2], v[3]] for k, v in D.LAYERS.items()]
+    # QA1: row height opened from 4.2 to 6.8 - the sheet was 45 % empty
     y = sh.table(16, 540, [42, 14, 18, 108, 32], rows,
-                 ["LAYER", "ACI", "LW mm", "PURPOSE", "MASTER E.3.2"], TXT["small"], 4.2)
+                 ["LAYER", "ACI", "LW mm", "PURPOSE", "MASTER E.3.2"], TXT["small"], 6.8)
     sh.text("DECLARED DEVIATION X2: the R-series uses the S-* layer system.  Sheets S-01..S-08 "
             "keep the master's 22-layer table and are NOT touched.", (16, y - 5),
             TXT["small"], "S-BLAST")
@@ -197,8 +198,8 @@ def r002():
             sh.cline((18, yy), (78, yy))
         else:
             sh.line((18, yy), (78, yy), lay)
-        sh.text(f"{lay:<18} {desc}", (84, yy - 0.8), TXT["small"], "S-TEXT")
-        yy -= 6.0
+        sh.text(f"{lay:<18} {desc}", (84, yy - 0.8), 2.0, "S-TEXT")
+        yy -= 7.5
     sh.text("REINFORCEMENT MUST NEVER DISAPPEAR INTO A CONCRETE OUTLINE.  Concrete is plotted "
             "heavier than steel; steel is plotted in colour.", (16, yy - 3),
             TXT["small"], "S-BLAST")
@@ -206,39 +207,39 @@ def r002():
     # --- bar representation
     x = 330
     sh.text("L3   BAR REPRESENTATION", (x, 548), TXT["view_title"], "S-TITLE")
-    yy = 536
+    yy = 532
     sh.line((x + 4, yy), (x + 54, yy), "S-REBAR-MAIN")
     sh.text("BAR IN ELEVATION / PLAN - CONTINUOUS LINE ON ITS OWN LAYER",
-            (x + 60, yy - 0.8), TXT["small"], "S-TEXT")
-    yy -= 8
+            (x + 60, yy - 0.8), 2.0, "S-TEXT")
+    yy -= 14
     for i in range(6):
         sh.bar_dot((x + 6 + i * 9, yy), 0.9, "S-REBAR-MAIN")
     sh.text("BAR IN SECTION - FILLED DOT AT THE TRUE SPACING", (x + 60, yy - 0.8),
-            TXT["small"], "S-TEXT")
-    yy -= 8
+            2.0, "S-TEXT")
+    yy -= 14
     sh.rect(x + 4, yy - 3, x + 26, yy + 3, "S-REBAR-STIRRUP")
-    sh.text("CLOSED LINK / STIRRUP IN SECTION", (x + 60, yy - 0.8), TXT["small"], "S-TEXT")
-    yy -= 10
+    sh.text("CLOSED LINK / STIRRUP IN SECTION", (x + 60, yy - 0.8), 2.0, "S-TEXT")
+    yy -= 18
     sh.msp.add_blockref("BARMARK", (x + 12, yy), dxfattribs={"layer": "S-CALLOUT"})
     sh.text("W01", (x + 12, yy), TXT["bar_mark"], "S-CALLOUT", "CENTER")
     sh.leader([(x + 4, yy - 8), (x + 9, yy - 3)], None)
     sh.text("BAR-MARK BALLOON WITH LEADER.  EVERY MARK ON EVERY DRAWING HAS",
-            (x + 60, yy + 1.4), TXT["small"], "S-TEXT")
+            (x + 60, yy + 1.4), 2.0, "S-TEXT")
     sh.text("EXACTLY ONE SCHEDULE ENTRY - VERIFIED PROGRAMMATICALLY.",
-            (x + 60, yy - 2.2), TXT["small"], "S-TEXT")
-    yy -= 12
+            (x + 60, yy - 2.2), 2.0, "S-TEXT")
+    yy -= 20
     sh.secmark((x + 12, yy), "A")
     sh.text("SECTION MARKER - LETTER ABOVE, DIRECTION OF VIEW ARROWED",
-            (x + 60, yy - 0.8), TXT["small"], "S-TEXT")
-    yy -= 12
+            (x + 60, yy - 0.8), 2.0, "S-TEXT")
+    yy -= 20
     sh.level((x + 12, yy), "(-)6.100")
     sh.text("LEVEL MARKER - METRES RELATIVE TO FINISHED SITE GRADE 0.000",
-            (x + 60, yy - 0.8), TXT["small"], "S-TEXT")
+            (x + 60, yy - 0.8), 2.0, "S-TEXT")
 
-    yy -= 14
+    yy -= 24
     sh.text("L4   TEXT STANDARDS - HEIGHTS AS PLOTTED AT 1:1 ON A1", (x, yy),
             TXT["view_title"], "S-TITLE")
-    yy -= 10
+    yy -= 12
     for k, h, use in [("sheet_title", TXT["sheet_title"], "SHEET TITLE"),
                       ("view_title", TXT["view_title"], "VIEW / SECTION TITLE"),
                       ("panel_head", TXT["panel_head"], "PANEL HEADING"),
@@ -250,10 +251,13 @@ def r002():
                       ("table", TXT["table"], "SCHEDULE / TABLE"),
                       ("small", TXT["small"], "SMALL ANNOTATION")]:
         sh.text(f"{h:.1f} mm  {use}", (x + 4, yy), h, "S-TEXT")
-        yy -= h + 3.2
+        yy -= h + 7.0
 
     x = 636
-    y = sh.panel(x, 548, 195, "ABBREVIATIONS", [
+    # QA1: this column stopped less than half way down the sheet; it now
+    # fills the column and stops clear of the title block.
+    sh.panel_column(x, 548, 118, 195, [
+        ("ABBREVIATIONS", [
         "EF     EACH FACE                 B/W   BOTH WAYS",
         "EW     EACH WAY                  T/B   TOP AND BOTTOM",
         "4L     FOUR-LEGGED LINK          c/c   CENTRE TO CENTRE",
@@ -262,8 +266,8 @@ def r002():
         "ESC    ESCAPE SHAFT              HH    HEADHOUSE",
         "ASW    APPROACH (ENTRY) STAIRWELL GWT  GROUNDWATER TABLE",
         "COMB   LOAD COMBINATION          SIDL  SUPERIMPOSED DEAD LOAD",
-    ], TXT["small"], 3.4)
-    y = sh.panel(x, y - 6, 195, "BAR SIZES AND UNIT MASS - Fe500D", [
+        ]),
+        ("BAR SIZES AND UNIT MASS - Fe500D", [
         "BAR     AREA mm2    MASS kg/m     Ld (M35)    LAP 50 phi",
         "T8       50.3        0.395          320          400",
         "T10      78.5        0.617          400          500",
@@ -271,8 +275,8 @@ def r002():
         "T16     201.1        1.578          640          800",
         "T20     314.2        2.466          800         1000",
         "T25     490.9        3.853         1000         1250",
-    ], TXT["small"], 3.6)
-    sh.panel(x, y - 6, 195, "SPACING PROVIDED - AREA PER METRE (mm2/m)", [
+        ]),
+        ("SPACING PROVIDED - AREA PER METRE (mm2/m)", [
         "SPACING    T12     T16     T20     T25",
         "125        905    1609    2513    3927",
         "150        754    1340    2094    3272",
@@ -283,7 +287,8 @@ def r002():
         "",
         "THE 150 ROW IS THE ONE THAT MATTERS: IT IS THE EMP MAXIMUM AND",
         "IT SETS THE SPACING OF EVERY MAIN CURTAIN IN THE BLAST ENVELOPE.",
-    ], TXT["small"], 3.6)
+        ]),
+    ])
     sh.titleblock(scale="NOT TO SCALE", sheet_of="2 OF 30")
     return sh.save(os.path.join(OUT, "R-002_Reinforcement_Legend_and_Symbols.dxf"))
 
