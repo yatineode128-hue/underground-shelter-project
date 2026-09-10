@@ -14,8 +14,8 @@ PASS   Every scope element the brief names has activities         11 scope eleme
 ==============================================================================
 2.  SENTRY POST — are the walls treated as brick masonry EVERYWHERE?
 ==============================================================================
-PASS   Brick masonry appears in every Works Management deliverable 13 of 13 documents; silent: none
-PASS   No document still specifies the sentry walls AS RC infill  20 references, all in a 'replaced by' context; unexplained: none
+PASS   Brick masonry appears in every Works Management deliverable 14 of 14 documents; silent: none
+PASS   No document still specifies the sentry walls AS RC infill  21 references, all in a 'replaced by' context; unexplained: none
 PASS   Brick masonry activities exist in the programme            A8135 (5 d), A8145 (1 d), A8150 (4 d), A8160 (1 d), A8165 (0 d), A8175 (4 d)
 PASS   Brick masonry items exist in the BOQ                       13 sentry-post items; SP-01 6.88 m3 + SP-02 5.32 m3 = 12.20 m3
 PASS   A mason gang is resourced against the masonry              Mason gang assigned to 15 activities in total

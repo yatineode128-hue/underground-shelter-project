@@ -9,6 +9,7 @@
 **Discipline packages:** Structural CAD **SC1** · Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** · Works Management **WM1** (7 Sep 2026, Part H.10) + **WM2** (10 Sep 2026, Part H.13 — the owner's own BOQ, cost estimate and master construction schedule R0).
 **Drawing QA/QC:** **QA1** (9 Sep 2026, Part H.11) — all 65 DXF sanitised in place.
 **Latest design changes:** **BS1** (burster slab laid to a 1:50 crossfall) and **SP-B2** (sentry post lintel L1 + wall ties) — 10 Sep 2026, Part H.12.
+**Fire:** **FS1** (10 Sep 2026, Part H.17) — a fire safety and evacuation plan; there was none before.
 **Concealment:** **CAM1** (10 Sep 2026, Part H.16) — a short camouflage and concealment policy; it did not exist before.
 **Owner's package revised:** **WM3** (10 Sep 2026, Part H.15) — the RC1 rulings applied to the owner's own BOQ, estimate and schedule, published alongside the originals.
 **Inconsistency register:** **RC1** (10 Sep 2026, Part H.14) — **every conflict that could be decided on the evidence has been ruled**; six items that need information the project does not contain remain open in K.1b.
@@ -2919,6 +2920,66 @@ resolves U2, U3 or D3.**
 
 The document is generated with the package (`wm_docs.py`), and the consistency audit now
 checks that it exists — **66 checks, 66 pass.**
+
+## H.17 Fire safety and evacuation plan — revision FS1 — 10 September 2026
+
+**Requested. It did not exist.** The project registered **NBC 2016 Part 4** for stair
+geometry and 1 100 guarding, and **IS 13416** for construction-site hazards, and the
+finishes package recorded **FN-D2, "no fire strategy for finishes exists"** — but there
+was no fire plan of any kind.
+`WORKS MANAGEMENT/Documentation/WM_FIRE_SAFETY_AND_EVACUATION_PLAN.md` now provides one.
+
+### The fact that governs the whole strategy
+
+**This shelter cannot be ventilated of smoke.** Internal volume **332.8 m³**
+(20.800 × 5.000 × 3.200) against a **300 m³/h** supply is **0.9 air changes per hour**,
+and every opening in the envelope is a blast valve or a blast door — **a smoke vent
+would be a hole in the protective boundary.** In **Mode 3 CLOSED** the exchange is
+**zero**, and clearing smoke means opening a valve, which breaks the protection the
+closed mode exists to provide. So the strategy is not the usual one: **prevent, detect
+early, extinguish while small — and if not, leave, because you cannot wait it out.**
+
+### What the design already does well, now written down
+
+**Three real strengths, none of them previously recorded.**
+
+**The largest fire load is already compartmented away from the occupants** — the 15 kVA
+generator is in Bay 8 behind **Blast Door 2** in the 400 mm **W7**, with **Bay 7, the
+stair shaft**, as a buffer. **Bay 8 has its own air path that never touches the
+gas-tight envelope**: Mode 5 runs 2 600 m³/h through BV-4/BV-5, so **the one part of the
+shelter that can be cleared of smoke is the part most likely to make it.** And **the two
+dead-end bays are exactly the two bays with escape shafts** — Bay 1 with ESC 1, Bay 8
+with ESC 2 — so every other bay has two directions of travel along the 20.8 m spine.
+Longest travel to a route is **14.6 m**.
+
+### The evacuation plan
+
+Three routes: **R1** the main stair (24R @ 170.8333 from (−)6.100 to (−)2.000, then 12R
+up the covered stairwell to grade) — **the only route not requiring a shaft climb and
+the only one usable by an injured person**; **R2** ESC 1 in Bay 1, head +0.150; **R3**
+ESC 2 in Bay 8, head +0.700. A decision table routes each fire location to the right
+exit, with **roll call 9** — the confirmed occupancy, so the count is unambiguous.
+
+### Five findings a fire plan is obliged to raise
+
+| | |
+|---|---|
+| **FS-1** | **W5 is designated "fire and gas-tight" and NO DOOR EXISTS IN IT ANYWHERE.** The finishes package carried this as data gap **FN-U1 / D-05**; a fire plan makes it a **defect** — and the compartment it protects holds the **activated-carbon filter trains** |
+| **FS-2** | **Bays 1–6 are ONE smoke compartment, 20.8 m long.** The four W8 partitions are 110 non-structural with permanent 900 gaps and no doors. **The only real fire barriers are Blast Doors 1 and 2** |
+| **FS-3** | **ESC 2 is in the same bay as the generator.** Both facts are confirmed; **the coupling had never been stated** — the most likely fire denies one of the three escape routes |
+| **FS-4** | **A fire during Mode 3 CLOSED cannot be ventilated at all**, and no rule exists for which hazard takes precedence. **A client decision, better made before it is needed** |
+| **FS-5** | **Every active fire measure follows the missing electrical design** — detection, alarm, emergency lighting and suppression all wait on the project's largest gap |
+
+**No detection, alarm, suppression, extinguisher or emergency-lighting specification is
+invented, because the project contains none.** The plan also records that the **1 000 L
+tank in Bay 1 is the 96 h potable supply, not firefighting water** — 27.8 L/person/day,
+and using it trades endurance for fire response.
+
+**Six new open items, FS-V1 to FS-V6.** Codes beyond NBC 2016 Part 4 and IS 13416 are
+**named as required but not numbered**, because only those two are in the register.
+
+Generated with the package (`wm_docs.py`); the consistency audit checks it exists —
+**66 checks, 66 pass.**
 
 ---
 

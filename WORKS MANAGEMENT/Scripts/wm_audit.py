@@ -110,6 +110,7 @@ deliverables = [
     "Documentation/WM_PROGRESS_MONITORING.md",
     "Documentation/WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md",
     "Documentation/WM_CAMOUFLAGE_AND_CONCEALMENT_POLICY.md",
+    "Documentation/WM_FIRE_SAFETY_AND_EVACUATION_PLAN.md",
 ]
 hits = {}
 for f in deliverables:
