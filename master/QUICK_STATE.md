@@ -6,7 +6,8 @@ Compiled 3 Sep 2026 from the master (Parts A, B, F, L) plus the M1 reconciliatio
 Updated 5 Sep 2026 for the DR1 / HV1 / FN1 packages (Part H.9).
 Updated 7 Sep 2026 for the Works Management package WM1 (Part H.10).
 Updated 9 Sep 2026 for the drawing QA/QC pass QA1 (Part H.11).
-Updated 10 Sep 2026 for revisions **BS1** and **SP-B2** (Part H.12).
+Updated 10 Sep 2026 for revisions **BS1** and **SP-B2** (Part H.12) and for Works
+Management **WM2** (Part H.13).
 
 ---
 
@@ -19,6 +20,7 @@ Updated 10 Sep 2026 for revisions **BS1** and **SP-B2** (Part H.12).
 | Architectural | **Rev F** · Design report **Rev D** · Structural **Phase 2 Rev A + M1** |
 | Services packages | Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** (5 Sep 2026, master H.9) |
 | Works Management | **WM1** (7 Sep 2026, master H.10) — whole project, mobilisation to handover |
+| **Works Management** | **WM2** (10 Sep 2026, master H.13) — **THE OWNER'S OWN BOQ, COST ESTIMATE AND MASTER CONSTRUCTION SCHEDULE R0 NOW GOVERN.** ₹3,00,33,306 · 130 activities · 224 working days · 02-11-2026 to 26-07-2027. WM1 is preserved, not overwritten |
 | **Drawings** | **QA1** (9 Sep 2026, master H.11) — drafting QA/QC over **all 65 DXF**. Annotation, sheet frames, title blocks. **No engineering design changed** |
 | **SP-B1** | **SENTRY POST WALLS = BRICK MASONRY** — instructed design change, 7 Sep 2026. The only design change in WM1 |
 | **SP-B2** | **SENTRY POST LINTELS + WALL TIES** — completes SP-B1, 10 Sep 2026 (master H.12 / A.4.8). Closes WM-V5 and WM-V11 |
@@ -213,10 +215,11 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 | **C18** | **Sump-pit base.** F.1 + the levels give **400**; sheet S-06 text says **300**. 400 held. Raised by SC1 — needs a ruling. |
 | **C19** | **Soak pit 2.3 % short.** S-06 prints "22.0 m² OK" against its own "22.5 m² required"; π × 2.0 × 3.5 = **21.99**. Not resized — the percolation test may move it further. Raised by DR1 — needs a ruling. |
 | **C20** | **S-06 carries the Rev E stairwell catchment** (0.10 L/s open cut). At Rev F the approach is covered and the catchment with the door shut is zero. Conservative. Raised by DR1 — needs a ruling. |
-| **C21** | **Filter duty 250 vs 300 m³/h.** Master A.3 says "2 × 250"; S-06 states 300 in nine places, and **250 fails S-06's own 264 m³/h FEMA criterion**. HV1 uses 300. Raised by HV1 — **needs a ruling**. |
+| **C21** | **Filter duty 250 vs 300 m³/h.** Master A.3 says "2 × 250"; S-06 states 300 in nine places, and **250 fails S-06's own 264 m³/h FEMA criterion**. HV1 uses 300. Raised by HV1 — **needs a ruling**. **WM2 note:** the owner's own estimate independently prices **2 × 300 m³/h** — evidence on the 300 side, **not the ruling C21 asks for. C21 stays OPEN and must be ruled on before the trains are ordered.** |
 | **WM-V1…12** | **Twelve verification items raised by WM1. Ten still OPEN.** **WM-V5 (lintel design) and WM-V11 (wall ties) are CLOSED by SP-B2**, 10 Sep 2026, master H.12 / K.1. **WM-V6 (seismic weight) and WM-V7 (ballistic function) remain OPEN**, as does **WM-V3 (opening heights)** — SP-B2 deliberately does not use it. See `WORKS MANAGEMENT/Documentation/WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md`. |
+| **R-1…R-14** | **Fourteen NEW open items from WM2**, 10 Sep 2026, master H.13 / K.1 — the owner's Works Management package against this master. **The two that matter: R-1** the owner's burster slab is **300 mm M35** against A.7.3's **200 mm M30**; **R-2** the owner's programme carries a **4 m** cover where their own BOQ and A.7.3 say **2.0 m**. Also **R-13/R-14**, two arithmetic slips inside the owner's own files (10.00 m³ and ₹1,00,000), **reported not corrected**. See `WORKS MANAGEMENT/Documentation/WM_RECONCILIATION_REGISTER.md`. |
 | **QA-1 · QA-2** | **Raised by QA1, 9 Sep 2026.** A-301 could never have been plotted at 1:50 on A1 (44 m long = 880 mm; A1 gives 821 mm) — scale kept, **sheet corrected to A0**, ruling invited. QA-2: several sheets still do not fill their paper for reasons inherent to their content. |
-| **13 gaps** | **Information the project does not contain**, each dated against the WM1 programme. Largest: **no electrical design package exists** — scope confirmed, design absent, every electrical quantity 'to be verified from final measurement'. Also: no site plan, no sentry lintel or tie detail, blast door and blast valve vendor data, service-entry plate size, duct penetration schedule, EMP enclosure and vision panel specs, sentry GF slab, finish products, W5 door D-05. |
+| **13 gaps** | **Information the project does not contain**, each dated against the WM1 programme. Largest: **no electrical design package exists** — scope confirmed, design absent, every electrical quantity 'to be verified from final measurement'. Also: no site plan, **the sentry lintel and tie detail is now SUPPLIED — SP-B2, master A.4.8, so this gap is closed**, blast door and blast valve vendor data, service-entry plate size, duct penetration schedule, EMP enclosure and vision panel specs, sentry GF slab, finish products, W5 door D-05. |
 
 ---
 

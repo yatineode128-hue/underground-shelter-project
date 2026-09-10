@@ -6,7 +6,7 @@
 **Compiled:** 2 September 2026
 **Compiled from:** Phase 1 Design Report Rev D (126 KB, 2000 lines), ten Rev F architectural DXF files, nineteen STAAD.Pro screen captures, and the full Phase 2 structural design work.
 **Covers:** Phase 1 (architectural + basis of design, complete) and Phase 2 (structural design + drawings, substantially complete).
-**Discipline packages:** Structural CAD **SC1** · Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** · Works Management **WM1** (7 Sep 2026, Part H.10).
+**Discipline packages:** Structural CAD **SC1** · Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** · Works Management **WM1** (7 Sep 2026, Part H.10) + **WM2** (10 Sep 2026, Part H.13 — the owner's own BOQ, cost estimate and master construction schedule R0).
 **Drawing QA/QC:** **QA1** (9 Sep 2026, Part H.11) — all 65 DXF sanitised in place.
 **Latest design changes:** **BS1** (burster slab laid to a 1:50 crossfall) and **SP-B2** (sentry post lintel L1 + wall ties) — 10 Sep 2026, Part H.12.
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, sentry post drawing S-07 equivalent.
@@ -2522,6 +2522,116 @@ reading one sheet has all of it.
 7. **Not done, and not claimed:** STAAD.Pro is not available in this environment. **No
    analysis was run for either change.** The `.std` files were not opened or edited.
 
+## H.13 The project owner's Works Management package adopted — revision WM2 — 10 September 2026
+
+**The owner supplied their own Works Management material and it now governs.** Four
+files: a bill of quantities and cost estimate workbook, an eight-page BOQ /
+works-management report, and the **master construction schedule R0** as both a Microsoft
+Project file and a Level-5 micro print. They are held unaltered in
+`WORKS MANAGEMENT/USER_SOURCE/`.
+
+**Order of authority for Works Management, as instructed:** (1) the owner's uploaded
+Works Management files, (2) actual project information, (3) existing project
+documentation, (4) previously generated Works Management material — **WM1**.
+
+**Nothing of the owner's was corrected, re-derived, rounded or rebuilt**, and **WM1 was
+not overwritten** (rule M.11 — it stays as the preserved revision it is).
+
+### What the owner's package contains
+
+| | |
+|---|---|
+| BOQ | **42 priced items in five parts**, every one with a rate |
+| Concrete take-off | 11 lines; stated total **470.50 m³** |
+| Rebar | 6 bar sizes, 64 560 kg net → **67.79 t** gross at 5 % |
+| **Cost** | basic **₹2,43,36,022** → **final ₹3,00,33,306** |
+| Programme | **130 activities, 224 working days, 02-11-2026 to 26-07-2027** |
+| Calendar | six-day week, 3 days a month monsoon relaxation |
+| Milestones | substructure 18-12-26 · superstructure 26-03-27 · handover 26-07-27 |
+| Specification | M35 RCC, **Fe500D**, blast governed 383 kPa |
+
+### Why this is an addition, not a replacement
+
+**WM1 never carried a single rate or cost.** The owner's estimate supplies the one thing
+the generated package could not. Conversely the owner's R0 carries no resource plan, no
+procurement or long-lead register, no inspection and test plan, no risk register and no
+codes register — all of which WM1 has. **The two are complementary and must not be read
+as alternatives.** Both are now published side by side.
+
+### How it was published — nothing is retyped
+
+`WORKS MANAGEMENT/Scripts/wm2_user_package.py` reads the owner's files directly: the
+workbook cell by cell through openpyxl, and the schedule decoded from the owner's own
+MS Project print through that print's font CMap (the `.mpp` cannot be parsed without
+Microsoft Project). **All 130 activities are recovered with their durations, dates and
+logic links.** There is no transcription step that could have introduced an error.
+
+| Published | Source |
+|---|---|
+| `Cost/USER_BOQ_TAKEOFF.csv` · `USER_BOQ_PRICED.csv` · `USER_COST_SUMMARY.csv` · `USER_BOQ_AND_COST_ESTIMATE.md` | the workbook |
+| `Programme/USER_MASTER_CONSTRUCTION_SCHEDULE_R0.csv` / `.md` | the Level-5 print |
+| `Documentation/WM_RECONCILIATION_REGISTER.md` | this analysis |
+
+### Fourteen conflicts, ALL LEFT OPEN
+
+Full text in `WORKS MANAGEMENT/Documentation/WM_RECONCILIATION_REGISTER.md`.
+**None is resolved. Not one value was changed on either side.**
+
+| Ref | Conflict | Class |
+|---|---|---|
+| **R-1** | **Burster slab 300 mm M35 (owner) against 200 mm M30 (master A.7.3)** — 37.0 m³ and one grade apart | **MATERIAL** |
+| **R-2** | **Engineered cover: the programme carries 4 m, the owner's own BOQ and master A.7.3 say 2.0 m** — the 4 m is the superseded scheme | **MATERIAL** |
+| **R-3** | Roof slab: the programme says 1000 mm; the owner's BOQ **and** the master say 900 | conflict inside the owner's own set |
+| **R-4** | The programme carries a **"Lift Shear Wall"**. There is no lift in this project | naming carry-over, no cost effect |
+| **R-5** | The MS Project title reads **"(21.6 x 6.8)"** — 21.6 is pre-M1 and 6.8 matches nothing | title only |
+| **R-6** | The BOQ line still reads **"Sentry Post RCC Frame & Infill"** — SP-B1 made the infill brick | measurement |
+| **R-7** | Escape shaft collars ESC 1 / ESC 2 not separately measured | scope |
+| **R-8** | **No generator is priced** — master puts a 15 kVA set in Bay 8 | scope |
+| **R-9** | The owner prices **2 × 300 m³/h** filter trains — bears on **C21**, which stays OPEN | evidence, not a ruling |
+| **R-10** | 224 working days against WM1's 326 — different scopes, same start day | not a conflict |
+| **R-11** | 3 monsoon days a month against WM1's productivity allowance | not a conflict |
+| **R-12** | Steel 67.79 t against WM1's 77.33 t — follows R-1 | follows R-1 |
+| **R-13** | The concrete take-off states **470.50 m³**; its own eleven lines sum to **480.50** — exactly 10.00 m³ | arithmetic, in the owner's file |
+| **R-14** | The estimate states **₹3,00,33,306**; its own seven cost heads sum to **₹2,99,33,306** — exactly ₹1,00,000 | arithmetic, in the owner's file |
+
+**R-13 and R-14 are reported, NOT corrected.** Everything else in the estimate
+reconciles to the rupee: the five part subtotals sum to the basic cost exactly, and every
+percentage addition is exact on that basic cost. Only the two totals are out, each by a
+round number, which usually means a formula picked up the wrong cell.
+
+### Where the owner's material and the master AGREE
+
+Recorded because these are the load-bearing checks: **383 kPa blast**; **box 22.0 × 6.2**;
+**mat 600 M35 at 81.84 m³ against SC1's 81.8**; **perimeter walls 600 at 3.2 m clear**;
+**W5 200 gas-tight and W6/W7 400 — the post-M1 values**; **pressure slab 900** (in the
+BOQ); **headhouse 400 walls / 500 roof**; **two blast doors at ≥ 7 bar**; **two 900 mm
+escape hatches**; **all five blast valves**; **the Bay 5 sump**; **M35 / M30 / M15**; a
+**six-day week**; and a start date of **02-11-2026, the same day WM1 chose.**
+
+### One WM1 item the project has now superseded
+
+WM1's `SP-06` reads *"RC lintels over openings, 200 × 150 PROVISIONAL — design
+required"*, `[N]`, because no lintel design existed. **SP-B2 (H.12) has now designed
+L1** — 190 × 150, M30 / Fe500, 2-T10 bottom, 2-T8 top, T6 links @ 150, bearing 200 —
+and closed WM-V5 and WM-V11. Over the same 17.000 m run of lintel, `SP-06`'s 200 wide
+section measures 0.510 m³ against L1's **0.485 m³**. **`SP-06` is left exactly as it
+stands** — WM1 is a preserved revision and 26 litres of M30 changes nothing; the
+supersession is recorded rather than applied.
+
+### Open items — what WM2 changed
+
+**Nothing.** No open item was closed by this reconciliation. **C17** and **C21** stay
+open — R-9 is evidence about C21, not the ruling it asks for, and the master's warning
+that **C21 must be ruled on before the filter trains are ordered** still stands.
+**WM-V3, WM-V6 and WM-V7** stay open. **WM-V5 and WM-V11 were closed by the SP-B2
+design in A.4.8 (H.12), not by anything in WM2.** R-1 to R-14 are added, all open.
+
+### Not done, and not claimed
+
+No cost was re-estimated, no rate was checked against a market or a schedule of rates,
+and no programme was re-run through a critical-path engine. **WM2 publishes the owner's
+figures and says where they disagree with the project. It does not price the job.**
+
 ---
 
 # PART I — PROJECT FILE MANIFEST
@@ -2599,6 +2709,20 @@ reading one sheet has all of it.
 | `WORKS MANAGEMENT/Schedules/` | `BOQ_QUANTITY_DERIVATION.txt` (~800 lines, every input sourced) · `WM_CPM_OUTPUT.txt` |
 | `WORKS MANAGEMENT/QAQC/` | `WM_CONSISTENCY_AUDIT.txt` — **65 executed checks, 65 pass** |
 | `WORKS MANAGEMENT/Scripts/` | 9 Python files. `wm_build_all.py` regenerates the whole package from `wm_data.py` + `wm_content.py`; no date, quantity or float in any deliverable is typed by hand |
+
+### Added by WM2, 10 September 2026 — see H.13
+
+> **THE OWNER'S OWN WORKS MANAGEMENT MATERIAL. It governs.** Nothing in `USER_SOURCE/`
+> has been edited, converted or corrected, and nothing generated from it is retyped.
+
+| Folder / file | Contents |
+|---|---|
+| `WORKS MANAGEMENT/USER_SOURCE/` | **The owner's four files, unaltered** — `Underground_CBRN_Ops_Room_BOQ_Estimate.xlsx` (BOQ, rates and the cost build-up to **₹3,00,33,306**) · `BOQ_and_Works_Management_CBRN_Ops_Room.pdf` (8-page report, WBS overview, milestones) · **`UG_CBRN_HDRND_OPS_ROOM_MCS_R0.mpp`** (master construction schedule R0) · its Level-5 micro print · `README.md` |
+| `WORKS MANAGEMENT/Cost/` | **The project's cost document** — `USER_BOQ_AND_COST_ESTIMATE.md` plus `USER_BOQ_TAKEOFF.csv`, `USER_BOQ_PRICED.csv`, `USER_COST_SUMMARY.csv`, read out of the owner's workbook cell by cell. **WM1 had no rate and no cost anywhere in it** |
+| `WORKS MANAGEMENT/Programme/USER_MASTER_CONSTRUCTION_SCHEDULE_R0.md` / `.csv` | **The programme of record** — all **130 activities**, ids 1–130 with no gaps, durations, dates and logic, decoded from the owner's own MS Project print. **224 working days, 02-11-2026 to 26-07-2027** |
+| `WORKS MANAGEMENT/Documentation/WM_RECONCILIATION_REGISTER.md` | **R-1 to R-14 — fourteen conflicts against this master, ALL OPEN.** Nothing reconciled in either direction |
+| `WORKS MANAGEMENT/QAQC/WM2_SOURCE_AUDIT.txt` | The owner's own arithmetic re-added. Rebar, the five part subtotals and every percentage cost head **tie up to the rupee**; the concrete total is out by **10.00 m³** and the final cost by **₹1,00,000** — R-13 and R-14, **reported not corrected** |
+| `WORKS MANAGEMENT/Scripts/wm2_user_package.py` | Reads `USER_SOURCE/` and writes all of the above, including the audit. Re-runnable; nothing is typed by hand |
 
 > **No `.mpp`.** Microsoft Project's native format is an undocumented binary writable only
 > by Microsoft Project. MSPDI is Microsoft's own interchange schema and opens directly;
@@ -2752,6 +2876,27 @@ reading one sheet has all of it.
 > **C16–C21, U1, U2, U3, U8 and the remaining WM-V items are untouched.** **C17 in
 > particular is NOT resolved by BS1** — the A.7.3 column still sums to 39.15 against the
 > stated 40.65, at the crown exactly as before.
+
+> **Update, 10 September 2026 — Works Management revision WM2 (H.13). NOTHING above is
+> closed, downgraded or removed. Fourteen NEW open items are added.**
+> The project owner supplied their own BOQ, cost estimate and master construction
+> schedule R0, which now govern Works Management. Reconciling them against this master
+> raised **R-1 to R-14**, all open, full text in
+> `WORKS MANAGEMENT/Documentation/WM_RECONCILIATION_REGISTER.md`. The two that bear on
+> the engineering are:
+> **R-1** — the owner's burster slab is **300 mm M35, 57.60 m³**, against A.7.3's
+> **200 mm M30**: 37.0 m³ and one grade apart, and 300 mm does not fit the confirmed
+> 2000 mm cover column without changing another layer;
+> **R-2** — the owner's programme carries a **4 m** soil overburden (activities 51 and
+> 52) while their own BOQ report and A.7.3 both say **2.0 m**; A.7.3 records the
+> 4.0 → 2.0 reduction as a deliberate decision, so the programme appears to carry the
+> superseded scheme.
+> **C21 IS NOT CLOSED BY R-9.** The owner's estimate independently prices
+> **2 × 300 m³/h** filter trains, which is evidence on the 300 side and nothing more.
+> **C21 must still be ruled on BEFORE the filter trains are ordered.**
+> **R-13 and R-14 are arithmetic slips inside the owner's own files** — a concrete total
+> 10.00 m³ below the sum of its own lines, and a final cost ₹1,00,000 above the sum of
+> its own cost heads. Both are **reported, not corrected.**
 
 ## K.2 ASSUMED — must be confirmed before construction
 

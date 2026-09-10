@@ -150,3 +150,54 @@ enquiry can be issued.
   2533 headroom — is reproduced in the programme exactly as it stands.
 * It made only one design change, SP-B1, and made it because it was explicitly
   instructed.
+
+---
+
+# REVISION WM2 — 10 September 2026
+
+**The project owner's own Works Management package has been brought in, and it now
+governs.** Four files were supplied — a BOQ and cost estimate workbook, an eight-page
+BOQ / works-management report, and the master construction schedule **R0** as both a
+Microsoft Project file and a Level-5 micro print. They are held unaltered in
+`USER_SOURCE/`.
+
+## Order of authority
+
+1. **the owner's Works Management files** — `USER_SOURCE/`
+2. actual project information
+3. existing project documentation
+4. **WM1**, the generated package above
+
+Nothing of the owner's has been corrected, re-derived, rounded or rebuilt. **WM1 is not
+overwritten either** — it is a preserved revision and stays exactly as issued.
+
+## What WM2 adds
+
+| | |
+|---|---|
+| `USER_SOURCE/` | the owner's four files, unaltered, with a README |
+| `Cost/USER_BOQ_AND_COST_ESTIMATE.md` + three CSVs | **the project's cost document** — 42 priced items, every rate, ending at **₹3,00,33,306**. WM1 had no rate and no cost anywhere in it |
+| `Programme/USER_MASTER_CONSTRUCTION_SCHEDULE_R0.md` / `.csv` | **the programme of record** — 130 activities, **224 working days, 02-11-2026 to 26-07-2027**, six-day week |
+| `Documentation/WM_RECONCILIATION_REGISTER.md` | **fourteen conflicts, all open** — the owner's material against the project master |
+| `Scripts/wm2_user_package.py` | reads `USER_SOURCE/` and writes the above. Nothing is retyped |
+
+## The two packages are complementary
+
+WM1 never carried a rate or a cost; the owner's estimate supplies them. The owner's R0
+does not carry resources, procurement, long-lead manufacture, inspection and test points,
+risk or codes; WM1 supplies those. Read together they cover the job. **They are not
+alternatives and must not be read as such.**
+
+## What WM2 did NOT do
+
+- **No open item was closed by the reconciliation.** C17 and C21 stay open; WM-V3, WM-V6
+  and WM-V7 stay open. WM-V5 and WM-V11 were closed by the **SP-B2 design** in master
+  A.4.8, not by anything here.
+- **No quantity, rate, cost, duration or date of the owner's was changed** — including
+  two arithmetic slips found inside the owner's own files (a 10.00 m³ concrete total and
+  a ₹1,00,000 final cost), which are **reported, not corrected**, as R-13 and R-14.
+- **No WM1 document was rebuilt.** `SP-06`, the provisional lintel item, is left as it
+  stands even though SP-B2 has now designed the real one — the supersession is recorded
+  in the register instead.
+
+**Recorded in master Part H.13.**

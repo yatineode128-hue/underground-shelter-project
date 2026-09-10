@@ -1,0 +1,66 @@
+WM2 - AUDIT OF THE PROJECT OWNER'S OWN WORKS MANAGEMENT FILES
+==============================================================================
+Read straight from USER_SOURCE/.  Nothing here is corrected - findings are
+recorded in Documentation/WM_RECONCILIATION_REGISTER.md for the owner to rule on.
+
+1  CONCRETE TAKE-OFF
+------------------------------------------------------------------------------
+   1.1   Bottom PCC Levelling Bed for Raft Mat (100 mm thk)              17.17 m3
+   1.2   Monolithic Mat Raft Foundation (600 mm thk)                     81.84 m3
+   1.3   Perimeter External Shear Walls W1–W4 (600 mm thk)              108.29 m3
+   1.4   Internal Structural / Blast Shaft Walls W5–W7                   24.32 m3
+   1.5   Pressure Roof Slab (900 mm thk, deduct stair void)             114.72 m3
+   1.6   Internal Dog-Leg Staircase Flights & Intermediate Landings       4.80 m3
+   1.7   Internal Sump Pit (1.5 m³) & Equipment Plinth Pads               6.40 m3
+   1.8   Entry Headhouse (400 mm Walls, 500 mm Roof Slab)                28.56 m3
+   1.9   Approach Stairwell Box (250 mm Raking Wall & Roof)              18.20 m3
+   1.10  Sacrificial RC Burster Slab in 2 m Soil Overburden (300 mm      57.60 m3
+   1.11  Detached Sentry Post (Footings, Plinth, Columns, Beams, Sl      18.60 m3
+   sum of the 11 lines above                                            480.50 m3
+   stated TOTAL CONCRETE QUANTITY                                       470.50 m3
+   DIFFERENCE                                                           -10.00 m3   *** see R-13 ***
+
+2  REINFORCEMENT
+------------------------------------------------------------------------------
+   2.1   8 mm Bars (Hoops, Ties, Sentry Post Reinforcement)         1120 kg  x1.05 =   1.18 T  ok
+   2.2   10 mm Bars (Distribution Steel & Secondary Links)          1480 kg  x1.05 =   1.55 T  ok
+   2.3   12 mm Bars (Shear Links, Burster Slab, Internal Part       9390 kg  x1.05 =   9.86 T  ok
+   2.4   16 mm Bars (Perimeter Walls, Raft Foundation Mesh)        24140 kg  x1.05 =  25.35 T  ok
+   2.5   20 mm Bars (Shaft Walls W6/W7, Headhouse, Haunches)        8740 kg  x1.05 =   9.18 T  ok
+   2.6   25 mm Bars (Pressure Slab Main Curtains & Opening Tr      19690 kg  x1.05 =  20.67 T  ok
+   sum of the bar lines                                            64560 kg    67.79 T
+   stated TOTAL REINFORCEMENT STEEL                                64560 kg    67.79 T
+   ties up
+
+3  PRICED BOQ - PART SUBTOTALS
+------------------------------------------------------------------------------
+   Part 1                                                                  1,912,726
+   Part 2                                                                  1,283,471
+   Part 3                                                                  4,261,645
+   Part 4                                                                  6,333,152
+   Part 5                                                                 10,545,028
+   sum of the part subtotals                                              24,336,022
+
+4  COST SUMMARY
+------------------------------------------------------------------------------
+   Total Basic Cost                                      Subtotal Packages    24,336,022
+   Contingencies                                         3.0%                   730,081  ok
+   Water & Electricity Provisions                        1.0%                   243,360  ok
+   Specialist CBRN / EMP & Engineering Consultant        6.0%                 1,460,161  ok
+   Site Supervision & Quality Assurance                  2.0%                   486,720  ok
+   Statutory Clearances & Liaisoning                     1.0%                   243,360  ok
+   Contractor's Overhead & Profit                        10.0%                2,433,602  ok
+   sum of the cost heads above                                               29,933,306
+   stated FINAL PROJECT COST                                                 30,033,306
+   DIFFERENCE                                                                   100,000   *** see R-14 ***
+   basic cost vs the sum of the part subtotals                                        0   ties up to the rupee
+
+5  MASTER CONSTRUCTION SCHEDULE R0
+------------------------------------------------------------------------------
+   activities recovered from the owner's print   130
+   ids present                                   1 - 130, no gaps
+   project line                                  224 days, 02-11-26 to 26-07-27
+   final activity                                Hand-Over, 26-07-27
+   the 4 m cover                activities [51, 52]   (R-2)
+   the 1000 mm slab             activities [28, 39, 41]   (R-3)
+   the lift that does not exist activities [57, 58, 59, 60, 70, 71, 72, 73]   (R-4)
