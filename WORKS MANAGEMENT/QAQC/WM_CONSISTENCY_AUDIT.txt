@@ -108,7 +108,7 @@ PASS   Every reference topic the brief names is covered           12 topics, gap
 ==============================================================================
 12.  HANDOUT <-> PACKAGE
 ==============================================================================
-PASS   The handout exists and covers all 25 sections              Underground_Shelter_Works_Management_Handout.pdf, 152 kB
+PASS   The handout exists and covers all 25 sections              Underground_Shelter_Works_Management_Handout.pdf, 154 kB
 PASS   The programme drawing exists                               Underground_Shelter_Final_Works_Programme.pdf, 74 kB
 PASS   Headline figures in the handout match the package          7 figures checked, mismatched: none
 
@@ -117,7 +117,7 @@ PASS   Headline figures in the handout match the package          7 figures chec
 ==============================================================================
 PASS   The frozen main staircase geometry is reproduced, not altered 6 of 7 frozen values quoted verbatim in the package
 PASS   Confirmed structural dimensions are used unchanged         8 of 8 confirmed dimensions appear verbatim in the derivation
-PASS   No file outside WORKS MANAGEMENT/ and master/ is modified  3 files changed; outside the two folders: none
+PASS   No file outside WORKS MANAGEMENT/ and master/ is modified  21 files changed; outside the two folders: none
 
 ==============================================================================
 14.  EVIDENCE DISCIPLINE

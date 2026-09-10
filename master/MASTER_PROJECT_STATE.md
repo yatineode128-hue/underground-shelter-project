@@ -2488,6 +2488,30 @@ in place, at the same filenames — the supplied-DXF rule, and H.11's recorded p
 lintel, ties, and the reason the infill must stay bonded to the frame — so a builder
 reading one sheet has all of it.
 
+**SP-B2 carried through the Works Management package, 10 September 2026.** The WM1
+documents recorded, in **eleven places**, that no lintel design and no wall tie detail
+existed in the project. That is no longer true, so the statements were corrected at
+their generators and the package rebuilt.
+
+| File | Before → after |
+|---|---|
+| `Scripts/wm_content.py` | The SP-B1 consequences paragraph now says both designs exist; **TIES TO THE COLUMNS** carries the designed 6 mm MS ties at every **fifth** course, **superseding the SP-B1 planning placeholder of every fourth course**; **LINTELS** carries L1 in full with its IS 456 clauses; risk `R-09` now names WM-V6 as the one part of it still open |
+| `Scripts/wm_docs.py` | Shared document header gains an **AMENDED for SP-B2** banner; the masonry document's verification table and the package register mark **WM-V5 and WM-V11 CLOSED**; the BOQ narrative gains a superseded-by-SP-B2 note; the codes table cites the four IS 456 clauses L1 is designed to; the two lintel/tie rows in the **information-gap list are struck through as SUPPLIED** |
+| `Scripts/wm_handout_pdf.py` | Table 8.3 and its caption, and the two narrative passages that listed the missing lintel and tie detail among the package's known gaps |
+| `Scripts/wm_quantities.py` | The WM-V5 note in the quantity derivation, including the **0.485 m³ at 190 against `SP-06`'s 0.510 m³ at 200** |
+
+**The tie spacing was a real contradiction and is now resolved in favour of the design.**
+WM1 assumed ties *"at every fourth course"* as an explicit placeholder made when no
+detail existed; SP-B2 designs them at **every fifth course (≈ 450)**. The placeholder is
+superseded and is recorded as such rather than quietly dropped.
+
+**NO QUANTITY, RATE, DURATION, DATE, FLOAT OR RESOURCE CHANGED.**
+`Underground_Shelter_BOQ.csv`, `Underground_Shelter_WBS.csv` and
+`Underground_Shelter_Final_Works_Programme.csv` are **byte-identical**. `SP-06` still
+measures the superseded provisional 200 × 150 section — WM1 is a preserved revision and
+26 litres of M30 changes nothing. The package's own consistency audit runs **65 checks,
+65 pass**, including the handout-versus-package headline-figure check.
+
 ---
 
 ### Verification actually performed for BS1 + SP-B2
@@ -2534,8 +2558,17 @@ Project file and a Level-5 micro print. They are held unaltered in
 Works Management files, (2) actual project information, (3) existing project
 documentation, (4) previously generated Works Management material — **WM1**.
 
-**Nothing of the owner's was corrected, re-derived, rounded or rebuilt**, and **WM1 was
-not overwritten** (rule M.11 — it stays as the preserved revision it is).
+**Nothing of the owner's was corrected, re-derived, rounded or rebuilt.**
+
+**WM1 was not rebuilt, but its WRITTEN RECORD WAS AMENDED for SP-B2 — see H.12.** Rule
+M.11 is satisfied by git and by the H.10 record; what changed is that the WM1 documents
+said, in eleven places, that **no lintel design and no wall tie detail existed anywhere
+in the project**, which stopped being true the moment SP-B2 designed both. Leaving a
+Works Management package asserting that on a job intended for construction would be a
+live falsehood, so the statements were corrected. **No quantity, rate, duration, date,
+float or resource in WM1 changed** — the BOQ, WBS and programme CSV files are
+byte-identical — and bill item `SP-06` still measures the superseded provisional
+200 × 150 lintel section rather than L1.
 
 ### What the owner's package contains
 

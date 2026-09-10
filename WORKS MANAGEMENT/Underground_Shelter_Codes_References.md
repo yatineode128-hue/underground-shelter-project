@@ -13,6 +13,17 @@
 > are BRICK MASONRY, replacing the Rev F 200 mm RC ballistic infill panels.
 > No other element of the project is changed.**
 
+> **AMENDED 10 September 2026 for design revision SP-B2** (master **A.4.8**, Part
+> **H.12**), which designs the **lintel L1** and the **wall tie detail** that SP-B1
+> created a need for and this package recorded as not existing. **WM-V5 and WM-V11 are
+> closed by it.** The amendment is to the WRITTEN RECORD ONLY — the lintel and tie
+> paragraphs, the risk entry, the verification register and the gap list now state the
+> designed values instead of saying no design exists. **NO QUANTITY, RATE, DURATION,
+> DATE, FLOAT OR RESOURCE IN THIS PACKAGE CHANGED**, and bill item `SP-06` still
+> measures the superseded provisional 200 × 150 lintel section: see
+> `Documentation/WM_RECONCILIATION_REGISTER.md` §6. **WM-V3, WM-V6 and WM-V7 remain
+> open.**
+
 ---
 
 Every reference in this register is a real, published document. **No IS clause
@@ -216,7 +227,7 @@ introduces, so its references are collected here.
 | Plaster application | **IS 1661:1972** |
 | Painting | **IS 2395 (Part 1):1994** |
 | Flooring | **IS 2571:1970** |
-| Lintels | **IS 456:2000** — but no lintel design exists in the project yet |
+| Lintels | **IS 456:2000** — Cl. 22.2 effective span, Cl. 26.5.1.1 minimum tension steel, Cl. 26.5.1.6 nominal links, Table 19 shear. **Lintel L1 is designed to these clauses — SP-B2, master A.4.8** |
 | Measurement | **IS 1200 (Part 3):1976** — brickwork, measured at the actual 190 thickness |
 | Rates and specification clauses | MES SSR Part I and Part II. *To be verified against the applicable MES SOR/SSR/specification edition.* |
 

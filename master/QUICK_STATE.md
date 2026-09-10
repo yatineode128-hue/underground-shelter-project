@@ -171,6 +171,11 @@ soffit, last joint packed — the infill is NOT separated, because the analysis 
 R = 3.0**, not the R = 5.0 special moment frame.
 **Nothing else changed:** no frame member, footing, slab, storey height or envelope;
 **13.000 kN/m infill retained** in A.7.7 and in `Sentry_Post_Framed_Seismic.std`.
+**Carried through the Works Management package** — WM1 said in eleven places that no
+lintel design and no tie detail existed; those statements are corrected and the WM1
+placeholder of ties *every fourth course* is superseded by the designed **fifth**.
+**No WM quantity, rate, date or float changed** (BOQ, WBS and programme CSV are
+byte-identical); WM audit still **65/65**.
 
 ---
 

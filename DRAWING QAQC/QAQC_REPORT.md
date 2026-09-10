@@ -347,3 +347,39 @@ therefore ANSI-coded, not UTF-8. They are now ASCII hyphens, and **all eleven
 | **A-105** Sentry Framing Plan | infill callout, load-schedule line and R-value note rewritten; **new SP-B2 lintel and tie panel**; NOTES box rebuilt; non-ASCII removed |
 | **A-301** Front Elevation | frame/infill note relabelled to brick |
 | **A-202** Side Section X-X | burster slab label now states the 1:50 crossfall |
+
+### 8.7  QA-2 re-measured — §5.2's figures were going stale
+
+§5.2 was written on 9 September and is left as issued. Its list is now partly out of
+date, so here are the current numbers, measured by `voidqa.py` on all 65 drawings.
+
+| | 9 Sep (§5.2) | 10 Sep |
+|---|---:|---:|
+| **R-202** Internal Wall Reinforcement | 39 % | **39.3 %** |
+| **D-002** Drainage Symbols | 37 % | **36.7 %** |
+| **R-003** Typical Reinforcement Details | 37 % | **36.7 %** |
+| **R-302** Roof Sections | 37 % | **35.5 %** — improved by the BS1 crown, its arrows and its longer labels |
+| Package mean / median void | — | **23.2 % / 22.3 %** |
+| Drawings over 30 % void | — | **14 of 65** |
+
+**§5.2 also under-reported the `current/cad` drawings**, which it did not list at all.
+Four of them are now in the worst eight: **A-201** and **A-203** at 38.7 %, **A-103** and
+**A-104** at 36.3 %. Their emptiness has a different cause from the generated sheets' —
+a Rev F drawing was re-centred on a sheet frame it was never drawn for, so the frame is
+sized to the paper while the drawing is sized to its own subject.
+
+**No sheet was re-scaled or re-composed to improve these numbers**, and none should be
+without a decision: the scale on a sheet is a measurement statement, not a layout
+parameter. **QA-2 stands as an open question for you** — whether any of these sheets
+should be combined, re-scaled or left as they are.
+
+One pattern is worth naming for whoever rules on it. On eight of the generated sheets —
+R-202, R-003, D-002, R-402, R-002, R-201, R-401 and R-801 — the largest empty rectangle
+is the same shape: **(0, 0) to (651, 220–302)**, the full-width strip along the bottom
+of the sheet, left of the title block. That is not inherent to the content. It is the
+generators stacking their blocks from the top and stopping, and it could be fixed by
+chaining the block column to the sheet bottom, the way `panel_column()` already does on
+R-001 and R-002. It was **not** done here because it is composition work across eight
+sheets on a package that is otherwise stable, and the last time a layout pass was
+re-run over sheets that were already correct it made them worse (§8.2, and the QA1
+de-clash guard). **It is a clean, contained job for a next revision if you want it.**

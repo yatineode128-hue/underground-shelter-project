@@ -13,6 +13,17 @@
 > are BRICK MASONRY, replacing the Rev F 200 mm RC ballistic infill panels.
 > No other element of the project is changed.**
 
+> **AMENDED 10 September 2026 for design revision SP-B2** (master **A.4.8**, Part
+> **H.12**), which designs the **lintel L1** and the **wall tie detail** that SP-B1
+> created a need for and this package recorded as not existing. **WM-V5 and WM-V11 are
+> closed by it.** The amendment is to the WRITTEN RECORD ONLY — the lintel and tie
+> paragraphs, the risk entry, the verification register and the gap list now state the
+> designed values instead of saying no design exists. **NO QUANTITY, RATE, DURATION,
+> DATE, FLOAT OR RESOURCE IN THIS PACKAGE CHANGED**, and bill item `SP-06` still
+> measures the superseded provisional 200 × 150 lintel section: see
+> `Documentation/WM_RECONCILIATION_REGISTER.md` §6. **WM-V3, WM-V6 and WM-V7 remain
+> open.**
+
 ---
 
 ## Part 1 — Safety management
@@ -102,7 +113,7 @@ QA/QC plan — not a statement of intent.
 | `R-06` | Design | Conflict C21 — the CBRN filter duty is stated as 2 x 250 m³/h in master A.3 and as 300 m³/h in nine places on sheet S-06, and 250 fails S-06's own 264 m³/h criterion. UNRESOLVED. | **H** | **M** | Must be ruled on BEFORE the filter trains are ordered — the enquiry activity is programmed before order placement for exactly this reason. Escalated to the designer at mobilisation. | Designer |
 | `R-07` | Design | Conflict C16 — the roof/platform junction, 250 against 500. UNRESOLVED in the master and not resolved by this package. | **M** | **M** | Affects the covered entry stairwell roof, which carries float. Ruling required before A5105. Raised in the verification register. | Designer |
 | `R-08` | Design | No electrical design package exists. The scope is confirmed but no circuit, cable, luminaire, distribution board or earth-electrode schedule does. | **H** | **H** | Every electrical quantity is declared 'to be verified from final measurement'. The electrical design must be issued before A11025; the programme allows for it but cannot absorb an indefinite delay. Raised at mobilisation as the largest single information gap. | Designer |
-| `R-09` | Design | SENTRY POST BRICK MASONRY (SP-B1) — no lintel design exists, no wall tie detail exists, and the seismic weight of the frame changes when RC infill becomes brickwork. | **H** | **M** | Lintel and tie design requested before A8135; the seismic re-check is referred to the structural discipline. The change reduces the infill line load from 13.000 to about 9.9 kN/m, which points the existing V_b = 73.18 kN in the conservative direction — but that is a direction, not a verification. | Designer / Structural Consultant |
+| `R-09` | Design | SENTRY POST BRICK MASONRY (SP-B1) — the lintel design and the wall tie detail did not exist when this risk was raised, and the seismic weight of the frame changes when RC infill becomes brickwork. TWO OF THE THREE ARE NOW CLOSED: revision SP-B2 (10 September 2026, master A.4.8 and Part H.12) designs lintel L1 and the tie detail. THE SEISMIC RE-CHECK, WM-V6, IS STILL OPEN. | **H** | **M** | Lintel and tie design requested before A8135; the seismic re-check is referred to the structural discipline. The change reduces the infill line load from 13.000 to about 9.9 kN/m, which points the existing V_b = 73.18 kN in the conservative direction — but that is a direction, not a verification. | Designer / Structural Consultant |
 | `R-10` | Design | The Rev F panels are described as BALLISTIC infill. Brick masonry does not give the same ballistic protection. | **H** | **M** | Recorded as a consequence of the instructed change so that the decision is visible. If ballistic performance is required it must be reinstated by another means; this package does not assume it has been. | Project Manager / Client |
 | `R-11` | Design | No site plan or ground model exists. The berm volume, access route, hardstanding, several drainage runs and the soakaway positions cannot be determined. | **H** | **M** | All affected items carried as 'to be verified from final measurement'. A site plan is requested at mobilisation; the external works sit at the end of the programme, which buys time but not an unlimited amount. | Designer |
 | `R-12` | Construction | The 112 m³ continuous pressure slab pour cannot be completed without a cold joint — plant breakdown, supply interruption or weather. | **M** | **H** | Standby pump and standby transit mixers arranged; the pour is planned as a single shift with defined fallback joint positions agreed with the designer IN ADVANCE, complete with waterstop and EMP strap details, so that an unplanned stop does not become an unplanned detail. | Site Engineer (Civil) |
@@ -148,7 +159,7 @@ designed, not after the walls are built.
 
 | Ref | Risk | Why it exists |
 |---|---|---|
-| `R-09` | No lintel design, no wall tie detail, and a changed seismic weight | The RC infill panels needed none of these; brick masonry needs all three |
+| `R-09` | No lintel design, no wall tie detail, and a changed seismic weight | The RC infill panels needed none of these; brick masonry needs all three. **The lintel and the tie detail are now designed — SP-B2, master A.4.8 / Part H.12. The changed seismic weight, WM-V6, is STILL OPEN** |
 | `R-10` | Loss of the ballistic function the Rev F panels were named for | Brick masonry does not provide the protection that '200 RC ballistic infill' describes. Recorded so the decision is visible, not buried |
 | `R-15` | Masonry workmanship — plumb, joint filling and the frame interface | A trade the project did not previously contain, on a structure with no other masonry |
 | `R-16` | Brick supply consistency | Only about 6 400 bricks are needed, so one approved batch covers the job — but a mid-job source change would require retesting for a quantity too small to justify it |

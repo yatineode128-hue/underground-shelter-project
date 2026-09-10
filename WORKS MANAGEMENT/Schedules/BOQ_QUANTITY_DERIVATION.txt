@@ -776,7 +776,11 @@ TBV = To be verified from final measurement.
          zone preserves the confirmed external envelope.  Needs the designer's
          confirmation, or a formal change to accept 230 conventional brickwork.
   WM-V5  Lintels over the sentry post openings are a NEW requirement created by
-         SP-B1.  No lintel design exists.  Structural design required.
+         SP-B1.  CLOSED by SP-B2, 10 Sep 2026 (master A.4.8 / Part H.12):
+         lintel L1, 190 x 150, M30 / Fe500, 2-T10 bottom, 2-T8 top, T6 links
+         @ 150, bearing 200, ONE TYPE over all eleven openings.  SP-06 below
+         still measures the SUPERSEDED provisional 200 x 150 and is NOT
+         re-measured here - 0.485 m3 at 190 against 0.510 m3 at 200.
   WM-V6  Seismic weight of the sentry post changes when 200 RC infill (13.000
          kN/m, master A.7.7) becomes brick masonry.  Brickwork at 20 kN/m3 over
          0.190 x 2.600 gives 9.88 kN/m, LIGHTER than 13.000, so the existing

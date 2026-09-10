@@ -13,6 +13,17 @@
 > are BRICK MASONRY, replacing the Rev F 200 mm RC ballistic infill panels.
 > No other element of the project is changed.**
 
+> **AMENDED 10 September 2026 for design revision SP-B2** (master **A.4.8**, Part
+> **H.12**), which designs the **lintel L1** and the **wall tie detail** that SP-B1
+> created a need for and this package recorded as not existing. **WM-V5 and WM-V11 are
+> closed by it.** The amendment is to the WRITTEN RECORD ONLY — the lintel and tie
+> paragraphs, the risk entry, the verification register and the gap list now state the
+> designed values instead of saying no design exists. **NO QUANTITY, RATE, DURATION,
+> DATE, FLOAT OR RESOURCE IN THIS PACKAGE CHANGED**, and bill item `SP-06` still
+> measures the superseded provisional 200 × 150 lintel section: see
+> `Documentation/WM_RECONCILIATION_REGISTER.md` §6. **WM-V3, WM-V6 and WM-V7 remain
+> open.**
+
 ---
 
 This bill covers the entire project: the main underground shelter, the entry
@@ -240,8 +251,18 @@ convention for every other door) and 1200 for the window and vision panels are
 assumed for measurement and are flagged as verification items WM-V3.
 
 **Lintels are a new requirement created by this change.** The RC infill panels did
-not need them; brick masonry does. No lintel design exists in the project, so item
-`SP-06` is a provisional 200 × 150 section for quantity only and is classed `[N]`.
+not need them; brick masonry does. When this bill was measured no lintel design
+existed, so item `SP-06` is a provisional 200 × 150 section for quantity only, classed
+`[N]`.
+
+> **Superseded by SP-B2, 10 September 2026 (master A.4.8, Part H.12).** Lintel **L1**
+> is now designed — **190 × 150, M30 / Fe500, 2-T10 bottom, 2-T8 top, T6 links @ 150,
+> bearing 200 each end**, one type over all eleven openings. Over the same 17.000 m run
+> of lintel that is **0.485 m³** against `SP-06`'s **0.510 m³**. **`SP-06` is left as
+> measured and is NOT re-measured here** — 26 litres of M30 changes nothing, and this
+> bill is a preserved revision. The supersession is recorded in
+> `Documentation/WM_RECONCILIATION_REGISTER.md` §6 so the next revision picks up L1,
+> with its reinforcement, rather than a provisional section with none.
 
 ---
 

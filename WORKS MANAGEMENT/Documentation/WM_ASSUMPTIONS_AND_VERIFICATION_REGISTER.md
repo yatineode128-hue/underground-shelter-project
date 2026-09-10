@@ -13,6 +13,17 @@
 > are BRICK MASONRY, replacing the Rev F 200 mm RC ballistic infill panels.
 > No other element of the project is changed.**
 
+> **AMENDED 10 September 2026 for design revision SP-B2** (master **A.4.8**, Part
+> **H.12**), which designs the **lintel L1** and the **wall tie detail** that SP-B1
+> created a need for and this package recorded as not existing. **WM-V5 and WM-V11 are
+> closed by it.** The amendment is to the WRITTEN RECORD ONLY — the lintel and tie
+> paragraphs, the risk entry, the verification register and the gap list now state the
+> designed values instead of saying no design exists. **NO QUANTITY, RATE, DURATION,
+> DATE, FLOAT OR RESOURCE IN THIS PACKAGE CHANGED**, and bill item `SP-06` still
+> measures the superseded provisional 200 × 150 lintel section: see
+> `Documentation/WM_RECONCILIATION_REGISTER.md` §6. **WM-V3, WM-V6 and WM-V7 remain
+> open.**
+
 ---
 
 Master rule M.6 governs this register: *never guess missing engineering
@@ -34,13 +45,13 @@ confirmed before either is relied on.
 | `WM-V2` | First-floor west wall: door D1 at Y 1000–1900 lies inside the vision panel at Y 1000–2200 on Rev F drawing 4 | Double deduction would understate the masonry by 1.9 m² | **OPEN** — the union is deducted once |
 | `WM-V3` | Sentry post window and vision-panel heights are not stated on any drawing | 1200 assumed. Each 100 mm of height is 1.1 m² of masonry across the nine openings | **OPEN** |
 | `WM-V4` | 190 mm modular brickwork inside the 200 mm structural zone | The alternative, 230 mm conventional brickwork, changes the confirmed 4000 × 5000 external envelope | **OPEN** — needs the designer's confirmation |
-| `WM-V5` | Lintels over the sentry post openings — a **new** requirement created by SP-B1 | No lintel design exists. `SP-06` is provisional | **OPEN** — structural design required |
+| `WM-V5` | Lintels over the sentry post openings — a **new** requirement created by SP-B1 | ~~No lintel design exists~~ — **lintel L1 is now designed, SP-B2, master A.4.8**. `SP-06` still measures the superseded provisional 200 × 150 section | **CLOSED by SP-B2**, 10 Sep 2026 |
 | `WM-V6` | Sentry post seismic weight when RC infill becomes brick masonry | Brick at ~20 kN/m³ over 0.190 × 2.600 gives ~9.9 kN/m against the confirmed 13.000 kN/m, so the existing V<sub>b</sub> = 73.18 kN is **conservative**. A direction, not a verification | **OPEN** — referred to the structural discipline |
 | `WM-V7` | Ballistic performance. Rev F calls the panels '200 RC BALLISTIC INFILL'; brick masonry does not give the same protection | A stated protective function is removed from a structure that is already declared not blast designed and expendable | **OPEN** — recorded so the consequence is visible |
 | `WM-V8` | Mat measured gross, no deduction for the 1.5 × 1.5 sump opening | +1.35 m³. SC1's convention, kept | Conservative, declared |
 | `WM-V9` | 1.000 m working space and vertical unbenched excavation faces | A slope-stability assessment of the soil zone above rockhead is required before excavation | **OPEN** |
 | `WM-V10` | Bulking on rock excavation not applied | Loose volumes for haulage and stockpiling will be 40–60 % greater than the 1 114 m³ bank measure | Declared |
-| `WM-V11` | Wall tie detail between the sentry post masonry and the columns | No detail exists in the project | **OPEN** — required before `A8135` |
+| `WM-V11` | Wall tie detail between the sentry post masonry and the columns | ~~No detail exists in the project~~ — **6 mm MS ties at every fifth course, SP-B2, master A.4.8** | **CLOSED by SP-B2**, 10 Sep 2026 |
 | `WM-V12` | Opening heights for the W8 partition doors (900 gap confirmed, head height not stated) | 2100 assumed, consistent with every other door in the project | **OPEN**, minor |
 
 ## Part 2 — Programme assumptions
@@ -83,8 +94,8 @@ These are not assumptions. They are gaps, and each one blocks something.
 |---|---|---|
 | **Electrical design package** — no circuit, cable, luminaire, DB or earth-electrode schedule | All electrical procurement and every electrical quantity | Before `A11025`, 23 Jul 27 |
 | **Site plan / ground model** | Berm volume, access route, hardstanding, soakaway positions, several drainage runs | Before `A13010`, 10 Sep 27 |
-| **Sentry post lintel design** | `A8140`, `A8155` | Before `A8135`, 23 Mar 27 |
-| **Sentry post wall tie detail** | `A8135` | Before `A8135`, 23 Mar 27 |
+| ~~**Sentry post lintel design**~~ | `A8140`, `A8155` | **SUPPLIED — lintel L1, SP-B2, master A.4.8, 10 Sep 2026. No longer a gap** |
+| ~~**Sentry post wall tie detail**~~ | `A8135` | **SUPPLIED — 6 mm MS ties @ every 5th course, SP-B2, master A.4.8, 10 Sep 2026. No longer a gap** |
 | **Blast door leaf, frame and anchorage details** | Frame cast-in at `A3105` | Vendor submittal, before 01 Apr 27 |
 | **Blast valve sizes and sleeve details** | Sleeves cast in at `A9015` | Before the wall and slab pours |
 | **Service-entry plate size at wall W2** | Cast-in at `A4060` | Before the pressure slab pour |

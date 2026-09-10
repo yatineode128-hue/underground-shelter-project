@@ -317,6 +317,18 @@ WM1 is a preserved revision, and 26 litres of M30 changes nothing. It is recorde
 that the next revision of the bill picks up L1, with its reinforcement, rather than a
 provisional section with none.
 
+**What WAS corrected in WM1, and why.** The package said in **eleven places** that *no
+lintel design and no wall tie detail exist anywhere in the project*. SP-B2 designed
+both, so those statements became false — and a Works Management package that tells a
+builder a design does not exist, when it does, is worse than one with a stale quantity.
+The statements were corrected at their generators and the package rebuilt. **The tie
+spacing was a genuine contradiction**: WM1 assumed *"every fourth course"* as an
+explicit placeholder, SP-B2 designs **every fifth course (≈ 450)**; the placeholder is
+superseded and recorded as such. **No quantity, rate, duration, date, float or resource
+changed** — `Underground_Shelter_BOQ.csv`, `Underground_Shelter_WBS.csv` and the
+programme CSV are byte-identical, and the package's own audit still runs **65 checks,
+65 pass**. Full file list in master **Part H.12**.
+
 ---
 
 ## 7  Open items — what this revision changed
