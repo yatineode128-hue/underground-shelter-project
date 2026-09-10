@@ -7,6 +7,8 @@
 **Compiled from:** Phase 1 Design Report Rev D (126 KB, 2000 lines), ten Rev F architectural DXF files, nineteen STAAD.Pro screen captures, and the full Phase 2 structural design work.
 **Covers:** Phase 1 (architectural + basis of design, complete) and Phase 2 (structural design + drawings, substantially complete).
 **Discipline packages:** Structural CAD **SC1** · Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** · Works Management **WM1** (7 Sep 2026, Part H.10).
+**Drawing QA/QC:** **QA1** (9 Sep 2026, Part H.11) — all 65 DXF sanitised in place.
+**Latest design changes:** **BS1** (burster slab laid to a 1:50 crossfall) and **SP-B2** (sentry post lintel L1 + wall ties) — 10 Sep 2026, Part H.12.
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, sentry post drawing S-07 equivalent.
 
 ---
@@ -230,6 +232,58 @@ Siting                 >= 10 m clear of the shelter excavation
 > seismic weight reduced, ballistic function lost) are recorded in H.10 as **WM-V5, WM-V11,
 > WM-V6 and WM-V7** and **none of them is resolved.** `[C] instruction / [A] 190-in-200`
 
+> **SP-B2 — LINTELS AND WALL TIES FOR THE MASONRY INFILL, 10 September 2026 (Part H.12).**
+> SP-B1 made the walls masonry but left **WM-V5 (no lintel design exists)** and
+> **WM-V11 (no tie detail exists)** open, so the walls as recorded could not be built.
+> Both are now designed. **This adds nothing to the frame and changes no frame member.**
+>
+> **Lintel L1 — one type over every opening in the sentry post**
+> ```
+> 190 wide x 150 deep, M30 / Fe500, cover 30, bearing 200 each end
+> 2-T10 bottom  ·  2-T8 top (hangers)  ·  T6 two-legged links @ 150
+> ```
+> Openings served — **eleven in all**: ground **D1 900** and **W1 1200**; first storey
+> **D1 900** and the **eight 1200-wide vision-panel openings**. The 1200 opening governs;
+> one type covers all. (WM1's quantity `SP-06` already measures eleven lintels. The
+> "nine openings" in the K.1 WM-V5 text counts only the nine *unstated-height* window and
+> vision openings, matching WM-V3 — **a wording looseness in that block, flagged not
+> silently edited; no quantity depends on it.**)
+>
+> **Design basis.** Effective span = min(clear + d, c/c bearings) = min(1315, 1400) =
+> **1.315 m** (IS 456 Cl. 22.2). **The opening HEIGHTS are not stated on any drawing —
+> WM-V3, still open.** WM1 assumed 1200 for *measurement only*, tagged `[A]`/`[N]`; **L1
+> does not use that assumption and does not confirm it.** The lintel is deliberately
+> designed to the bound that does not depend on the height at all: masonry standing *just
+> below* the 60° arching height (0.866 × 1.315 = 1.139 m), which is the heaviest case any
+> opening height can produce — above it, arching relieves the lintel; below it, there is
+> less masonry. **The design therefore holds whatever WM-V3 is eventually ruled to be.**
+>
+> w = 0.190 × 20 × 1.139 = **4.33 kN/m**,
+> M = 0.935 kNm, V = 2.85 kN → M<sub>u</sub> = **1.403 kNm** against
+> M<sub>u,lim</sub> = 0.133 f<sub>ck</sub>bd² = **10.03 kNm**, **14 % utilised**.
+> A<sub>st</sub> required 29.5 mm², **IS 456 Cl. 26.5.1.1 minimum 0.85bd/f<sub>y</sub> =
+> 37.1 mm² GOVERNS**; 2-T10 = 157 mm² provided. τ<sub>v</sub> = 0.195 against
+> τ<sub>c</sub> ≈ 0.56 for M30 at p<sub>t</sub> 0.72 % → **no shear steel required**;
+> the T6 @ 150 links are the Cl. 26.5.1.6 nominal minimum (max spacing 324).
+> **The lintel carries masonry only** — the floor and roof go to beams B1/B2 at each
+> level, which is the whole point of the frame.
+>
+> **Wall ties.** 6 mm dia MS ties at **every fifth course (≈ 450 mm)** up both column
+> faces, projecting **200 mm** into the bed joint, anchored to the column by a cast-in or
+> drilled-and-grouted 10 mm dowel. The top course is **built tight to the beam soffit and
+> the last joint packed**, because the analysis takes **R = 3.0** — the infill is NOT
+> separated from the frame and must not be. Separating it would be the R = 5.0 special
+> moment frame case, which this project does not claim.
+>
+> **What SP-B2 does NOT change.** No frame member, no footing, no slab, no storey height,
+> no envelope. **Infill on the first-floor beams stays at 13.000 kN/m** in A.7.7 and in
+> `Sentry_Post_Framed_Seismic.std`: brick gives ≈ 9.88 kN/m, which is lighter, so the
+> modelled value stays conservative. **WM-V6 is still open** — the structural discipline
+> must re-run the seismic check; nothing here is a substitute for that.
+> **WM-V7 IS NOT CLOSED AND CANNOT BE CLOSED HERE: brick masonry does not give the
+> ballistic protection the Rev F "200 RC ballistic panels" were named for.** That is a
+> client / military decision, not a drafting one. `[C] instruction / [R] IS 456 design`
+
 ## A.5 Materials — CURRENT
 
 | Item | Shelter / stairs / headhouse | Sentry post | Source |
@@ -356,6 +410,30 @@ NO dynamic increase on shear — IS 4991 Cl 10.3.1.1
 | Compacted engineered fill @ 95 % MDD | 750 | 20 | 15.00 | **Radiation mass** |
 | Protection screed over the membrane | 100 | 24 | 2.40 | Protects waterproofing |
 | **TOTAL** | **2000** | | **40.65** | |
+
+> **BS1 — THE BURSTER SLAB IS LAID TO FALLS, 10 September 2026 (Part H.12).** By
+> instruction, the **200 RC burster slab is no longer laid flat**. It is laid to a
+> **1:50 crossfall, crowned on the box longitudinal centreline (Y = 3100) and falling
+> each way to the box edges** — that is, **parallel to the finished grade**, which
+> A.4.3 already records as *crowned, falling 1:50 away*. Over the 3100 half-width the
+> slab drops **62 mm** from crown to box edge.
+> **Why:** the granular filter sits directly on the burster slab, and D-201 note 3 and
+> calculation D.7 already state that water infiltrating the topsoil is *"intercepted by
+> the granular filter and dispersed at the berm toe."* **On a flat slab it cannot be** —
+> it ponds on the slab and finds the construction joints. The crossfall gives the filter
+> layer the gradient that claim depends on, so seepage runs sideways to the slab edge
+> and daylights into the berm fill. **No pipe is introduced anywhere in the cover** —
+> D-001 note 1 and D-201 note 3 still hold.
+> **Thicknesses and load — UNCHANGED.** The fall is taken up entirely in the **compacted
+> engineered fill** below the rubble, which is **750 (nominal) at the crown thinning to
+> 688 at the box edge**. Every other layer keeps its nominal thickness. The cover
+> therefore weighs **exactly what it weighs today at the crown**, and *less* toward the
+> edges: **the cover load does not increase anywhere.** COMB 103 = 448.15 kPa, A.7.4,
+> Part B, Part F, Part L and all three `.std` files are **untouched**. The slab's own
+> M30 / T12 @ 150 B/W reinforcement is unchanged — it is a cover element, not a
+> structural element of the box.
+> **C17 is NOT resolved by this.** The column above still sums to 39.15 against the
+> stated 40.65, at the crown exactly as before. `[C] instruction / [A] 1:50 to match A.4.3`
 
 > **Why 2.0 m:** not blast (a buried roof takes full p<sub>so</sub> regardless — IS 4991 Cl. 7.2) and not fallout (1.0 m already gives PF ≈ 2200 against a requirement of ~1000). **The second metre is bought entirely for prompt neutron and gamma attenuation**, which needs mass and needs it above the slab. Reducing 4.0 m → 2.0 m saved 2 m of rock excavation, 2 m of shaft, one stair flight and 2 m of headroom.
 
@@ -1712,6 +1790,8 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 | Sump relocated | outside the wall, below mat level | **inside, Bay 5, 1500³, invert (−)7.600** | Unprotected envelope breach below the water table, impossible to inspect | S-02, S-06 | **CURRENT** |
 | Wall links | T12 @ 250 | **T12 @ 200** | Recalculated V<sub>us</sub> | S-01 | **CURRENT** |
 | **SP-B1** | **Sentry post walls = BRICK MASONRY** — instructed design change, 7 Sep 2026 | RC 200 ballistic infill (Rev F) | **190 one-brick modular brickwork to IS 1077 in CM 1:6, inside the confirmed 200 structural zone** | Instructed by the user; the only design change in WM1. Preserves the confirmed 4000 × 5000 envelope. Creates a lintel requirement and a tie requirement that did not exist, reduces the infill line load 13.000 → ≈ 9.9 kN/m (conservative for V<sub>b</sub>, referred to the structural discipline, **not verified here**), and removes the ballistic function the Rev F panels were named for | Part H.10, `WORKS MANAGEMENT/` | **CURRENT** |
+| **SP-B2** | **Sentry post lintels and wall ties** — completes SP-B1, 10 Sep 2026 | no lintel design, no tie detail existed (WM-V5, WM-V11) | **Lintel L1 190 × 150, M30/Fe500, 2-T10 bottom, 2-T8 top, T6 links @ 150, bearing 200 — one type over all eleven openings; 6 mm MS ties @ every 5th course (≈450) up both column faces, 200 into the bed joint, 10 mm dowel; top course tight to the beam soffit** | The walls as recorded could not be built without them. L1 designed to the 60° arching bound so it does not depend on the unstated opening heights (WM-V3). **No frame member, footing, slab, storey height or envelope changed; 13.000 kN/m infill retained; R = 3.0 unchanged** | Part H.12, A.4.8, A-105 | **CURRENT** |
+| **BS1** | **RC burster slab laid to falls** — instructed design change, 10 Sep 2026 | burster slab and cover laid **flat** | **1:50 crossfall, crowned on the box centreline (Y 3100), falling 62 mm each way to the box edge — parallel to the crowned grade** | The granular filter bears directly on the slab; D-102 note 3 and calculation D.7 already claimed infiltration is *dispersed at the berm toe*, which a flat slab cannot do. Fall taken entirely in the compacted fill (750 crown → 688 edge). **Cover load unchanged at the crown and lighter toward the edges; COMB 103 = 448.15 kPa and all three `.std` untouched. C17 NOT resolved** | Part H.12, A.7.3, R-302, D-102, D-301 | **CURRENT** |
 
 ## H.3 Conflict register — full
 
@@ -2249,6 +2329,199 @@ removed.** The panels that carry them are unchanged in content.
 and `current/cad/Scripts/` (the five-module pipeline that produced the current
 `current/cad` state). No design file, calculation, schedule or STAAD model was modified.
 
+## H.12 Burster slab laid to falls + sentry post masonry completed — revisions BS1 / SP-B2 — 10 September 2026
+
+**Two instructed design changes, recorded together because they were carried through the
+package in one pass.** Both are recorded in full at the point of design — **BS1 in A.7.3**,
+**SP-B2 in A.4.8** — and this section is the change record, not a second authority. If the
+two ever disagree, Part A governs.
+
+---
+
+### BS1 — the RC burster slab is laid to falls
+
+**Instruction.** *"Make the RC burster slab sloping so that water seeps in moves
+sideways."*
+
+**What changed.** The 200 mm M30 burster slab, and every layer above it, is laid to a
+**1:50 crossfall, crowned on the box longitudinal centreline (Y = 3100) and falling each
+way to the box edge** — the same fall and the same direction as the finished grade, which
+A.4.3 already records as *crowned, falling 1:50 away*. Over the 3100 half-width the slab
+drops **62 mm** crown to edge.
+
+**Why it was a real defect and not a preference.** D-102 note 3, D-001 note 1 and
+calculation D.7 all state that infiltration through the cover is *"intercepted by the
+granular filter and dispersed at the berm toe"*, and that no pipe penetrates the cover.
+The granular filter bears **directly on the burster slab**. On a flat slab that sentence
+cannot be true: the filter drains to a level surface, the water ponds on the slab and the
+only path onward is the slab's own construction joints. The crossfall is what gives the
+filter layer the gradient the drainage design already claimed it had.
+
+**Load, thickness and analysis — UNCHANGED.**
+
+| | |
+|---|---|
+| Layer thicknesses | Every layer keeps its **nominal** thickness. The fall is taken up entirely in the **compacted engineered fill** below the rubble: **750 at the crown, thinning to 688 at the box edge.** |
+| Cover load | **40.65 kPa at the crown, exactly as before**; *less* toward the edges (≈ 1.24 kPa lighter at the box edge). **The cover load does not increase anywhere.** |
+| COMB 103 | **448.15 kPa — untouched.** A.7.4, Part B, Part F and Part L are untouched. |
+| STAAD | **All three `.std` files untouched.** No geometry, thickness, support, load case or combination was edited. |
+| Burster slab reinforcement | **M30, T12 @ 150 B/W — unchanged.** It is a cover element, not a structural element of the box. |
+| Measurement | Quantities are measured to the **nominal** 750 fill, which over-measures the fill by ≈ 4 % and is therefore conservative. **No WM quantity, rate or cost was changed by BS1.** |
+
+**C17 IS NOT RESOLVED BY THIS.** The A.7.3 column still sums to 39.15 kPa against the
+stated 40.65 — at the crown, exactly as it did before. BS1 does not touch that
+discrepancy and must not be read as closing it.
+
+**Files carrying BS1** (all edited in their generators, then regenerated to the same
+filenames; the one `current/cad` drawing edited directly, per H.11):
+
+| File | Before → after |
+|---|---|
+| `master/MASTER_PROJECT_STATE.md` A.7.3 | Cover table unchanged; **new BS1 block** beneath it |
+| `Structural CAD/Scripts/g03_roof.py` → **R-302** | Cover build-up drawn as five flat lines → drawn as a **real 1:50 crown** (`CROWN_X = 3100`, `FALL = 1/50`); only the protection screed stays flat, because it sits on the flat roof; 1:50 fall arrows added on the filter layer; labels now read *"BURSTER SLAB M30 200 - LAID TO FALLS"*, *"GRANULAR FILTER 150 - DRAINS ON THE SLAB"*, *"COMPACTED FILL 750 CROWN / 688 EDGE"*, *"FINISHED GRADE, CROWNED 1:50"*; panel line *"LAID TO A 1:50 CROSSFALL - BS1, master A.7.3"* |
+| `Drainage/Scripts/d01_plans.py` → **D-102** | Note 3 gains four continuation lines stating the crossfall, why the filter needs it, the 62 mm, and **"STILL NO PIPE ANYWHERE IN THE COVER"** |
+| `Drainage/Scripts/d02_details.py` → **D-301** | Cover build-up section gains two lines: the fall is **across** this section, not along it, which is why the layers correctly read flat on a longitudinal section |
+| `Drainage/Scripts/dr_calc.py` → `DR_CALC_OUTPUT.txt` D.7 | The "not drained by pipework" paragraph now states the crossfall **before** the sentence it makes true |
+| `Drainage/Scripts/mep_proj.py` | Shared `COVER_BUILDUP` burster-slab function text → *"BREAKS UP A PENETRATING ITEM - LAID TO 1:50 CROSSFALL, BS1"* |
+| `current/cad/2_Side_Section_with_Stairs.dxf` (**A-202**) | *"200 RC BURSTER SLAB"* → *"200 RC BURSTER SLAB - LAID TO 1:50 CROSSFALL (BS1)"* |
+
+**A self-inflicted drafting error found by plotting and corrected.** The first R-302 crown
+drew the compacted-fill top **both flat and crowned**. The fill is the layer that takes up
+the fall, so it cannot be both; the spurious flat line was removed. Only the protection
+screed is flat.
+
+---
+
+### SP-B2 — lintels and wall ties for the sentry post masonry infill
+
+**Instruction.** *"Modify sentry post such that it has normal walls with beams and column
+rather than RC walls. Make changes in all places."*
+
+**Where this stood before.** The sentry post has been a **framed structure since Rev F** —
+C1 350 × 350 columns, B1/B2 250 × 450 beams, S1 150 two-way slab, PB plinth beam, F1
+footings — and **SP-B1** (7 Sep 2026, H.10) had already changed the walls from *200 RC
+ballistic infill* to **190 one-brick modular brickwork to IS 1077 in CM 1:6**. So the frame
+the user asked for already existed and the walls were already masonry **in the master** —
+but SP-B1 left two things undone, and until they were done the walls as recorded **could
+not be built**:
+
+- **WM-V5** — no lintel design existed anywhere in the project.
+- **WM-V11** — no wall-tie detail existed.
+
+and the **drawings still said RC**. SP-B2 closes the first two and carries the change onto
+the drawings. **No frame member changed. Nothing was added to the frame.**
+
+**Lintel L1 — one type over every opening in the sentry post**
+
+```
+190 wide x 150 deep, M30 / Fe500, cover 30, bearing 200 each end
+2-T10 bottom  -  2-T8 top (hangers)  -  T6 two-legged links @ 150
+```
+
+Openings served — **eleven in all**: ground **D1 900** and **W1 1200**; first storey
+**D1 900** and the **eight 1200-wide vision-panel openings**. The 1200 opening governs, so
+one type covers all.
+
+**How a lintel was designed without inventing an opening height.** **The opening HEIGHTS
+are not stated on any drawing** — this is the project's own open item **WM-V3**, and it
+stays open. WM1 assumed **1200 for measurement only**, tagged `[A]`/`[N]`. Rather than lean
+on that assumption, L1 is designed to the **bound that does not depend on the height at
+all**: masonry standing *just below* the 60° arching height (0.866 × 1.315 = 1.139 m),
+which is the heaviest load any opening height can produce. Above that height the masonry
+arches and relieves the lintel; below it there is simply less masonry. **No opening height
+has been invented, and WM-V3 is neither closed nor confirmed — L1 holds whatever it is
+ruled to be.**
+
+**A wording discrepancy found and flagged, not silently edited.** The K.1 **WM-V5** text
+reads *"no lintel design exists for the **nine** sentry-post openings"*. Eleven openings
+need a lintel; WM1's own quantity `SP-06` measures eleven, and the "nine" matches the nine
+*unstated-height* window and vision openings of **WM-V3** rather than the lintel count.
+**No quantity, rate or cost depends on the wording.** The K.1 block is left as written.
+
+| Step | Value | Authority |
+|---|---|---|
+| Effective span | min(clear + d, c/c bearings) = min(1315, 1400) = **1.315 m** | IS 456 Cl. 22.2 |
+| Masonry load | 0.190 × 20 × 1.139 = **4.33 kN/m** | arching bound, above |
+| M, V | 0.935 kNm, 2.85 kN → M<sub>u</sub> = **1.403 kNm** | |
+| Capacity | M<sub>u,lim</sub> = 0.133 f<sub>ck</sub>bd² = **10.03 kNm** → **14 % utilised** | IS 456 |
+| Steel | A<sub>st</sub> req 29.5 mm²; **Cl. 26.5.1.1 minimum 0.85bd/f<sub>y</sub> = 37.1 mm² GOVERNS**; 2-T10 = 157 mm² | IS 456 Cl. 26.5.1.1 |
+| Shear | τ<sub>v</sub> = 0.195 vs τ<sub>c</sub> ≈ 0.56 (M30, p<sub>t</sub> 0.72 %) → **no shear steel required** | IS 456 Table 19 |
+| Links | T6 @ 150 = the **nominal minimum** (max spacing 324) | IS 456 Cl. 26.5.1.6 |
+
+**The lintel carries masonry only.** The floor and the roof go to B1/B2 at each level —
+that is the whole point of the frame.
+
+**Wall ties.** 6 mm dia MS ties at **every fifth course (≈ 450 mm)** up both column faces,
+projecting **200 mm** into the bed joint, anchored to the column by a cast-in or
+drilled-and-grouted 10 mm dowel. The **top course is built tight to the beam soffit and the
+last joint packed**, because the analysis takes **R = 3.0** — the infill is **not** separated
+from the frame and must not be. Separating it is the R = 5.0 special-moment-frame case,
+which this project does not claim.
+
+**What SP-B2 does NOT change.** No frame member, no footing, no slab, no storey height, no
+envelope, no grid. **Infill on the first-floor beams stays at 13.000 kN/m** in A.7.7 and in
+`Sentry_Post_Framed_Seismic.std`. Brick gives ≈ 9.88 kN/m, which is **lighter**, so the
+modelled value stays **conservative** — a direction, not a verification.
+
+**Open items — what SP-B2 closes and what it does not.**
+
+| Item | Status after SP-B2 |
+|---|---|
+| **WM-V5** — no lintel design exists; `SP-06` provisional; *"structural design required"* | **CLOSED by L1 above.** The design that did not exist now exists, to IS 456 with clause citations — `[R]` reconstructed engineering, not a confirmed project value. |
+| **WM-V11** — no wall-tie detail exists | **CLOSED by the tie detail above** — `[R]`. |
+| **WM-V3** — opening heights not stated on any drawing | **STILL OPEN, deliberately.** L1 is designed to a bound that does not use a height, so it neither needs nor confirms WM-V3's assumed 1200. |
+| **WM-V6** — seismic re-check for the lighter masonry | **STILL OPEN.** The structural discipline must re-run it. Nothing here is a substitute. |
+| **WM-V7** — the ballistic function of the Rev F panels | **NOT CLOSED AND CANNOT BE CLOSED HERE.** Brick masonry does not give the ballistic protection the Rev F *"200 RC ballistic panels"* were named for. That is a client / military decision, not a drafting one. |
+
+**Files carrying SP-B2** (all four are `current/cad` Rev F drawings, edited directly and
+in place, at the same filenames — the supplied-DXF rule, and H.11's recorded position):
+
+| File | Before → after |
+|---|---|
+| `master/MASTER_PROJECT_STATE.md` A.4.8 | SP-B1 block unchanged; **new SP-B2 block** beneath it |
+| `3_Sentry_Post_Ground_Floor_Plan.dxf` (**A-103**) | *"200 RC BALLISTIC INFILL PANELS"* → *"190 BRICK MASONRY INFILL (SP-B1)"*; *"200 RC BALLISTIC PANELS ARE INFILL - SEE THE FRAMING PLAN, DRAWING 6"* → *"190 BRICK INFILL IN THE RC FRAME - SEE THE FRAMING PLAN, DRAWING 6"* |
+| `4_Sentry_Post_First_Floor_Plan.dxf` (**A-104**) | Same infill note → *"190 BRICK INFILL IN THE RC FRAME…"* |
+| `5_Front_Elevation.dxf` (**A-301**) | *"FRAMED SCHEME - RC FRAME SHOWN DASHED BEHIND THE 200 INFILL"* → *"FRAMED SCHEME - RC FRAME DASHED BEHIND THE 190 BRICK INFILL"* |
+| `6_Sentry_Post_Framing_Plan.dxf` (**A-105**) | Infill callout → *"190 BRICK MASONRY INFILL - NON STRUCTURAL (SP-B1)"*; the load-schedule line now reads *"13.000 kN/m RETAINED - see note below"*; the R = 3.0 / R = 5.0 note rewritten to say the infill is brick, is **not** separated, and that 9.88 < 13.000 keeps the model conservative, with **WM-V6 and WM-V7 named as still open**; **new SP-B2 panel** giving L1, its full design basis, the tie detail, and the WM-V7 warning |
+
+**A-105 is the sentry post's framing plan and now carries the whole masonry design** —
+lintel, ties, and the reason the infill must stay bonded to the frame — so a builder
+reading one sheet has all of it.
+
+---
+
+### Verification actually performed for BS1 + SP-B2
+
+1. **Package QA re-run over all 65 DXF** after every edit — **2 text-on-text and 10
+   annotation-crossing-line-work residuals, identical to the QA1 baseline in H.11.**
+   Neither change regressed the drafting QA.
+2. **A regression I introduced was found and fixed.** The longer A-103 label
+   (32 characters against 30) ran into the *"W1 1200"* wall tag, taking that sheet from 0
+   to 1 text-on-text. The note was **left-aligned onto the same x as the "B1 / B2 250 × 450"
+   note directly above it** — which is better drafting than the centred position it had —
+   and A-103 is back to **0 text-on-text, 0 hard-geometry**.
+3. **A-105's NOTES box was rebuilt**, not overflowed. The SP-B2 continuation lines pushed
+   the notes into the revision strip; the block was lifted 15 mm and the box redrawn to
+   (16, 20)–(150, 171), and the stranded *"NOTES"* heading moved to paper y 166.6.
+4. **Non-ASCII characters removed from A-105.** Two U+00B7 middle dots had been written into
+   an **R12 (AC1009)** file, which is ANSI-coded, not UTF-8; they are now ASCII hyphens.
+   **Every one of the eleven `current/cad` drawings is now pure ASCII.**
+5. **The frozen main staircase is unchanged** — 24R @ 170.8333, tread 280, three flights of
+   8, total rise 4100, flights 1200 wide, 200 well, 2533 headroom. Neither change goes near
+   it.
+6. **Three PRE-EXISTING defects were found by plotting the sheets I had touched**, none
+   of which any numeric check flagged, because each sat under the overlap threshold:
+   **D-301** annotated the 2000 cover build-up inside a 33 mm band (the 100 screed is
+   1.7 mm on paper) with the soil hatch running through all six labels — the build-up
+   now reads from a legible panel beside the section, and the GWT label, which started
+   1.7 mm outside the inner border, was brought in; **D-102** had two plan labels struck
+   through by a dimension and by the catchment table's top rule; **A-103** carried a
+   beam note 3851 mm long inside a 3600 mm room, so it pushed through the east wall and
+   the W1 tag — it is now two centred lines above the title. Recorded in
+   `DRAWING QAQC/QAQC_REPORT.md` §8.
+7. **Not done, and not claimed:** STAAD.Pro is not available in this environment. **No
+   analysis was run for either change.** The `.std` files were not opened or edited.
+
 ---
 
 # PART I — PROJECT FILE MANIFEST
@@ -2464,6 +2737,21 @@ and `current/cad/Scripts/` (the five-module pipeline that produced the current
 > `WORKS MANAGEMENT/Documentation/WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md`.
 > **C21 must be ruled on BEFORE the CBRN filter trains are ordered** — the WM1 programme
 > places the enquiry activity ahead of the order for that reason.
+
+> **Update, 10 September 2026 — revisions BS1 and SP-B2 (H.12). Two WM-V items are
+> closed; nothing else above is changed, downgraded or removed.**
+> **WM-V5 (no lintel design exists) is CLOSED** — lintel **L1** is designed in A.4.8 to
+> IS 456 Cl. 22.2 / 26.5.1.1 / 26.5.1.6 and Table 19, tagged `[R]`.
+> **WM-V11 (no wall tie detail exists) is CLOSED** — the tie detail is in A.4.8, tagged `[R]`.
+> **WM-V6 and WM-V7 REMAIN OPEN and are not touched**: WM-V6 is a seismic re-check for the
+> structural discipline, and WM-V7 — the ballistic function the Rev F panels were named
+> for — is a client / military decision that cannot be closed by drafting or by design.
+> **WM-V3 (opening heights not stated) REMAINS OPEN and is deliberately not used**: L1 is
+> designed to an arching bound that does not depend on the height, so it neither needs nor
+> confirms WM1's assumed 1200.
+> **C16–C21, U1, U2, U3, U8 and the remaining WM-V items are untouched.** **C17 in
+> particular is NOT resolved by BS1** — the A.7.3 column still sums to 39.15 against the
+> stated 40.65, at the crown exactly as before.
 
 ## K.2 ASSUMED — must be confirmed before construction
 

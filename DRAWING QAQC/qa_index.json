@@ -46,7 +46,7 @@
   "title": "RAINWATER CATCHMENT AND SURFACE-WATER PLAN",
   "scale": "1:60",
   "size": "A1",
-  "texts": 97,
+  "texts": 101,
   "overlap": 0,
   "over_geom": 0,
   "geom_in_panel": 0
@@ -111,7 +111,7 @@
   "title": "DRAINAGE SECTIONS  -  GRADE TO DISCHARGE",
   "scale": "1:60",
   "size": "A1",
-  "texts": 74,
+  "texts": 83,
   "overlap": 0,
   "over_geom": 0,
   "geom_in_panel": 0
@@ -488,7 +488,7 @@
   "title": "ROOF SECTIONS",
   "scale": "1:40",
   "size": "A1",
-  "texts": 89,
+  "texts": 93,
   "overlap": 0,
   "over_geom": 0,
   "geom_in_panel": 0
@@ -787,7 +787,7 @@
   "title": "SENTRY POST - GROUND FLOOR PLAN",
   "scale": "1:50",
   "size": "A1",
-  "texts": 46,
+  "texts": 47,
   "overlap": 0,
   "over_geom": 0,
   "geom_in_panel": 0
@@ -839,7 +839,7 @@
   "title": "SENTRY POST - FRAMING PLAN",
   "scale": "1:50",
   "size": "A1",
-  "texts": 67,
+  "texts": 99,
   "overlap": 0,
   "over_geom": 0,
   "geom_in_panel": 0

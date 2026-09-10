@@ -1,4 +1,8 @@
-# DRAWING QA/QC REPORT — revision QA1
+# DRAWING QA/QC REPORT — revisions QA1 and QA1B
+
+> **QA1B addendum, 10 September 2026, is at §8** — the drawing outcome of design changes
+> **BS1** and **SP-B2** (master Part H.12). Sections 1–7 record QA1 as issued on 9 September
+> and are unchanged.
 
 **Underground CBRN-hardened, blast-resistant protective structure + sentry post, Pune**
 9 September 2026 · 65 DXF inspected · 65 corrected · scope: drafting, annotation,
@@ -256,3 +260,90 @@ unchanged in content.
 | Frozen main staircase unchanged | ✔ verified |
 | Plot generated and visually inspected for every drawing | ✔ |
 | Remaining issues documented | ✔ §5, §6 |
+
+---
+
+## 8  ADDENDUM — revision QA1B, 10 September 2026
+
+Two instructed design changes, **BS1** (the burster slab is laid to a 1:50 crossfall) and
+**SP-B2** (lintels and wall ties for the sentry post masonry infill), were carried through
+the drawing package on 10 September 2026 — see master **Part H.12**, **A.7.3** and
+**A.4.8**. The drawings they touched were re-inspected, plotted and re-checked. This
+addendum records the drafting outcome only; the engineering is in the master.
+
+### 8.1  Result — the QA1 baseline is held
+
+| Measure | QA1, 9 Sep | QA1B, 10 Sep |
+|---|---:|---:|
+| DXF in the package | 65 | **65** |
+| Text-on-text overlaps, all 65 | 2 | **2** — the same two, both on A-204 |
+| Annotation crossing hard line work — `current/cad` | 10 | **10** |
+| Drawing geometry inside a notes panel — generated sheets | 35 | **35** |
+| Drawings passing every automated check | 58 | **59** |
+| Generated packages rebuilding clean | 54/54 | **54/54, 0 errors** |
+| Frozen main staircase | unchanged | **unchanged — re-verified** |
+
+### 8.2  A regression this work introduced, found and fixed
+
+**A-103** went from 0 to 1 text-on-text the moment the ground-storey callout was
+relabelled: *"200 RC BALLISTIC INFILL PANELS"* (30 characters) became *"190 BRICK MASONRY
+INFILL (SP-B1)"* (32), and the longer string ran into the vertical **W1 1200** wall tag.
+The note was **left-aligned onto the same x as the note above it** rather than left
+centred where it no longer fitted. A-103 is back to **0 text-on-text, 0 hard-geometry**.
+
+### 8.3  Defects found by plotting that no numeric check flagged
+
+All three were **pre-existing** and all three were invisible to the overlap metric,
+because each fell under its 12 %-of-the-smaller-box threshold. They were found the way
+the brief requires — by looking at the plotted sheet.
+
+1. **D-301 — the cover build-up was annotated inside a 33 mm band.** At 1:60 the 2000 mm
+   cover is 33 mm on paper and the 100 mm protection screed is **1.7 mm**; six layer
+   labels were written inside it and the soil hatch ran through all six. The layer lines
+   stay in the section; the build-up now reads from a **panel in the clear space to the
+   right, at 2.0 mm**, which also carries the BS1 statement. The
+   *"DESIGN GWT (−)2.000 [ASSUMED]"* label, which started **1.7 mm outside the inner
+   border** and crossed the 2000 dimension, moved under the GWT dash into the unhatched
+   pressure-slab band.
+2. **D-102 — two plan labels struck through by line work.** *"C3 ENGINEERED COVER OVER
+   THE BOX…"* ran through the extension lines of the 4800 headhouse dimension, and
+   *"GRADE CROWNED, FALLS 1:50 AWAY…"* straddled the top border of the V2 catchment
+   table. Both dropped clear.
+3. **A-103 — the beam note was wider than the room.** *"B1 / B2 250 × 450 FIRST FLOOR
+   BEAMS OVER"* was 3851 mm long in a 3600 mm room, so it pushed through the east wall
+   and through the **W1 1200** tag, and it sat wedged between the two halves of the
+   *"SENTRY POST / GROUND FLOOR"* title. It is now **two centred lines above the title**,
+   inside the room.
+
+### 8.4  Also corrected
+
+**Two U+00B7 middle dots had been written into A-105**, which is **R12 (AC1009)** and
+therefore ANSI-coded, not UTF-8. They are now ASCII hyphens, and **all eleven
+`current/cad` drawings are pure ASCII again.**
+
+### 8.5  What this addendum did NOT change
+
+- **No engineering value.** BS1 changes no thickness and no load: COMB 103 stays
+  448.15 kPa and all three `.std` files were not opened. SP-B2 adds no frame member.
+- **No open item was resolved by drafting.** **C17** is still open (BS1 does not touch
+  it), **WM-V6** and **WM-V7** are still open, and **WM-V3** is deliberately left open —
+  lintel L1 is designed to a bound that does not use an opening height.
+  **WM-V5** and **WM-V11** are closed **by the design in master A.4.8**, not by anything
+  on a drawing.
+- **The frozen main staircase.** Re-verified: R-601 still carries all eight frozen
+  values and the staircase drawings' text is identical, entity for entity, to the
+  pre-change files.
+- **QA-1 and QA-2 remain open** and still need your ruling — see §6.1 and §5.2.
+
+### 8.6  Sheets touched by QA1B
+
+| Sheet | Change |
+|---|---|
+| **R-302** Roof Sections | cover build-up drawn as a real 1:50 crown; fall arrows; labels and panel line updated |
+| **D-102** Rainwater Catchment | BS1 continuation on note 3; two struck-through labels moved clear |
+| **D-301** Drainage Sections | cover build-up moved out of the section into a legible panel; BS1 statement; GWT label brought inside the border |
+| **A-103** Sentry GF Plan | infill relabelled to brick; beam note split and re-placed; regression fixed |
+| **A-104** Sentry FF Plan | infill note relabelled to brick |
+| **A-105** Sentry Framing Plan | infill callout, load-schedule line and R-value note rewritten; **new SP-B2 lintel and tie panel**; NOTES box rebuilt; non-ASCII removed |
+| **A-301** Front Elevation | frame/infill note relabelled to brick |
+| **A-202** Side Section X-X | burster slab label now states the 1:50 crossfall |

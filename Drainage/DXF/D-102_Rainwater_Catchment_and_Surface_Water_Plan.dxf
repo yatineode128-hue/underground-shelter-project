@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461294.0663541667
+2461294.102314815
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461294.0663541667
+2461294.102314815
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-36C
+370
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{17A493C1-A769-42F4-B3C7-F7C1C62E6343}
+{1128B81B-4A64-40DA-A07E-8EB3A7A8F42D}
   9
 $VERSIONGUID
   2
-{36AC292A-00DE-494D-8FB4-B6DFBCC03718}
+{0834FB72-6E12-4A6E-BA78-6368EC4D58AD}
   9
 $EXTNAMES
 290
@@ -1323,9 +1323,9 @@ ISM
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -1339,9 +1339,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -4989,7 +4989,7 @@ AcAecLayerStandard
   0
 APPID
   5
-369
+36D
 330
 3
 100
@@ -5003,7 +5003,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-36A
+36E
 330
 3
 100
@@ -19815,7 +19815,7 @@ AcDbText
  10
 223.33333333333334
  20
-306.6666666666667
+300.0
  30
 0.0
  40
@@ -19829,7 +19829,7 @@ OpenSans
  11
 223.33333333333334
  21
-306.6666666666667
+300.0
  31
 0.0
 100
@@ -20243,7 +20243,7 @@ AcDbText
  10
 223.33333333333334
  20
-286.6666666666667
+290.5
  30
 0.0
  40
@@ -20257,7 +20257,7 @@ OpenSans
  11
 223.33333333333334
  21
-286.6666666666667
+290.5
  31
 0.0
 100
@@ -22801,7 +22801,7 @@ AcDbText
  40
 2.4
   1
-4  THE SITE-WIDE CATCHMENT CANNOT BE CLOSED.  The table above is complete for the structures and for
+   BS1 (master A.7.3, 10.09.26): THE BURSTER SLAB IS LAID TO A 1:50 CROSSFALL, crowned on the box
   7
 OpenSans
  11
@@ -22833,7 +22833,7 @@ AcDbText
  40
 2.4
   1
-   nothing else.  Berm, approach and hardstanding areas do not exist as dimensioned information.
+   centreline and falling each way, parallel to the crowned grade.  The filter layer sits ON that slab,
   7
 OpenSans
  11
@@ -22865,7 +22865,7 @@ AcDbText
  40
 2.4
   1
-5  DR-C1 - the S-06 design-flow table still carries 0.10 L/s for 'stairwell / approach surface water'.
+   so this is the gradient that lets it disperse sideways at all; on a flat slab the water would pond
   7
 OpenSans
  11
@@ -22897,7 +22897,7 @@ AcDbText
  40
 2.4
   1
-   That is the REV E OPEN-CUT figure (7.2 m2 of open pit at 50 mm/h, reproduced exactly in calculation
+   and find the construction joints.  62 mm crown to box edge.  STILL NO PIPE ANYWHERE IN THE COVER.
   7
 OpenSans
  11
@@ -22929,7 +22929,7 @@ AcDbText
  40
 2.4
   1
-   D.8).  At Rev F the approach is covered.  Conservative, superseded, and NOT corrected here.
+4  THE SITE-WIDE CATCHMENT CANNOT BE CLOSED.  The table above is complete for the structures and for
   7
 OpenSans
  11
@@ -22941,9 +22941,137 @@ OpenSans
 100
 AcDbText
   0
-LWPOLYLINE
+TEXT
   5
 33E
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+158.7749999999999
+ 30
+0.0
+ 40
+2.4
+  1
+   nothing else.  Berm, approach and hardstanding areas do not exist as dimensioned information.
+  7
+OpenSans
+ 11
+16.0
+ 21
+158.7749999999999
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+33F
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+154.47499999999988
+ 30
+0.0
+ 40
+2.4
+  1
+5  DR-C1 - the S-06 design-flow table still carries 0.10 L/s for 'stairwell / approach surface water'.
+  7
+OpenSans
+ 11
+16.0
+ 21
+154.47499999999988
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+340
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+150.17499999999987
+ 30
+0.0
+ 40
+2.4
+  1
+   That is the REV E OPEN-CUT figure (7.2 m2 of open pit at 50 mm/h, reproduced exactly in calculation
+  7
+OpenSans
+ 11
+16.0
+ 21
+150.17499999999987
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+341
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+145.87499999999986
+ 30
+0.0
+ 40
+2.4
+  1
+   D.8).  At Rev F the approach is covered.  Conservative, superseded, and NOT corrected here.
+  7
+OpenSans
+ 11
+16.0
+ 21
+145.87499999999986
+ 31
+0.0
+100
+AcDbText
+  0
+LWPOLYLINE
+  5
+342
 330
 17
 100
@@ -22959,11 +23087,11 @@ AcDbPolyline
  10
 14.0
  20
-156.7749999999999
+139.57499999999985
  10
 410.0
  20
-156.7749999999999
+139.57499999999985
  10
 410.0
  20
@@ -22975,7 +23103,7 @@ AcDbPolyline
   0
 TEXT
   5
-33F
+343
 330
 17
 100
@@ -23007,7 +23135,7 @@ AcDbText
   0
 TEXT
   5
-340
+344
 330
 17
 100
@@ -23039,7 +23167,7 @@ AcDbText
   0
 TEXT
   5
-341
+345
 330
 17
 100
@@ -23071,7 +23199,7 @@ AcDbText
   0
 TEXT
   5
-342
+346
 330
 17
 100
@@ -23103,7 +23231,7 @@ AcDbText
   0
 TEXT
   5
-343
+347
 330
 17
 100
@@ -23135,7 +23263,7 @@ AcDbText
   0
 TEXT
   5
-344
+348
 330
 17
 100
@@ -23167,7 +23295,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-345
+349
 330
 17
 100
@@ -23199,7 +23327,7 @@ AcDbPolyline
   0
 TEXT
   5
-346
+34A
 330
 17
 100
@@ -23231,7 +23359,7 @@ AcDbText
   0
 TEXT
   5
-347
+34B
 330
 17
 100
@@ -23263,7 +23391,7 @@ AcDbText
   0
 LINE
   5
-348
+34C
 330
 17
 100
@@ -23287,7 +23415,7 @@ AcDbLine
   0
 TEXT
   5
-349
+34D
 330
 17
 100
@@ -23321,7 +23449,7 @@ AcDbText
   0
 TEXT
   5
-34A
+34E
 330
 17
 100
@@ -23355,7 +23483,7 @@ AcDbText
   0
 TEXT
   5
-34B
+34F
 330
 17
 100
@@ -23387,7 +23515,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-34C
+350
 330
 17
 100
@@ -23419,102 +23547,6 @@ AcDbPolyline
   0
 LINE
   5
-34D
-330
-17
-100
-AcDbEntity
-  8
-M-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-30.0
- 30
-0.0
- 11
-831.0
- 21
-30.0
- 31
-0.0
-  0
-LINE
-  5
-34E
-330
-17
-100
-AcDbEntity
-  8
-M-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-42.0
- 30
-0.0
- 11
-831.0
- 21
-42.0
- 31
-0.0
-  0
-LINE
-  5
-34F
-330
-17
-100
-AcDbEntity
-  8
-M-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-54.0
- 30
-0.0
- 11
-831.0
- 21
-54.0
- 31
-0.0
-  0
-LINE
-  5
-350
-330
-17
-100
-AcDbEntity
-  8
-M-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-66.0
- 30
-0.0
- 11
-831.0
- 21
-66.0
- 31
-0.0
-  0
-LINE
-  5
 351
 330
 17
@@ -23527,6 +23559,102 @@ AcDbLine
  10
 651.0
  20
+30.0
+ 30
+0.0
+ 11
+831.0
+ 21
+30.0
+ 31
+0.0
+  0
+LINE
+  5
+352
+330
+17
+100
+AcDbEntity
+  8
+M-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
+42.0
+ 30
+0.0
+ 11
+831.0
+ 21
+42.0
+ 31
+0.0
+  0
+LINE
+  5
+353
+330
+17
+100
+AcDbEntity
+  8
+M-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
+54.0
+ 30
+0.0
+ 11
+831.0
+ 21
+54.0
+ 31
+0.0
+  0
+LINE
+  5
+354
+330
+17
+100
+AcDbEntity
+  8
+M-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
+66.0
+ 30
+0.0
+ 11
+831.0
+ 21
+66.0
+ 31
+0.0
+  0
+LINE
+  5
+355
+330
+17
+100
+AcDbEntity
+  8
+M-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
 88.0
  30
 0.0
@@ -23539,7 +23667,7 @@ AcDbLine
   0
 LINE
   5
-352
+356
 330
 17
 100
@@ -23563,7 +23691,7 @@ AcDbLine
   0
 LINE
   5
-353
+357
 330
 17
 100
@@ -23587,7 +23715,7 @@ AcDbLine
   0
 TEXT
   5
-354
+358
 330
 17
 100
@@ -23619,7 +23747,7 @@ AcDbText
   0
 TEXT
   5
-355
+359
 330
 17
 100
@@ -23651,7 +23779,7 @@ AcDbText
   0
 TEXT
   5
-356
+35A
 330
 17
 100
@@ -23683,7 +23811,7 @@ AcDbText
   0
 TEXT
   5
-357
+35B
 330
 17
 100
@@ -23715,7 +23843,7 @@ AcDbText
   0
 TEXT
   5
-358
+35C
 330
 17
 100
@@ -23747,7 +23875,7 @@ AcDbText
   0
 TEXT
   5
-359
+35D
 330
 17
 100
@@ -23779,7 +23907,7 @@ AcDbText
   0
 LINE
   5
-35A
+35E
 330
 17
 100
@@ -23803,7 +23931,7 @@ AcDbLine
   0
 TEXT
   5
-35B
+35F
 330
 17
 100
@@ -23835,7 +23963,7 @@ AcDbText
   0
 TEXT
   5
-35C
+360
 330
 17
 100
@@ -23867,7 +23995,7 @@ AcDbText
   0
 TEXT
   5
-35D
+361
 330
 17
 100
@@ -23899,7 +24027,7 @@ AcDbText
   0
 TEXT
   5
-35E
+362
 330
 17
 100
@@ -23931,7 +24059,7 @@ AcDbText
   0
 TEXT
   5
-35F
+363
 330
 17
 100
@@ -23963,7 +24091,7 @@ AcDbText
   0
 TEXT
   5
-360
+364
 330
 17
 100
@@ -23995,7 +24123,7 @@ AcDbText
   0
 TEXT
   5
-361
+365
 330
 17
 100
@@ -24027,7 +24155,7 @@ AcDbText
   0
 TEXT
   5
-362
+366
 330
 17
 100
@@ -24059,7 +24187,7 @@ AcDbText
   0
 TEXT
   5
-363
+367
 330
 17
 100
@@ -24091,7 +24219,7 @@ AcDbText
   0
 TEXT
   5
-364
+368
 330
 17
 100
@@ -24123,7 +24251,7 @@ AcDbText
   0
 TEXT
   5
-365
+369
 330
 17
 100
@@ -24155,7 +24283,7 @@ AcDbText
   0
 TEXT
   5
-366
+36A
 330
 17
 100
@@ -24187,7 +24315,7 @@ AcDbText
   0
 TEXT
   5
-367
+36B
 330
 17
 100
@@ -24219,7 +24347,7 @@ AcDbText
   0
 TEXT
   5
-368
+36C
 330
 17
 100
@@ -25339,7 +25467,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-36B
+36F
   0
 DICTIONARYVAR
   5
@@ -25351,7 +25479,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-10T01:35:33.166936+00:00
+1.4.4 @ 2026-09-10T02:27:20.568340+00:00
   0
 VISUALSTYLE
   5
@@ -26055,7 +26183,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-36B
+36F
 330
 2D
 100
@@ -26063,7 +26191,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-10T01:35:33.192914+00:00
+1.4.4 @ 2026-09-10T02:27:20.593979+00:00
   0
 ENDSEC
   0

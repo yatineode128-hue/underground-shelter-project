@@ -238,12 +238,35 @@ def r302():
     sh.pline([Pm(600, 0), Pm(1100, 0), Pm(600, -500)], "S-CONCRETE")
     sh.pline([Pm(5600, 0), Pm(5100, 0), Pm(5600, -500)], "S-CONCRETE")
     # engineered cover
-    ys = [(900, 1000, "PROTECTION SCREED 100"), (1000, 1750, "COMPACTED FILL 750"),
-          (1750, 2250, "CRUSHED BASALT 500"), (2250, 2450, "BURSTER SLAB M30 200"),
-          (2450, 2600, "GRANULAR FILTER 150"), (2600, 2900, "TOPSOIL / TURF 300")]
-    for a, b, lab in ys:
-        sh.line(Pm(-800, b), Pm(7000, b), "S-EXISTING")
-        sh.text(lab, Pm(7100, (a + b) / 2 - 40), TXT["small"], "S-EXISTING")
+    # BS1: the burster slab and everything above it are laid to a 1:50 crossfall,
+    # crowned on the box centreline (Y = 3100), parallel to the finished grade
+    # (A.4.3).  The fall is taken up in the COMPACTED FILL, which is nominal 750
+    # at the crown and thins to 688 at the box edge, so the cover load does not
+    # increase anywhere.  Drawn as a real crown, not a note.
+    CROWN_X, FALL = 3100.0, 1.0 / 50.0
+    def crown(x):
+        """Rise of the crowned layers above their box-edge level, at box Y = x."""
+        return (CROWN_X - abs(x - CROWN_X)) * FALL
+
+    # Only the protection screed is flat - it sits on the flat roof.  The top of
+    # the compacted fill is CROWNED, because the fill is the layer that takes up
+    # the fall; that same line is the underside of the crushed basalt.
+    sh.line(Pm(-800, 1000), Pm(7000, 1000), "S-EXISTING")
+    sh.text("PROTECTION SCREED 100", Pm(7100, 910), TXT["small"], "S-EXISTING")
+    sh.text("COMPACTED FILL 750 CROWN / 688 EDGE", Pm(7100, 1330), TXT["small"], "S-EXISTING")
+
+    sloped = [(1750, "CRUSHED BASALT 500"), (2250, "BURSTER SLAB M30 200 - LAID TO FALLS"),
+              (2450, "GRANULAR FILTER 150 - DRAINS ON THE SLAB"),
+              (2600, "TOPSOIL / TURF 300"), (2900, "FINISHED GRADE, CROWNED 1:50")]
+    for lev, lab in sloped:
+        pts = [Pm(x, lev + crown(x)) for x in (-800, 0, CROWN_X, 6200, 7000)]
+        sh.pline(pts, "S-WATERPROOF" if "BURSTER" in lab else "S-EXISTING")
+        sh.text(lab, Pm(7100, lev + crown(7000) - 40), TXT["small"], "S-EXISTING")
+    # fall arrows on the filter layer, the layer that actually carries the seepage
+    for x, d in ((1400, -1), (4800, +1)):
+        sh.line(Pm(x, 2450 + crown(x) + 70), Pm(x + d * 700, 2450 + crown(x + d * 700) + 70),
+                "S-BLAST")
+        sh.text("1:50", Pm(x + d * 250, 2450 + crown(x) + 150), TXT["small"], "S-BLAST")
     sh.line(Pm(-800, 900), Pm(7000, 900), "S-WATERPROOF")
     # blast arrows
     for x in range(400, 6200, 800):
@@ -281,6 +304,7 @@ def r302():
         "Topsoil / turf             300     18     5.40  concealment, erosion",
         "Granular filter            150     19     2.85  stops fines clogging",
         "RC burster slab M30        200     25     5.00  BREAKS UP A PENETRATOR",
+        "                           LAID TO A 1:50 CROSSFALL - BS1, master A.7.3",
         "Crushed basalt 25-75       500     17     8.50  scatters burster energy",
         "Compacted fill 95 % MDD    750     20    15.00  RADIATION MASS",
         "Protection screed          100     24     2.40  protects the membrane",

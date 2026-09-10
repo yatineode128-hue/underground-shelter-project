@@ -227,7 +227,12 @@ D.7   RAINWATER  -  catchments and flows at the recorded intensity
   *** THE ENGINEERED COVER IS NOT DRAINED BY PIPEWORK. ***
   A.4.3 records finished grade as crowned, falling 1:50 away from the
   structure; A.7.3 gives 300 topsoil/turf over a 150 GRANULAR FILTER layer
-  over the burster slab.  Rain on the cover sheds at the surface and what
+  over the burster slab, WHICH IS LAID TO A 1:50 CROSSFALL (BS1, A.7.3):
+  crowned on the box centreline, falling 62 mm each way to the box edge,
+  parallel to the crowned grade.  That fall is what makes the sentence below
+  true - the filter layer bears directly on the slab, so a FLAT slab would
+  pond the seepage instead of dispersing it.
+  Rain on the cover sheds at the surface and what
   infiltrates is intercepted by the granular filter and dispersed at the
   berm toe.  There is no roof outlet, no downpipe and no rainwater pipe on
   the buried roof, and none is added by this package: a pipe penetrating

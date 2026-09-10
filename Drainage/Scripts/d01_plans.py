@@ -158,15 +158,19 @@ def d102():
             M(11000, 8200), NOTE, "P-DRAIN-STORM", "BC")
     sh.rect(*M(P.BOX["x0"], P.BOX["y0"]), *M(P.BOX["x1"], P.BOX["y1"]),
             "P-DRAIN-SEEP")
+    # QA1B: this label used to sit at -1400, where it ran straight through the
+    # extension lines of the 4800 headhouse dimension.  Dropped clear of them.
     sh.text("C3  ENGINEERED COVER OVER THE BOX  22.0 x 6.2 = 136.40 m2   1.894 L/s",
-            M(11000, -1400), NOTE, "P-DRAIN-SEEP", "BC")
+            M(11000, -1800), NOTE, "P-DRAIN-SEEP", "BC")
 
     # falls
     for x in range(2000, 21000, 3000):
         sh.flow(M(x, -300), -90, 2.6, "P-FLOW")
         sh.flow(M(x, 6500), 90, 2.6, "P-FLOW")
+    # QA1B: this label used to sit at -2600, straddling the top border of the
+    # V2 catchment table below it.  Lifted clear of the table.
     sh.text("GRADE CROWNED, FALLS 1:50 AWAY FROM THE STRUCTURE  [C] A.4.3",
-            M(11000, -2600), NOTE, "M-TEXT", "BC")
+            M(11000, -2370), NOTE, "M-TEXT", "BC")
 
     # C16 flag at the junction
     px0, px1 = P.ASW["platform"]
@@ -213,6 +217,10 @@ def d102():
         "   burster slab.  Rain sheds at the surface and what infiltrates is intercepted by the filter layer and",
         "   dispersed at the berm toe.  A pipe through the cover would breach the radiation mass and the roof",
         "   membrane - see D-001 note 1.",
+        "   BS1 (master A.7.3, 10.09.26): THE BURSTER SLAB IS LAID TO A 1:50 CROSSFALL, crowned on the box",
+        "   centreline and falling each way, parallel to the crowned grade.  The filter layer sits ON that slab,",
+        "   so this is the gradient that lets it disperse sideways at all; on a flat slab the water would pond",
+        "   and find the construction joints.  62 mm crown to box edge.  STILL NO PIPE ANYWHERE IN THE COVER.",
         "4  THE SITE-WIDE CATCHMENT CANNOT BE CLOSED.  The table above is complete for the structures and for",
         "   nothing else.  Berm, approach and hardstanding areas do not exist as dimensioned information.",
         "5  DR-C1 - the S-06 design-flow table still carries 0.10 L/s for 'stairwell / approach surface water'.",

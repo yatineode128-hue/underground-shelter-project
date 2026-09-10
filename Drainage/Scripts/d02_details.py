@@ -154,14 +154,17 @@ def d301():
     sh.rect(*M(B["x0"], -2000), *M(B["x1"], 0), "M-EXISTING")
     sh.soil_hatch([M(B["x0"], -2000), M(B["x1"], -2000), M(B["x1"], 0),
                    M(B["x0"], 0)])
+    # QA1B: the six layer labels used to be written INSIDE the cover band.  At
+    # 1:60 that band is 33 mm deep for 2000 mm, and the 100 protection screed
+    # is 1.7 mm - no legible label fits, and the soil hatch ran straight
+    # through all six.  The layer lines stay; the build-up is read from a panel
+    # in the clear space to the right, where it is legible at 2.0 mm.
     yy = 0
     for lab, t, g, kpa, fn in P.COVER_BUILDUP:
         sh.dline(M(B["x0"], yy - t), M(B["x1"], yy - t), "M-EXISTING")
-        sh.text(f"{t}  {lab}", M(B["x0"] + 500, yy - t / 2 - 60), 2.0,
-                "M-EXISTING")
         yy -= t
-    sh.text("ENGINEERED COVER 2000 = 40.65 kPa  [C] master A.7.3   -   NOT DRAINED "
-            "BY PIPEWORK", M(B["x0"] + 400, 400), NOTE, "M-EXISTING")
+    sh.text("ENGINEERED COVER 2000  -  SEE THE BUILD-UP PANEL, RIGHT",
+            M(B["x0"] + 400, 400), NOTE, "M-EXISTING")
     # structure
     sh.rect(*M(B["x0"], -2900), *M(B["x1"], -2000), "M-STRUCT")
     sh.rect(*M(B["x0"], -6700), *M(B["x1"], -6100), "M-STRUCT")
@@ -173,8 +176,11 @@ def d301():
     sh.text("600 MAT", M(B["x0"] + 400, -6400), NOTE, "M-STRUCT")
     # GWT
     sh.dline(M(B["x0"] - 2000, -2000), M(B["x1"] + 800, -2000), "M-WATERPROOF")
+    # QA1B: this label used to start 1.7 mm OUTSIDE the inner border and ran
+    # through the 2000 cover dimension.  It now sits just under the GWT dash,
+    # inside the unhatched pressure-slab band, where it is clear of everything.
     sh.text("DESIGN GWT (-)2.000  [ASSUMED - master A2]",
-            M(B["x0"] - 1900, -1800), NOTE, "M-WATERPROOF")
+            M(B["x0"] + 300, -2260), NOTE, "M-WATERPROOF")
     # tanking
     sh.line(M(B["x0"], -6800), M(B["x1"], -6800), "M-WATERPROOF")
     sh.line(M(B["x0"], -6800), M(B["x0"], -2000), "M-WATERPROOF")
@@ -192,6 +198,21 @@ def d301():
     sh.dim_v(M(B["x0"] - 700, -2900), M(B["x0"] - 700, -2000), M(B["x0"] - 1500, 0)[0], sc=sc)
     sh.dim_v(M(B["x0"] - 700, -6700), M(B["x0"] - 700, -6100), M(B["x0"] - 1500, 0)[0], sc=sc)
     sh.dim_h(M(B["x0"], -7400), M(B["x1"], -7400), M(0, -8100)[1], sc=sc)
+
+    # the build-up itself, legible, in the clear space right of the level marks
+    sh.panel(510, 545, 310,
+             "ENGINEERED COVER BUILD-UP  -  2000 = 40.65 kPa  [C] master A.7.3",
+             [f"{lab:<30}{t:>5}   {fn}"
+              for lab, t, g, kpa, fn in P.COVER_BUILDUP] +
+             ["",
+              "NOT DRAINED BY PIPEWORK.  No pipe penetrates the cover - D-001 note 1.",
+              "BS1 (master A.7.3):  THE BURSTER SLAB AND EVERY LAYER OVER IT IS LAID",
+              "TO A 1:50 CROSSFALL, crowned on the box centreline, 62 mm each way.",
+              "That fall is ACROSS this section, not along it, which is why the layers",
+              "correctly read FLAT here.  The crowned build-up is drawn on R-302.",
+              "The fall is taken up in the compacted fill - 750 crown, 688 box edge -",
+              "so every other layer keeps its nominal thickness and the cover load is",
+              "unchanged at the crown and lighter toward the edges."])
 
     # levels
     for lev, lab in ((0.000, "FINISHED GRADE, CROWNED, FALLS 1:50 AWAY"),

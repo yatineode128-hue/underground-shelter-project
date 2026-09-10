@@ -6,6 +6,7 @@ Compiled 3 Sep 2026 from the master (Parts A, B, F, L) plus the M1 reconciliatio
 Updated 5 Sep 2026 for the DR1 / HV1 / FN1 packages (Part H.9).
 Updated 7 Sep 2026 for the Works Management package WM1 (Part H.10).
 Updated 9 Sep 2026 for the drawing QA/QC pass QA1 (Part H.11).
+Updated 10 Sep 2026 for revisions **BS1** and **SP-B2** (Part H.12).
 
 ---
 
@@ -20,6 +21,8 @@ Updated 9 Sep 2026 for the drawing QA/QC pass QA1 (Part H.11).
 | Works Management | **WM1** (7 Sep 2026, master H.10) — whole project, mobilisation to handover |
 | **Drawings** | **QA1** (9 Sep 2026, master H.11) — drafting QA/QC over **all 65 DXF**. Annotation, sheet frames, title blocks. **No engineering design changed** |
 | **SP-B1** | **SENTRY POST WALLS = BRICK MASONRY** — instructed design change, 7 Sep 2026. The only design change in WM1 |
+| **SP-B2** | **SENTRY POST LINTELS + WALL TIES** — completes SP-B1, 10 Sep 2026 (master H.12 / A.4.8). Closes WM-V5 and WM-V11 |
+| **BS1** | **RC BURSTER SLAB LAID TO A 1:50 CROSSFALL** — instructed design change, 10 Sep 2026 (master H.12 / A.7.3). **No load, thickness or `.std` change** |
 | **M1** | **APPROVED and IMPLEMENTED 3 Sep 2026** (master H.4) |
 | Deliverable | P2 (AutoCAD + STAAD + manual calculations) |
 
@@ -35,7 +38,7 @@ ESC 2 → X 19 900; headhouse and covered stairwell **+200**. Nothing west of X 
 | External / internal | **22 000 × 6 200** / **20 800 × 5 000** |
 | Perimeter wall · roof slab · mat · PCC | 600 · **900** · 600 · 100 (M15) |
 | Internal clear height | 3 200 |
-| Engineered cover | 2 000 layered = **40.65 kPa** |
+| Engineered cover | 2 000 layered = **40.65 kPa** · **burster slab and everything over it laid to a 1:50 crossfall, crowned on Y 3100, 62 mm each way — BS1** |
 
 **Bays (post-M1)** — clear widths unchanged by M1:
 
@@ -132,6 +135,7 @@ surface) · store under L1 (Y 4960–5600). **Headroom 2533.** Inside the protec
 two-way · PB 250 × 400 at +0.450 · F1 **1500 × 1500 × 600** on in-situ basalt at −2.000.
 Ground storey 200 RC ballistic infill (**SUPERSEDED by SP-B1 — see below**);
 first storey armoured vision panels 1200 wide.
+**This has been a framed structure — columns, beams and infill walls — since Rev F.**
 Spiral stair 1000 R / 250 pole. **≥ 10 m clear of the shelter excavation. Not blast designed —
 a recorded decision.**
 
@@ -142,11 +146,29 @@ structural zone**; 10 mm taken up at the internal face in the plaster, so the co
 project's own confirmed figure, A.7.7). **12.20 m³ / 64.19 m² · ≈ 6 400 bricks.**
 Openings: ground D1 900 + W1 1200; first storey 8 vision panels 1200 + D1 900.
 **Nothing else in the sentry post changed. A.7.8, B.8 and F.4 are untouched.**
-Four consequences, all OPEN: lintels now needed and **no lintel design exists** (WM-V5);
-wall ties now needed and **no detail exists** (WM-V11); seismic weight falls to ≈ 9.9 kN/m
+Four consequences: lintels now needed (WM-V5) and wall ties now needed (WM-V11) —
+**both now DESIGNED, see SP-B2 below**; seismic weight falls to ≈ 9.9 kN/m
 from 13.000, so V_b = 73.18 kN is **conservative — a direction, not a verification**
-(WM-V6); **brick does not give the ballistic protection the Rev F panels were named for**
-(WM-V7).
+(WM-V6, **STILL OPEN**); **brick does not give the ballistic protection the Rev F panels
+were named for** (WM-V7, **STILL OPEN — a client decision, not a drafting one**).
+
+**SP-B2 — lintels and wall ties** (10 Sep 2026, master H.12 / A.4.8). Without these the
+walls as recorded **could not be built**.
+**Lintel L1, one type over all eleven openings:** 190 × 150, M30 / Fe500, cover 30,
+bearing 200 each end, **2-T10 bottom · 2-T8 top · T6 two-legged links @ 150**.
+L_eff = min(1315, 1400) = **1.315 m** (IS 456 Cl. 22.2). **Opening heights are not stated
+on any drawing (WM-V3, still open)**, so L1 is designed to the bound that does not use one —
+masonry just below the 60° arching height 1.139 m, the heaviest case any height can give:
+w = 4.33 kN/m, M_u = **1.403** vs M_u,lim **10.03 kNm** (14 % utilised); A_st req 29.5,
+**Cl. 26.5.1.1 minimum 37.1 mm² GOVERNS**, 2-T10 = 157 provided; τ_v 0.195 < τ_c 0.56 →
+no shear steel, links are the Cl. 26.5.1.6 nominal minimum. **The lintel carries masonry
+only** — floor and roof go to B1/B2.
+**Wall ties:** 6 mm MS at **every 5th course (≈ 450)** up both column faces, 200 into the
+bed joint, 10 mm cast-in or drilled-and-grouted dowel; **top course tight to the beam
+soffit, last joint packed — the infill is NOT separated, because the analysis takes
+R = 3.0**, not the R = 5.0 special moment frame.
+**Nothing else changed:** no frame member, footing, slab, storey height or envelope;
+**13.000 kN/m infill retained** in A.7.7 and in `Sentry_Post_Framed_Seismic.std`.
 
 ---
 
@@ -187,12 +209,12 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 | U1 / C9 | Sentry V_b 73.18 (STAAD) vs 59.3 (hand). Design uses 73.18. The `.std` now prints W = 731.80 kN; gap traced but **not closed** — needs confirmation. |
 | U2 · U3 | Is a direct hit a requirement? · DBT yield. Both need client / military sign-off. |
 | U8 | Roof projection + parapet 4.162 kN/m not independently reproducible. |
-| **C17** | **Engineered cover.** A.7.3 states **40.65 kPa**; its own column sums to **39.15**. 40.65 held (larger, and the value in every `.std`). **No reinforcement effect.** Raised by SC1 — needs a ruling. |
+| **C17** | **Engineered cover.** A.7.3 states **40.65 kPa**; its own column sums to **39.15**. 40.65 held (larger, and the value in every `.std`). **No reinforcement effect.** Raised by SC1 — needs a ruling. **BS1 does NOT resolve it** — the column sums to 39.15 at the crown exactly as before. |
 | **C18** | **Sump-pit base.** F.1 + the levels give **400**; sheet S-06 text says **300**. 400 held. Raised by SC1 — needs a ruling. |
 | **C19** | **Soak pit 2.3 % short.** S-06 prints "22.0 m² OK" against its own "22.5 m² required"; π × 2.0 × 3.5 = **21.99**. Not resized — the percolation test may move it further. Raised by DR1 — needs a ruling. |
 | **C20** | **S-06 carries the Rev E stairwell catchment** (0.10 L/s open cut). At Rev F the approach is covered and the catchment with the door shut is zero. Conservative. Raised by DR1 — needs a ruling. |
 | **C21** | **Filter duty 250 vs 300 m³/h.** Master A.3 says "2 × 250"; S-06 states 300 in nine places, and **250 fails S-06's own 264 m³/h FEMA criterion**. HV1 uses 300. Raised by HV1 — **needs a ruling**. |
-| **WM-V1…12** | **Twelve verification items raised by WM1, all OPEN.** Four from SP-B1 (WM-V5 lintel design, WM-V6 seismic weight, WM-V7 ballistic function, WM-V11 wall ties); eight on measurement. See `WORKS MANAGEMENT/Documentation/WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md`. |
+| **WM-V1…12** | **Twelve verification items raised by WM1. Ten still OPEN.** **WM-V5 (lintel design) and WM-V11 (wall ties) are CLOSED by SP-B2**, 10 Sep 2026, master H.12 / K.1. **WM-V6 (seismic weight) and WM-V7 (ballistic function) remain OPEN**, as does **WM-V3 (opening heights)** — SP-B2 deliberately does not use it. See `WORKS MANAGEMENT/Documentation/WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md`. |
 | **QA-1 · QA-2** | **Raised by QA1, 9 Sep 2026.** A-301 could never have been plotted at 1:50 on A1 (44 m long = 880 mm; A1 gives 821 mm) — scale kept, **sheet corrected to A0**, ruling invited. QA-2: several sheets still do not fill their paper for reasons inherent to their content. |
 | **13 gaps** | **Information the project does not contain**, each dated against the WM1 programme. Largest: **no electrical design package exists** — scope confirmed, design absent, every electrical quantity 'to be verified from final measurement'. Also: no site plan, no sentry lintel or tie detail, blast door and blast valve vendor data, service-entry plate size, duct penetration schedule, EMP enclosure and vision panel specs, sentry GF slab, finish products, W5 door D-05. |
 
