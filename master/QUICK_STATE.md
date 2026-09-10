@@ -233,7 +233,7 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 | **WM-V1…12** | **Nine CLOSED** (V1 at **2.600**, confirmed twice; V2, V3, V4, V5, V8, V10, V11, V12). **V6, V7, V9 remain open — see below.** |
 | **R-1…R-14** | **All fourteen RULED** — master **K.1c** and `WM_RECONCILIATION_REGISTER.md` §9. The three against the owner's documents: **R-1** burster **200 M30** not 300 M35; **R-2** cover **2.0 m** not 4 m; **R-3** roof slab **900** not 1000. |
 | **QA-1 · QA-2** | **BOTH RULED.** **QA-1: A0 confirmed** — 880 mm at 1:50 against an A1 area of 821 mm makes A1 impossible, the scale is a measurement statement, and splitting would break a continuous 44 m elevation. **QA-2: accepted as drawn, with the reason stated** — six sheets carry an empty bottom strip, and re-scaling, renumbering and reflowing are each worse than the space. **Every sheet is correct, complete and legible. Combining them stays your call.** |
-| **STILL OPEN — master K.1b** | **Six items, none of them a conflict.** Each is a single position the project holds that needs information from outside: **U2** direct hit (military sign-off) · **U3** DBT yield (client) · **U8** the 4.162 kN/m parapet load (cannot be re-derived until the parapet detail is confirmed) · **WM-V6** seismic re-check (STAAD not available; direction certain and favourable) · **WM-V7** ballistic requirement (client / military decision) · **WM-V9** slope stability (geotech). |
+| **STILL OPEN — master K.1b** | **Eight items, none of them a conflict.** Each is a single position the project holds — or, in the last two, a position it does not hold at all — that needs something from outside: **U2** direct hit (military sign-off) · **U3** DBT yield (client) · **U8** the 4.162 kN/m parapet load (cannot be re-derived until the parapet detail is confirmed) · **WM-V6** seismic re-check (STAAD not available; direction certain and favourable) · **WM-V7** ballistic requirement (client / military decision) · **WM-V9** slope stability (geotech) · **FS-V7** *(new, FS2)* **how either escape shaft is climbed** — 6.250 m and 6.800 m with no ladder, rung or fall-arrest specified anywhere; this one needs a **design**, not a ruling · **CAM-V5** *(new, CAM2)* **SH-2's head level, recorded nowhere**. |
 | **13 gaps** | **Information the project does not contain**, each dated against the WM1 programme. Largest: **no electrical design package exists** — scope confirmed, design absent, every electrical quantity 'to be verified from final measurement'. Also: no site plan, **the sentry lintel and tie detail is now SUPPLIED — SP-B2, master A.4.8, so this gap is closed**, blast door and blast valve vendor data, service-entry plate size, duct penetration schedule, EMP enclosure and vision panel specs, sentry GF slab, finish products, W5 door D-05. |
 
 ---
@@ -342,7 +342,10 @@ site plan (D3).**
 - **Sheets S-01…S-05, S-07, S-08 cannot be regenerated** — the Part E.4 Python toolchain
   (`proj.py`, `dxflib.py`, `d01_wall.py`…`d08_sentryslab.py`, `validate.py`, `render.py`) is not
   in the workspace, and rule M.12 forbids editing a generated DXF directly.
-- **`MASTER_PROJECT_STATE.pdf` is a stale render** of the pre-reconciliation `.md`.
+- **`MASTER_PROJECT_STATE.pdf` is a stale render.** It is the user-supplied upload of
+  **9 September 2026** and there is no generator for it in the workspace, so it cannot be
+  refreshed here. It predates **H.12** (BS1 / SP-B2), **H.13** (WM2), **H.14** (RC1),
+  **H.15** (WM3), **H.16 / H.17** (CAM1 / FS1) and **H.18** (CAM2 / FS2). **Read the `.md`.**
 - **Second k_s bound (500 000) outstanding.**
 - **Phase 3 not started:** non-linear SDOF support rotation, shock propagation down the entry
   shaft, transient soil–structure interaction, blast-door vendor testing, sentry sheet S-09.

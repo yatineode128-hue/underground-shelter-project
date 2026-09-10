@@ -117,7 +117,7 @@ PASS   Headline figures in the handout match the package          7 figures chec
 ==============================================================================
 PASS   The frozen main staircase geometry is reproduced, not altered 6 of 7 frozen values quoted verbatim in the package
 PASS   Confirmed structural dimensions are used unchanged         8 of 8 confirmed dimensions appear verbatim in the derivation
-PASS   No UNDECLARED file outside WORKS MANAGEMENT/ and master/ is modified 9 files changed; outside the two folders: 4, of which declared under RC1 (Drainage, soak pit C19): 4; UNDECLARED: none
+PASS   No UNDECLARED file outside WORKS MANAGEMENT/ and master/ is modified 6 files changed; outside the two folders: 3, of which declared by a recorded revision (RC1 / CAM2 / FS2): 3; UNDECLARED: none
 
 ==============================================================================
 14.  EVIDENCE DISCIPLINE

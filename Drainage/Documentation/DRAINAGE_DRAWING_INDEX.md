@@ -77,7 +77,7 @@ CIRCLE, TEXT, MTEXT, DIMENSION, LEADER, HATCH, INSERT. Nothing rasterised.
 |---|---|
 | `Scripts/mep_proj.py` | **Shared** — every geometric, level and services constant, with its source and evidence class |
 | `Scripts/mep_dxf.py` | **Shared** — A1 and A4 sheet library, subclassing `Structural CAD/Scripts/sc_dxflib.py` so the sheet standard is identical to the issued R-series |
-| `Scripts/mep_views.py` | **Shared** — architectural backgrounds used by all three packages |
+| `Scripts/mep_views.py` | **Shared** — architectural backgrounds used by all three packages. **Five since 10 September 2026** (master H.18): FIRE AND LIFE SAFETY and SITE AND CONCEALMENT draw on them too. `mep_dxf.py` and `mep_validate.py` changed to serve them, **both output-neutral — no drainage sheet altered or regenerated** |
 | `Scripts/mep_validate.py` | **Shared** — DXF validator, 11 checks |
 | `Scripts/mep_render.py` | **Shared** — DXF → PNG visual QA renderer (a checking tool, not a deliverable) |
 | `Scripts/dr_data.py` | The drainage network: every gully, pipe, chamber and item of equipment |

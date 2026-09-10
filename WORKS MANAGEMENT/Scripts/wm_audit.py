@@ -502,13 +502,21 @@ try:
     # were carried - so its declared scope is broad.  The guard still means
     # something: anything NOT on this list still fails, so a later package that
     # quietly edits, say, a .std file or a current/cad drawing is still caught.
-    RC1_DECLARED = ("Drainage/",                        # C19 soak pit SK-01 widened
-                    "HVAC/",                            # C16 / C21 flags retired
-                    "Schedule of Finishes/",            # C16 flag retired
-                    "Structural CAD/",                  # C16 / C17 flags retired
-                    "Revit/docs/",                      # C16 determination closed
-                    "MEP_AND_FINISHES_COORDINATION.md", # A.3 corrected to 2 x 300
-                    "DRAWING QAQC/")                    # QA-2 ruled
+    # Files outside WORKS MANAGEMENT/ and master/ that a revision has DECLARED
+    # it may touch.  The point of the guard is that nothing changes silently, so
+    # each entry names the revision and the reason.
+    RC1_DECLARED = ("Drainage/",                        # RC1 C19 soak pit SK-01 widened;
+                                                        # CAM2/FS2 shared modules + index note
+                    "HVAC/",                            # RC1 C16 / C21 flags retired;
+                                                        # CAM2/FS2 index note
+                    "Schedule of Finishes/",            # RC1 C16 flag retired
+                    "Structural CAD/",                  # RC1 C16 / C17 flags retired
+                    "Revit/docs/",                      # RC1 C16 determination closed
+                    "MEP_AND_FINISHES_COORDINATION.md", # RC1 A.3 corrected to 2 x 300;
+                                                        # FS2 CO-9 addendum, D-05
+                    "DRAWING QAQC/",                    # RC1 QA-2 ruled; CAM2/FS2 index
+                    "Fire and Life Safety/",            # FS2 - the package itself
+                    "Site and Concealment/")            # CAM2 - the package itself
     outside = [c for c in changed
                if not c.startswith("WORKS MANAGEMENT/")
                and not c.startswith("master/")]
@@ -554,7 +562,7 @@ try:
     check("No UNDECLARED file outside WORKS MANAGEMENT/ and master/ is modified",
           not undeclared,
           "%d files changed; outside the two folders: %d, of which declared "
-          "under RC1 (Drainage, soak pit C19): %d; UNDECLARED: %s"
+          "by a recorded revision (RC1 / CAM2 / FS2): %d; UNDECLARED: %s"
           % (len(changed), len(outside), len(outside) - len(undeclared),
              undeclared or "none"))
 except Exception as e:
