@@ -168,6 +168,17 @@ threshold, HVAC needs the transfer grille TG-01 through it, and finishes need to
 and frame are. **Three packages depend on a door nobody has drawn.** Scheduled as D-05, a requirement
 with **no size and no position**. **Engineer to confirm.**
 
+> **ADDENDUM, 10 September 2026 — revision FS2 (master H.18). It is four packages now, and
+> the fourth changes what kind of problem this is.** The **FIRE AND LIFE SAFETY** package
+> depends on the same door: **W5 is the fire separation between the CBRN plant bay and the
+> decon airlock, and the primary escape route R1 has to cross it.** `F-101` draws that
+> crossing on its own layer and states on the sheet that it is **indicative only and is not
+> a design**. The fire plan's own words: *"a fire separation with an unfilled opening in it
+> is not a fire separation"* — and the compartment it is meant to protect holds the
+> **activated-carbon filter trains**. **Drainage, HVAC and finishes carried D-05 as a data
+> gap; the fire plan makes it a defect** (FS-1 / FS-V1). Nothing here invents a size, a
+> position or a leaf. **Still: engineer to confirm.**
+
 ### CO-10 — C16, the roof/platform junction ✅ RULED AT 250 AND CLOSED
 
 | Package | Dependency |

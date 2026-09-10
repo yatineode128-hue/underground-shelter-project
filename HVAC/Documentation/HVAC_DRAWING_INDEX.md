@@ -64,3 +64,10 @@ All DXF: AutoCAD 2010 (**AC1024**) ASCII, A1 841 × 594 mm (handout A4 297 × 21
 > The shared modules — `mep_proj.py`, `mep_dxf.py`, `mep_views.py`, `mep_validate.py`,
 > `mep_render.py` — live in `Drainage/Scripts/` and are put on `sys.path` by the HVAC generators.
 > One definition, three packages.
+
+> **Note, 10 September 2026 (master H.18).** It is **five** now. The shared modules above
+> are also used by the **FIRE AND LIFE SAFETY** package (`F-101`, `F-102`) and the
+> **SITE AND CONCEALMENT** package (`C-101`). `mep_dxf.py` and `mep_validate.py` were
+> changed to serve them and **both changes are output-neutral** — no HVAC sheet altered,
+> and none was regenerated. The rest of this index is the HV1 record as issued on
+> 5 September and is unchanged.
