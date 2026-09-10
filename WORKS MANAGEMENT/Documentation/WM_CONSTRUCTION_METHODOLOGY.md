@@ -13,6 +13,17 @@
 > are BRICK MASONRY, replacing the Rev F 200 mm RC ballistic infill panels.
 > No other element of the project is changed.**
 
+> **AMENDED 10 September 2026 for design revision SP-B2** (master **A.4.8**, Part
+> **H.12**), which designs the **lintel L1** and the **wall tie detail** that SP-B1
+> created a need for and this package recorded as not existing. **WM-V5 and WM-V11 are
+> closed by it.** The amendment is to the WRITTEN RECORD ONLY — the lintel and tie
+> paragraphs, the risk entry, the verification register and the gap list now state the
+> designed values instead of saying no design exists. **NO QUANTITY, RATE, DURATION,
+> DATE, FLOAT OR RESOURCE IN THIS PACKAGE CHANGED**, and bill item `SP-06` still
+> measures the superseded provisional 200 × 150 lintel section: see
+> `Documentation/WM_RECONCILIATION_REGISTER.md` §6. **WM-V3, WM-V6 and WM-V7 remain
+> open.**
+
 ---
 
 This methodology describes how the complete project is built — the underground

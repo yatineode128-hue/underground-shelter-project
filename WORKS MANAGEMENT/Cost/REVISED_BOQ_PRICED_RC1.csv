@@ -1,0 +1,49 @@
+Part,#,Item Description,Unit,Qty,Rate (₹),Material (₹),Labour Deployment,Total Cost (₹)
+"PART I - SURVEY, SITE CLEARANCE & EXCAVATION",,,,,,,,
+"PART I - SURVEY, SITE CLEARANCE & EXCAVATION",1,Confirmatory Soil & Rock Core Boreholes,No,4,50000,200000,2 Trad / 4 Maz (10 d),234660
+"PART I - SURVEY, SITE CLEARANCE & EXCAVATION",2,"Site Clearance, Grubbing & Setting Out",Sqm,1800,44.8,80640,1 Trad / 6 Maz (4 d),96500
+"PART I - SURVEY, SITE CLEARANCE & EXCAVATION",3,Mass Excavation in Basalt / Murum (~6.8 m),Cum,1539,850,1308150,2 Trad / 10 Maz (30 d),1512570
+"PART I - SURVEY, SITE CLEARANCE & EXCAVATION",4,Surface Dressing & Anti-Termite Treatment,Sqm,320,180,57600,1 Trad / 4 Maz (4 d),68996
+,,,,,,,SUBTOTAL,1912726
+PART II - SUBSTRUCTURE & FOUNDATION WORKS,,,,,,,,
+PART II - SUBSTRUCTURE & FOUNDATION WORKS,1,Formwork for Mat Raft & Bay 5 Sump,Sqm,125,410,51250,4 Trad / 6 Maz (5 d),82750
+PART II - SUBSTRUCTURE & FOUNDATION WORKS,2,PCC 1:3:6 Levelling Bed (100 mm),Cum,17.17,5500,94435,2 Trad / 8 Maz (2 d),105831
+PART II - SUBSTRUCTURE & FOUNDATION WORKS,3,Monolithic Mat Raft Casting (M35),Cum,81.84,8640,707098,4 Trad / 12 Maz (6 d),762082
+PART II - SUBSTRUCTURE & FOUNDATION WORKS,4,Pre-Applied Waterproofing Membrane + Screed,Sqm,280,950,266000,2 Trad / 4 Maz (4 d),280832
+PART II - SUBSTRUCTURE & FOUNDATION WORKS,5,Dual Swelling Hydrophilic Kicker Waterstops,M,68,650,44200,2 Trad / 2 Maz (3 d),51976
+,,,,,,,SUBTOTAL,1283471
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,,,,,,,,
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,1,Formwork for 600 mm Shear Walls (3.2 m Ht),Sqm,480,580,278400,6 Trad / 12 Maz (12 d),411888
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,2,Casting 600 mm Perimeter & Shear Walls (M35),Cum,132.61,8640,1145750,4 Trad / 16 Maz (8 d),1236918
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,3,Formwork & Staging for 900 mm Pressure Slab,Sqm,145,650,94250,6 Trad / 14 Maz (10 d),216650
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,4,Casting 900 mm Pressure Roof Slab (M35),Cum,114.72,8640,991181,6 Trad / 18 Maz (6 d),1073657
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,5,Internal Dog-Leg Staircase RCC,Cum,4.8,9200,44160,2 Trad / 4 Maz (4 d),58992
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,6,Headhouse Structure (400 mm Wall / 500 mm Roof),Cum,28.56,8640,246758,3 Trad / 6 Maz (6 d),280130
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,7,Approach Stairwell RC Box (250 mm RC),Cum,18.2,8640,157248,2 Trad / 4 Maz (5 d),175788
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,8,"Engineered burster slab (200 mm M30 — RC1 R-1, was 300 mm M35). Rate carried from the owner's own bill; a grade change may warrant a rate review [REVIEW]",Cum,38.4,8200,314880,3 Trad / 8 Maz (6 d)  — scaled with the quantity,340140
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,9,Sentry post RC frame — brick infill measured as brickwork (RC1 R-6),Cum,18.6,8500,158100,2 Trad / 4 Maz (8 d),187764
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,10,110 mm Internal Brick Partition Walls,Sqm,95,920,87400,2 Trad / 4 Maz (6 d),109648
+PART III - SUPERSTRUCTURE & STRUCTURAL RCC,11,"Escape shaft collars ESC 1 and ESC 2, 250 RC, OD 1900 — ADDED BY RC1 R-7",Cum,6.285,8640,54302,[DATA REQUIRED — labour not priced here; no figure for it exists in the project and none is invented],54302
+,,,,,,,SUBTOTAL,4145877
+PART IV - REINFORCEMENT STEEL & SHIELDING,,,,,,,,
+PART IV - REINFORCEMENT STEEL & SHIELDING,1,Pressure Roof Slab Rebar (T25 / T12),Tonne,23.22,78000,1811160,6 Trad / 12 Maz (18 d),2011392
+PART IV - REINFORCEMENT STEEL & SHIELDING,2,Perimeter & Shear Wall Rebar (T16 / T20),Tonne,17.85,78000,1392300,6 Trad / 12 Maz (16 d),1570284
+PART IV - REINFORCEMENT STEEL & SHIELDING,3,Mat Raft & Haunch Diagonal Rebar,Tonne,13.14,78000,1024920,5 Trad / 10 Maz (12 d),1136160
+PART IV - REINFORCEMENT STEEL & SHIELDING,4,"Headhouse, Approach & Staircase Steel",Tonne,6.76,78000,527280,4 Trad / 8 Maz (10 d),601440
+PART IV - REINFORCEMENT STEEL & SHIELDING,5,"Burster Slab Mesh (T12 @ 150 B/W)  [REVIEW — RC1 R-12: T12 @ 150 B/W is 11.84 kg/m2 whatever the slab thickness, so the R-1 thickness ruling does NOT change this line. The owner's tonnage over their own plan area implies about 15 kg/m2; that is a separate question and is NOT overwritten here]",Tonne,2.89,78000,225420,3 Trad / 6 Maz (6 d),258792
+PART IV - REINFORCEMENT STEEL & SHIELDING,6,Sentry Post Structural Rebar,Tonne,3.93,78000,306540,2 Trad / 4 Maz (8 d),336204
+PART IV - REINFORCEMENT STEEL & SHIELDING,7,EMP Welding at 4th Node & Bonding Straps,Item,1,380000,380000,2 Trad / 2 Maz (15 d),418880
+,,,,,,,SUBTOTAL,6333152
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",,,,,,,,
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",1,"Blast Doors 1 & 2 (≥7 bar, Rebound-Rated)",Set,2,1250000,2500000,4 Trad / 6 Maz (8 d),2550400
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",2,"Emergency Exit Hatches (900 mm Clear, 621 kPa)",Set,2,450000,900000,2 Trad / 4 Maz (6 d),922248
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",3,Fast-Acting Blast Valves BV-1 to BV-3 (DN100),Set,3,160000,480000,2 Trad / 2 Maz (4 d),490368
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",4,Generator Blast Valves BV-4 & BV-5 (DN350),Set,2,320000,640000,2 Trad / 2 Maz (4 d),650368
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",5,NBC Collective Protection Trains (2 × 300 m³/h),Set,2,1850000,3700000,4 Trad / 4 Maz (14 d),3772576
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",6,Sealed Zone-2 Welded EMP Enclosure (3×3×2.4 m),Item,1,850000,850000,2 Trad / 4 Maz (12 d),894496
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",7,Layerwise Engineered Fill & Basalt Rubble Berm,Cum,620,420,260400,2 Trad / 10 Maz (12 d),342168
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",8,Submersible Sump Pumps + Effluent Piping + Septic,Set,1,420000,420000,2 Trad / 4 Maz (10 d),456500
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",9,"Sand-Faced Internal Plaster, Punning & Painting",Sqm,720,180,129600,4 Trad / 6 Maz (12 d),199632
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",10,"Testing, Commissioning & Envelope Leakage Test",Item,1,250000,250000,4 Trad / 2 Maz (4 d),266272
+,,,,,,,SUBTOTAL,10545028
+"PART V - CBRN, EMP, CLOSURES & ANCILLARY SERVICES",11,"Standby generator 15 kVA in Bay 8, with fuel system, exhaust and acoustic treatment — ADDED BY RC1 R-8. The bill prices the 2 600 m3/h combustion and cooling air path through BV-4/BV-5 but not the machine",Set,1,[DATA REQUIRED — vendor quotation. NO RATE IS INVENTED],0,[DATA REQUIRED],0

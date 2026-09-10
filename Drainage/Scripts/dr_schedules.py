@@ -142,7 +142,12 @@ write("DESIGN_FLOW_SCHEDULE", "DESIGN FLOW SCHEDULE",
             "pit at 50 mm/h, reproduced exactly in calculation D.8). At Rev F "
             "the approach is covered and the governing case is the door-open "
             "driving-rain rate of drawing 5 note 9, about 12 × smaller. "
-            "Conservative, nothing unsafe, **not corrected here** — S-06 is an "
-            "issued sheet. **User ruling required.**"))
+            "Conservative, nothing unsafe. **RULED AND CLOSED by RC1**, "
+            "10 Sep 2026 (master Part H.14 / K.1 U12): **Rev F governs** — "
+            "precedent C1, the drawing governs — and the 0.10 L/s **stays as a "
+            "declared conservatism**, because removing it changes no pump, no "
+            "pipe and no pit (the stairwell pump is 20 × it) and deleting a "
+            "superseded number would hide the history. Both figures are shown "
+            "and labelled on D-103."))
 
 print(f"\n[written to] {DEST}")

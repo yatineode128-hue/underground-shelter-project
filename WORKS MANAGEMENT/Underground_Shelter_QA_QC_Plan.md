@@ -13,6 +13,17 @@
 > are BRICK MASONRY, replacing the Rev F 200 mm RC ballistic infill panels.
 > No other element of the project is changed.**
 
+> **AMENDED 10 September 2026 for design revision SP-B2** (master **A.4.8**, Part
+> **H.12**), which designs the **lintel L1** and the **wall tie detail** that SP-B1
+> created a need for and this package recorded as not existing. **WM-V5 and WM-V11 are
+> closed by it.** The amendment is to the WRITTEN RECORD ONLY — the lintel and tie
+> paragraphs, the risk entry, the verification register and the gap list now state the
+> designed values instead of saying no design exists. **NO QUANTITY, RATE, DURATION,
+> DATE, FLOAT OR RESOURCE IN THIS PACKAGE CHANGED**, and bill item `SP-06` still
+> measures the superseded provisional 200 × 150 lintel section: see
+> `Documentation/WM_RECONCILIATION_REGISTER.md` §6. **WM-V3, WM-V6 and WM-V7 remain
+> open.**
+
 ---
 
 This plan covers the whole project — the underground shelter, the entry structures,
@@ -92,7 +103,7 @@ against a stated acceptance criterion. `SURVEILLANCE` — ongoing observation.
 | `Q-30` | **SENTRY POST — painting** | Each coat | Surface preparation, primer and coats; adhesion. | IS 2395 (Part 1) | `WITNESS` | Painting record |
 | `Q-31` | **Drainage — pipes and chambers** | Before covering | Line, level, gradient, jointing; water or air test; rodding access at every change of direction. | IS 1742 principles; Drainage DR1 | `HOLD` | Drainage test certificate |
 | `Q-32` | **Sump and pumps** | On commissioning | Duty and standby pump performance; auto-alternation; level switch settings at start +900, stop +300 and high alarm +1200 above the invert; hand pump PU-03 proved independently of power. | Drainage DR1 | `TEST` | Pump commissioning record |
-| `Q-33` | **Soak pits** | Before construction | PERCOLATION TEST IS MANDATORY and must precede construction; SK-01 is already 2.3 % short of its own stated requirement (conflict C19, OPEN). | IS 2470 (Part 2) Cl. 4 | `HOLD` | Percolation test report |
+| `Q-33` | **Soak pits** | Before construction | PERCOLATION TEST IS MANDATORY and must precede construction; SK-01 is 2.3 % short of its own stated requirement. CONFLICT C19 IS NOW CLOSED - RC1 WIDENED SK-01 to 2.200 dia, depth unchanged: 24.19 m2 against 22.50 required, +7.5 %. The percolation test still governs the final size. | IS 2470 (Part 2) Cl. 4 | `HOLD` | Percolation test report |
 | `Q-34` | **Septic tank** | On completion | Capacity, baffle at two-thirds of the length, inlet and outlet tees, 50 cowled vent at least 2 m above grade; watertightness. | IS 2470 (Part 1) Cl. 6.2, 6.3, 6.5, 6.6, 6.9, Table 1 | `WITNESS` | Septic tank inspection record |
 | `Q-35` | **Electrical installation** | On completion | Insulation resistance, continuity, polarity, protective device operation. | IS 732 | `TEST` | Electrical test certificate |
 | `Q-36` | **Earthing** | On completion | Earth electrode resistance against the 5 ohm target; bonding continuity to all metalwork. | IS 3043; IEEE 142 | `TEST` | Earth resistance test report |

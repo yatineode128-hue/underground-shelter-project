@@ -63,7 +63,12 @@ def r601():
                flags=["GEOMETRY FROZEN"])
     sh.sheet_header()
     sc = 25
-    Pm = vw(sc, 90, 260)
+    # QA1: the view origin was (90, 260), which mapped the shaft (model X
+    # 14800..18400) to paper x 682..826 - the plan was drawn ON TOP of the
+    # materials panel and ran off the right-hand border, while its own view
+    # title sat at x = 84 on the empty left half of the sheet.  The origin now
+    # places the plan in the main drawing area, under its title.
+    Pm = vw(sc, -508, 282)
     S = P.STAIR
     # shaft walls
     sh.rect(*Pm(14800, 0), *Pm(15200, 6200), "S-CONCRETE")
@@ -110,22 +115,23 @@ def r601():
     sh.dim_v(Pm(14800, 1800), Pm(14800, 3760), Pm(14100, 0)[0], sc)
     sh.dim_v(Pm(14800, 3760), Pm(14800, 4960), Pm(14100, 0)[0], sc)
     sh.dim_v(Pm(14800, 600), Pm(14800, 1800), Pm(14100, 0)[0], sc)
-    sh.north((560, 480))
+    sh.north((295, 505))
     V.balloon(sh, (240, 380), "ST01", Pm(15900, 3000))
     V.balloon(sh, (240, 314), "ST04", Pm(16300, 1300))
     V.balloon(sh, (330, 452), "ST06", Pm(17200, 4400))
     sh.secmark((84, 340), "A"); sh.secmark((240, 340), "A")
-    sh.text("SECTION A-A  ->  R-602", (160, 246), TXT["small"], "S-SECTION", "CENTER")
+    sh.text("SECTION A-A  ->  R-602", (160, 212), TXT["small"], "S-SECTION", "CENTER")
     sh.view_title((84, 552), "V1", "MAIN STAIRCASE PLAN - BAY 7", "SCALE 1:25")
     sh.text("BOTTOM STEEL SHOWN.  TOP STEEL ST03 / ST05 IS SHOWN ON R-602 AND R-604.",
-            (84, 240), TXT["small"], "S-TEXT")
+            (84, 204), TXT["small"], "S-TEXT")
 
     V.loading_panel(sh, 340, 552, 298, FROZEN, TXT["small"], 3.05,
                     heading="FROZEN GEOMETRY AND NBC 2016 CHECK")
     y = V.loading_panel(sh, 340, 470, 298, NOT_BLAST, TXT["small"], 3.05,
                         heading="STATUS - NOT A BLAST ELEMENT")
-    V.markkey(sh, 340, y - 6, ["ST01", "ST02", "ST03", "ST04", "ST05", "ST06"], 298)
-    V.bbs_extract(sh, 340, 240, ["ST01", "ST02", "ST03", "ST04", "ST05", "ST06"])
+    yk = V.markkey(sh, 340, y - 6, ["ST01", "ST02", "ST03", "ST04", "ST05", "ST06"], 298)
+    # QA1: chained off the block above so the two can never collide
+    V.bbs_extract(sh, 340, yk - 8, ["ST01", "ST02", "ST03", "ST04", "ST05", "ST06"])
     V.materials_panel(sh, 648, 552, 183)
     sh.titleblock(scale="1:25", sheet_of="19 OF 30")
     return sh.save(os.path.join(OUT, "R-601_Main_Staircase_Reinforcement_Plan.dxf"))

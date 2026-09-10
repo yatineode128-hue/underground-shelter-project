@@ -55,7 +55,8 @@ COMPONENTS = [
     ("PC-07", "Sump pit SU-01",
      "1500 x 1500 x 1500 clear, invert (-)7.600, base slab (-)8.000, walls 300 "
      "and base 400, cast monolithic with the mat with the membrane dressed "
-     "around the pit. Conflict C18 (300 vs 400 base) is OPEN; 400 held.",
+     "around the pit. Conflict C18 is CLOSED - RULED AT 400 by RC1, master K.1 "
+     "U10: (-)8.000 - (-)7.600 = 0.400 is arithmetic, and F.1 says 400 too.",
      "master F.1, Drainage DR1", "[C]/[U]", True),
     ("PC-08", "Escape shafts ESC 1 and ESC 2",
      "1400 dia clear, 250 RC collar, OD 1900. ESC 1 at (2050, 2050) with its "
@@ -443,10 +444,13 @@ BRICK_METHOD = {
         "brick masonry does not provide the ballistic protection that the Rev F "
         "panels were named for; the change removes a stated protective function "
         "from the sentry post, which is already a structure the project declares "
-        "NOT blast designed and expendable. Second, the openings now need "
-        "lintels, which the RC panels did not, and no lintel design exists "
-        "anywhere in the project. Both are carried into the verification "
-        "register for the designer to close."),
+        "NOT blast designed and expendable - that one is WM-V7 and it is a "
+        "client decision, not a drafting one, so it REMAINS OPEN. Second, the "
+        "openings now need lintels, which the RC panels did not, and the "
+        "masonry needs ties to the columns. When SP-B1 was written neither "
+        "design existed anywhere in the project. BOTH NOW DO: revision SP-B2 "
+        "(10 September 2026, master A.4.8 and Part H.12) designs lintel L1 and "
+        "the tie detail, closing WM-V5 and WM-V11. See below."),
     "geometry": [
         ("Wall run per storey", "15.200 m",
          "4.000 - 2 x 0.350 = 3.300 on the north and south walls, 5.000 - 2 x "
@@ -498,11 +502,13 @@ BRICK_METHOD = {
         "and is wedged and packed after the panel below has taken its initial "
         "shrinkage, so that the panel does not attract load from the frame it "
         "was not designed to carry.",
-        "TIES TO THE COLUMNS. The masonry is tied to the columns so that the "
-        "panel is restrained out of plane. The tie detail does not exist in the "
-        "project and is carried as a verification item; until it is designed, "
-        "the assumption for planning is starter bars or proprietary ties at "
-        "every fourth course.",
+        "TIES TO THE COLUMNS - DESIGNED, SP-B2. The masonry is tied to the "
+        "columns so that the panel is restrained out of plane. 6 mm diameter "
+        "MS ties at EVERY FIFTH COURSE, about 450 mm, up both column faces, "
+        "projecting 200 mm into the bed joint and anchored to the column by a "
+        "cast-in or drilled-and-grouted 10 mm dowel. This SUPERSEDES the SP-B1 "
+        "planning assumption of ties at every fourth course, which was a "
+        "placeholder made when no detail existed. WM-V11 is closed by it.",
         "SEISMIC NOTE — NOT RESOLVED HERE. Master A.7.8 records that the sentry "
         "post uses R = 3.0 precisely BECAUSE the infill is not separated from "
         "the frame, and B.8 designs to V_b = 73.18 kN. Substituting brick "
@@ -511,11 +517,25 @@ BRICK_METHOD = {
         "the seismic weight, which points the existing design in the "
         "conservative direction. That is a direction, not a verification. The "
         "structural discipline must re-run the check; this package does not.",
-        "LINTELS. RC lintels are required over D1, W1 and the eight vision "
-        "panels. Bearing is taken as 200 each end for planning. NO LINTEL DESIGN "
-        "EXISTS IN THE PROJECT — section, reinforcement and bearing are to be "
-        "designed before the openings are built, and the 200 x 150 section used "
-        "for the estimate is for quantity only.",
+        "LINTELS - DESIGNED, SP-B2. Lintel L1, ONE TYPE over every opening: "
+        "190 wide x 150 deep, M30 / Fe500, cover 30, bearing 200 each end, "
+        "2-T10 bottom, 2-T8 top hangers, T6 two-legged links at 150. It serves "
+        "all ELEVEN openings - ground D1 900 and W1 1200, first storey D1 900 "
+        "and the eight 1200-wide vision-panel openings - and the 1200 opening "
+        "governs. Effective span min(clear + d, c/c bearings) = min(1315, 1400) "
+        "= 1.315 m to IS 456 Cl. 22.2. THE OPENING HEIGHTS ARE STILL NOT STATED "
+        "ON ANY DRAWING (WM-V3, OPEN), so L1 is deliberately designed to the "
+        "bound that does not use one: masonry standing just below the 60 degree "
+        "arching height 1.139 m, the heaviest case any height can give. "
+        "M_u 1.403 kNm against M_u,lim 10.03 kNm, 14 per cent utilised; A_st "
+        "required 29.5 mm2 but IS 456 Cl. 26.5.1.1 minimum 37.1 mm2 GOVERNS and "
+        "2-T10 gives 157 mm2; tau_v 0.195 against tau_c 0.56 so no shear steel "
+        "is required and the T6 at 150 links are the Cl. 26.5.1.6 nominal "
+        "minimum. THE LINTEL CARRIES MASONRY ONLY - the floor and roof go to "
+        "beams B1 / B2 at each level, which is the point of the frame. "
+        "WM-V5 is closed by it. The SP-06 bill item still measures the "
+        "SUPERSEDED provisional 200 x 150 section and is not re-measured here; "
+        "see WM_RECONCILIATION_REGISTER.md section 6.",
         "CURING. Masonry is kept damp for at least seven days. Chases for "
         "electrical conduit are CUT, not hammered, and never cut into a course "
         "until the masonry has cured.",
@@ -688,7 +708,9 @@ ITP = [
      "TEST", "Pump commissioning record"),
     ("Q-33", "Soak pits", "Before construction",
      "PERCOLATION TEST IS MANDATORY and must precede construction; SK-01 is "
-     "already 2.3 % short of its own stated requirement (conflict C19, OPEN).",
+     "2.3 % short of its own stated requirement. CONFLICT C19 IS NOW CLOSED - "
+     "RC1 WIDENED SK-01 to 2.200 dia, depth unchanged: 24.19 m2 against 22.50 "
+     "required, +7.5 %. The percolation test still governs the final size.",
      "IS 2470 (Part 2) Cl. 4", "HOLD", "Percolation test report"),
     ("Q-34", "Septic tank", "On completion",
      "Capacity, baffle at two-thirds of the length, inlet and outlet tees, "
@@ -883,19 +905,25 @@ RISKS = [
      "installation activities sit after the structure is complete so a slip is "
      "absorbed rather than propagated.", "Project Manager"),
     ("R-06", "Design",
-     "Conflict C21 — the CBRN filter duty is stated as 2 x 250 m³/h in master "
-     "A.3 and as 300 m³/h in nine places on sheet S-06, and 250 fails S-06's own "
-     "264 m³/h criterion. UNRESOLVED.",
+     "Conflict C21 — the CBRN filter duty was stated as 2 x 250 m³/h in master "
+     "A.3 and as 300 m³/h in nine places on sheet S-06, and 250 fails S-06's "
+     "own 264 m³/h criterion. RULED AT 300 BY RC1, 10 Sep 2026 (master Part "
+     "H.14 / K.1 U13): A.3 has been CORRECTED to 2 x 300 m³/h. CLOSED.",
      "H", "M",
-     "Must be ruled on BEFORE the filter trains are ordered — the enquiry "
-     "activity is programmed before order placement for exactly this reason. "
-     "Escalated to the designer at mobilisation.", "Designer"),
+     "The risk is retired. The enquiry activity stays programmed ahead of "
+     "order placement, which is good practice regardless, and the owner's own "
+     "cost estimate independently prices 2 x 300 m³/h.",
+     "Designer"),
     ("R-07", "Design",
-     "Conflict C16 — the roof/platform junction, 250 against 500. UNRESOLVED in "
-     "the master and not resolved by this package.",
+     "Conflict C16 — the roof/platform junction, 250 against 500. RULED AT 250 "
+     "BY RC1, 10 Sep 2026 (master Part H.14): the A.4.7 clause that said 500 "
+     "has been CORRECTED. It was one clause against four parts of the project "
+     "and against the geometry - the headhouse occupies Y 200-6000 and the "
+     "platform is at Y 6000-7500, so they do not touch. CLOSED.",
      "M", "M",
-     "Affects the covered entry stairwell roof, which carries float. Ruling "
-     "required before A5105. Raised in the verification register.", "Designer"),
+     "The risk is retired. The covered entry stairwell roof is 250 throughout, "
+     "which is what Part B designed, A.7.6 loaded, F.2 registered and every "
+     "drawing already showed.", "Designer"),
     ("R-08", "Design",
      "No electrical design package exists. The scope is confirmed but no "
      "circuit, cable, luminaire, distribution board or earth-electrode schedule "
@@ -906,9 +934,12 @@ RISKS = [
      "programme allows for it but cannot absorb an indefinite delay. Raised at "
      "mobilisation as the largest single information gap.", "Designer"),
     ("R-09", "Design",
-     "SENTRY POST BRICK MASONRY (SP-B1) — no lintel design exists, no wall tie "
-     "detail exists, and the seismic weight of the frame changes when RC infill "
-     "becomes brickwork.",
+     "SENTRY POST BRICK MASONRY (SP-B1) — the lintel design and the wall tie "
+     "detail did not exist when this risk was raised, and the seismic weight of "
+     "the frame changes when RC infill becomes brickwork. TWO OF THE THREE ARE "
+     "NOW CLOSED: revision SP-B2 (10 September 2026, master A.4.8 and Part "
+     "H.12) designs lintel L1 and the tie detail. THE SEISMIC RE-CHECK, WM-V6, "
+     "IS STILL OPEN.",
      "H", "M",
      "Lintel and tie design requested before A8135; the seismic re-check is "
      "referred to the structural discipline. The change reduces the infill line "
@@ -1004,7 +1035,7 @@ RISKS = [
     ("R-21", "Quality",
      "Percolation test fails — likely on basalt — and the soak pits cannot "
      "work. SK-01 is already 2.3 % short of its own stated requirement "
-     "(conflict C19, OPEN).",
+     "(conflict C19, CLOSED by RC1 - SK-01 widened to 2.200 dia, 24.19 m2).",
      "H", "M",
      "The percolation test is programmed early (A1085) and is a hold point "
      "before the soak pits are built. If it fails, an alternative disposal "

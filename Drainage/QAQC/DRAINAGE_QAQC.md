@@ -86,7 +86,7 @@ Result classes used throughout: **PASS** · **REVIEW** · **DATA REQUIRED** · *
 | C8 | Rainwater catchments at 50 mm/h | **PASS** for the structures; **NOT DETERMINABLE** site-wide | 177.23 m² → 2.461 L/s. No site plan exists |
 | C9 | Rev E open-cut check: 7.2 m² at 50 mm/h = 0.10 L/s | **PASS** | Reproduces the S-06 figure exactly, which is how **DR-C1** was identified |
 | C10 | Septic tank, IS 2470 (Pt 1) | **PASS** | Every check reproduces S-06 exactly: 1050 required, 1125 provided, +7.1 % |
-| C11 | Soak pit, IS 2470 (Pt 2) | **REVIEW — DR-C2** | π × 2.0 × 3.5 = **21.99 m²** against a stated requirement of **22.50 m²**. **2.3 % SHORT.** Arithmetic, not judgement |
+| C11 | Soak pit, IS 2470 (Pt 2) | **PASS — DR-C2 CLOSED by RC1** | Was π × 2.0 × 3.5 = 21.99 m² against 22.50 required, **2.3 % short**. **SK-01 WIDENED to 2.200 dia**, depth unchanged: π × 2.2 × 3.5 = **24.19 m² vs 22.50, +7.5 %** |
 | C12 | Storm soakaway sizing | **PASS** | 400 / 20 = 20.0 m² required; 21.99 m² adopted, +10 % |
 | C13 | Stairwell soakaway recovery | **REVIEW — DR-F3** | 54.6 h to recover from one sump-full at the assumed absorption rate |
 | C14 | Screed load vs mat SIDL | **REVIEW — DR-F4** | See S3 |
@@ -180,8 +180,8 @@ Machine output: `QAQC/DXF_VALIDATION_REPORT.txt`.
 
 | Ref | Conflict | Held position |
 |---|---|---|
-| **DR-C1** | S-06's design-flow table carries **0.10 L/s** for stairwell surface water — the **Rev E open-cut** figure, superseded at Rev F where the approach is covered and the catchment with the door shut is zero | **Not corrected.** Conservative. Both figures shown on D-103. **Ruling required** |
-| **DR-C2** | S-06 prints "22.0 m² OK" against its own "22.5 m² required". **21.99 < 22.50, short by 2.3 %** | **Not resized.** The absorption rate behind the requirement is itself `[A]` and the percolation test may move it much further. **Ruling required** |
+| **DR-C1** | S-06's design-flow table carries **0.10 L/s** for stairwell surface water — the **Rev E open-cut** figure, superseded at Rev F where the approach is covered and the catchment with the door shut is zero | **RULED AND CLOSED by RC1**, 10 Sep 2026 (master Part H.14 / K.1 U12): **Rev F governs** (precedent C1 — the drawing governs), and the 0.10 L/s **stays as a declared conservatism** because removing it changes no pump, pipe or pit and deleting a superseded number would hide the history. |
+| **DR-C2** | S-06 prints "22.0 m² OK" against its own "22.5 m² required". **21.99 < 22.50, short by 2.3 %** | **RULED AND CLOSED by RC1**, 10 Sep 2026 (master Part H.14 / K.1 U11). **SK-01 widened 2.0 → 2.200 dia, depth unchanged: 24.19 m², +7.5 %.** Widened not deepened — deepening drives the pit below the design GWT (−)2.000 where it cannot soak. **The percolation test still governs the final size** |
 | **DR-F5** | Two of the three hydraulic zones the protective boundary creates have **no drainage destination** | Zone 1 drained completely; zone 2's route to its recorded tank and zone 3's outlet are **flagged, not invented** |
 | **BW-01** | Mat recess for PD-01 | **Requested, not accepted.** Fallback drawn |
 | **C16** | Roof / platform junction | **Carried, not resolved.** See §14 |
@@ -197,7 +197,8 @@ Machine output: `QAQC/DXF_VALIDATION_REPORT.txt`.
 | Platform gully GY-10 | Sits directly under the junction. A 250/500 step in the soffit above changes where water is delivered and whether a drip is needed |
 
 **Action taken:** the gully is drawn at its confirmed platform position; the roof is drawn **at 250**
-to match the model and the structural register; the junction is flagged `C16 — UNRESOLVED` on
+to match the model and the structural register. **C16 is now RULED AT 250 and CLOSED**
+(RC1, 10 Sep 2026, master Part H.14) — A.4.7's clause has been corrected, so what was flagged on
 D-102, D-103 and D-301. **No irreversible assumption is made and no drainage dimension depends on
 the outcome.**
 

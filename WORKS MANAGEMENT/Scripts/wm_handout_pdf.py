@@ -503,8 +503,10 @@ def build(path):
       "quantities reads <i>to be verified from final measurement</i> and no "
       "electrical enquiry can be issued. There is no site plan, so the berm "
       "volume, the access route and several drainage runs cannot be measured. "
-      "There is no lintel design for the sentry post openings — a requirement "
-      "that the brick masonry itself creates. Each of these is recorded, dated "
+      "There was no lintel design for the sentry post openings — a requirement "
+      "that the brick masonry itself creates — and no wall tie detail; both have "
+      "since been designed by revision SP-B2 and are no longer gaps. Each of "
+      "these is recorded, dated "
       "against the programme activity it blocks, and issued to the designer at "
       "mobilisation rather than discovered when the activity is due to start.")
     story.append(Callout([
@@ -924,8 +926,11 @@ def build(path):
           "Open — 1200 assumed"],
          ["WM-V4", "190 mm modular brickwork inside the 200 mm zone",
           "Open — needs the designer's confirmation"],
-         ["WM-V5", "Lintel design over the nine openings — a new requirement "
-                   "created by SP-B1", "Open — structural design required"],
+         ["WM-V5", "Lintel design over the openings — a new requirement "
+                   "created by SP-B1. DESIGNED by SP-B2: lintel L1, 190 x 150, "
+                   "M30 / Fe500, 2-T10 bottom, 2-T8 top, T6 links @ 150, "
+                   "bearing 200, one type over all eleven openings",
+          "CLOSED by SP-B2, master A.4.8 / H.12"],
          ["WM-V6", "Seismic weight changes. Brick at about 20 kN/m³ over "
                    "0.190 × 2.600 gives roughly 9.9 kN/m against the confirmed "
                    "13.000 kN/m, so the existing base shear is conservative — a "
@@ -935,10 +940,17 @@ def build(path):
                    "'200 RC ballistic infill'; brick masonry does not provide "
                    "equivalent protection",
           "Open — recorded so the consequence is visible"],
-         ["—", "Wall tie detail between the masonry and the columns",
-          "Does not exist in the project"]],
+         ["WM-V11", "Wall tie detail between the masonry and the columns. "
+                    "DESIGNED by SP-B2: 6 mm MS ties at every fifth course "
+                    "(about 450) up both column faces, 200 into the bed joint, "
+                    "10 mm cast-in or drilled-and-grouted dowel",
+          "CLOSED by SP-B2, master A.4.8 / H.12"]],
         [15 * mm, FW - 65 * mm, 50 * mm], small=True))
-    story.append(Paragraph("Table 8.3 — Verification items. None is resolved here.",
+    story.append(Paragraph("Table 8.3 — Verification items. WM-V5 and WM-V11 were "
+                           "closed after this package was issued, by design revision "
+                           "SP-B2 (master A.4.8 and Part H.12). Everything else "
+                           "remains open — WM-V3, WM-V6 and WM-V7 in particular, and "
+                           "WM-V7 is a client decision no drafting work can close.",
                            CAP))
 
     story.append(PageBreak())
@@ -1523,8 +1535,10 @@ def build(path):
                            H2))
     p(story,
       "Substituting brick masonry for the reinforced concrete infill panels "
-      "creates four risks that did not previously exist: there is no lintel "
-      "design, no wall tie detail and a changed seismic weight (R-09); the "
+      "creates four risks that did not previously exist: there was no lintel "
+      "design and no wall tie detail — both have since been designed by "
+      "revision SP-B2 — and a changed seismic weight, which is still open "
+      "(R-09); the "
       "ballistic function the panels were named for is lost (R-10); masonry "
       "workmanship becomes a quality risk on a structure that previously "
       "contained no masonry at all (R-15); and brick supply consistency matters "
@@ -1853,8 +1867,10 @@ def build(path):
       "distinguishes a programme that holds from one that does not.")
     p(story,
       "Second, the package is honest about what it does not know. There is no "
-      "electrical design, no site plan, no lintel design and no wall tie detail; "
-      "several conflicts in the project record remain unresolved; and every "
+      "electrical design and no site plan; the lintel design and the wall tie "
+      "detail were missing when this package was issued and have since been "
+      "supplied by revision SP-B2; several conflicts in the project record "
+      "remain unresolved; and every "
       "output rate and vendor lead time is an assumption. All of it is listed, "
       "dated against the activity it blocks, and issued to the designer at "
       "mobilisation. A bill with visible gaps is more useful than one whose gaps "

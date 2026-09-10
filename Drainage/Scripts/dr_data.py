@@ -198,15 +198,20 @@ EQUIPMENT = [
      "IS 2470 (Pt 1) Table 1, up to 10 users. Two compartments, baffle at "
      "2/3 L, inlet and outlet tees, 50 cowled vent >= 2 m above grade. "
      "Freeboard 300, overall depth 1.30 m. Required 1050 L - PASS", "[C]"),
-    ("SK-01", "FOUL SOAK PIT", "2.0 dia x 3.5 effective = 21.99 m2 side",
+    ("SK-01", "FOUL SOAK PIT", "2.2 dia x 3.5 effective = 24.19 m2 side",
      None,
-     "*** 22.5 m2 REQUIRED - SHORT BY 2.3 %, CONFLICT DR-C2. Fill 40-80 mm "
-     "brickbat/stone, 300 sand at the top, RC cover slab. Side area only "
-     "counted. PERCOLATION TEST MANDATORY - IS 2470 (Pt 2) Cl. 4 ***", "[C]"),
-    ("SK-02", "STORM SOAKAWAY", "2.0 dia x 3.5 effective = 21.99 m2 side",
+     "RC1 RULING (C19, master K.1 U11): WIDENED 2.0 -> 2.200 dia, depth "
+     "UNCHANGED at 3.500. 24.19 m2 vs 22.50 required, +7.5 %. Widened not "
+     "deepened - deepening drives the pit below the design GWT (-)2.000 where "
+     "it cannot soak. Fill 40-80 mm brickbat/stone, 300 sand at the top, RC "
+     "cover slab. Side area only counted. PERCOLATION TEST MANDATORY - "
+     "IS 2470 (Pt 2) Cl. 4, and it still governs the final size", "[R]"),
+    ("SK-02", "STORM SOAKAWAY", "2.2 dia x 3.5 effective = 24.19 m2 side",
      None,
-     "SIZED BY THIS PACKAGE. 20.0 m2 required for 400 L/day - PASS, 10 % "
-     "margin. Same construction as SK-01. Position not fixed (D3)", "[A]"),
+     "SIZED BY THIS PACKAGE. 20.0 m2 required for 400 L/day - PASS, 21 % "
+     "margin. SAME CONSTRUCTION AS SK-01 and it follows SK-01's RC1 widening "
+     "to 2.200 dia, so the two pits stay one detail, one cover slab and one "
+     "set of spare materials. Position not fixed (D3)", "[A]"),
     ("SK-03", "STAIRWELL SOAKAWAY", "size not recorded", None,
      "Exists in the project ('own soakaway') but is not sized anywhere. "
      "54.6 h to recover from one sump-full at the assumed absorption rate "

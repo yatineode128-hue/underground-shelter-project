@@ -227,7 +227,12 @@ D.7   RAINWATER  -  catchments and flows at the recorded intensity
   *** THE ENGINEERED COVER IS NOT DRAINED BY PIPEWORK. ***
   A.4.3 records finished grade as crowned, falling 1:50 away from the
   structure; A.7.3 gives 300 topsoil/turf over a 150 GRANULAR FILTER layer
-  over the burster slab.  Rain on the cover sheds at the surface and what
+  over the burster slab, WHICH IS LAID TO A 1:50 CROSSFALL (BS1, A.7.3):
+  crowned on the box centreline, falling 62 mm each way to the box edge,
+  parallel to the crowned grade.  That fall is what makes the sentence below
+  true - the filter layer bears directly on the slab, so a FLAT slab would
+  pond the seepage instead of dispersing it.
+  Rain on the cover sheds at the surface and what
   infiltrates is intercepted by the granular filter and dispersed at the
   berm toe.  There is no roof outlet, no downpipe and no rainwater pipe on
   the buried roof, and none is added by this package: a pipe penetrating
@@ -291,40 +296,42 @@ D.9   SEPTIC TANK  -  IS 2470 (Part 1):1985 re-check
   ALL CHECKS REPRODUCE THE S-06 VALUES EXACTLY.  No change.
 
 ====================================================================================================
-D.10   SOAK PIT  -  IS 2470 (Part 2):1985 re-check   *** A SHORTFALL IS FOUND ***
+D.10   SOAK PIT  -  IS 2470 (Part 2):1985 re-check   *** SHORTFALL FOUND, NOW CLOSED ***
 ====================================================================================================
 
   Effluent to disperse      450 L/day   [C]
   Design absorption         20 L/m2/day   [A] master K.2 A7
   AREA REQUIRED             450 / 20 = 22.50 m2   [R]
-  Pit 2.0 dia x 3.5 effective
-  SIDE AREA pi.D.h          pi x 2.0 x 3.5 = 21.99 m2   [R]
+  Pit 2.2 dia x 3.5 effective
+  SIDE AREA pi.D.h          pi x 2.2 x 3.5 = 24.19 m2   [R]
       (the base is not counted - it clogs; S-06 states this and it is correct)
 
-  CHECK                     21.99 vs 22.50 m2 required   ->  SHORT BY 0.51 m2  =  2.3 %
+  CHECK                     24.19 vs 22.50 m2 required   ->  PASS, MARGIN 1.69 m2  =  +7.5 %
 
-  *** CONFLICT RAISED BY THIS PACKAGE - DR-C2 ***
-      Sheet S-06 prints '22.0 m2   OK' against a stated requirement of
-      '22.5 m2'.  21.99 m2 is NOT >= 22.50 m2.  The pit as drawn is 2.3 % short.
-      This is arithmetic, not judgement.
+  *** DR-C2 WAS RAISED BY THIS PACKAGE AND IS NOW CLOSED - RC1 RULING ***
+      As drawn the pit was 2.0 dia x 3.5, side area 21.99 m2.
+      Sheet S-06 printed '22.0 m2   OK' against its own stated
+      requirement of '22.5 m2'.  21.99 is NOT >= 22.50.
+      The pit as drawn was 2.3 % short.  Arithmetic, not judgement.
 
-      Either of these closes it, and both are single-dimension changes:
-        (a) effective depth 3.5 -> 3.58 m  (say 3.6 m), diameter unchanged
-        (b) diameter 2.0 -> 2.05 m  (say 2.1 m), depth unchanged
-      Option (a) at 3.6 m gives 22.62 m2, +0.5 % on requirement.
+      RULING (master K.1 U11, Part H.14).  THE PIT IS WIDENED:
+        diameter        2.0  ->  2.200 m
+        effective depth 3.500 m  -  UNCHANGED
+        side area       21.99  ->  24.19 m2
+        against         22.50 m2 required   ->  MARGIN +7.5 %
 
-      NOT RESOLVED HERE.  S-06 is an issued sheet and A7 (the 20 L/m2/day
-      absorption) is itself [ASSUMED] and MUST be replaced by a percolation
-      test to Cl. 4 before construction.  The test may move the requirement
-      by far more than 2.3 %, so re-sizing the pit before the test would be
-      false precision.  The shortfall is recorded, flagged on D-305 and
-      D-001, and referred for a ruling.
+      WIDENED AND NOT DEEPENED, deliberately.  Deepening to 3.6 m would also
+      have closed the arithmetic, but it drives the pit further below the
+      design GWT at (-)2.000, and a soak pit below the water table does not
+      soak.  Widening costs one ring of extra excavation and worsens nothing.
 
   *** AND THE LARGER RISK, ALREADY IN THE MASTER (K.2 A7) ***
       'Soak pit will not work if lower - LIKELY ON BASALT.'  A percolation
       test to IS 2470 (Pt 2) Cl. 4 is MANDATORY.  If the measured rate is
       below 20 L/m2/day the answer is not a bigger pit: it is a dispersion
       trench (Cl. 5) or a sealed holding tank emptied on a schedule.
+      THE WIDENING ABOVE CLOSES THE ARITHMETIC.  IT DOES NOT CLOSE THIS.
+      The percolation test still governs the final size and the final form.
 
 ====================================================================================================
 D.11   STORM SOAKAWAY  -  the clean sump outfall
@@ -339,8 +346,8 @@ D.11   STORM SOAKAWAY  -  the clean sump outfall
   AREA REQUIRED             400 / 20 = 20.0 m2   [R]
 
   ADOPTED  a pit of the SAME construction as the foul soak pit -
-           2.0 m dia x 3.5 m effective, side area 21.99 m2   [A]
-  CHECK    21.99 >= 20.0 m2   PASS, margin 10 %   [R]
+           2.2 m dia x 3.5 m effective, side area 24.19 m2   [A]
+  CHECK    24.19 >= 20.0 m2   PASS, margin 21 %   [R]
   Standardising the two pits means one construction detail, one cover slab
   and one spare set of materials on site.
 
@@ -362,11 +369,11 @@ D.12   STAIRWELL SOAKAWAY  -  the storage check the low absorption rate forces
   the next one.
 
   Event volume, one sump-full          1000 L   [C]
-  Emptying rate of a 2.0 x 3.5 pit   20 x 21.99 = 440 L/day   [R]
-  TIME TO EMPTY                        1000 / 440 = 54.6 h   [R]
+  Emptying rate of a 2.2 x 3.5 pit   20 x 24.19 = 484 L/day   [R]
+  TIME TO EMPTY                        1000 / 484 = 49.6 h   [R]
 
   *** FINDING - DR-F3 ***
-      At the [ASSUMED] 20 L/m2/day the pit takes 55 hours to
+      At the [ASSUMED] 20 L/m2/day the pit takes 50 hours to
       recover from one sump-full.  Good practice for a rainwater soakaway is
       half-emptying inside 24 h.  This is NOT a defect in the layout - it is
       the [ASSUMED] absorption rate showing through.  It is the third

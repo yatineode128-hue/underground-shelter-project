@@ -125,7 +125,13 @@ SEPTIC = dict(l=1.50, b=0.75, liquid_depth=1.00, freeboard=0.300,
               detention_l=450, sludge_l=600, lb_ratio=2.0,
               compartments=2, baffle="AT 2/3 L", vent="50 COWLED, >= 2 m ABOVE GRADE")
 
-SOAKPIT = dict(dia=2.0, effective_depth=3.5, side_area_m2=22.0,
+# RC1 ruling (C19 / master K.1 U11, 10 Sep 2026): the pit as drawn gave
+# pi x 2.0 x 3.5 = 21.99 m2 against its own stated 22.50 m2 requirement - 2.3 %
+# SHORT.  WIDENED to 2.200 dia, depth UNCHANGED at 3.500: 24.19 m2, +7.5 %.
+# Widened rather than deepened because deepening drives the pit further below
+# the design GWT at (-)2.000, where it cannot soak at all.
+SOAKPIT = dict(dia=2.2, effective_depth=3.5, side_area_m2=24.19,
+               dia_was=2.0, side_area_was=21.99,
                required_m2=22.5, absorption_lm2d=20,
                fill="40-80 mm BRICKBAT / STONE, 300 SAND AT TOP, RC COVER SLAB",
                offsets=">= 15 m FROM ANY WELL, >= 5 m FROM THE SEPTIC TANK, "
@@ -208,18 +214,21 @@ WP = dict(concrete="M35, w/c <= 0.45, cement >= 340 kg/m3",
 
 COVER_BUILDUP = [("TOPSOIL / TURF", 300, 18, 5.40, "CONCEALMENT, EROSION, SHEDS RAIN"),
                  ("GRANULAR FILTER", 150, 19, 2.85, "STOPS FINES CLOGGING"),
-                 ("RC BURSTER SLAB M30", 200, 25, 5.00, "BREAKS UP A PENETRATING ITEM"),
+                 ("RC BURSTER SLAB M30", 200, 25, 5.00,
+                  "BREAKS UP A PENETRATING ITEM - LAID TO 1:50 CROSSFALL, BS1"),
                  ("CRUSHED BASALT RUBBLE 25-75", 500, 17, 8.50, "SCATTERS BURSTER ENERGY"),
                  ("COMPACTED FILL @ 95 % MDD", 750, 20, 15.00, "RADIATION MASS"),
                  ("PROTECTION SCREED", 100, 24, 2.40, "PROTECTS WATERPROOFING")]
 
 # ------------------------------------------------------------ open items
 OPEN_ITEMS = {
-    "C16": "ROOF / PLATFORM JUNCTION - UNRESOLVED. A.4.7 says the roof over the "
-           "platform becomes the 500 headhouse roof; B.6 / A.7.6 / F.2 design, "
-           "load and register 250. NOT RESOLVED BY THIS PACKAGE. Rainwater "
-           "falling on the junction and the position of the platform gully "
-           "depend on it - see the QA/QC report.",
+    "C16": "ROOF / PLATFORM JUNCTION - RULED AT 250 AND CLOSED, RC1 10.09.26 "
+           "(master Part H.14). A.4.7 used to say the roof over the platform "
+           "becomes the 500 headhouse roof; B.6 / A.7.6 / F.2 design, load and "
+           "register 250, and the headhouse (Y 200-6000) does not reach the "
+           "platform (Y 6000-7500) at all. THE A.4.7 CLAUSE IS CORRECTED. This "
+           "package drew 250 already; the platform gully GY-10 has no step to "
+           "sit under and the total catchment is unchanged at 177.23 m2.",
     "A2":  "DESIGN GWT (-)2.000 IS [ASSUMED]. Monsoon monitoring required. "
            "Governs the seepage rate the sump is sized on.",
     "A7":  "SOAK-PIT ABSORPTION 20 L/m2/day IS [ASSUMED]. A PERCOLATION TEST "

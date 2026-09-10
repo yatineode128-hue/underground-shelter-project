@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461289.0980092594
+2461294.438298611
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461289.0980092594
+2461294.438298611
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-1D3
+1CA
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{3F401F6C-0EDA-4968-B7CA-8F426439E91D}
+{123BF239-E22B-4BE7-8350-0B1A7AF60E8F}
   9
 $VERSIONGUID
   2
-{BF0A8F3F-88A2-458F-A9A7-C10415CCF445}
+{C05D8284-32BE-4121-B552-73B7C2ECBC26}
   9
 $EXTNAMES
 290
@@ -1323,9 +1323,9 @@ ISM
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -1339,9 +1339,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -3819,7 +3819,7 @@ AcAecLayerStandard
   0
 APPID
   5
-1D0
+1C7
 330
 3
 100
@@ -3833,7 +3833,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-1D1
+1C8
 330
 3
 100
@@ -12757,7 +12757,7 @@ AcDbLine
  30
 0.0
  11
-138.57
+155.82886805090422
  21
 550.2
  31
@@ -15419,7 +15419,7 @@ AcDbLine
  30
 0.0
  11
-410.88
+434.9809109176156
  21
 550.2
  31
@@ -15503,7 +15503,7 @@ AcDbText
  10
 32.0
  20
-258.6
+257.5
  30
 0.0
  40
@@ -15515,7 +15515,7 @@ OpenSans
  11
 32.0
  21
-258.6
+257.5
  31
 0.0
 100
@@ -15535,11 +15535,11 @@ AcDbText
  10
 32.0
  20
-254.6
+253.375
  30
 0.0
  40
-1.4
+2.0
   1
 CONSTRUCTION JOINTS - APPROXIMATELY 6 m CENTRES
   7
@@ -15547,7 +15547,7 @@ OpenSans
  11
 32.0
  21
-254.6
+253.375
  31
 0.0
 100
@@ -15567,11 +15567,11 @@ AcDbText
  10
 32.0
  20
-251.54999999999998
+250.325
  30
 0.0
  40
-1.4
+2.0
   1
   1  REINFORCEMENT IS FULLY CONTINUOUS ACROSS EVERY CONSTRUCTION JOINT.
   7
@@ -15579,7 +15579,7 @@ OpenSans
  11
 32.0
  21
-251.54999999999998
+250.325
  31
 0.0
 100
@@ -15599,11 +15599,11 @@ AcDbText
  10
 32.0
  20
-248.49999999999997
+247.27499999999998
  30
 0.0
  40
-1.4
+2.0
   1
      No bar is lapped at a joint unless the lap is separately staggered.
   7
@@ -15611,7 +15611,7 @@ OpenSans
  11
 32.0
  21
-248.49999999999997
+247.27499999999998
  31
 0.0
 100
@@ -15631,11 +15631,11 @@ AcDbText
  10
 32.0
  20
-245.44999999999996
+244.22499999999997
  30
 0.0
  40
-1.4
+2.0
   1
   2  TWO WATERSTOPS - one in each curtain zone, centre-bulb type, on both
   7
@@ -15643,7 +15643,7 @@ OpenSans
  11
 32.0
  21
-245.44999999999996
+244.22499999999997
  31
 0.0
 100
@@ -15663,11 +15663,11 @@ AcDbText
  10
 32.0
  20
-242.39999999999995
+241.17499999999995
  30
 0.0
  40
-1.4
+2.0
   1
      the earth face and the internal face of the section.
   7
@@ -15675,7 +15675,7 @@ OpenSans
  11
 32.0
  21
-242.39999999999995
+241.17499999999995
  31
 0.0
 100
@@ -15695,11 +15695,11 @@ AcDbText
  10
 32.0
  20
-239.34999999999994
+238.12499999999994
  30
 0.0
  40
-1.4
+2.0
   1
   3  A WELDED Cu / GALVANISED EMP STRAP bridges the joint and is welded to
   7
@@ -15707,7 +15707,7 @@ OpenSans
  11
 32.0
  21
-239.34999999999994
+238.12499999999994
  31
 0.0
 100
@@ -15727,11 +15727,11 @@ AcDbText
  10
 32.0
  20
-236.29999999999993
+235.07499999999993
  30
 0.0
  40
-1.4
+2.0
   1
      the cage on both sides, so that the reinforcement shield remains
   7
@@ -15739,7 +15739,7 @@ OpenSans
  11
 32.0
  21
-236.29999999999993
+235.07499999999993
  31
 0.0
 100
@@ -15759,11 +15759,11 @@ AcDbText
  10
 32.0
  20
-233.24999999999991
+232.02499999999992
  30
 0.0
  40
-1.4
+2.0
   1
      electrically continuous across the pour break.
   7
@@ -15771,7 +15771,7 @@ OpenSans
  11
 32.0
  21
-233.24999999999991
+232.02499999999992
  31
 0.0
 100
@@ -15791,11 +15791,11 @@ AcDbText
  10
 32.0
  20
-230.1999999999999
+228.9749999999999
  30
 0.0
  40
-1.4
+2.0
   1
   4  Joint surface roughened to expose the coarse aggregate, cleaned and
   7
@@ -15803,7 +15803,7 @@ OpenSans
  11
 32.0
  21
-230.1999999999999
+228.9749999999999
  31
 0.0
 100
@@ -15823,11 +15823,11 @@ AcDbText
  10
 32.0
  20
-227.1499999999999
+225.9249999999999
  30
 0.0
  40
-1.4
+2.0
   1
      brought to a saturated surface-dry condition (IS 456 Cl. 13.4).
   7
@@ -15835,7 +15835,7 @@ OpenSans
  11
 32.0
  21
-227.1499999999999
+225.9249999999999
  31
 0.0
 100
@@ -15855,11 +15855,11 @@ AcDbText
  10
 32.0
  20
-224.09999999999988
+222.8749999999999
  30
 0.0
  40
-1.4
+2.0
   1
   5  Joints are located AWAY from the blast-door openings, the escape-shaft
   7
@@ -15867,7 +15867,7 @@ OpenSans
  11
 32.0
  21
-224.09999999999988
+222.8749999999999
  31
 0.0
 100
@@ -15887,11 +15887,11 @@ AcDbText
  10
 32.0
  20
-221.04999999999987
+219.82499999999987
  30
 0.0
  40
-1.4
+2.0
   1
      collars and the stair-void re-entrant corners.
   7
@@ -15899,7 +15899,7 @@ OpenSans
  11
 32.0
  21
-221.04999999999987
+219.82499999999987
  31
 0.0
 100
@@ -15919,19 +15919,19 @@ AcDbText
  10
 32.0
  20
-217.99999999999986
+213.72499999999985
  30
 0.0
  40
-1.4
+2.0
   1
-
+*** NO MOVEMENT JOINT ANYWHERE INSIDE THE PROTECTIVE ENVELOPE. ***
   7
 OpenSans
  11
 32.0
  21
-217.99999999999986
+213.72499999999985
  31
 0.0
 100
@@ -15951,19 +15951,19 @@ AcDbText
  10
 32.0
  20
-214.94999999999985
+210.67499999999984
  30
 0.0
  40
-1.4
+2.0
   1
-*** NO MOVEMENT JOINT ANYWHERE INSIDE THE PROTECTIVE ENVELOPE. ***
+A movement joint is a GUARANTEED BLAST, GAS AND EMP DISCONTINUITY.  The
   7
 OpenSans
  11
 32.0
  21
-214.94999999999985
+210.67499999999984
  31
 0.0
 100
@@ -15983,19 +15983,19 @@ AcDbText
  10
 32.0
  20
-211.89999999999984
+207.62499999999983
  30
 0.0
  40
-1.4
+2.0
   1
-A movement joint is a GUARANTEED BLAST, GAS AND EMP DISCONTINUITY.  The
+only movement joint on the project is where the entry-stairwell raft meets
   7
 OpenSans
  11
 32.0
  21
-211.89999999999984
+207.62499999999983
  31
 0.0
 100
@@ -16015,19 +16015,19 @@ AcDbText
  10
 32.0
  20
-208.84999999999982
+204.57499999999982
  30
 0.0
  40
-1.4
+2.0
   1
-only movement joint on the project is where the entry-stairwell raft meets
+the headhouse - and that raft is OUTSIDE the protective boundary and is
   7
 OpenSans
  11
 32.0
  21
-208.84999999999982
+204.57499999999982
  31
 0.0
 100
@@ -16047,19 +16047,19 @@ AcDbText
  10
 32.0
  20
-205.7999999999998
+201.5249999999998
  30
 0.0
  40
-1.4
+2.0
   1
-the headhouse - and that raft is OUTSIDE the protective boundary and is
+declared expendable.
   7
 OpenSans
  11
 32.0
  21
-205.7999999999998
+201.5249999999998
  31
 0.0
 100
@@ -16079,19 +16079,19 @@ AcDbText
  10
 32.0
  20
-202.7499999999998
+195.42499999999978
  30
 0.0
  40
-1.4
+2.0
   1
-declared expendable.
+*** C16 OPEN ***  The roof / platform junction at that same location is not
   7
 OpenSans
  11
 32.0
  21
-202.7499999999998
+195.42499999999978
  31
 0.0
 100
@@ -16111,19 +16111,19 @@ AcDbText
  10
 32.0
  20
-199.6999999999998
+192.37499999999977
  30
 0.0
  40
-1.4
+2.0
   1
-
+resolved.  The MOVEMENT JOINT IN THE RAFT is fixed and is not affected;
   7
 OpenSans
  11
 32.0
  21
-199.6999999999998
+192.37499999999977
  31
 0.0
 100
@@ -16143,75 +16143,11 @@ AcDbText
  10
 32.0
  20
-196.64999999999978
+189.32499999999976
  30
 0.0
  40
-1.4
-  1
-*** C16 OPEN ***  The roof / platform junction at that same location is not
-  7
-OpenSans
- 11
-32.0
- 21
-196.64999999999978
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-185
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-32.0
- 20
-193.59999999999977
- 30
-0.0
- 40
-1.4
-  1
-resolved.  The MOVEMENT JOINT IN THE RAFT is fixed and is not affected;
-  7
-OpenSans
- 11
-32.0
- 21
-193.59999999999977
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-186
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-32.0
- 20
-190.54999999999976
- 30
-0.0
- 40
-1.4
+2.0
   1
 the ROOF junction above it cannot be detailed until C16 is ruled on.
   7
@@ -16219,7 +16155,7 @@ OpenSans
  11
 32.0
  21
-190.54999999999976
+189.32499999999976
  31
 0.0
 100
@@ -16227,7 +16163,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-187
+185
 330
 17
 100
@@ -16243,11 +16179,11 @@ AcDbPolyline
  10
 30.0
  20
-185.49999999999974
+184.27499999999975
  10
 330.0
  20
-185.49999999999974
+184.27499999999975
  10
 330.0
  20
@@ -16259,7 +16195,7 @@ AcDbPolyline
   0
 TEXT
   5
-188
+186
 330
 17
 100
@@ -16271,7 +16207,7 @@ AcDbText
  10
 342.0
  20
-258.6
+257.5
  30
 0.0
  40
@@ -16283,7 +16219,71 @@ OpenSans
  11
 342.0
  21
-258.6
+257.5
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+187
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+342.0
+ 20
+253.375
+ 30
+0.0
+ 40
+2.0
+  1
+The reinforcement cage is the primary EMP shield for the shelter, which
+  7
+OpenSans
+ 11
+342.0
+ 21
+253.375
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+188
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+342.0
+ 20
+250.325
+ 30
+0.0
+ 40
+2.0
+  1
+is why the bar spacing is capped at 150 mm both curtains - a limit that
+  7
+OpenSans
+ 11
+342.0
+ 21
+250.325
  31
 0.0
 100
@@ -16303,19 +16303,19 @@ AcDbText
  10
 342.0
  20
-254.6
+247.27499999999998
  30
 0.0
  40
-1.4
+2.0
   1
-The reinforcement cage is the primary EMP shield for the shelter, which
+is stricter than any IS 456 requirement and that governs the main steel
   7
 OpenSans
  11
 342.0
  21
-254.6
+247.27499999999998
  31
 0.0
 100
@@ -16335,19 +16335,19 @@ AcDbText
  10
 342.0
  20
-251.54999999999998
+244.22499999999997
  30
 0.0
  40
-1.4
+2.0
   1
-is why the bar spacing is capped at 150 mm both curtains - a limit that
+spacing of every element in this package.
   7
 OpenSans
  11
 342.0
  21
-251.54999999999998
+244.22499999999997
  31
 0.0
 100
@@ -16367,19 +16367,19 @@ AcDbText
  10
 342.0
  20
-248.49999999999997
+238.12499999999994
  30
 0.0
  40
-1.4
+2.0
   1
-is stricter than any IS 456 requirement and that governs the main steel
+A pour break is a discontinuity in that shield.  A welded strap restores
   7
 OpenSans
  11
 342.0
  21
-248.49999999999997
+238.12499999999994
  31
 0.0
 100
@@ -16399,19 +16399,19 @@ AcDbText
  10
 342.0
  20
-245.44999999999996
+235.07499999999993
  30
 0.0
  40
-1.4
+2.0
   1
-spacing of every element in this package.
+it.  Reinforcement that is merely lapped across a joint is a structural
   7
 OpenSans
  11
 342.0
  21
-245.44999999999996
+235.07499999999993
  31
 0.0
 100
@@ -16431,19 +16431,19 @@ AcDbText
  10
 342.0
  20
-242.39999999999995
+232.02499999999992
  30
 0.0
  40
-1.4
+2.0
   1
-
+connection but NOT a reliable electrical one.
   7
 OpenSans
  11
 342.0
  21
-242.39999999999995
+232.02499999999992
  31
 0.0
 100
@@ -16463,19 +16463,19 @@ AcDbText
  10
 342.0
  20
-239.34999999999994
+225.9249999999999
  30
 0.0
  40
-1.4
+2.0
   1
-A pour break is a discontinuity in that shield.  A welded strap restores
+THE HONEST LIMIT, STATED BEFORE A REVIEWER FINDS IT:  a rebar cage at
   7
 OpenSans
  11
 342.0
  21
-239.34999999999994
+225.9249999999999
  31
 0.0
 100
@@ -16495,19 +16495,19 @@ AcDbText
  10
 342.0
  20
-236.29999999999993
+222.8749999999999
  30
 0.0
  40
-1.4
+2.0
   1
-it.  Reinforcement that is merely lapped across a joint is a structural
+150 mm centres gives essentially 0 dB of attenuation at 1 GHz.  The
   7
 OpenSans
  11
 342.0
  21
-236.29999999999993
+222.8749999999999
  31
 0.0
 100
@@ -16527,19 +16527,19 @@ AcDbText
  10
 342.0
  20
-233.24999999999991
+219.82499999999987
  30
 0.0
  40
-1.4
+2.0
   1
-connection but NOT a reliable electrical one.
+answer in this project is the EMP Zone 2 welded steel room in Bay 3, not
   7
 OpenSans
  11
 342.0
  21
-233.24999999999991
+219.82499999999987
  31
 0.0
 100
@@ -16559,19 +16559,19 @@ AcDbText
  10
 342.0
  20
-230.1999999999999
+216.77499999999986
  30
 0.0
  40
-1.4
+2.0
   1
-
+the cage.  The cage and its straps handle the low-frequency content and
   7
 OpenSans
  11
 342.0
  21
-230.1999999999999
+216.77499999999986
  31
 0.0
 100
@@ -16591,19 +16591,19 @@ AcDbText
  10
 342.0
  20
-227.1499999999999
+213.72499999999985
  30
 0.0
  40
-1.4
+2.0
   1
-THE HONEST LIMIT, STATED BEFORE A REVIEWER FINDS IT:  a rebar cage at
+the bonding path; they are not the shield.
   7
 OpenSans
  11
 342.0
  21
-227.1499999999999
+213.72499999999985
  31
 0.0
 100
@@ -16623,19 +16623,19 @@ AcDbText
  10
 342.0
  20
-224.09999999999988
+207.62499999999983
  30
 0.0
  40
-1.4
+2.0
   1
-150 mm centres gives essentially 0 dB of attenuation at 1 GHz.  The
+The same reasoning is why every cast-in door frame is WELDED to the cage
   7
 OpenSans
  11
 342.0
  21
-224.09999999999988
+207.62499999999983
  31
 0.0
 100
@@ -16655,25 +16655,25 @@ AcDbText
  10
 342.0
  20
-221.04999999999987
+204.57499999999982
  30
 0.0
  40
-1.4
+2.0
   1
-answer in this project is the EMP Zone 2 welded steel room in Bay 3, not
+rather than simply embedded - R-703.
   7
 OpenSans
  11
 342.0
  21
-221.04999999999987
+204.57499999999982
  31
 0.0
 100
 AcDbText
   0
-TEXT
+LWPOLYLINE
   5
 195
 330
@@ -16681,29 +16681,29 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
-AcDbText
+AcDbPolyline
+ 90
+4
+ 70
+1
  10
-342.0
+340.0
  20
-217.99999999999986
- 30
-0.0
- 40
-1.4
-  1
-the cage.  The cage and its straps handle the low-frequency content and
-  7
-OpenSans
- 11
-342.0
- 21
-217.99999999999986
- 31
-0.0
-100
-AcDbText
+199.5249999999998
+ 10
+638.0
+ 20
+199.5249999999998
+ 10
+638.0
+ 20
+262.0
+ 10
+340.0
+ 20
+262.0
   0
 TEXT
   5
@@ -16713,25 +16713,25 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
 AcDbText
  10
-342.0
+650.0
  20
-214.94999999999985
+547.5
  30
 0.0
  40
-1.4
+2.5
   1
-the bonding path; they are not the shield.
+MATERIALS, COVER AND ANCHORAGE
   7
 OpenSans
  11
-342.0
+650.0
  21
-214.94999999999985
+547.5
  31
 0.0
 100
@@ -16749,21 +16749,21 @@ S-NOTE
 100
 AcDbText
  10
-342.0
+650.0
  20
-211.89999999999984
+543.375
  30
 0.0
  40
-1.4
+2.0
   1
-
+CONCRETE          M35 to IS 456 Table 5.  w/c <= 0.45, cement >= 340 kg/m3.
   7
 OpenSans
  11
-342.0
+650.0
  21
-211.89999999999984
+543.375
  31
 0.0
 100
@@ -16781,21 +16781,21 @@ S-NOTE
 100
 AcDbText
  10
-342.0
+650.0
  20
-208.84999999999982
+540.375
  30
 0.0
  40
-1.4
+2.0
   1
-The same reasoning is why every cast-in door frame is WELDED to the cage
+                  Integral crystalline waterproofing admixture.
   7
 OpenSans
  11
-342.0
+650.0
  21
-208.84999999999982
+540.375
  31
 0.0
 100
@@ -16813,27 +16813,27 @@ S-NOTE
 100
 AcDbText
  10
-342.0
+650.0
  20
-205.7999999999998
+537.375
  30
 0.0
  40
-1.4
+2.0
   1
-rather than simply embedded - R-703.
+                  Blinding M15, 100 thk.
   7
 OpenSans
  11
-342.0
+650.0
  21
-205.7999999999998
+537.375
  31
 0.0
 100
 AcDbText
   0
-LWPOLYLINE
+TEXT
   5
 19A
 330
@@ -16841,29 +16841,29 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbText
  10
-340.0
+650.0
  20
-200.7499999999998
- 10
-638.0
- 20
-200.7499999999998
- 10
-638.0
- 20
-262.0
- 10
-340.0
- 20
-262.0
+534.375
+ 30
+0.0
+ 40
+2.0
+  1
+REINFORCEMENT     Fe500D to IS 1786:2008.
+  7
+OpenSans
+ 11
+650.0
+ 21
+534.375
+ 31
+0.0
+100
+AcDbText
   0
 TEXT
   5
@@ -16873,25 +16873,25 @@ TEXT
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
 AcDbText
  10
 650.0
  20
-548.6
+531.375
  30
 0.0
  40
-2.5
+2.0
   1
-MATERIALS, COVER AND ANCHORAGE
+Ec = 5000 sqrt(fck) = 29 580 N/mm2   (IS 456 Cl. 6.2.3.1)
   7
 OpenSans
  11
 650.0
  21
-548.6
+531.375
  31
 0.0
 100
@@ -16911,19 +16911,19 @@ AcDbText
  10
 650.0
  20
-544.6
+528.375
  30
 0.0
  40
-1.4
+2.0
   1
-CONCRETE          M35 to IS 456 Table 5.  w/c <= 0.45, cement >= 340 kg/m3.
+gamma_m           1.5 concrete / 1.15 steel  (IS 456 Cl. 36.4.2)
   7
 OpenSans
  11
 650.0
  21
-544.6
+528.375
  31
 0.0
 100
@@ -16943,19 +16943,19 @@ AcDbText
  10
 650.0
  20
-541.6
+522.375
  30
 0.0
  40
-1.4
+2.0
   1
-                  Integral crystalline waterproofing admixture.
+BLAST CASE ONLY   IS 4991 Cl. 10.3.1:  fck,dyn 43.75  ·  fy,dyn 625
   7
 OpenSans
  11
 650.0
  21
-541.6
+522.375
  31
 0.0
 100
@@ -16975,19 +16975,19 @@ AcDbText
  10
 650.0
  20
-538.6
+519.375
  30
 0.0
  40
-1.4
+2.0
   1
-                  Blinding M15, 100 thk.
+*** NO DYNAMIC INCREASE ON SHEAR - IS 4991 Cl. 10.3.1.1 ***
   7
 OpenSans
  11
 650.0
  21
-538.6
+519.375
  31
 0.0
 100
@@ -17007,19 +17007,19 @@ AcDbText
  10
 650.0
  20
-535.6
+516.375
  30
 0.0
  40
-1.4
+2.0
   1
-REINFORCEMENT     Fe500D to IS 1786:2008.
+tau_c and tau_c,max are read at the STATIC M35 value in every check.
   7
 OpenSans
  11
 650.0
  21
-535.6
+516.375
  31
 0.0
 100
@@ -17039,19 +17039,19 @@ AcDbText
  10
 650.0
  20
-532.6
+510.375
  30
 0.0
  40
-1.4
+2.0
   1
-Ec = 5000 sqrt(fck) = 29 580 N/mm2   (IS 456 Cl. 6.2.3.1)
+COVER   75 cast against blinding · 50 formed earth face
   7
 OpenSans
  11
 650.0
  21
-532.6
+510.375
  31
 0.0
 100
@@ -17071,19 +17071,19 @@ AcDbText
  10
 650.0
  20
-529.6
+507.375
  30
 0.0
  40
-1.4
+2.0
   1
-gamma_m           1.5 concrete / 1.15 steel  (IS 456 Cl. 36.4.2)
+        40 internal · 30 stair-shaft faces
   7
 OpenSans
  11
 650.0
  21
-529.6
+507.375
  31
 0.0
 100
@@ -17103,19 +17103,19 @@ AcDbText
  10
 650.0
  20
-526.6
+504.375
  30
 0.0
  40
-1.4
+2.0
   1
-
+        The 5 mm reduction IS 456 Table 16 permits for M35 is NOT taken.
   7
 OpenSans
  11
 650.0
  21
-526.6
+504.375
  31
 0.0
 100
@@ -17135,19 +17135,19 @@ AcDbText
  10
 650.0
  20
-523.6
+498.375
  30
 0.0
  40
-1.4
+2.0
   1
-BLAST CASE ONLY   IS 4991 Cl. 10.3.1:  fck,dyn 43.75  ·  fy,dyn 625
+Ld TENSION 40 phi  ·  Ld COMPRESSION 32 phi  ·  LAP 50 phi STAGGERED
   7
 OpenSans
  11
 650.0
  21
-523.6
+498.375
  31
 0.0
 100
@@ -17167,19 +17167,19 @@ AcDbText
  10
 650.0
  20
-520.6
+495.375
  30
 0.0
  40
-1.4
+2.0
   1
-*** NO DYNAMIC INCREASE ON SHEAR - IS 4991 Cl. 10.3.1.1 ***
+T8 320/400 · T10 400/500 · T12 480/600 · T16 640/800
   7
 OpenSans
  11
 650.0
  21
-520.6
+495.375
  31
 0.0
 100
@@ -17199,19 +17199,19 @@ AcDbText
  10
 650.0
  20
-517.6
+492.375
  30
 0.0
  40
-1.4
+2.0
   1
-tau_c and tau_c,max are read at the STATIC M35 value in every check.
+T20 800/1000 · T25 1000/1250        (Ld / lap, mm)
   7
 OpenSans
  11
 650.0
  21
-517.6
+492.375
  31
 0.0
 100
@@ -17231,19 +17231,19 @@ AcDbText
  10
 650.0
  20
-514.6
+489.375
  30
 0.0
  40
-1.4
+2.0
   1
-
+The IS 4991 Cl. 10.3.1.1 +25 % blast bond allowance is NOT taken.
   7
 OpenSans
  11
 650.0
  21
-514.6
+489.375
  31
 0.0
 100
@@ -17263,19 +17263,19 @@ AcDbText
  10
 650.0
  20
-511.6
+483.375
  30
 0.0
  40
-1.4
+2.0
   1
-COVER   75 cast against blinding · 50 formed earth face
+*** MAXIMUM BAR SPACING 150 BOTH CURTAINS - EMP REQUIREMENT ***
   7
 OpenSans
  11
 650.0
  21
-511.6
+483.375
  31
 0.0
 100
@@ -17295,299 +17295,11 @@ AcDbText
  10
 650.0
  20
-508.6
+480.375
  30
 0.0
  40
-1.4
-  1
-        40 internal · 30 stair-shaft faces
-  7
-OpenSans
- 11
-650.0
- 21
-508.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1A9
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-505.6
- 30
-0.0
- 40
-1.4
-  1
-        The 5 mm reduction IS 456 Table 16 permits for M35 is NOT taken.
-  7
-OpenSans
- 11
-650.0
- 21
-505.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1AA
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-502.6
- 30
-0.0
- 40
-1.4
-  1
-
-  7
-OpenSans
- 11
-650.0
- 21
-502.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1AB
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-499.6
- 30
-0.0
- 40
-1.4
-  1
-Ld TENSION 40 phi  ·  Ld COMPRESSION 32 phi  ·  LAP 50 phi STAGGERED
-  7
-OpenSans
- 11
-650.0
- 21
-499.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1AC
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-496.6
- 30
-0.0
- 40
-1.4
-  1
-T8 320/400 · T10 400/500 · T12 480/600 · T16 640/800
-  7
-OpenSans
- 11
-650.0
- 21
-496.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1AD
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-493.6
- 30
-0.0
- 40
-1.4
-  1
-T20 800/1000 · T25 1000/1250        (Ld / lap, mm)
-  7
-OpenSans
- 11
-650.0
- 21
-493.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1AE
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-490.6
- 30
-0.0
- 40
-1.4
-  1
-The IS 4991 Cl. 10.3.1.1 +25 % blast bond allowance is NOT taken.
-  7
-OpenSans
- 11
-650.0
- 21
-490.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1AF
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-487.6
- 30
-0.0
- 40
-1.4
-  1
-
-  7
-OpenSans
- 11
-650.0
- 21
-487.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1B0
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-484.6
- 30
-0.0
- 40
-1.4
-  1
-*** MAXIMUM BAR SPACING 150 BOTH CURTAINS - EMP REQUIREMENT ***
-  7
-OpenSans
- 11
-650.0
- 21
-484.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1B1
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-481.6
- 30
-0.0
- 40
-1.4
+2.0
   1
     stricter than IS 456 Cl. 26.3.3 and than every code minimum.
   7
@@ -17595,7 +17307,7 @@ OpenSans
  11
 650.0
  21
-481.6
+480.375
  31
 0.0
 100
@@ -17603,7 +17315,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-1B2
+1A9
 330
 17
 100
@@ -17619,11 +17331,11 @@ AcDbPolyline
  10
 648.0
  20
-476.6
+475.375
  10
 831.0
  20
-476.6
+475.375
  10
 831.0
  20
@@ -17635,7 +17347,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-1B3
+1AA
 330
 17
 100
@@ -17667,7 +17379,7 @@ AcDbPolyline
   0
 LINE
   5
-1B4
+1AB
 330
 17
 100
@@ -17691,7 +17403,7 @@ AcDbLine
   0
 LINE
   5
-1B5
+1AC
 330
 17
 100
@@ -17715,7 +17427,7 @@ AcDbLine
   0
 LINE
   5
-1B6
+1AD
 330
 17
 100
@@ -17739,7 +17451,7 @@ AcDbLine
   0
 LINE
   5
-1B7
+1AE
 330
 17
 100
@@ -17763,7 +17475,7 @@ AcDbLine
   0
 LINE
   5
-1B8
+1AF
 330
 17
 100
@@ -17787,7 +17499,7 @@ AcDbLine
   0
 LINE
   5
-1B9
+1B0
 330
 17
 100
@@ -17811,7 +17523,7 @@ AcDbLine
   0
 LINE
   5
-1BA
+1B1
 330
 17
 100
@@ -17835,7 +17547,7 @@ AcDbLine
   0
 TEXT
   5
-1BB
+1B2
 330
 17
 100
@@ -17867,7 +17579,7 @@ AcDbText
   0
 TEXT
   5
-1BC
+1B3
 330
 17
 100
@@ -17899,7 +17611,7 @@ AcDbText
   0
 TEXT
   5
-1BD
+1B4
 330
 17
 100
@@ -17931,7 +17643,7 @@ AcDbText
   0
 TEXT
   5
-1BE
+1B5
 330
 17
 100
@@ -17963,7 +17675,7 @@ AcDbText
   0
 TEXT
   5
-1BF
+1B6
 330
 17
 100
@@ -17995,7 +17707,7 @@ AcDbText
   0
 TEXT
   5
-1C0
+1B7
 330
 17
 100
@@ -18027,7 +17739,7 @@ AcDbText
   0
 LINE
   5
-1C1
+1B8
 330
 17
 100
@@ -18051,7 +17763,7 @@ AcDbLine
   0
 TEXT
   5
-1C2
+1B9
 330
 17
 100
@@ -18083,7 +17795,7 @@ AcDbText
   0
 TEXT
   5
-1C3
+1BA
 330
 17
 100
@@ -18115,7 +17827,7 @@ AcDbText
   0
 TEXT
   5
-1C4
+1BB
 330
 17
 100
@@ -18147,7 +17859,7 @@ AcDbText
   0
 TEXT
   5
-1C5
+1BC
 330
 17
 100
@@ -18179,7 +17891,7 @@ AcDbText
   0
 TEXT
   5
-1C6
+1BD
 330
 17
 100
@@ -18211,7 +17923,7 @@ AcDbText
   0
 TEXT
   5
-1C7
+1BE
 330
 17
 100
@@ -18243,7 +17955,7 @@ AcDbText
   0
 TEXT
   5
-1C8
+1BF
 330
 17
 100
@@ -18275,7 +17987,7 @@ AcDbText
   0
 TEXT
   5
-1C9
+1C0
 330
 17
 100
@@ -18307,7 +18019,7 @@ AcDbText
   0
 TEXT
   5
-1CA
+1C1
 330
 17
 100
@@ -18339,7 +18051,7 @@ AcDbText
   0
 TEXT
   5
-1CB
+1C2
 330
 17
 100
@@ -18371,7 +18083,7 @@ AcDbText
   0
 TEXT
   5
-1CC
+1C3
 330
 17
 100
@@ -18403,7 +18115,7 @@ AcDbText
   0
 TEXT
   5
-1CD
+1C4
 330
 17
 100
@@ -18435,7 +18147,7 @@ AcDbText
   0
 TEXT
   5
-1CE
+1C5
 330
 17
 100
@@ -18467,7 +18179,7 @@ AcDbText
   0
 TEXT
   5
-1CF
+1C6
 330
 17
 100
@@ -19587,7 +19299,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-1D2
+1C9
   0
 DICTIONARYVAR
   5
@@ -19599,7 +19311,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-05T02:21:08.095222+00:00
+1.4.4 @ 2026-09-10T10:31:09.589114+00:00
   0
 VISUALSTYLE
   5
@@ -20303,7 +20015,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-1D2
+1C9
 330
 2D
 100
@@ -20311,7 +20023,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-05T02:21:08.111177+00:00
+1.4.4 @ 2026-09-10T10:31:09.600737+00:00
   0
 ENDSEC
   0

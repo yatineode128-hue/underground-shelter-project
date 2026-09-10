@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461289.097997685
+2461294.438298611
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461289.0980092594
+2461294.438298611
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-1A6
+19D
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{C7D1FB8B-9E25-42F5-8CFF-9A53B3C5769D}
+{502DDF5E-467C-4BC0-B92A-6573A4004D29}
   9
 $VERSIONGUID
   2
-{6AE521D8-0F9A-477D-B973-3D7E1D6243D9}
+{B97CBC00-B4E3-4273-8EF4-504AB34BBB6C}
   9
 $EXTNAMES
 290
@@ -1323,9 +1323,9 @@ ISM
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -1339,9 +1339,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -3819,7 +3819,7 @@ AcAecLayerStandard
   0
 APPID
   5
-1A3
+19A
 330
 3
 100
@@ -3833,7 +3833,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-1A4
+19B
 330
 3
 100
@@ -9013,7 +9013,7 @@ AcDbText
  10
 60.0
  20
-555.0
+545.0
  30
 0.0
  40
@@ -9025,7 +9025,7 @@ OpenSans
  11
 60.0
  21
-555.0
+545.0
  31
 0.0
 100
@@ -9081,7 +9081,7 @@ AcDbLine
  30
 0.0
  11
-122.4
+144.59979906229069
  21
 550.2
  31
@@ -9513,7 +9513,7 @@ AcDbLine
  30
 0.0
  11
-453.16
+465.3251841929002
  21
 550.2
  31
@@ -9629,11 +9629,11 @@ AcDbText
  10
 31.4
  20
-288.3
+288.5
  30
 0.0
  40
-1.6
+2.0
   1
 BAR
   7
@@ -9641,7 +9641,7 @@ OpenSans
  11
 31.4
  21
-288.3
+288.5
  31
 0.0
 100
@@ -9661,11 +9661,11 @@ AcDbText
  10
 55.4
  20
-288.3
+288.5
  30
 0.0
  40
-1.6
+2.0
   1
 LAP mm
   7
@@ -9673,7 +9673,7 @@ OpenSans
  11
 55.4
  21
-288.3
+288.5
  31
 0.0
 100
@@ -9693,11 +9693,11 @@ AcDbText
  10
 91.4
  20
-288.3
+288.5
  30
 0.0
  40
-1.6
+2.0
   1
 = 50 phi
   7
@@ -9705,7 +9705,7 @@ OpenSans
  11
 91.4
  21
-288.3
+288.5
  31
 0.0
 100
@@ -9725,11 +9725,11 @@ AcDbText
  10
 127.4
  20
-288.3
+288.5
  30
 0.0
  40
-1.6
+2.0
   1
 ARRANGEMENT
   7
@@ -9737,7 +9737,7 @@ OpenSans
  11
 127.4
  21
-288.3
+288.5
  31
 0.0
 100
@@ -9757,11 +9757,11 @@ AcDbText
  10
 31.4
  20
-283.3
+283.5
  30
 0.0
  40
-1.6
+2.0
   1
 T8
   7
@@ -9769,7 +9769,7 @@ OpenSans
  11
 31.4
  21
-283.3
+283.5
  31
 0.0
 100
@@ -9789,11 +9789,11 @@ AcDbText
  10
 55.4
  20
-283.3
+283.5
  30
 0.0
  40
-1.6
+2.0
   1
 400
   7
@@ -9801,7 +9801,7 @@ OpenSans
  11
 55.4
  21
-283.3
+283.5
  31
 0.0
 100
@@ -9821,11 +9821,11 @@ AcDbText
  10
 91.4
  20
-283.3
+283.5
  30
 0.0
  40
-1.6
+2.0
   1
 400
   7
@@ -9833,7 +9833,7 @@ OpenSans
  11
 91.4
  21
-283.3
+283.5
  31
 0.0
 100
@@ -9853,11 +9853,11 @@ AcDbText
  10
 127.4
  20
-283.3
+283.5
  30
 0.0
  40
-1.6
+2.0
   1
 STAGGERED
   7
@@ -9865,7 +9865,7 @@ OpenSans
  11
 127.4
  21
-283.3
+283.5
  31
 0.0
 100
@@ -9909,11 +9909,11 @@ AcDbText
  10
 31.4
  20
-278.3
+278.5
  30
 0.0
  40
-1.6
+2.0
   1
 T10
   7
@@ -9921,7 +9921,7 @@ OpenSans
  11
 31.4
  21
-278.3
+278.5
  31
 0.0
 100
@@ -9941,11 +9941,11 @@ AcDbText
  10
 55.4
  20
-278.3
+278.5
  30
 0.0
  40
-1.6
+2.0
   1
 500
   7
@@ -9953,7 +9953,7 @@ OpenSans
  11
 55.4
  21
-278.3
+278.5
  31
 0.0
 100
@@ -9973,11 +9973,11 @@ AcDbText
  10
 91.4
  20
-278.3
+278.5
  30
 0.0
  40
-1.6
+2.0
   1
 500
   7
@@ -9985,7 +9985,7 @@ OpenSans
  11
 91.4
  21
-278.3
+278.5
  31
 0.0
 100
@@ -10005,11 +10005,11 @@ AcDbText
  10
 127.4
  20
-278.3
+278.5
  30
 0.0
  40
-1.6
+2.0
   1
 STAGGERED
   7
@@ -10017,7 +10017,7 @@ OpenSans
  11
 127.4
  21
-278.3
+278.5
  31
 0.0
 100
@@ -10061,11 +10061,11 @@ AcDbText
  10
 31.4
  20
-273.3
+273.5
  30
 0.0
  40
-1.6
+2.0
   1
 T12
   7
@@ -10073,7 +10073,7 @@ OpenSans
  11
 31.4
  21
-273.3
+273.5
  31
 0.0
 100
@@ -10093,11 +10093,11 @@ AcDbText
  10
 55.4
  20
-273.3
+273.5
  30
 0.0
  40
-1.6
+2.0
   1
 600
   7
@@ -10105,7 +10105,7 @@ OpenSans
  11
 55.4
  21
-273.3
+273.5
  31
 0.0
 100
@@ -10125,11 +10125,11 @@ AcDbText
  10
 91.4
  20
-273.3
+273.5
  30
 0.0
  40
-1.6
+2.0
   1
 600
   7
@@ -10137,7 +10137,7 @@ OpenSans
  11
 91.4
  21
-273.3
+273.5
  31
 0.0
 100
@@ -10157,11 +10157,11 @@ AcDbText
  10
 127.4
  20
-273.3
+273.5
  30
 0.0
  40
-1.6
+2.0
   1
 STAGGERED
   7
@@ -10169,7 +10169,7 @@ OpenSans
  11
 127.4
  21
-273.3
+273.5
  31
 0.0
 100
@@ -10213,11 +10213,11 @@ AcDbText
  10
 31.4
  20
-268.3
+268.5
  30
 0.0
  40
-1.6
+2.0
   1
 T16
   7
@@ -10225,7 +10225,7 @@ OpenSans
  11
 31.4
  21
-268.3
+268.5
  31
 0.0
 100
@@ -10245,11 +10245,11 @@ AcDbText
  10
 55.4
  20
-268.3
+268.5
  30
 0.0
  40
-1.6
+2.0
   1
 800
   7
@@ -10257,7 +10257,7 @@ OpenSans
  11
 55.4
  21
-268.3
+268.5
  31
 0.0
 100
@@ -10277,11 +10277,11 @@ AcDbText
  10
 91.4
  20
-268.3
+268.5
  30
 0.0
  40
-1.6
+2.0
   1
 800
   7
@@ -10289,7 +10289,7 @@ OpenSans
  11
 91.4
  21
-268.3
+268.5
  31
 0.0
 100
@@ -10309,11 +10309,11 @@ AcDbText
  10
 127.4
  20
-268.3
+268.5
  30
 0.0
  40
-1.6
+2.0
   1
 STAGGERED
   7
@@ -10321,7 +10321,7 @@ OpenSans
  11
 127.4
  21
-268.3
+268.5
  31
 0.0
 100
@@ -10365,11 +10365,11 @@ AcDbText
  10
 31.4
  20
-263.3
+263.5
  30
 0.0
  40
-1.6
+2.0
   1
 T20
   7
@@ -10377,7 +10377,7 @@ OpenSans
  11
 31.4
  21
-263.3
+263.5
  31
 0.0
 100
@@ -10397,11 +10397,11 @@ AcDbText
  10
 55.4
  20
-263.3
+263.5
  30
 0.0
  40
-1.6
+2.0
   1
 1000
   7
@@ -10409,7 +10409,7 @@ OpenSans
  11
 55.4
  21
-263.3
+263.5
  31
 0.0
 100
@@ -10429,11 +10429,11 @@ AcDbText
  10
 91.4
  20
-263.3
+263.5
  30
 0.0
  40
-1.6
+2.0
   1
 1000
   7
@@ -10441,7 +10441,7 @@ OpenSans
  11
 91.4
  21
-263.3
+263.5
  31
 0.0
 100
@@ -10461,11 +10461,11 @@ AcDbText
  10
 127.4
  20
-263.3
+263.5
  30
 0.0
  40
-1.6
+2.0
   1
 STAGGERED
   7
@@ -10473,7 +10473,7 @@ OpenSans
  11
 127.4
  21
-263.3
+263.5
  31
 0.0
 100
@@ -10517,11 +10517,11 @@ AcDbText
  10
 31.4
  20
-258.3
+258.5
  30
 0.0
  40
-1.6
+2.0
   1
 T25
   7
@@ -10529,7 +10529,7 @@ OpenSans
  11
 31.4
  21
-258.3
+258.5
  31
 0.0
 100
@@ -10549,11 +10549,11 @@ AcDbText
  10
 55.4
  20
-258.3
+258.5
  30
 0.0
  40
-1.6
+2.0
   1
 1250
   7
@@ -10561,7 +10561,7 @@ OpenSans
  11
 55.4
  21
-258.3
+258.5
  31
 0.0
 100
@@ -10581,11 +10581,11 @@ AcDbText
  10
 91.4
  20
-258.3
+258.5
  30
 0.0
  40
-1.6
+2.0
   1
 1250
   7
@@ -10593,7 +10593,7 @@ OpenSans
  11
 91.4
  21
-258.3
+258.5
  31
 0.0
 100
@@ -10613,11 +10613,11 @@ AcDbText
  10
 127.4
  20
-258.3
+258.5
  30
 0.0
  40
-1.6
+2.0
   1
 STAGGERED
   7
@@ -10625,7 +10625,7 @@ OpenSans
  11
 127.4
  21
-258.3
+258.5
  31
 0.0
 100
@@ -10813,7 +10813,7 @@ AcDbText
  10
 202.0
  20
-296.6
+295.5
  30
 0.0
  40
@@ -10825,7 +10825,7 @@ OpenSans
  11
 202.0
  21
-296.6
+295.5
  31
 0.0
 100
@@ -10845,11 +10845,11 @@ AcDbText
  10
 202.0
  20
-292.6
+291.375
  30
 0.0
  40
-1.4
+2.0
   1
 IS 456 Cl. 26.2.5.1(c) gives lap = Ld or 30 phi, whichever is GREATER.
   7
@@ -10857,7 +10857,7 @@ OpenSans
  11
 202.0
  21
-292.6
+291.375
  31
 0.0
 100
@@ -10877,11 +10877,11 @@ AcDbText
  10
 202.0
  20
-289.55
+288.325
  30
 0.0
  40
-1.4
+2.0
   1
 For M35 / Fe500D that is 40 phi.
   7
@@ -10889,7 +10889,7 @@ OpenSans
  11
 202.0
  21
-289.55
+288.325
  31
 0.0
 100
@@ -10909,19 +10909,19 @@ AcDbText
  10
 202.0
  20
-286.5
+282.22499999999997
  30
 0.0
  40
-1.4
+2.0
   1
-
+IS 456 Cl. 26.2.5.1 requires the lap to be INCREASED BY x1.4 IF MORE
   7
 OpenSans
  11
 202.0
  21
-286.5
+282.22499999999997
  31
 0.0
 100
@@ -10941,19 +10941,19 @@ AcDbText
  10
 202.0
  20
-283.45
+279.17499999999995
  30
 0.0
  40
-1.4
+2.0
   1
-IS 456 Cl. 26.2.5.1 requires the lap to be INCREASED BY x1.4 IF MORE
+THAN 50 % OF THE BARS ARE LAPPED AT ONE SECTION.
   7
 OpenSans
  11
 202.0
  21
-283.45
+279.17499999999995
  31
 0.0
 100
@@ -10973,19 +10973,19 @@ AcDbText
  10
 202.0
  20
-280.4
+273.07499999999993
  30
 0.0
  40
-1.4
+2.0
   1
-THAN 50 % OF THE BARS ARE LAPPED AT ONE SECTION.
+THIS PACKAGE DOES BOTH THINGS AT ONCE:
   7
 OpenSans
  11
 202.0
  21
-280.4
+273.07499999999993
  31
 0.0
 100
@@ -11005,19 +11005,19 @@ AcDbText
  10
 202.0
  20
-277.34999999999997
+270.0249999999999
  30
 0.0
  40
-1.4
+2.0
   1
-
+  1  EVERY LAP IS STAGGERED so that not more than 50 % of the bars in
   7
 OpenSans
  11
 202.0
  21
-277.34999999999997
+270.0249999999999
  31
 0.0
 100
@@ -11037,19 +11037,19 @@ AcDbText
  10
 202.0
  20
-274.29999999999995
+266.9749999999999
  30
 0.0
  40
-1.4
+2.0
   1
-THIS PACKAGE DOES BOTH THINGS AT ONCE:
+     a curtain are spliced at any one section - so the x1.4 factor is
   7
 OpenSans
  11
 202.0
  21
-274.29999999999995
+266.9749999999999
  31
 0.0
 100
@@ -11069,19 +11069,19 @@ AcDbText
  10
 202.0
  20
-271.24999999999994
+263.9249999999999
  30
 0.0
  40
-1.4
+2.0
   1
-  1  EVERY LAP IS STAGGERED so that not more than 50 % of the bars in
+     NOT TRIGGERED; and
   7
 OpenSans
  11
 202.0
  21
-271.24999999999994
+263.9249999999999
  31
 0.0
 100
@@ -11101,19 +11101,19 @@ AcDbText
  10
 202.0
  20
-268.19999999999993
+260.8749999999999
  30
 0.0
  40
-1.4
+2.0
   1
-     a curtain are spliced at any one section - so the x1.4 factor is
+  2  THE LAP IS SPECIFIED AT 50 phi ANYWAY - 25 % above the 40 phi
   7
 OpenSans
  11
 202.0
  21
-268.19999999999993
+260.8749999999999
  31
 0.0
 100
@@ -11133,19 +11133,19 @@ AcDbText
  10
 202.0
  20
-265.1499999999999
+257.8249999999999
  30
 0.0
  40
-1.4
+2.0
   1
-     NOT TRIGGERED; and
+     requirement.
   7
 OpenSans
  11
 202.0
  21
-265.1499999999999
+257.8249999999999
  31
 0.0
 100
@@ -11165,19 +11165,19 @@ AcDbText
  10
 202.0
  20
-262.0999999999999
+251.72499999999985
  30
 0.0
  40
-1.4
+2.0
   1
-  2  THE LAP IS SPECIFIED AT 50 phi ANYWAY - 25 % above the 40 phi
+The result is a 25 % margin on a splice length that already avoids the
   7
 OpenSans
  11
 202.0
  21
-262.0999999999999
+251.72499999999985
  31
 0.0
 100
@@ -11197,19 +11197,19 @@ AcDbText
  10
 202.0
  20
-259.0499999999999
+248.67499999999984
  30
 0.0
  40
-1.4
+2.0
   1
-     requirement.
+code penalty.  That margin is deliberate: laps in a blast-loaded
   7
 OpenSans
  11
 202.0
  21
-259.0499999999999
+248.67499999999984
  31
 0.0
 100
@@ -11229,19 +11229,19 @@ AcDbText
  10
 202.0
  20
-255.9999999999999
+245.62499999999983
  30
 0.0
  40
-1.4
+2.0
   1
-
+member see LOAD REVERSAL AND REBOUND, which the static rule does not
   7
 OpenSans
  11
 202.0
  21
-255.9999999999999
+245.62499999999983
  31
 0.0
 100
@@ -11261,19 +11261,19 @@ AcDbText
  10
 202.0
  20
-252.94999999999987
+242.57499999999982
  30
 0.0
  40
-1.4
+2.0
   1
-The result is a 25 % margin on a splice length that already avoids the
+consider, and the SDOF support-rotation check that would quantify
   7
 OpenSans
  11
 202.0
  21
-252.94999999999987
+242.57499999999982
  31
 0.0
 100
@@ -11293,19 +11293,19 @@ AcDbText
  10
 202.0
  20
-249.89999999999986
+239.5249999999998
  30
 0.0
  40
-1.4
+2.0
   1
-code penalty.  That margin is deliberate: laps in a blast-loaded
+rebound is PHASE 3 WORK AND HAS NOT BEEN DONE.
   7
 OpenSans
  11
 202.0
  21
-249.89999999999986
+239.5249999999998
  31
 0.0
 100
@@ -11325,19 +11325,19 @@ AcDbText
  10
 202.0
  20
-246.84999999999985
+233.42499999999978
  30
 0.0
  40
-1.4
+2.0
   1
-member see LOAD REVERSAL AND REBOUND, which the static rule does not
+P-1 STOCK BAR 12 000 mm.  Any run longer than this is split into equal
   7
 OpenSans
  11
 202.0
  21
-246.84999999999985
+233.42499999999978
  31
 0.0
 100
@@ -11357,19 +11357,19 @@ AcDbText
  10
 202.0
  20
-243.79999999999984
+230.37499999999977
  30
 0.0
  40
-1.4
+2.0
   1
-consider, and the SDOF support-rotation check that would quantify
+pieces with 50 phi laps added.  The bar bending schedule states the
   7
 OpenSans
  11
 202.0
  21
-243.79999999999984
+230.37499999999977
  31
 0.0
 100
@@ -11389,19 +11389,19 @@ AcDbText
  10
 202.0
  20
-240.74999999999983
+227.32499999999976
  30
 0.0
  40
-1.4
+2.0
   1
-rebound is PHASE 3 WORK AND HAS NOT BEEN DONE.
+number of pieces for every such mark.
   7
 OpenSans
  11
 202.0
  21
-240.74999999999983
+227.32499999999976
  31
 0.0
 100
@@ -11421,19 +11421,19 @@ AcDbText
  10
 202.0
  20
-237.69999999999982
+221.22499999999974
  30
 0.0
  40
-1.4
+2.0
   1
-
+MECHANICAL COUPLERS ARE NOT SPECIFIED anywhere in this package.  No
   7
 OpenSans
  11
 202.0
  21
-237.69999999999982
+221.22499999999974
  31
 0.0
 100
@@ -11453,25 +11453,25 @@ AcDbText
  10
 202.0
  20
-234.6499999999998
+218.17499999999973
  30
 0.0
  40
-1.4
+2.0
   1
-P-1 STOCK BAR 12 000 mm.  Any run longer than this is split into equal
+coupler performance data exists in the project record.
   7
 OpenSans
  11
 202.0
  21
-234.6499999999998
+218.17499999999973
  31
 0.0
 100
 AcDbText
   0
-TEXT
+LWPOLYLINE
   5
 168
 330
@@ -11479,29 +11479,29 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
-AcDbText
+AcDbPolyline
+ 90
+4
+ 70
+1
  10
-202.0
+200.0
  20
-231.5999999999998
- 30
-0.0
- 40
-1.4
-  1
-pieces with 50 phi laps added.  The bar bending schedule states the
-  7
-OpenSans
- 11
-202.0
- 21
-231.5999999999998
- 31
-0.0
-100
-AcDbText
+213.12499999999972
+ 10
+500.0
+ 20
+213.12499999999972
+ 10
+500.0
+ 20
+300.0
+ 10
+200.0
+ 20
+300.0
   0
 TEXT
   5
@@ -11511,25 +11511,25 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
 AcDbText
  10
-202.0
+650.0
  20
-228.54999999999978
+547.5
  30
 0.0
  40
-1.4
+2.5
   1
-number of pieces for every such mark.
+MATERIALS, COVER AND ANCHORAGE
   7
 OpenSans
  11
-202.0
+650.0
  21
-228.54999999999978
+547.5
  31
 0.0
 100
@@ -11547,21 +11547,21 @@ S-NOTE
 100
 AcDbText
  10
-202.0
+650.0
  20
-225.49999999999977
+543.375
  30
 0.0
  40
-1.4
+2.0
   1
-
+CONCRETE          M35 to IS 456 Table 5.  w/c <= 0.45, cement >= 340 kg/m3.
   7
 OpenSans
  11
-202.0
+650.0
  21
-225.49999999999977
+543.375
  31
 0.0
 100
@@ -11579,21 +11579,21 @@ S-NOTE
 100
 AcDbText
  10
-202.0
+650.0
  20
-222.44999999999976
+540.375
  30
 0.0
  40
-1.4
+2.0
   1
-MECHANICAL COUPLERS ARE NOT SPECIFIED anywhere in this package.  No
+                  Integral crystalline waterproofing admixture.
   7
 OpenSans
  11
-202.0
+650.0
  21
-222.44999999999976
+540.375
  31
 0.0
 100
@@ -11611,27 +11611,27 @@ S-NOTE
 100
 AcDbText
  10
-202.0
+650.0
  20
-219.39999999999975
+537.375
  30
 0.0
  40
-1.4
+2.0
   1
-coupler performance data exists in the project record.
+                  Blinding M15, 100 thk.
   7
 OpenSans
  11
-202.0
+650.0
  21
-219.39999999999975
+537.375
  31
 0.0
 100
 AcDbText
   0
-LWPOLYLINE
+TEXT
   5
 16D
 330
@@ -11639,29 +11639,29 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbText
  10
-200.0
+650.0
  20
-214.34999999999974
- 10
-500.0
- 20
-214.34999999999974
- 10
-500.0
- 20
-300.0
- 10
-200.0
- 20
-300.0
+534.375
+ 30
+0.0
+ 40
+2.0
+  1
+REINFORCEMENT     Fe500D to IS 1786:2008.
+  7
+OpenSans
+ 11
+650.0
+ 21
+534.375
+ 31
+0.0
+100
+AcDbText
   0
 TEXT
   5
@@ -11671,25 +11671,25 @@ TEXT
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
 AcDbText
  10
 650.0
  20
-548.6
+531.375
  30
 0.0
  40
-2.5
+2.0
   1
-MATERIALS, COVER AND ANCHORAGE
+Ec = 5000 sqrt(fck) = 29 580 N/mm2   (IS 456 Cl. 6.2.3.1)
   7
 OpenSans
  11
 650.0
  21
-548.6
+531.375
  31
 0.0
 100
@@ -11709,19 +11709,19 @@ AcDbText
  10
 650.0
  20
-544.6
+528.375
  30
 0.0
  40
-1.4
+2.0
   1
-CONCRETE          M35 to IS 456 Table 5.  w/c <= 0.45, cement >= 340 kg/m3.
+gamma_m           1.5 concrete / 1.15 steel  (IS 456 Cl. 36.4.2)
   7
 OpenSans
  11
 650.0
  21
-544.6
+528.375
  31
 0.0
 100
@@ -11741,19 +11741,19 @@ AcDbText
  10
 650.0
  20
-541.6
+522.375
  30
 0.0
  40
-1.4
+2.0
   1
-                  Integral crystalline waterproofing admixture.
+BLAST CASE ONLY   IS 4991 Cl. 10.3.1:  fck,dyn 43.75  ·  fy,dyn 625
   7
 OpenSans
  11
 650.0
  21
-541.6
+522.375
  31
 0.0
 100
@@ -11773,19 +11773,19 @@ AcDbText
  10
 650.0
  20
-538.6
+519.375
  30
 0.0
  40
-1.4
+2.0
   1
-                  Blinding M15, 100 thk.
+*** NO DYNAMIC INCREASE ON SHEAR - IS 4991 Cl. 10.3.1.1 ***
   7
 OpenSans
  11
 650.0
  21
-538.6
+519.375
  31
 0.0
 100
@@ -11805,19 +11805,19 @@ AcDbText
  10
 650.0
  20
-535.6
+516.375
  30
 0.0
  40
-1.4
+2.0
   1
-REINFORCEMENT     Fe500D to IS 1786:2008.
+tau_c and tau_c,max are read at the STATIC M35 value in every check.
   7
 OpenSans
  11
 650.0
  21
-535.6
+516.375
  31
 0.0
 100
@@ -11837,19 +11837,19 @@ AcDbText
  10
 650.0
  20
-532.6
+510.375
  30
 0.0
  40
-1.4
+2.0
   1
-Ec = 5000 sqrt(fck) = 29 580 N/mm2   (IS 456 Cl. 6.2.3.1)
+COVER   75 cast against blinding · 50 formed earth face
   7
 OpenSans
  11
 650.0
  21
-532.6
+510.375
  31
 0.0
 100
@@ -11869,19 +11869,19 @@ AcDbText
  10
 650.0
  20
-529.6
+507.375
  30
 0.0
  40
-1.4
+2.0
   1
-gamma_m           1.5 concrete / 1.15 steel  (IS 456 Cl. 36.4.2)
+        40 internal · 30 stair-shaft faces
   7
 OpenSans
  11
 650.0
  21
-529.6
+507.375
  31
 0.0
 100
@@ -11901,19 +11901,19 @@ AcDbText
  10
 650.0
  20
-526.6
+504.375
  30
 0.0
  40
-1.4
+2.0
   1
-
+        The 5 mm reduction IS 456 Table 16 permits for M35 is NOT taken.
   7
 OpenSans
  11
 650.0
  21
-526.6
+504.375
  31
 0.0
 100
@@ -11933,19 +11933,19 @@ AcDbText
  10
 650.0
  20
-523.6
+498.375
  30
 0.0
  40
-1.4
+2.0
   1
-BLAST CASE ONLY   IS 4991 Cl. 10.3.1:  fck,dyn 43.75  ·  fy,dyn 625
+Ld TENSION 40 phi  ·  Ld COMPRESSION 32 phi  ·  LAP 50 phi STAGGERED
   7
 OpenSans
  11
 650.0
  21
-523.6
+498.375
  31
 0.0
 100
@@ -11965,19 +11965,19 @@ AcDbText
  10
 650.0
  20
-520.6
+495.375
  30
 0.0
  40
-1.4
+2.0
   1
-*** NO DYNAMIC INCREASE ON SHEAR - IS 4991 Cl. 10.3.1.1 ***
+T8 320/400 · T10 400/500 · T12 480/600 · T16 640/800
   7
 OpenSans
  11
 650.0
  21
-520.6
+495.375
  31
 0.0
 100
@@ -11997,19 +11997,19 @@ AcDbText
  10
 650.0
  20
-517.6
+492.375
  30
 0.0
  40
-1.4
+2.0
   1
-tau_c and tau_c,max are read at the STATIC M35 value in every check.
+T20 800/1000 · T25 1000/1250        (Ld / lap, mm)
   7
 OpenSans
  11
 650.0
  21
-517.6
+492.375
  31
 0.0
 100
@@ -12029,19 +12029,19 @@ AcDbText
  10
 650.0
  20
-514.6
+489.375
  30
 0.0
  40
-1.4
+2.0
   1
-
+The IS 4991 Cl. 10.3.1.1 +25 % blast bond allowance is NOT taken.
   7
 OpenSans
  11
 650.0
  21
-514.6
+489.375
  31
 0.0
 100
@@ -12061,19 +12061,19 @@ AcDbText
  10
 650.0
  20
-511.6
+483.375
  30
 0.0
  40
-1.4
+2.0
   1
-COVER   75 cast against blinding · 50 formed earth face
+*** MAXIMUM BAR SPACING 150 BOTH CURTAINS - EMP REQUIREMENT ***
   7
 OpenSans
  11
 650.0
  21
-511.6
+483.375
  31
 0.0
 100
@@ -12093,299 +12093,11 @@ AcDbText
  10
 650.0
  20
-508.6
+480.375
  30
 0.0
  40
-1.4
-  1
-        40 internal · 30 stair-shaft faces
-  7
-OpenSans
- 11
-650.0
- 21
-508.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-17C
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-505.6
- 30
-0.0
- 40
-1.4
-  1
-        The 5 mm reduction IS 456 Table 16 permits for M35 is NOT taken.
-  7
-OpenSans
- 11
-650.0
- 21
-505.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-17D
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-502.6
- 30
-0.0
- 40
-1.4
-  1
-
-  7
-OpenSans
- 11
-650.0
- 21
-502.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-17E
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-499.6
- 30
-0.0
- 40
-1.4
-  1
-Ld TENSION 40 phi  ·  Ld COMPRESSION 32 phi  ·  LAP 50 phi STAGGERED
-  7
-OpenSans
- 11
-650.0
- 21
-499.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-17F
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-496.6
- 30
-0.0
- 40
-1.4
-  1
-T8 320/400 · T10 400/500 · T12 480/600 · T16 640/800
-  7
-OpenSans
- 11
-650.0
- 21
-496.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-180
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-493.6
- 30
-0.0
- 40
-1.4
-  1
-T20 800/1000 · T25 1000/1250        (Ld / lap, mm)
-  7
-OpenSans
- 11
-650.0
- 21
-493.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-181
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-490.6
- 30
-0.0
- 40
-1.4
-  1
-The IS 4991 Cl. 10.3.1.1 +25 % blast bond allowance is NOT taken.
-  7
-OpenSans
- 11
-650.0
- 21
-490.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-182
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-487.6
- 30
-0.0
- 40
-1.4
-  1
-
-  7
-OpenSans
- 11
-650.0
- 21
-487.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-183
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-484.6
- 30
-0.0
- 40
-1.4
-  1
-*** MAXIMUM BAR SPACING 150 BOTH CURTAINS - EMP REQUIREMENT ***
-  7
-OpenSans
- 11
-650.0
- 21
-484.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-184
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-481.6
- 30
-0.0
- 40
-1.4
+2.0
   1
     stricter than IS 456 Cl. 26.3.3 and than every code minimum.
   7
@@ -12393,7 +12105,7 @@ OpenSans
  11
 650.0
  21
-481.6
+480.375
  31
 0.0
 100
@@ -12401,7 +12113,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-185
+17C
 330
 17
 100
@@ -12417,11 +12129,11 @@ AcDbPolyline
  10
 648.0
  20
-476.6
+475.375
  10
 831.0
  20
-476.6
+475.375
  10
 831.0
  20
@@ -12433,7 +12145,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-186
+17D
 330
 17
 100
@@ -12465,7 +12177,7 @@ AcDbPolyline
   0
 LINE
   5
-187
+17E
 330
 17
 100
@@ -12489,7 +12201,7 @@ AcDbLine
   0
 LINE
   5
-188
+17F
 330
 17
 100
@@ -12513,7 +12225,7 @@ AcDbLine
   0
 LINE
   5
-189
+180
 330
 17
 100
@@ -12537,7 +12249,7 @@ AcDbLine
   0
 LINE
   5
-18A
+181
 330
 17
 100
@@ -12561,7 +12273,7 @@ AcDbLine
   0
 LINE
   5
-18B
+182
 330
 17
 100
@@ -12585,7 +12297,7 @@ AcDbLine
   0
 LINE
   5
-18C
+183
 330
 17
 100
@@ -12609,7 +12321,7 @@ AcDbLine
   0
 LINE
   5
-18D
+184
 330
 17
 100
@@ -12633,7 +12345,7 @@ AcDbLine
   0
 TEXT
   5
-18E
+185
 330
 17
 100
@@ -12665,7 +12377,7 @@ AcDbText
   0
 TEXT
   5
-18F
+186
 330
 17
 100
@@ -12697,7 +12409,7 @@ AcDbText
   0
 TEXT
   5
-190
+187
 330
 17
 100
@@ -12729,7 +12441,7 @@ AcDbText
   0
 TEXT
   5
-191
+188
 330
 17
 100
@@ -12761,7 +12473,7 @@ AcDbText
   0
 TEXT
   5
-192
+189
 330
 17
 100
@@ -12793,7 +12505,7 @@ AcDbText
   0
 TEXT
   5
-193
+18A
 330
 17
 100
@@ -12825,7 +12537,7 @@ AcDbText
   0
 LINE
   5
-194
+18B
 330
 17
 100
@@ -12849,7 +12561,7 @@ AcDbLine
   0
 TEXT
   5
-195
+18C
 330
 17
 100
@@ -12881,7 +12593,7 @@ AcDbText
   0
 TEXT
   5
-196
+18D
 330
 17
 100
@@ -12913,7 +12625,7 @@ AcDbText
   0
 TEXT
   5
-197
+18E
 330
 17
 100
@@ -12945,7 +12657,7 @@ AcDbText
   0
 TEXT
   5
-198
+18F
 330
 17
 100
@@ -12977,7 +12689,7 @@ AcDbText
   0
 TEXT
   5
-199
+190
 330
 17
 100
@@ -13009,7 +12721,7 @@ AcDbText
   0
 TEXT
   5
-19A
+191
 330
 17
 100
@@ -13041,7 +12753,7 @@ AcDbText
   0
 TEXT
   5
-19B
+192
 330
 17
 100
@@ -13073,7 +12785,7 @@ AcDbText
   0
 TEXT
   5
-19C
+193
 330
 17
 100
@@ -13105,7 +12817,7 @@ AcDbText
   0
 TEXT
   5
-19D
+194
 330
 17
 100
@@ -13137,7 +12849,7 @@ AcDbText
   0
 TEXT
   5
-19E
+195
 330
 17
 100
@@ -13169,7 +12881,7 @@ AcDbText
   0
 TEXT
   5
-19F
+196
 330
 17
 100
@@ -13201,7 +12913,7 @@ AcDbText
   0
 TEXT
   5
-1A0
+197
 330
 17
 100
@@ -13233,7 +12945,7 @@ AcDbText
   0
 TEXT
   5
-1A1
+198
 330
 17
 100
@@ -13265,7 +12977,7 @@ AcDbText
   0
 TEXT
   5
-1A2
+199
 330
 17
 100
@@ -14385,7 +14097,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-1A5
+19C
   0
 DICTIONARYVAR
   5
@@ -14397,7 +14109,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-05T02:21:07.997178+00:00
+1.4.4 @ 2026-09-10T10:31:09.523985+00:00
   0
 VISUALSTYLE
   5
@@ -15101,7 +14813,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-1A5
+19C
 330
 2D
 100
@@ -15109,7 +14821,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-05T02:21:08.012542+00:00
+1.4.4 @ 2026-09-10T10:31:09.534020+00:00
   0
 ENDSEC
   0

@@ -58,22 +58,27 @@ def page1():
     V.ground_plan(sh, M, sc, box_below=True)
     sh.rect(*M(P.HH["x0"], P.HH["y0"]), *M(P.HH["x1"], P.HH["y1"]),
             "P-DRAIN-STORM")
+    # QA1 site diagram: these captions were long enough to cross the headhouse
+    # and stairwell outlines and each other.  Split, shortened and moved into
+    # the clear areas of the diagram; nothing is lost.
     sh.text("HEADHOUSE ROOF 27.84 m2", M(16000, 500), 1.8, "P-DRAIN-STORM", "BC")
-    sh.text("STAIRWELL ROOF 13.60 m2", M(12000, 8300), 1.8, "P-DRAIN-STORM", "BC")
-    sh.text("ENGINEERED COVER 136.40 m2  -  SHEDS AT THE SURFACE, NOT PIPED",
-            M(11000, 2600), 1.8, "P-DRAIN-SEEP", "BC")
+    sh.text("STAIRWELL ROOF 13.60 m2", M(12000, 7900), 1.8, "P-DRAIN-STORM", "BC")
+    sh.text("ENGINEERED COVER 136.40 m2", M(2000, 4000), 1.8, "P-DRAIN-SEEP", "ML")
+    sh.text("SHEDS AT THE SURFACE, NOT PIPED", M(2000, 3200), 1.8,
+            "P-DRAIN-SEEP", "ML")
     for x in range(3000, 21000, 4000):
         sh.flow(M(x, -300), -90, 1.8, "P-FLOW")
     c0, c1 = P.ASW["channel"]
     sh.rect(*M(c0, P.ASW["iy0"]), *M(c1, P.ASW["iy1"]), "P-DRAIN-STORM")
-    sh.text("CH-10  300 CHANNEL + GRATING", M(c0 - 900, 8300), 1.8,
+    sh.text("CH-10  300 CHANNEL + GRATING", M(c0 - 4500, 7400), 1.8,
             "P-DRAIN-STORM", "BC")
     sh.sym("GULLY", M(15050, 6750), scale=0.5)
     sh.sym("PUMP", M(15900, 6400), scale=0.5)
     sh.text("SU-02  1.0 m3  +  2 x 2 L/s", M(17400, 6600), 1.8, "P-EQUIP", "ML")
     sh.sym("GULLY", M(14700, 1960), scale=0.5)
-    sh.text("GY-11 -> EXTERNAL SOAKAWAY", M(15600, 1700), 1.8, "P-EQUIP", "ML")
-    sh.text("NEVER TO THE CLEAN SUMP", M(15600, 900), 1.8, "M-FLAG", "ML")
+    sh.leader([M(14900, 1960), M(22600, 2400)], None)
+    sh.text("GY-11 -> EXTERNAL SOAKAWAY", M(23000, 2400), 1.8, "P-EQUIP", "ML")
+    sh.text("NEVER TO THE CLEAN SUMP", M(23000, 1600), 1.8, "M-FLAG", "ML")
 
     # ---- flow chain
     sh.text("FLOW PATH   -   SOURCE / COLLECTION / CONVEYANCE / DISCHARGE", (12, 123), 2.6, "M-TITLE")
@@ -156,8 +161,9 @@ def page2():
     sh.text("SU-01  3.375 m3  IL (-)7.600", M(11818, 200), 1.8, "P-EQUIP", "BC")
     sh.rect(*M(*D.SERVICE_PLATE[:2]), *M(*D.SERVICE_PLATE[2:]),
             "P-DRAIN-RISING")
+    # QA1: this flag used to sit on the "UNDERGROUND PLAN" view title
     sh.text("SERVICE ENTRY PLATE - THE ONLY ENVELOPE PENETRATION",
-            M(11800, 7400), 1.8, "M-FLAG", "BC")
+            M(13400, 7900), 1.8, "M-FLAG", "BC")
     for tag, x, y, l, ty, seal, sv, z, c in D.DRAINS:
         if z in ("Z1", "Z2", "Z3"):
             sh.sym("GULLY", M(x, y), scale=0.45)
@@ -166,6 +172,8 @@ def page2():
     sh.text("TK-01 1000 L", M(20800, 4000), 1.8, "P-DRAIN-EFF", "BC")
     sh.dline(M(14700, 3100), M(20198, 4900), "M-FLAG")
     sh.text("ROUTE NOT DEFINED", M(17400, 3600), 1.8, "M-FLAG", "BC")
+    # QA1: the bay bubbles now sit at (-)900 and the concept strip is just
+    # under the plan, so the zone strip moves ABOVE the box where it is clear.
     sh.text("Z1  CLEAN", M(6000, -900), 1.9, "P-DRAIN-WASTE", "BC")
     sh.text("Z2  DECON", M(13800, -900), 1.9, "P-DRAIN-EFF", "BC")
     sh.text("Z3  GREY - NO DESTINATION", M(19700, -900), 1.9, "M-FLAG", "BC")

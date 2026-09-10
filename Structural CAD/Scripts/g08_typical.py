@@ -124,7 +124,7 @@ def r802():
     sh.text("LAP 50 phi", Pm(1220, -700), TXT["small"], "S-TEXT")
     sh.dim_h(Pm(1200, 2400), Pm(3600, 2400), Pm(0, 2800)[1], sc)
     sh.text("LAP ZONES STAGGERED - NOT MORE THAN 50 % SPLICED AT ANY SECTION",
-            Pm(0, 3100), TXT["small"], "S-BLAST")
+            Pm(0, 2900), TXT["small"], "S-BLAST")   # QA1: was over the D1 title
     sh.view_title((30, 552), "D1", "STAGGERED LAP ARRANGEMENT - TYPICAL", "SCALE 1:20")
 
     # D2 lap in a wall curtain, section

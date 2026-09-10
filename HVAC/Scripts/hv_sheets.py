@@ -262,7 +262,7 @@ def m001():
         ("HV-D4", "NO NOISE CRITERION EXISTS.  Terminal selection cannot be closed"),
         ("HV-D5", "DEHUMIDIFIER DUTY NOT STATED.  The unit is confirmed; the load is not"),
         ("HV-D6", "FAN STATIC PRESSURE - 5 of the 8 loss components are vendor data"),
-        ("C16", "ROOF / PLATFORM JUNCTION, master, unresolved.  NO HVAC DEPENDENCY -"),
+        ("C16", "ROOF / PLATFORM JUNCTION - RULED AT 250, CLOSED RC1.  NO HVAC DEPENDENCY -"),
         ("", "     no duct, plant item or penetration is at that junction"),
         ("A2", "DESIGN GWT (-)2.000 [ASSUMED] - affects the condensate route only"),
     ], header=["REF", "ITEM"], h=2.1, rh=5.8, layer="M-TABLE")
@@ -276,10 +276,13 @@ def m001():
                        esc=True)
     sh.rect(*M(*H.FILTER_T1[:2]), *M(*H.FILTER_T1[2:]), "M-EQUIP")
     sh.rect(*M(*H.FILTER_T2[:2]), *M(*H.FILTER_T2[2:]), "M-EQUIP")
-    sh.text("AHU-1 / AHU-2", M(11800, 6600), T["small"], "M-EQUIP", "BC")
+    # QA1: reads under the plan - at this scale there is no clear band between
+    # the box and the bay-bubble row.
+    sh.text("AHU-1 / AHU-2", M(11800, -1400), T["small"], "M-EQUIP", "BC")
     for tag, x, y2 in H.BLAST_VALVE_PTS:
         sh.sym("BVALVE", M(x, y2), scale=0.5)
-        sh.text(tag, M(x, y2 - 900), T["small"], "M-DAMPER", "BC")
+        # QA1: at (-)900 the BV-3 caption landed on "STAIR SHAFT - FROZEN GEOMETRY"
+        sh.text(tag, M(x, y2 - 1600), T["small"], "M-DAMPER", "BC")
     sh.rect(*M(*H.GEN_SHAFT[:2]), *M(*H.GEN_SHAFT[2:]), "M-DUCT-FRESH")
     sh.rect(*M(*H.FRESH_SHAFT[:2]), *M(*H.FRESH_SHAFT[2:]), "M-DUCT-FRESH")
     sh.text("SH-1", M(-3300, 900), T["small"], "M-DUCT-FRESH", "BC")
@@ -309,7 +312,7 @@ def m101():
 
     sc = 45.0
     M = X.vw(sc, 40.0, 400.0)
-    sh.view_title((20, 548), "V1", "UNDERGROUND HVAC PLAN",
+    sh.view_title((20, 553), "V1", "UNDERGROUND HVAC PLAN",
                   "SCALE 1:45   DUCTS AT HIGH LEVEL, SOFFIT (-)2.900   "
                   "AIRFLOWS DAY / NIGHT m3/h")
     V.underground_plan(sh, M, sc, bays=True, rooms=True, stair=True, esc=True)
@@ -342,7 +345,7 @@ def m101():
     sh.text("CASCADE  +50 -> +35 -> +20 -> +10 Pa   300 m3/h TRANSFER",
             M(13800, 2400), NOTE, "M-DUCT-RETURN", "BC")
     sh.sym("BVALVE", M(14998, 4900), scale=0.9)
-    sh.text("BV-3 + OPRV  ->  BAY 7", M(15400, 4900), NOTE, "M-DAMPER", "ML")
+    sh.text("BV-3 + OPRV  ->  BAY 7", M(15400, 5650), NOTE, "M-DAMPER", "ML")
 
     sh.dim_h(M(0, -1400), M(22000, -1400), M(0, -2200)[1], sc=sc)
 
@@ -432,7 +435,7 @@ def m102():
 
     sc = 55.0
     M = X.vw(sc, 90.0, 400.0)
-    sh.view_title((20, 548), "V1", "FRESH AIR AND EXHAUST PLAN",
+    sh.view_title((20, 553), "V1", "FRESH AIR AND EXHAUST PLAN",
                   "SCALE 1:55   SHAFTS SHOWN OUTSIDE THE BOX   "
                   "AIRFLOWS IN m3/h")
     V.underground_plan(sh, M, sc, bays=True, rooms=True, stair=True, esc=True)
@@ -513,7 +516,7 @@ def m201():
 
     sc = 55.0
     M = X.vw(sc, 40.0, 500.0)
-    sh.view_title((20, 548), "V1", "SECTION A-A  -  LONGITUDINAL ON THE AIR PATH",
+    sh.view_title((20, 553), "V1", "SECTION A-A  -  LONGITUDINAL ON THE AIR PATH",
                   "SCALE 1:55   LEVELS m")
     B = P.BOX
     sh.rect(*M(B["x0"], -2900), *M(B["x1"], -2000), "M-STRUCT")
@@ -548,8 +551,11 @@ def m201():
 
     # ---- V2 transverse through bay 5
     s2 = 25.0
-    N = X.vw(s2, 96.0, 300.0)
-    sh.view_title((20, 300), "V2", "SECTION B-B  -  BAY 5, THE PLANT ROOM",
+    # QA1: the origin was (96, 300), which put section B-B at paper y 32..184 -
+    # straight through the "NOTES - SECTIONS AND CLEARANCES" panel (y 67..160).
+    # The section now sits in the clear band between V1 and the notes panel.
+    N = X.vw(s2, 96.0, 458.0)
+    sh.view_title((20, 352), "V2", "SECTION B-B  -  BAY 5, THE PLANT ROOM",
                   "SCALE 1:25   LOOKING EAST")
     sh.rect(*N(0, -6700), *N(600, -2900), "M-STRUCT")
     sh.rect(*N(5600, -6700), *N(6200, -2900), "M-STRUCT")
@@ -609,13 +615,21 @@ def m202():
 
     # ---- D1 filter train elevation
     M = X.vw(20.0, 24.0, 400.0)
-    sh.view_title((20, 548), "D1", "NBC FILTER TRAIN  -  ELEVATION",
+    sh.view_title((20, 553), "D1", "NBC FILTER TRAIN  -  ELEVATION",
                   "SCALE 1:20   ONE OF TWO IDENTICAL TRAINS, EACH 300 m3/h")
     x = 0
     for stage, spec, fn, cls in H.FILTERS:
         wd = 420 if stage in ("HEPA", "CARBON") else 300
         sh.rect(*M(x, 0), *M(x + wd, 1400), "M-EQUIP")
-        sh.text(stage, M(x + wd / 2, 1550), NOTE, "M-TITLE", "BC")
+        # QA1: "WEATHER LOUVRE" and "BLAST VALVE" are wider than their own
+        # 300-wide stage box, so consecutive captions ran into each other.
+        # Caption wraps onto two lines and is sized to the stage it names.
+        _cap = stage.split(" ")
+        if len(_cap) > 1:
+            sh.text(_cap[0], M(x + wd / 2, 1900), 1.7, "M-TITLE", "BC")
+            sh.text(" ".join(_cap[1:]), M(x + wd / 2, 1550), 1.7, "M-TITLE", "BC")
+        else:
+            sh.text(stage, M(x + wd / 2, 1550), NOTE, "M-TITLE", "BC")
         sh.text(spec[:22], M(x + wd / 2, 700), T["small"], "M-TEXT", "CENTER")
         if x:
             sh.flow(M(x - 60, 700), 0, 2.4, "M-AIRFLOW")
@@ -718,7 +732,7 @@ def m203():
                flags=("HV-F1", "HV-D1"), of="6 OF 6")
 
     # ---- V1 cascade diagram
-    sh.view_title((20, 548), "V1", "THE PRESSURE CASCADE  -  WHY EVERY LEAK "
+    sh.view_title((20, 553), "V1", "THE PRESSURE CASCADE  -  WHY EVERY LEAK "
                   "GOES OUTWARD", "NOT TO SCALE")
     bx, by, bw, bh = 24.0, 520.0, 108.0, 26.0
     stages = [("CLEAN ZONE  BAYS 1-5", "+50 Pa", "184.96 m3  [R]"),

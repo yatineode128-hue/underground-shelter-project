@@ -61,7 +61,8 @@ def r401():
     V.dim_box_plan(sh, Pm, sc)
     sh.north((560, 456))
     sh.leader([Pm(15000, 2400), (250, 540)], "B01-B03  BLAST-DOOR HEADER 400 x 1100 (x2)")
-    sh.leader([Pm(14900, 5800), (420, 528)], "H08-H09  HEADHOUSE DOOR-HEAD EDGE BAND")
+    # QA1: leader text used to sit on the W7 wall mark - dropped clear
+    sh.leader([Pm(14900, 5800), (420, 514)], "H08-H09  HEADHOUSE DOOR-HEAD EDGE BAND")
     sh.view_title((66, 552), "V1", "BEAM-TYPE ELEMENT LOCATIONS - UNDERGROUND LEVEL",
                   "SCALE 1:50")
     sh.text("THE ONLY BEAM-TYPE ELEMENTS IN THE STRUCTURE ARE LOCAL BANDS OVER OPENINGS.",
@@ -124,7 +125,7 @@ def r402():
     sh.dim_h(Pm(0, 0), Pm(1200, 0), Pm(0, -400)[1], sc)
     sh.dim_h(Pm(-800, 0), Pm(0, 0), Pm(0, -900)[1], sc)
     sh.dim_v(Pm(2000, 0), Pm(2000, 1100), Pm(2300, 0)[0], sc)
-    sh.text("Ld 800 BEYOND EACH FACE", Pm(-780, -1300), TXT["small"], "S-TEXT")
+    sh.text("Ld 800 BEYOND EACH FACE", Pm(1300, -1000), TXT["small"], "S-TEXT")
     V.balloon(sh, (58, 512), "B01", Pm(600, 1040))
     V.balloon(sh, (58, 436), "B02", Pm(600, 60))
     V.balloon(sh, (152, 476), "B03", Pm(1500, 550))
@@ -183,7 +184,8 @@ def r402():
             (420, 424), TXT["small"], "S-TEXT")
     sh.text("BOUNDARY AND IS DECLARED EXPENDABLE.", (420, 419), TXT["small"], "S-TEXT")
 
-    y = V.loading_panel(sh, 30, 400, 300, [
+    # QA1: dropped from 400 so the V1 extension dimension no longer sits in it
+    y = V.loading_panel(sh, 30, 384, 300, [
         "BLAST-DOOR HEADER 400 x 1100 over a 1200 clear opening",
         "  w = 383 x 2.100 / 2                     =  402 kN/m",
         "  M = w L2 / 12                           =  48.2 kNm",

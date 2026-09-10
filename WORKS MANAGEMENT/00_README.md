@@ -150,3 +150,104 @@ enquiry can be issued.
   2533 headroom — is reproduced in the programme exactly as it stands.
 * It made only one design change, SP-B1, and made it because it was explicitly
   instructed.
+
+---
+
+# REVISION WM2 — 10 September 2026
+
+**The project owner's own Works Management package has been brought in, and it now
+governs.** Four files were supplied — a BOQ and cost estimate workbook, an eight-page
+BOQ / works-management report, and the master construction schedule **R0** as both a
+Microsoft Project file and a Level-5 micro print. They are held unaltered in
+`USER_SOURCE/`.
+
+## Order of authority
+
+1. **the owner's Works Management files** — `USER_SOURCE/`
+2. actual project information
+3. existing project documentation
+4. **WM1**, the generated package above
+
+Nothing of the owner's has been corrected, re-derived, rounded or rebuilt. **WM1 is not
+overwritten either** — it is a preserved revision and stays exactly as issued.
+
+## What WM2 adds
+
+| | |
+|---|---|
+| `USER_SOURCE/` | the owner's four files, unaltered, with a README |
+| `Cost/USER_BOQ_AND_COST_ESTIMATE.md` + three CSVs | **the project's cost document** — 42 priced items, every rate, ending at **₹3,00,33,306**. WM1 had no rate and no cost anywhere in it |
+| `Programme/USER_MASTER_CONSTRUCTION_SCHEDULE_R0.md` / `.csv` | **the programme of record** — 130 activities, **224 working days, 02-11-2026 to 26-07-2027**, six-day week |
+| `Documentation/WM_RECONCILIATION_REGISTER.md` | **fourteen conflicts, all open** — the owner's material against the project master |
+| `Scripts/wm2_user_package.py` | reads `USER_SOURCE/` and writes the above. Nothing is retyped |
+
+## The two packages are complementary
+
+WM1 never carried a rate or a cost; the owner's estimate supplies them. The owner's R0
+does not carry resources, procurement, long-lead manufacture, inspection and test points,
+risk or codes; WM1 supplies those. Read together they cover the job. **They are not
+alternatives and must not be read as such.**
+
+## What WM2 did NOT do
+
+- **No open item was closed by the reconciliation.** C17 and C21 stay open; WM-V3, WM-V6
+  and WM-V7 stay open. WM-V5 and WM-V11 were closed by the **SP-B2 design** in master
+  A.4.8, not by anything here.
+- **No quantity, rate, cost, duration or date of the owner's was changed** — including
+  two arithmetic slips found inside the owner's own files (a 10.00 m³ concrete total and
+  a ₹1,00,000 final cost), which are **reported, not corrected**, as R-13 and R-14.
+- **No WM1 document was rebuilt.** `SP-06`, the provisional lintel item, is left as it
+  stands even though SP-B2 has now designed the real one — the supersession is recorded
+  in the register instead.
+
+**Recorded in master Part H.13.**
+
+---
+
+# REVISION WM3 — 10 September 2026 — the owner's package, revised
+
+**The project owner's own BOQ, cost estimate and construction schedule, with the RC1
+rulings applied** (master **Part H.14** and **K.1c**). Requested so the revised Works
+Management sits alongside the files that were uploaded.
+
+## Three versions now exist side by side, and that is deliberate
+
+| | Where | What it is |
+|---|---|---|
+| **As uploaded** | `USER_SOURCE/` | The owner's four files, **byte-for-byte untouched.** Never edit anything in this folder |
+| **As supplied, published** | `Cost/USER_BOQ_*`, `Programme/USER_MASTER_CONSTRUCTION_SCHEDULE_R0.*` | The same figures, read out of those files and rendered as CSV/Markdown |
+| **REVISED — RC1 applied** | `Cost/REVISED_*`, `Programme/REVISED_MASTER_CONSTRUCTION_SCHEDULE_R1.csv` | **This revision.** Every difference from the as-supplied version is listed in `Cost/REVISED_BOQ_AND_COST_ESTIMATE_RC1.md` |
+
+The revised estimate is issued as **`.xlsx`** as well as CSV and Markdown, so it opens in
+the same tool the original came from.
+
+## What the revision applies
+
+| Ruling | Applied |
+|---|---|
+| **R-1** | Burster slab **300 mm M35 → 200 mm M30**; 57.60 → **38.40 m³**, and Part III falls from ₹5,10,210 to ₹3,40,140 |
+| **R-6** | *"Sentry Post RCC Frame & Infill"* → **RC frame only**; the brick infill is measured as brickwork |
+| **R-7** | **Escape shaft collars ESC 1 and ESC 2 ADDED** — 6.285 m³ of 250 RC, OD 1900. They were missing |
+| **R-8** | **The 15 kVA generator ADDED as a visible line.** The bill priced the 2 600 m³/h combustion air path through BV-4/BV-5 but not the machine |
+| **R-13** | Concrete total is now **the sum of its own lines**, 467.59 m³ |
+| **R-14** | Final cost is now **the sum of its own cost heads** — this closes the ₹1,00,000 gap |
+| **R-2 · R-3 · R-4 · R-5** | **13 programme activities reworded** — the 4 m cover → 2.0 m, the 1000 mm slab → 900 mm, the **lift that does not exist** → "Column & Staircase Shear Wall", and the pre-M1 box size in the title |
+
+**Revised final project cost: ₹2,97,90,913** against the ₹3,00,33,306 stated.
+
+## What the revision does NOT do
+
+- **No rate is invented.** The generator is carried at **zero with DATA REQUIRED**
+  against it, so the gap is visible in the bill rather than silent. **The revised total
+  is therefore a LOWER BOUND until that line is priced.**
+- **No labour figure is invented** for a line the project has no labour data for.
+- **The burster-slab reinforcement is not silently changed.** T12 @ 150 both ways is
+  11.84 kg/m² *whatever the slab thickness*, so the R-1 thickness ruling does not touch
+  it. The owner's tonnage over their own plan area implies about 15 kg/m²; that is a
+  separate question and is flagged **[REVIEW]**, not overwritten.
+- **The owner's plan area for the cover is left alone.** RC1 ruled on thickness and
+  grade, not on area.
+- **`USER_SOURCE/` is untouched**, and the as-supplied publication is untouched.
+
+Regenerate with `Scripts/wm3_revised_owner_package.py`. It reads `USER_SOURCE/` and
+derives every figure — nothing is retyped.

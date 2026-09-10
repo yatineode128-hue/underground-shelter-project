@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461289.0980092594
+2461294.438298611
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461289.0980092594
+2461294.438298611
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-1FC
+1F3
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{213BAFF7-2883-40AB-AFB1-366DB75C7386}
+{4C0E8B1E-A31E-4EAC-B135-E5A9FDABBF01}
   9
 $VERSIONGUID
   2
-{EC3E1ABB-E3E3-494A-8DB9-957A4CACB38D}
+{3697F9D5-31F1-4441-9987-6ADAAEE33F10}
   9
 $EXTNAMES
 290
@@ -1323,9 +1323,9 @@ ISM
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -1339,9 +1339,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -3819,7 +3819,7 @@ AcAecLayerStandard
   0
 APPID
   5
-1F9
+1F0
 330
 3
 100
@@ -3833,7 +3833,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-1FA
+1F1
 330
 3
 100
@@ -13545,7 +13545,7 @@ AcDbLine
  30
 0.0
  11
-147.81
+168.13395847287342
  21
 550.2
  31
@@ -18475,7 +18475,7 @@ AcDbLine
  30
 0.0
  11
-457.78
+483.350301406564
  21
 550.2
  31
@@ -18527,7 +18527,7 @@ AcDbText
  10
 32.0
  20
-236.6
+235.5
  30
 0.0
  40
@@ -18539,7 +18539,7 @@ OpenSans
  11
 32.0
  21
-236.6
+235.5
  31
 0.0
 100
@@ -18559,11 +18559,11 @@ AcDbText
  10
 32.0
  20
-232.6
+231.375
  30
 0.0
  40
-1.4
+2.0
   1
 WHY A WATERPROOFING SHEET SITS IN A REINFORCEMENT PACKAGE
   7
@@ -18571,7 +18571,7 @@ OpenSans
  11
 32.0
  21
-232.6
+231.375
  31
 0.0
 100
@@ -18591,19 +18591,19 @@ AcDbText
  10
 32.0
  20
-229.54999999999998
+225.27499999999998
  30
 0.0
  40
-1.4
+2.0
   1
-
+THE WATER IS NOT AN ARCHITECTURAL PROBLEM HERE - IT IS THE LOAD.
   7
 OpenSans
  11
 32.0
  21
-229.54999999999998
+225.27499999999998
  31
 0.0
 100
@@ -18623,19 +18623,19 @@ AcDbText
  10
 32.0
  20
-226.49999999999997
+222.22499999999997
  30
 0.0
  40
-1.4
+2.0
   1
-THE WATER IS NOT AN ARCHITECTURAL PROBLEM HERE - IT IS THE LOAD.
+  ·  Of the 15.41 kPa/m lateral gradient on the walls, 9.81 IS WATER and
   7
 OpenSans
  11
 32.0
  21
-226.49999999999997
+222.22499999999997
  31
 0.0
 100
@@ -18655,19 +18655,19 @@ AcDbText
  10
 32.0
  20
-223.44999999999996
+219.17499999999995
  30
 0.0
  40
-1.4
+2.0
   1
-  ·  Of the 15.41 kPa/m lateral gradient on the walls, 9.81 IS WATER and
+     only 5.60 is soil.  WATER IS NEARLY TWO-THIRDS OF THE LATERAL LOAD.
   7
 OpenSans
  11
 32.0
  21
-223.44999999999996
+219.17499999999995
  31
 0.0
 100
@@ -18687,19 +18687,19 @@ AcDbText
  10
 32.0
  20
-220.39999999999995
+216.12499999999994
  30
 0.0
  40
-1.4
+2.0
   1
-     only 5.60 is soil.  WATER IS NEARLY TWO-THIRDS OF THE LATERAL LOAD.
+  ·  The whole 46.11 kPa uplift on the mat is water.
   7
 OpenSans
  11
 32.0
  21
-220.39999999999995
+216.12499999999994
  31
 0.0
 100
@@ -18719,19 +18719,19 @@ AcDbText
  10
 32.0
  20
-217.34999999999994
+213.07499999999993
  30
 0.0
  40
-1.4
+2.0
   1
-  ·  The whole 46.11 kPa uplift on the mat is water.
+  ·  Both depend entirely on A2: DESIGN GWT (-)2.000, WHICH IS [ASSUMED]
   7
 OpenSans
  11
 32.0
  21
-217.34999999999994
+213.07499999999993
  31
 0.0
 100
@@ -18751,19 +18751,19 @@ AcDbText
  10
 32.0
  20
-214.29999999999993
+210.02499999999992
  30
 0.0
  40
-1.4
+2.0
   1
-  ·  Both depend entirely on A2: DESIGN GWT (-)2.000, WHICH IS [ASSUMED]
+     AND REQUIRES MONSOON-SEASON MONITORING.
   7
 OpenSans
  11
 32.0
  21
-214.29999999999993
+210.02499999999992
  31
 0.0
 100
@@ -18783,19 +18783,19 @@ AcDbText
  10
 32.0
  20
-211.24999999999991
+203.9249999999999
  30
 0.0
  40
-1.4
+2.0
   1
-     AND REQUIRES MONSOON-SEASON MONITORING.
+THE STEEL IN THIS PACKAGE IS SIZED ON THAT ASSUMPTION.  If the monsoon
   7
 OpenSans
  11
 32.0
  21
-211.24999999999991
+203.9249999999999
  31
 0.0
 100
@@ -18815,19 +18815,19 @@ AcDbText
  10
 32.0
  20
-208.1999999999999
+200.8749999999999
  30
 0.0
  40
-1.4
+2.0
   1
-
+groundwater level is higher than (-)2.000, the wall moments, the mat
   7
 OpenSans
  11
 32.0
  21
-208.1999999999999
+200.8749999999999
  31
 0.0
 100
@@ -18847,19 +18847,19 @@ AcDbText
  10
 32.0
  20
-205.1499999999999
+197.82499999999987
  30
 0.0
  40
-1.4
+2.0
   1
-THE STEEL IN THIS PACKAGE IS SIZED ON THAT ASSUMPTION.  If the monsoon
+case and the flotation factors all move.
   7
 OpenSans
  11
 32.0
  21
-205.1499999999999
+197.82499999999987
  31
 0.0
 100
@@ -18879,19 +18879,19 @@ AcDbText
  10
 32.0
  20
-202.09999999999988
+191.72499999999985
  30
 0.0
  40
-1.4
+2.0
   1
-groundwater level is higher than (-)2.000, the wall moments, the mat
+INTERFACE REQUIREMENTS
   7
 OpenSans
  11
 32.0
  21
-202.09999999999988
+191.72499999999985
  31
 0.0
 100
@@ -18911,19 +18911,19 @@ AcDbText
  10
 32.0
  20
-199.04999999999987
+188.67499999999984
  30
 0.0
  40
-1.4
+2.0
   1
-case and the flotation factors all move.
+  1  Tanking membrane on the blinding, turned up the external face and
   7
 OpenSans
  11
 32.0
  21
-199.04999999999987
+188.67499999999984
  31
 0.0
 100
@@ -18943,19 +18943,19 @@ AcDbText
  10
 32.0
  20
-195.99999999999986
+185.62499999999983
  30
 0.0
  40
-1.4
+2.0
   1
-
+     lapped to the roof membrane - a continuous tank.
   7
 OpenSans
  11
 32.0
  21
-195.99999999999986
+185.62499999999983
  31
 0.0
 100
@@ -18975,19 +18975,19 @@ AcDbText
  10
 32.0
  20
-192.94999999999985
+182.57499999999982
  30
 0.0
  40
-1.4
+2.0
   1
-INTERFACE REQUIREMENTS
+  2  100 mm protection screed over the roof membrane; it is also the
   7
 OpenSans
  11
 32.0
  21
-192.94999999999985
+182.57499999999982
  31
 0.0
 100
@@ -19007,19 +19007,19 @@ AcDbText
  10
 32.0
  20
-189.89999999999984
+179.5249999999998
  30
 0.0
  40
-1.4
+2.0
   1
-  1  Tanking membrane on the blinding, turned up the external face and
+     first layer of the engineered cover.
   7
 OpenSans
  11
 32.0
  21
-189.89999999999984
+179.5249999999998
  31
 0.0
 100
@@ -19039,19 +19039,19 @@ AcDbText
  10
 32.0
  20
-186.84999999999982
+176.4749999999998
  30
 0.0
  40
-1.4
+2.0
   1
-     lapped to the roof membrane - a continuous tank.
+  3  TWO WATERSTOPS AT EVERY CONSTRUCTION JOINT - R-804.
   7
 OpenSans
  11
 32.0
  21
-186.84999999999982
+176.4749999999998
  31
 0.0
 100
@@ -19071,19 +19071,19 @@ AcDbText
  10
 32.0
  20
-183.7999999999998
+173.42499999999978
  30
 0.0
  40
-1.4
+2.0
   1
-  2  100 mm protection screed over the roof membrane; it is also the
+  4  INTEGRAL CRYSTALLINE WATERPROOFING ADMIXTURE in the concrete; the
   7
 OpenSans
  11
 32.0
  21
-183.7999999999998
+173.42499999999978
  31
 0.0
 100
@@ -19103,19 +19103,19 @@ AcDbText
  10
 32.0
  20
-180.7499999999998
+170.37499999999977
  30
 0.0
  40
-1.4
+2.0
   1
-     first layer of the engineered cover.
+     membrane is not the only line of defence.
   7
 OpenSans
  11
 32.0
  21
-180.7499999999998
+170.37499999999977
  31
 0.0
 100
@@ -19135,19 +19135,19 @@ AcDbText
  10
 32.0
  20
-177.6999999999998
+167.32499999999976
  30
 0.0
  40
-1.4
+2.0
   1
-  3  TWO WATERSTOPS AT EVERY CONSTRUCTION JOINT - R-804.
+  5  IS 3370 crack control: 0.2 mm limit, satisfied by the 0.35 % surface-
   7
 OpenSans
  11
 32.0
  21
-177.6999999999998
+167.32499999999976
  31
 0.0
 100
@@ -19167,19 +19167,19 @@ AcDbText
  10
 32.0
  20
-174.64999999999978
+164.27499999999975
  30
 0.0
  40
-1.4
+2.0
   1
-  4  INTEGRAL CRYSTALLINE WATERPROOFING ADMIXTURE in the concrete; the
+     zone steel over a 250 mm zone, NOT BY CALCULATION - see QA/QC R-11.
   7
 OpenSans
  11
 32.0
  21
-174.64999999999978
+164.27499999999975
  31
 0.0
 100
@@ -19199,19 +19199,19 @@ AcDbText
  10
 32.0
  20
-171.59999999999977
+161.22499999999974
  30
 0.0
  40
-1.4
+2.0
   1
-     membrane is not the only line of defence.
+  6  NO COVER IS REDUCED FOR WATERPROOFING.  The membrane is outside the
   7
 OpenSans
  11
 32.0
  21
-171.59999999999977
+161.22499999999974
  31
 0.0
 100
@@ -19231,25 +19231,25 @@ AcDbText
  10
 32.0
  20
-168.54999999999976
+158.17499999999973
  30
 0.0
  40
-1.4
+2.0
   1
-  5  IS 3370 crack control: 0.2 mm limit, satisfied by the 0.35 % surface-
+     structural section and adds nothing to the cover.
   7
 OpenSans
  11
 32.0
  21
-168.54999999999976
+158.17499999999973
  31
 0.0
 100
 AcDbText
   0
-TEXT
+LWPOLYLINE
   5
 1AB
 330
@@ -19257,29 +19257,29 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
-AcDbText
+AcDbPolyline
+ 90
+4
+ 70
+1
  10
-32.0
+30.0
  20
-165.49999999999974
- 30
-0.0
- 40
-1.4
-  1
-     zone steel over a 250 mm zone, NOT BY CALCULATION - see QA/QC R-11.
-  7
-OpenSans
- 11
-32.0
- 21
-165.49999999999974
- 31
-0.0
-100
-AcDbText
+153.12499999999972
+ 10
+330.0
+ 20
+153.12499999999972
+ 10
+330.0
+ 20
+240.0
+ 10
+30.0
+ 20
+240.0
   0
 TEXT
   5
@@ -19289,25 +19289,25 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
 AcDbText
  10
-32.0
+342.0
  20
-162.44999999999973
+235.5
  30
 0.0
  40
-1.4
+2.5
   1
-  6  NO COVER IS REDUCED FOR WATERPROOFING.  The membrane is outside the
+FLOTATION - THE CONSTRUCTION STAGE GOVERNS
   7
 OpenSans
  11
-32.0
+342.0
  21
-162.44999999999973
+235.5
  31
 0.0
 100
@@ -19325,27 +19325,27 @@ S-NOTE
 100
 AcDbText
  10
-32.0
+342.0
  20
-159.39999999999972
+231.375
  30
 0.0
  40
-1.4
+2.0
   1
-     structural section and adds nothing to the cover.
+STAGE                       WEIGHT  UPLIFT  FoS @(-)2.000  FLOODED
   7
 OpenSans
  11
-32.0
+342.0
  21
-159.39999999999972
+231.375
  31
 0.0
 100
 AcDbText
   0
-LWPOLYLINE
+TEXT
   5
 1AE
 330
@@ -19353,29 +19353,29 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbText
  10
-30.0
+342.0
  20
-154.3499999999997
- 10
-330.0
- 20
-154.3499999999997
- 10
-330.0
- 20
-240.0
- 10
-30.0
- 20
-240.0
+228.325
+ 30
+0.0
+ 40
+2.0
+  1
+1 mat cast only              2 009   6 175    0.33 FAIL     0.23 FAIL
+  7
+OpenSans
+ 11
+342.0
+ 21
+228.325
+ 31
+0.0
+100
+AcDbText
   0
 TEXT
   5
@@ -19385,25 +19385,25 @@ TEXT
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
 AcDbText
  10
 342.0
  20
-236.6
+225.27499999999998
  30
 0.0
  40
-2.5
+2.0
   1
-FLOTATION - THE CONSTRUCTION STAGE GOVERNS
+2 mat + walls, no roof       4 802   6 175    0.78 FAIL     0.55 FAIL
   7
 OpenSans
  11
 342.0
  21
-236.6
+225.27499999999998
  31
 0.0
 100
@@ -19423,19 +19423,19 @@ AcDbText
  10
 342.0
  20
-232.6
+222.22499999999997
  30
 0.0
  40
-1.4
+2.0
   1
-STAGE                       WEIGHT  UPLIFT  FoS @(-)2.000  FLOODED
+3 box complete, no backfill  7 528   6 175    1.22 MARGINAL 0.86 FLOATS
   7
 OpenSans
  11
 342.0
  21
-232.6
+222.22499999999997
  31
 0.0
 100
@@ -19455,19 +19455,19 @@ AcDbText
  10
 342.0
  20
-229.54999999999998
+219.17499999999995
  30
 0.0
  40
-1.4
+2.0
   1
-1 mat cast only              2 009   6 175    0.33 FAIL     0.23 FAIL
+4 backfilled + cover        12 453   6 175    2.02 OK       1.41 OK
   7
 OpenSans
  11
 342.0
  21
-229.54999999999998
+219.17499999999995
  31
 0.0
 100
@@ -19487,19 +19487,19 @@ AcDbText
  10
 342.0
  20
-226.49999999999997
+213.07499999999993
  30
 0.0
  40
-1.4
+2.0
   1
-2 mat + walls, no roof       4 802   6 175    0.78 FAIL     0.55 FAIL
+MANDATORY MITIGATION - A DESIGN OUTPUT, NOT A CONTRACTOR'S PROBLEM
   7
 OpenSans
  11
 342.0
  21
-226.49999999999997
+213.07499999999993
  31
 0.0
 100
@@ -19519,19 +19519,19 @@ AcDbText
  10
 342.0
  20
-223.44999999999996
+210.02499999999992
  30
 0.0
  40
-1.4
+2.0
   1
-3 box complete, no backfill  7 528   6 175    1.22 MARGINAL 0.86 FLOATS
+  1  Continuous dewatering from the start of excavation until backfill
   7
 OpenSans
  11
 342.0
  21
-223.44999999999996
+210.02499999999992
  31
 0.0
 100
@@ -19551,19 +19551,19 @@ AcDbText
  10
 342.0
  20
-220.39999999999995
+206.9749999999999
  30
 0.0
  40
-1.4
+2.0
   1
-4 backfilled + cover        12 453   6 175    2.02 OK       1.41 OK
+     and cover are complete.
   7
 OpenSans
  11
 342.0
  21
-220.39999999999995
+206.9749999999999
  31
 0.0
 100
@@ -19583,19 +19583,19 @@ AcDbText
  10
 342.0
  20
-217.34999999999994
+203.9249999999999
  30
 0.0
  40
-1.4
+2.0
   1
-
+  2  Temporary pressure-relief valves / knock-out plugs in the mat,
   7
 OpenSans
  11
 342.0
  21
-217.34999999999994
+203.9249999999999
  31
 0.0
 100
@@ -19615,19 +19615,19 @@ AcDbText
  10
 342.0
  20
-214.29999999999993
+200.8749999999999
  30
 0.0
  40
-1.4
+2.0
   1
-MANDATORY MITIGATION - A DESIGN OUTPUT, NOT A CONTRACTOR'S PROBLEM
+     6 No., grouted up ONLY AFTER backfill.
   7
 OpenSans
  11
 342.0
  21
-214.29999999999993
+200.8749999999999
  31
 0.0
 100
@@ -19647,19 +19647,19 @@ AcDbText
  10
 342.0
  20
-211.24999999999991
+197.82499999999987
  30
 0.0
  40
-1.4
+2.0
   1
-  1  Continuous dewatering from the start of excavation until backfill
+  3  Programme the sub-structure to complete before the monsoon, or bund
   7
 OpenSans
  11
 342.0
  21
-211.24999999999991
+197.82499999999987
  31
 0.0
 100
@@ -19679,19 +19679,19 @@ AcDbText
  10
 342.0
  20
-208.1999999999999
+194.77499999999986
  30
 0.0
  40
-1.4
+2.0
   1
-     and cover are complete.
+     and positively drain with standby pumping and generator back-up.
   7
 OpenSans
  11
 342.0
  21
-208.1999999999999
+194.77499999999986
  31
 0.0
 100
@@ -19711,19 +19711,19 @@ AcDbText
  10
 342.0
  20
-205.1499999999999
+191.72499999999985
  30
 0.0
  40
-1.4
+2.0
   1
-  2  Temporary pressure-relief valves / knock-out plugs in the mat,
+  4  Backfill SYMMETRICALLY, in layers.
   7
 OpenSans
  11
 342.0
  21
-205.1499999999999
+191.72499999999985
  31
 0.0
 100
@@ -19743,19 +19743,19 @@ AcDbText
  10
 342.0
  20
-202.09999999999988
+185.62499999999983
  30
 0.0
  40
-1.4
+2.0
   1
-     6 No., grouted up ONLY AFTER backfill.
+FLOTATION CANNOT BE READ OFF THE STAAD MODEL.  The elastic-mat springs
   7
 OpenSans
  11
 342.0
  21
-202.09999999999988
+185.62499999999983
  31
 0.0
 100
@@ -19775,19 +19775,19 @@ AcDbText
  10
 342.0
  20
-199.04999999999987
+182.57499999999982
  30
 0.0
  40
-1.4
+2.0
   1
-  3  Programme the sub-structure to complete before the monsoon, or bund
+TAKE TENSION, so the mat never lifts in the model.  It is a HAND CHECK
   7
 OpenSans
  11
 342.0
  21
-199.04999999999987
+182.57499999999982
  31
 0.0
 100
@@ -19807,19 +19807,19 @@ AcDbText
  10
 342.0
  20
-195.99999999999986
+179.5249999999998
  30
 0.0
  40
-1.4
+2.0
   1
-     and positively drain with standby pumping and generator back-up.
+on real dimensions and real weights.  Anyone who says the analysis shows
   7
 OpenSans
  11
 342.0
  21
-195.99999999999986
+179.5249999999998
  31
 0.0
 100
@@ -19839,25 +19839,25 @@ AcDbText
  10
 342.0
  20
-192.94999999999985
+176.4749999999998
  30
 0.0
  40
-1.4
+2.0
   1
-  4  Backfill SYMMETRICALLY, in layers.
+no uplift has misunderstood their own model.
   7
 OpenSans
  11
 342.0
  21
-192.94999999999985
+176.4749999999998
  31
 0.0
 100
 AcDbText
   0
-TEXT
+LWPOLYLINE
   5
 1BE
 330
@@ -19865,29 +19865,29 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
-AcDbText
+AcDbPolyline
+ 90
+4
+ 70
+1
  10
-342.0
+340.0
  20
-189.89999999999984
- 30
-0.0
- 40
-1.4
-  1
-
-  7
-OpenSans
- 11
-342.0
- 21
-189.89999999999984
- 31
-0.0
-100
-AcDbText
+171.42499999999978
+ 10
+638.0
+ 20
+171.42499999999978
+ 10
+638.0
+ 20
+240.0
+ 10
+340.0
+ 20
+240.0
   0
 TEXT
   5
@@ -19897,25 +19897,25 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
 AcDbText
  10
-342.0
+650.0
  20
-186.84999999999982
+547.5
  30
 0.0
  40
-1.4
+2.5
   1
-FLOTATION CANNOT BE READ OFF THE STAAD MODEL.  The elastic-mat springs
+MATERIALS, COVER AND ANCHORAGE
   7
 OpenSans
  11
-342.0
+650.0
  21
-186.84999999999982
+547.5
  31
 0.0
 100
@@ -19933,21 +19933,21 @@ S-NOTE
 100
 AcDbText
  10
-342.0
+650.0
  20
-183.7999999999998
+543.375
  30
 0.0
  40
-1.4
+2.0
   1
-TAKE TENSION, so the mat never lifts in the model.  It is a HAND CHECK
+CONCRETE          M35 to IS 456 Table 5.  w/c <= 0.45, cement >= 340 kg/m3.
   7
 OpenSans
  11
-342.0
+650.0
  21
-183.7999999999998
+543.375
  31
 0.0
 100
@@ -19965,21 +19965,21 @@ S-NOTE
 100
 AcDbText
  10
-342.0
+650.0
  20
-180.7499999999998
+540.375
  30
 0.0
  40
-1.4
+2.0
   1
-on real dimensions and real weights.  Anyone who says the analysis shows
+                  Integral crystalline waterproofing admixture.
   7
 OpenSans
  11
-342.0
+650.0
  21
-180.7499999999998
+540.375
  31
 0.0
 100
@@ -19997,27 +19997,27 @@ S-NOTE
 100
 AcDbText
  10
-342.0
+650.0
  20
-177.6999999999998
+537.375
  30
 0.0
  40
-1.4
+2.0
   1
-no uplift has misunderstood their own model.
+                  Blinding M15, 100 thk.
   7
 OpenSans
  11
-342.0
+650.0
  21
-177.6999999999998
+537.375
  31
 0.0
 100
 AcDbText
   0
-LWPOLYLINE
+TEXT
   5
 1C3
 330
@@ -20025,29 +20025,29 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbText
  10
-340.0
+650.0
  20
-172.64999999999978
- 10
-638.0
- 20
-172.64999999999978
- 10
-638.0
- 20
-240.0
- 10
-340.0
- 20
-240.0
+534.375
+ 30
+0.0
+ 40
+2.0
+  1
+REINFORCEMENT     Fe500D to IS 1786:2008.
+  7
+OpenSans
+ 11
+650.0
+ 21
+534.375
+ 31
+0.0
+100
+AcDbText
   0
 TEXT
   5
@@ -20057,25 +20057,25 @@ TEXT
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
 AcDbText
  10
 650.0
  20
-548.6
+531.375
  30
 0.0
  40
-2.5
+2.0
   1
-MATERIALS, COVER AND ANCHORAGE
+Ec = 5000 sqrt(fck) = 29 580 N/mm2   (IS 456 Cl. 6.2.3.1)
   7
 OpenSans
  11
 650.0
  21
-548.6
+531.375
  31
 0.0
 100
@@ -20095,19 +20095,19 @@ AcDbText
  10
 650.0
  20
-544.6
+528.375
  30
 0.0
  40
-1.4
+2.0
   1
-CONCRETE          M35 to IS 456 Table 5.  w/c <= 0.45, cement >= 340 kg/m3.
+gamma_m           1.5 concrete / 1.15 steel  (IS 456 Cl. 36.4.2)
   7
 OpenSans
  11
 650.0
  21
-544.6
+528.375
  31
 0.0
 100
@@ -20127,19 +20127,19 @@ AcDbText
  10
 650.0
  20
-541.6
+522.375
  30
 0.0
  40
-1.4
+2.0
   1
-                  Integral crystalline waterproofing admixture.
+BLAST CASE ONLY   IS 4991 Cl. 10.3.1:  fck,dyn 43.75  ·  fy,dyn 625
   7
 OpenSans
  11
 650.0
  21
-541.6
+522.375
  31
 0.0
 100
@@ -20159,19 +20159,19 @@ AcDbText
  10
 650.0
  20
-538.6
+519.375
  30
 0.0
  40
-1.4
+2.0
   1
-                  Blinding M15, 100 thk.
+*** NO DYNAMIC INCREASE ON SHEAR - IS 4991 Cl. 10.3.1.1 ***
   7
 OpenSans
  11
 650.0
  21
-538.6
+519.375
  31
 0.0
 100
@@ -20191,19 +20191,19 @@ AcDbText
  10
 650.0
  20
-535.6
+516.375
  30
 0.0
  40
-1.4
+2.0
   1
-REINFORCEMENT     Fe500D to IS 1786:2008.
+tau_c and tau_c,max are read at the STATIC M35 value in every check.
   7
 OpenSans
  11
 650.0
  21
-535.6
+516.375
  31
 0.0
 100
@@ -20223,19 +20223,19 @@ AcDbText
  10
 650.0
  20
-532.6
+510.375
  30
 0.0
  40
-1.4
+2.0
   1
-Ec = 5000 sqrt(fck) = 29 580 N/mm2   (IS 456 Cl. 6.2.3.1)
+COVER   75 cast against blinding · 50 formed earth face
   7
 OpenSans
  11
 650.0
  21
-532.6
+510.375
  31
 0.0
 100
@@ -20255,19 +20255,19 @@ AcDbText
  10
 650.0
  20
-529.6
+507.375
  30
 0.0
  40
-1.4
+2.0
   1
-gamma_m           1.5 concrete / 1.15 steel  (IS 456 Cl. 36.4.2)
+        40 internal · 30 stair-shaft faces
   7
 OpenSans
  11
 650.0
  21
-529.6
+507.375
  31
 0.0
 100
@@ -20287,19 +20287,19 @@ AcDbText
  10
 650.0
  20
-526.6
+504.375
  30
 0.0
  40
-1.4
+2.0
   1
-
+        The 5 mm reduction IS 456 Table 16 permits for M35 is NOT taken.
   7
 OpenSans
  11
 650.0
  21
-526.6
+504.375
  31
 0.0
 100
@@ -20319,19 +20319,19 @@ AcDbText
  10
 650.0
  20
-523.6
+498.375
  30
 0.0
  40
-1.4
+2.0
   1
-BLAST CASE ONLY   IS 4991 Cl. 10.3.1:  fck,dyn 43.75  ·  fy,dyn 625
+Ld TENSION 40 phi  ·  Ld COMPRESSION 32 phi  ·  LAP 50 phi STAGGERED
   7
 OpenSans
  11
 650.0
  21
-523.6
+498.375
  31
 0.0
 100
@@ -20351,19 +20351,19 @@ AcDbText
  10
 650.0
  20
-520.6
+495.375
  30
 0.0
  40
-1.4
+2.0
   1
-*** NO DYNAMIC INCREASE ON SHEAR - IS 4991 Cl. 10.3.1.1 ***
+T8 320/400 · T10 400/500 · T12 480/600 · T16 640/800
   7
 OpenSans
  11
 650.0
  21
-520.6
+495.375
  31
 0.0
 100
@@ -20383,19 +20383,19 @@ AcDbText
  10
 650.0
  20
-517.6
+492.375
  30
 0.0
  40
-1.4
+2.0
   1
-tau_c and tau_c,max are read at the STATIC M35 value in every check.
+T20 800/1000 · T25 1000/1250        (Ld / lap, mm)
   7
 OpenSans
  11
 650.0
  21
-517.6
+492.375
  31
 0.0
 100
@@ -20415,19 +20415,19 @@ AcDbText
  10
 650.0
  20
-514.6
+489.375
  30
 0.0
  40
-1.4
+2.0
   1
-
+The IS 4991 Cl. 10.3.1.1 +25 % blast bond allowance is NOT taken.
   7
 OpenSans
  11
 650.0
  21
-514.6
+489.375
  31
 0.0
 100
@@ -20447,19 +20447,19 @@ AcDbText
  10
 650.0
  20
-511.6
+483.375
  30
 0.0
  40
-1.4
+2.0
   1
-COVER   75 cast against blinding · 50 formed earth face
+*** MAXIMUM BAR SPACING 150 BOTH CURTAINS - EMP REQUIREMENT ***
   7
 OpenSans
  11
 650.0
  21
-511.6
+483.375
  31
 0.0
 100
@@ -20479,299 +20479,11 @@ AcDbText
  10
 650.0
  20
-508.6
+480.375
  30
 0.0
  40
-1.4
-  1
-        40 internal · 30 stair-shaft faces
-  7
-OpenSans
- 11
-650.0
- 21
-508.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1D2
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-505.6
- 30
-0.0
- 40
-1.4
-  1
-        The 5 mm reduction IS 456 Table 16 permits for M35 is NOT taken.
-  7
-OpenSans
- 11
-650.0
- 21
-505.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1D3
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-502.6
- 30
-0.0
- 40
-1.4
-  1
-
-  7
-OpenSans
- 11
-650.0
- 21
-502.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1D4
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-499.6
- 30
-0.0
- 40
-1.4
-  1
-Ld TENSION 40 phi  ·  Ld COMPRESSION 32 phi  ·  LAP 50 phi STAGGERED
-  7
-OpenSans
- 11
-650.0
- 21
-499.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1D5
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-496.6
- 30
-0.0
- 40
-1.4
-  1
-T8 320/400 · T10 400/500 · T12 480/600 · T16 640/800
-  7
-OpenSans
- 11
-650.0
- 21
-496.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1D6
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-493.6
- 30
-0.0
- 40
-1.4
-  1
-T20 800/1000 · T25 1000/1250        (Ld / lap, mm)
-  7
-OpenSans
- 11
-650.0
- 21
-493.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1D7
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-490.6
- 30
-0.0
- 40
-1.4
-  1
-The IS 4991 Cl. 10.3.1.1 +25 % blast bond allowance is NOT taken.
-  7
-OpenSans
- 11
-650.0
- 21
-490.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1D8
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-487.6
- 30
-0.0
- 40
-1.4
-  1
-
-  7
-OpenSans
- 11
-650.0
- 21
-487.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1D9
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-484.6
- 30
-0.0
- 40
-1.4
-  1
-*** MAXIMUM BAR SPACING 150 BOTH CURTAINS - EMP REQUIREMENT ***
-  7
-OpenSans
- 11
-650.0
- 21
-484.6
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1DA
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-650.0
- 20
-481.6
- 30
-0.0
- 40
-1.4
+2.0
   1
     stricter than IS 456 Cl. 26.3.3 and than every code minimum.
   7
@@ -20779,7 +20491,7 @@ OpenSans
  11
 650.0
  21
-481.6
+480.375
  31
 0.0
 100
@@ -20787,7 +20499,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-1DB
+1D2
 330
 17
 100
@@ -20803,11 +20515,11 @@ AcDbPolyline
  10
 648.0
  20
-476.6
+475.375
  10
 831.0
  20
-476.6
+475.375
  10
 831.0
  20
@@ -20819,7 +20531,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-1DC
+1D3
 330
 17
 100
@@ -20851,7 +20563,7 @@ AcDbPolyline
   0
 LINE
   5
-1DD
+1D4
 330
 17
 100
@@ -20875,7 +20587,7 @@ AcDbLine
   0
 LINE
   5
-1DE
+1D5
 330
 17
 100
@@ -20899,7 +20611,7 @@ AcDbLine
   0
 LINE
   5
-1DF
+1D6
 330
 17
 100
@@ -20923,7 +20635,7 @@ AcDbLine
   0
 LINE
   5
-1E0
+1D7
 330
 17
 100
@@ -20947,7 +20659,7 @@ AcDbLine
   0
 LINE
   5
-1E1
+1D8
 330
 17
 100
@@ -20971,7 +20683,7 @@ AcDbLine
   0
 LINE
   5
-1E2
+1D9
 330
 17
 100
@@ -20995,7 +20707,7 @@ AcDbLine
   0
 LINE
   5
-1E3
+1DA
 330
 17
 100
@@ -21019,7 +20731,7 @@ AcDbLine
   0
 TEXT
   5
-1E4
+1DB
 330
 17
 100
@@ -21051,7 +20763,7 @@ AcDbText
   0
 TEXT
   5
-1E5
+1DC
 330
 17
 100
@@ -21083,7 +20795,7 @@ AcDbText
   0
 TEXT
   5
-1E6
+1DD
 330
 17
 100
@@ -21115,7 +20827,7 @@ AcDbText
   0
 TEXT
   5
-1E7
+1DE
 330
 17
 100
@@ -21147,7 +20859,7 @@ AcDbText
   0
 TEXT
   5
-1E8
+1DF
 330
 17
 100
@@ -21179,7 +20891,7 @@ AcDbText
   0
 TEXT
   5
-1E9
+1E0
 330
 17
 100
@@ -21211,7 +20923,7 @@ AcDbText
   0
 LINE
   5
-1EA
+1E1
 330
 17
 100
@@ -21235,7 +20947,7 @@ AcDbLine
   0
 TEXT
   5
-1EB
+1E2
 330
 17
 100
@@ -21267,7 +20979,7 @@ AcDbText
   0
 TEXT
   5
-1EC
+1E3
 330
 17
 100
@@ -21299,7 +21011,7 @@ AcDbText
   0
 TEXT
   5
-1ED
+1E4
 330
 17
 100
@@ -21331,7 +21043,7 @@ AcDbText
   0
 TEXT
   5
-1EE
+1E5
 330
 17
 100
@@ -21363,7 +21075,7 @@ AcDbText
   0
 TEXT
   5
-1EF
+1E6
 330
 17
 100
@@ -21395,7 +21107,7 @@ AcDbText
   0
 TEXT
   5
-1F0
+1E7
 330
 17
 100
@@ -21427,7 +21139,7 @@ AcDbText
   0
 TEXT
   5
-1F1
+1E8
 330
 17
 100
@@ -21459,7 +21171,7 @@ AcDbText
   0
 TEXT
   5
-1F2
+1E9
 330
 17
 100
@@ -21491,7 +21203,7 @@ AcDbText
   0
 TEXT
   5
-1F3
+1EA
 330
 17
 100
@@ -21523,7 +21235,7 @@ AcDbText
   0
 TEXT
   5
-1F4
+1EB
 330
 17
 100
@@ -21555,7 +21267,7 @@ AcDbText
   0
 TEXT
   5
-1F5
+1EC
 330
 17
 100
@@ -21587,7 +21299,7 @@ AcDbText
   0
 TEXT
   5
-1F6
+1ED
 330
 17
 100
@@ -21619,7 +21331,7 @@ AcDbText
   0
 TEXT
   5
-1F7
+1EE
 330
 17
 100
@@ -21651,7 +21363,7 @@ AcDbText
   0
 TEXT
   5
-1F8
+1EF
 330
 17
 100
@@ -22771,7 +22483,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-1FB
+1F2
   0
 DICTIONARYVAR
   5
@@ -22783,7 +22495,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-05T02:21:08.138712+00:00
+1.4.4 @ 2026-09-10T10:31:09.619749+00:00
   0
 VISUALSTYLE
   5
@@ -23487,7 +23199,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-1FB
+1F2
 330
 2D
 100
@@ -23495,7 +23207,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-05T02:21:08.155860+00:00
+1.4.4 @ 2026-09-10T10:31:09.632619+00:00
   0
 ENDSEC
   0

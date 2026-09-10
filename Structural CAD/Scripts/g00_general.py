@@ -14,8 +14,13 @@ def r001():
                "MATERIALS · COVER · ANCHORAGE · LOADING · LIMITATIONS",
                flags=["C16", "C17"])
     sh.sheet_header()
-    y = sh.panel(16, 550, 300, "GENERAL NOTES", V.STD_NOTES, TXT["small"], 3.2)
-    y = sh.panel(16, y - 6, 300, "DESIGN BASIS - GOVERNING ACTION PER ELEMENT", [
+    # QA1 layout: the three note columns are laid out with panel_column so that
+    # they FILL the sheet height.  Previously every panel was drawn at the
+    # library minimum (1.4 mm text, 3.2 mm pitch), which left the bottom third
+    # of the sheet empty and the body text below legible print size.
+    sh.panel_column(16, 550, 16, 300, [
+        ("GENERAL NOTES", V.STD_NOTES),
+        ("DESIGN BASIS - GOVERNING ACTION PER ELEMENT", [
         "COMB 103 BLAST GOVERNS EVERY BLAST-RATED ELEMENT.",
         "",
         "MAT 600            soft / red-bole band, M = qL2/12 = 303.7 kNm/m     util 84 %",
@@ -33,8 +38,8 @@ def r001():
         "",
         "PROTECTIVE BOUNDARY = BLAST DOORS 1 AND 2 AT (-)6.100, WALLS W6/W7,",
         "THE PERIMETER WALLS, THE MAT AND THE PRESSURE SLAB.",
-    ], TXT["small"], 3.2)
-    sh.panel(16, y - 6, 300, "WHAT THIS PACKAGE DOES NOT DEMONSTRATE", [
+        ]),
+        ("WHAT THIS PACKAGE DOES NOT DEMONSTRATE", [
         "1  SUPPORT ROTATION / DUCTILITY FOR THE BLAST CASE.  mu = 5 needs a",
         "   non-linear SDOF check (IS 4991 Fig. 6 / Biggs).  PHASE 3.",
         "2  SHOCK PROPAGATION DOWN THE ENTRY SHAFT and the resulting door loading.",
@@ -47,12 +52,31 @@ def r001():
         "   by calculation.",
         "7  NO CODE DOCUMENT IS HELD.  Clause numbers are cited only from the",
         "   project's verified clause register (master Part G).",
-    ], TXT["small"], 3.2)
+        ]),
+        ("CODES RELIED ON", [
+        "IS 456:2000        all capacity, detailing, cover, Ld, laps, shear",
+        "IS 1786:2008       Fe500D",
+        "IS 3370 (1,2):2021 0.2 mm crack limit; 0.35 % surface-zone steel",
+        "IS 875 (1,2,5)     dead, imposed, combination",
+        "IS 1893 (Pt 1):2016 seismic - established as NOT governing",
+        "IS 13920:2016      applicability determined element by element;",
+        "                   Cl. 10.4 checked and NOT triggered",
+        "IS 4991:1968       BLAST LOADING RULES AND DYNAMIC STRENGTHS ONLY",
+        "IS 1904 · IS 2950(1) · IS 12070   bearing, raft, rock",
+        "SP 34:1987         detailing; Cl. 5.5 opening corner",
+        "NBC 2016 Part 4    stair geometry, 1100 guarding",
+        "SP 16 · BS 8666 · UFC 3-340-02 (cited AS US criteria)",
+        "",
+        "IS 2502 IS NAMED IN THE BRIEF BUT IS NOT HELD AND IS NOT CITED.",
+        "Bar bending uses declared project rule PBR-1 - see R-004.",
+        ]),
+    ])
 
     x = 324
-    y = V.materials_panel(sh, x, 550, 300)
     rows = [f"{n:<4} {t:<26} {f}" for n, t, f in P.COMBS]
-    y = V.loading_panel(sh, x, y - 6, 300, [
+    sh.panel_column(x, 550, 16, 300, [
+        (V.MATERIALS_HEAD, V.materials_lines()),
+        (V.LOADING_HEAD, [
         "BLAST   p_so 344.7 kPa (50 psi) · td 0.13-1.33 s · mu 5 · DLF 1.111",
         "        DESIGN 383 kPa ON THE ROOF AND ON THE WALLS  (Ka = 1.0)",
         "        Roof T = 13.4 ms, td/T = 10-100  ->  QUASI-STATIC",
@@ -72,28 +96,15 @@ def r001():
         "                - IS 4991 Cl. 11.1 FORBIDS COMBINING THEM WITH BLAST.",
         "",
         "LOAD COMBINATIONS (as built into the STAAD models):",
-    ] + rows, TXT["small"], 3.2)
-    V.open_items_panel(sh, x, y - 6, 300, ["C16", "C17", "A2", "A4", "M1", "M2", "P3"])
+        ] + rows),
+        (V.OPEN_ITEMS_HEAD,
+         V.open_items_lines(["C16", "C17", "A2", "A4", "M1", "M2", "P3"])),
+    ])
 
+    # right column stops at 118 so it never crowds the title block (y 10-110)
     x = 634
-    y = sh.panel(x, 550, 197, "CODES RELIED ON", [
-        "IS 456:2000        all capacity, detailing, cover, Ld, laps, shear",
-        "IS 1786:2008       Fe500D",
-        "IS 3370 (1,2):2021 0.2 mm crack limit; 0.35 % surface-zone steel",
-        "IS 875 (1,2,5)     dead, imposed, combination",
-        "IS 1893 (Pt 1):2016 seismic - established as NOT governing",
-        "IS 13920:2016      applicability determined element by element;",
-        "                   Cl. 10.4 checked and NOT triggered",
-        "IS 4991:1968       BLAST LOADING RULES AND DYNAMIC STRENGTHS ONLY",
-        "IS 1904 · IS 2950(1) · IS 12070   bearing, raft, rock",
-        "SP 34:1987         detailing; Cl. 5.5 opening corner",
-        "NBC 2016 Part 4    stair geometry, 1100 guarding",
-        "SP 16 · BS 8666 · UFC 3-340-02 (cited AS US criteria)",
-        "",
-        "IS 2502 IS NAMED IN THE BRIEF BUT IS NOT HELD AND IS NOT CITED.",
-        "Bar bending uses declared project rule PBR-1 - see R-004.",
-    ], TXT["small"], 3.2)
-    y = sh.panel(x, y - 6, 197, "BAR MARK SYSTEM", [
+    sh.panel_column(x, 550, 118, 197, [
+        ("BAR MARK SYSTEM", [
         "F   FOUNDATIONS - mat, starters, sump pit",
         "W   WALLS - perimeter, W5, W6/W7, openings",
         "S   SLAB - pressure (roof) slab and its openings",
@@ -110,8 +121,8 @@ def r001():
         "plate structure - mat, walls, roof slab.  Master B.3 declares",
         "punching shear NOT APPLICABLE because no column or pedestal",
         "bears on the mat.  No column or joint drawing is produced.",
-    ], TXT["small"], 3.2)
-    sh.panel(x, y - 6, 197, "DRAWING INDEX - THIS PACKAGE", [
+        ]),
+        ("DRAWING INDEX - THIS PACKAGE", [
         "R-001 GENERAL REINFORCEMENT NOTES",
         "R-002 REINFORCEMENT LEGEND AND SYMBOLS",
         "R-003 TYPICAL REINFORCEMENT DETAILS AND BAR SHAPES",
@@ -145,7 +156,8 @@ def r001():
         "",
         "NO R-501 / R-502 / R-503 (COLUMNS) - NO COLUMN EXISTS.",
         "NO SENTRY-POST DRAWING - OUT OF SCOPE.",
-    ], TXT["small"], 3.0)
+        ]),
+    ])
     sh.titleblock(scale="NOT TO SCALE", sheet_of="1 OF 30")
     return sh.save(os.path.join(OUT, "R-001_General_Reinforcement_Notes.dxf"))
 
@@ -159,8 +171,9 @@ def r002():
     sh.text("L1   CAD LAYER SYSTEM AND MAPPING TO THE PROJECT'S EXISTING 22-LAYER TABLE",
             (16, 548), TXT["view_title"], "S-TITLE")
     rows = [[k, str(v[0]), f"{v[1]/100:.2f}", v[2], v[3]] for k, v in D.LAYERS.items()]
+    # QA1: row height opened from 4.2 to 6.8 - the sheet was 45 % empty
     y = sh.table(16, 540, [42, 14, 18, 108, 32], rows,
-                 ["LAYER", "ACI", "LW mm", "PURPOSE", "MASTER E.3.2"], TXT["small"], 4.2)
+                 ["LAYER", "ACI", "LW mm", "PURPOSE", "MASTER E.3.2"], TXT["small"], 6.8)
     sh.text("DECLARED DEVIATION X2: the R-series uses the S-* layer system.  Sheets S-01..S-08 "
             "keep the master's 22-layer table and are NOT touched.", (16, y - 5),
             TXT["small"], "S-BLAST")
@@ -185,8 +198,8 @@ def r002():
             sh.cline((18, yy), (78, yy))
         else:
             sh.line((18, yy), (78, yy), lay)
-        sh.text(f"{lay:<18} {desc}", (84, yy - 0.8), TXT["small"], "S-TEXT")
-        yy -= 6.0
+        sh.text(f"{lay:<18} {desc}", (84, yy - 0.8), 2.0, "S-TEXT")
+        yy -= 7.5
     sh.text("REINFORCEMENT MUST NEVER DISAPPEAR INTO A CONCRETE OUTLINE.  Concrete is plotted "
             "heavier than steel; steel is plotted in colour.", (16, yy - 3),
             TXT["small"], "S-BLAST")
@@ -194,39 +207,39 @@ def r002():
     # --- bar representation
     x = 330
     sh.text("L3   BAR REPRESENTATION", (x, 548), TXT["view_title"], "S-TITLE")
-    yy = 536
+    yy = 532
     sh.line((x + 4, yy), (x + 54, yy), "S-REBAR-MAIN")
     sh.text("BAR IN ELEVATION / PLAN - CONTINUOUS LINE ON ITS OWN LAYER",
-            (x + 60, yy - 0.8), TXT["small"], "S-TEXT")
-    yy -= 8
+            (x + 60, yy - 0.8), 2.0, "S-TEXT")
+    yy -= 14
     for i in range(6):
         sh.bar_dot((x + 6 + i * 9, yy), 0.9, "S-REBAR-MAIN")
     sh.text("BAR IN SECTION - FILLED DOT AT THE TRUE SPACING", (x + 60, yy - 0.8),
-            TXT["small"], "S-TEXT")
-    yy -= 8
+            2.0, "S-TEXT")
+    yy -= 14
     sh.rect(x + 4, yy - 3, x + 26, yy + 3, "S-REBAR-STIRRUP")
-    sh.text("CLOSED LINK / STIRRUP IN SECTION", (x + 60, yy - 0.8), TXT["small"], "S-TEXT")
-    yy -= 10
+    sh.text("CLOSED LINK / STIRRUP IN SECTION", (x + 60, yy - 0.8), 2.0, "S-TEXT")
+    yy -= 18
     sh.msp.add_blockref("BARMARK", (x + 12, yy), dxfattribs={"layer": "S-CALLOUT"})
     sh.text("W01", (x + 12, yy), TXT["bar_mark"], "S-CALLOUT", "CENTER")
     sh.leader([(x + 4, yy - 8), (x + 9, yy - 3)], None)
     sh.text("BAR-MARK BALLOON WITH LEADER.  EVERY MARK ON EVERY DRAWING HAS",
-            (x + 60, yy + 1.4), TXT["small"], "S-TEXT")
+            (x + 60, yy + 1.4), 2.0, "S-TEXT")
     sh.text("EXACTLY ONE SCHEDULE ENTRY - VERIFIED PROGRAMMATICALLY.",
-            (x + 60, yy - 2.2), TXT["small"], "S-TEXT")
-    yy -= 12
+            (x + 60, yy - 2.2), 2.0, "S-TEXT")
+    yy -= 20
     sh.secmark((x + 12, yy), "A")
     sh.text("SECTION MARKER - LETTER ABOVE, DIRECTION OF VIEW ARROWED",
-            (x + 60, yy - 0.8), TXT["small"], "S-TEXT")
-    yy -= 12
+            (x + 60, yy - 0.8), 2.0, "S-TEXT")
+    yy -= 20
     sh.level((x + 12, yy), "(-)6.100")
     sh.text("LEVEL MARKER - METRES RELATIVE TO FINISHED SITE GRADE 0.000",
-            (x + 60, yy - 0.8), TXT["small"], "S-TEXT")
+            (x + 60, yy - 0.8), 2.0, "S-TEXT")
 
-    yy -= 14
+    yy -= 24
     sh.text("L4   TEXT STANDARDS - HEIGHTS AS PLOTTED AT 1:1 ON A1", (x, yy),
             TXT["view_title"], "S-TITLE")
-    yy -= 10
+    yy -= 12
     for k, h, use in [("sheet_title", TXT["sheet_title"], "SHEET TITLE"),
                       ("view_title", TXT["view_title"], "VIEW / SECTION TITLE"),
                       ("panel_head", TXT["panel_head"], "PANEL HEADING"),
@@ -238,10 +251,13 @@ def r002():
                       ("table", TXT["table"], "SCHEDULE / TABLE"),
                       ("small", TXT["small"], "SMALL ANNOTATION")]:
         sh.text(f"{h:.1f} mm  {use}", (x + 4, yy), h, "S-TEXT")
-        yy -= h + 3.2
+        yy -= h + 7.0
 
     x = 636
-    y = sh.panel(x, 548, 195, "ABBREVIATIONS", [
+    # QA1: this column stopped less than half way down the sheet; it now
+    # fills the column and stops clear of the title block.
+    sh.panel_column(x, 548, 118, 195, [
+        ("ABBREVIATIONS", [
         "EF     EACH FACE                 B/W   BOTH WAYS",
         "EW     EACH WAY                  T/B   TOP AND BOTTOM",
         "4L     FOUR-LEGGED LINK          c/c   CENTRE TO CENTRE",
@@ -250,8 +266,8 @@ def r002():
         "ESC    ESCAPE SHAFT              HH    HEADHOUSE",
         "ASW    APPROACH (ENTRY) STAIRWELL GWT  GROUNDWATER TABLE",
         "COMB   LOAD COMBINATION          SIDL  SUPERIMPOSED DEAD LOAD",
-    ], TXT["small"], 3.4)
-    y = sh.panel(x, y - 6, 195, "BAR SIZES AND UNIT MASS - Fe500D", [
+        ]),
+        ("BAR SIZES AND UNIT MASS - Fe500D", [
         "BAR     AREA mm2    MASS kg/m     Ld (M35)    LAP 50 phi",
         "T8       50.3        0.395          320          400",
         "T10      78.5        0.617          400          500",
@@ -259,8 +275,8 @@ def r002():
         "T16     201.1        1.578          640          800",
         "T20     314.2        2.466          800         1000",
         "T25     490.9        3.853         1000         1250",
-    ], TXT["small"], 3.6)
-    sh.panel(x, y - 6, 195, "SPACING PROVIDED - AREA PER METRE (mm2/m)", [
+        ]),
+        ("SPACING PROVIDED - AREA PER METRE (mm2/m)", [
         "SPACING    T12     T16     T20     T25",
         "125        905    1609    2513    3927",
         "150        754    1340    2094    3272",
@@ -271,7 +287,8 @@ def r002():
         "",
         "THE 150 ROW IS THE ONE THAT MATTERS: IT IS THE EMP MAXIMUM AND",
         "IT SETS THE SPACING OF EVERY MAIN CURTAIN IN THE BLAST ENVELOPE.",
-    ], TXT["small"], 3.6)
+        ]),
+    ])
     sh.titleblock(scale="NOT TO SCALE", sheet_of="2 OF 30")
     return sh.save(os.path.join(OUT, "R-002_Reinforcement_Legend_and_Symbols.dxf"))
 
@@ -279,7 +296,11 @@ def r002():
 def _shape_sketch(sh, x, y, code, name, dims, formula):
     """Small dimensioned bar-shape sketch."""
     sh.text(f"SHAPE {code}   {name}", (x, y), TXT["detail_label"], "S-TITLE")
-    yy = y - 8
+    # QA1: the sketches rise up to 22 mm above yy (shape 51 is a full link box),
+    # so an 8 mm drop put the bar outline and its A/B/C labels straight through
+    # the shape title.  Dropped clear of the title and the cut-length lines
+    # moved down to match.
+    yy = y - 30
     if code == "00":
         sh.line((x + 4, yy), (x + 64, yy), "S-REBAR-MAIN")
         sh.dim_h((x + 4, yy), (x + 64, yy), yy - 8, 1.0, "SC-DIM-S")
@@ -305,8 +326,8 @@ def _shape_sketch(sh, x, y, code, name, dims, formula):
         sh.pline([(x + 4, yy), (x + 24, yy + 16), (x + 46, yy + 16), (x + 64, yy)],
                  "S-REBAR-MAIN")
         sh.text("FULLY DIMENSIONED ON THE DETAIL", (x + 4, yy - 4), TXT["small"], "S-TEXT")
-    sh.text(f"CUT LENGTH = {formula}", (x, y - 34), TXT["small"], "S-NOTE")
-    sh.text(dims, (x, y - 37.6), TXT["small"], "S-NOTE")
+    sh.text(f"CUT LENGTH = {formula}", (x, y - 46), TXT["small"], "S-NOTE")
+    sh.text(dims, (x, y - 49.6), TXT["small"], "S-NOTE")
 
 
 def r003():
@@ -409,6 +430,10 @@ def r004():
     sh.sheet_header()
     marks = R.MARKS
     half = (len(marks) + 1) // 2
+    # QA1: row height 4.9 left the bottom 220 mm of this sheet empty.  The
+    # schedule now uses the height it has; the text size is unchanged (the
+    # table fits its own text) and every summary below follows from RH.
+    RH = 7.6
     colw = [16, 11, 10, 13, 13, 16, 17, 18, 88]
     hdr = ["MARK", "DIA", "SHP", "SPAC", "No.", "CUT", "TOT m", "kg", "ELEMENT / LOCATION"]
     for col, chunk in enumerate((marks[:half], marks[half:])):
@@ -419,10 +444,10 @@ def r004():
             rows.append([m["mark"], f"T{m['phi']}", m["shape"], m["spacing"] or "-",
                          m["count"], round(m["cut"]), round(m["total_len"], 1),
                          f"{m['kg']:.0f}", loc[:64]])
-        sh.table(x, 544, colw, rows, hdr, TXT["small"], 4.9)
+        sh.table(x, 544, colw, rows, hdr, TXT["small"], RH)
 
     tot = sum(m["kg"] for m in R.MARKS)
-    y = 544 - 4.9 * (half + 1) - 8
+    y = 544 - RH * (half + 1) - 8
     sh.text(f"TOTAL BAR REINFORCEMENT   {tot:,.0f} kg  =  {tot/1000:.2f} TONNES     "
             f"(FABRIC W18 SCHEDULED SEPARATELY BY AREA)", (16, y),
             TXT["panel_head"], "S-BLAST")
@@ -430,12 +455,12 @@ def r004():
             for phi, (n, L, kg) in sorted(R.totals_by_dia().items())]
     sh.text("SUMMARY BY DIAMETER", (16, y - 10), TXT["panel_head"], "S-TITLE")
     sh.table(16, y - 14, [22, 26, 32, 30, 24], rows,
-             ["BAR", "No.", "LENGTH m", "WEIGHT kg", "%"], TXT["small"], 4.4)
+             ["BAR", "No.", "LENGTH m", "WEIGHT kg", "%"], TXT["small"], 6.2)
     rows = [[g, f"{kg:,.0f}", f"{kg/1000:.3f}", f"{100*kg/tot:.1f} %"]
             for g, kg in R.totals_by_group().items()]
     sh.text("SUMMARY BY ELEMENT GROUP", (180, y - 10), TXT["panel_head"], "S-TITLE")
     sh.table(180, y - 14, [92, 30, 26, 22], rows,
-             ["ELEMENT GROUP", "kg", "t", "%"], TXT["small"], 4.4)
+             ["ELEMENT GROUP", "kg", "t", "%"], TXT["small"], 6.2)
     sh.panel(360, y - 4, 280, "SCHEDULE NOTES", [
         "PBR-1  cut length = SUM of the scheduled legs, NO bend deduction; links add",
         "       2 x 10 phi for 135 deg hooks.  See R-003.",

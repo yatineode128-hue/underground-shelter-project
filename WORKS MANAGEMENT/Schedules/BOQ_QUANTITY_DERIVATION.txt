@@ -46,7 +46,7 @@ master A.4.1: X east 0-22.000, Y north 0-6.200, levels relative to grade 0.000.
      source: master A.7.3
 17.  [C]      Burster slab M30 200 thk, T12 @ 150 B/W, inside the cover
      source: master A.7.3
-18.  [C]      Sump SU-01 1500 x 1500 x 1500; invert -7.600; base slab -8.000; walls 300 / base 400 (C18 open, 400 held)
+18.  [C]      Sump SU-01 1500 x 1500 x 1500; invert -7.600; base slab -8.000; walls 300 / base 400 (C18 CLOSED by RC1 - ruled at 400)
      source: Drainage DR1 sump schedule / master F.1
 19.  [C]      Concrete volumes: mat 81.8, roof net 112.0, perimeter walls 103.7, W6/W7 12.8, W5 3.2, headhouse 32.7, main stair 3.0, entry stairwell 19.9 = 369.2 m3
      source: Structural CAD SC1, REINFORCEMENT_SUMMARY.md
@@ -119,7 +119,7 @@ the project (Drainage DR1 open item D3), so the true cleared area is [N].
 1.4  Sump pit SU-01, additional excavation below formation
 ------------------------------------------------------------------------------
 Pit clear 1.500 x 1.500 x 1.500; invert (-)7.600; base slab (-)8.000  [C]
-Walls 300 / base 400 (master F.1; conflict C18 open, 400 held)          [C]
+Walls 300 / base 400 (master F.1; C18 CLOSED by RC1 - ruled at 400)     [C]
 Pit external = 1.500 + 2 x 0.300 = 2.100 m square
 Excavation with 0.300 working space = 2.700 m square                    [A]
 Depth below the main formation = (-)8.100 (u/s blinding) - (-)6.800 = 1.300 m
@@ -554,7 +554,7 @@ DRAINAGE (Drainage/Schedules) - principal items:
 
 HVAC / CBRN (HVAC/Schedules) - principal items:
    AHU-1 / AHU-2 NBC filter trains, 300 m3/h each, true N+1                   [C]
-     (duty 250 vs 300 m3/h is CONFLICT C21 - UNRESOLVED; HV1 uses 300)        [U]
+     (duty RULED AT 300 m3/h by RC1 - C21 CLOSED, master A.3 corrected)      [C]
    FAN-1 / FAN-2 supply fans with electric drive AND HAND CRANK               [C]
      fan static pressure NOT DERIVABLE - five of eight loss components are
      vendor data (HVAC calc H.9)                                              [N]
@@ -776,7 +776,11 @@ TBV = To be verified from final measurement.
          zone preserves the confirmed external envelope.  Needs the designer's
          confirmation, or a formal change to accept 230 conventional brickwork.
   WM-V5  Lintels over the sentry post openings are a NEW requirement created by
-         SP-B1.  No lintel design exists.  Structural design required.
+         SP-B1.  CLOSED by SP-B2, 10 Sep 2026 (master A.4.8 / Part H.12):
+         lintel L1, 190 x 150, M30 / Fe500, 2-T10 bottom, 2-T8 top, T6 links
+         @ 150, bearing 200, ONE TYPE over all eleven openings.  SP-06 below
+         still measures the SUPERSEDED provisional 200 x 150 and is NOT
+         re-measured here - 0.485 m3 at 190 against 0.510 m3 at 200.
   WM-V6  Seismic weight of the sentry post changes when 200 RC infill (13.000
          kN/m, master A.7.7) becomes brick masonry.  Brickwork at 20 kN/m3 over
          0.190 x 2.600 gives 9.88 kN/m, LIGHTER than 13.000, so the existing

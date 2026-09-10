@@ -320,7 +320,12 @@ w()
 w("  *** THE ENGINEERED COVER IS NOT DRAINED BY PIPEWORK. ***")
 w("  A.4.3 records finished grade as crowned, falling 1:50 away from the")
 w("  structure; A.7.3 gives 300 topsoil/turf over a 150 GRANULAR FILTER layer")
-w("  over the burster slab.  Rain on the cover sheds at the surface and what")
+w("  over the burster slab, WHICH IS LAID TO A 1:50 CROSSFALL (BS1, A.7.3):")
+w("  crowned on the box centreline, falling 62 mm each way to the box edge,")
+w("  parallel to the crowned grade.  That fall is what makes the sentence below")
+w("  true - the filter layer bears directly on the slab, so a FLAT slab would")
+w("  pond the seepage instead of dispersing it.")
+w("  Rain on the cover sheds at the surface and what")
 w("  infiltrates is intercepted by the granular filter and dispersed at the")
 w("  berm toe.  There is no roof outlet, no downpipe and no rainwater pipe on")
 w("  the buried roof, and none is added by this package: a pipe penetrating")
@@ -398,7 +403,7 @@ w()
 w("  ALL CHECKS REPRODUCE THE S-06 VALUES EXACTLY.  No change.")
 
 # =====================================================================
-head("D.10", "SOAK PIT  -  IS 2470 (Part 2):1985 re-check   *** A SHORTFALL IS FOUND ***")
+head("D.10", "SOAK PIT  -  IS 2470 (Part 2):1985 re-check   *** SHORTFALL FOUND, NOW CLOSED ***")
 K = P.SOAKPIT
 w()
 w(f"  Effluent to disperse      {T['flow_lpd']} L/day   [C]")
@@ -411,38 +416,39 @@ w(f"  SIDE AREA pi.D.h          pi x {K['dia']:.1f} x {K['effective_depth']:.1f}
 w("      (the base is not counted - it clogs; S-06 states this and it is correct)")
 w()
 short = req - side
-w(f"  CHECK                     {side:.2f} vs {req:.2f} m2 required   ->  SHORT BY "
-  f"{short:.2f} m2  =  {short/req*100:.1f} %")
+if short > 0:
+    w(f"  CHECK                     {side:.2f} vs {req:.2f} m2 required   ->  SHORT BY "
+      f"{short:.2f} m2  =  {short/req*100:.1f} %")
+else:
+    w(f"  CHECK                     {side:.2f} vs {req:.2f} m2 required   ->  PASS, "
+      f"MARGIN {-short:.2f} m2  =  {-short/req*100:+.1f} %")
 w()
-w("  *** CONFLICT RAISED BY THIS PACKAGE - DR-C2 ***")
-w(f"      Sheet S-06 prints '{side:.1f} m2   OK' against a stated requirement of")
-w(f"      '{req:.1f} m2'.  {side:.2f} m2 is NOT >= {req:.2f} m2.  The pit as drawn is "
-  f"{short/req*100:.1f} % short.")
-w("      This is arithmetic, not judgement.")
+w("  *** DR-C2 WAS RAISED BY THIS PACKAGE AND IS NOW CLOSED - RC1 RULING ***")
+w(f"      As drawn the pit was {K['dia_was']:.1f} dia x {K['effective_depth']:.1f}, "
+  f"side area {K['side_area_was']:.2f} m2.")
+w(f"      Sheet S-06 printed '{K['side_area_was']:.1f} m2   OK' against its own stated")
+w(f"      requirement of '{req:.1f} m2'.  {K['side_area_was']:.2f} is NOT >= {req:.2f}.")
+w(f"      The pit as drawn was {(req-K['side_area_was'])/req*100:.1f} % short.  "
+  "Arithmetic, not judgement.")
 w()
-need_h = req / (math.pi * K["dia"])
-need_d = req / (math.pi * K["effective_depth"])
-w("      Either of these closes it, and both are single-dimension changes:")
-w(f"        (a) effective depth {K['effective_depth']:.1f} -> {need_h:.2f} m  "
-  f"(say {math.ceil(need_h*10)/10:.1f} m), diameter unchanged")
-w(f"        (b) diameter {K['dia']:.1f} -> {need_d:.2f} m  "
-  f"(say {math.ceil(need_d*10)/10:.1f} m), depth unchanged")
-w(f"      Option (a) at {math.ceil(need_h*10)/10:.1f} m gives "
-  f"{math.pi*K['dia']*math.ceil(need_h*10)/10:.2f} m2, "
-  f"{(math.pi*K['dia']*math.ceil(need_h*10)/10)/req*100-100:+.1f} % on requirement.")
+w("      RULING (master K.1 U11, Part H.14).  THE PIT IS WIDENED:")
+w(f"        diameter        {K['dia_was']:.1f}  ->  {K['dia']:.3f} m")
+w(f"        effective depth {K['effective_depth']:.3f} m  -  UNCHANGED")
+w(f"        side area       {K['side_area_was']:.2f}  ->  {side:.2f} m2")
+w(f"        against         {req:.2f} m2 required   ->  MARGIN {side/req*100-100:+.1f} %")
 w()
-w("      NOT RESOLVED HERE.  S-06 is an issued sheet and A7 (the 20 L/m2/day")
-w("      absorption) is itself [ASSUMED] and MUST be replaced by a percolation")
-w("      test to Cl. 4 before construction.  The test may move the requirement")
-w("      by far more than 2.3 %, so re-sizing the pit before the test would be")
-w("      false precision.  The shortfall is recorded, flagged on D-305 and")
-w("      D-001, and referred for a ruling.")
+w("      WIDENED AND NOT DEEPENED, deliberately.  Deepening to 3.6 m would also")
+w("      have closed the arithmetic, but it drives the pit further below the")
+w("      design GWT at (-)2.000, and a soak pit below the water table does not")
+w("      soak.  Widening costs one ring of extra excavation and worsens nothing.")
 w()
 w("  *** AND THE LARGER RISK, ALREADY IN THE MASTER (K.2 A7) ***")
 w("      'Soak pit will not work if lower - LIKELY ON BASALT.'  A percolation")
 w("      test to IS 2470 (Pt 2) Cl. 4 is MANDATORY.  If the measured rate is")
 w("      below 20 L/m2/day the answer is not a bigger pit: it is a dispersion")
 w("      trench (Cl. 5) or a sealed holding tank emptied on a schedule.")
+w("      THE WIDENING ABOVE CLOSES THE ARITHMETIC.  IT DOES NOT CLOSE THIS.")
+w("      The percolation test still governs the final size and the final form.")
 
 # =====================================================================
 head("D.11", "STORM SOAKAWAY  -  the clean sump outfall")

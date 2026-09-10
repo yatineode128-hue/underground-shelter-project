@@ -115,21 +115,45 @@ def cover_note(sh, p, faces):
 
 
 # ---------------------------------------------------------------- panels
-def open_items_panel(sh, x, y, w, keys):
+def wrap(text, width, indent=""):
+    """QA1: word wrap.  The open-items panel used to slice at a fixed 78
+    characters, which cut words in half ("the platform b / ecomes the 500").
+    Wrapping is now on word boundaries."""
+    words, out, cur = str(text).split(), [], ""
+    for w in words:
+        trial = (cur + " " + w).strip()
+        if cur and len(trial) > width:
+            out.append(cur)
+            cur = indent + w
+        else:
+            cur = trial
+    if cur:
+        out.append(cur)
+    return out or [""]
+
+
+def open_items_lines(keys, width=74):
     lines = []
     for k in keys:
         t = P.OPEN_ITEMS[k]
-        lines.append(f"{k}  {t[:78]}")
-        rest = t[78:]
-        while rest:
-            lines.append("     " + rest[:78])
-            rest = rest[78:]
-    return sh.panel(x, y, w, "OPEN ITEMS - NOT RESOLVED, DO NOT CLOSE", lines,
+        wrapped = wrap(f"{k}  {t}", width, indent="     ")
+        lines.extend(wrapped)
+    return lines
+
+
+OPEN_ITEMS_HEAD = "OPEN ITEMS - NOT RESOLVED, DO NOT CLOSE"
+
+
+def open_items_panel(sh, x, y, w, keys):
+    return sh.panel(x, y, w, OPEN_ITEMS_HEAD, open_items_lines(keys),
                     D.TXT["small"], 3.0)
 
 
-def materials_panel(sh, x, y, w):
-    lines = [
+MATERIALS_HEAD = "MATERIALS, COVER AND ANCHORAGE"
+
+
+def materials_lines():
+    return [
         "CONCRETE          M35 to IS 456 Table 5.  w/c <= 0.45, cement >= 340 kg/m3.",
         "                  Integral crystalline waterproofing admixture.",
         "                  Blinding M15, 100 thk.",
@@ -153,12 +177,18 @@ def materials_panel(sh, x, y, w):
         "*** MAXIMUM BAR SPACING 150 BOTH CURTAINS - EMP REQUIREMENT ***",
         "    stricter than IS 456 Cl. 26.3.3 and than every code minimum.",
     ]
-    return sh.panel(x, y, w, "MATERIALS, COVER AND ANCHORAGE", lines,
+
+
+def materials_panel(sh, x, y, w):
+    return sh.panel(x, y, w, MATERIALS_HEAD, materials_lines(),
                     D.TXT["small"], 3.0)
 
 
+LOADING_HEAD = "LOADING AND GOVERNING COMBINATION"
+
+
 def loading_panel(sh, x, y, w, rows, h=None, lead=3.0,
-                  heading="LOADING AND GOVERNING COMBINATION"):
+                  heading=LOADING_HEAD):
     return sh.panel(x, y, w, heading, rows, h or D.TXT["small"], lead)
 
 
@@ -217,7 +247,7 @@ def markkey(sh, x, y, marks, w=300, title="BAR MARK KEY - THIS SHEET"):
         sh.circle((x + 7.0, yy + 0.6), 2.6, "S-CALLOUT")
         sh.text(mk, (x + 7.0, yy + 0.6), D.TXT["small"], "S-CALLOUT", "CENTER")
         sh.text(f"T{m['phi']:<3} {sp:<7} {m['location'][:56]}",
-                (x + 12.0, yy), D.TXT["small"], "S-NOTE")
+                (x + 12.0, yy), 1.9, "S-NOTE")     # QA1: legible at print size
         yy -= lead
     yy -= 2.0
     sh.rect(x, yy, x + w, y, "S-TITLE")

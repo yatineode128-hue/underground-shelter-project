@@ -291,7 +291,7 @@ def d001():
     sh.text("12   OPEN ITEMS CARRIED ON THIS SET   -   none of them is resolved here",
             (CC, y - 8), T["panel_head"], "M-TITLE")
     yC = sh.table(CC, y - 13, [30, 212], [
-        ("C16", "ROOF / PLATFORM JUNCTION, master, unresolved.  Affects only which roof a"),
+        ("C16", "ROOF / PLATFORM JUNCTION - RULED AT 250, CLOSED RC1.  Affects only which roof a"),
         ("", "     2.25 m2 catchment belongs to; the TOTAL catchment is unchanged"),
         ("C18", "SUMP PIT BASE 300 vs 400, master, unresolved.  400 HELD.  No drainage"),
         ("", "     effect - the invert is fixed at (-)7.600 and storage is measured from it"),
@@ -325,8 +325,9 @@ def d001():
     sh.rect(*M(*D.SUMP_RECT[:2]), *M(*D.SUMP_RECT[2:]), "P-EQUIP")
     sh.text("CLEAN SUMP", M(11800, 300), T["small"], "M-TEXT", "BC")
     sh.rect(*M(*D.SERVICE_PLATE[:2]), *M(*D.SERVICE_PLATE[2:]), "P-DRAIN-RISING")
+    # QA1: dropped into the clear band between the box and the bay-bubble row
     sh.text("SERVICE ENTRY PLATE - THE ONLY ENVELOPE PENETRATION",
-            M(11800, 6600), T["small"], "M-FLAG", "BC")
+            M(11800, 6250), T["small"], "M-FLAG", "BC")
     sh.rect(*M(*D.DECON_TANK[:2]), *M(*D.DECON_TANK[2:]), "P-DRAIN-EFF")
     sh.text("TK-01", M(20800, 4900), T["small"], "M-TEXT", "CENTER")
     sh.dim_h(M(0, -900), M(22000, -900), M(0, -1700)[1], sc=100.0)

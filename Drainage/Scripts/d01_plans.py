@@ -40,7 +40,7 @@ def d101():
 
     sc = 60.0
     M = X.vw(sc, 40.0, 300.0)
-    sh.view_title((20, 548), "V1", "ENTRY LEVEL DRAINAGE PLAN",
+    sh.view_title((20, 553), "V1", "ENTRY LEVEL DRAINAGE PLAN",
                   "SCALE 1:60   LEVELS 0.000 AND (-)2.000   ALL DIMENSIONS mm")
     V.ground_plan(sh, M, sc, box_below=True)
     V.underground_plan(sh, M, sc, bays=True, rooms=False, stair=True, esc=False,
@@ -52,8 +52,8 @@ def d101():
             M((c0 + c1) / 2 - 300, 8100), NOTE, "P-DRAIN-STORM", "BC")
     sh.leader([M(c0 + 150, 7500), M(c0 - 400, 8000)], None)
     sh.sym("CHAMBER", M(8300, 5200), scale=0.9)
-    sh.text("CP-10  TRAPPED CATCHPIT, SILT BUCKET  [A]", M(8300, 4400), NOTE,
-            "P-EQUIP", "BC")
+    sh.text("CP-10  TRAPPED CATCHPIT, SILT BUCKET  [A]", M(6900, 3500), NOTE,
+            "P-EQUIP", "BC")     # QA1: clear of the PD-11 pipe tag
     sh.pipe([M(9100, 6000), M(9100, 5400), M(8300, 5200)], "P-DRAIN-STORM",
             "PD-10  DN100  1:100")
     sh.pipe([M(8300, 4900), M(6200, 3600)], "P-DRAIN-STORM", "PD-11 DN100")
@@ -73,7 +73,7 @@ def d101():
 
     # headhouse gully
     sh.sym("GULLY", M(14700, 1960), scale=0.9)
-    sh.text("GY-11  FALL 1:80  [C]", M(14700, 1500), NOTE, "P-EQUIP", "BC")
+    sh.text("GY-11  FALL 1:80  [C]", M(16100, 1500), NOTE, "P-EQUIP", "BC")
     sh.text("HOSE-DOWN POINT  [C]", M(14700, 2560), NOTE, "M-TEXT", "BC")
     sh.pipe([M(14700, 1960), M(13000, 1300)], "P-DRAIN-WASTE", "PD-14 DN100 1:80")
     sh.text("TRAPPED GULLY -> EXTERNAL SOAKAWAY SK-04.",
@@ -84,7 +84,7 @@ def d101():
     # service entry plate
     sh.rect(*M(*D.SERVICE_PLATE[:2]), *M(*D.SERVICE_PLATE[2:]), "P-DRAIN-RISING")
     sh.text("SERVICE ENTRY PLATE - THE ONLY ENVELOPE PENETRATION  [C]",
-            M(11800, 6500), NOTE, "M-FLAG", "BC")
+            M(11800, 6250), NOTE, "M-FLAG", "BC")
 
     sh.dim_h(M(P.ASW["x0"], 4600), M(P.ASW["x1"], 4600), M(0, 4000)[1], sc=sc)
     sh.dim_h(M(P.HH["x0"], 3200), M(P.HH["x1"], 3200), M(0, 2600)[1], sc=sc)
@@ -104,7 +104,7 @@ def d101():
         "   with direction and gradient but WITHOUT length - the schedules record 'not determinable'.",
         "4  IS 2470 (Pt 2) OFFSETS FOR THE FOUL SOAK PIT - at least 15 m from any well, 5 m from the septic tank",
         "   and 2 m from any building - CANNOT BE DEMONSTRATED for the same reason.  DATA REQUIRED.",
-        "5  C16 - THE ROOF / PLATFORM JUNCTION IS UNRESOLVED.  It is shown at 250 to match the model and the",
+        "5  C16 - THE ROOF / PLATFORM JUNCTION IS RULED AT 250 AND CLOSED (RC1 10.09.26, master H.14).  The",
         "   structural register.  It does not change any flow, pipe or pit on this sheet - see D-102 note 3.",
     ], h=NOTE, lead=LEAD)
 
@@ -143,7 +143,7 @@ def d102():
 
     sc = 60.0
     M = X.vw(sc, 40.0, 330.0)
-    sh.view_title((20, 548), "V1", "CATCHMENT PLAN",
+    sh.view_title((20, 553), "V1", "CATCHMENT PLAN",
                   "SCALE 1:60   CATCHMENT BOUNDARIES HEAVY   AREAS IN m2")
     V.ground_plan(sh, M, sc, box_below=True)
 
@@ -158,20 +158,24 @@ def d102():
             M(11000, 8200), NOTE, "P-DRAIN-STORM", "BC")
     sh.rect(*M(P.BOX["x0"], P.BOX["y0"]), *M(P.BOX["x1"], P.BOX["y1"]),
             "P-DRAIN-SEEP")
+    # QA1B: this label used to sit at -1400, where it ran straight through the
+    # extension lines of the 4800 headhouse dimension.  Dropped clear of them.
     sh.text("C3  ENGINEERED COVER OVER THE BOX  22.0 x 6.2 = 136.40 m2   1.894 L/s",
-            M(11000, -1400), NOTE, "P-DRAIN-SEEP", "BC")
+            M(11000, -1800), NOTE, "P-DRAIN-SEEP", "BC")
 
     # falls
     for x in range(2000, 21000, 3000):
         sh.flow(M(x, -300), -90, 2.6, "P-FLOW")
         sh.flow(M(x, 6500), 90, 2.6, "P-FLOW")
+    # QA1B: this label used to sit at -2600, straddling the top border of the
+    # V2 catchment table below it.  Lifted clear of the table.
     sh.text("GRADE CROWNED, FALLS 1:50 AWAY FROM THE STRUCTURE  [C] A.4.3",
-            M(11000, -2600), NOTE, "M-TEXT", "BC")
+            M(11000, -2370), NOTE, "M-TEXT", "BC")
 
     # C16 flag at the junction
     px0, px1 = P.ASW["platform"]
     sh.rect(*M(px0, P.ASW["iy0"]), *M(px1, P.ASW["iy1"]), "M-FLAG")
-    sh.text("C16 UNRESOLVED - 250 OR 500 ROOF OVER THE PLATFORM.",
+    sh.text("C16 RULED AT 250 (RC1) - ROOF OVER THE PLATFORM.",
             M(px1 + 400, 7200), NOTE, "M-FLAG", "ML")
     sh.text("2.25 m2 OF CATCHMENT MOVES BETWEEN C1 AND C2;",
             M(px1 + 400, 6800), NOTE, "M-FLAG", "ML")
@@ -213,6 +217,10 @@ def d102():
         "   burster slab.  Rain sheds at the surface and what infiltrates is intercepted by the filter layer and",
         "   dispersed at the berm toe.  A pipe through the cover would breach the radiation mass and the roof",
         "   membrane - see D-001 note 1.",
+        "   BS1 (master A.7.3, 10.09.26): THE BURSTER SLAB IS LAID TO A 1:50 CROSSFALL, crowned on the box",
+        "   centreline and falling each way, parallel to the crowned grade.  The filter layer sits ON that slab,",
+        "   so this is the gradient that lets it disperse sideways at all; on a flat slab the water would pond",
+        "   and find the construction joints.  62 mm crown to box edge.  STILL NO PIPE ANYWHERE IN THE COVER.",
         "4  THE SITE-WIDE CATCHMENT CANNOT BE CLOSED.  The table above is complete for the structures and for",
         "   nothing else.  Berm, approach and hardstanding areas do not exist as dimensioned information.",
         "5  DR-C1 - the S-06 design-flow table still carries 0.10 L/s for 'stairwell / approach surface water'.",
@@ -234,7 +242,7 @@ def d103():
     # ---- V1 plan 1:50
     sc = 50.0
     M = X.vw(sc, 30.0, 400.0)
-    sh.view_title((20, 548), "V1", "STAIRWELL AND HEADHOUSE - DRAINAGE PLAN",
+    sh.view_title((20, 553), "V1", "STAIRWELL AND HEADHOUSE - DRAINAGE PLAN",
                   "SCALE 1:50")
     V.ground_plan(sh, M, sc, box_below=False)
     sh.sym("GULLY", M(15050, 6750), scale=0.9)
@@ -272,7 +280,7 @@ def d103():
     sh.line(M2(A["x0"], 2450), M2(A["flight"][0], 2450), "M-STRUCT")
     sh.line(M2(A["flight"][0], 2450), M2(A["platform"][0], 400), "M-STRUCT")
     sh.line(M2(A["platform"][0], 400), M2(18400, 400), "M-STRUCT")
-    sh.text("C16 - ROOF OVER THE PLATFORM SHOWN AT 250, UNRESOLVED",
+    sh.text("C16 - ROOF OVER THE PLATFORM AT 250, RULED AND CLOSED",
             M2(A["platform"][0], 700), NOTE, "M-FLAG")
     # sump and gullies
     sh.sym("GULLY", M2(15050, -2000), scale=0.8)
@@ -346,7 +354,7 @@ def d201():
 
     sc = 45.0
     M = X.vw(sc, 40.0, 400.0)
-    sh.view_title((20, 548), "V1", "UNDERGROUND DRAINAGE PLAN",
+    sh.view_title((20, 553), "V1", "UNDERGROUND DRAINAGE PLAN",
                   "SCALE 1:45   FLOOR (-)6.100   FALLS, GULLIES AND COLLECTION")
     V.underground_plan(sh, M, sc, bays=True, rooms=True, stair=True, esc=True)
     V.bay_room_labels(sh, M, y=4850, h=NOTE)
@@ -360,10 +368,13 @@ def d201():
         sh.sym("PUMP", M(px, py), scale=0.9)
         sh.text(f"PU-0{i}", M(px, py - 600), NOTE, "P-EQUIP", "BC")
     sh.rect(*M(*D.SERVICE_PLATE[:2]), *M(*D.SERVICE_PLATE[2:]), "P-DRAIN-RISING")
+    # QA1: the full description used to be carried as a 66 mm tag ROTATED along
+    # this vertical pipe, so it lay across U-05, SUMP, FF 1:80, GY-05 and SU-01.
+    # The pipe now carries a short tag; the route is stated in full in note 8.
     sh.pipe([M(11800, 2400), M(11800, 5600)], "P-DRAIN-RISING",
-            "PD-05  DN50 RISING MAIN  -  HIGH LEVEL OVER THE TRAINS, CO-1")
+            "PD-05  DN50", arrow_at=0.30)
     sh.text("SERVICE ENTRY PLATE - THE ONLY ENVELOPE PENETRATION  [C]",
-            M(11800, 6450), NOTE, "M-FLAG", "BC")
+            M(11800, 6250), NOTE, "M-FLAG", "BC")
 
     # gullies and the spine
     for tag, x, y, l, ty, seal, sv, z, c in D.DRAINS:
@@ -501,7 +512,7 @@ def d203():
 
     sc = 45.0
     M = X.vw(sc, 40.0, 400.0)
-    sh.view_title((20, 548), "V1", "WASTEWATER AND SANITARY PLAN",
+    sh.view_title((20, 553), "V1", "WASTEWATER AND SANITARY PLAN",
                   "SCALE 1:45   FLOOR (-)6.100")
     V.underground_plan(sh, M, sc, bays=True, rooms=True, stair=True, esc=True)
     V.bay_room_labels(sh, M, y=4850, h=NOTE)
@@ -540,7 +551,7 @@ def d203():
     sh.sym("CHAMBER", M(14500, 3100), scale=0.9)
     sh.text("CP-01  SEALED", M(14500, 3600), NOTE, "P-DRAIN-EFF", "BC")
     sh.pipe([M(13800, 4600), M(13800, 3100), M(14500, 3100)], "P-DRAIN-EFF",
-            "PD-03  DN100  SEGREGATED")
+            "PD-03  DN100", arrow_at=0.30)
 
     # the undefined route to TK-01
     sh.rect(*M(*D.DECON_TANK[:2]), *M(*D.DECON_TANK[2:]), "P-DRAIN-EFF")

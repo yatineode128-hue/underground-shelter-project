@@ -13,6 +13,17 @@
 > are BRICK MASONRY, replacing the Rev F 200 mm RC ballistic infill panels.
 > No other element of the project is changed.**
 
+> **AMENDED 10 September 2026 for design revision SP-B2** (master **A.4.8**, Part
+> **H.12**), which designs the **lintel L1** and the **wall tie detail** that SP-B1
+> created a need for and this package recorded as not existing. **WM-V5 and WM-V11 are
+> closed by it.** The amendment is to the WRITTEN RECORD ONLY — the lintel and tie
+> paragraphs, the risk entry, the verification register and the gap list now state the
+> designed values instead of saying no design exists. **NO QUANTITY, RATE, DURATION,
+> DATE, FLOAT OR RESOURCE IN THIS PACKAGE CHANGED**, and bill item `SP-06` still
+> measures the superseded provisional 200 × 150 lintel section: see
+> `Documentation/WM_RECONCILIATION_REGISTER.md` §6. **WM-V3, WM-V6 and WM-V7 remain
+> open.**
+
 ---
 
 Before a work breakdown structure can be written, the components that make up the
@@ -39,7 +50,7 @@ Management package.**
 | `PC-04` | **Main underground box — wall W5 and partitions W8** | W5 200 thk at X 12600–12800, fire and gas-tight only, no pressure differential. Four W8 partitions at 110 thk with A252 mesh both faces, each with a 900 door gap at Y 2500–3400. Non-structural. | master A.3, F.1 | `[C]` |
 | `PC-05` | **Main underground box — pressure (roof) slab** | 900 thk M35, top (-)2.000, soffit (-)2.900, spanning ONE WAY across the 5.000 internal width. T25 @ 150 EF EW. Total design load 448.15 kPa under COMB 103. THE GOVERNING ELEMENT of the whole structure. | master A.4.2, A.7.4, B.4, F.1 | `[C]` |
 | `PC-06` | **Roof openings — stair void and escape shafts** | Stair void 2800 x 3160 at X 15200–18000, Y 600–3760; two 1400 dia escape openings. Slab locally thickened 900 to 1200 with 6-T25 and 5-T25 trimmer bands and 4-T25 diagonal bars at the re-entrant corners. | master A.4.4, A.4.5, B.4.1, F.1 | `[C]` |
-| `PC-07` | **Sump pit SU-01** | 1500 x 1500 x 1500 clear, invert (-)7.600, base slab (-)8.000, walls 300 and base 400, cast monolithic with the mat with the membrane dressed around the pit. Conflict C18 (300 vs 400 base) is OPEN; 400 held. | master F.1, Drainage DR1 | `[C]/[U]` |
+| `PC-07` | **Sump pit SU-01** | 1500 x 1500 x 1500 clear, invert (-)7.600, base slab (-)8.000, walls 300 and base 400, cast monolithic with the mat with the membrane dressed around the pit. Conflict C18 is CLOSED - RULED AT 400 by RC1, master K.1 U10: (-)8.000 - (-)7.600 = 0.400 is arithmetic, and F.1 says 400 too. | master F.1, Drainage DR1 | `[C]/[U]` |
 | `PC-08` | **Escape shafts ESC 1 and ESC 2** | 1400 dia clear, 250 RC collar, OD 1900. ESC 1 at (2050, 2050) with its head at +0.150; ESC 2 at (19900, 2050) with its head at +0.700. The 750 clearance rule means a bay must be at least 2900 wide to hold one. | master A.4.5 | `[C]` |
 | `PC-09` | **Blast doors 1 and 2** | 1200 x 2100, 7 bar, gas-tight, rebound rated, in W6 and W7 at Y 600–1800, level (-)6.100. Vendor item. The cast-in frame is welded to the reinforcement cage for EMP continuity. Jambs 4-T20 each face; header 400 x 1100 with 4-T20 top and bottom. | master A.2, F.1 | `[C]/[N]` |
 | `PC-10` | **Main staircase — FROZEN** | Bay 7. 24 risers at 170.8333, tread 280, three flights of eight, total rise 4100, flights 1200 wide, waist 200, headroom 2533. Inside the protective envelope but NOT a blast element — designed to IS 456 with normal partial factors. Geometry is frozen and is not touched by this package. | master A.4.4, B.5; frozen by project instruction | `[C]` |

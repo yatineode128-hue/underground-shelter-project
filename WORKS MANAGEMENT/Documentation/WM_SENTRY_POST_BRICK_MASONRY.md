@@ -13,6 +13,17 @@
 > are BRICK MASONRY, replacing the Rev F 200 mm RC ballistic infill panels.
 > No other element of the project is changed.**
 
+> **AMENDED 10 September 2026 for design revision SP-B2** (master **A.4.8**, Part
+> **H.12**), which designs the **lintel L1** and the **wall tie detail** that SP-B1
+> created a need for and this package recorded as not existing. **WM-V5 and WM-V11 are
+> closed by it.** The amendment is to the WRITTEN RECORD ONLY — the lintel and tie
+> paragraphs, the risk entry, the verification register and the gap list now state the
+> designed values instead of saying no design exists. **NO QUANTITY, RATE, DURATION,
+> DATE, FLOAT OR RESOURCE IN THIS PACKAGE CHANGED**, and bill item `SP-06` still
+> measures the superseded provisional 200 × 150 lintel section: see
+> `Documentation/WM_RECONCILIATION_REGISTER.md` §6. **WM-V3, WM-V6 and WM-V7 remain
+> open.**
+
 ---
 
 ## The decision
@@ -21,7 +32,7 @@ The sentry post walls are BRICK MASONRY. This replaces the '200 RC BALLISTIC INF
 
 ## What follows from it
 
-Two consequences follow and are recorded rather than buried. First, brick masonry does not provide the ballistic protection that the Rev F panels were named for; the change removes a stated protective function from the sentry post, which is already a structure the project declares NOT blast designed and expendable. Second, the openings now need lintels, which the RC panels did not, and no lintel design exists anywhere in the project. Both are carried into the verification register for the designer to close.
+Two consequences follow and are recorded rather than buried. First, brick masonry does not provide the ballistic protection that the Rev F panels were named for; the change removes a stated protective function from the sentry post, which is already a structure the project declares NOT blast designed and expendable - that one is WM-V7 and it is a client decision, not a drafting one, so it REMAINS OPEN. Second, the openings now need lintels, which the RC panels did not, and the masonry needs ties to the columns. When SP-B1 was written neither design existed anywhere in the project. BOTH NOW DO: revision SP-B2 (10 September 2026, master A.4.8 and Part H.12) designs lintel L1 and the tie detail, closing WM-V5 and WM-V11. See below.
 
 ---
 
@@ -83,11 +94,11 @@ verification item **WM-V1**. It is declared, not resolved.
 
 **5. INTERFACE WITH THE FRAME.** The masonry is an INFILL between RC columns and under RC beams. It is not a load-bearing wall and must not be built tight to the beam soffit in one operation: the top course is left down and is wedged and packed after the panel below has taken its initial shrinkage, so that the panel does not attract load from the frame it was not designed to carry.
 
-**6. TIES TO THE COLUMNS.** The masonry is tied to the columns so that the panel is restrained out of plane. The tie detail does not exist in the project and is carried as a verification item; until it is designed, the assumption for planning is starter bars or proprietary ties at every fourth course.
+**6. TIES TO THE COLUMNS - DESIGNED, SP-B2.** The masonry is tied to the columns so that the panel is restrained out of plane. 6 mm diameter MS ties at EVERY FIFTH COURSE, about 450 mm, up both column faces, projecting 200 mm into the bed joint and anchored to the column by a cast-in or drilled-and-grouted 10 mm dowel. This SUPERSEDES the SP-B1 planning assumption of ties at every fourth course, which was a placeholder made when no detail existed. WM-V11 is closed by it.
 
 **7. SEISMIC NOTE — NOT RESOLVED HERE.** Master A.7.8 records that the sentry post uses R = 3.0 precisely BECAUSE the infill is not separated from the frame, and B.8 designs to V_b = 73.18 kN. Substituting brick masonry at about 20 kN/m³ for 200 RC at 25 kN/m³ reduces the infill line load from 13.000 kN/m to roughly 9.9 kN/m and therefore reduces the seismic weight, which points the existing design in the conservative direction. That is a direction, not a verification. The structural discipline must re-run the check; this package does not.
 
-**8. LINTELS.** RC lintels are required over D1, W1 and the eight vision panels. Bearing is taken as 200 each end for planning. NO LINTEL DESIGN EXISTS IN THE PROJECT — section, reinforcement and bearing are to be designed before the openings are built, and the 200 x 150 section used for the estimate is for quantity only.
+**8. LINTELS - DESIGNED, SP-B2.** Lintel L1, ONE TYPE over every opening: 190 wide x 150 deep, M30 / Fe500, cover 30, bearing 200 each end, 2-T10 bottom, 2-T8 top hangers, T6 two-legged links at 150. It serves all ELEVEN openings - ground D1 900 and W1 1200, first storey D1 900 and the eight 1200-wide vision-panel openings - and the 1200 opening governs. Effective span min(clear + d, c/c bearings) = min(1315, 1400) = 1.315 m to IS 456 Cl. 22.2. THE OPENING HEIGHTS ARE STILL NOT STATED ON ANY DRAWING (WM-V3, OPEN), so L1 is deliberately designed to the bound that does not use one: masonry standing just below the 60 degree arching height 1.139 m, the heaviest case any height can give. M_u 1.403 kNm against M_u,lim 10.03 kNm, 14 per cent utilised; A_st required 29.5 mm2 but IS 456 Cl. 26.5.1.1 minimum 37.1 mm2 GOVERNS and 2-T10 gives 157 mm2; tau_v 0.195 against tau_c 0.56 so no shear steel is required and the T6 at 150 links are the Cl. 26.5.1.6 nominal minimum. THE LINTEL CARRIES MASONRY ONLY - the floor and roof go to beams B1 / B2 at each level, which is the point of the frame. WM-V5 is closed by it. The SP-06 bill item still measures the SUPERSEDED provisional 200 x 150 section and is not re-measured here; see WM_RECONCILIATION_REGISTER.md section 6.
 
 **9. CURING.** Masonry is kept damp for at least seven days. Chases for electrical conduit are CUT, not hammered, and never cut into a course until the masonry has cured.
 
@@ -140,14 +151,34 @@ to prevent.
 
 | Ref | Item | Status |
 |---|---|---|
-| `WM-V1` | Ground-storey panel height: the project's confirmed 2.600 against the 2.750 implied by +0.450 FFL and the +3.200 beam soffit | **OPEN** — 2.600 used |
-| `WM-V2` | First-floor west wall: the D1 door at Y 1000–1900 lies inside the vision panel at Y 1000–2200 on the Rev F drawing | **OPEN** — the union is deducted once |
-| `WM-V3` | Window W1 and vision-panel heights are not stated anywhere | **OPEN** — 1200 assumed for measurement |
-| `WM-V4` | 190 mm modular brickwork inside the 200 mm zone needs the designer's confirmation | **OPEN** |
-| `WM-V5` | Lintel design over D1, W1 and the eight vision panels does not exist | **OPEN** — a new requirement created by SP-B1 |
+| `WM-V1` | Ground-storey panel height: the project's confirmed 2.600 against the 2.750 implied by +0.450 FFL and the +3.200 beam soffit | **CLOSED by RC1**, 10 Sep 2026, master K.1c — **2.600 governs.** Confirmed twice and independently: Rev F drawing 6 states "200 × 2600 high", and A.7.7's 13.000 kN/m = 0.200 × 2.600 × 25 reproduces it exactly. The 150 mm is a setting-out item, not a design conflict |
+| `WM-V2` | First-floor west wall: the D1 door at Y 1000–1900 lies inside the vision panel at Y 1000–2200 on the Rev F drawing | **CLOSED by RC1**, 10 Sep 2026, master K.1c — **the union is deducted once**, which is the only measurement that is neither double-counted nor short |
+| `WM-V3` | Window W1 and vision-panel heights are not stated anywhere | **CLOSED by RC1**, 10 Sep 2026, master K.1c for measurement — **doors 2100, windows and vision panels 1200** `[A]`. 2100 is the project's own convention for every other door. **Lintel L1 is unaffected either way**, which is why the ruling is safe. Confirm before the openings are set out |
+| `WM-V4` | 190 mm modular brickwork inside the 200 mm zone | **CLOSED by RC1**, 10 Sep 2026, master K.1c — **190 confirmed.** It is the only option that preserves the confirmed 4000 × 5000 envelope and the flush column faces; 230 conventional brickwork would break a confirmed dimension |
+| `WM-V5` | Lintel design over D1, W1 and the eight vision panels does not exist | **CLOSED by SP-B2**, 10 Sep 2026 — lintel **L1**, 190 × 150, M30 / Fe500, 2-T10 bottom, 2-T8 top, T6 links @ 150, bearing 200, one type over all eleven openings. Master A.4.8 / Part H.12 |
 | `WM-V6` | Seismic weight changes when RC infill becomes brickwork. Brick at ~20 kN/m³ over 0.190 × 2.600 gives ~9.9 kN/m against the confirmed 13.000 kN/m, so the existing V<sub>b</sub> = 73.18 kN is conservative — **but this is a structural matter and must be re-checked by that discipline** | **OPEN** — referred, not resolved |
 | `WM-V7` | Ballistic performance. The Rev F panels are described as '200 RC BALLISTIC INFILL'; brick masonry does not provide equivalent ballistic protection | **OPEN** — recorded so the consequence of the instructed change is visible |
-| — | Wall tie detail between the masonry and the columns | **Does not exist in the project** — required before `A8135` |
+| `WM-V11` | Wall tie detail between the masonry and the columns | **CLOSED by SP-B2**, 10 Sep 2026 — 6 mm MS ties at every fifth course (≈ 450) up both column faces, 200 into the bed joint, 10 mm cast-in or drilled-and-grouted dowel. Master A.4.8 / Part H.12 |
 
-None of these is resolved by this package. Master rule M.6 applies: an item that is
-unresolved stays unresolved until the user supplies the answer.
+**Every one of these has now been ruled on.** WM-V5 and WM-V11 are closed
+by design revision **SP-B2** (10 September 2026, master **A.4.8** and Part **H.12**),
+which designs the lintel and the tie detail this document said did not exist. **The
+lintel and tie paragraphs above have been updated to the designed values**; the SP-B1
+planning assumptions they replaced — a provisional 200 × 150 section and ties at every
+fourth course — are superseded and recorded as such.
+
+**Revision RC1 (10 September 2026, master Part H.14) ruled on the rest**, on the user's
+instruction to remove every inconsistency by choosing the best option available.
+**WM-V1, WM-V2, WM-V3, WM-V4, WM-V8, WM-V10 and WM-V12 are CLOSED** — each on the
+better-evidenced value, with the basis recorded in master **K.1c**. Notably **WM-V1 is
+ruled at 2.600 m**, which is confirmed twice and independently (Rev F drawing 6, and
+A.7.7's 13.000 kN/m = 0.200 × 2.600 × 25), so no quantity in this package changes.
+
+**Three remain open and cannot be closed here**, because each needs something the
+project does not contain — they are in master **K.1b**:
+**WM-V6**, the seismic re-check, needs a STAAD run and STAAD.Pro is not available in
+this environment; the direction is certain and favourable (brick 9.88 kN/m against
+13.000 modelled), so it is confirmation, not risk.
+**WM-V7**, the ballistic function, is a **client / military decision** that no drafting
+or design work in this project can supply.
+**WM-V9**, the excavation faces, needs a slope-stability assessment.

@@ -33,15 +33,19 @@ def sheet(num, title, sub, flags=(), of=""):
 def fintag(sh, p, room, f, w, c, s, layer="A-FIN-TAG", th=None):
     """Four-part finish tag:  room / F  W / C  S."""
     th = th or 2.0
-    bw, bh = 26.0, 11.0
+    # QA1: "W-01 + W-04" is wider than a 13 mm half-cell at 2.0 mm, so the wall
+    # and ceiling halves ran into each other.  Tag widened, lower row sized to
+    # the cell it sits in.
+    bw, bh = 34.0, 11.0
     x, y = p
     sh.rect(x, y, x + bw, y + bh, layer)
     sh.line((x, y + bh / 2.0), (x + bw, y + bh / 2.0), layer)
     sh.line((x + bw / 2.0, y), (x + bw / 2.0, y + bh), layer)
     sh.text(room, (x + bw / 4.0, y + bh * 0.62), th, "A-FIN-TAG", "CENTER")
     sh.text(f, (x + bw * 0.75, y + bh * 0.62), th, "A-FIN-FLOOR", "CENTER")
-    sh.text(w, (x + bw / 4.0, y + bh * 0.14), th, "A-FIN-WALL", "CENTER")
-    sh.text(c + "/" + s, (x + bw * 0.75, y + bh * 0.14), th, "A-FIN-CEIL",
+    th2 = min(th, 1.75)
+    sh.text(w, (x + bw / 4.0, y + bh * 0.14), th2, "A-FIN-WALL", "CENTER")
+    sh.text(c + "/" + s, (x + bw * 0.75, y + bh * 0.14), th2, "A-FIN-CEIL",
             "CENTER")
 
 
@@ -161,11 +165,12 @@ def a601():
     sh.text("CURTAINS, AN EMP REQUIREMENT  [C]", N(-700, -440), NOTE,
             "A-FIN-TAG")
     sh.text("CAST-IN SOCKET", N(200, 200), NOTE, "M-DAMPER")
-    sh.text("*** NO DRILLED ANCHOR ANYWHERE IN THE TANKED", N(-700, 620), NOTE,
+    # QA1: this flag block sat above the detail and ran through the D2 title
+    sh.text("*** NO DRILLED ANCHOR ANYWHERE IN THE TANKED", N(-700, -700), NOTE,
             "M-FLAG")
-    sh.text("    ENVELOPE.  IT RISKS THE 40 COVER, THE MEMBRANE", N(-700, 460),
+    sh.text("    ENVELOPE.  IT RISKS THE 40 COVER, THE MEMBRANE", N(-700, -860),
             NOTE, "M-FLAG")
-    sh.text("    AND THE EMP CAGE - ALL THREE ***", N(-700, 320), NOTE,
+    sh.text("    AND THE EMP CAGE - ALL THREE ***", N(-700, -1020), NOTE,
             "M-FLAG")
 
     sh.panel(CC, yy, 242, "D3   FLOOR BUILD-UP  -  RULE R3", [
@@ -221,7 +226,7 @@ def a611():
 
     sc = 50.0
     M = X.vw(sc, 60.0, 380.0)
-    sh.view_title((20, 548), "V1", "ENTRY LEVEL FINISH PLAN",
+    sh.view_title((20, 553), "V1", "ENTRY LEVEL FINISH PLAN",
                   "SCALE 1:50   FINISH TAGS IN EVERY SPACE   "
                   "ROOM / FLOOR over WALL / CEILING-SKIRTING")
     V.ground_plan(sh, M, sc, box_below=True)
@@ -244,7 +249,7 @@ def a611():
             "A-FIN-WET", "BC")
     sh.text("G-05  STAIR VOID EDGE  -  1100 GUARDING  [C]", M(16600, 800),
             NOTE, "M-FLAG", "BC")
-    sh.text("*** C16 - ROOF OVER THE PLATFORM UNRESOLVED, 250 OR 500. "
+    sh.text("*** C16 - ROOF OVER THE PLATFORM RULED AT 250, CLOSED RC1. "
             "THE FINISH DOES NOT DEPEND ON IT; THE DRIP AT THE JUNCTION DOES ***",
             M(9250, 9000), NOTE, "M-FLAG")
     sh.dim_h(M(P.ASW["x0"], 4800), M(P.ASW["x1"], 4800), M(0, 4200)[1], sc=sc)
@@ -264,9 +269,10 @@ def a611():
         "   NBC 2016 Part 4.  Its finish is galvanised or coated steel; its HEIGHT is not a finish decision.",
         "5  THE 300 CHANNEL AND GRATING at the threshold, the flush threshold and the 50 weather bar are all",
         "   confirmed on Rev F section C-C and are shown on DRAINAGE D-103.  No finish crosses the channel.",
-        "6  C16 - THE ROOF OVER THE PLATFORM IS UNRESOLVED, 250 OR 500.  Shown at 250 to match the model and",
-        "   the structural register.  NO FINISH ON THIS SHEET DEPENDS ON THE RULING; what does depend on it is",
-        "   whether a drip is needed at the step in the soffit above G-03.  FLAGGED, NOT RESOLVED.",
+        "6  C16 - THE ROOF OVER THE PLATFORM IS RULED AT 250 AND CLOSED (RC1 10.09.26, master Part H.14).",
+        "   A.4.7's clause that said 500 has been CORRECTED; the model, Part B, A.7.6, F.2 and this sheet all",
+        "   said 250 already.  NO FINISH ON THIS SHEET EVER DEPENDED ON IT.  With the ruling at 250 there is",
+        "   NO STEP in the soffit above G-03, so NO DRIP IS REQUIRED.",
         "7  ALL FINISHES ON THIS SHEET ARE PERFORMANCE REQUIREMENTS.  No product, thickness or colour is",
         "   specified anywhere in this package - see A-601 panel 4.",
     ], h=NOTE, lead=LEAD)
@@ -296,7 +302,7 @@ def a612():
 
     sc = 45.0
     M = X.vw(sc, 40.0, 400.0)
-    sh.view_title((20, 548), "V1", "UNDERGROUND LEVEL FINISH PLAN",
+    sh.view_title((20, 553), "V1", "UNDERGROUND LEVEL FINISH PLAN",
                   "SCALE 1:45   FLOOR (-)6.100   FINISH TAGS IN EVERY SPACE")
     V.underground_plan(sh, M, sc, bays=True, rooms=False, stair=True, esc=True)
 

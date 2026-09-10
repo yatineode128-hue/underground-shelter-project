@@ -68,6 +68,41 @@ LAYERS = {
 STYLES = {"ISOSTD": "isocp.shx", "ISOBOLD": "isocpeur.ttf"}
 
 
+# ------------------------------------------------------------ text measurement
+# QA1: panels and tables used to be sized by eye, so a long line ran past the
+# box edge and a long cell ran into the next column.  Every box is now sized
+# from the REAL rendered width of its own text, measured with the same font
+# metrics ezdxf uses to place it.  Nothing is guessed.
+from ezdxf.fonts import fonts as _fonts
+
+_FONT_CACHE = {}
+PANEL_PAD = 2.0                 # left / right padding inside a note panel
+CELL_PAD_L, CELL_PAD_R = 1.4, 1.2
+MIN_TXT_H = 1.35                # smallest annotation height allowed on an A1 sheet
+LEGIBLE_BODY = 2.0              # target body height for panels and tables
+
+
+def text_width(s, h, font="OpenSans-Regular.ttf"):
+    """Rendered width of `s` at height `h`, in paper mm."""
+    if not s:
+        return 0.0
+    f = _FONT_CACHE.get((font, h))
+    if f is None:
+        f = _FONT_CACHE[(font, h)] = _fonts.make_font(font, h)
+    return f.text_width(str(s))
+
+
+def fit_height(strings, avail, h, floor=MIN_TXT_H):
+    """Largest height <= h at which every string fits in `avail` mm.
+    Returns (height, still_overflows_by_mm)."""
+    need = max([text_width(s, h) for s in strings] or [0.0])
+    if need <= avail or need <= 0:
+        return h, 0.0
+    hh = max(floor, h * avail / need)
+    need2 = max([text_width(s, hh) for s in strings] or [0.0])
+    return hh, max(0.0, need2 - avail)
+
+
 def vw(scale, ox, oy):
     """Return P(model_x, model_y) -> (paper_x, paper_y) for one view."""
     def P(mx, my):
@@ -316,8 +351,11 @@ class Sheet:
 
     # --------------------------------------------------------- annotation
     def view_title(self, p, tag, title, scale_note):
-        self.text(f"{tag}   {title}", p, TXT["view_title"], "S-TITLE")
-        self.line((p[0], p[1] - 1.8), (p[0] + 4.2 * len(f"{tag}   {title}") * 0.55,
+        """QA1: the underline was drawn from a character-count guess and so ran
+        short or long of the text.  It is now the measured width of the title."""
+        s = f"{tag}   {title}"
+        self.text(s, p, TXT["view_title"], "S-TITLE")
+        self.line((p[0], p[1] - 1.8), (p[0] + text_width(s, TXT["view_title"]),
                                        p[1] - 1.8), "S-TITLE")
         self.text(scale_note, (p[0], p[1] - 7.2), TXT["note"], "S-TEXT")
 
@@ -338,34 +376,124 @@ class Sheet:
         self.text("N", (p[0], p[1] + 14.0), TXT["note"], "S-TITLE", "CENTER")
 
     def panel(self, x, y, w, heading, lines, h=None, lead=3.0, box=True):
-        """Text panel.  Returns the y of the bottom of the panel."""
+        """Text panel.  Returns the y of the bottom of the panel.
+
+        QA1: the panel now measures its own content.  The body text is shrunk
+        (never below MIN_TXT_H) until every line fits between the box sides;
+        if even that is not enough the box itself is widened.  No line can
+        cross the border.  The heading is fitted the same way.  `lead` is
+        raised if it would let successive lines touch.
+        """
         h = h or TXT["table"]
+        avail = w - 2 * PANEL_PAD
+        lines = list(lines)
+        # QA1 legibility: panel bodies were all written at TXT["small"] = 1.4 mm,
+        # which is below what prints reliably on an A1 sheet.  Lift the body to
+        # LEGIBLE_BODY where the panel is wide enough to hold it and the line
+        # pitch can carry it; fit_height then shrinks it again if it cannot.
+        h = max(h, min(LEGIBLE_BODY, lead / 1.45))
+        hh, over = fit_height([l for l in lines if l.strip()], avail, h)
+        hd = TXT["panel_head"]
+        hd, over_hd = fit_height([heading], avail, hd)
+        grow = max(over, over_hd)
+        if grow > 0.01:                       # cannot shrink further - widen
+            w += grow + 0.6
+        lead = max(lead, hh * 1.45)
         yy = y
-        self.text(heading, (x + 2.0, yy - 3.4), TXT["panel_head"], "S-TITLE")
-        yy -= 7.4
+        self.text(heading, (x + PANEL_PAD, yy - (2.0 + hd)), hd, "S-TITLE")
+        # QA1: the heading band must clear the heading's descender AND the cap
+        # height of the first body line, or a large body size collides with the
+        # heading.  It is derived from both sizes, not a fixed 7.4 mm.
+        yy -= (2.0 + hd) + (0.45 * hd + hh + 1.0)
         for ln in lines:
-            self.text(ln, (x + 2.0, yy), h, "S-NOTE")
+            if ln.strip():
+                self.text(ln, (x + PANEL_PAD, yy), hh, "S-NOTE")
             yy -= lead
         yy -= 2.0
         if box:
             self.rect(x, yy, x + w, y, "S-TITLE")
+        self.last_panel_w = w
         return yy
 
-    def table(self, x, y, colw, rows, header=None, h=None, rh=4.4, layer="S-TABLE"):
+    def panel_column(self, x, y_top, y_bot, w, blocks, gap=6.0,
+                     h_lo=1.4, h_hi=2.2, lead_lo=3.0, lead_hi=5.4):
+        """QA1: lay a stack of note panels out so that it FILLS the column.
+
+        The R-series and the services sheets were composed with every panel at
+        the library minimum (1.4 mm text, 3.0 mm line pitch).  That left the
+        bottom third of most A1 sheets empty and put the body text below the
+        size that prints legibly.  This solves the line pitch that makes the
+        stack exactly span `y_top` .. `y_bot`, clamps it to a sane band, and
+        derives the text height from it.  Panels never overrun the column and
+        never crowd the title block.
+
+        `blocks` is a list of (heading, lines).  Returns the bottom y reached.
+        """
+        blocks = [b for b in blocks if b is not None]
+        if not blocks:
+            return y_top
+        nlines = sum(len(ls) for _, ls in blocks)
+        if nlines == 0:
+            return y_top
+        avail = (y_top - y_bot) - gap * (len(blocks) - 1)
+        # fixed overhead per panel: heading band (5.0 + head height) + 2.0 tail
+        head_h = TXT["panel_head"]
+        fixed = len(blocks) * (5.0 + head_h + 2.0)
+        lead = (avail - fixed) / nlines
+        lead = max(lead_lo, min(lead_hi, lead))
+        h = max(h_lo, min(h_hi, lead / 1.45))
+        y = y_top
+        for heading, lines in blocks:
+            y = self.panel(x, y, w, heading, lines, h, lead)
+            y -= gap
+        return y + gap
+
+    def table(self, x, y, colw, rows, header=None, h=None, rh=4.4, layer="S-TABLE",
+              max_w=None):
+        """Ruled table.  Returns the y of the bottom edge.
+
+        QA1: column widths and text height are now derived from the real width
+        of the cell strings.  The text height is reduced first (floor
+        MIN_TXT_H); any column that still cannot hold its widest cell is
+        widened.  `max_w` caps the total - if given, the shrink is taken
+        harder rather than letting the table run off the sheet.  No cell text
+        can cross a column rule.  Row height is forced to clear the glyphs.
+        """
         h = h or TXT["table"]
+        h = max(h, min(LEGIBLE_BODY, rh / 2.2))
+        colw = list(colw)
+        ncol = len(colw)
+        cols = [[] for _ in range(ncol)]
+        for r in ([header] if header else []) + list(rows):
+            for i, s in enumerate(r[:ncol]):
+                cols[i].append(str(s))
+        pad = CELL_PAD_L + CELL_PAD_R
+        # 1 - shrink the text until it fits the columns we were given
+        hh = h
+        for _ in range(24):
+            need = [max([text_width(s, hh) for s in c] or [0.0]) + pad for c in cols]
+            deficit = sum(max(0.0, n - w) for n, w in zip(need, colw))
+            budget = 0.0 if max_w is None else max(0.0, max_w - sum(colw))
+            if deficit <= budget + 0.01 or hh <= MIN_TXT_H + 1e-9:
+                break
+            hh = max(MIN_TXT_H, hh * 0.94)
+        # 2 - widen any column that still cannot hold its widest cell
+        need = [max([text_width(s, hh) for s in c] or [0.0]) + pad for c in cols]
+        colw = [max(w, n) for w, n in zip(colw, need)]
         W = sum(colw)
+        rh = max(rh, hh * 2.0)
         yy = y
         if header:
             self.rect(x, yy - rh, x + W, yy, layer)
             cx = x
             for w, s in zip(colw, header):
-                self.text(str(s), (cx + 1.4, yy - rh + 1.3), h, layer)
+                self.text(str(s), (cx + CELL_PAD_L, yy - rh + (rh - hh) / 2), hh, layer)
                 cx += w
             yy -= rh
         for r in rows:
             cx = x
             for w, s in zip(colw, r):
-                self.text(str(s), (cx + 1.4, yy - rh + 1.3), h, layer)
+                self.text(str(s), (cx + CELL_PAD_L, yy - rh + (rh - hh) / 2), hh, layer)
                 cx += w
             self.line((x, yy - rh), (x + W, yy - rh), layer)
             yy -= rh
@@ -375,6 +503,7 @@ class Sheet:
             self.line((cx, y), (cx, yy), layer)
             cx += w
         self.line((x + W, y), (x + W, yy), layer)
+        self.last_table_w = W
         return yy
 
     # ------------------------------------------------------------- sheet

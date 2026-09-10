@@ -211,7 +211,7 @@ ROOMS = [
     ("G-03", "COVERED STAIRWELL - PLATFORM", -2.000, 2.25, "F-06", "S-03",
      "W-05", "C-03", "D-02", "WP-06", True,
      "1500 x 1500 at (-)2.000. Gully GY-10 to the 1.0 m3 sump",
-     "*** C16 - the roof over this platform is UNRESOLVED, 250 or 500. Shown "
+     "*** C16 - RULED AT 250 AND CLOSED (RC1 10.09.26, master H.14). Shown "
      "at 250. The finish does not depend on the ruling; the drip at the "
      "junction does ***"),
     ("G-04", "HEADHOUSE", -2.000, 11.15, "F-05", "S-02", "W-05", "C-02",

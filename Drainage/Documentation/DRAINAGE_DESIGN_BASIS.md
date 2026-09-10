@@ -275,7 +275,7 @@ sanitary fixture layout exists in the project.
 | Stream | Flow | Store | Discharge | Class |
 |---|---|---|---|---|
 | Seepage + condensate/washdown | 400 L/day | clean sump 3.375 m³ (8.44 days) | **storm soakaway**, 2.0 dia × 3.5 eff., 20.0 m² required / 21.99 m² provided | `[C]` flows / `[A]` pit |
-| Foul, peacetime | 450 L/day | septic 1.125 m³ | **soak pit**, 22.5 m² required / 21.99 m² provided — **short, DR-C2** | `[C]` |
+| Foul, peacetime | 450 L/day | septic 1.125 m³ | **soak pit**, 22.5 m² required / **24.19 m² provided, +7.5 %** — DR-C2 **CLOSED by RC1**, SK-01 widened 2.0 → 2.200 dia | `[C]` / `[R]` |
 | Decon effluent | on use | 1000 L tank | **tanker only** | `[C]` |
 | Stairwell surface water | 1 m³ / 32 h | 1.0 m³ sump | **own soakaway**, 54.6 h to empty — **DR-F3** | `[C]` / `[R]` |
 | Headhouse washdown | on use | trapped gully | **external soakaway** | `[C]` |
@@ -293,8 +293,8 @@ sanitary fixture layout exists in the project.
 
 | Ref | Item | Status |
 |---|---|---|
-| **DR-C1** | **S-06 carries a superseded catchment.** The design-flow table gives 0.10 L/s for "stairwell / approach surface water". That is the **Rev E open-cut** figure — 7.2 m² of open pit at 50 mm/h, reproduced exactly in calculation D.8. At Rev F the approach is covered, the door is at grade and note 5 states the catchment with the door shut is zero; the governing case is note 9's door-open driving-rain rate, ≈ 12 × smaller. **Conservative, nothing unsafe.** Not corrected here — S-06 is issued. **Both figures shown on D-103.** **User ruling required.** |
-| **DR-C2** | **Soak pit is 2.3 % short on its own stated requirement.** S-06 prints "22.0 m² OK" against "area required 22.5 m²". π × 2.0 × 3.5 = **21.99 m² < 22.50 m²**. Arithmetic, not judgement. Closed by depth 3.5 → 3.6 m (22.62 m², +0.5 %) **or** diameter 2.0 → 2.1 m. **Not resized here**: the 20 L/m²/day absorption is itself `[A]` and the mandatory percolation test may move the requirement by far more than 2.3 %, so re-sizing first would be false precision. **User ruling required.** |
+| **DR-C1** | **S-06 carries a superseded catchment.** The design-flow table gives 0.10 L/s for "stairwell / approach surface water". That is the **Rev E open-cut** figure — 7.2 m² of open pit at 50 mm/h, reproduced exactly in calculation D.8. At Rev F the approach is covered, the door is at grade and note 5 states the catchment with the door shut is zero; the governing case is note 9's door-open driving-rain rate, ≈ 12 × smaller. **Conservative, nothing unsafe.** Not corrected here — S-06 is issued. **Both figures shown on D-103.** **RULED AND CLOSED by RC1**, 10 Sep 2026 (master Part H.14 / K.1 U12): **Rev F governs** (precedent C1 — the drawing governs), and the 0.10 L/s **stays as a declared conservatism** because removing it changes no pump, pipe or pit and deleting a superseded number would hide the history. |
+| **DR-C2** | **Soak pit was 2.3 % short on its own stated requirement.** S-06 prints "22.0 m² OK" against "area required 22.5 m²". π × 2.0 × 3.5 = **21.99 m² < 22.50 m²**. Arithmetic, not judgement. **RULED AND CLOSED by RC1, 10 Sep 2026** (master Part H.14 / K.1 U11): **SK-01 is WIDENED, diameter 2.0 → 2.200 m, effective depth UNCHANGED at 3.500 m → π × 2.2 × 3.5 = 24.19 m² against 22.50 required, +7.5 %.** Widened rather than deepened because deepening drives the pit further below the design GWT at (−)2.000, where it cannot soak at all. SK-02 follows it so the two pits stay one construction detail. **The mandatory percolation test (A7) still governs the final size and form.** |
 | **DR-F1** | Clean sump cycles once every **3.4 days**, 15 min per start, 0.31 % duty ratio. Cycling is fine; at that duty a failed standby would never be discovered by use. **Witnessed monthly test of the standby path and the hand pump** is required in O&M. |
 | **DR-F2** | Drained floor screed reduces the **finished** clear height by 25–56 mm from the structural 3200. Recorded for the architect. No structural change. |
 | **DR-F4** | **A drained floor cannot be built inside the 1.0 kPa mat SIDL allowance.** At 24 kN/m³ that allowance buys 42 mm of screed; the adopted grading averages **52 mm = 1.24 kPa**, an excess of **0.24 kPa = 25 kN** over the 104 m² floor — 1.2 % of the mat's own weight, 0.4 % of the 6289 kN uplift, and acting in the **favourable** direction for flotation. **Referred to the structural engineer, not assumed.** |
@@ -330,7 +330,9 @@ footprint (Y 200–6000) does not overlap the platform (Y 6000–7500).
 
 **Action taken:** the gully is drawn at its confirmed platform position; the roof above it is drawn
 **at 250 to match the model and the structural register**, with the junction shown as an explicit
-`C16 — UNRESOLVED` flag on D-102, D-103 and D-301 rather than as a resolved detail. **No
+flag on D-102, D-103 and D-301. **C16 is now RULED AT 250 and CLOSED** (RC1, 10 Sep 2026,
+master Part H.14): A.4.7's clause has been corrected, this package drew 250 already, and the
+total catchment is unchanged at 177.23 m² either way. **No
 irreversible assumption is made** and no drainage dimension depends on the outcome.
 
 ---

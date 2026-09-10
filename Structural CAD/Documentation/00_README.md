@@ -146,9 +146,9 @@ Cl. 26.3.3, and it is what sets the spacing of every main curtain in the blast e
 
 | Ref | Item | Status |
 |---|---|---|
-| **C16** | Roof / platform junction — A.4.7 (500) vs B.6 / A.7.6 / F.2 (**250**). **Detailed at 250; the A.4.7 clause is not edited** | **UNRESOLVED — user ruling required** |
-| **C17** | **NEW.** Engineered cover **40.65 stated vs 39.15 column sum** in master A.7.3. **40.65 held. No bar changes** | **UNRESOLVED — user ruling required** |
-| **C18** | **NEW.** Sump-pit base **400** (master F.1 + levels) vs **300** (S-06 text). **400 held** | **UNRESOLVED — user ruling required** |
+| **C16** | Roof / platform junction — A.4.7 (500) vs B.6 / A.7.6 / F.2 (**250**). **Detailed at 250; the A.4.7 clause is not edited** | **RULED AT 250 AND CLOSED — RC1, 10 Sep 2026 (master H.14). The A.4.7 clause is now CORRECTED. Nothing SC1 detailed changes** |
+| **C17** | **NEW.** Engineered cover **40.65 stated vs 39.15 column sum** in master A.7.3. **40.65 held. No bar changes** | **RULED AND CLOSED — RC1, 10 Sep 2026 (master H.14). 40.65 held; A.7.3 now shows 39.15 layer sum + 1.50 declared allowance, so the table no longer disagrees with itself. COMB 103 stays 448.15 kPa** |
+| **C18** | **NEW.** Sump-pit base **400** (master F.1 + levels) vs **300** (S-06 text). **400 held** | **RULED AT 400 AND CLOSED — RC1, 10 Sep 2026 (master H.14). (−)8.000 − (−)7.600 = 0.400 is arithmetic; S-06's 300 is a transcription error** |
 | A2 | Design GWT (−)2.000 **[ASSUMED]** — two-thirds of the lateral load, all of the uplift | **REVIEW — monsoon monitoring** |
 | A4 | k_s second bound (500 000) **never run** | **NOT DETERMINABLE** |
 | M-1 | **No STAAD result of any kind** | **NOT DETERMINABLE** |

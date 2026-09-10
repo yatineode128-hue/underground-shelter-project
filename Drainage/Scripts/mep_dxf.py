@@ -210,8 +210,20 @@ class Sheet(S.Sheet):
             ang = math.degrees(math.atan2(b[1] - a[1], b[0] - a[0]))
             self.flow((mx, my), ang, 2.4, "P-FLOW")
             if tag:
-                self.text(tag, (mx, my + 1.8), h or TXT["small"], "M-CALLOUT",
-                          "BC", rot=(ang if abs(ang) < 90 else ang - 180))
+                # QA1: the tag was offset +1.8 in Y whatever the pipe direction.
+                # On a VERTICAL run that pushes the label ALONG the pipe, so a
+                # long tag lay across every label beside the run.  The offset is
+                # now perpendicular to the run, so the tag always sits beside it.
+                if abs(b[0] - a[0]) >= abs(b[1] - a[1]):
+                    # mostly horizontal run - tag reads along it, just above
+                    self.text(tag, (mx, my + 1.8), h or TXT["small"], "M-CALLOUT",
+                              "BC", rot=(ang if abs(ang) < 90 else ang - 180))
+                else:
+                    # mostly VERTICAL run - a tag rotated along the pipe sweeps a
+                    # tall narrow box through every label beside the run.  Read it
+                    # horizontally, set off to the side, as a callout normally is.
+                    self.text(tag, (mx + 2.2, my), h or TXT["small"], "M-CALLOUT",
+                              "ML")
 
     def duct(self, p1, p2, width, layer="M-DUCT-SUPPLY", tag=None, h=None):
         """Double-line duct between two points, `width` in paper mm."""

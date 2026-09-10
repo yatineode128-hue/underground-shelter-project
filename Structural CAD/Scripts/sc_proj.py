@@ -128,12 +128,16 @@ COMBS = [(101, "ULS STATIC", "1.5 (DL + SIDL + LL + SOIL + UPLIFT)"),
 
 # ------------------------------------------------------------- open items
 OPEN_ITEMS = {
-    "C16": "ROOF / PLATFORM JUNCTION - UNRESOLVED. A.4.7 says the roof over the "
-           "platform becomes the 500 headhouse roof; B.6 / A.7.6 / F.2 design, "
-           "load and register 250. DETAILED AT 250. NOT CLOSED - user ruling required.",
-    "C17": "ENGINEERED COVER - UNRESOLVED, RAISED BY THIS PACKAGE. A.7.3 states "
-           "40.65 kPa; its own column sums to 39.15 kPa. 40.65 HELD (larger, and "
-           "the value in every .std). No reinforcement effect. User ruling required.",
+    "C16": "ROOF / PLATFORM JUNCTION - RULED AT 250 AND CLOSED, RC1 10.09.26 "
+           "(master H.14). A.4.7 used to say the roof over the platform becomes "
+           "the 500 headhouse roof; B.6 / A.7.6 / F.2 design, load and register "
+           "250, and the headhouse (Y 200-6000) does not reach the platform "
+           "(Y 6000-7500) at all. THE A.4.7 CLAUSE IS CORRECTED. DETAILED AT 250.",
+    "C17": "ENGINEERED COVER - RULED AND CLOSED, RC1 10.09.26 (master H.14). "
+           "A.7.3 stated 40.65 kPa against its own column sum of 39.15. 40.65 IS "
+           "HELD and A.7.3 now shows the layer sum 39.15 plus a declared 1.50 "
+           "allowance, so the table no longer disagrees with itself. COMB 103 "
+           "stays 448.15 kPa. No reinforcement effect.",
     "A2":  "DESIGN GWT (-)2.000 IS [ASSUMED]. Water is two-thirds of the lateral "
            "load and all of the uplift. Monsoon monitoring required.",
     "A4":  "SUBGRADE MODULUS ks - master requires BOTH 100 000 and 500 000 kN/m3. "

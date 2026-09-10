@@ -94,7 +94,11 @@ def r701():
                flags=["C10 RESOLVED - 383 kPa EITHER FACE"])
     sh.sheet_header()
     sc = 40
-    Pm = vw(sc, 70, 380)
+    # QA1: the origin was (70, 380), mapping the headhouse (model X 13600..18400)
+    # to paper x 410..530 - the roof plan was drawn straight through the
+    # "HEADHOUSE ROOF 500 - DESIGN BASIS" panel at x 300..638, while its own
+    # title, balloons and section marks sat on the empty left of the sheet.
+    Pm = vw(sc, -240, 380)
     H = P.HH
     sh.rect(*Pm(H["x0"], H["y0"]), *Pm(H["x1"], H["y1"]), "S-CONCRETE")
     sh.rect(*Pm(H["ix0"], H["iy0"]), *Pm(H["ix1"], H["iy1"]), "S-CONCRETE")
@@ -130,11 +134,11 @@ def r701():
     sh.dim_h(Pm(H["ix0"], H["y0"]), Pm(H["ix1"], H["y0"]), Pm(0, H["y0"] - 800)[1], sc)
     sh.dim_v(Pm(H["x0"], H["y0"]), Pm(H["x0"], H["y1"]), Pm(H["x0"] - 1400, 0)[0], sc)
     sh.dim_v(Pm(H["x0"], H["iy0"]), Pm(H["x0"], H["iy1"]), Pm(H["x0"] - 800, 0)[0], sc)
-    sh.north((560, 470))
+    sh.north((265, 500))
     V.balloon(sh, (100, 500), "H01A", Pm(14600, 5400))
     V.balloon(sh, (240, 388), "H02", Pm(17600, 1200))
     V.balloon(sh, (176, 500), "H04A", Pm(16000, 5900))
-    sh.secmark((56, 430), "D"); sh.secmark((300, 430), "D")
+    sh.secmark((56, 430), "D"); sh.secmark((240, 430), "D")
     sh.text("SECTION D-D  ->  BELOW", (180, 366), TXT["small"], "S-SECTION", "CENTER")
     sh.view_title((30, 552), "V1", "HEADHOUSE ROOF PLAN - REINFORCEMENT", "SCALE 1:40")
     sh.text("HEADHOUSE FLOOR = TOP OF THE 900 PRESSURE SLAB AT (-)2.000  ·  "
@@ -190,11 +194,13 @@ def r701():
                         heading="HEADHOUSE ROOF 500 - DESIGN BASIS")
     V.loading_panel(sh, 300, y - 6, 338, HH_WALL, TXT["small"], 3.05,
                     heading="HEADHOUSE WALLS 400 - CONFLICT C10")
-    V.markkey(sh, 648, 552, ["H01A", "H01B", "H01C", "H01D", "H02", "H03", "H04A",
-                             "H04B", "H05", "H06", "H07", "H08", "H09", "H10"], 183)
-    V.bbs_extract(sh, 648, 430, ["H01A", "H01B", "H01C", "H01D", "H02", "H03",
-                                 "H04A", "H04B", "H05", "H06", "H10"])
-    sh.panel(648, 300, 183, "HEADHOUSE LOAD PATH", [
+    yk = V.markkey(sh, 648, 552, ["H01A", "H01B", "H01C", "H01D", "H02", "H03",
+                                  "H04A", "H04B", "H05", "H06", "H07", "H08",
+                                  "H09", "H10"], 183)
+    # QA1: chained off the block above so the two can never collide
+    ybb = V.bbs_extract(sh, 648, yk - 8, ["H01A", "H01B", "H01C", "H01D", "H02",
+                                          "H03", "H04A", "H04B", "H05", "H06", "H10"])
+    sh.panel(648, ybb - 6, 183, "HEADHOUSE LOAD PATH", [
         "HW1 south  runs in X, 4000, over the box south",
         "           perimeter wall - DIRECT",
         "HW2 north  runs in X, 4000, over the box north",
@@ -363,7 +369,7 @@ def r703():
     sh.dim_h(Pm(0, 0), Pm(400, 0), Pm(0, 1900)[1], sc)
     sh.dim_v(Pm(400, 0), Pm(400, 1100), Pm(700, 0)[0], sc)
     sh.text("HEADER 400 x 1100", Pm(760, 500), TXT["small"], "S-TEXT")
-    sh.text("OPENING 2100 HIGH BELOW", Pm(-800, -1200), TXT["small"], "S-TEXT")
+    sh.text("OPENING 2100 HIGH BELOW", Pm(560, -1200), TXT["small"], "S-TEXT")
     V.balloon(sh, (74, 452), "B01", Pm(200, 1450))
     V.balloon(sh, (146, 420), "B03", Pm(300, 1000))
     sh.view_title((30, 552), "V1", "BLAST-DOOR HEAD AND CAST-IN FRAME", "SCALE 1:10")
@@ -436,10 +442,11 @@ def r703():
         "rated, but its frame is still cast in and welded, because the EMP shield",
         "does not stop at the protective boundary.",
     ], TXT["small"], 3.05, heading="BLAST-DOOR INTERFACE - THE LIMIT OF THIS PACKAGE")
-    V.markkey(sh, 340, 276, ["W13", "W14", "W15", "B01", "B02", "B03", "H07",
-                             "H08", "H09"], 298)
-    V.bbs_extract(sh, 340, 130, ["W13", "W14", "W15", "B01", "B02", "B03",
-                                 "H07", "H08", "H09"])
+    yk = V.markkey(sh, 340, 276, ["W13", "W14", "W15", "B01", "B02", "B03", "H07",
+                                  "H08", "H09"], 298)
+    # QA1: chained off the block above so the two can never collide
+    V.bbs_extract(sh, 340, yk - 8, ["W13", "W14", "W15", "B01", "B02", "B03",
+                                    "H07", "H08", "H09"])
     V.materials_panel(sh, 648, 552, 183)
     sh.titleblock(scale="1:10", sheet_of="25 OF 30")
     return sh.save(os.path.join(OUTE, "R-703_Blast_Door_Opening_Details.dxf"))

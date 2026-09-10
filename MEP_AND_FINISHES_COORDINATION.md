@@ -98,7 +98,7 @@ a HEPA and a carbon cassette must be carried in along the bay through Blast Door
 
 | Source | States |
 |---|---|
-| **master A.3** (the authority) | Bay 5: *"CBRN plant: **2 × 250 m³/h** filters, CO₂/O₂, dehumidifier, sump"* |
+| **master A.3** (the authority) | Bay 5: **CORRECTED by RC1, 10 Sep 2026** to *"CBRN plant: **2 × 300 m³/h** filters…"*. It previously read **2 × 250**, and that was the single outlier in the project |
 | **sheet S-06** (issued) | **300 m³/h** — in nine separate places: the design flow, the train label *"EACH 300 m³/h (TRUE N+1)"*, both train annotations, the blast-valve schedule (BV-1/2/3 at 300), the DN100 velocity sizing, the airlock purge and the closed-mode arithmetic |
 
 **At 250 m³/h a single train would be below the 264 m³/h FEMA 453 rate that S-06 itself computes**,
@@ -109,9 +109,13 @@ reproduces only at 300.
 **This package uses 300 m³/h throughout**, because that is the only value consistent with the rest of
 the confirmed basis, and it says so on every sheet that carries a flow.
 
-**NOT RESOLVED HERE.** `CLAUDE.md` makes the master the authority and forbids silently choosing
-between competing values. **The correction is the user's ruling**, and one of the two numbers must
-change.
+**RULED AT 300 m³/h by RC1, 10 September 2026** (master Part H.14 / K.1 U13), on the user's
+instruction to remove every inconsistency by choosing the best option available. **Master A.3 has
+been CORRECTED from "2 × 250" to "2 × 300".** Four independent lines pointed to 300 and none to
+250: S-06 states 300 in nine places; every other S-06 figure reproduces only at 300; **250 fails
+S-06's own 264 m³/h FEMA 453 criterion**, so it was not the cautious option but a demonstrably
+inadequate one; and the project owner's own cost estimate prices 2 × 300. **This package needed
+no change — it used 300 all along. CLOSED.**
 
 ### CO-5 — The floor build-up is a shared constraint, not three separate decisions ✅ ALIGNED
 
@@ -164,7 +168,7 @@ threshold, HVAC needs the transfer grille TG-01 through it, and finishes need to
 and frame are. **Three packages depend on a door nobody has drawn.** Scheduled as D-05, a requirement
 with **no size and no position**. **Engineer to confirm.**
 
-### CO-10 — C16, the roof/platform junction ✅ FLAGGED, NOT RESOLVED
+### CO-10 — C16, the roof/platform junction ✅ RULED AT 250 AND CLOSED
 
 | Package | Dependency |
 |---|---|
@@ -172,9 +176,14 @@ with **no size and no position**. **Engineer to confirm.**
 | **HVAC** | **None.** No duct, plant item, terminal or penetration is at the junction; the nearest is BV-3 in W6, 1.5 m away and at a different level |
 | **Finishes** | **None to the finish itself.** What depends on the ruling is whether a **drip** is needed at the step in the soffit above G-03 |
 
-**Action taken:** drawn at **250** to match the model and the structural register, flagged
-`C16 — UNRESOLVED` on D-102, D-103, D-301 and A-611. **No irreversible assumption is made and no
-dimension in any of the three packages depends on the outcome.**
+**Action taken:** drawn at **250** to match the model and the structural register, and flagged on
+D-102, D-103, D-301 and A-611.
+
+**RULED AT 250 AND CLOSED by RC1, 10 September 2026** (master Part H.14). A.4.7's *"over the
+platform it becomes the 500 headhouse roof"* was one clause against Part B, A.7.6, F.2 **and the
+geometry itself** — the headhouse occupies Y 200–6000 and the platform is at Y 6000–7500, so they
+do not touch. **The A.4.7 clause has been corrected to 250.** All three packages drew the right
+thing; nothing in any of them changes, and the platform gully GY-10 has no step to sit under.
 
 ---
 

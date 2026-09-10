@@ -147,15 +147,17 @@ def r301():
             "STEEL SHOWN DIAGRAMMATICALLY, ACTUAL SPACING 150 BOTH WAYS BOTH FACES",
             (66, 372), TXT["small"], "S-TEXT")
 
-    V.markkey(sh, 66, 352, ["S01A", "S01B", "S02A", "S02B", "S02C", "S03A", "S03B",
-                            "S03C", "S04A", "S04B", "S04C", "S05", "S06", "S07"], 240)
-    V.markkey(sh, 66, 200, ["S08", "S09", "S10", "S11", "S12", "S13", "S14", "S15",
-                            "S16"], 240, "BAR MARK KEY - OPENINGS AND BANDS")
-    V.loading_panel(sh, 316, 352, 322, ROOF_BASIS, TXT["small"], 3.05,
-                    heading="PRESSURE SLAB - DESIGN BASIS")
-    V.bbs_extract(sh, 316, 220, ["S01A", "S01B", "S02A", "S02B", "S02C", "S03A",
+    yk = V.markkey(sh, 66, 352, ["S01A", "S01B", "S02A", "S02B", "S02C", "S03A",
                                  "S03B", "S03C", "S04A", "S04B", "S04C", "S05",
-                                 "S06", "S07"])
+                                 "S06", "S07"], 240)
+    # QA1: chained off the block above so the two can never collide
+    V.markkey(sh, 66, yk - 8, ["S08", "S09", "S10", "S11", "S12", "S13", "S14",
+                               "S15", "S16"], 240, "BAR MARK KEY - OPENINGS AND BANDS")
+    yb = V.loading_panel(sh, 316, 352, 322, ROOF_BASIS, TXT["small"], 3.05,
+                         heading="PRESSURE SLAB - DESIGN BASIS")
+    V.bbs_extract(sh, 316, yb - 8, ["S01A", "S01B", "S02A", "S02B", "S02C", "S03A",
+                                    "S03B", "S03C", "S04A", "S04B", "S04C", "S05",
+                                    "S06", "S07"])
     sh.panel(648, 552, 183, "THICKNESS STUDY - WHY 900 AND NOT 800", [
         "t     d      Mp     Ast,req  tau_v  VERDICT",
         "600  512.5   689    2673     1.71   links at 164, congested",
@@ -169,13 +171,13 @@ def r301():
         "     DBT YIELD IS [UNRESOLVED - U3]",
         "(c)  support rotation inside 2 deg without UFC lacing",
         "",
-        "*** C17 OPEN ***  The engineered cover is stated as 40.65 kPa",
-        "in master A.7.3, A.7.4, Part L and in every .std file, but the",
-        "A.7.3 column itself sums to 39.15 kPa - a 1.50 kPa difference.",
-        "40.65 IS HELD because it is the larger value and the value of",
-        "record.  At 39.15 the roof total would be 446.65 kPa, Mp 697.9",
-        "and utilisation 51.2 % instead of 51.4 %.  NO BAR CHANGES.",
-        "RAISED BY THIS PACKAGE.  NOT CLOSED - user ruling required.",
+        "*** C17 RULED AND CLOSED - RC1, 10.09.26, master H.14 ***",
+        "The engineered cover is stated as 40.65 kPa in A.7.3, A.7.4,",
+        "Part L and every .std file, while the A.7.3 column itself sums",
+        "to 39.15 kPa.  40.65 IS HELD, and A.7.3 now SHOWS why: the",
+        "layer sum 39.15 PLUS A DECLARED ALLOWANCE OF 1.50.  The table",
+        "no longer disagrees with itself and nothing downstream moves -",
+        "COMB 103 stays 448.15 kPa and there are NO BAR CHANGES.",
     ], TXT["small"], 3.05)
     sh.panel(648, 380, 183, "ROOF OPENING REGISTER", [
         "ESC 1    1400 dia   centre (2 050, 2 050)",
@@ -236,12 +238,35 @@ def r302():
     sh.pline([Pm(600, 0), Pm(1100, 0), Pm(600, -500)], "S-CONCRETE")
     sh.pline([Pm(5600, 0), Pm(5100, 0), Pm(5600, -500)], "S-CONCRETE")
     # engineered cover
-    ys = [(900, 1000, "PROTECTION SCREED 100"), (1000, 1750, "COMPACTED FILL 750"),
-          (1750, 2250, "CRUSHED BASALT 500"), (2250, 2450, "BURSTER SLAB M30 200"),
-          (2450, 2600, "GRANULAR FILTER 150"), (2600, 2900, "TOPSOIL / TURF 300")]
-    for a, b, lab in ys:
-        sh.line(Pm(-800, b), Pm(7000, b), "S-EXISTING")
-        sh.text(lab, Pm(7100, (a + b) / 2 - 40), TXT["small"], "S-EXISTING")
+    # BS1: the burster slab and everything above it are laid to a 1:50 crossfall,
+    # crowned on the box centreline (Y = 3100), parallel to the finished grade
+    # (A.4.3).  The fall is taken up in the COMPACTED FILL, which is nominal 750
+    # at the crown and thins to 688 at the box edge, so the cover load does not
+    # increase anywhere.  Drawn as a real crown, not a note.
+    CROWN_X, FALL = 3100.0, 1.0 / 50.0
+    def crown(x):
+        """Rise of the crowned layers above their box-edge level, at box Y = x."""
+        return (CROWN_X - abs(x - CROWN_X)) * FALL
+
+    # Only the protection screed is flat - it sits on the flat roof.  The top of
+    # the compacted fill is CROWNED, because the fill is the layer that takes up
+    # the fall; that same line is the underside of the crushed basalt.
+    sh.line(Pm(-800, 1000), Pm(7000, 1000), "S-EXISTING")
+    sh.text("PROTECTION SCREED 100", Pm(7100, 910), TXT["small"], "S-EXISTING")
+    sh.text("COMPACTED FILL 750 CROWN / 688 EDGE", Pm(7100, 1330), TXT["small"], "S-EXISTING")
+
+    sloped = [(1750, "CRUSHED BASALT 500"), (2250, "BURSTER SLAB M30 200 - LAID TO FALLS"),
+              (2450, "GRANULAR FILTER 150 - DRAINS ON THE SLAB"),
+              (2600, "TOPSOIL / TURF 300"), (2900, "FINISHED GRADE, CROWNED 1:50")]
+    for lev, lab in sloped:
+        pts = [Pm(x, lev + crown(x)) for x in (-800, 0, CROWN_X, 6200, 7000)]
+        sh.pline(pts, "S-WATERPROOF" if "BURSTER" in lab else "S-EXISTING")
+        sh.text(lab, Pm(7100, lev + crown(7000) - 40), TXT["small"], "S-EXISTING")
+    # fall arrows on the filter layer, the layer that actually carries the seepage
+    for x, d in ((1400, -1), (4800, +1)):
+        sh.line(Pm(x, 2450 + crown(x) + 70), Pm(x + d * 700, 2450 + crown(x + d * 700) + 70),
+                "S-BLAST")
+        sh.text("1:50", Pm(x + d * 250, 2450 + crown(x) + 150), TXT["small"], "S-BLAST")
     sh.line(Pm(-800, 900), Pm(7000, 900), "S-WATERPROOF")
     # blast arrows
     for x in range(400, 6200, 800):
@@ -279,6 +304,7 @@ def r302():
         "Topsoil / turf             300     18     5.40  concealment, erosion",
         "Granular filter            150     19     2.85  stops fines clogging",
         "RC burster slab M30        200     25     5.00  BREAKS UP A PENETRATOR",
+        "                           LAID TO A 1:50 CROSSFALL - BS1, master A.7.3",
         "Crushed basalt 25-75       500     17     8.50  scatters burster energy",
         "Compacted fill 95 % MDD    750     20    15.00  RADIATION MASS",
         "Protection screed          100     24     2.40  protects the membrane",

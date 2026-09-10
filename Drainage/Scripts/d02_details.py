@@ -6,6 +6,7 @@ d02_details.py  --  the drainage sections and details.
     D-304  pipe penetration and waterproofing details
     D-305  septic tank, soak pit and chamber details
 """
+import math
 import os
 import sys
 
@@ -37,7 +38,7 @@ def d204():
     # ---- V1 sump plan 1:20
     s1 = 20.0
     M = X.vw(s1, 30.0, 380.0)
-    sh.view_title((20, 548), "V1", "SUMP PLAN  -  BAY 5", "SCALE 1:20")
+    sh.view_title((20, 553), "V1", "SUMP PLAN  -  BAY 5", "SCALE 1:20")
     x0, y0, x1, y1 = D.SUMP_RECT
     sh.rect(*M(x0 - 300, y0 - 300), *M(x1 + 300, y1 + 300), "M-STRUCT")
     sh.rect(*M(x0, y0), *M(x1, y1), "P-EQUIP")
@@ -146,7 +147,7 @@ def d301():
 
     sc = 60.0
     M = X.vw(sc, 40.0, 530.0)
-    sh.view_title((20, 548), "V1", "SECTION A-A  -  LONGITUDINAL, ON THE "
+    sh.view_title((20, 553), "V1", "SECTION A-A  -  LONGITUDINAL, ON THE "
                   "DRAINAGE ROUTE", "SCALE 1:60   LEVELS m")
 
     B = P.BOX
@@ -154,14 +155,17 @@ def d301():
     sh.rect(*M(B["x0"], -2000), *M(B["x1"], 0), "M-EXISTING")
     sh.soil_hatch([M(B["x0"], -2000), M(B["x1"], -2000), M(B["x1"], 0),
                    M(B["x0"], 0)])
+    # QA1B: the six layer labels used to be written INSIDE the cover band.  At
+    # 1:60 that band is 33 mm deep for 2000 mm, and the 100 protection screed
+    # is 1.7 mm - no legible label fits, and the soil hatch ran straight
+    # through all six.  The layer lines stay; the build-up is read from a panel
+    # in the clear space to the right, where it is legible at 2.0 mm.
     yy = 0
     for lab, t, g, kpa, fn in P.COVER_BUILDUP:
         sh.dline(M(B["x0"], yy - t), M(B["x1"], yy - t), "M-EXISTING")
-        sh.text(f"{t}  {lab}", M(B["x0"] + 500, yy - t / 2 - 60), 2.0,
-                "M-EXISTING")
         yy -= t
-    sh.text("ENGINEERED COVER 2000 = 40.65 kPa  [C] master A.7.3   -   NOT DRAINED "
-            "BY PIPEWORK", M(B["x0"] + 400, 400), NOTE, "M-EXISTING")
+    sh.text("ENGINEERED COVER 2000  -  SEE THE BUILD-UP PANEL, RIGHT",
+            M(B["x0"] + 400, 400), NOTE, "M-EXISTING")
     # structure
     sh.rect(*M(B["x0"], -2900), *M(B["x1"], -2000), "M-STRUCT")
     sh.rect(*M(B["x0"], -6700), *M(B["x1"], -6100), "M-STRUCT")
@@ -173,8 +177,11 @@ def d301():
     sh.text("600 MAT", M(B["x0"] + 400, -6400), NOTE, "M-STRUCT")
     # GWT
     sh.dline(M(B["x0"] - 2000, -2000), M(B["x1"] + 800, -2000), "M-WATERPROOF")
+    # QA1B: this label used to start 1.7 mm OUTSIDE the inner border and ran
+    # through the 2000 cover dimension.  It now sits just under the GWT dash,
+    # inside the unhatched pressure-slab band, where it is clear of everything.
     sh.text("DESIGN GWT (-)2.000  [ASSUMED - master A2]",
-            M(B["x0"] - 1900, -1800), NOTE, "M-WATERPROOF")
+            M(B["x0"] + 300, -2260), NOTE, "M-WATERPROOF")
     # tanking
     sh.line(M(B["x0"], -6800), M(B["x1"], -6800), "M-WATERPROOF")
     sh.line(M(B["x0"], -6800), M(B["x0"], -2000), "M-WATERPROOF")
@@ -192,6 +199,21 @@ def d301():
     sh.dim_v(M(B["x0"] - 700, -2900), M(B["x0"] - 700, -2000), M(B["x0"] - 1500, 0)[0], sc=sc)
     sh.dim_v(M(B["x0"] - 700, -6700), M(B["x0"] - 700, -6100), M(B["x0"] - 1500, 0)[0], sc=sc)
     sh.dim_h(M(B["x0"], -7400), M(B["x1"], -7400), M(0, -8100)[1], sc=sc)
+
+    # the build-up itself, legible, in the clear space right of the level marks
+    sh.panel(510, 545, 310,
+             "ENGINEERED COVER BUILD-UP  -  2000 = 40.65 kPa  [C] master A.7.3",
+             [f"{lab:<30}{t:>5}   {fn}"
+              for lab, t, g, kpa, fn in P.COVER_BUILDUP] +
+             ["",
+              "NOT DRAINED BY PIPEWORK.  No pipe penetrates the cover - D-001 note 1.",
+              "BS1 (master A.7.3):  THE BURSTER SLAB AND EVERY LAYER OVER IT IS LAID",
+              "TO A 1:50 CROSSFALL, crowned on the box centreline, 62 mm each way.",
+              "That fall is ACROSS this section, not along it, which is why the layers",
+              "correctly read FLAT here.  The crowned build-up is drawn on R-302.",
+              "The fall is taken up in the compacted fill - 750 crown, 688 box edge -",
+              "so every other layer keeps its nominal thickness and the cover load is",
+              "unchanged at the crown and lighter toward the edges."])
 
     # levels
     for lev, lab in ((0.000, "FINISHED GRADE, CROWNED, FALLS 1:50 AWAY"),
@@ -248,7 +270,7 @@ def d304():
 
     # ---- D1 penetration through the tank
     M = X.vw(10.0, 96.0, 430.0)
-    sh.view_title((20, 548), "D1", "PIPE PENETRATION THROUGH THE TANKED WALL",
+    sh.view_title((20, 553), "D1", "PIPE PENETRATION THROUGH THE TANKED WALL",
                   "SCALE 1:10")
     sh.rect(*M(-300, -900), *M(300, 900), "M-STRUCT")
     sh.concrete_hatch([M(-300, -900), M(300, -900), M(300, 900), M(-300, 900)],
@@ -349,7 +371,7 @@ def d305():
 
     # ---- D1 septic tank section 1:25
     M = X.vw(25.0, 40.0, 520.0)
-    sh.view_title((20, 548), "D1", "SEPTIC TANK  -  SECTION", "SCALE 1:25")
+    sh.view_title((20, 553), "D1", "SEPTIC TANK  -  SECTION", "SCALE 1:25")
     S = P.SEPTIC
     L, Bw, dep = S["l"] * 1000, S["b"] * 1000, S["liquid_depth"] * 1000
     fb = S["freeboard"] * 1000
@@ -428,20 +450,27 @@ def d305():
         "50 mm cowled vent >= 2 m above grade (Cl. 6.9).",
     ], h=NOTE, lead=LEAD)
 
-    sh.panel(CA, y - 8, 396, "SOAK PIT  -  IS 2470 (Pt 2):1985 RE-CHECK   *** A SHORTFALL IS FOUND ***", [
+    sh.panel(CA, y - 8, 396, "SOAK PIT  -  IS 2470 (Pt 2):1985 RE-CHECK   *** SHORTFALL FOUND, NOW CLOSED ***", [
         "Effluent to disperse     450 L/day                                                [C]",
         "Design absorption        20 L/m2/day                                              [A] master A7",
         "AREA REQUIRED            450 / 20                            = 22.50 m2           [R]",
-        "SIDE AREA  pi.D.h        pi x 2.0 x 3.5                      = 21.99 m2           [R]",
-        "CHECK                    21.99  vs  22.50  ->  SHORT BY 0.51 m2  =  2.3 %",
+        f"SIDE AREA  pi.D.h        pi x {K['dia']:.1f} x {K['effective_depth']:.1f}"
+        f"                      = {math.pi*K['dia']*K['effective_depth']:.2f} m2           [R]",
+        f"CHECK                    {math.pi*K['dia']*K['effective_depth']:.2f}  vs  22.50"
+        f"  ->  PASS, MARGIN {math.pi*K['dia']*K['effective_depth']-22.50:.2f} m2  =  "
+        f"+{(math.pi*K['dia']*K['effective_depth']/22.50-1)*100:.1f} %",
         "",
-        "*** DR-C2.  Sheet S-06 prints '22.0 m2  OK' against its own stated requirement of '22.5 m2'.",
-        "    21.99 is not >= 22.50.  THIS IS ARITHMETIC, NOT JUDGEMENT.  Either of these closes it:",
-        "        (a)  effective depth 3.5 -> 3.6 m, diameter unchanged   ->  22.62 m2,  +0.5 %",
-        "        (b)  diameter 2.0 -> 2.1 m, depth unchanged             ->  23.09 m2,  +2.6 %",
-        "    NOT RESIZED HERE.  S-06 is an issued sheet and the 20 L/m2/day absorption is itself [ASSUMED].",
-        "    A PERCOLATION TEST TO Cl. 4 IS MANDATORY BEFORE CONSTRUCTION and may move the requirement by far",
-        "    more than 2.3 %, so re-sizing before the test would be false precision.  USER RULING REQUIRED. ***",
+        "*** DR-C2 WAS RAISED BY THIS PACKAGE AND IS NOW CLOSED - RC1 RULING, master Part H.14 / K.1 U11.",
+        f"    AS DRAWN the pit was {K['dia_was']:.1f} dia x {K['effective_depth']:.1f}"
+        f" = {K['side_area_was']:.2f} m2, and sheet S-06 printed",
+        "    '22.0 m2  OK' against its own stated requirement of '22.5 m2'.  21.99 is not >= 22.50 - the pit",
+        "    as drawn was 2.3 % SHORT.  THAT IS ARITHMETIC, NOT JUDGEMENT.",
+        f"    THE PIT IS WIDENED:  diameter {K['dia_was']:.1f} -> {K['dia']:.3f} m,"
+        f"  effective depth UNCHANGED at {K['effective_depth']:.3f} m.",
+        "    WIDENED AND NOT DEEPENED, deliberately.  Deepening to 3.6 m would also have closed the arithmetic,",
+        "    but it drives the pit further below the design GWT at (-)2.000, and a soak pit below the water",
+        "    table does not soak.  Widening costs one ring of extra excavation and worsens nothing.  SK-02",
+        "    follows SK-01 so the two pits stay ONE construction detail. ***",
         "",
         "AND THE LARGER RISK, ALREADY IN THE MASTER (K.2 A7): 'Soak pit will not work if lower - LIKELY ON",
         "BASALT.'  If the measured rate is below 20 L/m2/day the answer is not a bigger pit: it is a DISPERSION",
@@ -460,8 +489,10 @@ def d305():
         "Discharge to disperse   400 L/day                 [R]",
         "Design absorption       20 L/m2/day               [A] A7",
         "AREA REQUIRED           400 / 20   = 20.0 m2      [R]",
-        "ADOPTED  2.0 dia x 3.5 effective = 21.99 m2       [A]",
-        "CHECK    21.99 >= 20.0   PASS, margin 10 %        [R]",
+        f"ADOPTED  {K['dia']:.1f} dia x {K['effective_depth']:.1f} effective = "
+        f"{math.pi*K['dia']*K['effective_depth']:.2f} m2   [A]",
+        f"CHECK    {math.pi*K['dia']*K['effective_depth']:.2f} >= 20.0   PASS, "
+        f"margin {(math.pi*K['dia']*K['effective_depth']/20.0-1)*100:.0f} %      [R]",
         "",
         "Same construction as SK-01 - one detail, one cover slab",
         "and one set of materials on site.",
