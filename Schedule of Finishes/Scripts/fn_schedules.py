@@ -111,7 +111,7 @@ write("WET_AREA_SCHEDULE", "WET AREA SCHEDULE",
         "Blast Door 1 so no water reaches the clean zone"),
        ("G-03", "Stairwell platform", "F-06", "to the gully", "GY-10 → SU-02",
         "W-05", "WP-06", "S-03", "C-03",
-        "C16 — the roof above is unresolved, 250 or 500. The finish does not "
+        "C16 — the roof above is RULED AT 250 and closed (RC1). The finish does not "
         "depend on it; the drip at the junction does"),
        ("G-04", "Headhouse", "F-05", "**1:80 confirmed**", "GY-11 → external "
         "soakaway", "W-05", "WP-06", "S-02", "C-02",

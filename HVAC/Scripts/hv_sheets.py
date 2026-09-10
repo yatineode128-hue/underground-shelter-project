@@ -262,7 +262,7 @@ def m001():
         ("HV-D4", "NO NOISE CRITERION EXISTS.  Terminal selection cannot be closed"),
         ("HV-D5", "DEHUMIDIFIER DUTY NOT STATED.  The unit is confirmed; the load is not"),
         ("HV-D6", "FAN STATIC PRESSURE - 5 of the 8 loss components are vendor data"),
-        ("C16", "ROOF / PLATFORM JUNCTION, master, unresolved.  NO HVAC DEPENDENCY -"),
+        ("C16", "ROOF / PLATFORM JUNCTION - RULED AT 250, CLOSED RC1.  NO HVAC DEPENDENCY -"),
         ("", "     no duct, plant item or penetration is at that junction"),
         ("A2", "DESIGN GWT (-)2.000 [ASSUMED] - affects the condensate route only"),
     ], header=["REF", "ITEM"], h=2.1, rh=5.8, layer="M-TABLE")

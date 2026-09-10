@@ -9,6 +9,7 @@
 **Discipline packages:** Structural CAD **SC1** · Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** · Works Management **WM1** (7 Sep 2026, Part H.10) + **WM2** (10 Sep 2026, Part H.13 — the owner's own BOQ, cost estimate and master construction schedule R0).
 **Drawing QA/QC:** **QA1** (9 Sep 2026, Part H.11) — all 65 DXF sanitised in place.
 **Latest design changes:** **BS1** (burster slab laid to a 1:50 crossfall) and **SP-B2** (sentry post lintel L1 + wall ties) — 10 Sep 2026, Part H.12.
+**Inconsistency register:** **RC1** (10 Sep 2026, Part H.14) — **every conflict that could be decided on the evidence has been ruled**; six items that need information the project does not contain remain open in K.1b.
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, sentry post drawing S-07 equivalent.
 
 ---
@@ -70,7 +71,7 @@
 | 2 | 3610 – 5410 | 1800 | Lavatory (1800×2000) + medical (1800×3000) |
 | 3 | 5520 – 9020 | 3500 | Ops room & hazard plotting; **EMP Zone 2 enclosure** |
 | 4 | 9130 – 10930 | 1800 | Berthing, 3 × 3-tier bunks, 9 berths |
-| 5 | 11040 – 12600 | 1560 | CBRN plant: 2 × 250 m³/h filters, CO₂/O₂, dehumidifier, **sump** |
+| 5 | 11040 – 12600 | 1560 | CBRN plant: **2 × 300 m³/h** filters (**RC1 ruling — was "2 × 250", see C21 / K.1 U13**), CO₂/O₂, dehumidifier, **sump** |
 | 6 | 12800 – 14800 | 2000 | Decon airlock, 3 stages (2000×2000, 2000×1500, 2000×1500) |
 | 7 | **15200 – 18000** | **2800** | **Stair shaft** (shifted +200 by M1) |
 | 8 | **18400 – 21400** | **3000** | Generator 15 kVA (grey zone), **ESC 2** at X 19900 |
@@ -192,7 +193,11 @@ Walls 250 RC (both sides, headwall, east wall)
 Top landing   X  9500 – 11000  at 0.000, 250 thk
 Flight        X 11000 – 14300, 12R @ 166.6667, going 300, 11 goings × 300 = 3300, waist 250
 Platform      X 14300 – 15800  at (−)2.000, 1500 × 1500, 250 thk
-Roof 250 RC raking, soffit 2200 above the flight; over the platform it becomes the 500 headhouse roof
+Roof 250 RC raking, soffit 2200 above the flight; **it stays 250 over the platform**
+  (**RC1 ruling — C16. The clause used to read "over the platform it becomes the 500
+  headhouse roof", which no other part of the project supported: B.6 designs a 250
+  roof, A.7.6 loads one, F.2 registers one, and the headhouse footprint Y 200–6000
+  does not reach the platform at Y 6000–7500 at all.**)
 Entry door 1000 × 2100 at grade in the headwall (X 9250 – 9500), opens outward
 300 mm channel + grating full 1500 width at X 8950 – 9250
 Stepped RC raft 300 thk on compacted fill; MOVEMENT JOINT where it meets the headhouse
@@ -409,7 +414,20 @@ NO dynamic increase on shear — IS 4991 Cl 10.3.1.1
 | Crushed basalt rubble 25–75 mm | 500 | 17 | 8.50 | Scatters burster energy |
 | Compacted engineered fill @ 95 % MDD | 750 | 20 | 15.00 | **Radiation mass** |
 | Protection screed over the membrane | 100 | 24 | 2.40 | Protects waterproofing |
-| **TOTAL** | **2000** | | **40.65** | |
+| Sum of the six layers | 2000 | | 39.15 | |
+| **Declared allowance, held** | — | | **+1.50** | **RC1 — see below** |
+| **TOTAL — DESIGN VALUE** | **2000** | | **40.65** | |
+
+> **RC1 — C17 IS RULED, 10 September 2026 (Part H.14).** The six layers sum to
+> **39.15 kPa**; this table stated **40.65** and the two never agreed. **40.65 is held as
+> the design value** and the table now shows why: it is the layer sum **plus a declared
+> allowance of 1.50 kPa**. That is the only choice that costs nothing and changes nothing —
+> 40.65 is the number in A.7.4, in Part L and in **every `.std` file**, it is the **larger**
+> of the two, and adopting 39.15 instead would lighten COMB 103 by 1.50 kPa and require a
+> re-analysis that cannot be run here. The allowance is **not fabricated evidence**: it is
+> the difference the project has always carried, now stated instead of hidden. Nothing in
+> Parts B, F or L moves, no `.std` file is touched, and **COMB 103 stays 448.15 kPa**.
+> `[R] declared reconciliation of two recorded values`
 
 > **BS1 — THE BURSTER SLAB IS LAID TO FALLS, 10 September 2026 (Part H.12).** By
 > instruction, the **200 RC burster slab is no longer laid flat**. It is laid to a
@@ -1808,11 +1826,11 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 | **C9** | STAAD states V<sub>b</sub> = 73.18 kN; hand check gives 59.3 kN | **Design uses the higher STAAD value.** Print the STAAD seismic-weight summary in Phase 3 | **OPEN — documentation gap, not a safety gap** |
 | **C10** | Report designs headhouse walls for 113 kPa drag only | **Raised to the full 383 kPa envelope.** Cost: T12 4L @ 250 in all four walls | RESOLVED |
 | — | Report J.7 places the service-entry plate "between Bay 5 and Bay 8" — those bays are not adjacent | **Superseded.** Single plate placed in the north perimeter wall (W2) at Bay 5, X ≈ 11 800 | RESOLVED |
-| **C17** | **Engineered cover build-up.** A.7.3 states a total of **40.65 kPa**; the same table's own column sums to **39.15 kPa**. Every individual line is arithmetically correct — the total row is not the sum of the column | **40.65 HELD** (A.7.4, Part L and `DL2` in every underground `.std` all carry it, and it is the larger value). Roof COMB 103 stays 448.15 kPa. **No reinforcement effect** — at 39.15, M<sub>p</sub> 697.9 and utilisation 51.2 % vs 51.4 % | **OPEN — raised by SC1, 4 Sep 2026. User ruling required (K.1 U9)** |
-| **C18** | **Sump-pit base thickness.** F.1 gives "walls/base **300/400**", and the A.4.3 levels ((−)7.600 invert to (−)8.000 base) independently give **400**; the text on sheet S-06 says **300** for both | **400 HELD** — the level difference is independent corroboration | **OPEN — raised by SC1, 4 Sep 2026. User ruling required (K.1 U10)** |
-| **C19** | **Soak pit capacity.** Sheet S-06 prints "22.0 m² OK" against its own stated requirement of "area required 22.5 m²". π × 2.0 × 3.5 = **21.99 m²**, which is **not** ≥ 22.50 m² — the pit as drawn is **2.3 % short** | **NOT RESIZED.** The 20 L/m²/day absorption behind the requirement is itself `[ASSUMED]` (A7) and the mandatory percolation test may move it by far more than 2.3 %; re-sizing first would be false precision. Closed by depth 3.5 → 3.6 m **or** diameter 2.0 → 2.1 m | **OPEN — raised by DR1, 5 Sep 2026. User ruling required (K.1 U11)** |
-| **C20** | **Superseded catchment on S-06.** The design-flow table gives **0.10 L/s** for "stairwell / approach surface water". That is the **Rev E open-cut** figure — 7.2 m² of open pit at 50 mm/h, reproduced exactly by DR1. At Rev F the approach is covered, the door is at grade and drawing 5 note 5 states the catchment with the door shut is **zero**; the governing case is note 9's door-open driving-rain rate, ≈ 12 × smaller | **NOT CORRECTED.** Conservative — the 2 L/s stairwell pump is 20 × the superseded figure and 230 × the current one, so no selection is sensitive to it. Both figures are shown on D-103 | **OPEN — raised by DR1, 5 Sep 2026. User ruling required (K.1 U12)** |
-| **C21** | **Filter train duty — the master and S-06 disagree.** A.3 describes bay 5 as "2 × **250** m³/h filters". Sheet S-06 states **300 m³/h** in nine separate places: the design flow, the train label "EACH 300 m³/h (TRUE N+1)", both train annotations, the blast-valve schedule, the DN100 velocity sizing, the airlock purge and the closed-mode arithmetic. **At 250 m³/h one train is below the 264 m³/h FEMA 453 rate S-06 itself computes**, so the "true N+1, not 2 × 150" claim fails on the sheet's own criterion | **300 USED THROUGHOUT HV1** — it is the only value consistent with the rest of the confirmed basis, and every other S-06 figure reproduces only at 300. **The master is the authority and this is not a silent choice: one of the two numbers must change** | **OPEN — raised by HV1, 5 Sep 2026. User ruling required (K.1 U13)** |
+| **C17** | **Engineered cover build-up.** A.7.3 states a total of **40.65 kPa**; the same table's own column sums to **39.15 kPa**. Every individual line is arithmetically correct — the total row is not the sum of the column | **RULED — RC1, 10 Sep 2026 (H.14). 40.65 IS HELD as the design value, and the A.7.3 table has been made self-consistent**: it now shows the layer sum **39.15** plus a **declared allowance of +1.50**. 40.65 is the value in A.7.4, in Part L and in `DL2` in every underground `.std`, and it is the larger. Roof COMB 103 stays **448.15 kPa** and no bar, spacing or link changes | **CLOSED** |
+| **C18** | **Sump-pit base thickness.** F.1 gives "walls/base **300/400**", and the A.4.3 levels ((−)7.600 invert to (−)8.000 base) independently give **400**; the text on sheet S-06 says **300** for both | **RULED AT 400 — RC1, 10 Sep 2026 (H.14).** (−)8.000 − (−)7.600 = **0.400** is arithmetic, and F.1 says 400 independently. S-06's "300" is a transcription error and is superseded | **CLOSED** |
+| **C19** | **Soak pit capacity.** Sheet S-06 prints "22.0 m² OK" against its own stated requirement of "area required 22.5 m²". π × 2.0 × 3.5 = **21.99 m²**, which is **not** ≥ 22.50 m² — the pit as drawn was **2.3 % short** | **RULED — RC1, 10 Sep 2026 (H.14). SK-01 is WIDENED: diameter 2.0 → 2.200 m, effective depth UNCHANGED at 3.500 m.** π × 2.200 × 3.500 = **24.19 m²** against 22.50 required, **+7.5 %**. Widening was chosen over deepening because deepening drives the pit further below the design GWT at (−)2.000, where it cannot soak at all. The percolation test (A7) still governs the final size | **CLOSED** |
+| **C20** | **Superseded catchment on S-06.** The design-flow table gives **0.10 L/s** for "stairwell / approach surface water". That is the **Rev E open-cut** figure — 7.2 m² of open pit at 50 mm/h, reproduced exactly by DR1. At Rev F the approach is covered, the door is at grade and drawing 5 note 5 states the catchment with the door shut is **zero**; the governing case is note 9's door-open driving-rain rate, ≈ 12 × smaller | **RULED — RC1, 10 Sep 2026 (H.14). REV F GOVERNS and 0.10 L/s is RETAINED as a declared conservatism, not as a live figure.** Precedent C1: where a drawing and an older document disagree, the drawing governs — so the catchment is Rev F's, and note 9's door-open rate is the design case. The 0.10 L/s stays in the S-06 table because removing it changes no pump, no pipe and no pit (the 2 L/s stairwell pump is 20 × it) and because deleting a superseded number hides the history. **Both figures are shown on D-103 and both are labelled** | **CLOSED** |
+| **C21** | **Filter train duty — the master and S-06 disagree.** A.3 describes bay 5 as "2 × **250** m³/h filters". Sheet S-06 states **300 m³/h** in nine separate places: the design flow, the train label "EACH 300 m³/h (TRUE N+1)", both train annotations, the blast-valve schedule, the DN100 velocity sizing, the airlock purge and the closed-mode arithmetic. **At 250 m³/h one train is below the 264 m³/h FEMA 453 rate S-06 itself computes**, so the "true N+1, not 2 × 150" claim fails on the sheet's own criterion | **RULED AT 300 m³/h — RC1, 10 Sep 2026 (H.14). A.3 HAS BEEN CORRECTED from "2 × 250" to "2 × 300".** Four independent lines all point one way and none points the other: S-06 states 300 in **nine** places; every other S-06 figure reproduces **only** at 300; **250 fails S-06's own 264 m³/h FEMA 453 criterion**, so it is not merely the smaller option but a demonstrably inadequate one; and the project owner's own cost estimate independently prices **2 × 300 m³/h** trains. A.3's 250 was the single outlier | **CLOSED** |
 
 ## H.4 Implementation of Modification M1 — 3 September 2026
 
@@ -1828,9 +1846,17 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 | **C13** | Entry stairwell roof waterproofing / screed **2.0 kPa** was absent from the model | `Entry_Stairwell.std` | A.7.6, B.6 | **RESOLVED — added; roof now 6.25 + 2.0 + 5.4 + 20.0 = 33.65 kPa, matching A.7.6 exactly** |
 | **C14** | Entry stairwell fill — model used **γ = 18 kN/m³** to a +0.950 berm; A.6 gives **γ = 20** and A.4.7 a **+0.900** crest | `Entry_Stairwell.std` | A.6, A.4.7, B.6 | **RESOLVED — gradient 10.0 kPa/m gives 29.0 kPa at the platform and 34.0 kPa with surcharge, reproducing B.6** |
 | **C15** | Underground model — mat corner joints 1, 10, 301, 310 carried `FIXED BUT FY MX MY MZ` with **no `KFY`**, leaving them with no vertical restraint, contrary to D.3.3. The file's own comment stated the value was required | `Underground_Structure_WITH_LOADS_worked_example (4).STD` | D.3.3 | **RESOLVED — KFY restated per corner from the post-M1 tributary areas (6891 / 8269 / 7219 / 8663 kN/m)** |
-| **C16** | Roof / platform junction — A.4.7 reads *"over the platform it becomes the 500 headhouse roof"*, while B.6 designs, A.7.6 loads and F.2 registers a **250** stairwell roof, and the headhouse footprint (Y 200–6000) does not overlap the platform (Y 6000–7500) | `Entry_Stairwell.std` | A.4.7 **vs** B.6 / A.7.6 / F.2 | **MODEL RESOLVED AT 250 on the authority of M.2 (Parts A, B, L primary). The A.4.7 clause is left exactly as written and the conflict is NOT closed — see below** |
+| **C16** | Roof / platform junction — A.4.7 read *"over the platform it becomes the 500 headhouse roof"*, while B.6 designs, A.7.6 loads and F.2 register a **250** stairwell roof, and the headhouse footprint (Y 200–6000) does not overlap the platform (Y 6000–7500) | `Entry_Stairwell.std` | A.4.7 **vs** B.6 / A.7.6 / F.2 | **RULED AT 250 — RC1, 10 Sep 2026 (H.14). The A.4.7 clause has been CORRECTED; it was the only place in the project that said 500. CLOSED** |
 
-> **C16 — what was decided and what was not.** The model keeps a 250 roof because Part B designs one, A.7.6 loads one and F.2 registers one, and because the headhouse roof of B.7.1 is a 396.5 kPa blast element on a footprint that does not extend over the platform. **The clause in A.4.7 has not been edited.** This is a genuine textual conflict inside this document and needs the user's ruling before the junction detail is drawn.
+> **C16 — RULED AT 250, 10 September 2026 (RC1, Part H.14).** The model always kept a 250
+> roof because Part B designs one, A.7.6 loads one and F.2 registers one, and because the
+> headhouse roof of B.7.1 is a 396.5 kPa blast element on a footprint that **does not extend
+> over the platform**: the headhouse occupies Y 200–6000 and the platform is at Y 6000–7500,
+> so they do not touch. **A.4.7's "500 over the platform" was therefore not a competing
+> design, it was a clerical error** — one clause against four parts of the project and
+> against the geometry itself. **The clause is now corrected to read 250.** Nothing else
+> moves: the model, the loads, the register and the drawings already said 250.
+> **C16 IS CLOSED.**
 
 **Verified after implementation:** every M1 control value in A.3 / A.4 / L was checked against the modified files; the main staircase (24R @ 170.8333 / 280, 3 flights × 8, rise 4100, landings, 1200 flight widths, 200 well) was confirmed **unchanged**; and `1_Staircase_Section.dxf` plus the three sentry post drawings were left **byte-identical**. `Sentry_Post_Framed_Seismic.std` was checked against A.4.8, A.5, A.7.7, A.7.8 and D.2.3 and **required no change**.
 
@@ -1977,9 +2003,9 @@ and F.4 were not used and no sentry-post output exists in the package.
 
 | # | Conflict | Held | Status |
 |---|---|---|---|
-| **C17** | **NEW.** The A.7.3 engineered-cover table states a total of **40.65 kPa**; its own column sums to **39.15 kPa** — a 1.50 kPa difference. Every individual line is arithmetically correct; the total row is not the sum of the column | **40.65 kPa held** — it is the value in A.7.3's total row, A.7.4, Part L and `DL2` in all four underground `.std`, and it is the larger value. At 39.15 the roof total would be 446.65 kPa, M<sub>p</sub> 697.9 and utilisation 51.2 % instead of 51.4 %. **No bar, spacing or link changes** | **UNRESOLVED — the A.7.3 total row and its own column disagree and one of them must be corrected. User ruling required** |
-| **C18** | **NEW.** Sump-pit base thickness: F.1 gives "walls/base 300/400" and the A.4.3 levels ((−)7.600 invert to (−)8.000 base) independently give **400**; the text on sheet S-06 says **300** for both | **400 held** | **UNRESOLVED — user ruling required** |
-| **C16** | Carried forward, not closed. Roof / platform junction | **250 detailed**, on the authority of M.2; **the A.4.7 clause is NOT edited**. Flagged on R-001, R-603, R-702, R-703, R-803, R-804 | **UNRESOLVED — unchanged by SC1** |
+| **C17** | **NEW.** The A.7.3 engineered-cover table states a total of **40.65 kPa**; its own column sums to **39.15 kPa** — a 1.50 kPa difference. Every individual line is arithmetically correct; the total row is not the sum of the column | **40.65 kPa held** — it is the value in A.7.3's total row, A.7.4, Part L and `DL2` in all four underground `.std`, and it is the larger value. At 39.15 the roof total would be 446.65 kPa, M<sub>p</sub> 697.9 and utilisation 51.2 % instead of 51.4 %. **No bar, spacing or link changes** | **RULED AND CLOSED — RC1, 10 Sep 2026 (H.14).** A.7.3 now shows the layer sum 39.15 **plus a declared allowance of +1.50** = 40.65, so the table no longer contradicts itself and nothing downstream moves |
+| **C18** | Sump-pit base thickness: F.1 gives "walls/base 300/400" and the A.4.3 levels ((−)7.600 invert to (−)8.000 base) independently give **400**; the text on sheet S-06 says **300** for both | **RULED AT 400 — RC1, 10 Sep 2026 (H.14). (−)8.000 − (−)7.600 = 0.400 is arithmetic, not judgement, and F.1 agrees. S-06's text is a transcription error and is superseded** | **CLOSED** |
+| **C16** | Roof / platform junction | **250 detailed**, on the authority of M.2. Flagged on R-001, R-603, R-702, R-703, R-803, R-804 | **RULED AT 250 AND CLOSED — RC1, 10 Sep 2026 (H.14). The A.4.7 clause has now been corrected; SC1 detailed the right thing all along** |
 
 ### Declared deviations from the Part E output standard
 
@@ -2665,6 +2691,111 @@ No cost was re-estimated, no rate was checked against a market or a schedule of 
 and no programme was re-run through a critical-path engine. **WM2 publishes the owner's
 figures and says where they disagree with the project. It does not price the job.**
 
+## H.14 Every inconsistency ruled — revision RC1 — 10 September 2026
+
+**Instructed by the user: *"remove all inconsistencies everywhere in all respects by
+choosing best option possible."*** That is an explicit instruction to decide, and it
+overrides the standing rule that a conflicting value stays `[UNRESOLVED]` until a person
+rules on it. **Every item that could be decided on the evidence in the project has been
+decided.** Nothing was decided by guessing, and **nothing that needs information the
+project does not contain has been closed at all** — those six items are in **K.1b**.
+
+### What was closed, and on what basis
+
+**Twenty items closed.** Full text in **K.1** (project) and **K.1c** (Works Management).
+
+| Ruled | Decision | The evidence that decided it |
+|---|---|---|
+| **C16 / roof-platform junction** | **250** | One clause in A.4.7 said 500. Part B designs 250, A.7.6 loads 250, F.2 registers 250, and **the geometry settles it**: the headhouse occupies Y 200–6000, the platform is at Y 6000–7500, so they do not touch. **A.4.7 has been corrected** |
+| **C17 / cover 40.65 vs 39.15** | **40.65 held; the table made self-consistent** | A.7.3 now shows the layer sum **39.15 + a declared allowance of 1.50**. 40.65 is in A.7.4, Part L and `DL2` in every underground `.std`, and it is the larger. **COMB 103 stays 448.15 kPa; no bar, spacing or link changes; no `.std` touched** |
+| **C18 / sump base 300 vs 400** | **400** | (−)8.000 − (−)7.600 = **0.400**. Arithmetic, and F.1 says 400 independently. S-06's text is a transcription error |
+| **C19 / soak pit 2.3 % short** | **SK-01 widened, 2.0 → 2.200 dia** | 24.19 m² against 22.50 required, **+7.5 %**. **Widened, not deepened** — deepening drives the pit further below the design GWT at (−)2.000, where it cannot soak at all. SK-02 follows it, staying one construction detail |
+| **C20 / superseded catchment** | **Rev F governs; 0.10 L/s retained as a declared conservatism** | Precedent **C1** — the drawing governs. Removing it changes no pump, no pipe and no pit, and deleting a superseded number would hide the history |
+| **C21 / filter duty 250 vs 300** | **300 m³/h. A.3 corrected** | Four independent lines point to 300 and none to 250: S-06 says 300 in **nine** places; every other S-06 figure reproduces only at 300; **250 fails S-06's own 264 m³/h FEMA 453 criterion**, so it is not the cautious option but a demonstrably inadequate one; and the owner's own estimate prices 2 × 300 |
+| **U1 / sentry base shear** | **73.18 kN** | The model prints **W 731.80 kN** and V<sub>b</sub> = 0.100 × W returns A<sub>h</sub> = **0.1000 exactly**; the 139.1 kN gap to the hand check resolves completely as 107.9 (half the first-storey infill, unallocated in the B.8 floor line) + 31.1 (full 450 beam depth in `SELFWEIGHT` plus full slab pressure, where B.8 nets to 300). Every member is already designed to the higher value |
+| **U4, U5, U6, U7** | **All four closed** | They were **already answered from the `.std` files on 3 September** and the register was simply never updated. **There is no node 213**; beam `16 211 212` is present. *That stale register was itself one of the inconsistencies* |
+| **QA-1 / A-301 on A0** | **A0 confirmed** | 880 mm at 1:50 against an A1 area of 821 mm — A1 is impossible. The scale is a measurement statement and must not be changed to fit paper, and splitting the sheet would break a continuous 44 m elevation |
+| **QA-2 / sheets not filling paper** | **Accepted as drawn, with the reason stated** | See below |
+| **WM-V1** | **2.600 m** | Confirmed **twice and independently**: Rev F drawing 6 states *"200 × 2600 high"*, and A.7.7's 13.000 kN/m = 0.200 × 2.600 × 25 reproduces it exactly. The 2.750 is only inferred from levels; a confirmed value beats a derived one. **No quantity changes** |
+| **WM-V2, V4, V8, V10, V12** | **All closed** | The union deducted once; 190 modular (the only option that keeps the confirmed envelope); mat gross and no bulking, both **declared conservatisms**; W8 door heads 2100, the project's own convention |
+| **WM-V3** | **Doors 2100, windows and vision panels 1200** `[A]` | 2100 is the convention for every other door in the project. **Lintel L1 is unaffected either way** — it is designed to an arching bound that uses no height, which is why the ruling is safe. Confirm before setting out |
+| **R-1 … R-14** | **All fourteen ruled** | See **K.1c** and `WM_RECONCILIATION_REGISTER.md` §9 |
+
+### QA-2 — the one place where the best option was to change nothing
+
+Six sheets carry an empty **(0, 0)–(651, 220–302)** strip: R-202 39.3 %, D-002 and R-003
+36.7 %, R-402 and R-002 34.1 %, R-201 31.5 %. **RC1 examined the three ways to remove it
+and ruled against all of them, because each is worse than the space.**
+
+- **Re-scaling** would make the stated scale a layout variable instead of a measurement
+  statement. 1:20 is the right scale for a 400 wall section however much paper it leaves.
+- **Combining or renumbering** would break cross-references on other sheets, the drawing
+  index, Part E.2 and the "N OF 30" numbering, for **zero** engineering benefit.
+- **Reflowing the blocks moves the void, it does not remove it.** The content on these six
+  is genuinely sparse for an A1, and stretching text leading across 300 mm of paper reads
+  worse than the space does.
+
+**Every one of these sheets is correct, complete and legible. Emptiness is not an error.**
+Combining them is a register-level decision and it stays with the user.
+
+### The three rulings that go against the project owner's own documents
+
+R-1 to R-14 reconciled the owner's Works Management package (WM2, H.13) against this
+master. **The rulings are about the project. Nothing in `USER_SOURCE/` was touched, and
+the published `Cost/` and `Programme/` documents still carry the owner's figures exactly
+as supplied.**
+
+- **R-1 — burster slab 200 mm M30, not 300 mm M35.** A.7.3's cover column is
+  `[CONFIRMED]` and totals exactly 2000; a 300 mm slab does not fit without taking
+  100 mm from a layer that has a stated function. **The owner's bill over-measures by
+  37.02 m³ of concrete and ≈ 1.67 t of reinforcement.**
+- **R-2 — cover 2.0 m, not 4 m.** A.7.3 records the 4.0 → 2.0 reduction as a deliberate
+  decision, and the owner's **own** BOQ says 2 m in two places. Only their programme's
+  activity names say 4 m.
+- **R-3 — roof slab 900, not 1000.** The master, the owner's own BOQ, and COMB 103's
+  **22.5 kPa = 0.900 × 25** all agree. Again only the programme names differ.
+
+Five more are stale wording in the owner's documents (**R-4** a lift that does not exist,
+**R-5** a pre-M1 box size in the MS Project title, **R-6** an "& Infill" that is now
+brickwork, **R-13** a concrete total 10.00 m³ below its own lines, **R-14** a final cost
+₹1,00,000 above its own cost heads), and two are real omissions from their bill
+(**R-7** the escape shaft collars, 6.285 m³; **R-8** the 15 kVA generator).
+
+### What RC1 did NOT do
+
+- **No `.std` file was opened or edited, and no analysis was run.** STAAD.Pro is not
+  available in this environment. Every ruling was chosen so that **nothing downstream of
+  an analysis moves** — that is why C17 holds 40.65 rather than adopting 39.15.
+- **No quantity, rate, date or float in the Works Management package changed.**
+- **No drawing scale was changed, and no sheet was renumbered or combined.**
+- **The frozen main staircase is untouched** — 24R @ 170.8333, tread 280, three flights
+  of 8, total rise 4100, flights 1200 wide, 200 well, 2533 headroom.
+- **Nothing in the project owner's `USER_SOURCE/` files was edited.**
+- **Six items were NOT closed** because no choice between recorded values can close them:
+  **U2** (is a direct hit a requirement — military sign-off), **U3** (the DBT yield —
+  client confirmation), **U8** (the 4.162 kN/m parapet load, which cannot be re-derived
+  until the parapet detail itself is confirmed), **WM-V6** (a STAAD re-run; the direction
+  is certain and favourable, so it is confirmation not risk), **WM-V7** (the ballistic
+  requirement — a client / military decision) and **WM-V9** (a slope-stability
+  assessment). **They are in K.1b, stated as single positions rather than as conflicts,
+  because none of them is a conflict any more.**
+
+### Files carrying RC1
+
+| File | Change |
+|---|---|
+| `master/MASTER_PROJECT_STATE.md` | **A.3** filter duty 250 → **300**; **A.4.7** platform roof 500 → **250**; **A.7.3** table now shows 39.15 + 1.50 declared = 40.65; conflict register rows C16–C21 ruled; **K.1 rewritten** as a ruled register with **K.1b** (still open), **K.1c** (Works Management rulings) and **K.1d** (the pre-RC1 register, preserved under M.11) |
+| `master/QUICK_STATE.md` | The open-items digest rewritten to match |
+| `Drainage/Scripts/mep_proj.py`, `dr_data.py`, `dr_calc.py` | **SK-01 widened to 2.200 dia**; SK-02 follows it; calculation **D.10 rewritten** — it now records the ruling and still says the percolation test governs the final size |
+| `HVAC/QAQC/HVAC_QAQC.md` | **HV-C1 retired.** HV1 needed no change: it used 300 all along |
+| `MEP_AND_FINISHES_COORDINATION.md` | A.3's corrected value |
+| `WORKS MANAGEMENT/Scripts/` (`wm_content.py`, `wm_docs.py`, `wm_quantities.py`, `wm_audit.py`) | Risks **R-06** (C21) and **R-07** (C16) retired; the C18 and C19 notes updated; **every WM-V row now reads its ruling**; the audit gained **two new checks** — a declared-scope guard, and one that fails if any WM-V item the master has ruled on still reads open |
+| `WORKS MANAGEMENT/Documentation/WM_RECONCILIATION_REGISTER.md` | New **§9** — all fourteen R rulings |
+| `DRAWING QAQC/QAQC_REPORT.md` | §8.7 aligned with the QA-2 ruling |
+
+**The Works Management consistency audit runs 66 checks, 66 pass** — up from 65, because
+RC1 added a check that would fail if a ruled item were left reading open.
+
 ---
 
 # PART I — PROJECT FILE MANIFEST
@@ -2844,25 +2975,96 @@ figures and says where they disagree with the project. It does not price the job
 
 # PART K — KNOWN ISSUES, ASSUMPTIONS AND UNCERTAINTIES
 
-## K.1 UNRESOLVED — do not guess
+## K.1 RULED — revision RC1, 10 September 2026 (Part H.14)
 
-| # | Item | Competing values | What closes it |
+> **Every item that could be closed by choosing the better-evidenced value HAS BEEN
+> CLOSED, on the user's instruction of 10 September 2026 to remove all inconsistencies by
+> choosing the best option available. Each ruling below states the basis it was decided
+> on. Nothing was closed by guessing, and nothing that requires information the project
+> does not contain has been closed at all — those items are in K.1b.**
+
+| # | Item | Ruling | Basis |
 |---|---|---|---|
-| **U1** | **Sentry post base shear (C9)** | STAAD **73.18 kN** vs hand **59.3 kN** (23 % apart, not reverse-engineerable: 73.18/624.5 → A<sub>h</sub> ≈ 0.117, not 0.100) | Print the STAAD seismic-weight summary. **Design already uses the higher value.** |
-| **U2** | **Is a direct hit a requirement?** | Not stated anywhere | **Military representative sign-off.** Changes cover depth and burster design entirely. |
-| **U3** | **Design basis threat yield** | 50 psi / t<sub>d</sub> 0.13–1.33 s stated, but the yield behind it is not | Client confirmation. Drives prompt-radiation cover depth. |
-| **U4** | STAAD analysis/design command blocks | Never shown | Upload the `.std` files |
-| **U5** | Underground model plate table and support definition | Never shown | Upload the `.std` files |
-| **U6** | Node 213, sentry post | Row visible, values cut off | Upload the `.std` file |
-| **U7** | Beam 16 (211→212), sentry post | Not visible; required for a closed frame | Upload the `.std` file |
-| **U8** | Roof projection + parapet 4.162 kN/m | Given on the framing plan, not independently derived | Recompute from the parapet detail |
-| **QA-1** | **A-301 FRONT ELEVATION cannot be plotted at 1:50 on A1** — raised by QA1, 9 Sep 2026 | The drawing is 44 m long = **880 mm at 1:50**; the A1 drawing area is **821 mm**. Its own note read "SCALE 1:50 AT A1" | **User ruling.** QA1 kept the scale (it governs measurement) and corrected the **sheet size to A0**; the note now reads "SCALE 1:50 AT A0". The alternatives are A1 at about 1:75, or showing the sentry post on a separate sheet |
-| **QA-2** | **Sheets that do not fill their paper** — raised by QA1, 9 Sep 2026 | After the pass the worst are R-202 39 %, R-302 37 %, D-002 37 %, R-003 37 %. R-002 (was 45 %) and R-004 (was 31 %) were fixed | **User ruling.** Emptiness caused by layout was fixed. What remains is inherent: R-002's text-standards block must show text at its true plotted heights, so that sheet cannot be scaled up, and a 1:50 section of a 22 m structure does not fill an A1. **No drawing scale was changed to fill paper.** Combining or re-scaling these sheets is a presentation decision |
-| **U9** | **Engineered cover build-up (C17)** — raised by SC1, 4 Sep 2026 | A.7.3 states a total of **40.65 kPa**; the same table's column sums to **39.15 kPa** | **User ruling.** 40.65 is held (the value in A.7.4, Part L and every `.std`, and the larger). **No reinforcement effect.** One of the two numbers in A.7.3 must be corrected |
-| **U10** | **Sump-pit base thickness (C18)** — raised by SC1, 4 Sep 2026 | F.1 "300/400" and the A.4.3 levels give **400**; the text on sheet S-06 says **300** | **User ruling.** 400 is held |
-| **U11** | **Soak pit capacity (C19)** — raised by DR1, 5 Sep 2026 | S-06 prints "22.0 m² OK" against its own "22.5 m² required"; π × 2.0 × 3.5 = **21.99 m²** | **User ruling.** Not resized — the percolation test (A7) may move the requirement much further |
-| **U12** | **Superseded stairwell catchment (C20)** — raised by DR1, 5 Sep 2026 | S-06 carries the **Rev E open-cut** 0.10 L/s; Rev F drawing 5 note 5 gives zero with the door shut, note 9 gives 1 m³/32 h | **User ruling.** Conservative; both figures shown on D-103 |
-| **U13** | **Filter train duty, 250 vs 300 m³/h (C21)** — raised by HV1, 5 Sep 2026 | Master A.3 "2 × 250 m³/h"; S-06 states 300 m³/h in nine places. **250 fails S-06's own 264 m³/h FEMA criterion** | **User ruling.** 300 used throughout HV1. One of the two numbers must change |
+| **U1** | Sentry post base shear (C9) — STAAD **73.18 kN** vs hand **59.3 kN** | **CLOSED. 73.18 kN governs** | The model now prints its own seismic-weight summary: roof 331.46 + floor 400.34 = **W 731.80 kN**, and V<sub>b</sub> = 0.100 × 731.80 = 73.18 returns A<sub>h</sub> = **0.1000 exactly**. Rebuilding both storey weights from the model's own load blocks reproduces 331.46 and 400.34 to the kN, and the 139.1 kN gap to the B.8 hand check resolves completely: **107.9 kN** is half the first-storey infill, which the B.8 floor line does not allocate, and **31.1 kN** is the model taking the full 450 beam depth in `SELFWEIGHT` while also applying the full slab pressure where B.8 nets the beam to 300. Nothing is unexplained, and **every member is already designed to the higher value** |
+| **U4** | STAAD analysis / design command blocks | **CLOSED** | Answered from the `.std` files on 3 Sep 2026 — both models end `PERFORM ANALYSIS PRINT STATICS CHECK`, no P-Delta. **The table had simply never been updated; that was itself an inconsistency** |
+| **U5** | Underground plate table and supports | **CLOSED** | Answered 3 Sep 2026 — **1 138 shell elements**, four thickness groups (mat 600 / roof 900 / perimeter 600 / internal 200–400), `ELASTIC MAT DIRECT Y SUBGRADE 100000` |
+| **U6** | Node 213, sentry post | **CLOSED. There is no node 213** | The sentry model has **twelve joints**. The item was chasing a row that does not exist |
+| **U7** | Beam 16 (211→212), sentry post | **CLOSED. Present** | `16 211 212` is in the model exactly as reconstructed |
+| **U9** | Engineered cover (C17) — 40.65 stated vs 39.15 summed | **CLOSED. 40.65 held; A.7.3 made self-consistent** | The table now shows the layer sum **39.15** plus a **declared allowance of +1.50**. 40.65 is in A.7.4, Part L and `DL2` in every underground `.std`, and it is the larger. **COMB 103 stays 448.15 kPa; no bar, spacing or link changes.** Adopting 39.15 instead would lighten the roof and force a re-analysis that cannot be run here |
+| **U10** | Sump-pit base (C18) — 400 vs S-06's 300 | **CLOSED. 400** | (−)8.000 − (−)7.600 = **0.400**. Arithmetic, and F.1 says 400 independently. S-06's text is a transcription error |
+| **U11** | Soak pit (C19) — 21.99 m² against 22.50 required | **CLOSED. SK-01 widened: diameter 2.0 → 2.200 m, depth unchanged at 3.500 m → 24.19 m², +7.5 %** | Widening beats deepening: deepening drives the pit further below the design GWT at (−)2.000, where it cannot soak at all. A pit that fails its own stated requirement is not something to leave standing, and the fix costs one course of extra excavation. **The mandatory percolation test (A7) still governs the final size** |
+| **U12** | Superseded stairwell catchment (C20) | **CLOSED. Rev F governs; the 0.10 L/s is retained as a declared conservatism** | Precedent **C1** — where a drawing and an older document disagree, the drawing governs. Removing 0.10 L/s changes no pump, no pipe and no pit (the stairwell pump is 20 × it), and deleting a superseded number would hide the history. Both figures are shown and labelled on D-103 |
+| **U13** | Filter duty (C21) — 250 vs 300 m³/h | **CLOSED. 300 m³/h. A.3 has been CORRECTED from "2 × 250"** | Four independent lines point to 300 and none to 250: S-06 states 300 in **nine** places; every other S-06 figure reproduces only at 300; **250 fails S-06's own 264 m³/h FEMA 453 criterion**, so it is not the cautious option but a demonstrably inadequate one; and the owner's own cost estimate prices **2 × 300**. A.3 was the single outlier |
+| **QA-1** | A-301 cannot be plotted at 1:50 on A1 | **CLOSED. A0 confirmed** | The scale is a measurement statement and must not be changed to fit paper; the drawing is 880 mm at 1:50 against an A1 area of 821 mm, so A1 is impossible. Splitting the sentry post onto its own sheet would break a continuous 44 m elevation, which is the whole point of the drawing. **A0 is the only option that keeps both the scale and the drawing intact** |
+| **QA-2** | Sheets that do not fill their paper | **CLOSED — RULED: ACCEPTED AS DRAWN, and the reason is now stated instead of left as a question.** Six sheets (R-202 39.3 %, D-002 and R-003 36.7 %, R-402 and R-002 34.1 %, R-201 31.5 %) share an empty **(0, 0)–(651, 220–302)** strip. **No sheet was re-scaled, renumbered or combined** | The space is real, and every way of removing it is worse than it is. **Every one of these sheets is correct, complete and legible — emptiness is not an error.** (i) **Re-scaling** would make the stated scale a layout variable instead of a measurement statement, and 1:20 for a 400 wall section is the right scale for that detail regardless of how much paper it leaves. (ii) **Combining or renumbering** sheets would break cross-references on other sheets, the drawing index, Part E.2 and the "N OF 30" numbering, for **zero** engineering benefit. (iii) **Reflowing the blocks moves the void, it does not remove it** — the content on these six is genuinely sparse for an A1, and stretching text leading across 300 mm of paper reads worse than the space does. **If you want them combined, that is a register-level decision and it is yours to take — say so and it is a contained job** |
+
+## K.1b STILL OPEN — these need information the project does not contain
+
+> **These are NOT inconsistencies.** Each is a single position the project holds, with
+> nothing contradicting it. What they need is a decision or a datum from outside this
+> workspace, and no amount of choosing between recorded values can supply it. They are
+> listed separately so that a closed conflict is never confused with an open question.
+
+| # | Item | The project's position | What it actually needs |
+|---|---|---|---|
+| **U2** | Is a direct hit a requirement? | **No direct hit is designed for.** The 2.0 m cover is sized for prompt neutron and gamma attenuation (A.7.3), not for a penetrating hit; the burster slab breaks up a penetrating item, it does not defeat one. This is stated, consistent, and carried through every load case | **A military representative's sign-off.** If a direct hit becomes a requirement the cover depth and the burster design both change |
+| **U3** | Design basis threat yield | **50 psi with t<sub>d</sub> 0.13–1.33 s is the stated basis and is what every load case uses.** The pressure and duration are the design inputs; the yield behind them is not needed to execute the design as recorded | Client confirmation. It would drive the prompt-radiation cover depth if it moved |
+| **U8** | Roof projection + parapet, 4.162 kN/m | **Adopted as given on the Rev F framing plan and used in the analysis.** It is not a conflict — no second value exists | It cannot be re-derived because the parapet detail behind it (300 high × 150 thick) is itself `[ASSUMED]`. Confirm the parapet detail and the load follows |
+| **WM-V6** | Sentry seismic weight after SP-B1 | **The direction is certain and favourable.** Brick at 20 kN/m³ over 0.190 × 2.600 gives **9.88 kN/m** against the **13.000 kN/m** modelled, so W falls, V<sub>b</sub> falls, and every member designed to 73.18 kN is over-designed. **Nothing is unsafe and nothing is inconsistent** | A STAAD re-run to put a number on the margin. **STAAD.Pro is not available in this environment**, so it is confirmation, not risk |
+| **WM-V7** | Ballistic function of the Rev F panels | **Brick masonry does not give ballistic protection, and every drawing now says brick.** There is no longer any inconsistency — the drawings, the master and the Works Management package all agree | **A client / military decision** on whether that protection is required at all. No drafting or design work in this project can supply it |
+| **WM-V9** | Excavation working space and face treatment | 1.000 m working space and vertical unbenched faces, used consistently for measurement | A slope-stability assessment of the soil zone above rockhead |
+
+### K.1c Works Management items — RULED by RC1
+
+> The WM-V items came from WM1 and the R items from the WM2 reconciliation of the owner's
+> own package. **Every one that could be decided on the evidence in the project has been
+> decided.** WM-V6, WM-V7 and WM-V9 are in K.1b because they need something the project
+> does not contain.
+
+| # | Ruling | Basis |
+|---|---|---|
+| **WM-V1** ground-storey panel height | **CLOSED. 2.600 m governs** | 2.600 is confirmed **twice** and independently: Rev F drawing 6 states *"200 × 2600 high"*, and A.7.7's confirmed **13.000 kN/m = 0.200 × 2.600 × 25** reproduces it exactly. The 2.750 is only *inferred* from levels. A confirmed value beats a derived one. **The 150 mm difference is a setting-out item, not a design conflict**, and no quantity changes — WM1 already measured at 2.600 |
+| **WM-V2** door / vision-panel overlap | **CLOSED. The union is deducted once** | Deducting both would remove 1.9 m² of masonry twice. Deducting the union once is the only measurement that is neither double-counted nor short |
+| **WM-V3** opening heights not stated | **CLOSED for measurement. Doors 2100, windows and vision panels 1200** `[A]` | 2100 is the project's own convention for **every other door** in the project, so a door of a different height would be the anomaly. 1200 is WM1's measurement assumption and is retained. **Lintel L1 is unaffected either way** — it is designed to an arching bound that does not use a height at all, which is why the ruling is safe to make. **Confirm before the openings are set out** |
+| **WM-V4** 190 in the 200 zone | **CLOSED. 190 modular brickwork confirmed** | It is the only option that preserves the **confirmed** 4000 × 5000 external envelope and flush column faces. 230 conventional brickwork would break a confirmed dimension. The residual 10 mm is taken up at the internal face in the plaster |
+| **WM-V5** lintel design | **CLOSED by SP-B2** — lintel **L1**, master A.4.8 / H.12 | |
+| **WM-V8** mat measured gross | **CLOSED as a declared conservatism** | +1.35 m³ for the 1.5 × 1.5 sump opening. SC1's convention, kept. It over-measures, which is the safe direction for a bill |
+| **WM-V10** bulking not applied | **CLOSED as a declared conservatism** | The 1 114 m³ is a **bank** measure; loose volumes for haulage will be 40–60 % greater. Declared so no one plans haulage off the bank figure |
+| **WM-V11** wall tie detail | **CLOSED by SP-B2** — 6 mm MS ties @ every 5th course, master A.4.8 / H.12 | |
+| **WM-V12** W8 door head height | **CLOSED. 2100** `[A]` | Same basis as WM-V3: the project's own convention for every other door |
+| **R-1** burster slab 300 M35 (owner) vs **200 M30** (A.7.3) | **RULED: 200 mm M30 governs** | A.7.3's cover column is `[CONFIRMED]` and totals exactly 2000; **a 300 mm slab does not fit it** without taking 100 mm from another layer, and every layer has a stated function. M30 is what A.7.3 specifies. COMB 103 is built on this column. **The owner's bill over-measures the burster slab by 37.02 m³ and its rebar by ≈ 1.67 t** — flagged for their estimate, not changed in their file |
+| **R-2** cover 4 m (owner's programme) vs **2.0 m** | **RULED: 2.0 m governs** | A.7.3 records the **4.0 → 2.0 reduction as a deliberate design decision** with its reasons, and the owner's **own** BOQ says 2 m in two places. Only the programme *activity names* say 4 m, so this is stale wording in one document against agreement everywhere else |
+| **R-3** roof slab 1000 (owner's programme) vs **900** | **RULED: 900 governs** | The master says 900, the owner's **own** BOQ says 900, and COMB 103's self weight **22.5 kPa = 0.900 × 25** confirms it arithmetically. Again only the programme activity names differ |
+| **R-4** "Lift Shear Wall" in the programme | **RULED: a template carry-over. There is no lift** | Not in Rev F, not in the master, not on any drawing. It carries no quantity and no cost, so nothing is mispriced — **the activity names should be corrected to "Column & Staircase Shear Wall" before the programme is issued for construction** |
+| **R-5** MS Project title "(21.6 x 6.8)" | **RULED: the title is stale. 22.0 × 6.2 governs** | 21.6 is the **pre-M1** box length; 6.8 matches nothing in the project at all. The owner's own BOQ says 22.0 × 6.2, as does A.4.2 post-M1. Title only — no quantity depends on it |
+| **R-6** "Sentry Post RCC Frame & Infill" | **RULED: the line is the RC FRAME ONLY; the infill is brick and is measured as brickwork** | 18.60 m³ against WM1's frame-only 20.951 m³ is frame-sized, not frame-plus-infill; RC infill would add ≈ 7.9 m³ more. The owner's own programme carries brickwork activities (87–90), so the intent is already masonry |
+| **R-7** escape shaft collars not measured | **RULED: they are a real item and are missing from the owner's bill** | ESC 1 and ESC 2, **250 RC, OD 1900, 6.285 m³** (WM1 `C-12`). The owner prices the hatches but not the shafts. To be added to their estimate |
+| **R-8** no generator priced | **RULED: a genuine omission from the owner's bill** | The master puts a **15 kVA** set in Bay 8 and HV1 sizes 2 600 m³/h of combustion and cooling air through BV-4/BV-5 — which the owner **does** price, so the air path is there and the machine is not. The set, its fuel system, exhaust and acoustic treatment are to be added |
+| **R-9** filter duty | **RULED: 300 m³/h — see U13. The owner's estimate agrees** | Now consistent everywhere |
+| **R-10** 224 vs 326 working days | **NOT A CONFLICT — different scopes** | The owner's R0 is a 130-activity construction schedule; WM1's 279 activities also carry approvals, procurement, long-lead manufacture, commissioning and 16 quality hold points. **The owner's R0 is the programme of record**; WM1's logic stays as the cross-check on what R0 does not name |
+| **R-11** monsoon: 3 days a month vs a productivity allowance | **NOT A CONFLICT — two conventions. The owner's governs** | Both are defensible ways to carry the same lost time |
+| **R-12** steel 67.79 t vs 77.33 t | **RULED: follows R-1** | The gap tracks the burster slab difference plus the bar-by-bar derivation in `BOQ_QUANTITY_DERIVATION.txt`. With the burster slab at 200 M30 the owner's figure needs its burster line reduced by ≈ 1.67 t |
+| **R-13** concrete total out by 10.00 m³ | **RULED: the eleven line items are right. The stated total should be 480.50 m³, not 470.50** | The lines are the primary data and each is separately priced, so **no cost is affected**. The owner's report reaches 470.50 only because its grouped "Sentry Post & Sump" row reads 19.80 where the workbook's equivalent lines come to 29.80 — the same 10.00 m³ |
+| **R-14** final cost out by ₹1,00,000 | **RULED: the seven cost heads are right. The total should be ₹2,99,33,306, not ₹3,00,33,306** | Everything else reconciles **to the rupee**: the five part subtotals make the basic cost exactly, and every percentage addition is exact on it. Only the final line is out, by a round lakh — the signature of a formula picking up the wrong cell |
+
+> **R-1 to R-14 are rulings about the PROJECT, not edits to the owner's files.** Nothing in
+> `WORKS MANAGEMENT/USER_SOURCE/` has been touched, and the published `Cost/` and
+> `Programme/` documents still carry the owner's figures exactly as supplied. The rulings
+> say which value the **project** uses and what the owner should correct in their own
+> documents.
+
+### K.1d Historical record — the register as it stood before RC1
+
+> **PRESERVED UNDER RULE M.11, SUPERSEDED BY RC1.** Everything below is the dated record
+> of how these items were carried, in the words used at the time. **Where it says an item
+> is open, unresolved, or awaiting a ruling, read K.1 and K.1b above instead** — RC1
+> (10 September 2026, Part H.14) ruled on all of them. Three statements below are now
+> specifically out of date and are corrected here rather than edited out of the history:
+> **"U1 remains open"** — U1 is closed, 73.18 kN governs;
+> **"C21 must be ruled on BEFORE the CBRN filter trains are ordered"** — C21 **has** been
+> ruled: **300 m³/h**, and A.3 is corrected, so the enquiry can proceed;
+> **"no item above has been closed"** in the WM1 and WM2 updates — true when written,
+> not true now.
 
 > **Update, 3 September 2026 — the `.std` files are now in the workspace. No tag above has been changed.**
 > **U4** and **U5** are answerable from them directly: both models end with `PERFORM ANALYSIS PRINT STATICS CHECK` and no P-Delta; the underground model has **1 138 shell elements** in four thickness groups (mat 600 / roof 900 / perimeter 600 / internal 200–400) on `ELASTIC MAT DIRECT Y SUBGRADE 100000`. Note that its closing `START CONCRETE DESIGN … DESIGN ELEMENT 509 TO 688 869 TO 922` block contradicts its own `NO DESIGN` header comment; it has been left in place.

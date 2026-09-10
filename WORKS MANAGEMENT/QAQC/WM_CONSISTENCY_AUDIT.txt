@@ -108,7 +108,7 @@ PASS   Every reference topic the brief names is covered           12 topics, gap
 ==============================================================================
 12.  HANDOUT <-> PACKAGE
 ==============================================================================
-PASS   The handout exists and covers all 25 sections              Underground_Shelter_Works_Management_Handout.pdf, 154 kB
+PASS   The handout exists and covers all 25 sections              Underground_Shelter_Works_Management_Handout.pdf, 155 kB
 PASS   The programme drawing exists                               Underground_Shelter_Final_Works_Programme.pdf, 74 kB
 PASS   Headline figures in the handout match the package          7 figures checked, mismatched: none
 
@@ -117,19 +117,20 @@ PASS   Headline figures in the handout match the package          7 figures chec
 ==============================================================================
 PASS   The frozen main staircase geometry is reproduced, not altered 6 of 7 frozen values quoted verbatim in the package
 PASS   Confirmed structural dimensions are used unchanged         8 of 8 confirmed dimensions appear verbatim in the derivation
-PASS   No file outside WORKS MANAGEMENT/ and master/ is modified  21 files changed; outside the two folders: none
+PASS   No UNDECLARED file outside WORKS MANAGEMENT/ and master/ is modified 105 files changed; outside the two folders: 87, of which declared under RC1 (Drainage, soak pit C19): 87; UNDECLARED: none
 
 ==============================================================================
 14.  EVIDENCE DISCIPLINE
 ==============================================================================
-PASS   Every master conflict is carried forward, none resolved    10 of 10 master open items appear in the register, all still open
+PASS   Every master conflict is carried forward, none dropped     10 of 10 master items appear in the register. RC1 (master Part H.14) has since RULED on C16-C21 and U1; U2, U3 and U8 stay open in master K.1b
+PASS   Every WM-V item the master has ruled on reads CLOSED here  9 ruled items checked; still reading open: none
 PASS   Verification items raised by this package are registered   12 distinct verification items: WM-V1, WM-V2, WM-V3, WM-V4, WM-V5, WM-V6, WM-V7, WM-V8, WM-V9, WM-V10, WM-V11, WM-V12
 PASS   The package states that STAAD.Pro was not run              declared in the assumptions and verification register
 
 ==============================================================================
 SUMMARY
 ==============================================================================
-65 checks executed.  65 passed, 0 failed.
+66 checks executed.  66 passed, 0 failed.
 
 The package is internally consistent: the work breakdown structure, the
 programme, the bill of quantities, the resource plan, the procurement

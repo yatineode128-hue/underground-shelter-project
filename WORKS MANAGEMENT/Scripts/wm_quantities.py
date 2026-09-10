@@ -60,7 +60,7 @@ SOURCES = [
     ("Engineered cover 2000 layered = 40.65 kPa, six layers", "master A.7.3", "[C]"),
     ("Burster slab M30 200 thk, T12 @ 150 B/W, inside the cover", "master A.7.3", "[C]"),
     ("Sump SU-01 1500 x 1500 x 1500; invert -7.600; base slab -8.000; "
-     "walls 300 / base 400 (C18 open, 400 held)", "Drainage DR1 sump schedule / master F.1", "[C]"),
+     "walls 300 / base 400 (C18 CLOSED by RC1 - ruled at 400)", "Drainage DR1 sump schedule / master F.1", "[C]"),
     ("Concrete volumes: mat 81.8, roof net 112.0, perimeter walls 103.7, W6/W7 12.8, "
      "W5 3.2, headhouse 32.7, main stair 3.0, entry stairwell 19.9 = 369.2 m3",
      "Structural CAD SC1, REINFORCEMENT_SUMMARY.md", "[C]"),
@@ -205,7 +205,7 @@ sump_ext = SUMP_CL + 2 * SUMP_WALL
 sump_exc_side = sump_ext + 2 * 0.300
 sump_depth = 8.100 - 6.800
 w("Pit clear 1.500 x 1.500 x 1.500; invert (-)7.600; base slab (-)8.000  [C]")
-w("Walls 300 / base 400 (master F.1; conflict C18 open, 400 held)          [C]")
+w("Walls 300 / base 400 (master F.1; C18 CLOSED by RC1 - ruled at 400)     [C]")
 w("Pit external = 1.500 + 2 x 0.300 = %.3f m square" % sump_ext)
 w("Excavation with 0.300 working space = %.3f m square                    [A]" % sump_exc_side)
 w("Depth below the main formation = (-)8.100 (u/s blinding) - (-)6.800 = %.3f m" % sump_depth)
@@ -893,7 +893,7 @@ w()
 w("HVAC / CBRN (HVAC/Schedules) - principal items:")
 for t in [
     "AHU-1 / AHU-2 NBC filter trains, 300 m3/h each, true N+1                   [C]",
-    "  (duty 250 vs 300 m3/h is CONFLICT C21 - UNRESOLVED; HV1 uses 300)        [U]",
+    "  (duty RULED AT 300 m3/h by RC1 - C21 CLOSED, master A.3 corrected)      [C]",
     "FAN-1 / FAN-2 supply fans with electric drive AND HAND CRANK               [C]",
     "  fan static pressure NOT DERIVABLE - five of eight loss components are",
     "  vendor data (HVAC calc H.9)                                              [N]",

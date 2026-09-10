@@ -8,6 +8,8 @@ Updated 7 Sep 2026 for the Works Management package WM1 (Part H.10).
 Updated 9 Sep 2026 for the drawing QA/QC pass QA1 (Part H.11).
 Updated 10 Sep 2026 for revisions **BS1** and **SP-B2** (Part H.12) and for Works
 Management **WM2** (Part H.13).
+Updated 10 Sep 2026 for **RC1** (Part H.14) — **every inconsistency that could be ruled
+on the evidence has been ruled**; six items needing outside information stay open in K.1b.
 
 ---
 
@@ -212,18 +214,23 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 
 | Ref | Item |
 |---|---|
-| **C16** | **Roof / platform junction.** A.4.7 says "over the platform it becomes the 500 headhouse roof"; B.6, A.7.6 and F.2 design, load and register a **250** roof, and the headhouse (Y 200–6000) does not overlap the platform (Y 6000–7500). Model built at 250; **the A.4.7 clause is untouched and needs the user's ruling.** |
+| **C16** | **RULED AT 250 AND CLOSED — RC1, 10 Sep 2026 (master H.14).** A.4.7 used to say "over the platform it becomes the 500 headhouse roof"; B.6, A.7.6 and F.2 design, load and register **250**, and the headhouse (Y 200–6000) does not overlap the platform (Y 6000–7500) at all. **The A.4.7 clause has been corrected.** Every model and drawing already said 250. |
 | U1 / C9 | Sentry V_b 73.18 (STAAD) vs 59.3 (hand). Design uses 73.18. The `.std` now prints W = 731.80 kN; gap traced but **not closed** — needs confirmation. |
 | U2 · U3 | Is a direct hit a requirement? · DBT yield. Both need client / military sign-off. |
 | U8 | Roof projection + parapet 4.162 kN/m not independently reproducible. |
-| **C17** | **Engineered cover.** A.7.3 states **40.65 kPa**; its own column sums to **39.15**. 40.65 held (larger, and the value in every `.std`). **No reinforcement effect.** Raised by SC1 — needs a ruling. **BS1 does NOT resolve it** — the column sums to 39.15 at the crown exactly as before. |
-| **C18** | **Sump-pit base.** F.1 + the levels give **400**; sheet S-06 text says **300**. 400 held. Raised by SC1 — needs a ruling. |
-| **C19** | **Soak pit 2.3 % short.** S-06 prints "22.0 m² OK" against its own "22.5 m² required"; π × 2.0 × 3.5 = **21.99**. Not resized — the percolation test may move it further. Raised by DR1 — needs a ruling. |
-| **C20** | **S-06 carries the Rev E stairwell catchment** (0.10 L/s open cut). At Rev F the approach is covered and the catchment with the door shut is zero. Conservative. Raised by DR1 — needs a ruling. |
-| **C21** | **Filter duty 250 vs 300 m³/h.** Master A.3 says "2 × 250"; S-06 states 300 in nine places, and **250 fails S-06's own 264 m³/h FEMA criterion**. HV1 uses 300. Raised by HV1 — **needs a ruling**. **WM2 note:** the owner's own estimate independently prices **2 × 300 m³/h** — evidence on the 300 side, **not the ruling C21 asks for. C21 stays OPEN and must be ruled on before the trains are ordered.** |
-| **WM-V1…12** | **Twelve verification items raised by WM1. Ten still OPEN.** **WM-V5 (lintel design) and WM-V11 (wall ties) are CLOSED by SP-B2**, 10 Sep 2026, master H.12 / K.1. **WM-V6 (seismic weight) and WM-V7 (ballistic function) remain OPEN**, as does **WM-V3 (opening heights)** — SP-B2 deliberately does not use it. See `WORKS MANAGEMENT/Documentation/WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md`. |
-| **R-1…R-14** | **Fourteen NEW open items from WM2**, 10 Sep 2026, master H.13 / K.1 — the owner's Works Management package against this master. **The two that matter: R-1** the owner's burster slab is **300 mm M35** against A.7.3's **200 mm M30**; **R-2** the owner's programme carries a **4 m** cover where their own BOQ and A.7.3 say **2.0 m**. Also **R-13/R-14**, two arithmetic slips inside the owner's own files (10.00 m³ and ₹1,00,000), **reported not corrected**. See `WORKS MANAGEMENT/Documentation/WM_RECONCILIATION_REGISTER.md`. |
-| **QA-1 · QA-2** | **Raised by QA1, 9 Sep 2026.** A-301 could never have been plotted at 1:50 on A1 (44 m long = 880 mm; A1 gives 821 mm) — scale kept, **sheet corrected to A0**, ruling invited. QA-2: several sheets still do not fill their paper for reasons inherent to their content. |
+| **RULED BY RC1, 10 Sep 2026 (master H.14)** | **Every conflict that could be decided on the evidence has been decided.** Basis for each in master **K.1** and **K.1c**. |
+| **C16** | **RULED AT 250.** A.4.7's "500 over the platform" was one clause against Part B, A.7.6, F.2 **and the geometry** (headhouse Y 200–6000, platform Y 6000–7500 — they do not touch). **A.4.7 corrected.** |
+| **C17** | **RULED. 40.65 kPa held; A.7.3 now shows 39.15 layer sum + 1.50 declared allowance**, so the table no longer contradicts itself. COMB 103 stays 448.15 kPa, no `.std` touched, no bar changes. |
+| **C18** | **RULED AT 400.** (−)8.000 − (−)7.600 = 0.400 — arithmetic, and F.1 agrees. S-06's "300" is a transcription error. |
+| **C19** | **RULED. SK-01 WIDENED 2.0 → 2.200 dia**, depth unchanged: **24.19 m² vs 22.50 required, +7.5 %.** Widened not deepened — deepening drives the pit below the design GWT (−)2.000 where it cannot soak. Percolation test still governs the final size. |
+| **C20** | **RULED. Rev F governs** (precedent C1); the 0.10 L/s stays as a **declared conservatism** — removing it changes no pump, pipe or pit. |
+| **C21** | **RULED AT 300 m³/h. Master A.3 CORRECTED from "2 × 250".** S-06 says 300 in nine places, every other S-06 figure reproduces only at 300, **250 fails S-06's own 264 m³/h FEMA criterion**, and the owner's estimate prices 2 × 300. |
+| **U1** | **CLOSED. 73.18 kN governs.** The model prints W 731.80 and A<sub>h</sub> = 0.1000 exactly; the 139.1 kN gap to the hand check is fully explained (107.9 + 31.1). |
+| **U4 · U5 · U6 · U7** | **CLOSED — they were already answered from the `.std` files on 3 Sep and the register was never updated.** *That stale register was itself an inconsistency.* **There is no node 213.** |
+| **WM-V1…12** | **Nine CLOSED** (V1 at **2.600**, confirmed twice; V2, V3, V4, V5, V8, V10, V11, V12). **V6, V7, V9 remain open — see below.** |
+| **R-1…R-14** | **All fourteen RULED** — master **K.1c** and `WM_RECONCILIATION_REGISTER.md` §9. The three against the owner's documents: **R-1** burster **200 M30** not 300 M35; **R-2** cover **2.0 m** not 4 m; **R-3** roof slab **900** not 1000. |
+| **QA-1 · QA-2** | **BOTH RULED.** **QA-1: A0 confirmed** — 880 mm at 1:50 against an A1 area of 821 mm makes A1 impossible, the scale is a measurement statement, and splitting would break a continuous 44 m elevation. **QA-2: accepted as drawn, with the reason stated** — six sheets carry an empty bottom strip, and re-scaling, renumbering and reflowing are each worse than the space. **Every sheet is correct, complete and legible. Combining them stays your call.** |
+| **STILL OPEN — master K.1b** | **Six items, none of them a conflict.** Each is a single position the project holds that needs information from outside: **U2** direct hit (military sign-off) · **U3** DBT yield (client) · **U8** the 4.162 kN/m parapet load (cannot be re-derived until the parapet detail is confirmed) · **WM-V6** seismic re-check (STAAD not available; direction certain and favourable) · **WM-V7** ballistic requirement (client / military decision) · **WM-V9** slope stability (geotech). |
 | **13 gaps** | **Information the project does not contain**, each dated against the WM1 programme. Largest: **no electrical design package exists** — scope confirmed, design absent, every electrical quantity 'to be verified from final measurement'. Also: no site plan, **the sentry lintel and tie detail is now SUPPLIED — SP-B2, master A.4.8, so this gap is closed**, blast door and blast valve vendor data, service-entry plate size, duct penetration schedule, EMP enclosure and vision panel specs, sentry GF slab, finish products, W5 door D-05. |
 
 ---

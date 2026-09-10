@@ -249,7 +249,7 @@ def a611():
             "A-FIN-WET", "BC")
     sh.text("G-05  STAIR VOID EDGE  -  1100 GUARDING  [C]", M(16600, 800),
             NOTE, "M-FLAG", "BC")
-    sh.text("*** C16 - ROOF OVER THE PLATFORM UNRESOLVED, 250 OR 500. "
+    sh.text("*** C16 - ROOF OVER THE PLATFORM RULED AT 250, CLOSED RC1. "
             "THE FINISH DOES NOT DEPEND ON IT; THE DRIP AT THE JUNCTION DOES ***",
             M(9250, 9000), NOTE, "M-FLAG")
     sh.dim_h(M(P.ASW["x0"], 4800), M(P.ASW["x1"], 4800), M(0, 4200)[1], sc=sc)
@@ -269,9 +269,10 @@ def a611():
         "   NBC 2016 Part 4.  Its finish is galvanised or coated steel; its HEIGHT is not a finish decision.",
         "5  THE 300 CHANNEL AND GRATING at the threshold, the flush threshold and the 50 weather bar are all",
         "   confirmed on Rev F section C-C and are shown on DRAINAGE D-103.  No finish crosses the channel.",
-        "6  C16 - THE ROOF OVER THE PLATFORM IS UNRESOLVED, 250 OR 500.  Shown at 250 to match the model and",
-        "   the structural register.  NO FINISH ON THIS SHEET DEPENDS ON THE RULING; what does depend on it is",
-        "   whether a drip is needed at the step in the soffit above G-03.  FLAGGED, NOT RESOLVED.",
+        "6  C16 - THE ROOF OVER THE PLATFORM IS RULED AT 250 AND CLOSED (RC1 10.09.26, master Part H.14).",
+        "   A.4.7's clause that said 500 has been CORRECTED; the model, Part B, A.7.6, F.2 and this sheet all",
+        "   said 250 already.  NO FINISH ON THIS SHEET EVER DEPENDED ON IT.  With the ruling at 250 there is",
+        "   NO STEP in the soffit above G-03, so NO DRIP IS REQUIRED.",
         "7  ALL FINISHES ON THIS SHEET ARE PERFORMANCE REQUIREMENTS.  No product, thickness or colour is",
         "   specified anywhere in this package - see A-601 panel 4.",
     ], h=NOTE, lead=LEAD)

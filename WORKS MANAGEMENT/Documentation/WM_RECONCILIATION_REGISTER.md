@@ -30,8 +30,20 @@ structure are published exactly as supplied, straight out of the owner's own fil
 `Scripts/wm2_user_package.py` re-adds the owner's own columns and writes the result to
 `QAQC/WM2_SOURCE_AUDIT.txt`. Run it and the figures below either reproduce or they do not.
 
-**This register only records where the owner's material and the project master
-disagree. It resolves nothing.** Every row below is for the owner to rule on.
+> **RULED BY RC1, 10 September 2026 (master Part H.14).** When this register was first
+> written it recorded the conflicts and resolved none of them. The user has since
+> instructed that every inconsistency be removed by choosing the best option available,
+> so **R-1 to R-14 have all been ruled on** — the rulings, with the basis for each, are
+> in master **K.1c** and are summarised in **§9** at the end of this document.
+>
+> **The rulings are about the PROJECT, not about the owner's files.** Nothing in
+> `USER_SOURCE/` has been touched and the published `Cost/` and `Programme/` documents
+> still carry the owner's figures exactly as supplied. Each ruling says which value the
+> **project** uses, and — where the owner's document is the one that is out — what they
+> should correct in their own copy.
+
+**The sections below are the analysis as first written. They record where the owner's
+material and the project master disagree; §9 records what was decided.** Every row below is for the owner to rule on.
 That is deliberate: the master's rule is that a conflicting value is `[UNRESOLVED]`
 until a person decides, and the brief's rule is that an inconsistency is preserved,
 flagged and documented, never silently redesigned.
@@ -107,7 +119,7 @@ specifies.
 Note that the owner's own line names a **2 m** overburden, so the workbook agrees with
 the master on the cover *depth* and differs only on the slab inside it. That makes R-1 a
 clean, isolated question: **is the burster slab 200 M30 or 300 M35?**
-`[UNRESOLVED — owner's ruling required]`
+`[RULED BY RC1 — see §9]`
 
 *Note:* revision **BS1** (10 Sep 2026, master H.12) lays the burster slab to a 1:50
 crossfall. It changes no thickness and no grade, so it neither creates nor closes R-1.
@@ -126,7 +138,7 @@ crossfall. It changes no thickness and no grade, so it neither creates nor close
 excavation, 2 m of shaft, one stair flight and 2 m of headroom."* The programme
 activity names look like the **superseded** 4 m scheme. If 4 m is intended, excavation,
 shaft length, stair flights, headroom and the whole roof load case change.
-`[UNRESOLVED — owner's ruling required]`
+`[RULED BY RC1 — see §9]`
 
 ### R-3 · Roof slab: the programme says 1000 mm, the BOQ and the master say 900 mm
 
@@ -138,7 +150,7 @@ shaft length, stair flights, headroom and the whole roof load case change.
 
 Again the owner's own two documents disagree, and here the **BOQ agrees with the
 master**. The programme names look like a carried-over value. Priced at 900; built at
-1000 the slab is 12.7 m³ and 2.5 kPa heavier. `[UNRESOLVED — owner's ruling required]`
+1000 the slab is 12.7 m³ and 2.5 kPa heavier. `[RULED BY RC1 — see §9]`
 
 ### R-4 · The programme prices a LIFT that does not exist in this project
 
@@ -195,7 +207,7 @@ FEMA criterion. HV1 uses 300.
 **This is evidence, not the ruling C21 asks for, and C21 is NOT closed by it.** But it
 is worth recording that the owner's own estimate independently prices the 300 side.
 The master's warning stands: **C21 must be ruled on before the filter trains are
-ordered.** `[C21 REMAINS OPEN]`
+ordered.** `[C21 RULED AT 300 m³/h BY RC1 — master A.3 corrected. See §9.4]`
 
 ### R-10 · Programme duration: 224 working days against WM1's 326
 
@@ -223,7 +235,7 @@ Both are defensible; they are different conventions, not a disagreement about fa
 Both are gross of the same 5 % wastage. The 9.54 t gap tracks the burster-slab
 difference (R-1) and the bar-by-bar derivation in `Schedules/BOQ_QUANTITY_DERIVATION.txt`,
 which builds up from the SC1 bar bending schedule. **Not resolved here** — it cannot be
-until R-1 is. `[UNRESOLVED — follows R-1]`
+until R-1 is. `[RULED BY RC1 — follows R-1, see §9]`
 
 ---
 
@@ -372,3 +384,52 @@ The audit's findings, as run on 10 September 2026:
 | Concrete: eleven lines against the stated total | **out by 10.00 m³** → R-13 |
 | Cost: seven heads against the stated final | **out by ₹1,00,000** → R-14 |
 | Schedule activities recovered | **130, ids 1–130, no gaps** |
+
+---
+
+## 9  RULINGS — RC1, 10 September 2026
+
+Every item above is decided. The basis for each is in master **K.1c**; this is the
+summary. **Nothing in `USER_SOURCE/` was edited.**
+
+### 9.1 The project's engineering governs — three rulings against the owner's documents
+
+| Ref | Ruling | Why the master wins |
+|---|---|---|
+| **R-1** | **Burster slab 200 mm M30**, not 300 mm M35 | A.7.3's cover column is `[CONFIRMED]` and totals exactly **2000 mm**. A 300 mm slab does not fit it without taking 100 mm from another layer, and every layer has a stated function. COMB 103 is built on this column. **The owner's bill over-measures the burster slab by 37.02 m³ and its reinforcement by ≈ 1.67 t** |
+| **R-2** | **Engineered cover 2.0 m**, not 4 m | A.7.3 records the **4.0 → 2.0 reduction as a deliberate decision** with its reasons, and the owner's **own** BOQ says 2 m in two places. Only the programme *activity names* say 4 m — one document's wording against agreement everywhere else |
+| **R-3** | **Roof slab 900 mm**, not 1000 mm | The master says 900, the owner's **own** BOQ says 900, and COMB 103's self weight **22.5 kPa = 0.900 × 25** confirms it arithmetically |
+
+### 9.2 The owner's document is simply stale or mistaken — five corrections for their copy
+
+| Ref | Ruling | What to correct |
+|---|---|---|
+| **R-4** | There is **no lift** in this project | Rename programme activities 57–60 and 70–73 from *"Column, Staircase & **Lift** Shear Wall"* to *"Column & Staircase Shear Wall"*. No quantity or cost is affected |
+| **R-5** | The box is **22.0 × 6.2**, not 21.6 × 6.8 | Correct the MS Project title. 21.6 is the **pre-M1** length; 6.8 matches nothing in the project. Title only |
+| **R-6** | The 18.60 m³ line is the **RC frame only**; the infill is brick and is measured as brickwork | Relabel *"Sentry Post RCC Frame & Infill"* → *"Sentry Post RC Frame"*. 18.60 m³ is frame-sized (WM1's frame-only measure is 20.951 m³); RC infill would add ≈ 7.9 m³ more, and the owner's own programme already carries brickwork at activities 87–90 |
+| **R-13** | The eleven concrete lines are right; **the stated total should be 480.50 m³**, not 470.50 | Each line is separately priced, so **no cost is affected**. The owner's report reaches 470.50 only because its grouped *"Sentry Post & Sump"* row reads 19.80 where the workbook's equivalent lines come to 29.80 — the same 10.00 m³ |
+| **R-14** | The seven cost heads are right; **the total should be ₹2,99,33,306**, not ₹3,00,33,306 | Everything else reconciles **to the rupee** — the five part subtotals make the basic cost exactly, and every percentage addition is exact on it. Only the final line is out, by a round lakh |
+
+### 9.3 Real gaps in the owner's bill — two additions
+
+| Ref | Ruling | To be added |
+|---|---|---|
+| **R-7** | The escape shaft collars are a real item and are **missing** | ESC 1 and ESC 2, **250 RC, OD 1900, 6.285 m³** (WM1 `C-12`). The owner prices the hatches but not the shafts they sit in |
+| **R-8** | The generator is **not priced** | A **15 kVA** set in Bay 8, with its fuel system, exhaust and acoustic treatment. The owner *does* price the 2 600 m³/h combustion and cooling air path through BV-4/BV-5 — so the air route is in the bill and the machine is not |
+
+### 9.4 Resolved elsewhere, or never a conflict
+
+| Ref | Ruling |
+|---|---|
+| **R-9** | **Filter duty ruled at 300 m³/h** — master **A.3 has been corrected** from "2 × 250". The owner's estimate already priced 2 × 300, and it agrees with the project now |
+| **R-10** | **Not a conflict — different scopes.** The owner's 130-activity R0 is the **programme of record** for construction; WM1's 279 activities also carry approvals, procurement, long-lead manufacture, commissioning and 16 quality hold points, and stay as the cross-check on what R0 does not name |
+| **R-11** | **Not a conflict — two conventions for the same lost time. The owner's 3 days a month governs** |
+| **R-12** | **Follows R-1.** With the burster slab at 200 M30 the owner's steel figure needs its burster line reduced by ≈ 1.67 t |
+
+### 9.5 What is still open after RC1
+
+**Nothing in R-1 to R-14.** Three Works Management items remain open because each needs
+information the project does not contain, and they are in master **K.1b**: **WM-V6** (a
+STAAD re-run — the direction is certain and favourable, so it is confirmation not risk),
+**WM-V7** (a client / military decision on the ballistic requirement) and **WM-V9** (a
+slope-stability assessment).

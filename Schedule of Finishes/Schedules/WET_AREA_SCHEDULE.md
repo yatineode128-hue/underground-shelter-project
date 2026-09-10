@@ -13,7 +13,7 @@ Schedule of Finishes revision **FN1** · 05.09.2026 · **FOR REVIEW - NOT FOR CO
 | U-02 | Lavatory + medical | F-02 | 1:80 | GY-02 → PD-01 | W-02 | WP-04 | S-01 coved 150 | C-01 | Basin wastes discharge over the gully grating with an air gap |
 | U-05 | CBRN plant + sump | F-02 | 1:80 | direct to SU-01 | W-02 | WP-04 | S-01 coved 150 | C-01 | 110 mm clear at the sides of each filter train — do not thicken the wall finish here |
 | U-06 | Decon airlock, 3 stages | F-02 | 1:80 | GY-06/07/08 SEGREGATED | W-02 | WP-04 | S-01 coved 150 | C-01 | **The dirtiest surface in the shelter.** 50 mm upstand at W5 and at Blast Door 1 so no water reaches the clean zone |
-| G-03 | Stairwell platform | F-06 | to the gully | GY-10 → SU-02 | W-05 | WP-06 | S-03 | C-03 | C16 — the roof above is unresolved, 250 or 500. The finish does not depend on it; the drip at the junction does |
+| G-03 | Stairwell platform | F-06 | to the gully | GY-10 → SU-02 | W-05 | WP-06 | S-03 | C-03 | C16 — the roof above is RULED AT 250 and closed (RC1). The finish does not depend on it; the drip at the junction does |
 | G-04 | Headhouse | F-05 | **1:80 confirmed** | GY-11 → external soakaway | W-05 | WP-06 | S-02 | C-02 | Hose-down point. **Never to the clean sump** — confirmed instruction on the Rev F ground plan |
 
 **The 1:80 headhouse fall is the only floor fall confirmed anywhere in the project** (Rev F ground plan). Every other fall in this schedule is set by DRAINAGE calculation D.15 and is `[A]`.

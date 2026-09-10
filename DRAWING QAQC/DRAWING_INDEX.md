@@ -47,7 +47,7 @@ and `make_index.py`, so it cannot drift from the drawings.
 | Drawing No. | Title | Scale | Size | Texts | Final QA |
 |---|---|---|---|---|---|
 | **A-601** | FINISH LEGEND, NOTES AND TYPICAL JUNCTION DETAILS | 1:10 | A1 | 271 | PASS |
-| **A-611** | ENTRY LEVEL FINISH PLAN | 1:50 | A1 | 145 | PASS |
+| **A-611** | ENTRY LEVEL FINISH PLAN | 1:50 | A1 | 146 | PASS |
 | **A-612** | UNDERGROUND LEVEL FINISH PLAN | 1:45 | A1 | 243 | PASS |
 
 <details><summary>filenames</summary>
@@ -62,7 +62,7 @@ and `make_index.py`, so it cannot drift from the drawings.
 
 | Drawing No. | Title | Scale | Size | Texts | Final QA |
 |---|---|---|---|---|---|
-| **R-001** | GENERAL REINFORCEMENT NOTES | NOT TO SCALE | A1 | 193 | PASS |
+| **R-001** | GENERAL REINFORCEMENT NOTES | NOT TO SCALE | A1 | 197 | PASS |
 | **R-002** | REINFORCEMENT LEGEND AND SYMBOLS | NOT TO SCALE | A1 | 212 | PASS |
 | **R-003** | TYPICAL REINFORCEMENT DETAILS AND BAR SHAPES | 1:20 | A1 | 101 | PASS |
 | **R-004** | REINFORCEMENT SCHEDULE | NOT TO SCALE | A1 | 954 | PASS |

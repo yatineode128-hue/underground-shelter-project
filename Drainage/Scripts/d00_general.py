@@ -291,7 +291,7 @@ def d001():
     sh.text("12   OPEN ITEMS CARRIED ON THIS SET   -   none of them is resolved here",
             (CC, y - 8), T["panel_head"], "M-TITLE")
     yC = sh.table(CC, y - 13, [30, 212], [
-        ("C16", "ROOF / PLATFORM JUNCTION, master, unresolved.  Affects only which roof a"),
+        ("C16", "ROOF / PLATFORM JUNCTION - RULED AT 250, CLOSED RC1.  Affects only which roof a"),
         ("", "     2.25 m2 catchment belongs to; the TOTAL catchment is unchanged"),
         ("C18", "SUMP PIT BASE 300 vs 400, master, unresolved.  400 HELD.  No drainage"),
         ("", "     effect - the invert is fixed at (-)7.600 and storage is measured from it"),

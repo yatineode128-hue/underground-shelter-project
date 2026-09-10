@@ -41,18 +41,18 @@ confirmed before either is relied on.
 
 | Ref | Item | Effect if wrong | Status |
 |---|---|---|---|
-| `WM-V1` | Sentry post ground-storey masonry height: the project's confirmed 2.600 m (master A.7.7) against the 2.750 m implied by +0.450 FFL and the +3.200 beam soffit | 15.2 m × 0.150 × 0.190 = 0.43 m³ of masonry, about 230 bricks | **OPEN** — 2.600 used |
-| `WM-V2` | First-floor west wall: door D1 at Y 1000–1900 lies inside the vision panel at Y 1000–2200 on Rev F drawing 4 | Double deduction would understate the masonry by 1.9 m² | **OPEN** — the union is deducted once |
-| `WM-V3` | Sentry post window and vision-panel heights are not stated on any drawing | 1200 assumed. Each 100 mm of height is 1.1 m² of masonry across the nine openings | **OPEN** |
-| `WM-V4` | 190 mm modular brickwork inside the 200 mm structural zone | The alternative, 230 mm conventional brickwork, changes the confirmed 4000 × 5000 external envelope | **OPEN** — needs the designer's confirmation |
+| `WM-V1` | Sentry post ground-storey masonry height: the project's confirmed 2.600 m (master A.7.7) against the 2.750 m implied by +0.450 FFL and the +3.200 beam soffit | 15.2 m × 0.150 × 0.190 = 0.43 m³ of masonry, about 230 bricks | **CLOSED by RC1**, 10 Sep 2026, master K.1c — **2.600 governs**, confirmed twice (drawing 6, and 13.000 = 0.200 × 2.600 × 25). No quantity changes |
+| `WM-V2` | First-floor west wall: door D1 at Y 1000–1900 lies inside the vision panel at Y 1000–2200 on Rev F drawing 4 | Double deduction would understate the masonry by 1.9 m² | **CLOSED by RC1**, 10 Sep 2026, master K.1c — **the union is deducted once** |
+| `WM-V3` | Sentry post window and vision-panel heights are not stated on any drawing | 1200 assumed. Each 100 mm of height is 1.1 m² of masonry across the nine openings | **CLOSED by RC1**, 10 Sep 2026, master K.1c for measurement — **doors 2100, windows and vision panels 1200** `[A]`. **L1 is unaffected.** Confirm before setting out |
+| `WM-V4` | 190 mm modular brickwork inside the 200 mm structural zone | The alternative, 230 mm conventional brickwork, changes the confirmed 4000 × 5000 external envelope | **CLOSED by RC1**, 10 Sep 2026, master K.1c — **190 confirmed**, because it is the only option that keeps a confirmed dimension |
 | `WM-V5` | Lintels over the sentry post openings — a **new** requirement created by SP-B1 | ~~No lintel design exists~~ — **lintel L1 is now designed, SP-B2, master A.4.8**. `SP-06` still measures the superseded provisional 200 × 150 section | **CLOSED by SP-B2**, 10 Sep 2026 |
 | `WM-V6` | Sentry post seismic weight when RC infill becomes brick masonry | Brick at ~20 kN/m³ over 0.190 × 2.600 gives ~9.9 kN/m against the confirmed 13.000 kN/m, so the existing V<sub>b</sub> = 73.18 kN is **conservative**. A direction, not a verification | **OPEN** — referred to the structural discipline |
 | `WM-V7` | Ballistic performance. Rev F calls the panels '200 RC BALLISTIC INFILL'; brick masonry does not give the same protection | A stated protective function is removed from a structure that is already declared not blast designed and expendable | **OPEN** — recorded so the consequence is visible |
-| `WM-V8` | Mat measured gross, no deduction for the 1.5 × 1.5 sump opening | +1.35 m³. SC1's convention, kept | Conservative, declared |
-| `WM-V9` | 1.000 m working space and vertical unbenched excavation faces | A slope-stability assessment of the soil zone above rockhead is required before excavation | **OPEN** |
-| `WM-V10` | Bulking on rock excavation not applied | Loose volumes for haulage and stockpiling will be 40–60 % greater than the 1 114 m³ bank measure | Declared |
+| `WM-V8` | Mat measured gross, no deduction for the 1.5 × 1.5 sump opening | +1.35 m³. SC1's convention, kept | **CLOSED by RC1**, 10 Sep 2026, master K.1c **as a declared conservatism** — it over-measures, the safe direction for a bill |
+| `WM-V9` | 1.000 m working space and vertical unbenched excavation faces | A slope-stability assessment of the soil zone above rockhead is required before excavation | **STILL OPEN** — needs a geotechnical assessment the project does not contain (master K.1b) |
+| `WM-V10` | Bulking on rock excavation not applied | Loose volumes for haulage and stockpiling will be 40–60 % greater than the 1 114 m³ bank measure | **CLOSED by RC1**, 10 Sep 2026, master K.1c **as a declared conservatism** — 1 114 m³ is a BANK measure and nobody should plan haulage off it |
 | `WM-V11` | Wall tie detail between the sentry post masonry and the columns | ~~No detail exists in the project~~ — **6 mm MS ties at every fifth course, SP-B2, master A.4.8** | **CLOSED by SP-B2**, 10 Sep 2026 |
-| `WM-V12` | Opening heights for the W8 partition doors (900 gap confirmed, head height not stated) | 2100 assumed, consistent with every other door in the project | **OPEN**, minor |
+| `WM-V12` | Opening heights for the W8 partition doors (900 gap confirmed, head height not stated) | 2100 assumed, consistent with every other door in the project | **CLOSED by RC1**, 10 Sep 2026, master K.1c — **2100**, the project's own convention |
 
 ## Part 2 — Programme assumptions
 
@@ -74,7 +74,7 @@ These remain exactly as the master leaves them.
 
 | Ref | Item | Bearing on Works Management |
 |---|---|---|
-| `C16` | Roof / platform junction — 250 against 500 | Affects the covered entry stairwell roof (`A5105`), which carries float. Ruling needed before that activity |
+| ~~`C16`~~ | Roof / platform junction — 250 against 500 | **RULED AT 250 and CLOSED by RC1**, 10 Sep 2026 (master Part H.14). The A.4.7 clause that said 500 has been corrected. `A5105` is no longer waiting on anything |
 | `C17` | Engineered cover — A.7.3 states 40.65 kPa but its own column sums to 39.15 | No effect on quantities: the six layers and their thicknesses are unambiguous and are what is measured |
 | `C18` | Sump pit base — 400 from F.1 and the levels, 300 on sheet S-06 | 400 held, as the master holds it. Difference is 0.44 m³ |
 | `C19` | Soak pit SK-01 is 2.3 % short of its own stated requirement | The percolation test may move the requirement by far more than 2.3 %. `Q-33` is a hold point before construction |

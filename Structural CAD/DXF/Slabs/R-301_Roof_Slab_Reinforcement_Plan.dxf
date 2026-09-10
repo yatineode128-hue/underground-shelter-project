@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461294.094861111
+2461294.438275463
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461294.094861111
+2461294.438275463
   9
 $TDUUPDATE
  40
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{8D755FCA-F66A-45C1-B0E6-DBE4534030A9}
+{5920B6E4-51D0-4A68-8DD8-B89D37FE24B0}
   9
 $VERSIONGUID
   2
-{869FE25C-33BF-46B5-8EC8-3E587E4C6BAD}
+{6561E8E2-F446-450F-8612-44EF8394E666}
   9
 $EXTNAMES
 290
@@ -29813,7 +29813,7 @@ AcDbText
  40
 2.0
   1
-*** C17 OPEN ***  The engineered cover is stated as 40.65 kPa
+*** C17 RULED AND CLOSED - RC1, 10.09.26, master H.14 ***
   7
 OpenSans
  11
@@ -29845,7 +29845,7 @@ AcDbText
  40
 2.0
   1
-in master A.7.3, A.7.4, Part L and in every .std file, but the
+The engineered cover is stated as 40.65 kPa in A.7.3, A.7.4,
   7
 OpenSans
  11
@@ -29877,7 +29877,7 @@ AcDbText
  40
 2.0
   1
-A.7.3 column itself sums to 39.15 kPa - a 1.50 kPa difference.
+Part L and every .std file, while the A.7.3 column itself sums
   7
 OpenSans
  11
@@ -29909,7 +29909,7 @@ AcDbText
  40
 2.0
   1
-40.65 IS HELD because it is the larger value and the value of
+to 39.15 kPa.  40.65 IS HELD, and A.7.3 now SHOWS why: the
   7
 OpenSans
  11
@@ -29941,7 +29941,7 @@ AcDbText
  40
 2.0
   1
-record.  At 39.15 the roof total would be 446.65 kPa, Mp 697.9
+layer sum 39.15 PLUS A DECLARED ALLOWANCE OF 1.50.  The table
   7
 OpenSans
  11
@@ -29973,7 +29973,7 @@ AcDbText
  40
 2.0
   1
-and utilisation 51.2 % instead of 51.4 %.  NO BAR CHANGES.
+no longer disagrees with itself and nothing downstream moves -
   7
 OpenSans
  11
@@ -30005,7 +30005,7 @@ AcDbText
  40
 2.0
   1
-RAISED BY THIS PACKAGE.  NOT CLOSED - user ruling required.
+COMB 103 stays 448.15 kPa and there are NO BAR CHANGES.
   7
 OpenSans
  11
@@ -33007,7 +33007,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-10T02:16:36.473891+00:00
+1.4.4 @ 2026-09-10T10:31:07.537431+00:00
   0
 VISUALSTYLE
   5
@@ -33719,7 +33719,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-10T02:16:36.540975+00:00
+1.4.4 @ 2026-09-10T10:31:07.589130+00:00
   0
 ENDSEC
   0

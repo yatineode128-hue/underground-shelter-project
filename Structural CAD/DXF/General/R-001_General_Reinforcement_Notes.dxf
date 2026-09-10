@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461294.094837963
+2461294.438252315
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461294.094837963
+2461294.438252315
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-190
+194
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{77A91E8E-43F5-433C-86D5-374800032F7F}
+{C9E2F95F-1ED8-45C0-A497-6ED196866A67}
   9
 $VERSIONGUID
   2
-{6C1EA8C2-DF5D-452D-8E34-8CD1285A8AB6}
+{7C1F2CD5-1E55-4E88-A726-BBB83D4F1BF0}
   9
 $EXTNAMES
 290
@@ -3819,7 +3819,7 @@ AcAecLayerStandard
   0
 APPID
   5
-18D
+191
 330
 3
 100
@@ -3833,7 +3833,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-18E
+192
 330
 3
 100
@@ -10395,7 +10395,7 @@ AcDbText
  40
 2.2
   1
-C16 ROOF / PLATFORM JUNCTION - UNRESOLVED. A.4.7 says the roof over the
+C16 ROOF / PLATFORM JUNCTION - RULED AT 250 AND CLOSED, RC1 10.09.26
   7
 OpenSans
  11
@@ -10427,7 +10427,7 @@ AcDbText
  40
 2.2
   1
-platform becomes the 500 headhouse roof; B.6 / A.7.6 / F.2 design, load
+(master H.14). A.4.7 used to say the roof over the platform becomes the
   7
 OpenSans
  11
@@ -10459,7 +10459,7 @@ AcDbText
  40
 2.2
   1
-and register 250. DETAILED AT 250. NOT CLOSED - user ruling required.
+500 headhouse roof; B.6 / A.7.6 / F.2 design, load and register 250, and
   7
 OpenSans
  11
@@ -10491,7 +10491,7 @@ AcDbText
  40
 2.2
   1
-C17 ENGINEERED COVER - UNRESOLVED, RAISED BY THIS PACKAGE. A.7.3 states
+the headhouse (Y 200-6000) does not reach the platform (Y 6000-7500) at
   7
 OpenSans
  11
@@ -10523,7 +10523,7 @@ AcDbText
  40
 2.2
   1
-40.65 kPa; its own column sums to 39.15 kPa. 40.65 HELD (larger, and the
+all. THE A.4.7 CLAUSE IS CORRECTED. DETAILED AT 250.
   7
 OpenSans
  11
@@ -10555,7 +10555,7 @@ AcDbText
  40
 2.2
   1
-value in every .std). No reinforcement effect. User ruling required.
+C17 ENGINEERED COVER - RULED AND CLOSED, RC1 10.09.26 (master H.14). A.7.3
   7
 OpenSans
  11
@@ -10587,7 +10587,7 @@ AcDbText
  40
 2.2
   1
-A2 DESIGN GWT (-)2.000 IS [ASSUMED]. Water is two-thirds of the lateral
+stated 40.65 kPa against its own column sum of 39.15. 40.65 IS HELD and
   7
 OpenSans
  11
@@ -10619,7 +10619,7 @@ AcDbText
  40
 2.2
   1
-load and all of the uplift. Monsoon monitoring required.
+A.7.3 now shows the layer sum 39.15 plus a declared 1.50 allowance, so the
   7
 OpenSans
  11
@@ -10651,7 +10651,7 @@ AcDbText
  40
 2.2
   1
-A4 SUBGRADE MODULUS ks - master requires BOTH 100 000 and 500 000 kN/m3.
+table no longer disagrees with itself. COMB 103 stays 448.15 kPa. No
   7
 OpenSans
  11
@@ -10683,7 +10683,7 @@ AcDbText
  40
 2.2
   1
-Only 100 000 exists in any model.
+reinforcement effect.
   7
 OpenSans
  11
@@ -10715,7 +10715,7 @@ AcDbText
  40
 2.2
   1
-M1 NO STAAD RESULT EXISTS for any underground or entry-stairwell model.
+A2 DESIGN GWT (-)2.000 IS [ASSUMED]. Water is two-thirds of the lateral
   7
 OpenSans
  11
@@ -10747,7 +10747,7 @@ AcDbText
  40
 2.2
   1
-Every design action in this package is a hand calculation.
+load and all of the uplift. Monsoon monitoring required.
   7
 OpenSans
  11
@@ -10779,7 +10779,7 @@ AcDbText
  40
 2.2
   1
-M2 NO CODE DOCUMENT is in the workspace. Clause numbers are cited only
+A4 SUBGRADE MODULUS ks - master requires BOTH 100 000 and 500 000 kN/m3.
   7
 OpenSans
  11
@@ -10811,7 +10811,7 @@ AcDbText
  40
 2.2
   1
-from the verified master Part G register.
+Only 100 000 exists in any model.
   7
 OpenSans
  11
@@ -10843,7 +10843,7 @@ AcDbText
  40
 2.2
   1
-P3 BLAST CAPACITY IS NOT DEMONSTRATED. Support rotation / ductility needs
+M1 NO STAAD RESULT EXISTS for any underground or entry-stairwell model.
   7
 OpenSans
  11
@@ -10875,7 +10875,7 @@ AcDbText
  40
 2.2
   1
-a non-linear SDOF check (IS 4991 Fig. 6 / Biggs) - Phase 3.
+Every design action in this package is a hand calculation.
   7
 OpenSans
  11
@@ -10887,9 +10887,137 @@ OpenSans
 100
 AcDbText
   0
-LWPOLYLINE
+TEXT
   5
 13D
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+326.0
+ 20
+172.72500000000093
+ 30
+0.0
+ 40
+2.2
+  1
+M2 NO CODE DOCUMENT is in the workspace. Clause numbers are cited only
+  7
+OpenSans
+ 11
+326.0
+ 21
+172.72500000000093
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+13E
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+326.0
+ 20
+167.32500000000093
+ 30
+0.0
+ 40
+2.2
+  1
+from the verified master Part G register.
+  7
+OpenSans
+ 11
+326.0
+ 21
+167.32500000000093
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+13F
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+326.0
+ 20
+161.92500000000092
+ 30
+0.0
+ 40
+2.2
+  1
+P3 BLAST CAPACITY IS NOT DEMONSTRATED. Support rotation / ductility needs
+  7
+OpenSans
+ 11
+326.0
+ 21
+161.92500000000092
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+140
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+326.0
+ 20
+156.52500000000092
+ 30
+0.0
+ 40
+2.2
+  1
+a non-linear SDOF check (IS 4991 Fig. 6 / Biggs) - Phase 3.
+  7
+OpenSans
+ 11
+326.0
+ 21
+156.52500000000092
+ 31
+0.0
+100
+AcDbText
+  0
+LWPOLYLINE
+  5
+141
 330
 17
 100
@@ -10905,11 +11033,11 @@ AcDbPolyline
  10
 324.0
  20
-170.72500000000093
+149.1250000000009
  10
 624.0
  20
-170.72500000000093
+149.1250000000009
  10
 624.0
  20
@@ -10921,7 +11049,7 @@ AcDbPolyline
   0
 TEXT
   5
-13E
+142
 330
 17
 100
@@ -10953,7 +11081,7 @@ AcDbText
   0
 TEXT
   5
-13F
+143
 330
 17
 100
@@ -10985,7 +11113,7 @@ AcDbText
   0
 TEXT
   5
-140
+144
 330
 17
 100
@@ -11017,7 +11145,7 @@ AcDbText
   0
 TEXT
   5
-141
+145
 330
 17
 100
@@ -11049,7 +11177,7 @@ AcDbText
   0
 TEXT
   5
-142
+146
 330
 17
 100
@@ -11081,7 +11209,7 @@ AcDbText
   0
 TEXT
   5
-143
+147
 330
 17
 100
@@ -11113,7 +11241,7 @@ AcDbText
   0
 TEXT
   5
-144
+148
 330
 17
 100
@@ -11145,7 +11273,7 @@ AcDbText
   0
 TEXT
   5
-145
+149
 330
 17
 100
@@ -11177,7 +11305,7 @@ AcDbText
   0
 TEXT
   5
-146
+14A
 330
 17
 100
@@ -11209,7 +11337,7 @@ AcDbText
   0
 TEXT
   5
-147
+14B
 330
 17
 100
@@ -11241,7 +11369,7 @@ AcDbText
   0
 TEXT
   5
-148
+14C
 330
 17
 100
@@ -11273,7 +11401,7 @@ AcDbText
   0
 TEXT
   5
-149
+14D
 330
 17
 100
@@ -11305,7 +11433,7 @@ AcDbText
   0
 TEXT
   5
-14A
+14E
 330
 17
 100
@@ -11337,7 +11465,7 @@ AcDbText
   0
 TEXT
   5
-14B
+14F
 330
 17
 100
@@ -11369,7 +11497,7 @@ AcDbText
   0
 TEXT
   5
-14C
+150
 330
 17
 100
@@ -11401,7 +11529,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-14D
+151
 330
 17
 100
@@ -11433,7 +11561,7 @@ AcDbPolyline
   0
 TEXT
   5
-14E
+152
 330
 17
 100
@@ -11465,7 +11593,7 @@ AcDbText
   0
 TEXT
   5
-14F
+153
 330
 17
 100
@@ -11497,7 +11625,7 @@ AcDbText
   0
 TEXT
   5
-150
+154
 330
 17
 100
@@ -11529,7 +11657,7 @@ AcDbText
   0
 TEXT
   5
-151
+155
 330
 17
 100
@@ -11561,7 +11689,7 @@ AcDbText
   0
 TEXT
   5
-152
+156
 330
 17
 100
@@ -11593,7 +11721,7 @@ AcDbText
   0
 TEXT
   5
-153
+157
 330
 17
 100
@@ -11625,7 +11753,7 @@ AcDbText
   0
 TEXT
   5
-154
+158
 330
 17
 100
@@ -11657,7 +11785,7 @@ AcDbText
   0
 TEXT
   5
-155
+159
 330
 17
 100
@@ -11689,7 +11817,7 @@ AcDbText
   0
 TEXT
   5
-156
+15A
 330
 17
 100
@@ -11721,7 +11849,7 @@ AcDbText
   0
 TEXT
   5
-157
+15B
 330
 17
 100
@@ -11753,7 +11881,7 @@ AcDbText
   0
 TEXT
   5
-158
+15C
 330
 17
 100
@@ -11785,7 +11913,7 @@ AcDbText
   0
 TEXT
   5
-159
+15D
 330
 17
 100
@@ -11817,7 +11945,7 @@ AcDbText
   0
 TEXT
   5
-15A
+15E
 330
 17
 100
@@ -11849,7 +11977,7 @@ AcDbText
   0
 TEXT
   5
-15B
+15F
 330
 17
 100
@@ -11881,7 +12009,7 @@ AcDbText
   0
 TEXT
   5
-15C
+160
 330
 17
 100
@@ -11913,7 +12041,7 @@ AcDbText
   0
 TEXT
   5
-15D
+161
 330
 17
 100
@@ -11945,7 +12073,7 @@ AcDbText
   0
 TEXT
   5
-15E
+162
 330
 17
 100
@@ -11977,7 +12105,7 @@ AcDbText
   0
 TEXT
   5
-15F
+163
 330
 17
 100
@@ -12009,7 +12137,7 @@ AcDbText
   0
 TEXT
   5
-160
+164
 330
 17
 100
@@ -12041,7 +12169,7 @@ AcDbText
   0
 TEXT
   5
-161
+165
 330
 17
 100
@@ -12073,7 +12201,7 @@ AcDbText
   0
 TEXT
   5
-162
+166
 330
 17
 100
@@ -12105,7 +12233,7 @@ AcDbText
   0
 TEXT
   5
-163
+167
 330
 17
 100
@@ -12137,7 +12265,7 @@ AcDbText
   0
 TEXT
   5
-164
+168
 330
 17
 100
@@ -12169,7 +12297,7 @@ AcDbText
   0
 TEXT
   5
-165
+169
 330
 17
 100
@@ -12201,7 +12329,7 @@ AcDbText
   0
 TEXT
   5
-166
+16A
 330
 17
 100
@@ -12233,7 +12361,7 @@ AcDbText
   0
 TEXT
   5
-167
+16B
 330
 17
 100
@@ -12265,7 +12393,7 @@ AcDbText
   0
 TEXT
   5
-168
+16C
 330
 17
 100
@@ -12297,7 +12425,7 @@ AcDbText
   0
 TEXT
   5
-169
+16D
 330
 17
 100
@@ -12329,7 +12457,7 @@ AcDbText
   0
 TEXT
   5
-16A
+16E
 330
 17
 100
@@ -12361,7 +12489,7 @@ AcDbText
   0
 TEXT
   5
-16B
+16F
 330
 17
 100
@@ -12393,7 +12521,7 @@ AcDbText
   0
 TEXT
   5
-16C
+170
 330
 17
 100
@@ -12425,7 +12553,7 @@ AcDbText
   0
 TEXT
   5
-16D
+171
 330
 17
 100
@@ -12457,7 +12585,7 @@ AcDbText
   0
 TEXT
   5
-16E
+172
 330
 17
 100
@@ -12489,7 +12617,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-16F
+173
 330
 17
 100
@@ -12521,7 +12649,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-170
+174
 330
 17
 100
@@ -12553,102 +12681,6 @@ AcDbPolyline
   0
 LINE
   5
-171
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-30.0
- 30
-0.0
- 11
-831.0
- 21
-30.0
- 31
-0.0
-  0
-LINE
-  5
-172
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-42.0
- 30
-0.0
- 11
-831.0
- 21
-42.0
- 31
-0.0
-  0
-LINE
-  5
-173
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-54.0
- 30
-0.0
- 11
-831.0
- 21
-54.0
- 31
-0.0
-  0
-LINE
-  5
-174
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-66.0
- 30
-0.0
- 11
-831.0
- 21
-66.0
- 31
-0.0
-  0
-LINE
-  5
 175
 330
 17
@@ -12661,6 +12693,102 @@ AcDbLine
  10
 651.0
  20
+30.0
+ 30
+0.0
+ 11
+831.0
+ 21
+30.0
+ 31
+0.0
+  0
+LINE
+  5
+176
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
+42.0
+ 30
+0.0
+ 11
+831.0
+ 21
+42.0
+ 31
+0.0
+  0
+LINE
+  5
+177
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
+54.0
+ 30
+0.0
+ 11
+831.0
+ 21
+54.0
+ 31
+0.0
+  0
+LINE
+  5
+178
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
+66.0
+ 30
+0.0
+ 11
+831.0
+ 21
+66.0
+ 31
+0.0
+  0
+LINE
+  5
+179
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
 88.0
  30
 0.0
@@ -12673,7 +12801,7 @@ AcDbLine
   0
 LINE
   5
-176
+17A
 330
 17
 100
@@ -12697,7 +12825,7 @@ AcDbLine
   0
 LINE
   5
-177
+17B
 330
 17
 100
@@ -12721,7 +12849,7 @@ AcDbLine
   0
 TEXT
   5
-178
+17C
 330
 17
 100
@@ -12753,7 +12881,7 @@ AcDbText
   0
 TEXT
   5
-179
+17D
 330
 17
 100
@@ -12785,7 +12913,7 @@ AcDbText
   0
 TEXT
   5
-17A
+17E
 330
 17
 100
@@ -12817,7 +12945,7 @@ AcDbText
   0
 TEXT
   5
-17B
+17F
 330
 17
 100
@@ -12849,7 +12977,7 @@ AcDbText
   0
 TEXT
   5
-17C
+180
 330
 17
 100
@@ -12881,7 +13009,7 @@ AcDbText
   0
 TEXT
   5
-17D
+181
 330
 17
 100
@@ -12913,7 +13041,7 @@ AcDbText
   0
 LINE
   5
-17E
+182
 330
 17
 100
@@ -12937,7 +13065,7 @@ AcDbLine
   0
 TEXT
   5
-17F
+183
 330
 17
 100
@@ -12969,7 +13097,7 @@ AcDbText
   0
 TEXT
   5
-180
+184
 330
 17
 100
@@ -13001,7 +13129,7 @@ AcDbText
   0
 TEXT
   5
-181
+185
 330
 17
 100
@@ -13033,7 +13161,7 @@ AcDbText
   0
 TEXT
   5
-182
+186
 330
 17
 100
@@ -13065,7 +13193,7 @@ AcDbText
   0
 TEXT
   5
-183
+187
 330
 17
 100
@@ -13097,7 +13225,7 @@ AcDbText
   0
 TEXT
   5
-184
+188
 330
 17
 100
@@ -13129,7 +13257,7 @@ AcDbText
   0
 TEXT
   5
-185
+189
 330
 17
 100
@@ -13161,7 +13289,7 @@ AcDbText
   0
 TEXT
   5
-186
+18A
 330
 17
 100
@@ -13193,7 +13321,7 @@ AcDbText
   0
 TEXT
   5
-187
+18B
 330
 17
 100
@@ -13225,7 +13353,7 @@ AcDbText
   0
 TEXT
   5
-188
+18C
 330
 17
 100
@@ -13257,7 +13385,7 @@ AcDbText
   0
 TEXT
   5
-189
+18D
 330
 17
 100
@@ -13289,7 +13417,7 @@ AcDbText
   0
 TEXT
   5
-18A
+18E
 330
 17
 100
@@ -13321,7 +13449,7 @@ AcDbText
   0
 TEXT
   5
-18B
+18F
 330
 17
 100
@@ -13353,7 +13481,7 @@ AcDbText
   0
 TEXT
   5
-18C
+190
 330
 17
 100
@@ -14473,7 +14601,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-18F
+193
   0
 DICTIONARYVAR
   5
@@ -14485,7 +14613,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-10T02:16:34.582389+00:00
+1.4.4 @ 2026-09-10T10:31:05.956073+00:00
   0
 VISUALSTYLE
   5
@@ -15189,7 +15317,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-18F
+193
 330
 2D
 100
@@ -15197,7 +15325,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-10T02:16:34.631697+00:00
+1.4.4 @ 2026-09-10T10:31:05.987780+00:00
   0
 ENDSEC
   0

@@ -140,7 +140,7 @@ of its own column**. The difference is exactly **1.50 kPa**.
 **Effect on reinforcement: NONE.** At 39.15 the roof M_p would be 697.9 instead of 700.2 kNm/m
 and utilisation 51.2 % instead of 51.4 %. **No bar, spacing or link changes.**
 
-**Status: [UNRESOLVED]. Flagged on R-001, R-101, R-301, R-302. A user ruling is required.**
+**Status: RULED AND CLOSED by RC1, 10 September 2026 (master Part H.14 / K.1 U9).** **40.65 kPa is held** and A.7.3 now shows why — the layer sum **39.15 plus a declared allowance of 1.50**, so the table no longer contradicts itself. 40.65 is the value in A.7.4, Part L and `DL2` in every underground `.std`, and it is the larger. **COMB 103 stays 448.15 kPa and nothing SC1 detailed changes.** Still flagged on R-001, R-101, R-301 and R-302, where the flag now reads as a recorded reconciliation rather than an open question.
 
 ### 4.2 **C18 — sump-pit base thickness** · NEW, raised by this package
 
@@ -150,7 +150,7 @@ and utilisation 51.2 % instead of 51.4 %. **No bar, spacing or link changes.**
 | **Value** | walls 300, **base 400** | walls 300, **base 300** |
 
 **Held: base 400** — the level difference is independent corroboration.
-**Status: [UNRESOLVED]. Flagged on R-101, R-102.**
+**Status: RULED AT 400 and CLOSED by RC1, 10 September 2026 (master Part H.14 / K.1 U10).** (−)8.000 − (−)7.600 = **0.400** is arithmetic, and master F.1 says 400 independently; sheet S-06's "300" is a transcription error and is superseded. **400 is what SC1 detailed, so nothing on R-101 or R-102 changes.**
 
 *(The sump-pit plan position and size — 1 500 × 1 500 × 1 500 at X 11 070–12 570, Y 900–2 400 —
 were extracted from the S-06 geometry itself and are [CONFIRMED]; only the base thickness is in

@@ -55,7 +55,8 @@ COMPONENTS = [
     ("PC-07", "Sump pit SU-01",
      "1500 x 1500 x 1500 clear, invert (-)7.600, base slab (-)8.000, walls 300 "
      "and base 400, cast monolithic with the mat with the membrane dressed "
-     "around the pit. Conflict C18 (300 vs 400 base) is OPEN; 400 held.",
+     "around the pit. Conflict C18 is CLOSED - RULED AT 400 by RC1, master K.1 "
+     "U10: (-)8.000 - (-)7.600 = 0.400 is arithmetic, and F.1 says 400 too.",
      "master F.1, Drainage DR1", "[C]/[U]", True),
     ("PC-08", "Escape shafts ESC 1 and ESC 2",
      "1400 dia clear, 250 RC collar, OD 1900. ESC 1 at (2050, 2050) with its "
@@ -707,7 +708,9 @@ ITP = [
      "TEST", "Pump commissioning record"),
     ("Q-33", "Soak pits", "Before construction",
      "PERCOLATION TEST IS MANDATORY and must precede construction; SK-01 is "
-     "already 2.3 % short of its own stated requirement (conflict C19, OPEN).",
+     "2.3 % short of its own stated requirement. CONFLICT C19 IS NOW CLOSED - "
+     "RC1 WIDENED SK-01 to 2.200 dia, depth unchanged: 24.19 m2 against 22.50 "
+     "required, +7.5 %. The percolation test still governs the final size.",
      "IS 2470 (Part 2) Cl. 4", "HOLD", "Percolation test report"),
     ("Q-34", "Septic tank", "On completion",
      "Capacity, baffle at two-thirds of the length, inlet and outlet tees, "
@@ -902,19 +905,25 @@ RISKS = [
      "installation activities sit after the structure is complete so a slip is "
      "absorbed rather than propagated.", "Project Manager"),
     ("R-06", "Design",
-     "Conflict C21 — the CBRN filter duty is stated as 2 x 250 m³/h in master "
-     "A.3 and as 300 m³/h in nine places on sheet S-06, and 250 fails S-06's own "
-     "264 m³/h criterion. UNRESOLVED.",
+     "Conflict C21 — the CBRN filter duty was stated as 2 x 250 m³/h in master "
+     "A.3 and as 300 m³/h in nine places on sheet S-06, and 250 fails S-06's "
+     "own 264 m³/h criterion. RULED AT 300 BY RC1, 10 Sep 2026 (master Part "
+     "H.14 / K.1 U13): A.3 has been CORRECTED to 2 x 300 m³/h. CLOSED.",
      "H", "M",
-     "Must be ruled on BEFORE the filter trains are ordered — the enquiry "
-     "activity is programmed before order placement for exactly this reason. "
-     "Escalated to the designer at mobilisation.", "Designer"),
+     "The risk is retired. The enquiry activity stays programmed ahead of "
+     "order placement, which is good practice regardless, and the owner's own "
+     "cost estimate independently prices 2 x 300 m³/h.",
+     "Designer"),
     ("R-07", "Design",
-     "Conflict C16 — the roof/platform junction, 250 against 500. UNRESOLVED in "
-     "the master and not resolved by this package.",
+     "Conflict C16 — the roof/platform junction, 250 against 500. RULED AT 250 "
+     "BY RC1, 10 Sep 2026 (master Part H.14): the A.4.7 clause that said 500 "
+     "has been CORRECTED. It was one clause against four parts of the project "
+     "and against the geometry - the headhouse occupies Y 200-6000 and the "
+     "platform is at Y 6000-7500, so they do not touch. CLOSED.",
      "M", "M",
-     "Affects the covered entry stairwell roof, which carries float. Ruling "
-     "required before A5105. Raised in the verification register.", "Designer"),
+     "The risk is retired. The covered entry stairwell roof is 250 throughout, "
+     "which is what Part B designed, A.7.6 loaded, F.2 registered and every "
+     "drawing already showed.", "Designer"),
     ("R-08", "Design",
      "No electrical design package exists. The scope is confirmed but no "
      "circuit, cable, luminaire, distribution board or earth-electrode schedule "
@@ -1026,7 +1035,7 @@ RISKS = [
     ("R-21", "Quality",
      "Percolation test fails — likely on basalt — and the soak pits cannot "
      "work. SK-01 is already 2.3 % short of its own stated requirement "
-     "(conflict C19, OPEN).",
+     "(conflict C19, CLOSED by RC1 - SK-01 widened to 2.200 dia, 24.19 m2).",
      "H", "M",
      "The percolation test is programmed early (A1085) and is a hold point "
      "before the soak pits are built. If it fails, an alternative disposal "

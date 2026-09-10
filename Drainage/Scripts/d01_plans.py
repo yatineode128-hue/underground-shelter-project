@@ -104,7 +104,7 @@ def d101():
         "   with direction and gradient but WITHOUT length - the schedules record 'not determinable'.",
         "4  IS 2470 (Pt 2) OFFSETS FOR THE FOUL SOAK PIT - at least 15 m from any well, 5 m from the septic tank",
         "   and 2 m from any building - CANNOT BE DEMONSTRATED for the same reason.  DATA REQUIRED.",
-        "5  C16 - THE ROOF / PLATFORM JUNCTION IS UNRESOLVED.  It is shown at 250 to match the model and the",
+        "5  C16 - THE ROOF / PLATFORM JUNCTION IS RULED AT 250 AND CLOSED (RC1 10.09.26, master H.14).  The",
         "   structural register.  It does not change any flow, pipe or pit on this sheet - see D-102 note 3.",
     ], h=NOTE, lead=LEAD)
 
@@ -175,7 +175,7 @@ def d102():
     # C16 flag at the junction
     px0, px1 = P.ASW["platform"]
     sh.rect(*M(px0, P.ASW["iy0"]), *M(px1, P.ASW["iy1"]), "M-FLAG")
-    sh.text("C16 UNRESOLVED - 250 OR 500 ROOF OVER THE PLATFORM.",
+    sh.text("C16 RULED AT 250 (RC1) - ROOF OVER THE PLATFORM.",
             M(px1 + 400, 7200), NOTE, "M-FLAG", "ML")
     sh.text("2.25 m2 OF CATCHMENT MOVES BETWEEN C1 AND C2;",
             M(px1 + 400, 6800), NOTE, "M-FLAG", "ML")
@@ -280,7 +280,7 @@ def d103():
     sh.line(M2(A["x0"], 2450), M2(A["flight"][0], 2450), "M-STRUCT")
     sh.line(M2(A["flight"][0], 2450), M2(A["platform"][0], 400), "M-STRUCT")
     sh.line(M2(A["platform"][0], 400), M2(18400, 400), "M-STRUCT")
-    sh.text("C16 - ROOF OVER THE PLATFORM SHOWN AT 250, UNRESOLVED",
+    sh.text("C16 - ROOF OVER THE PLATFORM AT 250, RULED AND CLOSED",
             M2(A["platform"][0], 700), NOTE, "M-FLAG")
     # sump and gullies
     sh.sym("GULLY", M2(15050, -2000), scale=0.8)

@@ -379,7 +379,13 @@ is the same shape: **(0, 0) to (651, 220–302)**, the full-width strip along th
 of the sheet, left of the title block. That is not inherent to the content. It is the
 generators stacking their blocks from the top and stopping, and it could be fixed by
 chaining the block column to the sheet bottom, the way `panel_column()` already does on
-R-001 and R-002. It was **not** done here because it is composition work across eight
-sheets on a package that is otherwise stable, and the last time a layout pass was
-re-run over sheets that were already correct it made them worse (§8.2, and the QA1
-de-clash guard). **It is a clean, contained job for a next revision if you want it.**
+R-001 and R-002. **RC1 examined that and ruled against doing it** (10 September 2026, master K.1).
+Reflowing the blocks **moves** the void rather than removing it: the content on these six
+sheets is genuinely sparse for an A1, and the two changes that would actually fill the
+paper are both worse than the space. **Re-scaling** would turn the stated scale into a
+layout variable instead of a measurement statement — 1:20 is the right scale for a 400
+wall section however much paper it leaves. **Combining or renumbering** would break
+cross-references on other sheets, the drawing index, master Part E.2 and the "N OF 30"
+numbering, for no engineering gain. Every one of these sheets is **correct, complete and
+legible**; emptiness is not an error. **Combining them is a register-level decision and
+it belongs to the user — it remains a contained job if they ask for it.**
