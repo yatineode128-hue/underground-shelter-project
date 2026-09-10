@@ -1,0 +1,530 @@
+EMP PROTECTION - DESIGN CALCULATIONS
+Underground CBRN-hardened blast-resistant protective structure - Pune
+Package revision EM1  ·  10.09.2026  ·  GEOMETRY REV F + M1
+FOR REVIEW - NOT FOR CONSTRUCTION   ·   SENTRY POST EXCLUDED
+
+Evidence: [C] confirmed  [R] reconstructed  [D] derived here
+          [A] assumed by this package  [U] unresolved  [N] not available
+
+==============================================================================
+E.1  THE REQUIREMENT - AND WHAT THE PROJECT ACTUALLY CONFIRMS
+==============================================================================
+
+From master Part G, the EMP entries in the code register:  [C]
+
+    MIL-STD-188-125-1   80 dB, 10 kHz - 1 GHz
+                        5.4    access / shielded doors
+                        5.5    waveguide below cutoff
+                        5.7.2.1 power PCI
+                        5.7.4.1 fibre
+                        5.7.6  RF
+    IEEE Std 299        shielding effectiveness survey
+    IEEE 142 / IS 3043  earthing, <= 5 ohm target
+
+    SE required   80 dB, flat
+    Band          10 kHz to 1 GHz  =  5 decades
+
+WHAT IS NOT CONFIRMED, and is NOT invented here:  [N]
+    no incident field strength, no waveform, no E1/E2/E3 decomposition,
+    no threat level.  U2 (is a direct hit a requirement) and U3 (the DBT
+    yield) are both OPEN in master K.1b.  MIL-STD-188-125-1 states a
+    PERFORMANCE requirement, not a field, so the whole of this package
+    can be - and is - designed against 80 dB without one.
+
+==============================================================================
+E.2  THE REINFORCEMENT CAGE AS A SHIELD - AND THE K.3 CHECK
+==============================================================================
+
+Bar spacing  s = 150 mm, both curtains, both ways.  [C] master A.5:
+   "Max bar spacing, both curtains - 150 mm, EMP requirement, stricter
+    than IS 456 Cl. 26.3.3"
+
+    SE = 20 log10( lambda / 2s ),   lambda = c / f
+
+     FREQUENCY      WAVELENGTH    lambda/2s     SE dB    vs 80 dB
+--------------------------------------------------------------------
+    10.000 kHz     29979.246 m   99930.8193     99.99        PASS
+    30.000 kHz      9993.082 m   33310.2731     90.45        PASS
+   100.000 kHz      2997.925 m    9993.0819     79.99        FAIL
+   300.000 kHz       999.308 m    3331.0273     70.45        FAIL
+     1.000 MHz       299.792 m     999.3082     59.99        FAIL
+     3.000 MHz        99.931 m     333.1027     50.45        FAIL
+    10.000 MHz        29.979 m      99.9308     39.99        FAIL
+    30.000 MHz         9.993 m      33.3103     30.45        FAIL
+   100.000 MHz         2.998 m       9.9931     19.99        FAIL
+   300.000 MHz        999.3 mm       3.3310     10.45        FAIL
+   500.000 MHz        599.6 mm       1.9986      6.01        FAIL
+     1.000 GHz        299.8 mm       0.9993      0.00        FAIL
+--------------------------------------------------------------------
+
+  Mesh cutoff, SE -> 0     f = c/2s =   999.308 MHz
+  SE at exactly 1 GHz                    0.000 dB
+  Highest frequency at 80 dB            99.931 kHz
+
+  ** CHECK AGAINST THE MASTER **   K.3 records, as a CONFIRMED item:
+       "EMP rebar cage 0 dB @ 1 GHz"
+     This calculation gives 0.000 dB at 1 GHz from the 150 mm bar
+     spacing alone, and puts the mesh cutoff at 999.3 MHz.
+     THE PROJECT'S OWN FIGURE IS REPRODUCED.  [R]
+
+  ** AND THE COINCIDENCE WORTH SAYING OUT LOUD **
+     2s = 300 mm.  The wavelength at 1 GHz is 299.79 mm.
+     The cage stops shielding at almost exactly the frequency at which
+     MIL-STD-188-125-1 stops asking.  That is arithmetic, not design.
+
+  Decades required   5.00
+  Decades delivered  1.00
+  ==> THE CAGE MEETS THE REQUIREMENT OVER 20.0 % OF THE REQUIRED BAND.
+
+  This is an UPPER BOUND.  The -10 log10(n) array correction is not
+  applied, the crossings are TIED not welded, and no concrete absorption
+  is credited.  A measured cage will be worse than this table.  [D]
+
+==============================================================================
+E.3  EVERY HOLE IN THE ENVELOPE
+==============================================================================
+
+Ten penetrations, all read from confirmed project documents.  Circular
+bores use the TE11 cutoff and A = 8.686(2pi/lc)L; rectangular use TE10.
+A depth credit is taken ONLY where the bore is bounded by METAL.
+
+   TAG    BORE   DEPTH  METAL          f_c     A dB  SE@10kHz  SE@1MHz  VERDICT
+------------------------------------------------------------------------------
+  BV-1     100     600    YES    1.757 GHz    191.9     295.4    255.4     PASS
+  BV-2     100     600    YES    1.757 GHz    191.9     295.4    255.4     PASS
+  BV-3     100     400    YES    1.757 GHz    127.9     231.5    191.5     PASS
+  BV-4     350     600    YES  502.000 MHz     54.8     147.5    107.5     FAIL
+  BV-5     350     600    YES  502.000 MHz     54.8     147.5    107.5     FAIL
+   SEP     800     600    YES  187.370 MHz     20.5     105.9     65.9     FAIL
+ PD-05      50     600    YES    3.514 GHz    383.8     493.4    453.4     PASS
+  ESC1    1400    3050     NO  125.500 MHz      0.0      80.6     40.6     FAIL
+  ESC2    1400    3600     NO  125.500 MHz      0.0      80.6     40.6     FAIL
+  VOID    3160     900     NO   47.436 MHz      0.0      73.5     33.5     FAIL
+------------------------------------------------------------------------------
+
+SEP is listed READ AS AN OPEN APERTURE, which is the wrong reading and
+is shown to make the point.  A service entry plate is not an aperture -
+see E.3.4, where it is read correctly.
+
+** THE THREE-FIGURE NUMBERS IN THIS TABLE ARE THEORY, NOT PERFORMANCE. **
+No practical penetration achieves 250 or 390 dB.  Real assemblies flatten
+out around 100-120 dB, and what limits them is WORKMANSHIP - the bond at
+the frame, the gasket, the one sleeve nobody welded - not the physics of
+the bore.  Read a large number as 'the bore is not the problem here'.  [D]
+
+PASS means BOTH: below cutoff across the whole band (f_c >= 1 GHz) AND
+at least 80 dB in band.  Read the failures one at a time:
+
+  BV-4   BLAST VALVE            EAST WALL, BAY 8
+         cutoff 502.000 MHz is BELOW 1 GHz - the bore
+         PROPAGATES above it, whatever its length.
+         BELOW 502.000 MHz it gives 107.5 dB at 1 MHz;
+         ABOVE it, nothing.  A bore that propagates cannot be
+         rescued by making it longer.
+
+  BV-5   BLAST VALVE            EAST WALL, BAY 8
+         cutoff 502.000 MHz is BELOW 1 GHz - the bore
+         PROPAGATES above it, whatever its length.
+         BELOW 502.000 MHz it gives 107.5 dB at 1 MHz;
+         ABOVE it, nothing.  A bore that propagates cannot be
+         rescued by making it longer.
+
+  SEP    SERVICE ENTRY PLATE    NORTH WALL, X 11398-12198
+         cutoff 187.370 MHz is BELOW 1 GHz - the bore
+         PROPAGATES above it, whatever its length.
+         BELOW 187.370 MHz it gives 65.9 dB at 1 MHz;
+         ABOVE it, nothing.  A bore that propagates cannot be
+         rescued by making it longer.
+
+  ESC1   ESCAPE SHAFT           BAY 1, (2050, 2050)
+         cutoff 125.500 MHz is BELOW 1 GHz - the bore
+         PROPAGATES above it, whatever its length.
+         bore is CONCRETE, not metal: no waveguide credit at all.
+         BELOW 125.500 MHz it gives 40.6 dB at 1 MHz;
+         ABOVE it, nothing.  A bore that propagates cannot be
+         rescued by making it longer.
+
+  ESC2   ESCAPE SHAFT           BAY 8, (19900, 2050)
+         cutoff 125.500 MHz is BELOW 1 GHz - the bore
+         PROPAGATES above it, whatever its length.
+         bore is CONCRETE, not metal: no waveguide credit at all.
+         BELOW 125.500 MHz it gives 40.6 dB at 1 MHz;
+         ABOVE it, nothing.  A bore that propagates cannot be
+         rescued by making it longer.
+
+  VOID   STAIR VOID             PRESSURE SLAB, BAY 7
+         cutoff 47.436 MHz is BELOW 1 GHz - the bore
+         PROPAGATES above it, whatever its length.
+         bore is CONCRETE, not metal: no waveguide credit at all.
+         BELOW 47.436 MHz it gives 33.5 dB at 1 MHz;
+         ABOVE it, nothing.  A bore that propagates cannot be
+         rescued by making it longer.
+
+
+--- E.3.1  the stair void, in its own right ----------------------------------
+
+  Opening in the 900 pressure slab, bay 7:  2800 x 3160 mm  [C] A.4.4
+  Governing dimension                        3160 mm
+  Aperture cutoff  c/2L                      47.44 MHz
+  Area                                       8.848 m2
+
+  It is bounded by the thickened free edge, 900 -> 1200 with 6-T25 top
+  and bottom  [C] F.1.  Six bars is not a conducting surface, so no
+  depth credit applies.  As a thin-screen aperture:
+
+        10.000 kHz   SE =   73.52 dB   FAIL
+       100.000 kHz   SE =   53.52 dB   FAIL
+         1.000 MHz   SE =   33.52 dB   FAIL
+        10.000 MHz   SE =   13.52 dB   FAIL
+        47.430 MHz   SE =    0.00 dB   FAIL
+       100.000 MHz   SE =    0.00 dB   FAIL
+
+  THE STAIR VOID NEVER REACHES 80 dB ANYWHERE IN THE BAND, and above
+  47.4 MHz it is simply open.  It is the largest aperture in the
+  envelope and it opens into the headhouse, which sits at +0.900 with
+  NO EARTH COVER  [C] A.4.6, and thence to grade through a covered
+  stairwell that is DECLARED EXPENDABLE  [C] A.2.
+
+--- E.3.2  the escape shafts -------------------------------------------------
+
+  ESC 1  bore 1400, collar 250 RC, OD 1900, head +0.150  [C] A.4.5
+        shaft length grade to roof soffit    3050 mm
+        TE11 cutoff of a 1400 bore           125.50 MHz
+        IF the collar were lined with metal  69.7 dB
+        it is not - 5-T25 each side/face/direction  [C] F.1
+
+  ESC 2  bore 1400, collar 250 RC, OD 1900, head +0.700  [C] A.4.5
+        shaft length grade to roof soffit    3600 mm
+        TE11 cutoff of a 1400 bore           125.50 MHz
+        IF the collar were lined with metal  82.2 dB
+        it is not - 5-T25 each side/face/direction  [C] F.1
+
+  A FULLY CONDUCTING liner would give 69.7 dB on ESC 1 and 82.2 dB on ESC 2 -
+  one below the 80 dB required and one barely above it.  BOTH FIGURES ARE
+  BESIDE THE POINT: they only hold below 125.5 MHz, and above that a 1400
+  bore propagates however well it is lined.
+  Lining the shafts does not fix them.  The only treatment that works is
+  a BONDED CONDUCTING HATCH at the head, which terminates the shaft
+  instead of trying to attenuate down it.  No hatch is specified.  [N]
+
+--- E.3.3  the two DN350 generator bores, and the one decision behind them ---
+
+  BV-4 / BV-5, DN350 through the 600 east wall  [C] HVAC schedule
+        TE11 cutoff                    502.0 MHz   < 1 GHz
+        below-cutoff attenuation       54.8 dB   < 80 dB
+        FAILS BOTH CRITERIA - the only penetrations that do.
+
+  Compare the DN100 valves in the same wall:
+        TE11 cutoff                    1757.0 MHz   > 1 GHz
+        below-cutoff attenuation       191.9 dB
+        The 600 wall does the whole job. No treatment is needed.
+
+  So the question is not how to fix BV-4/BV-5.  It is whether bay 8 is
+  inside the EMP boundary at all.  Bay 8 is OUTSIDE the gas-tight
+  envelope  [C] A.2 - but the gas-tight envelope is a CBRN boundary and
+  says nothing about EMP.  No EMP boundary has ever been drawn.  [U]
+  If bay 8 is IN, both bores need honeycomb - see E.5.
+  If bay 8 is OUT, the 15 kVA generator, its control panel and every
+  cable in bay 8 are unprotected, and the shelter loses power to the
+  pulse.  That is open item EM-V3 and it is a client decision.
+
+--- E.3.4  the service entry plate -------------------------------------------
+
+  X 11398-12198 in the north wall, 800 wide, level [N], size [N].
+  MEP_AND_FINISHES_COORDINATION.md CO-1 records that it must be at HIGH
+  LEVEL because PD-05 rises over the filter trains, and that its level
+  is not recorded anywhere in the project.
+
+  READ AS AN OPEN APERTURE 800 wide:  cutoff 187.4 MHz,
+  attenuation 20.5 dB.  That would be a catastrophe.
+
+  READ CORRECTLY it is not an aperture at all.  A MIL-STD-188-125-1
+  entry plate IS the shield: a solid welded plate, bonded 360 degrees to
+  the cast-in frame, itself welded to the cage.  The apertures are the
+  individual service sleeves through it, and each is treated on its own:
+
+      PD-05 DN50 bore    cutoff 3514 MHz, A = 384 dB   [D] ample
+      power              PCI, MIL-STD-188-125-1 5.7.2.1
+      signal             FIBRE, 5.7.4.1 - a dielectric is not a
+                         penetration.  THIS IS THE PREFERRED TREATMENT.
+
+  ONE WARNING.  PD-05's MATERIAL IS NOT SPECIFIED ANYWHERE IN THE
+  PROJECT  [N] - the drainage package names no pipe material for any
+  run.  It changes the treatment completely:
+      metallic pipe   -> bond it 360 deg to the plate.  The pipe exterior
+                         becomes shield.  Correct, and cheap.
+      plastic pipe    -> the bore is an aperture AND the water column is
+                         a conductor through it.  Needs a metallic spool
+                         piece at the plate.  Nobody has specified one.
+
+==============================================================================
+E.4  THE ZONE MODEL - WHICH THIS PROJECT HAS NEVER HAD
+==============================================================================
+
+Master A.3 puts an 'EMP Zone 2 enclosure' in bay 3.  [C]
+Finishes W-04 calls it 'EMP ZONE 2 SHIELDED ENCLOSURE LINING ... welded
+steel room, shielding effectiveness verified to IEEE Std 299',
+classed [C] requirement / [N] specification.
+
+THERE IS NO EMP ZONE 1 ANYWHERE IN THE PROJECT, and no EMP Zone 0.
+'Zone 2' has been used for four revisions with nothing to be the second
+of.  The three zones below are DERIVED HERE.  [D]
+
+  EMP ZONE 0   everything above grade.  Sentry post +7.000, headhouse
+               +0.900 with no earth cover, covered stairwell +2.450,
+               shaft heads, burster slab.  NO ATTENUATION CREDITED.
+
+  EMP ZONE 1   the buried box, all eight bays.  The reinforcement cage.
+               100 dB at 10 kHz falling 20 dB/decade to 0 dB at 999 MHz,
+               pierced by a 2800 x 3160 stair void and two 1400 shafts.
+               NOT a MIL-STD-188-125-1 shield.  NOT to be credited as one.
+
+  EMP ZONE 2   the welded steel enclosure in bay 3 (U-03).  THE ONLY
+               SURFACE IN THIS PROJECT THAT DELIVERS 80 dB, 10 kHz - 1 GHz.
+
+THE DESIGN RULE THAT FOLLOWS, and it is the whole package in one line:
+
+  *** ZONE 2 IS DESIGNED TO THE FULL 80 dB STANDING ALONE.  NO
+      ATTENUATION FROM THE CONCRETE BOX IS CREDITED AT ANY FREQUENCY. ***
+
+  The cage is then margin rather than design, which is the only
+  defensible way to use a shield you cannot survey behind 2 m of earth.
+
+NAMING.  Drainage and finishes already use 'zone 1/2/3' for CLEANLINESS
+[C].  These are different zones on the same building.  The prefix 'EMP'
+is MANDATORY on every drawing, schedule and note.  [D]
+
+WHAT EMP PROTECTION IS FOR, said plainly, because the small enclosure
+invites the wrong reading:  HEMP IS NOT A PERSONNEL HAZARD.  The people
+are protected from blast, CBRN and fallout by the box.  EMP protection
+exists so the shelter can still FUNCTION afterwards.  Zone 2 protects
+equipment, and it is correct that it is small.  [D]
+
+==============================================================================
+E.5  EMP ZONE 2 ENCLOSURE - AN ENGINEERING SELECTION  [A]
+==============================================================================
+
+EVERY DIMENSION HERE IS [A].  The project confirms the enclosure is
+REQUIRED and contains no specification for it.  No equipment schedule
+exists, because no electrical design exists - the project's largest gap
+[C] master H.10.  These dimensions are a competent placeholder that
+fits, not a derived size.  See open item EM-V2.
+
+  Host bay 3 (U-03) internal   3500 x 5000 x 3200 clear  [C] A.3
+  Enclosure external plan      X 5820-8220  Y 3700-5300   2400 x 1600
+  Enclosure external height    2200
+  Shielded panel               50
+  Internal clear               2300 x 1500 x 2100
+  Internal floor area          3.450 m2
+  Internal volume              7.245 m3
+
+  SITING, and why it is where it is:
+    north gap to the wall face Y 5600      300 mm
+    south gap to the circulation edge 3400 300 mm
+    west gap to the bay face X 5520        300 mm
+    east gap to the bay face X 9020        800 mm
+    head to the roof soffit (-)2.900       1000 mm
+
+    The W8 partition door gaps are at Y 2500-3400  [C] A.3, so the
+    east-west circulation route through bay 3 runs at Y 2500-3400.
+    THE ENCLOSURE IS ENTIRELY CLEAR OF IT.
+    A 300 mm gap is held on every free face so that an IEEE Std 299
+    survey can physically reach every seam.  A shielded room you cannot
+    walk round cannot be tested, and an untested shield is a claim.
+    HVAC ducts occupy a 150 deep zone under the soffit  [C] HV1:
+    850 mm remains clear above the enclosure.
+
+  Shielded envelope area       25.28 m2
+       walls 17.60   roof 3.84   floor 3.84
+  Total seam length            24.80 m
+
+  THE SEAM LENGTH IS THE RISK, not the area.  Every one of those
+  24.8 metres has to be continuously welded or continuously
+  gasketed, and IEEE Std 299 will find the metre that is not.
+
+--- E.5.1  the four ways into EMP Zone 2, and the treatment of each ----------
+
+  1  ACCESS   MIL-STD-188-125-1 5.4.  An RF-gasketed or knife-edge
+     shielded door, its SE certified to match the enclosure.  Type and
+     vendor [N].  A shielded door is the usual place a room fails.
+
+  2  VENTILATION   the enclosure holds powered equipment inside a sealed
+     shelter and must pass air.  Honeycomb waveguide vent panels,
+     5.5:
+        cell             6 mm          [A]
+        depth            25 mm         [A]
+        TE11 cutoff      29.3 GHz     >> 1 GHz
+        attenuation      133 dB       vs 80 required
+        margin           +53 dB
+     Mounted INBOARD of any blast device: the valve takes the pressure,
+     the honeycomb takes the RF.  Its own blast rating is [N].
+     TWO CONSEQUENCES REFERRED, NOT RESOLVED HERE:
+       - honeycomb adds pressure drop.  HV1 sized its fans without one.
+       - the equipment's heat goes into bay 3.  HV1 sized U-03 on
+         OCCUPANCY.  The load is [N] until an equipment schedule exists.
+
+  3  POWER   MIL-STD-188-125-1 5.7.2.1, a PCI on every conductor
+     crossing the boundary, mounted ON the boundary, not near it.
+     No residual figure is quoted here: the standard specifies PCI
+     performance by pulse test and the project's register carries the
+     section number only.  Inventing a number would be worse than [N].
+
+  4  SIGNAL   MIL-STD-188-125-1 5.7.4.1.  FIBRE, with NO metallic
+     strength member and no metallic armour.  A dielectric penetration
+     is not a penetration.  THIS IS THE ONE PLACE THE PROJECT CAN BUY
+     PERFECT PERFORMANCE FOR ALMOST NOTHING, and it should take it.  [D]
+
+  5  RF   MIL-STD-188-125-1 5.7.6 exists in the register for antennas.
+     THERE IS NO ANTENNA, NO MAST, NO FEEDER AND NO COMMUNICATIONS
+     DESIGN ANYWHERE IN THIS PROJECT.  [N]  An ops room that cannot
+     transmit is an ops room in name only, and an antenna is by
+     definition a deliberate conductor from outside to inside - the
+     hardest EMP penetration there is.  Open item EM-V4.
+
+==============================================================================
+E.6  EARTHING - AND WHY 5 OHM IS THE WRONG TARGET TO CHASE
+==============================================================================
+
+  Target      <= 5 ohm   [C] master G (IEEE 142 /
+               IS 3043) and the WM1 confirmed electrical scope.
+  Ground      Deccan basalt, 1000 - 10000 ohm.m  [C] master K.3,
+               which already says "test earth resistance early".
+
+  ONE ROD, 3 m x 16 mm   [A]
+      R = rho/(2 pi L) [ ln(4L/a) - 1 ]
+
+      rho =    1000 ohm.m   R =     334.9 ohm   rods for 5 ohm, NO interaction:     67
+      rho =   10000 ohm.m   R =    3349.3 ohm   rods for 5 ohm, NO interaction:    670
+
+      Rods interact.  A real group needs substantially more than the
+      ideal count, and there is nowhere on this site to put them.
+      ** 5 OHM IS NOT ACHIEVABLE WITH RODS IN BASALT. **  [D]
+
+  THE STRUCTURE ITSELF, which is already built and already bonded
+      Mat footprint            22.0 x 6.2 = 136.4 m2  [C] A.4.2
+      Equivalent disc radius   sqrt(A/pi) = 6.589 m
+      Surface-disc form, R = rho / 4r   (the conservative one; a fully
+      buried disc is rho/8r, twice as good)
+
+      rho =    1000 ohm.m   R =      37.9 ohm
+      rho =   10000 ohm.m   R =     379.4 ohm
+
+      Better than a single rod by a factor of 8.8, and it
+      costs nothing because the cage is there.  A concrete-encased
+      electrode is the right answer on rock.  [D]
+
+  *** BUT THE IMPORTANT POINT IS THAT 5 OHM IS NOT AN EMP NUMBER. ***
+      <= 5 ohm is a POWER-SAFETY and LIGHTNING requirement from IS 3043
+      and IEEE 142.  It is real and it still applies.  It is not what
+      makes an EMP shield work.  An EMP shield works by being
+      EQUIPOTENTIAL, and equipotential is decided by BONDING INDUCTANCE,
+      not by earth resistance.  E.7 shows why.  [D]
+
+==============================================================================
+E.7  BONDING - WHERE EMP DESIGN ACTUALLY LIVES
+==============================================================================
+
+  L = 2e-7 . l . [ ln(2l/(w+t)) + 0.5 + 0.2235 (w+t)/l ]   henries
+
+                             STRAP   l mm  w mm     L nH   X @1MHz  X @10MHz  X @100MHz
+------------------------------------------------------------------------------
+       LONG ROUND-THE-CORNER STRAP    600    25    512.2     3.22o    32.18o    321.82o
+     HOUSE RULE - SHORT WIDE STRAP    100    50     38.9     0.24o     2.45o     24.46o
+           HOUSE RULE - LIMIT CASE    150    50     69.4     0.44o     4.36o     43.59o
+------------------------------------------------------------------------------
+
+  A 600 mm strap is 322 ohm at 100 MHz.  That is
+  not a bond.  It is a resistor with a nice green sleeve on it.
+  Shortening it to 100 mm and widening it to 50 takes the inductance
+  from 512 nH to 39 nH, a factor of 13.2.
+
+  THE RULES THAT FOLLOW, and they are the ones that get built wrong: [D]
+    - every bond <= 100 mm long
+    - width : length at least 5 : 1
+    - FLAT STRAP ONLY.  Never a round wire, never a pigtail, never a
+      'we'll loop it round to the nearest stud'
+    - clean bare metal both ends, protected after making
+    - the shield bonds to the structure at ONE place.  A second bond is
+      a loop, and a loop is an antenna.
+
+  This is the same physics the project already relies on without saying
+  so: master A.5 requires the blast door frames to be CAST IN AND WELDED
+  TO THE CAGE  [C], and B.7.2 requires it even for the non-blast-rated
+  headhouse door.  Those are EMP bonds.  They were specified correctly.
+
+==============================================================================
+E.8  VERIFICATION - THE ONLY THING THAT SETTLES ANY OF THIS
+==============================================================================
+
+  IEEE Std 299 is in the register  [C] for a shielding effectiveness
+  survey.  Applied here:
+
+    EMP ZONE 2   SURVEY IT.  Full IEEE 299 survey, 10 kHz - 1 GHz, on
+                 the completed enclosure with every penetration made
+                 off and every panel closed.  Acceptance 80 dB.  This
+                 is a HOLD POINT: no equipment installed before it
+                 passes, because a failed survey means opening seams.
+
+    EMP ZONE 1   DO NOT SURVEY IT, AND DO NOT CLAIM IT.  A buried box
+                 under 2 m of engineered cover cannot be surveyed to
+                 IEEE 299 - there is no accessible exterior to put a
+                 transmitter on.  E.2 is a calculation, and it will
+                 stay a calculation.  Any statement that the box gives
+                 80 dB is unsupportable and should not be made.  [D]
+
+    WHAT CAN BE CHECKED ON SITE, cheaply, during construction:
+      - CONTINUITY of the cage across every construction joint, before
+        the pour.  Master F.1 already requires two waterstops and a
+        welded Cu/galvanised EMP strap at every joint  [C].  MEASURE IT.
+      - CONTINUITY of every cast-in frame to the cage, before the pour.
+      - EARTH RESISTANCE, early, as K.3 already demands  [C].
+      - BOND RESISTANCE at every strap after making off.
+    None of these prove shielding effectiveness.  All of them catch the
+    mistakes that destroy it, at the only moment they can be fixed.
+
+==============================================================================
+E.9  WHAT THIS PACKAGE COULD NOT DO
+==============================================================================
+
+  1  [N] EQUIPMENT
+        No equipment schedule, because no electrical design exists. The Zone
+        2 size, its heat load, its power and its signal count are all
+        unknown. Every enclosure dimension in E.5 is [A].
+
+  2  [N] THREAT
+        No incident field, waveform or threat level. U2 and U3 are open in
+        master K.1b. Designed to the 80 dB performance requirement instead,
+        which needs neither.
+
+  3  [N] COMMUNICATIONS
+        No antenna, mast, feeder or comms design of any kind. 5.7.6 cannot
+        be applied to something that does not exist.
+
+  4  [N] VENDOR DATA
+        No shielded door, PCI, honeycomb panel, blast valve or blast door
+        vendor data. Blast door RF performance is unknown, and it sits on
+        the protective boundary.
+
+  5  [N] MATERIALS
+        No pipe material anywhere in the drainage package; no concrete
+        permittivity or conductivity; no rebar crossing treatment (tied or
+        welded) stated anywhere.
+
+  6  [U] BOUNDARY
+        Whether bay 8 is inside the EMP boundary has never been decided,
+        because no EMP boundary has ever been drawn. E.4 proposes one; only
+        the client can adopt it.
+
+  7  [U] SENTRY POST
+        Excluded, consistent with every other services package. It is above
+        ground and not blast designed; its EMP exposure is total and nothing
+        here changes that.
+
+  NO VALUE IN THIS PACKAGE RESOLVES AN EXISTING [ASSUMED], [UNRESOLVED]
+  OR [NOT AVAILABLE] ITEM.  Six new open items EM-V1 to EM-V6 are
+  raised in the design basis.  That is deliberate: a package that
+  quietly filled these in would be inventing a specification.
+
+==============================================================================
+END OF CALCULATIONS
+==============================================================================

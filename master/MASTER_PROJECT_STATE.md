@@ -2983,6 +2983,148 @@ Generated with the package (`wm_docs.py`); the consistency audit checks it exist
 
 ---
 
+## H.18 EMP protection package — revision EM1 — 10 September 2026
+
+**Requested. It did not exist.** EMP hardening has been in the project's objective since
+Rev F — *"protect 9 occupants for 96 h against a nuclear air-blast design basis threat with
+CBRN, **EMP** and fallout hardening"* (A.1). It is in the bay schedule (*"**EMP Zone 2
+enclosure**"*, bay 3, A.3), in the materials table (*"max bar spacing **150 mm — EMP
+requirement**, stricter than IS 456 Cl. 26.3.3"*, A.5), in the code register
+(**MIL-STD-188-125-1**, **IEEE Std 299**, Part G), on some thirty drawings and in eight
+bar-bending schedules. **It had never once been designed.** H.10 already listed *"the EMP
+enclosure … specifications"* among the thirteen things the project does not contain, and the
+finishes package carries `W-04` — the Zone 2 lining — as **`[C]` requirement / `[N]`
+specification**. `EMP Protection/` now supplies the design.
+
+### The fact that governs the package — and it reproduces K.3
+
+**The concrete box is not an EMP shield and never could have been.** The requirement is
+confirmed and specific: **MIL-STD-188-125-1, 80 dB, 10 kHz – 1 GHz — five decades.** Treating
+the cage as what it is, a conducting screen pierced by a square aperture array at the confirmed
+**150 mm** spacing, `SE = 20 log₁₀(λ/2s)`:
+
+| | |
+|---|---|
+| SE at 10 kHz | **99.99 dB** |
+| SE at 100 kHz | **79.99 dB** |
+| SE at 1 MHz | **59.99 dB** |
+| **SE at 1 GHz** | **0.00 dB** |
+| Mesh cutoff `c/2s` | **999.31 MHz** |
+| **Highest frequency at 80 dB** | **99.93 kHz** |
+| **Band met** | **one decade of five — 20 %** |
+
+**K.3 already records, as a `[CONFIRMED]` item, *"EMP rebar cage 0 dB @ 1 GHz — say it before
+a reviewer does. Zone 2 welded steel room is the answer."*** EM1 reaches **0.000 dB at 1 GHz
+from the 150 mm bar spacing alone.** **The project's own figure is reproduced, not assumed**
+`[R]`, and the model was adopted *because* it recovers that figure. A coincidence worth stating:
+`2s` = 300 mm and λ at 1 GHz is **299.79 mm** — the cage stops shielding **0.07 % below** the
+frequency at which MIL-STD-188-125-1 stops asking. Arithmetic, not design.
+
+### The second reason, independent of the first — the holes
+
+A 900 mm pressure slab with a **2 800 × 3 160 stair void** in it — **8.85 m²** — is not a
+shield at any frequency. Every one of the ten envelope penetrations was taken from a confirmed
+document and analysed; a waveguide-below-cutoff credit was taken **only where the bore is
+bounded by metal**, because concrete is a lossy dielectric, not a waveguide wall.
+
+| | Cutoff | In band | Verdict |
+|---|---|---|---|
+| **BV-1 / BV-2 / BV-3** DN100 | 1 757 MHz | 192 / 128 dB | **PASS — the wall is the waveguide, no treatment needed** |
+| **BV-4 / BV-5** DN350 | **502 MHz** | **54.8 dB** | **FAIL — the only penetrations failing both criteria** |
+| **PD-05** DN50 | 3 514 MHz | 384 dB | **PASS** |
+| **ESC 1 / ESC 2** 1 400 concrete | **126 MHz** | none | **FAIL** |
+| **Stair void** 3 160 concrete | **47.4 MHz** | none | **FAIL — never reaches 80 dB anywhere** |
+
+### What the design already does right — four things, none previously recorded as EMP measures
+
+The **150 spacing is a deliberate EMP decision** and stricter than the code needs — 99.99 dB at
+10 kHz is real, and it is strongest at the bottom of the band. **Every cast-in frame is already
+an EMP bond**: A.5 requires blast-door frames *cast in and welded to the cage*, and B.7.2
+requires it even for the **non-blast-rated** headhouse door. **Every construction joint already
+carries a welded Cu/galvanised EMP strap** plus two waterstops (F.1). And **there are no
+movement joints inside the envelope**, with Part M giving the reason: *a movement joint is a
+guaranteed blast, gas and EMP discontinuity*. **All correct. None of it had ever been collected
+into an EMP position.**
+
+### The zone model — which the project has never had
+
+**"EMP Zone 2" has been named since Rev F with nothing to be the second of.** There is no EMP
+Zone 1 and no EMP Zone 0 anywhere in the project. All three are **derived by EM1** `[D]`:
+**EMP Zone 0** everything above grade, no attenuation credited · **EMP Zone 1** the buried box,
+the cage, *not* a MIL-STD boundary and not to be credited as one · **EMP Zone 2** the welded
+steel enclosure in bay 3, **the only surface in this project that delivers 80 dB across the
+band**.
+
+> **THE DESIGN RULE:** **EMP Zone 2 is designed to the full 80 dB standing alone. No
+> attenuation from the concrete box is credited at any frequency.** The cage is margin, not
+> design — the only defensible way to use a shield that can never be surveyed under 2 m of
+> engineered cover.
+
+**Naming warning carried into every deliverable:** drainage and finishes already use *zone
+1/2/3* for **cleanliness**. The prefix **`EMP`** is now mandatory throughout the project.
+
+**And what EMP protection is for, stated plainly because the enclosure is small:** **HEMP is
+not a personnel hazard.** The occupants are protected from blast, CBRN and fallout by the box.
+EMP protection exists so the shelter can still **function** afterwards. **Zone 2 protects
+equipment**, and it is correct that it is an enclosure rather than a room.
+
+### What was produced — all under `EMP Protection/`
+
+**Six A1 DXF** (`EM-001`, `EM-101`, `EM-102`, `EM-201`, `EM-301`, `EM-302`, AutoCAD 2010 ASCII,
+**validated 0 errors 0 warnings**, **0 text overlaps**), **five schedules** as `.md` and `.csv`,
+a **design basis**, a **QA/QC report**, a **drawing index**, a **full calculation printout**
+showing every formula and its arithmetic, and **six Python generators** (`em_build_all.py`
+rebuilds everything). The sheet library **subclasses the shared `mep_dxf.py`**, so the sheet
+standard matches the issued R-series and the services drawings — and **no shared library was
+modified**: Drainage, HVAC and Schedule of Finishes regenerate byte-identically.
+
+### Six findings — EM-F1 to EM-F6
+
+| | |
+|---|---|
+| **EM-F1** | **The stair void is an 8.85 m² aperture that never reaches 80 dB and is open above 47.4 MHz.** It opens into the headhouse (+0.900, **no earth cover**) and thence to grade through a stairwell **declared expendable**. **The entry route is an open electromagnetic path from grade to bay 7**, and **Blast Door 1 is the only thing across it — its RF performance is vendor data the project does not have** `[N]`. **The protective boundary for blast and the protective boundary for EMP are not the same surface, and only one of them has ever been drawn.** |
+| **EM-F2** | **The cage meets 80 dB over one decade of the five required and gives 0.00 dB at 1 GHz** — reproducing K.3. A genuine low-frequency measure; **never to be described as a MIL-STD-188-125-1 boundary.** |
+| **EM-F3** | **"EMP Zone 2" has been named for four revisions with no Zone 1, no Zone 0 and no specification for the enclosure itself.** |
+| **EM-F4** | **BV-4 and BV-5 are the only penetrations failing both criteria.** Behind them: **is bay 8 inside the EMP boundary?** No EMP boundary has ever been drawn. Bay 8 is outside the *gas-tight* envelope — but that is a **CBRN** boundary and says nothing about EMP. |
+| **EM-F5** | **≤ 5 Ω is not achievable with rods in Deccan basalt** — **335 Ω** per 3 m rod at the *low* resistivity bound, **3 349 Ω** at the high one — **and it is not an EMP number.** It is an IS 3043 / IEEE 142 power-safety and lightning requirement, still real and still applicable. **The mat and its cage are already a concrete-encased electrode at ≈ 38 Ω**, an order of magnitude better and costing nothing. What makes a shield work is **bonding inductance**: a 600 mm strap is **322 Ω at 100 MHz** and is not a bond at all. |
+| **EM-F6** | **There is no antenna, mast, feeder or communications design anywhere in this project.** §5.7.6 sits in the register with nothing to apply it to, and **an ops room that cannot transmit is an ops room in name only.** |
+
+### Six new open items — EM-V1 to EM-V6
+
+**EM-V1** adopt or reject the three-zone model and the standing-alone rule · **EM-V2** every
+Zone 2 dimension is `[A]` pending an equipment schedule that waits on the **missing electrical
+design** · **EM-V3** is bay 8 inside the EMP boundary · **EM-V4** no communications design ·
+**EM-V5** PD-05's pipe material is unspecified — **as is every pipe material in the project** —
+and metallic and plastic need completely different treatments · **EM-V6** no escape-shaft head
+hatch is specified and no blast-door RF data exists.
+
+**Raising six open items is deliberate.** A package that quietly filled them in would be
+inventing a specification.
+
+### What EM1 did NOT do
+
+**It changed no design.** No dimension, load, bar, wall, level, valve, duct, pipe, model, bill
+item, quantity, rate, date or float is altered. **It creates no penetration of the envelope and
+moves none** — the ten analysed are the project's own. The **main staircase is untouched** and
+the **sentry post is excluded**, as from every other services package, with its total EMP
+exposure stated once and left. **No existing `[ASSUMED]`, `[UNRESOLVED]` or `[NOT AVAILABLE]`
+tag is converted, downgraded or deleted**, and **no clause outside Part G is cited**. **No PCI
+residual, threat field or vendor figure is quoted**, because the project contains none —
+MIL-STD-188-125-1 specifies PCI performance *by pulse test*, and inventing a number would be
+worse than `[N]`.
+
+**EMP Zone 1 is not surveyed and is not claimed.** A buried box under 2 m of cover has no
+accessible exterior for an IEEE 299 transmitter. The cage figures are a **calculation and will
+stay one** — and they are an **upper bound**: the `−10 log₁₀(n)` array correction is not
+applied, the crossings are **tied not welded** (and **no statement of which exists anywhere in
+the project**, though it materially changes the result), and no concrete absorption is credited.
+**A measured cage will be worse.**
+
+**Status: FOR REVIEW — NOT FOR CONSTRUCTION.** EM-V1 and EM-V2 gate it. **The findings do not
+wait on anything** — they are arithmetic on confirmed geometry.
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -3082,6 +3224,26 @@ Generated with the package (`wm_docs.py`); the consistency audit checks it exist
 > `mep_render.py` — live in `Drainage/Scripts/` and are used by all three packages. `mep_dxf.py`
 > **subclasses `Structural CAD/Scripts/sc_dxflib.py`**, so the A1 sheet standard is identical to the
 > issued R-series. **24 DXF, all validated, 0 errors.**
+
+### Added by EM1, 10 September 2026 — see H.18
+
+> **The project's first EMP design.** No design value is changed by it, no shared library is
+> modified, and it creates no penetration of the envelope.
+
+| Folder / file | Contents |
+|---|---|
+| `EMP Protection/Documentation/EMP_PROTECTION_DESIGN_BASIS.md` | **The main document.** The governing fact and the K.3 reproduction · what the design already does right · the three-zone model and the standing-alone design rule · every hole in the envelope · the Zone 2 enclosure · bonding and earthing · verification · **EM-F1…F6** and **EM-V1…V6** |
+| `EMP Protection/Documentation/00_README.md` · `EMP_DRAWING_INDEX.md` | Package README; the six drawings, their validation results, and the four sheets deliberately **not** issued |
+| `EMP Protection/Calculations/EMP_CALC_OUTPUT.txt` | Every derivation printed with its inputs, its formula and its arithmetic — E.1 the requirement · E.2 the cage and the K.3 check · E.3 all ten penetrations · E.4 the zone model · E.5 the enclosure · E.6 earthing · E.7 bonding · E.8 verification · E.9 what could not be done |
+| `EMP Protection/Schedules/` | Five schedules as `.md` **and** `.csv` — `EMP_ZONE_SCHEDULE` · `ENVELOPE_PENETRATION_REGISTER` (10 rows) · `POE_PROTECTION_SCHEDULE` (5 points of entry) · `BONDING_AND_EARTHING_SCHEDULE` · `SHIELDING_EFFECTIVENESS_SCHEDULE` (12 rows) |
+| `EMP Protection/QAQC/EMP_QAQC.md` | What was checked and what it returned, including the checks that **could not** be run and why. Records the one `dxfqa.py` false positive against the MEP title block |
+| `EMP Protection/DXF/` | **Six A1 DXF**, AC1024 ASCII — `EM-001` design basis and zone key · `EM-101` EMP zone plan · `EM-102` **the entry path, EM-F1 drawn** · `EM-201` shielding effectiveness chart · `EM-301` EMP Zone 2 enclosure · `EM-302` penetration, bonding and earthing details. **0 errors, 0 warnings, 0 text overlaps** |
+| `EMP Protection/Scripts/` | `em_proj.py` constants · `em_calc.py` derivations · `em_schedules.py` · `em_dxf.py` sheet library · `em_sheets.py` · `em_build_all.py` rebuilds everything |
+
+> **`em_dxf.py` SUBCLASSES the shared `Drainage/Scripts/mep_dxf.py`** rather than editing it, so
+> the EMP sheets carry the identical A1 standard to the R-series and the services drawings while
+> **Drainage, HVAC and Schedule of Finishes regenerate byte-identically.** Verified: `git status`
+> is clean on all five `Scripts/` directories.
 
 ## I.3 SUPERSEDED / ARCHIVED
 
@@ -3198,6 +3360,12 @@ Generated with the package (`wm_docs.py`); the consistency audit checks it exist
 | **WM-V6** | Sentry seismic weight after SP-B1 | **The direction is certain and favourable.** Brick at 20 kN/m³ over 0.190 × 2.600 gives **9.88 kN/m** against the **13.000 kN/m** modelled, so W falls, V<sub>b</sub> falls, and every member designed to 73.18 kN is over-designed. **Nothing is unsafe and nothing is inconsistent** | A STAAD re-run to put a number on the margin. **STAAD.Pro is not available in this environment**, so it is confirmation, not risk |
 | **WM-V7** | Ballistic function of the Rev F panels | **Brick masonry does not give ballistic protection, and every drawing now says brick.** There is no longer any inconsistency — the drawings, the master and the Works Management package all agree | **A client / military decision** on whether that protection is required at all. No drafting or design work in this project can supply it |
 | **WM-V9** | Excavation working space and face treatment | 1.000 m working space and vertical unbenched faces, used consistently for measurement | A slope-stability assessment of the soil zone above rockhead |
+| **EM-V1** | Adopt or reject the EMP zone model | **A three-zone model and the rule that EMP Zone 2 delivers 80 dB STANDING ALONE, with no credit taken for the concrete box at any frequency** (H.18). It is the only position consistent with the cage arithmetic, which reproduces K.3 | **An engineer's / client's adoption.** Everything else in `EMP Protection/` follows from it |
+| **EM-V2** | EMP Zone 2 dimensions | **Required and unspecified for four revisions; EM1 supplies a set that demonstrably fits bay 3** — 2 400 × 1 600 × 2 200 external, clear of the Y 2500–3400 circulation route, with a 300 survey gap on every free face. **Every dimension is `[A]`** | **An equipment schedule**, which waits on the **missing electrical design** — the project's largest gap (H.10). It is a fit, not a derivation |
+| **EM-V3** | Is bay 8 inside the EMP boundary? | **No EMP boundary has ever been drawn.** Bay 8 is outside the *gas-tight envelope* (A.2) — but that is a **CBRN** boundary and says nothing about EMP | **A client decision.** If bay 8 is in, BV-4/BV-5 need honeycomb WBC panels; if it is out, the 15 kVA generator, its control panel and every cable in bay 8 are unprotected and **the shelter loses power to the pulse** |
+| **EM-V4** | Communications | **There is none.** No antenna, mast, feeder or comms design exists anywhere in the project, so MIL-STD-188-125-1 §5.7.6 has nothing to apply to | **A communications design.** An antenna is by definition a deliberate conductor from outside to inside — the hardest EMP penetration there is — and it is also a concealment signature (CAM1) |
+| **EM-V5** | PD-05's pipe material | **Unspecified — as is every pipe material in the project.** The drainage package names no material for any run | **A material.** Metallic → bond it 360° to the entry plate and its exterior becomes shield. Plastic → the bore is an aperture *and* the water column is a conductor, needing a metallic spool piece nobody has specified |
+| **EM-V6** | Escape-shaft head hatch and blast-door RF performance | **Neither exists.** Lining a 1 400 shaft does not work — it propagates above 125.5 MHz however well it is lined; the treatment is a **bonded conducting hatch at the head**. Blast Door 1's frame is already cast in and welded to the cage (A.5), which is the right start | **Vendor data.** Both sit directly on the protective boundary |
 
 ### K.1c Works Management items — RULED by RC1
 
@@ -3347,7 +3515,7 @@ Generated with the package (`wm_docs.py`); the consistency audit checks it exist
 | Flotation | FoS 0.33 at the mat-only stage — **a design output, mitigation is mandatory and on S-02** |
 | **Deccan basalt resistivity** 10³–10⁴ Ω·m | **Test earth resistance early** — affects EMP and lightning protection |
 | Airlock purge 13 min | **4–5 persons/hour — a manning constraint, must be on the drill card** |
-| EMP rebar cage 0 dB @ 1 GHz | **Say it before a reviewer does.** Zone 2 welded steel room is the answer |
+| EMP rebar cage 0 dB @ 1 GHz | **Say it before a reviewer does.** Zone 2 welded steel room is the answer. — **EM1, 10 Sep 2026 (H.18): this figure has now been REPRODUCED from the 150 mm bar spacing alone (0.000 dB at 1 GHz, mesh cutoff 999.31 MHz), and the Zone 2 room it calls for is designed at `[A]`.** The item stands: the cage meets 80 dB only below **99.93 kHz**, one decade of the five |
 
 ---
 

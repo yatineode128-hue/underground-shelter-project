@@ -1,0 +1,11 @@
+TAG,TYPE,LOCATION,BORE mm,DEPTH mm,BORE BOUNDED BY,CUTOFF MHz,WBC dB,SE @1 MHz dB,VERDICT,TREATMENT
+BV-1,BLAST VALVE,"W1 WEST WALL, BAY 1",100 ⌀,600,steel,1757.0,192,255,PASS,NONE REQUIRED. The wall is the waveguide. Keep the bore metallic and the frame welded to the cage.
+BV-2,BLAST VALVE,"W1 WEST WALL, BAY 1",100 ⌀,600,steel,1757.0,192,255,PASS,NONE REQUIRED. The wall is the waveguide. Keep the bore metallic and the frame welded to the cage.
+BV-3,BLAST VALVE,"W6, (14998, 4900)",100 ⌀,400,steel,1757.0,128,191,PASS,NONE REQUIRED. The wall is the waveguide. Keep the bore metallic and the frame welded to the cage.
+BV-4,BLAST VALVE,"EAST WALL, BAY 8",350 ⌀,600,steel,502.0,55,107,FAIL,HONEYCOMB WBC PANEL inboard of the valve — *if* bay 8 is inside the EMP boundary. EM-V3.
+BV-5,BLAST VALVE,"EAST WALL, BAY 8",350 ⌀,600,steel,502.0,55,107,FAIL,HONEYCOMB WBC PANEL inboard of the valve — *if* bay 8 is inside the EMP boundary. EM-V3.
+SEP,SERVICE ENTRY PLATE,"NORTH WALL, X 11398-12198",800 wide,600,steel,187.4,20,66,FAIL,"THE PLATE IS THE SHIELD. Solid, welded, bonded 360° to the cast-in frame. Its apertures are the individual sleeves, treated one by one."
+PD-05,RISING MAIN BORE,THROUGH THE SERVICE ENTRY PLATE,50 ⌀,600,steel,3514.0,384,453,PASS,Bond the pipe 360° to the plate — *if it is metallic*. No pipe material is specified anywhere in the project. EM-V5.
+ESC1,ESCAPE SHAFT,"BAY 1, (2050, 2050)",1400 ⌀,3050,concrete,125.5,—,41,FAIL,BONDED CONDUCTING HATCH AT THE HEAD. Lining the shaft does not work — see notes. No hatch is specified.
+ESC2,ESCAPE SHAFT,"BAY 8, (19900, 2050)",1400 ⌀,3600,concrete,125.5,—,41,FAIL,BONDED CONDUCTING HATCH AT THE HEAD. Lining the shaft does not work — see notes. No hatch is specified.
+VOID,STAIR VOID,"PRESSURE SLAB, BAY 7",3160 wide,900,concrete,47.4,—,34,FAIL,NO TREATMENT EXISTS OR IS PROPOSED. It is the entry route. See notes — this is finding EM-F1.

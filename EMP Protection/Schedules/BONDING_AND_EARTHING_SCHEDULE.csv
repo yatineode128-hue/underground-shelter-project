@@ -1,0 +1,4 @@
+STRAP,LENGTH mm,SECTION mm,w : l,L nH,X @1 MHz Ω,X @10 MHz Ω,X @100 MHz Ω,RULING
+Long Round-The-Corner Strap,600,25 × 3,0.04 : 1,512.2,3.22,32.2,322,REJECTED — 322 Ω at 100 MHz is not a bond
+House Rule - Short Wide Strap,100,50 × 3,0.50 : 1,38.9,0.24,2.4,24,ADOPTED — the house rule
+House Rule - Limit Case,150,50 × 3,0.33 : 1,69.4,0.44,4.4,44,REJECTED — 322 Ω at 100 MHz is not a bond
