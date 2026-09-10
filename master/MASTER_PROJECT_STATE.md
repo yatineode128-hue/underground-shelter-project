@@ -9,6 +9,7 @@
 **Discipline packages:** Structural CAD **SC1** · Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** · Works Management **WM1** (7 Sep 2026, Part H.10) + **WM2** (10 Sep 2026, Part H.13 — the owner's own BOQ, cost estimate and master construction schedule R0).
 **Drawing QA/QC:** **QA1** (9 Sep 2026, Part H.11) — all 65 DXF sanitised in place.
 **Latest design changes:** **BS1** (burster slab laid to a 1:50 crossfall) and **SP-B2** (sentry post lintel L1 + wall ties) — 10 Sep 2026, Part H.12.
+**Concealment:** **CAM1** (10 Sep 2026, Part H.16) — a short camouflage and concealment policy; it did not exist before.
 **Owner's package revised:** **WM3** (10 Sep 2026, Part H.15) — the RC1 rulings applied to the owner's own BOQ, estimate and schedule, published alongside the originals.
 **Inconsistency register:** **RC1** (10 Sep 2026, Part H.14) — **every conflict that could be decided on the evidence has been ruled**; six items that need information the project does not contain remain open in K.1b.
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, sentry post drawing S-07 equivalent.
@@ -2848,6 +2849,76 @@ not on area. **`USER_SOURCE/` and the as-supplied publication are untouched.**
 
 `Scripts/wm3_revised_owner_package.py` reads `USER_SOURCE/` and derives every figure;
 nothing is retyped, and re-running it reproduces the revision exactly.
+
+## H.16 Camouflage and concealment policy — revision CAM1 — 10 September 2026
+
+**Requested. It did not exist.** Concealment was in the project's scope, in its
+programme and in its bill — and there was not one line anywhere saying what it was.
+Bill item **`B-camo`**, *"Camouflage and concealment measures beyond the 300 topsoil /
+turf layer"*, carries **no quantity and no rate**, tagged `[N]` with the note
+**"no concealment"**. `WORKS MANAGEMENT/Documentation/WM_CAMOUFLAGE_AND_CONCEALMENT_POLICY.md`
+now states the position in about two pages.
+
+**It is a policy, not a specification.** No net, screen, paint scheme, thermal
+treatment or detection criterion exists anywhere in this project, and **none is
+invented**. Concealment requirements also depend on **U2** (is a direct hit a
+requirement) and **U3** (the DBT yield), both open in K.1b.
+
+### What the design already achieves
+
+The **300 topsoil / turf** is the concealment layer and A.7.3 names it as such. Two
+features do most of the work and neither had been credited: the turf is **re-laid from
+the site's own 92.82 m³ of stripped stockpile**, so the restored surface is not a
+different green from its surroundings; and because the cover is drained **without a
+single pipe** (D-001 note 1, and BS1's 1:50 crossfall), there is **no manhole, no gully
+and no outfall anywhere on the roof** to break the surface. The grade is crowned falling
+1:50, the berm is 1.5:1 to +0.900, and all **1 113.937 m³** of surplus excavation is
+re-used on site rather than heaped.
+
+### The finding the policy exists to state
+
+**The shelter is concealed. The installation is not.**
+
+| Above grade | |
+|---|---|
+| **Sentry post** | **+7.000** — the tallest thing on site by 4.5 m, ≥ 10 m from the excavation |
+| Covered entry stairwell | +2.450, declared expendable |
+| Fresh-air shaft SH-1 | +1.500 gooseneck |
+| **Headhouse** | +0.900, 4 800 × 5 800, **no earth cover** |
+| Escape shafts ESC 2 / ESC 1 | +0.700 / +0.150 |
+
+The buried box under 2 m of graded, turfed cover is genuinely hard to see. **A 7 m
+sentry post 10 m away is not**, and nothing in the project asks it to be. **That is a
+statement of fact about the design as recorded, not a criticism of it** — the sentry
+post is a manned observation position and is meant to be seen, and the headhouse is the
+entrance. But the distinction had never been written down, and a concealment policy that
+omitted it would mislead.
+
+### Seven policy rules, each following from a project fact
+
+Turf as a continuous surface re-laid from the site's own stockpile · **no new spoil
+heap**, the surplus is already designed away · the berm graded so it does not read as an
+engineered line · shaft heads as low as function allows and nothing bright left exposed ·
+**construction is the exposed phase and no measure in this project applies to it** ·
+**the thermal and acoustic signature is the generator and it is unquantified** (HVAC
+records *"heat rejection into bay 8 NOT STATED"*) · **do not assume concealment is
+priced** — `B-camo` has no rate.
+
+### Four new open items — CAM-V1 to CAM-V4
+
+| | |
+|---|---|
+| **CAM-V1** | `B-camo` has no scope, quantity or rate. Either concealment beyond the turf is required and must be specified and priced, or it is not required and the item should be struck | 
+| **CAM-V2** | The above-ground signature is not concealed and is not required to be by anything in the record. Confirm that is intended |
+| **CAM-V3** | No finish, colour or reflectivity is specified for any shaft head, cover slab or gooseneck |
+| **CAM-V4** | Concealment during construction is unaddressed and cannot be addressed until the site plan (**D3**) exists |
+
+**Adding four open items immediately after RC1 closed twenty is deliberate.** A policy
+that pretended the gaps were not there would be worse than no policy. **Nothing here
+resolves U2, U3 or D3.**
+
+The document is generated with the package (`wm_docs.py`), and the consistency audit now
+checks that it exists — **66 checks, 66 pass.**
 
 ---
 

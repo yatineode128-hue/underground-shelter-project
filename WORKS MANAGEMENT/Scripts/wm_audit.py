@@ -109,6 +109,7 @@ deliverables = [
     "Documentation/WM_SENTRY_POST_BRICK_MASONRY.md",
     "Documentation/WM_PROGRESS_MONITORING.md",
     "Documentation/WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md",
+    "Documentation/WM_CAMOUFLAGE_AND_CONCEALMENT_POLICY.md",
 ]
 hits = {}
 for f in deliverables:

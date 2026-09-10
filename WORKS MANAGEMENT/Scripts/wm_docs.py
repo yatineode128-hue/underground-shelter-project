@@ -1625,11 +1625,165 @@ mobilisation, not requested when the activity is due to start.
 
 
 # ===========================================================================
+def doc_camouflage():
+    """WM_CAMOUFLAGE_AND_CONCEALMENT_POLICY.md - revision CAM1.
+
+    Short by design.  Every element it names is taken from the project record;
+    nothing about nets, paint, screening, thermal treatment or detection is
+    invented, because the project contains none of it - bill item B-camo is
+    tagged [N] with the note 'no concealment'.
+    """
+    o = [head("CAMOUFLAGE AND CONCEALMENT POLICY  \u00b7  revision CAM1")]
+    o.append("""
+## What this is, and what it is not
+
+A **short policy** for concealing the structure, written from what the project
+actually contains. It is **not** a camouflage specification: bill item **`B-camo`**
+— *"Camouflage and concealment measures beyond the 300 topsoil / turf layer"* — is
+tagged **`[N]`**, quantity *to be verified from final measurement*, note **"no
+concealment"**. **No net, screen, paint scheme, thermal treatment or detection
+criterion exists anywhere in this project, and none is invented here.**
+
+Concealment requirements also depend on two questions the project has never
+answered — **U2**, whether a direct hit is a requirement, and **U3**, the design
+basis threat yield. Both are in master **K.1b** awaiting a client or military
+ruling. **This policy therefore states what the design already achieves and what
+it does not, and stops there.**
+
+---
+
+## 1  The concealment the design already provides
+
+| Measure | Value | Class |
+|---|---|---|
+| Topsoil / turf over the whole buried roof | **300 mm**, 30.867 m\u00b3, the top layer of the 2 000 engineered cover. A.7.3 names its function as *"Concealment, erosion, sheds rain"* | `[C]` |
+| Turf sourced from the site itself | **92.82 m\u00b3 stripped and stockpiled** at `E-01a` for re-use in the concealment layer — the re-laid surface is the surface that was there before | `[A]` |
+| Finished grade | **crowned, falling 1:50 away** (A.4.3) — a natural-looking shed, not a flat platform | `[C]` |
+| Berm against the headhouse and covered stairwell | **1.5:1 to +0.900** | `[C]` / quantity `[N]` |
+| Surplus excavation | **1 113.937 m\u00b3 re-used on site** as engineered fill and crushed rubble (`E-08`) | `[D]` |
+| Roof penetrations for drainage | **NONE.** No roof outlet, no downpipe, no rainwater pipe on the buried roof — D-001 note 1 | `[C]` |
+| Burster slab | laid to a **1:50 crossfall (BS1)** so infiltration disperses at the berm toe **without a pipe** | `[C]` |
+
+**Two of these matter more than the rest.** Re-using the site's own stripped turf
+means the restored surface is not a different green from its surroundings, which is
+what usually gives a buried structure away. And **because the cover is drained
+without a single pipe**, there is no manhole, no gully and no outfall anywhere on
+the roof to break the surface.
+
+---
+
+## 2  The signature inventory — what is above ground
+
+**Every one of these is a confirmed element of the project.** Heights are from the
+master's level schedule.
+
+| Element | Above grade | Note |
+|---|---|---|
+| **Sentry post** | **+7.000** parapet | Two storeys, 4 000 \u00d7 5 000, \u2265 10 m clear of the excavation. **The tallest thing on the site by 4.5 m** |
+| Covered entry stairwell | **+2.450** head | 6 800 \u00d7 2 000. Outside the protective boundary, **declared expendable** |
+| Fresh-air shaft **SH-1** | **+1.500** gooseneck | 600 \u00d7 600, west of the box |
+| **Headhouse** | **+0.900** roof top | 4 800 \u00d7 5 800, walls 400, roof 500, **no earth cover**. The largest above-ground mass |
+| Escape shaft **ESC 2** | **+0.700** head | 1 400 dia clear, OD 1900 collar |
+| Escape shaft **ESC 1** | **+0.150** head | As ESC 2 |
+| Generator air shaft **SH-2** | serves BV-4 / BV-5 | 600 \u00d7 600, east of the box |
+| Soak pit / soakaway covers | at grade | SK-01 and SK-02 RC cover slabs. **Positions not fixed — no site plan (D3)** |
+| Sentry post spiral stair | external | 1 000 R, 250 dia pole |
+
+### The finding this policy exists to state
+
+**The shelter is concealed. The installation is not.**
+
+The buried box under 2 m of graded, turfed cover is genuinely hard to see. But a
+**7 m sentry post 10 m away**, a **4.8 \u00d7 5.8 m headhouse with no earth cover**, a
+**2.45 m stairwell head** and a **1.5 m gooseneck** are not concealed by anything,
+and nothing in the project asks them to be. Anyone reading the cover build-up as a
+concealment measure should understand that it conceals **the roof**, not the site.
+
+**This is a statement of fact about the design as recorded, not a criticism of it** —
+the sentry post is a manned observation position and is *meant* to be seen, and the
+headhouse is the entrance. But the distinction has never been written down, and a
+concealment policy that did not say it would be misleading.
+
+---
+
+## 3  Policy
+
+**CAM-P1  The turf is a continuous surface, not a patch.** The 300 topsoil / turf is
+laid over the whole buried roof and merged into the surrounding ground at the berm
+toe. Re-lay the stockpiled site turf; do not import a different species or a
+different soil colour.
+
+**CAM-P2  No new spoil heap.** All 1 113.937 m\u00b3 of surplus is re-used on site as
+engineered fill and crushed rubble. **A spoil mound is a permanent signature that
+outlasts the works**, and this project has already designed the surplus away.
+
+**CAM-P3  The berm reads as ground, not as an engineered line.** 1.5:1 to +0.900 is
+the structural requirement; the graded finish either side of it should not leave a
+straight crest visible against the natural fall.
+
+**CAM-P4  Shaft heads sit as low as their function allows.** ESC 1 at +0.150 and
+ESC 2 at +0.700 are already low. **Nothing bright, galvanised or reflective is left
+exposed on a shaft head, a cover or a gooseneck** — but note that no finish is
+specified for any of them anywhere in the project (see \u00a74).
+
+**CAM-P5  Construction is the exposed phase, and it cannot be hidden.** The works
+open **1 539 m\u00b3 of excavation** to 6.8 m and run for the whole substructure period.
+No concealment measure in this project applies during construction. If concealment
+matters during the works it is a **programme and access** question, and it needs the
+site plan the project does not have.
+
+**CAM-P6  Thermal and acoustic signature is the generator, and it is unquantified.**
+The 15 kVA set in Bay 8 rejects heat and exhausts through the SH-2 shaft. The HVAC
+schedule records **"Heat rejection into bay 8 NOT STATED"** \u2014 `[N]`. **Do not assume
+the exhaust is concealed; nothing has been designed to conceal it.**
+
+**CAM-P7  Do not assume concealment is priced.** `B-camo` carries **no quantity and
+no rate**. Anything beyond the turf layer is an addition to the bill, not a variation
+within it.
+
+---
+
+## 4  What this policy cannot say, and why
+
+| Not stated | Why |
+|---|---|
+| Any net, screen, paint or thermal treatment | **No specification exists in the project.** `B-camo` is `[N]`, note "no concealment" |
+| Approach routes, track discipline, tree lines, sight lines | **There is no site plan** — open item **D3**. The berm volume, access route and hardstanding are all unmeasurable for the same reason |
+| Detection ranges, sensor types, observation distances | Not stated anywhere. They depend on **U2** and **U3**, both open |
+| The generator's thermal output | HVAC records it as **NOT STATED** `[N]` |
+| Where the soak pit and soakaway covers sit | Position not fixed — **D3**, no site plan |
+
+---
+
+## 5  Verification items raised by this policy
+
+**These are new and they are open.** Adding them is the point of writing the policy
+down: the project had concealment in its scope and its bill without a single line
+saying what it was.
+
+| Item | What it is | Status |
+|---|---|---|
+| **CAM-V1** | `B-camo` has no scope, no quantity and no rate. Either concealment beyond the turf layer is required and must be specified and priced, or it is not required and the item should be struck | **OPEN** — client ruling |
+| **CAM-V2** | The above-ground signature (sentry post +7.000, headhouse +0.900 with no cover, stairwell +2.450, gooseneck +1.500) is **not concealed and is not required to be** by anything in the project record. Confirm that is intended | **OPEN** — client ruling |
+| **CAM-V3** | No finish, colour or reflectivity is specified for any shaft head, cover slab or gooseneck | **OPEN** — `[N]`, data required |
+| **CAM-V4** | Concealment during construction is not addressed by any measure in this project, and cannot be until the site plan (**D3**) exists | **OPEN** — follows D3 |
+
+---
+
+*Revision CAM1, 10 September 2026. Recorded in master Part H.16. Nothing in this
+policy resolves U2, U3 or D3, and nothing in it invents a specification the project
+does not contain.*
+""")
+    write(os.path.join(DOCS, "WM_CAMOUFLAGE_AND_CONCEALMENT_POLICY.md"), "\n".join(o))
+
+
+# ===========================================================================
 def main():
     tasks, order, end, _ = S.summary()
     os.makedirs(DOCS, exist_ok=True)
     doc_wbs(tasks)
     doc_boq()
+    doc_camouflage()
     doc_resources(tasks)
     doc_procurement(tasks)
     doc_qaqc(tasks)
