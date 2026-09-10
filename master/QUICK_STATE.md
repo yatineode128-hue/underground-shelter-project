@@ -23,6 +23,7 @@ on the evidence has been ruled**; six items needing outside information stay ope
 | Services packages | Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** (5 Sep 2026, master H.9) |
 | Works Management | **WM1** (7 Sep 2026, master H.10) — whole project, mobilisation to handover |
 | **Works Management** | **WM2** (10 Sep 2026, master H.13) — **THE OWNER'S OWN BOQ, COST ESTIMATE AND MASTER CONSTRUCTION SCHEDULE R0 NOW GOVERN.** ₹3,00,33,306 · 130 activities · 224 working days · 02-11-2026 to 26-07-2027. WM1 is preserved, not overwritten |
+| **Works Management — revised** | **WM3** (10 Sep 2026, master H.15) — the **RC1 rulings applied** to the owner's own BOQ, estimate and schedule and published alongside the originals as `.xlsx`/CSV/MD. Burster 300 M35 → **200 M30**; escape shaft collars and the 15 kVA generator **added**; 13 programme activities reworded. **Revised final cost ₹2,97,90,913** — a **LOWER BOUND**, the generator is deliberately unpriced (**no rate invented**). `USER_SOURCE/` untouched |
 | **Drawings** | **QA1** (9 Sep 2026, master H.11) — drafting QA/QC over **all 65 DXF**. Annotation, sheet frames, title blocks. **No engineering design changed** |
 | **SP-B1** | **SENTRY POST WALLS = BRICK MASONRY** — instructed design change, 7 Sep 2026. The only design change in WM1 |
 | **SP-B2** | **SENTRY POST LINTELS + WALL TIES** — completes SP-B1, 10 Sep 2026 (master H.12 / A.4.8). Closes WM-V5 and WM-V11 |

@@ -6,6 +6,7 @@ d02_details.py  --  the drainage sections and details.
     D-304  pipe penetration and waterproofing details
     D-305  septic tank, soak pit and chamber details
 """
+import math
 import os
 import sys
 
@@ -449,20 +450,27 @@ def d305():
         "50 mm cowled vent >= 2 m above grade (Cl. 6.9).",
     ], h=NOTE, lead=LEAD)
 
-    sh.panel(CA, y - 8, 396, "SOAK PIT  -  IS 2470 (Pt 2):1985 RE-CHECK   *** A SHORTFALL IS FOUND ***", [
+    sh.panel(CA, y - 8, 396, "SOAK PIT  -  IS 2470 (Pt 2):1985 RE-CHECK   *** SHORTFALL FOUND, NOW CLOSED ***", [
         "Effluent to disperse     450 L/day                                                [C]",
         "Design absorption        20 L/m2/day                                              [A] master A7",
         "AREA REQUIRED            450 / 20                            = 22.50 m2           [R]",
-        "SIDE AREA  pi.D.h        pi x 2.0 x 3.5                      = 21.99 m2           [R]",
-        "CHECK                    21.99  vs  22.50  ->  SHORT BY 0.51 m2  =  2.3 %",
+        f"SIDE AREA  pi.D.h        pi x {K['dia']:.1f} x {K['effective_depth']:.1f}"
+        f"                      = {math.pi*K['dia']*K['effective_depth']:.2f} m2           [R]",
+        f"CHECK                    {math.pi*K['dia']*K['effective_depth']:.2f}  vs  22.50"
+        f"  ->  PASS, MARGIN {math.pi*K['dia']*K['effective_depth']-22.50:.2f} m2  =  "
+        f"+{(math.pi*K['dia']*K['effective_depth']/22.50-1)*100:.1f} %",
         "",
-        "*** DR-C2.  Sheet S-06 prints '22.0 m2  OK' against its own stated requirement of '22.5 m2'.",
-        "    21.99 is not >= 22.50.  THIS IS ARITHMETIC, NOT JUDGEMENT.  Either of these closes it:",
-        "        (a)  effective depth 3.5 -> 3.6 m, diameter unchanged   ->  22.62 m2,  +0.5 %",
-        "        (b)  diameter 2.0 -> 2.1 m, depth unchanged             ->  23.09 m2,  +2.6 %",
-        "    NOT RESIZED HERE.  S-06 is an issued sheet and the 20 L/m2/day absorption is itself [ASSUMED].",
-        "    A PERCOLATION TEST TO Cl. 4 IS MANDATORY BEFORE CONSTRUCTION and may move the requirement by far",
-        "    more than 2.3 %, so re-sizing before the test would be false precision.  USER RULING REQUIRED. ***",
+        "*** DR-C2 WAS RAISED BY THIS PACKAGE AND IS NOW CLOSED - RC1 RULING, master Part H.14 / K.1 U11.",
+        f"    AS DRAWN the pit was {K['dia_was']:.1f} dia x {K['effective_depth']:.1f}"
+        f" = {K['side_area_was']:.2f} m2, and sheet S-06 printed",
+        "    '22.0 m2  OK' against its own stated requirement of '22.5 m2'.  21.99 is not >= 22.50 - the pit",
+        "    as drawn was 2.3 % SHORT.  THAT IS ARITHMETIC, NOT JUDGEMENT.",
+        f"    THE PIT IS WIDENED:  diameter {K['dia_was']:.1f} -> {K['dia']:.3f} m,"
+        f"  effective depth UNCHANGED at {K['effective_depth']:.3f} m.",
+        "    WIDENED AND NOT DEEPENED, deliberately.  Deepening to 3.6 m would also have closed the arithmetic,",
+        "    but it drives the pit further below the design GWT at (-)2.000, and a soak pit below the water",
+        "    table does not soak.  Widening costs one ring of extra excavation and worsens nothing.  SK-02",
+        "    follows SK-01 so the two pits stay ONE construction detail. ***",
         "",
         "AND THE LARGER RISK, ALREADY IN THE MASTER (K.2 A7): 'Soak pit will not work if lower - LIKELY ON",
         "BASALT.'  If the measured rate is below 20 L/m2/day the answer is not a bigger pit: it is a DISPERSION",
@@ -481,8 +489,10 @@ def d305():
         "Discharge to disperse   400 L/day                 [R]",
         "Design absorption       20 L/m2/day               [A] A7",
         "AREA REQUIRED           400 / 20   = 20.0 m2      [R]",
-        "ADOPTED  2.0 dia x 3.5 effective = 21.99 m2       [A]",
-        "CHECK    21.99 >= 20.0   PASS, margin 10 %        [R]",
+        f"ADOPTED  {K['dia']:.1f} dia x {K['effective_depth']:.1f} effective = "
+        f"{math.pi*K['dia']*K['effective_depth']:.2f} m2   [A]",
+        f"CHECK    {math.pi*K['dia']*K['effective_depth']:.2f} >= 20.0   PASS, "
+        f"margin {(math.pi*K['dia']*K['effective_depth']/20.0-1)*100:.0f} %      [R]",
         "",
         "Same construction as SK-01 - one detail, one cover slab",
         "and one set of materials on site.",

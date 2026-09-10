@@ -142,7 +142,7 @@ and `make_index.py`, so it cannot drift from the drawings.
 | **D-204** | SUMP AND PUMPING | 1:20 | A1 | 92 | PASS |
 | **D-301** | DRAINAGE SECTIONS  -  GRADE TO DISCHARGE | 1:60 | A1 | 83 | PASS |
 | **D-304** | PIPE PENETRATION AND WATERPROOFING DETAILS | 1:10 | A1 | 74 | PASS |
-| **D-305** | SEPTIC TANK, SOAK PIT AND CHAMBER DETAILS | 1:25 | A1 | 99 | PASS |
+| **D-305** | SEPTIC TANK, SOAK PIT AND CHAMBER DETAILS | 1:25 | A1 | 101 | PASS |
 
 <details><summary>filenames</summary>
 

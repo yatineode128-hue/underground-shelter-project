@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461294.4379398148
+2461294.4417939815
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461294.4379398148
+2461294.4417939815
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-1EA
+1EC
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{3C72A5B4-6FD2-4A8F-BB95-643B20911FCB}
+{7E7B59AB-0B82-4DBE-B765-A08653322120}
   9
 $VERSIONGUID
   2
-{F7C1F3E5-A1F7-4F5C-93D8-8DF32171822C}
+{8C7F2A0E-BD7D-4229-886B-E68DC64B0E3C}
   9
 $EXTNAMES
 290
@@ -4989,7 +4989,7 @@ AcAecLayerStandard
   0
 APPID
   5
-1E7
+1E9
 330
 3
 100
@@ -5003,7 +5003,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-1E8
+1EA
 330
 3
 100
@@ -12825,7 +12825,7 @@ AcDbText
  40
 2.5
   1
-SOAK PIT  -  IS 2470 (Pt 2):1985 RE-CHECK   *** A SHORTFALL IS FOUND ***
+SOAK PIT  -  IS 2470 (Pt 2):1985 RE-CHECK   *** SHORTFALL FOUND, NOW CLOSED ***
   7
 OpenSans
  11
@@ -12953,7 +12953,7 @@ AcDbText
  40
 2.4
   1
-SIDE AREA  pi.D.h        pi x 2.0 x 3.5                      = 21.99 m2           [R]
+SIDE AREA  pi.D.h        pi x 2.2 x 3.5                      = 24.19 m2           [R]
   7
 OpenSans
  11
@@ -12985,7 +12985,7 @@ AcDbText
  40
 2.4
   1
-CHECK                    21.99  vs  22.50  ->  SHORT BY 0.51 m2  =  2.3 %
+CHECK                    24.19  vs  22.50  ->  PASS, MARGIN 1.69 m2  =  +7.5 %
   7
 OpenSans
  11
@@ -13017,7 +13017,7 @@ AcDbText
  40
 2.4
   1
-*** DR-C2.  Sheet S-06 prints '22.0 m2  OK' against its own stated requirement of '22.5 m2'.
+*** DR-C2 WAS RAISED BY THIS PACKAGE AND IS NOW CLOSED - RC1 RULING, master Part H.14 / K.1 U11.
   7
 OpenSans
  11
@@ -13049,7 +13049,7 @@ AcDbText
  40
 2.4
   1
-    21.99 is not >= 22.50.  THIS IS ARITHMETIC, NOT JUDGEMENT.  Either of these closes it:
+    AS DRAWN the pit was 2.0 dia x 3.5 = 21.99 m2, and sheet S-06 printed
   7
 OpenSans
  11
@@ -13081,7 +13081,7 @@ AcDbText
  40
 2.4
   1
-        (a)  effective depth 3.5 -> 3.6 m, diameter unchanged   ->  22.62 m2,  +0.5 %
+    '22.0 m2  OK' against its own stated requirement of '22.5 m2'.  21.99 is not >= 22.50 - the pit
   7
 OpenSans
  11
@@ -13113,7 +13113,7 @@ AcDbText
  40
 2.4
   1
-        (b)  diameter 2.0 -> 2.1 m, depth unchanged             ->  23.09 m2,  +2.6 %
+    as drawn was 2.3 % SHORT.  THAT IS ARITHMETIC, NOT JUDGEMENT.
   7
 OpenSans
  11
@@ -13145,7 +13145,7 @@ AcDbText
  40
 2.4
   1
-    NOT RESIZED HERE.  S-06 is an issued sheet and the 20 L/m2/day absorption is itself [ASSUMED].
+    THE PIT IS WIDENED:  diameter 2.0 -> 2.200 m,  effective depth UNCHANGED at 3.500 m.
   7
 OpenSans
  11
@@ -13177,7 +13177,7 @@ AcDbText
  40
 2.4
   1
-    A PERCOLATION TEST TO Cl. 4 IS MANDATORY BEFORE CONSTRUCTION and may move the requirement by far
+    WIDENED AND NOT DEEPENED, deliberately.  Deepening to 3.6 m would also have closed the arithmetic,
   7
 OpenSans
  11
@@ -13209,7 +13209,7 @@ AcDbText
  40
 2.4
   1
-    more than 2.3 %, so re-sizing before the test would be false precision.  USER RULING REQUIRED. ***
+    but it drives the pit further below the design GWT at (-)2.000, and a soak pit below the water
   7
 OpenSans
  11
@@ -13235,19 +13235,19 @@ AcDbText
  10
 16.0
  20
-155.8499999999997
+160.14999999999972
  30
 0.0
  40
 2.4
   1
-AND THE LARGER RISK, ALREADY IN THE MASTER (K.2 A7): 'Soak pit will not work if lower - LIKELY ON
+    table does not soak.  Widening costs one ring of extra excavation and worsens nothing.  SK-02
   7
 OpenSans
  11
 16.0
  21
-155.8499999999997
+160.14999999999972
  31
 0.0
 100
@@ -13267,19 +13267,19 @@ AcDbText
  10
 16.0
  20
-151.5499999999997
+155.8499999999997
  30
 0.0
  40
 2.4
   1
-BASALT.'  If the measured rate is below 20 L/m2/day the answer is not a bigger pit: it is a DISPERSION
+    follows SK-01 so the two pits stay ONE construction detail. ***
   7
 OpenSans
  11
 16.0
  21
-151.5499999999997
+155.8499999999997
  31
 0.0
 100
@@ -13305,7 +13305,7 @@ AcDbText
  40
 2.4
   1
-TRENCH (Cl. 5) or a SEALED HOLDING TANK emptied on a schedule.  S-06 says the same thing.
+AND THE LARGER RISK, ALREADY IN THE MASTER (K.2 A7): 'Soak pit will not work if lower - LIKELY ON
   7
 OpenSans
  11
@@ -13331,19 +13331,19 @@ AcDbText
  10
 16.0
  20
-138.64999999999966
+142.94999999999968
  30
 0.0
  40
 2.4
   1
-OFFSETS, Cl. 5 and S-06:  >= 15 m from any well,  >= 5 m from the septic tank,  >= 2 m from any
+BASALT.'  If the measured rate is below 20 L/m2/day the answer is not a bigger pit: it is a DISPERSION
   7
 OpenSans
  11
 16.0
  21
-138.64999999999966
+142.94999999999968
  31
 0.0
 100
@@ -13363,19 +13363,19 @@ AcDbText
  10
 16.0
  20
-134.34999999999965
+138.64999999999966
  30
 0.0
  40
 2.4
   1
-building.  *** THESE CANNOT BE DEMONSTRATED - no site plan, no boundary and no well position exists
+TRENCH (Cl. 5) or a SEALED HOLDING TANK emptied on a schedule.  S-06 says the same thing.
   7
 OpenSans
  11
 16.0
  21
-134.34999999999965
+138.64999999999966
  31
 0.0
 100
@@ -13401,7 +13401,7 @@ AcDbText
  40
 2.4
   1
-anywhere in the project.  DATA REQUIRED (open item D3). ***
+OFFSETS, Cl. 5 and S-06:  >= 15 m from any well,  >= 5 m from the septic tank,  >= 2 m from any
   7
 OpenSans
  11
@@ -13413,9 +13413,73 @@ OpenSans
 100
 AcDbText
   0
-LWPOLYLINE
+TEXT
   5
 1AC
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+125.74999999999964
+ 30
+0.0
+ 40
+2.4
+  1
+building.  *** THESE CANNOT BE DEMONSTRATED - no site plan, no boundary and no well position exists
+  7
+OpenSans
+ 11
+16.0
+ 21
+125.74999999999964
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1AD
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+121.44999999999965
+ 30
+0.0
+ 40
+2.4
+  1
+anywhere in the project.  DATA REQUIRED (open item D3). ***
+  7
+OpenSans
+ 11
+16.0
+ 21
+121.44999999999965
+ 31
+0.0
+100
+AcDbText
+  0
+LWPOLYLINE
+  5
+1AE
 330
 17
 100
@@ -13431,11 +13495,11 @@ AcDbPolyline
  10
 14.0
  20
-123.74999999999964
+115.14999999999965
  10
 410.0
  20
-123.74999999999964
+115.14999999999965
  10
 410.0
  20
@@ -13447,7 +13511,7 @@ AcDbPolyline
   0
 TEXT
   5
-1AD
+1AF
 330
 17
 100
@@ -13479,7 +13543,7 @@ AcDbText
   0
 TEXT
   5
-1AE
+1B0
 330
 17
 100
@@ -13511,7 +13575,7 @@ AcDbText
   0
 TEXT
   5
-1AF
+1B1
 330
 17
 100
@@ -13543,7 +13607,7 @@ AcDbText
   0
 TEXT
   5
-1B0
+1B2
 330
 17
 100
@@ -13575,7 +13639,7 @@ AcDbText
   0
 TEXT
   5
-1B1
+1B3
 330
 17
 100
@@ -13607,7 +13671,7 @@ AcDbText
   0
 TEXT
   5
-1B2
+1B4
 330
 17
 100
@@ -13639,7 +13703,7 @@ AcDbText
   0
 TEXT
   5
-1B3
+1B5
 330
 17
 100
@@ -13671,71 +13735,71 @@ AcDbText
   0
 TEXT
   5
-1B4
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-260.87499999999994
- 30
-0.0
- 40
-2.4
-  1
-ADOPTED  2.0 dia x 3.5 effective = 21.99 m2       [A]
-  7
-OpenSans
- 11
-432.0
- 21
-260.87499999999994
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1B5
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-256.57499999999993
- 30
-0.0
- 40
-2.4
-  1
-CHECK    21.99 >= 20.0   PASS, margin 10 %        [R]
-  7
-OpenSans
- 11
-432.0
- 21
-256.57499999999993
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
 1B6
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+432.0
+ 20
+260.87499999999994
+ 30
+0.0
+ 40
+2.4
+  1
+ADOPTED  2.2 dia x 3.5 effective = 24.19 m2   [A]
+  7
+OpenSans
+ 11
+432.0
+ 21
+260.87499999999994
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1B7
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+432.0
+ 20
+256.57499999999993
+ 30
+0.0
+ 40
+2.4
+  1
+CHECK    24.19 >= 20.0   PASS, margin 21 %      [R]
+  7
+OpenSans
+ 11
+432.0
+ 21
+256.57499999999993
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1B8
 330
 17
 100
@@ -13767,7 +13831,7 @@ AcDbText
   0
 TEXT
   5
-1B7
+1B9
 330
 17
 100
@@ -13799,7 +13863,7 @@ AcDbText
   0
 TEXT
   5
-1B8
+1BA
 330
 17
 100
@@ -13831,7 +13895,7 @@ AcDbText
   0
 TEXT
   5
-1B9
+1BB
 330
 17
 100
@@ -13863,7 +13927,7 @@ AcDbText
   0
 TEXT
   5
-1BA
+1BC
 330
 17
 100
@@ -13895,7 +13959,7 @@ AcDbText
   0
 TEXT
   5
-1BB
+1BD
 330
 17
 100
@@ -13927,7 +13991,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-1BC
+1BE
 330
 17
 100
@@ -13959,7 +14023,7 @@ AcDbPolyline
   0
 TEXT
   5
-1BD
+1BF
 330
 17
 100
@@ -13991,7 +14055,7 @@ AcDbText
   0
 TEXT
   5
-1BE
+1C0
 330
 17
 100
@@ -14023,7 +14087,7 @@ AcDbText
   0
 TEXT
   5
-1BF
+1C1
 330
 17
 100
@@ -14055,7 +14119,7 @@ AcDbText
   0
 TEXT
   5
-1C0
+1C2
 330
 17
 100
@@ -14087,7 +14151,7 @@ AcDbText
   0
 TEXT
   5
-1C1
+1C3
 330
 17
 100
@@ -14119,7 +14183,7 @@ AcDbText
   0
 TEXT
   5
-1C2
+1C4
 330
 17
 100
@@ -14151,7 +14215,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-1C3
+1C5
 330
 17
 100
@@ -14183,7 +14247,7 @@ AcDbPolyline
   0
 TEXT
   5
-1C4
+1C6
 330
 17
 100
@@ -14215,7 +14279,7 @@ AcDbText
   0
 TEXT
   5
-1C5
+1C7
 330
 17
 100
@@ -14247,7 +14311,7 @@ AcDbText
   0
 LINE
   5
-1C6
+1C8
 330
 17
 100
@@ -14271,7 +14335,7 @@ AcDbLine
   0
 TEXT
   5
-1C7
+1C9
 330
 17
 100
@@ -14305,7 +14369,7 @@ AcDbText
   0
 TEXT
   5
-1C8
+1CA
 330
 17
 100
@@ -14339,7 +14403,7 @@ AcDbText
   0
 TEXT
   5
-1C9
+1CB
 330
 17
 100
@@ -14371,7 +14435,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-1CA
+1CC
 330
 17
 100
@@ -14403,54 +14467,6 @@ AcDbPolyline
   0
 LINE
   5
-1CB
-330
-17
-100
-AcDbEntity
-  8
-M-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-30.0
- 30
-0.0
- 11
-831.0
- 21
-30.0
- 31
-0.0
-  0
-LINE
-  5
-1CC
-330
-17
-100
-AcDbEntity
-  8
-M-TITLE
-100
-AcDbLine
- 10
-651.0
- 20
-42.0
- 30
-0.0
- 11
-831.0
- 21
-42.0
- 31
-0.0
-  0
-LINE
-  5
 1CD
 330
 17
@@ -14463,13 +14479,13 @@ AcDbLine
  10
 651.0
  20
-54.0
+30.0
  30
 0.0
  11
 831.0
  21
-54.0
+30.0
  31
 0.0
   0
@@ -14487,6 +14503,54 @@ AcDbLine
  10
 651.0
  20
+42.0
+ 30
+0.0
+ 11
+831.0
+ 21
+42.0
+ 31
+0.0
+  0
+LINE
+  5
+1CF
+330
+17
+100
+AcDbEntity
+  8
+M-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
+54.0
+ 30
+0.0
+ 11
+831.0
+ 21
+54.0
+ 31
+0.0
+  0
+LINE
+  5
+1D0
+330
+17
+100
+AcDbEntity
+  8
+M-TITLE
+100
+AcDbLine
+ 10
+651.0
+ 20
 66.0
  30
 0.0
@@ -14499,7 +14563,7 @@ AcDbLine
   0
 LINE
   5
-1CF
+1D1
 330
 17
 100
@@ -14523,7 +14587,7 @@ AcDbLine
   0
 LINE
   5
-1D0
+1D2
 330
 17
 100
@@ -14547,7 +14611,7 @@ AcDbLine
   0
 LINE
   5
-1D1
+1D3
 330
 17
 100
@@ -14571,7 +14635,7 @@ AcDbLine
   0
 TEXT
   5
-1D2
+1D4
 330
 17
 100
@@ -14603,7 +14667,7 @@ AcDbText
   0
 TEXT
   5
-1D3
+1D5
 330
 17
 100
@@ -14635,7 +14699,7 @@ AcDbText
   0
 TEXT
   5
-1D4
+1D6
 330
 17
 100
@@ -14667,7 +14731,7 @@ AcDbText
   0
 TEXT
   5
-1D5
+1D7
 330
 17
 100
@@ -14699,7 +14763,7 @@ AcDbText
   0
 TEXT
   5
-1D6
+1D8
 330
 17
 100
@@ -14731,7 +14795,7 @@ AcDbText
   0
 TEXT
   5
-1D7
+1D9
 330
 17
 100
@@ -14763,7 +14827,7 @@ AcDbText
   0
 LINE
   5
-1D8
+1DA
 330
 17
 100
@@ -14787,7 +14851,7 @@ AcDbLine
   0
 TEXT
   5
-1D9
+1DB
 330
 17
 100
@@ -14819,7 +14883,7 @@ AcDbText
   0
 TEXT
   5
-1DA
+1DC
 330
 17
 100
@@ -14851,7 +14915,7 @@ AcDbText
   0
 TEXT
   5
-1DB
+1DD
 330
 17
 100
@@ -14883,7 +14947,7 @@ AcDbText
   0
 TEXT
   5
-1DC
+1DE
 330
 17
 100
@@ -14915,7 +14979,7 @@ AcDbText
   0
 TEXT
   5
-1DD
+1DF
 330
 17
 100
@@ -14947,7 +15011,7 @@ AcDbText
   0
 TEXT
   5
-1DE
+1E0
 330
 17
 100
@@ -14979,7 +15043,7 @@ AcDbText
   0
 TEXT
   5
-1DF
+1E1
 330
 17
 100
@@ -15011,7 +15075,7 @@ AcDbText
   0
 TEXT
   5
-1E0
+1E2
 330
 17
 100
@@ -15043,7 +15107,7 @@ AcDbText
   0
 TEXT
   5
-1E1
+1E3
 330
 17
 100
@@ -15075,7 +15139,7 @@ AcDbText
   0
 TEXT
   5
-1E2
+1E4
 330
 17
 100
@@ -15107,7 +15171,7 @@ AcDbText
   0
 TEXT
   5
-1E3
+1E5
 330
 17
 100
@@ -15139,7 +15203,7 @@ AcDbText
   0
 TEXT
   5
-1E4
+1E6
 330
 17
 100
@@ -15171,7 +15235,7 @@ AcDbText
   0
 TEXT
   5
-1E5
+1E7
 330
 17
 100
@@ -15203,7 +15267,7 @@ AcDbText
   0
 TEXT
   5
-1E6
+1E8
 330
 17
 100
@@ -16323,7 +16387,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-1E9
+1EB
   0
 DICTIONARYVAR
   5
@@ -16335,7 +16399,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-10T10:30:38.795185+00:00
+1.4.4 @ 2026-09-10T10:36:11.198532+00:00
   0
 VISUALSTYLE
   5
@@ -17039,7 +17103,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-1E9
+1EB
 330
 2D
 100
@@ -17047,7 +17111,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-10T10:30:38.808391+00:00
+1.4.4 @ 2026-09-10T10:36:11.214039+00:00
   0
 ENDSEC
   0

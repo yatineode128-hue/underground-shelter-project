@@ -201,3 +201,53 @@ alternatives and must not be read as such.**
   in the register instead.
 
 **Recorded in master Part H.13.**
+
+---
+
+# REVISION WM3 — 10 September 2026 — the owner's package, revised
+
+**The project owner's own BOQ, cost estimate and construction schedule, with the RC1
+rulings applied** (master **Part H.14** and **K.1c**). Requested so the revised Works
+Management sits alongside the files that were uploaded.
+
+## Three versions now exist side by side, and that is deliberate
+
+| | Where | What it is |
+|---|---|---|
+| **As uploaded** | `USER_SOURCE/` | The owner's four files, **byte-for-byte untouched.** Never edit anything in this folder |
+| **As supplied, published** | `Cost/USER_BOQ_*`, `Programme/USER_MASTER_CONSTRUCTION_SCHEDULE_R0.*` | The same figures, read out of those files and rendered as CSV/Markdown |
+| **REVISED — RC1 applied** | `Cost/REVISED_*`, `Programme/REVISED_MASTER_CONSTRUCTION_SCHEDULE_R1.csv` | **This revision.** Every difference from the as-supplied version is listed in `Cost/REVISED_BOQ_AND_COST_ESTIMATE_RC1.md` |
+
+The revised estimate is issued as **`.xlsx`** as well as CSV and Markdown, so it opens in
+the same tool the original came from.
+
+## What the revision applies
+
+| Ruling | Applied |
+|---|---|
+| **R-1** | Burster slab **300 mm M35 → 200 mm M30**; 57.60 → **38.40 m³**, and Part III falls from ₹5,10,210 to ₹3,40,140 |
+| **R-6** | *"Sentry Post RCC Frame & Infill"* → **RC frame only**; the brick infill is measured as brickwork |
+| **R-7** | **Escape shaft collars ESC 1 and ESC 2 ADDED** — 6.285 m³ of 250 RC, OD 1900. They were missing |
+| **R-8** | **The 15 kVA generator ADDED as a visible line.** The bill priced the 2 600 m³/h combustion air path through BV-4/BV-5 but not the machine |
+| **R-13** | Concrete total is now **the sum of its own lines**, 467.59 m³ |
+| **R-14** | Final cost is now **the sum of its own cost heads** — this closes the ₹1,00,000 gap |
+| **R-2 · R-3 · R-4 · R-5** | **13 programme activities reworded** — the 4 m cover → 2.0 m, the 1000 mm slab → 900 mm, the **lift that does not exist** → "Column & Staircase Shear Wall", and the pre-M1 box size in the title |
+
+**Revised final project cost: ₹2,97,90,913** against the ₹3,00,33,306 stated.
+
+## What the revision does NOT do
+
+- **No rate is invented.** The generator is carried at **zero with DATA REQUIRED**
+  against it, so the gap is visible in the bill rather than silent. **The revised total
+  is therefore a LOWER BOUND until that line is priced.**
+- **No labour figure is invented** for a line the project has no labour data for.
+- **The burster-slab reinforcement is not silently changed.** T12 @ 150 both ways is
+  11.84 kg/m² *whatever the slab thickness*, so the R-1 thickness ruling does not touch
+  it. The owner's tonnage over their own plan area implies about 15 kg/m²; that is a
+  separate question and is flagged **[REVIEW]**, not overwritten.
+- **The owner's plan area for the cover is left alone.** RC1 ruled on thickness and
+  grade, not on area.
+- **`USER_SOURCE/` is untouched**, and the as-supplied publication is untouched.
+
+Regenerate with `Scripts/wm3_revised_owner_package.py`. It reads `USER_SOURCE/` and
+derives every figure — nothing is retyped.

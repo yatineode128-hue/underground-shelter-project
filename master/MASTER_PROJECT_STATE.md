@@ -9,6 +9,7 @@
 **Discipline packages:** Structural CAD **SC1** · Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** · Works Management **WM1** (7 Sep 2026, Part H.10) + **WM2** (10 Sep 2026, Part H.13 — the owner's own BOQ, cost estimate and master construction schedule R0).
 **Drawing QA/QC:** **QA1** (9 Sep 2026, Part H.11) — all 65 DXF sanitised in place.
 **Latest design changes:** **BS1** (burster slab laid to a 1:50 crossfall) and **SP-B2** (sentry post lintel L1 + wall ties) — 10 Sep 2026, Part H.12.
+**Owner's package revised:** **WM3** (10 Sep 2026, Part H.15) — the RC1 rulings applied to the owner's own BOQ, estimate and schedule, published alongside the originals.
 **Inconsistency register:** **RC1** (10 Sep 2026, Part H.14) — **every conflict that could be decided on the evidence has been ruled**; six items that need information the project does not contain remain open in K.1b.
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, sentry post drawing S-07 equivalent.
 
@@ -2795,6 +2796,58 @@ brickwork, **R-13** a concrete total 10.00 m³ below its own lines, **R-14** a f
 
 **The Works Management consistency audit runs 66 checks, 66 pass** — up from 65, because
 RC1 added a check that would fail if a ruled item were left reading open.
+
+## H.15 The owner's Works Management package, revised — revision WM3 — 10 September 2026
+
+**Requested: store the latest revised Works Management alongside the files uploaded in
+this session.** RC1 (H.14) ruled on the owner's package but recorded the rulings rather
+than applying them, because WM2's whole position was that the owner's figures are
+published exactly as supplied. WM3 closes that loop: it produces a **revised** version of
+their BOQ, cost estimate and construction schedule with the rulings applied, and leaves
+both earlier versions standing.
+
+### Three versions, side by side, on purpose
+
+| | Where | What |
+|---|---|---|
+| As uploaded | `WORKS MANAGEMENT/USER_SOURCE/` | The owner's four files, **byte-for-byte untouched** |
+| As supplied, published | `Cost/USER_BOQ_*` · `Programme/…_R0.*` | The same figures rendered as CSV / Markdown |
+| **REVISED** | `Cost/REVISED_*` · `Programme/…_R1.csv` | **WM3.** Issued as `.xlsx` as well, so it opens in the tool the original came from |
+
+Every difference between the second and third is listed, before and after, in
+`Cost/REVISED_BOQ_AND_COST_ESTIMATE_RC1.md`.
+
+### What was applied
+
+| Ruling | Effect |
+|---|---|
+| **R-1** | Burster slab **300 mm M35 → 200 mm M30**, 57.60 → **38.40 m³**; Part III's burster line ₹5,10,210 → **₹3,40,140** |
+| **R-6** | *"Sentry Post RCC Frame & Infill"* → **RC frame only**, brick measured as brickwork |
+| **R-7** | **Escape shaft collars ADDED** — 6.285 m³, 250 RC, OD 1900 |
+| **R-8** | **15 kVA generator ADDED as a visible line** |
+| **R-13** | Concrete total = the sum of its own lines, **467.59 m³** |
+| **R-14** | Final cost = the sum of its own cost heads — the **₹1,00,000** gap is closed |
+| **R-2 / R-3 / R-4 / R-5** | **13 programme activities reworded** — 4 m cover → 2.0 m, 1000 mm slab → 900 mm, the **lift that does not exist**, and the pre-M1 box size in the title |
+
+**Revised final project cost ₹2,97,90,913**, against ₹3,00,33,306 as stated.
+
+### What was NOT done — and why the total is a lower bound
+
+**No rate was invented.** The generator is carried at **zero with DATA REQUIRED** against
+it, so the omission is visible in the bill instead of silent — which means **the revised
+total is a LOWER BOUND until that line is priced.** No labour figure was invented for a
+new line either.
+
+**The burster-slab reinforcement was not silently changed.** T12 @ 150 both ways is
+**11.84 kg/m² whatever the slab thickness**, so the R-1 thickness ruling does not touch
+it. The owner's tonnage over their own plan area implies ≈ 15 kg/m²; that is a separate
+question, flagged `[REVIEW]` in the revised bill and **not overwritten**.
+
+**The owner's plan area for the cover was left alone** — RC1 ruled on thickness and grade,
+not on area. **`USER_SOURCE/` and the as-supplied publication are untouched.**
+
+`Scripts/wm3_revised_owner_package.py` reads `USER_SOURCE/` and derives every figure;
+nothing is retyped, and re-running it reproduces the revision exactly.
 
 ---
 
