@@ -5,6 +5,7 @@ and the master disagree, the master is right and this file is stale.
 Compiled 3 Sep 2026 from the master (Parts A, B, F, L) plus the M1 reconciliation (Part H.4).
 Updated 5 Sep 2026 for the DR1 / HV1 / FN1 packages (Part H.9).
 Updated 7 Sep 2026 for the Works Management package WM1 (Part H.10).
+Updated 9 Sep 2026 for the drawing QA/QC pass QA1 (Part H.11).
 
 ---
 
@@ -17,6 +18,7 @@ Updated 7 Sep 2026 for the Works Management package WM1 (Part H.10).
 | Architectural | **Rev F** · Design report **Rev D** · Structural **Phase 2 Rev A + M1** |
 | Services packages | Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** (5 Sep 2026, master H.9) |
 | Works Management | **WM1** (7 Sep 2026, master H.10) — whole project, mobilisation to handover |
+| **Drawings** | **QA1** (9 Sep 2026, master H.11) — drafting QA/QC over **all 65 DXF**. Annotation, sheet frames, title blocks. **No engineering design changed** |
 | **SP-B1** | **SENTRY POST WALLS = BRICK MASONRY** — instructed design change, 7 Sep 2026. The only design change in WM1 |
 | **M1** | **APPROVED and IMPLEMENTED 3 Sep 2026** (master H.4) |
 | Deliverable | P2 (AutoCAD + STAAD + manual calculations) |
@@ -191,6 +193,7 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 | **C20** | **S-06 carries the Rev E stairwell catchment** (0.10 L/s open cut). At Rev F the approach is covered and the catchment with the door shut is zero. Conservative. Raised by DR1 — needs a ruling. |
 | **C21** | **Filter duty 250 vs 300 m³/h.** Master A.3 says "2 × 250"; S-06 states 300 in nine places, and **250 fails S-06's own 264 m³/h FEMA criterion**. HV1 uses 300. Raised by HV1 — **needs a ruling**. |
 | **WM-V1…12** | **Twelve verification items raised by WM1, all OPEN.** Four from SP-B1 (WM-V5 lintel design, WM-V6 seismic weight, WM-V7 ballistic function, WM-V11 wall ties); eight on measurement. See `WORKS MANAGEMENT/Documentation/WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md`. |
+| **QA-1 · QA-2** | **Raised by QA1, 9 Sep 2026.** A-301 could never have been plotted at 1:50 on A1 (44 m long = 880 mm; A1 gives 821 mm) — scale kept, **sheet corrected to A0**, ruling invited. QA-2: several sheets still do not fill their paper for reasons inherent to their content. |
 | **13 gaps** | **Information the project does not contain**, each dated against the WM1 programme. Largest: **no electrical design package exists** — scope confirmed, design absent, every electrical quantity 'to be verified from final measurement'. Also: no site plan, no sentry lintel or tie detail, blast door and blast valve vendor data, service-entry plate size, duct penetration schedule, EMP enclosure and vision panel specs, sentry GF slab, finish products, W5 door D-05. |
 
 ---
@@ -209,6 +212,10 @@ than duplicated as a constant — see `Revit/docs/00_README_WORKFLOW.md` and
 (does not block the rest of the structural model).
 
 **`current/cad/` — 11 DXF:** ten Rev F input drawings (directly editable) + `06_Underground_Plan_Services_Sump_BlastValves.dxf` = **sheet S-06**, the only output sheet present.
+**At QA1 all eleven were de-clashed and the ten Rev F drawings were given an A1 (A-301: A0)
+border, title block and NOTES box — filenames unchanged, geometry unchanged.** Drawing
+numbers A-101…A-105, A-201…A-204, A-301 live in the title blocks; `current/cad/Scripts/`
+holds the pipeline that produced this state.
 **`current/staad/` — 3 STD:** underground plate model, sentry frame, entry stairwell frame.
 
 **`Structural CAD/` — reinforcement package, revision SC1 (4 Sep 2026, master H.8):**
@@ -242,6 +249,13 @@ passing**. `Scripts/wm_build_all.py` regenerates everything from two source file
 (verified against MPXJ 16.7.0); MSPDI is Microsoft's own schema and *Save As → .mpp* is one
 step. **No design file was modified** — only this file and master H.3 / H.10 / I.2 / K.1
 plus preserving notes at A.4.8 and A.7.7.
+
+**`DRAWING QAQC/` — drawing QA/QC, revision QA1 (9 Sep 2026, master H.11):** the drawing
+index for all **65 DXF** (60 A1 · 1 A0 · 4 A4), the QA/QC report, and five inspection
+scripts. Package state after the pass: **0 text-on-text overlaps on the 54 generated
+sheets, 12 residual items in `current/cad`, 0 entities outside a sheet border, 65 of 65
+drawings carrying a title block.** Raised **QA-1** (A-301 cannot plot at 1:50 on A1 —
+sheet corrected to A0, ruling invited) and **QA-2** (sheets that do not fill their paper).
 
 **`master/`** — `MASTER_PROJECT_STATE.md` (authority), `MASTER_PROJECT_STATE.pdf`, this file.
 

@@ -2163,9 +2163,103 @@ altered.**
 
 ---
 
+## H.11 Drawing QA/QC pass — revision QA1 — 9 September 2026
+
+**Scope.** A drafting, annotation, sheet-composition and title-block QA/QC pass over
+**every DXF in the project — all 65 files**. Instructed by the user, whose brief was
+explicit and repeated: each **existing** DXF is to be inspected, corrected and **saved
+back at its own filename and location**; no parallel "clean" package, no duplicate
+final versions. **QA1 changed no engineering design.** No dimension, level, bar mark,
+bar size, spacing, load, material grade, thickness or room size was altered anywhere.
+Parts A, B, F and L are untouched.
+
+**Where the work was done.** The 54 generated sheets (R-001…R-805, D-001…D-305,
+M-001…M-203, A-601/611/612 and the four A4 handouts) were fixed **in their generators**
+and regenerated to the same filenames, so the generators and the DXF stay in agreement.
+The eleven `current/cad` drawings have no generator in the workspace and were corrected
+by a recorded, re-runnable pipeline, `current/cad/Scripts/qa1_build_sheets.py`.
+
+**Measured result** (`DRAWING QAQC/Scripts/`, run over all 65 files):
+
+| | before | after |
+|---|---:|---:|
+| Text-on-text overlaps, all 65 drawings | 67 | **2** |
+| — the 54 generated sheets | 49 | **0** |
+| — the 11 `current/cad` drawings | 18 | **2** |
+| Annotation crossing hard line work — `current/cad` | 50 | **10** |
+| Drawing geometry inside a notes panel — generated sheets | 46 | **35**, all legend panels and one section outline, which are meant to contain line work |
+| A view drawn on top of its own notes panel | 3 sheets | **0** |
+| Entities outside the sheet border | 0 | **0** |
+| Drawings carrying a border and title block | 54 of 65 | **65 of 65** |
+| Panel / table body text below print size on A1 | most of the package | **0** |
+
+**Principal defects found and corrected.**
+
+1. **`sc_dxflib.panel()` and `table()` sized their boxes by eye.** Both now measure
+   their own content with the font metrics ezdxf uses to place it; a note line cannot
+   cross its border and a cell cannot cross a column rule. Body text is lifted to a
+   legible 2.0 mm wherever the box has room (it was all at the 1.4 mm library minimum).
+2. **Blocks pinned under variable-height blocks.** A bar-mark key is as deep as the
+   marks a sheet nominates; the schedule extract beneath it was pinned at a fixed *y*.
+   On R-101 the key ran 25 mm through the schedule. Nine such pairs are now chained.
+3. **Three views were drawn on top of their own notes panels**, found by plotting, not
+   by any numeric check — **R-601** (stair plan over the MATERIALS panel and off the
+   right border), **R-701** (headhouse roof plan through the roof design-basis panel),
+   **M-201** (section B-B through the notes panel). All three view origins corrected.
+4. **Pipe tags rotated along vertical runs** swept a tall box through every label beside
+   the pipe (D-201 worst). Vertical runs now read horizontally, beside the run.
+5. **HV-H2's operating-modes table hard-sliced every cell** — "NO FILTER BYPASS IS SHO",
+   "bay 8 not pressuri" — losing information on a sheet meant to be read in an
+   emergency. Full text restored, the table fits its own columns.
+6. **The ten Rev F drawings were drawings, not sheets.** They now carry an A1 border,
+   inner border, 180 × 100 title block, ruled NOTES box and revision strip, drawn in
+   model units at each drawing's own stated scale, in LINE and TEXT only so the R12
+   (AC1009) format is preserved. 93 labels were moved off the line work and 28 leaders
+   added. **Where a drawing block was re-centred on its new sheet it moved as a PURE
+   VERTICAL TRANSLATION** — verified entity by entity, so every dimension, level and
+   geometric relationship is preserved.
+
+**Drawing numbers.** The ten Rev F drawings were given numbers **A-101…A-105** (plans),
+**A-201…A-204** (sections) and **A-301** (elevation). **Their filenames are deliberately
+unchanged** — Part E.2, Part I.1 and every document in this project cite them, and the
+brief requires each existing DXF to keep its own name. The number lives in the title
+block; `DRAWING QAQC/DRAWING_INDEX.md` carries both.
+
+**A-301 FRONT ELEVATION — a genuine drafting error found and corrected.** The drawing is
+44 m long, which is **880 mm at 1:50**; the A1 drawing area is 821 mm wide. Its own note
+read "SCALE 1:50 AT A1", which could never have been plotted. The scale governs
+measurement and was kept; the **sheet size was corrected to A0** and the note now reads
+"SCALE 1:50 AT A0". **This is the only text content changed anywhere in the package.**
+A ruling is invited — see K.1 item **QA-1**.
+
+**DECLARED DEVIATION FROM RULE M.12.** M.12 forbids editing a generated DXF directly.
+**S-06 is a generated output sheet and its generator is not in the workspace**, so the
+brief's instruction could be met only by editing it directly; 15 labels were moved on it
+and nothing else was touched. Recorded here rather than hidden, and revertible from git.
+**S-01…S-05, S-07 and S-08 remain absent and were not fabricated.**
+
+**The frozen main staircase is unchanged** — 24R @ 170.8333, tread 280, three flights of
+8, total rise 4100, flights 1200 wide, 200 well, 2533 headroom. Verified against the
+pre-edit files.
+
+**Open items C16…C21, U1–U3, U8 and WM-V1…12 were not resolved, closed, downgraded or
+removed.** The panels that carry them are unchanged in content.
+
+**New files.** `DRAWING QAQC/` (drawing index, QA/QC report, five inspection scripts)
+and `current/cad/Scripts/` (the five-module pipeline that produced the current
+`current/cad` state). No design file, calculation, schedule or STAAD model was modified.
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
+
+> **QA1, 9 Sep 2026 (H.11).** The ten Rev F DXF below were given a sheet frame, title
+> block and NOTES box and had their annotation de-clashed, **in place, at the same
+> filenames**. Their geometry is unchanged; where a drawing was re-centred on its new
+> sheet it moved as a pure vertical translation. Drawing numbers **A-101…A-301** now
+> appear in their title blocks — see `DRAWING QAQC/DRAWING_INDEX.md`.
 
 | File | Type | Rev | Purpose | Status |
 |---|---|---|---|---|
@@ -2184,6 +2278,14 @@ altered.**
 | 19 STAAD screen captures | PNG | — | **The only evidence of the STAAD models** | CURRENT |
 
 ## I.2 CURRENT FILES — output (generated in this project)
+
+> **Added by QA1, 9 Sep 2026 (H.11):** `DRAWING QAQC/DRAWING_INDEX.md` (the drawing
+> index for all 65 DXF, generated from the files themselves), `DRAWING QAQC/QAQC_REPORT.md`,
+> `DRAWING QAQC/Scripts/` (five inspection scripts: bounding-box, clash, panel, void and
+> plot) and `current/cad/Scripts/` (the five-module pipeline that produced the current
+> state of the eleven `current/cad` drawings). **No output DXF listed below was created
+> or renamed by QA1** — the 54 generated sheets were regenerated to their own filenames
+> after their generators were corrected.
 
 | File | Type | Purpose |
 |---|---|---|
@@ -2324,6 +2426,8 @@ altered.**
 | **U6** | Node 213, sentry post | Row visible, values cut off | Upload the `.std` file |
 | **U7** | Beam 16 (211→212), sentry post | Not visible; required for a closed frame | Upload the `.std` file |
 | **U8** | Roof projection + parapet 4.162 kN/m | Given on the framing plan, not independently derived | Recompute from the parapet detail |
+| **QA-1** | **A-301 FRONT ELEVATION cannot be plotted at 1:50 on A1** — raised by QA1, 9 Sep 2026 | The drawing is 44 m long = **880 mm at 1:50**; the A1 drawing area is **821 mm**. Its own note read "SCALE 1:50 AT A1" | **User ruling.** QA1 kept the scale (it governs measurement) and corrected the **sheet size to A0**; the note now reads "SCALE 1:50 AT A0". The alternatives are A1 at about 1:75, or showing the sentry post on a separate sheet |
+| **QA-2** | **Sheets that do not fill their paper** — raised by QA1, 9 Sep 2026 | After the pass the worst are R-202 39 %, R-302 37 %, D-002 37 %, R-003 37 %. R-002 (was 45 %) and R-004 (was 31 %) were fixed | **User ruling.** Emptiness caused by layout was fixed. What remains is inherent: R-002's text-standards block must show text at its true plotted heights, so that sheet cannot be scaled up, and a 1:50 section of a 22 m structure does not fill an A1. **No drawing scale was changed to fill paper.** Combining or re-scaling these sheets is a presentation decision |
 | **U9** | **Engineered cover build-up (C17)** — raised by SC1, 4 Sep 2026 | A.7.3 states a total of **40.65 kPa**; the same table's column sums to **39.15 kPa** | **User ruling.** 40.65 is held (the value in A.7.4, Part L and every `.std`, and the larger). **No reinforcement effect.** One of the two numbers in A.7.3 must be corrected |
 | **U10** | **Sump-pit base thickness (C18)** — raised by SC1, 4 Sep 2026 | F.1 "300/400" and the A.4.3 levels give **400**; the text on sheet S-06 says **300** | **User ruling.** 400 is held |
 | **U11** | **Soak pit capacity (C19)** — raised by DR1, 5 Sep 2026 | S-06 prints "22.0 m² OK" against its own "22.5 m² required"; π × 2.0 × 3.5 = **21.99 m²** | **User ruling.** Not resized — the percolation test (A7) may move the requirement much further |

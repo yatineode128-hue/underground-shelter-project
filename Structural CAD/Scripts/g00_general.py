@@ -430,6 +430,10 @@ def r004():
     sh.sheet_header()
     marks = R.MARKS
     half = (len(marks) + 1) // 2
+    # QA1: row height 4.9 left the bottom 220 mm of this sheet empty.  The
+    # schedule now uses the height it has; the text size is unchanged (the
+    # table fits its own text) and every summary below follows from RH.
+    RH = 7.6
     colw = [16, 11, 10, 13, 13, 16, 17, 18, 88]
     hdr = ["MARK", "DIA", "SHP", "SPAC", "No.", "CUT", "TOT m", "kg", "ELEMENT / LOCATION"]
     for col, chunk in enumerate((marks[:half], marks[half:])):
@@ -440,10 +444,10 @@ def r004():
             rows.append([m["mark"], f"T{m['phi']}", m["shape"], m["spacing"] or "-",
                          m["count"], round(m["cut"]), round(m["total_len"], 1),
                          f"{m['kg']:.0f}", loc[:64]])
-        sh.table(x, 544, colw, rows, hdr, TXT["small"], 4.9)
+        sh.table(x, 544, colw, rows, hdr, TXT["small"], RH)
 
     tot = sum(m["kg"] for m in R.MARKS)
-    y = 544 - 4.9 * (half + 1) - 8
+    y = 544 - RH * (half + 1) - 8
     sh.text(f"TOTAL BAR REINFORCEMENT   {tot:,.0f} kg  =  {tot/1000:.2f} TONNES     "
             f"(FABRIC W18 SCHEDULED SEPARATELY BY AREA)", (16, y),
             TXT["panel_head"], "S-BLAST")
@@ -451,12 +455,12 @@ def r004():
             for phi, (n, L, kg) in sorted(R.totals_by_dia().items())]
     sh.text("SUMMARY BY DIAMETER", (16, y - 10), TXT["panel_head"], "S-TITLE")
     sh.table(16, y - 14, [22, 26, 32, 30, 24], rows,
-             ["BAR", "No.", "LENGTH m", "WEIGHT kg", "%"], TXT["small"], 4.4)
+             ["BAR", "No.", "LENGTH m", "WEIGHT kg", "%"], TXT["small"], 6.2)
     rows = [[g, f"{kg:,.0f}", f"{kg/1000:.3f}", f"{100*kg/tot:.1f} %"]
             for g, kg in R.totals_by_group().items()]
     sh.text("SUMMARY BY ELEMENT GROUP", (180, y - 10), TXT["panel_head"], "S-TITLE")
     sh.table(180, y - 14, [92, 30, 26, 22], rows,
-             ["ELEMENT GROUP", "kg", "t", "%"], TXT["small"], 4.4)
+             ["ELEMENT GROUP", "kg", "t", "%"], TXT["small"], 6.2)
     sh.panel(360, y - 4, 280, "SCHEDULE NOTES", [
         "PBR-1  cut length = SUM of the scheduled legs, NO bend deduction; links add",
         "       2 x 10 phi for 135 deg hooks.  See R-003.",
