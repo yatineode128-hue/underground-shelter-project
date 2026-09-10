@@ -2853,6 +2853,10 @@ nothing is retyped, and re-running it reproduces the revision exactly.
 
 ## H.16 Camouflage and concealment policy — revision CAM1 — 10 September 2026
 
+> **The file path named below is HISTORICAL.** CAM1's text is preserved here as
+> issued (M.11); the policy itself moved to `Site and Concealment/` on the same
+> day as **CAM2** and gained drawing **C-101** — see **H.18**.
+
 **Requested. It did not exist.** Concealment was in the project's scope, in its
 programme and in its bill — and there was not one line anywhere saying what it was.
 Bill item **`B-camo`**, *"Camouflage and concealment measures beyond the 300 topsoil /
@@ -2923,6 +2927,10 @@ checks that it exists — **66 checks, 66 pass.**
 
 ## H.17 Fire safety and evacuation plan — revision FS1 — 10 September 2026
 
+> **The file path named below is HISTORICAL.** FS1's text is preserved here as
+> issued (M.11); the plan itself moved to `Fire and Life Safety/` on the same day
+> as **FS2** and gained drawings **F-101** and **F-102** — see **H.18**.
+
 **Requested. It did not exist.** The project registered **NBC 2016 Part 4** for stair
 geometry and 1 100 guarding, and **IS 13416** for construction-site hazards, and the
 finishes package recorded **FN-D2, "no fire strategy for finishes exists"** — but there
@@ -2980,6 +2988,106 @@ and using it trades endurance for fire response.
 
 Generated with the package (`wm_docs.py`); the consistency audit checks it exists —
 **66 checks, 66 pass.**
+
+> **SUPERSEDED IN PLACE BY H.18, 10 September 2026.** The text of FS1 and CAM1 above is
+> preserved exactly as issued (rule M.11). What changed is **where the two documents
+> live** and that **each now has drawings**. The paths named in H.16 and H.17 are
+> historical; see H.18 for the current ones.
+
+---
+
+## H.18 Camouflage policy and fire plan moved to their own packages, and drawn — revisions CAM2 / FS2 — 10 September 2026
+
+**The owner's instruction:** *"Why are you storing it inside works management folder …
+store it relevant folders wherever files makes sense … if compliment it with dxf file if
+necessary and store where it makes logical sense."*
+
+**The instruction was right and the criticism was fair.** CAM1 and FS1 were written into
+`WORKS MANAGEMENT/Documentation/` because that is where the generator that produced them
+happened to live — **not because either one is a works-management document.** A
+camouflage policy is a site and security matter for the operator. A fire safety and
+evacuation plan is a life-safety design and operating document for the finished shelter.
+Neither describes how the works are managed.
+
+### What moved
+
+| Was | Is now | Revision |
+|---|---|---|
+| `WORKS MANAGEMENT/Documentation/WM_CAMOUFLAGE_AND_CONCEALMENT_POLICY.md` | **`Site and Concealment/Documentation/CAMOUFLAGE_AND_CONCEALMENT_POLICY.md`** | **CAM2** |
+| `WORKS MANAGEMENT/Documentation/WM_FIRE_SAFETY_AND_EVACUATION_PLAN.md` | **`Fire and Life Safety/Documentation/FIRE_SAFETY_AND_EVACUATION_PLAN.md`** | **FS2** |
+
+Both are new **top-level discipline packages**, built to the same shape as `Drainage/`,
+`HVAC/` and `Schedule of Finishes/` — `Documentation/`, `DXF/`, `Schedules/`, `Scripts/`,
+`QAQC/`. **The generators moved, not just the files** (rule M.12): the two function
+bodies were lifted out of `wm_docs.py` **verbatim** into `cm_docs.py` and `fs_docs.py`,
+and the moved text was diffed against the originals line for line — **138 lines of policy
+and 226 lines of plan, byte-identical.**
+
+### The drawings the move added — three new A1 sheets
+
+| Sheet | Title | What it shows |
+|---|---|---|
+| **F-101** | Underground level escape plan | Level (−)6.100. The three routes **R1 / R2 / R3**, the longest travel **14.6 m** to R1, the decision rule, and **Blast Doors 1 and 2 drawn as what they are — the only two real fire barriers in the shelter** |
+| **F-102** | Entry level escape plan and vertical profile | The surface end of R1, both shaft heads, and **V2, the vertical escape profile** — the climb each route actually is |
+| **C-101** | Above-ground signature elevation | A true elevation, equal scales both ways, of **every element that stands above finished grade at its confirmed height** — the camouflage policy's central finding made visible in one look |
+
+**Both new packages validate with `Drainage/Scripts/mep_validate.py`** — the same
+validator, the same 11 checks, as the issued D, M and A-6xx series. **3 files, 0 errors,
+0 warnings.** Text-collision QA (`DRAWING QAQC/Scripts/modelqa.py`): **0 text-on-text and
+0 annotation-on-line-work on C-101 and F-102; 1 on F-101, which is the shared
+background's own "STAIR SHAFT — FROZEN GEOMETRY" label and appears identically on the
+issued D-201.** All three were plotted and inspected visually (brief §17).
+
+### The two findings the drawings raised, which the written documents had not
+
+**Drawing something forces you to state it.** Both are recorded in their own documents so
+the drawings and the text cannot disagree, and **both are `[N]` — nothing is invented to
+close either one.**
+
+| New item | What it is |
+|---|---|
+| **FS-6 / FS-V7** | **No ladder, rung or fall-arrest is specified in either escape shaft, anywhere in the project.** ESC 1 emerges at (+0.150) and ESC 2 at (+0.700) against a floor at (−)6.100 — a **6.250 m** climb out of Bay 1 and a **6.800 m** climb out of Bay 8 `[D]`. FS1 held all three levels and never put them in one picture; F-102's profile did |
+| **CAM-V5** | **The generator air shaft SH-2 has no recorded head level anywhere in the project.** Its 600 × 600 size and its BV-4 / BV-5 duty are confirmed; how far it stands above grade is not. Drawing it to scale meant having to say, and the project cannot |
+
+### What the drawings deliberately do NOT do
+
+- **No door is invented in W5.** R1 has to cross it and **no door exists in W5 anywhere in
+  the project** (FS-1 / FN-U1 / D-05). F-101 draws the crossing on its own `F-GAP` layer
+  and states on its face that it is **indicative only and is not a design**.
+- **No concealment layout is drawn, and none can be.** There is no site plan — **D3** —
+  so C-101 shows the sentry post **beyond a break**, at its confirmed height and size and
+  at **no fixed distance**, and flags both air shafts the same way.
+- **No detector, alarm, extinguisher, emergency light, muster point, net, screen, paint
+  scheme or thermal treatment appears on any of the three sheets**, because the project
+  contains none of them. `B-camo` is still `[N]`, "no concealment".
+
+### Two shared modules changed, both output-neutral
+
+- **`Drainage/Scripts/mep_dxf.py`** — the sheet's issue date and its two sentry-post scope
+  notes became class attributes (`DATE`, `SCOPE_NOTE`, `TB_SCOPE`) whose defaults are the
+  previous literals exactly. C-101 needs them because **the sentry post is IN scope on
+  that sheet** — it is the tallest signature on the site — and a sheet that says
+  "SENTRY POST EXCLUDED" while drawing it would be a lie. **Verified output-neutral:**
+  D-101 regenerated to 26 869 lines against 26 869, with every differing line inside
+  `$TDCREATE` / `$TDUPDATE` / `$FINGERPRINTGUID` / `$VERSIONGUID` / `CLASS` ordering /
+  the ezdxf `DictionaryVariables` stamp. **No geometry, text or layer changed, and no
+  issued sheet was regenerated into the repository.**
+- **`Drainage/Scripts/mep_validate.py`** — check 11 was "the scope-exclusion note is
+  present"; it is now "**the sheet declares its sentry post scope**", accepting either
+  EXCLUDED or INCLUDED. Silence is still the error. All 22 previously issued sheets still
+  pass unchanged.
+
+### The Works Management package
+
+`doc_camouflage()` and `doc_fire()` are **removed** from `wm_docs.py`, with a note in
+their place saying where they went. Both files are **deleted** from
+`WORKS MANAGEMENT/Documentation/`. `wm_audit.py` gained **§15, eight checks** that fail if
+either document reappears in the Works Management package, if either is missing from its
+new home, or if the generator can still write them: **74 checks, 74 pass** (was 66).
+
+**Nothing else in the Works Management package moved.** No quantity, rate, duration, date,
+float or resource changed, `USER_SOURCE/` is untouched, and WM1, WM2 and WM3 stand exactly
+as issued.
 
 ---
 
@@ -3079,9 +3187,29 @@ Generated with the package (`wm_docs.py`); the consistency audit checks it exist
 > with MPXJ 16.7.0 and comparing every count and date against the CPM. See H.10.
 
 > **Shared modules** — `mep_proj.py`, `mep_dxf.py`, `mep_views.py`, `mep_validate.py`,
-> `mep_render.py` — live in `Drainage/Scripts/` and are used by all three packages. `mep_dxf.py`
+> `mep_render.py` — live in `Drainage/Scripts/` and are used by all five packages. `mep_dxf.py`
 > **subclasses `Structural CAD/Scripts/sc_dxflib.py`**, so the A1 sheet standard is identical to the
-> issued R-series. **24 DXF, all validated, 0 errors.**
+> issued R-series. **27 DXF, all validated, 0 errors.**
+
+### Added by CAM2 / FS2, 10 September 2026 — see H.18
+
+> **Two documents that were in `WORKS MANAGEMENT/Documentation/` are no longer there.**
+> Neither was ever a works-management deliverable. Each is now its own discipline package,
+> built to the same shape as `Drainage/` and `HVAC/`, with the drawings the move added.
+> **The text moved verbatim and the generators moved with it** (M.12).
+
+| Folder | Contents |
+|---|---|
+| `Fire and Life Safety/` | **2 A1 DXF** F-101, F-102 · `Documentation/FIRE_SAFETY_AND_EVACUATION_PLAN.md` — **FS2**, the FS1 text plus **FS-6 / FS-V7**, which the drawings raised · `Schedules/FS_ESCAPE_ROUTE_SCHEDULE.md` / `.csv` · `QAQC/FS_DRAWING_VALIDATION.txt` · **5 Python generators**; `fs_build_all.py` rebuilds the package, and every travel and climb figure is computed from `mep_proj.py`, not typed |
+| `Site and Concealment/` | **1 A1 DXF** C-101 · `Documentation/CAMOUFLAGE_AND_CONCEALMENT_POLICY.md` — **CAM2**, the CAM1 text plus **CAM-V5**, which the drawing raised · `QAQC/CM_DRAWING_VALIDATION.txt` · **4 Python generators**; `cm_build_all.py` rebuilds the package |
+
+> **`mep_dxf.py` and `mep_validate.py` changed, and both changes are output-neutral.** The
+> sheet's issue date and its two sentry-post scope notes became overridable class
+> attributes, and validator check 11 now asks that a sheet **DECLARE** its sentry post
+> scope rather than that it **exclude** it — because on C-101 the sentry post is in scope,
+> being the tallest signature on the site. Verified by regenerating D-101 line for line:
+> **26 869 lines against 26 869**, every difference a timestamp, a GUID, CLASS ordering or
+> the ezdxf stamp. **No issued sheet was regenerated into the repository.**
 
 ## I.3 SUPERSEDED / ARCHIVED
 
@@ -3186,8 +3314,8 @@ Generated with the package (`wm_docs.py`); the consistency audit checks it exist
 ## K.1b STILL OPEN — these need information the project does not contain
 
 > **These are NOT inconsistencies.** Each is a single position the project holds, with
-> nothing contradicting it. What they need is a decision or a datum from outside this
-> workspace, and no amount of choosing between recorded values can supply it. They are
+> nothing contradicting it. What they need is a decision, a datum or a design from
+> outside this workspace, and no amount of choosing between recorded values can supply it. They are
 > listed separately so that a closed conflict is never confused with an open question.
 
 | # | Item | The project's position | What it actually needs |
@@ -3198,6 +3326,8 @@ Generated with the package (`wm_docs.py`); the consistency audit checks it exist
 | **WM-V6** | Sentry seismic weight after SP-B1 | **The direction is certain and favourable.** Brick at 20 kN/m³ over 0.190 × 2.600 gives **9.88 kN/m** against the **13.000 kN/m** modelled, so W falls, V<sub>b</sub> falls, and every member designed to 73.18 kN is over-designed. **Nothing is unsafe and nothing is inconsistent** | A STAAD re-run to put a number on the margin. **STAAD.Pro is not available in this environment**, so it is confirmation, not risk |
 | **WM-V7** | Ballistic function of the Rev F panels | **Brick masonry does not give ballistic protection, and every drawing now says brick.** There is no longer any inconsistency — the drawings, the master and the Works Management package all agree | **A client / military decision** on whether that protection is required at all. No drafting or design work in this project can supply it |
 | **WM-V9** | Excavation working space and face treatment | 1.000 m working space and vertical unbenched faces, used consistently for measurement | A slope-stability assessment of the soil zone above rockhead |
+| **FS-V7** | **How is either escape shaft climbed?** Raised by drawing F-102, 10 Sep 2026 (H.18) | **Nothing. The project holds no position at all.** ESC 1 emerges at (+0.150) and ESC 2 at (+0.700) against a floor at (−)6.100 — a **6.250 m** and a **6.800 m** climb `[D]` — and **no ladder, rung or fall-arrest is specified in either shaft anywhere** | **A design.** Not a ruling between recorded values: there are no recorded values. It also needs an answer on whether an injured person is expected to use a shaft at all, which is a client question |
+| **CAM-V5** | **Head level of the generator air shaft SH-2.** Raised by drawing C-101, 10 Sep 2026 (H.18) | Its **600 × 600** size and its **BV-4 / BV-5** duty are confirmed; **how far it stands above finished grade is recorded nowhere** | **A datum.** Until it exists SH-2 cannot be assessed as an above-ground signature, and C-101 draws it with its height flagged `[N]` rather than assumed |
 
 ### K.1c Works Management items — RULED by RC1
 

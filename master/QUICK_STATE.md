@@ -24,8 +24,8 @@ on the evidence has been ruled**; six items needing outside information stay ope
 | Works Management | **WM1** (7 Sep 2026, master H.10) — whole project, mobilisation to handover |
 | **Works Management** | **WM2** (10 Sep 2026, master H.13) — **THE OWNER'S OWN BOQ, COST ESTIMATE AND MASTER CONSTRUCTION SCHEDULE R0 NOW GOVERN.** ₹3,00,33,306 · 130 activities · 224 working days · 02-11-2026 to 26-07-2027. WM1 is preserved, not overwritten |
 | **Works Management — revised** | **WM3** (10 Sep 2026, master H.15) — the **RC1 rulings applied** to the owner's own BOQ, estimate and schedule and published alongside the originals as `.xlsx`/CSV/MD. Burster 300 M35 → **200 M30**; escape shaft collars and the 15 kVA generator **added**; 13 programme activities reworded. **Revised final cost ₹2,97,90,913** — a **LOWER BOUND**, the generator is deliberately unpriced (**no rate invented**). `USER_SOURCE/` untouched |
-| **Concealment** | **CAM1** (10 Sep 2026, master H.16) — **a short camouflage and concealment policy; there was none before.** The 300 turf is the concealment layer, re-laid from the site's own stockpile, and the cover is drained with **no pipe, so no manhole or gully breaks the roof**. Its finding: **the shelter is concealed, the installation is not** — sentry post **+7.000**, headhouse **+0.900 with no earth cover**. **No net, paint or screen is specified anywhere and none is invented**; `B-camo` has no rate. Four new open items **CAM-V1…V4** |
-| **Fire** | **FS1** (10 Sep 2026, master H.17) — **a fire safety and evacuation plan; there was none before.** Governing fact: **the shelter cannot be ventilated of smoke** — 332.8 m³ at 300 m³/h is **0.9 ACH**, and in Mode 3 CLOSED it is **zero**. Strengths now recorded: the generator is compartmented behind Blast Door 2 with its **own air path**, and **the two dead-end bays are exactly the two with escape shafts**. Findings **FS-1** W5 has **no door** · **FS-2** Bays 1–6 are **one smoke compartment** · **FS-3** **ESC 2 shares Bay 8 with the generator** · **FS-4** no rule for a fire in Mode 3 · **FS-5** all active measures wait on the **missing electrical design**. Six new items **FS-V1…V6** |
+| **Concealment** | **CAM2** (10 Sep 2026, master **H.18**) — the CAM1 policy **moved out of `WORKS MANAGEMENT/` into its own package `Site and Concealment/`** and **drawn as `C-101`, the above-ground signature elevation**. Text unchanged. Its finding: **the shelter is concealed, the installation is not** — sentry post **+7.000**, headhouse **+0.900 with no earth cover**, stairwell **+2.450**, gooseneck **+1.500**. The 300 turf is the concealment layer, re-laid from the site's own stockpile, and the cover is drained with **no pipe, so no manhole or gully breaks the roof**. **No net, paint or screen is specified anywhere and none is invented**; `B-camo` has no rate. **No concealment LAYOUT can be drawn — there is no site plan (D3)**, so C-101 shows the sentry post beyond a break at no fixed distance. Open items **CAM-V1…V4**, plus **CAM-V5** which the drawing raised: **SH-2 has no recorded head level anywhere** |
+| **Fire** | **FS2** (10 Sep 2026, master **H.18**) — the FS1 plan **moved out of `WORKS MANAGEMENT/` into its own package `Fire and Life Safety/`** and **drawn as `F-101` and `F-102`, the escape plans**. Governing fact: **the shelter cannot be ventilated of smoke** — 332.8 m³ at 300 m³/h is **0.9 ACH**, and in Mode 3 CLOSED it is **zero**. Three routes: **R1** main stair, longest travel **14.6 m**; **R2** ESC 1; **R3** ESC 2. Findings **FS-1** W5 has **no door** and R1 has to cross it · **FS-2** Bays 1–6 are **one smoke compartment** · **FS-3** **ESC 2 shares Bay 8 with the generator** · **FS-4** no rule for a fire in Mode 3 · **FS-5** all active measures wait on the **missing electrical design** · **FS-6**, which the drawings raised: **no ladder, rung or fall-arrest in either escape shaft**, and they are **6.250 m** and **6.800 m** climbs. **Blast Doors 1 and 2 are the only two real fire barriers.** Open items **FS-V1…V7** |
 | **Drawings** | **QA1** (9 Sep 2026, master H.11) — drafting QA/QC over **all 65 DXF**. Annotation, sheet frames, title blocks. **No engineering design changed** |
 | **SP-B1** | **SENTRY POST WALLS = BRICK MASONRY** — instructed design change, 7 Sep 2026. The only design change in WM1 |
 | **SP-B2** | **SENTRY POST LINTELS + WALL TIES** — completes SP-B1, 10 Sep 2026 (master H.12 / A.4.8). Closes WM-V5 and WM-V11 |
@@ -291,11 +291,30 @@ step. **No design file was modified** — only this file and master H.3 / H.10 /
 plus preserving notes at A.4.8 and A.7.7.
 
 **`DRAWING QAQC/` — drawing QA/QC, revision QA1 (9 Sep 2026, master H.11):** the drawing
-index for all **65 DXF** (60 A1 · 1 A0 · 4 A4), the QA/QC report, and five inspection
+index for all DXF in the project (**68** after CAM2 / FS2 — 63 A1 · 1 A0 · 4 A4), the QA/QC report, and five inspection
 scripts. Package state after the pass: **0 text-on-text overlaps on the 54 generated
 sheets, 12 residual items in `current/cad`, 0 entities outside a sheet border, 65 of 65
 drawings carrying a title block.** Raised **QA-1** (A-301 cannot plot at 1:50 on A1 —
 sheet corrected to A0, ruling invited) and **QA-2** (sheets that do not fill their paper).
+
+**`Fire and Life Safety/` — revision FS2 (10 Sep 2026, master H.18):** **2 A1 DXF**
+(**F-101** underground level escape plan, **F-102** entry level escape plan + vertical
+escape profile), the **fire safety and evacuation plan**, the escape route schedule
+(`.md` + `.csv`) and a DXF validation report (**0 errors**). Five Python generators;
+`Scripts/fs_build_all.py` rebuilds the package, and **every travel and climb figure is
+computed from `mep_proj.py`, not typed**, so the drawings, the schedule and the plan
+cannot disagree. **The plan was in `WORKS MANAGEMENT/Documentation/` until this
+revision** — it was never a works-management document. Text moved verbatim; the
+drawings added **FS-6 / FS-V7**.
+
+**`Site and Concealment/` — revision CAM2 (10 Sep 2026, master H.18):** **1 A1 DXF**
+(**C-101** above-ground signature elevation — a true elevation, equal scales both ways,
+of every element standing above finished grade at its confirmed height), the
+**camouflage and concealment policy**, and a DXF validation report (**0 errors**). Four
+Python generators; `Scripts/cm_build_all.py` rebuilds the package. **The policy was in
+`WORKS MANAGEMENT/Documentation/` until this revision.** Text moved verbatim; the
+drawing added **CAM-V5**. **No concealment layout is drawn and none can be — there is no
+site plan (D3).**
 
 **`master/`** — `MASTER_PROJECT_STATE.md` (authority), `MASTER_PROJECT_STATE.pdf`, this file.
 

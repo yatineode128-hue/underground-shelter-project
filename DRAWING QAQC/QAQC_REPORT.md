@@ -1,5 +1,9 @@
 # DRAWING QA/QC REPORT — revisions QA1 and QA1B
 
+> **§9, 10 September 2026, records the three sheets added after this pass** — F-101,
+> F-102 and C-101, at revisions FS2 / CAM2 (master H.18). Sections 1–8 count 65 drawings;
+> the package is now 68.
+
 > **QA1B addendum, 10 September 2026, is at §8** — the drawing outcome of design changes
 > **BS1** and **SP-B2** (master Part H.12). Sections 1–7 record QA1 as issued on 9 September
 > and are unchanged.
@@ -389,3 +393,44 @@ cross-references on other sheets, the drawing index, master Part E.2 and the "N 
 numbering, for no engineering gain. Every one of these sheets is **correct, complete and
 legible**; emptiness is not an error. **Combining them is a register-level decision and
 it belongs to the user — it remains a contained job if they ask for it.**
+
+---
+
+## 9  ADDENDUM — three sheets added at revisions FS2 / CAM2, 10 September 2026
+
+**Sections 1–8 above record 65 drawings and are unchanged.** The package is now **68**.
+The three new sheets did not exist when QA1 ran; they were drawn afterwards, to the same
+standard, as the drawing half of the relocation recorded in master Part **H.18**.
+
+| Sheet | Package | What it is |
+|---|---|---|
+| **F-101** | `Fire and Life Safety/DXF/` | Underground level escape plan — the three routes, the travel distances, and Blast Doors 1 and 2 drawn as the only two real fire barriers |
+| **F-102** | `Fire and Life Safety/DXF/` | Entry level escape plan, and **V2, the vertical escape profile** — the climb each route actually is |
+| **C-101** | `Site and Concealment/DXF/` | Above-ground signature elevation — a true elevation of every element standing above finished grade, at its confirmed height |
+
+### QA actually executed on them
+
+| Check | Tool | Result |
+|---|---|---|
+| DXF structure, layers, extents, title block, sheet-edge and scope declaration — 11 checks per file | `Drainage/Scripts/mep_validate.py` | **3 files, 0 errors, 0 warnings** |
+| Text-on-text overlap | `Scripts/modelqa.py` | **0 on all three** |
+| Annotation over line work | `Scripts/modelqa.py` | **0 on C-101 and F-102. 1 on F-101** — the shared background's own `STAIR SHAFT - FROZEN GEOMETRY` label, which appears identically on the issued D-201 and is not introduced by this work |
+| Geometry drawn over a note panel | `Scripts/panelclash.py` | **0 on all three** |
+| Index and final QA status | `Scripts/qa_report_data.py` | **68 drawings, 62 PASS** — the 6 REVIEW REQUIRED and the 12 residual items are the same ones §5 already lists. **The three new sheets added none.** |
+| **Plotted and inspected visually** | `Scripts/render.py` at 170–200 dpi | **Mandatory under §17 of the brief, and it earned its place.** The first drafts of all three had defects no automated check reported — a travel-distance caption sitting inside a note panel on F-101, V2's level labels running across V1 on F-102, and a grade note struck through the ESC 1 label on C-101. Each was found by looking at the plot and fixed before issue. |
+
+### Two shared modules changed, and why the change is safe
+
+`mep_dxf.py` — the sheet's issue date and its two sentry-post scope notes became
+overridable class attributes. `mep_validate.py` — check 11 now asks that a sheet
+**declare** its sentry post scope rather than that it **exclude** it, because on C-101 the
+sentry post is **in** scope: it is the tallest signature on the site, and a sheet that
+drew it while printing "SENTRY POST EXCLUDED" would be stating a falsehood in its own
+title block. Silence is still an error.
+
+**Neither change alters any issued drawing.** Verified by regenerating D-101 and diffing
+it line for line against the committed file: **26 869 lines against 26 869**, and every
+one of the ten differing blocks is inside `$TDCREATE`, `$TDUPDATE`, `$FINGERPRINTGUID`,
+`$VERSIONGUID`, `CLASS` ordering or the ezdxf `DictionaryVariables` stamp. **No geometry,
+no text, no layer changed, and no issued sheet was regenerated into the repository.**
+The other 24 sheets were re-validated in place and still pass.

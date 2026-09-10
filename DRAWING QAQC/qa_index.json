@@ -169,6 +169,32 @@
   "geom_in_panel": 0
  },
  {
+  "file": "Fire and Life Safety/DXF/F-101_Underground_Level_Escape_Plan.dxf",
+  "base": "F-101_Underground_Level_Escape_Plan.dxf",
+  "number": "F-101",
+  "discipline": "FIRE AND LIFE SAFETY",
+  "title": "UNDERGROUND LEVEL ESCAPE PLAN",
+  "scale": "1:33",
+  "size": "A1",
+  "texts": 160,
+  "overlap": 0,
+  "over_geom": 0,
+  "geom_in_panel": 0
+ },
+ {
+  "file": "Fire and Life Safety/DXF/F-102_Entry_Level_Escape_Plan.dxf",
+  "base": "F-102_Entry_Level_Escape_Plan.dxf",
+  "number": "F-102",
+  "discipline": "FIRE AND LIFE SAFETY",
+  "title": "ENTRY LEVEL ESCAPE PLAN AND VERTICAL PROFILE",
+  "scale": "1:38",
+  "size": "A1",
+  "texts": 155,
+  "overlap": 0,
+  "over_geom": 0,
+  "geom_in_panel": 0
+ },
+ {
   "file": "HVAC/DXF/M-001_HVAC_General_Notes_and_Design_Basis.dxf",
   "base": "M-001_HVAC_General_Notes_and_Design_Basis.dxf",
   "number": "M-001",
@@ -307,6 +333,19 @@
   "scale": "1:45",
   "size": "A1",
   "texts": 243,
+  "overlap": 0,
+  "over_geom": 0,
+  "geom_in_panel": 0
+ },
+ {
+  "file": "Site and Concealment/DXF/C-101_Above_Ground_Signature_Elevation.dxf",
+  "base": "C-101_Above_Ground_Signature_Elevation.dxf",
+  "number": "C-101",
+  "discipline": "SITE AND CONCEALMENT",
+  "title": "ABOVE-GROUND SIGNATURE ELEVATION",
+  "scale": "1:60",
+  "size": "A1",
+  "texts": 162,
   "overlap": 0,
   "over_geom": 0,
   "geom_in_panel": 0

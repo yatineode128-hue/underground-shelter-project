@@ -20,6 +20,8 @@ DISCIPLINE = [
     ("HVAC/DXF/",           "HVAC"),
     ("HVAC/Handout/",       "HVAC - handout"),
     ("Schedule of Finishes/DXF/", "ARCHITECTURAL - finishes"),
+    ("Fire and Life Safety/DXF/", "FIRE AND LIFE SAFETY"),
+    ("Site and Concealment/DXF/", "SITE AND CONCEALMENT"),
     ("current/cad/",        "ARCHITECTURAL / GENERAL - Rev F"),
 ]
 
