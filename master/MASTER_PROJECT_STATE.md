@@ -15,6 +15,7 @@
 **Inconsistency register:** **RC1** (10 Sep 2026, Part H.14) — **every conflict that could be decided on the evidence has been ruled**; six items that need information the project does not contain remain open in K.1b.
 **EMP:** **EM1** (10 Sep 2026, Part H.19) — the project's first EMP design. **Electrical:** **EL1** (11 Sep 2026, Part H.20) — the project's first electrical design, deliberately basic. **Rulings:** **RC2** (11 Sep 2026, Part H.21).
 **Site and ground:** **SG1** (11 Sep 2026, Part **H.22**) — **the project's first site selection and geotechnical section.** Two owner-supplied documents recorded, checked against each other and against this master. **It resolves nothing: not one `K.2` assumption is closed.** Its governing finding — **the sub-soil investigation reached about 1.5 m; the structure founds at (−)6.800** — and the first written **provenance of the design GWT (−)2.000**. Ten new open items `SG-V1…V10`.
+**Drainage on the architectural sheets:** **DR-A1** (11 Sep 2026, Part **H.24**) — `SU-01` drawn on `A-202`, `ST-01` and `SK-01` drawn on `A-301` beyond a break. **No design value changed.** It raises **`DR-A1-V1`**: the project holds **two different assumed sentry-post positions**, and the elevation's would stand inside `SG2`'s external works reserve.
 **Site layout:** **SG2** (11 Sep 2026, Part **H.23**) — **the project's first site layout plan.** On a coordinate and a 50 m envelope the owner supplied, master `H.9`'s *"not determinable"* external works positions, **four of five pipe lengths** and **two of three IS 2470 offsets** are **determined**. Site orientation fixed: **+X = EAST**. Principal finding **`SG2-F1` — the soak pit's problem is DEPTH, not arithmetic**: 21–43 % of its required area is above the design water table and its only permeable horizon is 0.2–0.5 m thick, so the fallback dispersion field is reserved rather than the pit re-sized. **`SG-V9` closed · `SG-V3` ruled · `SG-V5` amended · five new items `SG2-V1…V5` · master gap D3 PARTIALLY closed.**
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, sentry post drawing S-07 equivalent.
 
@@ -3862,6 +3863,107 @@ twenty-nine open items to thirty-two** — five new (`SG2-V1…V5`), two removed
 
 ---
 
+## H.24 Drainage items drawn on the Rev F architectural sheets — revision DR-A1 — 11 September 2026
+
+> **What was asked, and what it exposed.** The request was a drafting one: *show the soak pit
+> and septic tank on the front elevation and the sump pit on the side section.* The sump pit
+> was straightforward — **it sits in the cut plane of `A-202` and had simply never been drawn
+> there.** The two external items were not, and the reason is the finding below.
+
+### What changed
+
+| Sheet | File | Added |
+|---|---|---|
+| **A-202** | `current/cad/2_Side_Section_with_Stairs.dxf` | **`SU-01` clean sump pit, Bay 5**, cut in section |
+| **A-301** | `current/cad/5_Front_Elevation.dxf` | **`ST-01` septic tank + `SK-01` foul soak pit**, beyond a break |
+
+Both are Rev F **input** drawings and are directly editable (`CLAUDE.md`). A **`SERVICES`**
+layer (colour 2, per `E.3.2`) was added to each; the other fifteen layers are untouched.
+
+### A-202 — the sump pit
+
+Drawn from `A.4.3`, `F.1` and the drainage `SUMP_AND_PUMP_SCHEDULE`, at the same scale and
+datum as the rest of the section: pit clear **X 11068 – 12568**, **1500 × 1500 × 1500 =
+3.375 m³**, invert **(−)7.600**, base slab **(−)8.000**, walls **300** and base **400**
+(**`C18` as ruled by RC1** — S-06's "300" for the base is the superseded transcription).
+`PU-01` / `PU-02` submersibles and their rising main are shown; `PD-06` leaves through the
+service entry plate in the north wall, **behind the cut**, and is annotated as such.
+
+**Three existing entities were split, because the pit passes through them** — the mat
+(`X 0–22000` at (−)6.100/(−)6.700), the blinding ((−)6.700/(−)6.800) and the formation line
+at (−)6.800. Each now stops at the pit's outer wall face **X 10768 / 12868** and resumes
+beyond it. **No coordinate of any surviving segment moved.** The local dig face *is* the pit
+wall, already drawn solid, so no separate excavation line is drawn over it. **A-202 carries no
+new dimension chain** — a vertical chain below the floor would have to cross the mat, and the
+pit is dimensioned at 1:30 on **S-06 V3**, which the sheet now cross-refers to.
+
+### A-301 — the septic tank and the soak pit, and why they are behind a break
+
+`ST-01` (36 750, 16 000) and `SK-01` (44 000, 16 000) are at **true project X**, which is the
+same frame as the box at `X 0–22000` on this elevation. They are **not** drawn at that X, and
+the reason is `DR-A1-F1` below. They are drawn on a strip east of a break line, **displaced
+4 950 east of true X**; **sizes, spacing and levels are true**, and the true centre of each is
+printed under it.
+
+| Item | Drawn from | Class |
+|---|---|---|
+| `ST-01` 1.50 × 0.75 × 1.00 liquid = 1125 L, freeboard 300, 150 walls, baffle at 2/3 L, 50 cowled vent ≥ 2 m above grade | IS 2470 (Pt 1) Table 1, drainage `D.9`, detail `D-305/D1` | `[C]` |
+| `SK-01` 2 200 dia × 3 500 effective = 24.19 m², u/s cover slab **0.600** below local grade, 300 cover slab, 300 sand, brickbat fill | **RC1 ruling `C19`** + `SG2` `S.6`, detail `D-305/D2` | `[C]` / `[A]` |
+| Local finished grade at the reserve **≈ (−)0.700** | `SG2` — a fall of about **1 in 40** that is **itself disputed** (`SG-V4`) | `[R]` |
+| Both readings of the design water table, and **`SG2-F1`** — 21.5 % to 43.0 % of the required area is dry | `SG2` `S.6`, sheet `SG-202` | `[C]` / `[R]` |
+| `PD-16` DN100 at 1:100, 5.40 m, and the **5 400 clear** IS 2470 offset | `SG2` `S.5` — **demonstrated** | `[C]` |
+
+**`ST-01`'s vertical position is `[NOT AVAILABLE]` and stays that way.** No level for the
+tank is recorded anywhere in this project — the drainage schedule's own cover-level field is
+empty. It is drawn with its top at local finished grade **for arrangement only**, that is
+stated in note 4 on the sheet's face, and every level that follows from it, `PD-16`'s inverts
+included, is flagged diagrammatic. **Nothing was converted into a confirmed level.** Note 3
+carries the same warning for the strip as a whole: *do not scale a level off it.*
+
+`SG2-F3` is shown too — **no pipe enters `ST-01` anywhere in this project**, so only the
+outlet is drawn. Drawing an inlet would have invented a connection.
+
+### `DR-A1-F1` — the project holds two different assumed sentry-post positions
+
+**This sheet draws the sentry post at `X 31700 – 36300`. `SG2` assumes it at
+`X 9000 – 13000, Y 15250 – 20250`. They are not the same place, and they cannot both be
+right.**
+
+`U4` has been open since BIM-P1: *no sentry-post coordinate exists anywhere in the project* —
+`A.2`/`A.4.8` and all four Rev F sentry sheets say only **"≥ 10 m clear of the shelter
+excavation"**. `A-301` satisfies that rule by laying the post out **10 m east** along the
+elevation; `SG2` (following BIM-P1) satisfies it **10 m north**. Neither is a survey.
+
+**What is new is that the two now collide with something.** `SG2`'s external works reserve is
+`X 33000 – 51000`; the elevation's sentry post is `X 31700 – 36300`. **If the elevation's
+placement were the real one, the sentry post would stand inside the drainage reserve** — and
+`SG2`'s 28 of 28 clearance checks, which were run against the *northern* assumption, would
+have to be re-run. Drawing `ST-01` at true `X 36000 – 37500` on this sheet would have put it
+hard against the drawn sentry post's plinth, showing a clearance of about **0.25 m** where the
+project's own figure is **22.5 m**. That is why the break is there.
+
+**Nothing is ruled here.** `U4` stays open, both placements stay `[ASSUMED]`, and the sheet
+says on its face that its own sentry position is a convention and not a coordinate.
+
+### What DR-A1 did NOT do
+
+**No design value, load, thickness, bar, level, BOQ quantity, rate, date or float changed.**
+`SK-01` was **not** re-sized; `SU-01` was **not** re-sized or moved; `C18` and `C19` are
+applied as already ruled, not re-opened. No `.std` file was touched and **STAAD.Pro was not
+run** — nothing here is an analysis. No file in any other package was modified; the only
+files that change are the two Rev F DXF, this one and `master/QUICK_STATE.md`. **No evidence
+tag was converted, downgraded or deleted**, and `[N]`/`[R]` items are carried onto the
+drawings as `[N]`/`[R]`. **The main staircase is untouched** — 24 risers, 170.8333, 280,
+3 flights × 8, total rise 4100, and not one entity of it was read or written.
+
+**Verified:** both files round-trip byte-identically through the reader used to edit them;
+POLYLINE/SEQEND, SECTION/ENDSEC, TABLE/ENDTAB and BLOCK/ENDBLK all balance; **0 new text
+overlaps** on either sheet (A-202's three are the pre-existing Rev F bay-label pairs, left
+alone); **no text outside the inner sheet border**; A-202's drawing extents are unchanged.
+**K.1b goes from thirty-two open items to thirty-three** — one new, `DR-A1-V1`; none closed.
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -4210,6 +4312,7 @@ twenty-nine open items to thirty-two** — five new (`SG2-V1…V5`), two removed
 | **SG2-V3** | **SH-1, the fresh-air intake, has no plan position** *(SG2)* | The HVAC equipment schedule gives **SH-2** an X range (22 598 – 23 198) and gives **SH-1** only *"West of the box"*. **No X, no Y, no coordinate.** The fresh-air intake of a CBRN shelter is not a minor fitting: until it has one, **no intake separation can be checked against anything** — the septic vent, the generator exhaust, a surface plume. What protects it in SG2's layout is geometry, not a calculation: the reserve is **east**, SH-1 is **west**, so the separation is **at least 33 m however SH-1 is finally placed** | **A coordinate**, from HVAC. `SG2-F4` |
 | **SG2-V4** | **No wind direction data exists anywhere — there is no wind rose** *(SG2)* | The P1 deck gives monthly mean **speed** and nothing else. It matters twice: for the **intake / exhaust** relationship, and as the **plume direction for the CBRN case** the whole shelter exists to survive. **SG2's orientation is therefore justified on access, fall, noise and end-to-end separation — explicitly NOT on prevailing wind** | **A wind rose** for the nearest long-record station. Until then the design's only protection is that intake and exhaust sit at opposite ends of a 22 m box |
 | **SG2-V5** | **The programme stops dewatering before backfill** *(SG2, sharpened by the `SG-V3` ruling)* | `A2070`, *"Dewatering — continuous through the substructure works"*, ends **11-05-27**. Side backfill `A7010` runs 20-07-27 → 30-07-27 and the burster slab is not cast until 21-08-27. Master `B.3` mitigation 1 requires dewatering **"until backfill and cover complete"**. **The gap spans the whole 2027 monsoon with the box at stage 3 — flotation FoS 1.22 at the design GWT and 0.86 flooded.** The `SG-V3` ruling makes this the operative control rather than a belt-and-braces note | **A project-owner decision on the programme.** No date is changed by SG2 — the owner's own Master Construction Schedule R0 governs (H.13). Either dewatering extends to 30-07-27, or the sub-structure sequence moves, or the residual flotation risk is accepted in writing |
+| **DR-A1-V1** | **THE PROJECT HOLDS TWO DIFFERENT ASSUMED SENTRY-POST POSITIONS, AND ONE OF THEM LANDS IN THE DRAINAGE RESERVE** *(DR-A1, 11 Sep 2026, H.24)* | `U4` records that **no sentry-post coordinate exists** — `A.2`/`A.4.8` and the four Rev F sentry sheets say only *"≥ 10 m clear of the shelter excavation"*. Two placements now satisfy that rule in different directions: **`A-301` draws the post at `X 31700 – 36300`, 10 m EAST**, and **BIM-P1 / `SG2` assume `X 9000 – 13000, Y 15250 – 20250`, 10 m NORTH**. `SG2`'s external works reserve is `X 33000 – 51000`, so **the elevation's placement would put the sentry post inside the reserve**, and `SG2`'s 28 of 28 clearance checks — run against the northern assumption, and giving `ST-01` **22.5 m** from the post — would have to be re-run. On the elevation's own placement the same gap measures about **0.25 m**. **Nothing is ruled: both stay `[ASSUMED]`, and `A-301` now says on its face that its sentry position is a convention, not a coordinate** | **The sentry post's real site position — `U4`.** Until it exists, `ST-01` and `SK-01` are drawn on `A-301` beyond a break rather than at true X, and no clearance between the sentry post and the external works can be stated |
 
 ### K.1e RULED, CLOSED OR ANSWERED BY THE PROJECT OWNER — RC2 (Part H.21) and SG2 (Part H.23)
 
