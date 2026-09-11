@@ -66,12 +66,12 @@ class Sheet(M.Sheet):
     """One A1 Site Selection and Geotechnical sheet."""
 
     SCOPE_NOTE = "SENTRY POST INCLUDED - GROUND ONLY, NO STRUCTURAL VALUE"
-    TB_SCOPE = f"SITE AND GEOTECHNICAL {P.REV}  -  GROUND ONLY"
-    DATE = P.PACKAGE_DATE
+    TB_SCOPE = f"SITE AND GEOTECHNICAL {P.PKG_REV}  -  GROUND ONLY"
+    DATE = P.PKG_DATE
 
     def __init__(self, number, title, subtitle="", flags=(), sheet_of=""):
         super().__init__(number, title, subtitle=subtitle, package=P.PACKAGE,
-                         rev=P.REV, status=P.STATUS, flags=list(flags),
+                         rev=P.PKG_REV, status=P.STATUS, flags=list(flags),
                          sheet_of=sheet_of)
         for name, (col, lw, desc) in SG_LAYERS.items():
             ly = self.doc.layers.add(name)

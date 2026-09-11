@@ -8,6 +8,8 @@ FILE                                                         ENTS  TEXT  DIM  LA
 --------------------------------------------------------------------------------------------------------------
 SG-001_Site_and_Geotechnical_Design_Basis.dxf                 255   210    0    9  PASS
 SG-101_Site_Setting_Selection_and_Meteorology.dxf             298   228    0   12  PASS
+SG-102_Site_Layout_Plan.dxf                                   536   138    1   16  PASS
 SG-201_Geotechnical_Profile_and_Structure_Section.dxf         552   207    0   20  PASS
+SG-202_External_Works_Siting_and_Soak_Pit_Finding.dxf         269   126    0   16  PASS
 --------------------------------------------------------------------------------------------------------------
-3 files   0 errors   0 warnings
+5 files   0 errors   0 warnings

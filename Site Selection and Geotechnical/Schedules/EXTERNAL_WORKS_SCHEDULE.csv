@@ -1,0 +1,8 @@
+TAG,TYPE,"CENTRE (X, Y) mm",SIZE mm,TOP / INVERT below local grade mm,SIDE AREA m2,CLASS,SERVES / NOTE
+SK-02,STORM SOAKAWAY,"(35000, 8500)",2200 dia,600 / 4100,24.19,[A],Clean sump rising main PD-06 + entry threshold channel PD-11
+SK-03,STAIRWELL SOAKAWAY,"(41400, 8500)",2200 dia,600 / 4100,24.19,[A],"Stairwell sump SU-02 rising main PD-13.  SIZE NOT RECORDED ANYWHERE in the project - the 2.2 dia footprint is RESERVED, not designed"
+SK-04,HEADHOUSE SOAKAWAY,"(47800, 8500)",2200 dia,600 / 4100,24.19,[A],Headhouse gully GY-11 via PD-14.  SIZE NOT RECORDED ANYWHERE - footprint RESERVED.  PD-14's route is UNDETERMINED - SG2-F5
+SK-01,FOUL SOAK PIT,"(44000, 16000)",2200 dia,600 / 4100,24.19,[A],"Septic tank ST-01 effluent via PD-16, 450 L/day"
+ST-01,SEPTIC TANK,"(36750, 16000)",1500 x 750,-,-,[A],"1.50 x 0.75 liquid, 1.00 deep + 300 freeboard = 1.30 overall.  IS 2470 (Pt 1) Table 1, up to 10 users.  50 cowled vent >= 2 m above grade, Cl. 6.9"
+IC-02,INSPECTION CHAMBER,"(40200, 16000)",600 x 450,-,-,[A],"600 x 450 on PD-16, for septic tank de-sludging access"
+IC-01,INSPECTION CHAMBER,"(7500, 9800)",600 x 450,-,-,[A],600 x 450 on PD-11 at the change of direction

@@ -1,0 +1,6 @@
+TAG,FROM,TO,DN,GRADIENT,LENGTH,FALL,CLASS,NOTE
+PD-16,ST-01 outlet,SK-01 inlet,DN100,1:100,5.40 m,54 mm,[R],1 legs
+PD-06,SERVICE ENTRY PLATE,SK-02,DN50,PUMPED,27.00 m,pumped,[R],5 legs
+PD-11,CP-10 entry catchpit,SK-02,DN100,1:100,32.35 m,324 mm,[R],4 legs
+PD-13,SU-02 stairwell sump,SK-03,DN50,PUMPED,29.60 m,pumped,[R],4 legs
+PD-14,GY-11 headhouse gully,SK-04,DN100,1:80,[U],-,[U],ROUTE UNDETERMINED - SG2-F5

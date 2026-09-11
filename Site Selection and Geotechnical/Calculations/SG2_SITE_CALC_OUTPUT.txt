@@ -1,0 +1,705 @@
+====================================================================================================
+SITE LAYOUT AND EXTERNAL WORKS  -  CALCULATION PRINTOUT
+revision SG2   11.09.2026   GEOMETRY REV F + M1
+====================================================================================================
+
+WHAT CHANGED SINCE SG1, AND WHY THAT UNBLOCKS THIS
+
+  Master H.9 recorded the positions of the soakaways, the septic tank
+  and the external chambers as NOT DETERMINABLE - 'no site plan,
+  boundary or contour exists' - and with them FIVE PIPE LENGTHS and
+  the IS 2470 (Pt 2) offsets.  The project owner has now supplied the
+  two things that were missing:
+
+      COORDINATE     18.6089876 N,  73.8587287 E     [C] owner
+      AVAILABILITY   'the area around 50 m is all available'   [C]
+
+  Those, with SG1's contours and geotechnical profile and the
+  project's own confirmed geometry, are enough.  SG2 determines them.
+
+  THE PIN CONVENTION.  One point was given for 'the project site'.  The
+  only self-consistent reading that lets everything be dimensioned is
+  that it is the CENTRE OF THE UNDERGROUND BOX, project (11000, 3100).
+  Adopted as a CONVENTION, not claimed as a finding.  [A]  If the owner
+  meant a corner or the entrance, THE WHOLE LAYOUT TRANSLATES RIGIDLY
+  and not one offset, length or clearance below changes.
+
+  WHAT IS STILL NOT AVAILABLE, and therefore what D3 still covers:
+      a surveyed boundary            a benchmark and spot levels
+      the position of any WELL       the distance to the perimeter fence
+      existing services on the plot  a wind direction / rose
+
+====================================================================================================
+S.1   SITE ORIENTATION  -  fixed by this revision
+====================================================================================================
+
+  PROJECT +X = EAST        PROJECT +Y = NORTH     [A]
+
+  The project has worked in a local frame since Rev F (master A.4.1)
+  and has never tied it to north.  Five reasons, all pointing the same
+  way:
+
+  1  ACCESS.  The covered entry stairwell's grade door is at its WEST
+     end, X 9250 (A.4.7), so the approach comes from the west - and the
+     CTW blocks, the roads and the campus are west of the plot (deck
+     slides 13, 14, 17).  The entry faces the installation it serves.
+  2  FALL.  SG1 read the ground as falling EAST / NE, 580 -> 575.  With
+     +X east the drainage field is DOWNGRADIENT, so nothing recharges
+     the ground upslope of a flotation-critical tanked box.
+  3  INTAKE AND EXHAUST AT OPPOSITE ENDS.  SH-1 (fresh air) west,
+     SH-2 (generator) at X 22598-23198 east - 22.6 m apart at minimum.
+  4  NOISE AND SIGNATURE.  Bay 8 - generator, ESC 2, SH-2, BV-4/BV-5 -
+     is at the east end, away from the campus.
+  5  The sentry post covers the approach from the north.
+
+  *** AND THE LIMIT ON REASON 3, STATED PLAINLY. ***
+  NO WIND DIRECTION DATA EXISTS ANYWHERE IN THIS PROJECT.  The P1 deck
+  gives monthly mean SPEED and no direction; there is no wind rose.  So
+  the orientation cannot be justified on prevailing wind, and it is
+  not.  What it does instead is put the intake and the exhaust at
+  OPPOSITE ENDS OF A 22 m BOX, which is the robust choice WHATEVER the
+  wind does.  A wind rose matters for more than this - it is also the
+  plume direction for the CBRN case - and it is opened as SG2-V4.  [N]
+
+====================================================================================================
+S.2   THE 50 m ENVELOPE  -  does everything fit?
+====================================================================================================
+
+  Envelope radius about the pin               50.0 m   [C] owner
+
+  element                                      furthest point            radius
+  --------------------------------------------------------------------------------
+  UNDERGROUND BOX, external                                              11.43 m
+  MAIN EXCAVATION + 1000 working space                                   12.68 m
+  COVERED ENTRY STAIRWELL                                                 6.86 m
+  STAIRWELL EXCAVATION + working space                                    7.58 m
+  ENTRY HEADHOUSE                                                         7.95 m
+  ENTRY THRESHOLD CHANNEL CH-10                                           4.85 m
+  SH-2 GENERATOR AIR SHAFT                                               12.27 m
+  SERVICE ENTRY PLATE                                                     3.32 m
+  ESC 1 shaft collar, OD 1900                                            10.10 m
+  ESC 2 shaft collar, OD 1900                                            10.05 m
+  SENTRY POST  -  POSITION ASSUMED                                       17.27 m
+  SK-02  STORM SOAKAWAY                                                  25.70 m
+  SK-03  STAIRWELL SOAKAWAY                                              31.98 m
+  SK-04  HEADHOUSE SOAKAWAY                                              38.29 m
+  SK-01  FOUL SOAK PIT                                                   36.53 m
+  ST-01  SEPTIC TANK                                                     29.64 m
+  IC-02  INSPECTION CHAMBER                                              32.29 m
+  IC-01  INSPECTION CHAMBER                                               7.90 m
+  EXTERNAL WORKS RESERVE, far corner                                     42.51 m
+
+  WORST CASE                                                     42.51 m
+  AVAILABLE                                                      50.00 m
+  SPARE                                                           7.49 m
+
+  EVERYTHING FITS, with the assumed sentry post position included and
+  with room to spare.  The binding element is not the drainage - it is
+  the SENTRY POST, whose position is ASSUMED (U4).
+
+====================================================================================================
+S.3   THE IS 2470 OFFSETS  -  demonstrated, one by one
+====================================================================================================
+
+  Three offsets are recorded on sheet S-06 and reproduced in drainage
+  calculation D.11.  D.11 ends: '*** THOSE OFFSETS CANNOT BE
+  DEMONSTRATED - no site plan, no well position and no boundary exist
+  in the project.  DATA REQUIRED (D3). ***'   TWO OF THE THREE CAN NOW
+  BE DEMONSTRATED.  The third cannot, and it is not fudged.
+
+  (a)  FOUL SOAK PIT TO THE SEPTIC TANK,  >= 5 m   [C] S-06
+       SK-01 centre (44000, 16000), wall at 1100 radius
+       ST-01 36000-37500 x 15625-16375
+  SK-01 wall to ST-01 face                                     5.40 m   vs   5.0 m [C]   PASS
+
+  (b)  SOAK PIT TO ANY BUILDING,  >= 2 m   [C] S-06
+       'Building' is read here as THE STRUCTURE AND ITS EXCAVATION,
+       because a 6.8 m deep vertical unbenched face is what the pit is
+       actually near.  Every pit is checked against every structure.
+
+       nearest approach anywhere in the layout:
+         SK-02 to MAIN EXCAVATION + 1000 working space
+  SK-02 wall to the nearest structure                         10.97 m   vs   2.0 m [C]   PASS
+       -  which is 5.5 times the code minimum.
+
+  (c)  FOUL SOAK PIT TO ANY WELL,  >= 15 m   [C] S-06
+       *** CANNOT BE DEMONSTRATED.  NO WELL POSITION EXISTS ANYWHERE IN
+       THIS PROJECT. ***  The only water feature recorded anywhere is
+       the RCC overhead reservoir on the deck's pipelines sketch -
+       15 000 gallons on 15 m staging beside building 527 - which is a
+       TANK, not a well, and is on the far side of the campus.
+       SG2 does NOT claim this offset is met.  It is the ONE offset of
+       the three that stays open, and it is opened as SG2-V1.   [N]
+
+====================================================================================================
+S.4   EVERY OTHER CLEARANCE IN THE LAYOUT
+====================================================================================================
+
+  Adopted rules, and why each is what it is:
+
+    Foul soak pit to any WELL                     15.0 m   [C]
+        S-06, reproduced in drainage calculation D.11. CANNOT BE DEMONSTRATED - no well
+        position exists anywhere in the project. SG2-V1
+    Foul soak pit to the SEPTIC TANK               5.0 m   [C]
+        S-06, reproduced in drainage calculation D.11
+    Soak pit to any BUILDING                       2.0 m   [C]
+        S-06, reproduced in drainage calculation D.11
+    FOUL group to any excavation face             15.0 m   [A]
+        THIS PACKAGE, and far beyond the 2 m code minimum. Three reasons: the box is
+        flotation-critical (FoS 0.33 at the mat-only stage); the side backfill is selected
+        granular fill at 95 % MDD and is therefore MORE permeable than the basalt around it,
+        so effluent would run preferentially INTO the backfill and down the outside of the
+        tanking; and a 6.8 m deep vertical unbenched excavation has an influence zone the 2 m
+        rule was never written for
+    CLEAN group to any excavation face            10.0 m   [A]
+        THIS PACKAGE. Same reasoning, relaxed because the clean streams are groundwater and
+        condensate - water that came out of the ground a few metres away - at 400 L/day
+    FOUL group to CLEAN group                      5.0 m   [A]
+        THIS PACKAGE. S-06 requires the two to be SEPARATE and gives no distance; the
+        septic-tank figure is borrowed as the nearest recorded analogue
+    Pit wall to pit wall                           4.0 m   [A]
+        THIS PACKAGE. No pit-to-pit spacing rule is recorded in this project or cited on S-06.
+        4 m clear keeps the wetted zones of two 3.5 m deep pits from merging at the assumed
+        absorption rate. FOR THE GEOTECHNICAL ENGINEER TO CONFIRM
+
+  CHECKS
+
+  FOUL group to every excavation face,  >= 15 m adopted:
+  SK-01 wall to MAIN EXCAVATION + 1000 working spa            21.67 m   vs  15.0 m [A]   PASS
+  SK-01 wall to STAIRWELL EXCAVATION + working spa            27.77 m   vs  15.0 m [A]   PASS
+  ST-01 face to MAIN EXCAVATION + 1000 working spa            15.49 m   vs  15.0 m [A]   PASS
+  ST-01 face to STAIRWELL EXCAVATION + working spa            21.10 m   vs  15.0 m [A]   PASS
+
+  CLEAN group to every excavation face,  >= 10 m adopted:
+  SK-02 wall to MAIN EXCAVATION + 1000 working spa            10.97 m   vs  10.0 m [A]   PASS
+  SK-02 wall to STAIRWELL EXCAVATION + working spa            17.85 m   vs  10.0 m [A]   PASS
+  SK-03 wall to MAIN EXCAVATION + 1000 working spa            17.35 m   vs  10.0 m [A]   PASS
+  SK-03 wall to STAIRWELL EXCAVATION + working spa            24.25 m   vs  10.0 m [A]   PASS
+  SK-04 wall to MAIN EXCAVATION + 1000 working spa            23.73 m   vs  10.0 m [A]   PASS
+  SK-04 wall to STAIRWELL EXCAVATION + working spa            30.65 m   vs  10.0 m [A]   PASS
+
+  FOUL group to CLEAN group,  >= 5 m adopted:
+  SK-01 wall to SK-02 wall                                     9.52 m   vs   5.0 m [A]   PASS
+  SK-01 wall to SK-03 wall                                     5.74 m   vs   5.0 m [A]   PASS
+  SK-01 wall to SK-04 wall                                     6.21 m   vs   5.0 m [A]   PASS
+  ST-01 face to SK-02 wall                                     6.09 m   vs   5.0 m [A]   PASS
+  ST-01 face to SK-03 wall                                     7.02 m   vs   5.0 m [A]   PASS
+  ST-01 face to SK-04 wall                                    11.42 m   vs   5.0 m [A]   PASS
+
+  PIT WALL TO PIT WALL,  >= 4 m adopted:
+  SK-02 wall to SK-03 wall                                     4.20 m   vs   4.0 m [A]   PASS
+  SK-02 wall to SK-04 wall                                    10.60 m   vs   4.0 m [A]   PASS
+  SK-02 wall to SK-01 wall                                     9.52 m   vs   4.0 m [A]   PASS
+  SK-03 wall to SK-04 wall                                     4.20 m   vs   4.0 m [A]   PASS
+  SK-03 wall to SK-01 wall                                     5.74 m   vs   4.0 m [A]   PASS
+  SK-04 wall to SK-01 wall                                     6.21 m   vs   4.0 m [A]   PASS
+
+  AND THE TWO SHAFTS, because a septic vent stands 2 m above grade:
+  ST-01 (and its vent) to SH-2 generator air shaft            18.44 m   vs  10.0 m [A]   PASS
+  SK-01 to SH-2 generator air shaft                           23.78 m   vs  10.0 m [A]   PASS
+
+  SH-1, THE FRESH-AIR INTAKE, CANNOT BE CHECKED AT ALL.  The HVAC
+  equipment schedule gives SH-2 an X range and gives SH-1 only 'West of
+  the box'.  ITS PLAN POSITION IS RECORDED NOWHERE IN THIS PROJECT.
+  What protects it here is the layout, not a calculation: the whole
+  external works reserve is EAST, and SH-1 is WEST, so the shortest
+  possible separation is the length of the box plus the reserve offset
+  - at least 33 m however SH-1 is finally placed.  SG2-V3.   [N]
+
+====================================================================================================
+S.5   THE FIVE PIPE LENGTHS MASTER H.9 CALLED 'NOT DETERMINABLE'
+====================================================================================================
+
+  Every run is routed as a polyline of straight orthogonal legs, each
+  leg clear of the cover, of every excavation and of every structure.
+  NO RUN CROSSES THE ENGINEERED COVER - master A.7.3 and D-001 note 1:
+  a pipe through the cover breaches the radiation mass and the roof
+  membrane.  The side BACKFILL corridor, Y 6200-7200, is not the cover
+  and is a normal place for a service.
+
+  tag       DN grad     from                       to                    length     fall
+  --------------------------------------------------------------------------------------------
+  PD-16    100 1:100    ST-01 outlet               SK-01 inlet           5.40 m    54 mm
+  PD-06     50 PUMPED   SERVICE ENTRY PLATE        SK-02                27.00 m   pumped
+  PD-11    100 1:100    CP-10 entry catchpit       SK-02                32.35 m   324 mm
+  PD-13     50 PUMPED   SU-02 stairwell sump       SK-03                29.60 m   pumped
+  PD-14    100 1:80     GY-11 headhouse gully      SK-04                    [U]        -
+
+  ROUTES IN FULL
+
+  PD-16   [R]
+     (37500, 16000)  ->  (42900, 16000)
+        leg 1:     5400 mm
+        TOTAL       5400 mm
+     Straight, with IC-02 on it. The shortest run in the layout and the one that matters most
+     - it carries septic effluent
+
+  PD-06   [R]
+     (11798, 6200)  ->  (11798, 6700)  ->  (16500, 6700)  ->  (16500, 9800)  ->  (35000, 9800)  ->  (35000, 9600)
+        leg 1:      500 mm
+        leg 2:     4702 mm
+        leg 3:     3100 mm
+        leg 4:    18500 mm
+        leg 5:      200 mm
+        TOTAL      27002 mm
+     50 mm rising main. Leaves the plate northward into the side backfill corridor (Y
+     6200-7200), runs EAST to clear the stairwell excavation at X 16050, then joins the
+     COMMON SERVICES TRENCH at Y 9800. Its VERTICAL leg is not determinable - the service
+     entry plate's level is [N], coordination item CO-1
+
+  PD-11   [R]
+     (9100, 6750)  ->  (7500, 6750)  ->  (7500, 9800)  ->  (35000, 9800)  ->  (35000, 9600)
+        leg 1:     1600 mm
+        leg 2:     3050 mm
+        leg 3:    27500 mm
+        leg 4:      200 mm
+        TOTAL      32350 mm
+     Gravity DN100. Routed WEST first, to X 7500, because going north from CP-10 would cross
+     the stairwell excavation (X 8250-16050). IC-01 sits at the change of direction, and from
+     there it shares the COMMON SERVICES TRENCH with PD-06 and PD-13 - which is what makes a
+     long run affordable in rock: one trench, three pipes
+
+  PD-13   [R]
+     (15050, 6750)  ->  (16500, 6750)  ->  (16500, 9800)  ->  (41400, 9800)  ->  (41400, 9600)
+        leg 1:     1450 mm
+        leg 2:     3050 mm
+        leg 3:    24900 mm
+        leg 4:      200 mm
+        TOTAL      29600 mm
+     50 mm rising main with a non-return valve [C]. Joins the common services trench at X
+     16500
+
+  PD-14   [U]
+     *** ROUTE UNDETERMINED - SG2-F5. *** GY-11 is at (14700, 1960) with its invert at
+     (-)2.150, and the headhouse floor IS the top of the 900 pressure slab at (-)2.000. The
+     gully body and its outlet therefore sit 150 mm INSIDE the pressure slab, and outside the
+     headhouse walls that level is beneath the waterproof membrane and inside the engineered
+     cover, which no pipe may enter. SK-04's footprint is RESERVED; its pipe cannot be routed
+     until the outlet is resolved
+
+  THE COMMON SERVICES TRENCH  -  why three long runs are affordable
+     (7500, 9800) -> (47800, 9800)  at Y 9800, 40.3 m
+     PD-06, PD-11 and PD-13 share it from X 16500 eastward.  ONE trench
+     in rock carrying a DN100 gravity drain, two DN50 rising mains and
+     room for spare ducts.  That is what makes a 32 m gravity run
+     sensible at a site where rockhead is 0.9-1.5 m: the cost is the
+     trench, and the trench is cut once.
+
+====================================================================================================
+S.6   *** THE SOAK PIT WILL NOT WORK AS A DEEP PIT, AND THE SITE DATA NOW SAYS SO ***
+====================================================================================================
+
+  RC1 fixed the ARITHMETIC of SK-01 (C19: widened 2.0 -> 2.200 dia,
+  24.19 m2 against 22.50 required, +7.5 %).  It also wrote the sentence
+  this section starts from:
+
+     'deepening drives the pit further below the design GWT at
+      (-)2.000, WHERE IT CANNOT SOAK AT ALL.'
+
+  The project has therefore known since RC1 that the pit is below the
+  water table.  NOBODY HAS EVER QUANTIFIED BY HOW MUCH.  SG1 supplied
+  the missing half - the measured ground profile - so it can be.
+
+  THE PIT AS RULED
+     diameter                                2.200 m   [C] RC1 C19
+     underside of cover slab, below grade    0.600 m   [A] this package
+     effective depth                         3.500 m   [C] RC1, unchanged
+     invert, below LOCAL grade               4.100 m   [R]
+     side area counted                       24.19 m2  [C] base not counted
+     AREA REQUIRED, 450 L/day at 20 L/m2/day        22.50 m2  [C]
+
+  CHECK 1  -  HOW MUCH OF IT IS ABOVE THE DESIGN WATER TABLE?
+
+  The project holds TWO readings of the design GWT and they are not the
+  same thing at a point 28 m east of the box on falling ground:
+     (a) ABSOLUTE   master A.6 / K.2 A2: the GWT is the LEVEL (-)2.000
+     (b) RELATIVE   deck slide 29: 'water table at DEPTH OF 2 m
+         BELOW GL'
+  On level ground they coincide.  On ground falling east at about
+  1 in 40 (SG1, and itself disputed - SG-V4) the reserve is roughly
+  0.70 m lower than the structure, so reading (a) puts the water only
+  1.30 m below local grade there.  BOTH BOUNDS ARE COMPUTED.
+
+  reading                                         water below  wet depth  area ABOVE  of 22.50
+  --------------------------------------------------------------------------------------------
+  (a) absolute (-)2.000, reserve 0.70 m lower          1.30 m     2.80 m      4.84 m2    21.5%
+  (b) relative, 2 m below local grade                  2.00 m     2.10 m      9.68 m2    43.0%
+
+  >>> SO BETWEEN 21 % AND 43 % OF THE REQUIRED ABSORPTION AREA LIES
+      ABOVE THE DESIGN WATER TABLE.  The rest of the pit is, by the
+      project's own design assumption, PERMANENTLY SUBMERGED - and a
+      submerged wall does not infiltrate: there is no unsaturated
+      storage to receive the effluent and no head to drive it.
+      THIS IS GEOMETRY AGAINST A STATED DESIGN LEVEL.  It does not
+      depend on the percolation rate at all.
+
+  CHECK 2  -  AND WHAT IS THE REST OF IT CUT THROUGH?
+
+  SG1's profile, carried across to this plot at [A] (SG-V1):
+
+  location                       broken-rock band   thickness  side area in it  of 22.50
+  ----------------------------------------------------------------------------------------
+  G Building (TP-1 to TP-4)      1.20 - 1.50           0.30 m           2.07 m2     9.2%
+  H Building (TP-5 to TP-8)      0.70 - 0.90           0.20 m           1.38 m2     6.1%
+  Mess Bldg (TP-9 to TP-11)      0.50 - 1.00           0.50 m           3.46 m2    15.4%
+
+  Above the broken rock:  black cotton CH at FSI 60-65 % - it SWELLS
+  SHUT when wet - over murrum, which the deck's own slide 30 calls
+  'IMPERVIOUS IN NATURE'.  Below it:  SOUND BASALT, whose matrix
+  permeability is effectively zero; whatever it takes, it takes through
+  JOINTS, and NO JOINT DATA EXISTS - no RQD, no packer test (SG-V2).
+
+  >>> SO THE ONLY DEMONSTRABLY PERMEABLE HORIZON IS 0.20 to 0.50 m
+      THICK, AND CONTRIBUTES 15% OR LESS OF THE REQUIRED AREA.
+
+  *** FINDING SG2-F1.  TWO INDEPENDENT CHECKS, ONE CONCLUSION. ***
+      SK-01's shortfall was never an arithmetic problem - RC1 fixed
+      that.  IT IS A DEPTH PROBLEM.  A 3.5 m deep pit at this site is
+      mostly below the design water table and mostly in sound basalt.
+      THE FORM THAT FITS THIS GROUND IS SHALLOW AND WIDE, NOT DEEP AND
+      NARROW - a dispersion trench worked in the 0.5-1.6 m broken-rock
+      horizon, ABOVE the water table.  Which is exactly IS 2470 (Pt 2)
+      Cl. 5, the fallback master K.2 A7 has named all along.
+
+      SG2 DOES NOT CHANGE SK-01.  The percolation test governs the
+      final size and form - master A7, and RC1 said so too.  What SG2
+      does is (i) say the number before the test rather than after it,
+      and (ii) RESERVE THE GROUND FOR THE FALLBACK so that a failed
+      test costs a redesign and not a re-siting.  See S.7.
+
+====================================================================================================
+S.7   THE FALLBACK, RESERVED  -  what a failed percolation test costs
+====================================================================================================
+
+  A dispersion trench is sized on the SAME basis this project uses for
+  the pit: SIDE area only, the base discounted because it clogs.
+  A trench of width w and effective depth h gives 2h m2 of side area
+  per metre run - both sides, base not counted.
+
+     trench effective depth                   1.00 m   [A] invert 1.500 below grade, worked in the broken-rock horizon
+     side area per metre run                  2.00 m2/m  [R]
+
+  stream                             flow   at 20 L/m2/day   trench run
+  ----------------------------------------------------------------------
+  FOUL, via ST-01                  450 L/d         22.50 m2      11.25 m
+  CLEAN, sump discharge            400 L/d         20.00 m2      10.00 m
+
+  AND THE REAL QUESTION - HOW BAD CAN THE MEASURED RATE BE AND STILL
+  FIT IN THE GROUND RESERVED?
+
+  DF-1  FOUL DISPERSION FIELD
+     reserved            14.5 m x 6.5 m
+     trenches at 2.5 m centres      3 runs x 14.5 m = 43.5 m
+     side area available            87.0 m2
+     serves 450 L/day down to an absorption rate of 5.17 L/m2/day
+     which is 26% OF THE ASSUMED 20 L/m2/day   [D]
+
+  DF-2  CLEAN DISPERSION FIELD
+     reserved            14.5 m x 3.5 m
+     trenches at 2.5 m centres      2 runs x 14.5 m = 29.0 m
+     side area available            58.0 m2
+     serves 400 L/day down to an absorption rate of 6.90 L/m2/day
+     which is 34% OF THE ASSUMED 20 L/m2/day   [D]
+
+  >>> THE RESERVE CARRIES BOTH STREAMS AT ROUGHLY ONE THIRD OF THE
+      ASSUMED ABSORPTION RATE.  That is the point of reserving it: the
+      percolation test can come back badly and the answer is still a
+      redesign inside the same footprint, not a new hunt for ground.
+
+  IF EVEN THAT FAILS - and on sound basalt it can - the remaining
+  answers are a SEALED HOLDING TANK emptied on a schedule (master A7's
+  own words) or a positive outfall, and a positive outfall needs the
+  final-discharge question answered, which is D3 and is still open.
+
+====================================================================================================
+S.8   WHERE THE PERCOLATION TEST HAS TO BE DONE
+====================================================================================================
+
+  Master K.2 A7 makes it MANDATORY (IS 2470 Pt 2 Cl. 4).  Drainage D.12
+  calls it 'on the critical path for three independent reasons'.  What
+  nobody has ever said is WHERE, and a percolation test in the wrong
+  place or at the wrong depth answers nothing.
+
+  ref    position               depth below local grade    what it decides               
+  ----------------------------------------------------------------------------------------
+  PT-1   (44000, 16000)       to 4.100 m, the proposed pit invert  AT SK-01, the foul pit position
+  PT-2   (35000, 8500)       to 4.100 m, the proposed pit invert  AT SK-02, the clean pit position
+
+  TWO TESTS, ONE IN EACH SUB-ZONE, EACH AT ITS OWN PIT'S POSITION AND
+  AT THE PROPOSED INVERT.  Not at a convenient spot near the site hut.
+
+  AND TEST THE SHALLOW HORIZON TOO.  S.6 shows the deep pit is mostly
+  submerged and mostly in sound basalt, and S.7 shows the fallback is a
+  trench at about 1.5 m.  A test taken ONLY at (-)4.100 measures the
+  formation the fallback will not use.  Take each test at BOTH depths -
+  the pit invert and the trench invert - or the fallback is undesigned
+  the day the pit is abandoned.   [A] this package
+
+  The same boreholes serve SG-V2: A1075 must be located ON THIS PLOT,
+  and the standpipe that SG-V3 asks for goes in one of them.
+
+====================================================================================================
+S.9   SG-V3 RULED BY THE PROJECT OWNER  -  and what the ruling leaves standing
+====================================================================================================
+
+  RULING, 11 September 2026:  *** THE COST OF MOVING THE GROUNDWATER
+  MONITORING IS NOT ACCEPTED. ***
+
+  READING.  SG-F7 showed that WBS A1080 - 'Monsoon groundwater
+  monitoring - confirm the design GWT (-)2.000', 20 d, TOTAL FLOAT 0 -
+  runs 12-11-26 to 04-12-26, which is not the monsoon, and that moving
+  it into one would move a critical-path activity and therefore the
+  job.  The ruling declines THAT COST.  A1080 stays where it is.
+  If the owner meant something wider, this reading is stated so it can
+  be corrected.
+
+  CONSEQUENCE, STATED HONESTLY.
+    A1080 as programmed will measure the post-monsoon RECESSION.  It
+    will therefore NOT close master K.2 A2.  The design GWT (-)2.000
+    stays [ASSUMED] through construction and into service.
+
+  AND WHY THE PERMANENT WORKS ARE STILL BOUNDED.
+    (-)2.000 is only 2 m down, which is the CONSERVATIVE direction for
+    everything the water drives - uplift, flotation, lateral load.  The
+    risk left open is that the real table is HIGHER.  Master B.3 has
+    already run that bound:
+
+      stage                         FoS @ (-)2.000   FoS FLOODED TO GRADE
+      1 mat cast only                    0.33 FAIL        0.23 FAIL
+      2 mat + walls, no roof             0.78 FAIL        0.55 FAIL
+      3 box complete, no backfill        1.22 MARGINAL    0.86 FLOATS
+      4 backfilled + cover               2.02 OK          1.41 OK
+
+    THE COMPLETED STRUCTURE PASSES EVEN WITH THE WATER AT GROUND
+    LEVEL - FoS 1.41 against a requirement of 1.2.  So the ruling does
+    not put the permanent works at risk.  [R] from B.3
+
+  WHAT IT DOES EXPOSE IS THE CONSTRUCTION STAGE, and that is now the
+  operative control.  Master B.3's MANDATORY MITIGATION becomes
+  non-negotiable rather than advisory:
+      1 continuous dewatering from the start of excavation UNTIL
+        BACKFILL AND COVER ARE COMPLETE
+      2 temporary pressure-relief valves / knock-out plugs in the mat,
+        6 No. on S-02, grouted up ONLY after backfill
+      3 programme the sub-structure to complete before the monsoon, or
+        bund and positively drain with standby pumping and generator
+        back-up
+      4 backfill SYMMETRICALLY, in layers
+
+    *** AND ONE THING THE WM1 PROGRAMME DOES NOT DO. ***  Activity
+    A2070, 'Dewatering - continuous through the substructure works',
+    runs 01-01-27 to 11-05-27.  Side backfill A7010 runs 20-07-27 to
+    30-07-27 and the burster slab is not cast until 21-08-27.  So
+    dewatering STOPS on 11 May and the box stands un-backfilled through
+    the whole 2027 monsoon - stage 3, FoS 1.22 at (-)2.000 and 0.86
+    FLOODED.  Mitigation 1 says 'until backfill and cover complete'.
+    THE PROGRAMME AND THE MITIGATION DO NOT AGREE.  Raised as SG2-V5.
+    No date is changed here - the owner's schedule R0 governs (H.13).
+
+  AND ONE OPTION THE RULING DOES NOT PRECLUDE, BECAUSE IT COSTS NO
+  FLOAT.  A standpipe piezometer left in the A1075 borehole and read
+  weekly by staff already on site is a LEVEL-OF-EFFORT observation,
+  exactly like A2070 itself.  It cannot verify the design in time - the
+  mat is cast in February - but through the 2027 monsoon it measures
+  the water that the flotation case is actually exposed to, while the
+  box is standing at FoS 1.22.  Offered, not adopted.   [A]
+
+====================================================================================================
+S.10   SG-V5  -  RAINFALL, AND WHICH OF THE TWO FIGURES IS THE WRONG ONE
+====================================================================================================
+
+  THE INSTRUCTION WAS TO USE A RELIABLE SOURCE.  WHAT ACTUALLY
+  HAPPENED, RECORDED SO IT CAN BE CHECKED:
+
+    Ten hosts were probed from this session.  ALL TEN WERE REFUSED BY
+    THE ENVIRONMENT'S EGRESS POLICY (HTTP 403):
+      imd.gov.in   imdpune.gov.in   mausam.imd.gov.in   data.gov.in
+      tropmet.res.in   en.wikipedia.org   en.climate-data.org
+      power.larc.nasa.gov   climexp.knmi.nl   ncei.noaa.gov
+    NO IMD NORMAL WAS RETRIEVED AND NONE IS INVENTED.
+
+  ONE PUBLISHED FIGURE WITH A NAMED STATION AND A NAMED PERIOD WAS
+  OBTAINED, AND IT IS ENOUGH TO SETTLE WHICH FIGURE IS WRONG:
+
+     June to October mean, Pune, Shivajinagar observatory
+     1978-2020, 42 years                        852.5 mm
+     [R] published analysis of IMD station data - NOT an IMD normal
+     source: Mongabay India commentary, 'Long term rainfall patterns and flooding in Pune city' (2021), citing IMD Shivajinagar data
+
+  AGAINST THE PROJECT'S TWO FIGURES
+
+  source                                            Jun-Oct     ANNUAL verdict               
+  --------------------------------------------------------------------------------------------
+  Shivajinagar 42-yr mean (above)                   852.5 mm          - the yardstick         
+  P1 deck slide 25                                  699.5 mm    759.6 mm -18% on Jun-Oct       
+  SEMT/67/15 para 9                                       - 500-600 mm IMPOSSIBLE - see below
+
+  *** FINDING SG2-F2.  THE SOIL REPORT'S RAINFALL FIGURE IS THE ONE
+      THAT IS WRONG, NOT THE DECK'S. ***
+      SEMT para 9 gives 500-600 mm for the ANNUAL rainfall of 'the
+      region'.  The June-to-October mean ALONE at the nearest
+      long-record observatory is 852.5 mm - 1.4 to 1.7 times the report's whole
+      YEAR.  A figure that small is not a Pune figure.
+
+      SG1 raised this as a straight conflict between two documents and
+      could not say which side was wrong.  IT CAN NOW.  The correction
+      runs the other way from the first guess: the deck is the right
+      ORDER and the soil report is not.
+
+      The deck is not vindicated, though.  Its Jun-Oct total of
+      699.5 mm is 18% BELOW the 42-year Shivajinagar mean,
+      and its October figure - 139.8 mm, 1.04 x September and above
+      August - still does not fit a Deccan monsoon.  BOTH the annual
+      total and the October value need the real normal.  SG-V5 STAYS
+      OPEN, and it is now open on a narrower question.
+
+  WHAT TO ASK FOR, EXACTLY:
+     IMD Pune, 'Climatological Tables of Observatories in India 1991-2020' -
+     imdpune.gov.in/library
+     IMD Climate Data Services Portal - cdsp.imdpune.gov.in, and the Station Climatological
+     Normals service at dsp.imdpune.gov.in
+     IMD National Data Centre, Shivajinagar, Pune - ndc@imd.gov.in
+     ASK FOR: the station normal for the observatory nearest CME Dapodi, monthly and annual,
+     with the station index number and the period of record printed on it. AND SEPARATELY, an
+     IDF relation - the 50 mm/h in this project has no return period, duration or source
+     (DR-D1), and a monthly total can never supply one.
+
+  AND THE PART THAT DECIDES HOW MUCH THIS MATTERS.
+
+    NOT ONE PIPE, PIT, PUMP OR STRUCTURE IN THIS PROJECT IS SIZED BY
+    RAINFALL.  The check:
+      - the roofs and the 2 000 engineered cover SHED AT GRADE to the
+        berm toe.  Drainage D.7: 'there is no roof outlet, no downpipe
+        and no rainwater pipe on the buried roof'.  The 2.461 L/s at
+        50 mm/h NEVER ENTERS A PIPE.
+      - the only rainwater that does enter a pipe is the entry
+        threshold channel CH-10 -> CP-10 -> PD-11, and DR-C1 ruled that
+        catchment is the DOOR-OPEN DRIVING-RAIN case, about 12 x
+        smaller than the superseded 0.10 L/s - order 0.008 L/s against
+        a DN100 at 1:100 carrying 6.72 L/s.
+      - the stairwell sump SU-02 is sized on a 1 000 L EVENT VOLUME
+        [C], not on an intensity.
+
+    >>> SO THE RAINFALL CONFLICT CANNOT MOVE A SINGLE DESIGN VALUE IN
+        THIS PROJECT.  It governs what the design report may CLAIM, and
+        - through the monsoon window - WHEN things can be built.  That
+        is the whole of its reach, and it is worth saying plainly so
+        nobody re-sizes a pipe on the back of a corrected rainfall
+        table.
+
+====================================================================================================
+S.11   WHAT THE SITING WORK TOUCHED IN OTHER PACKAGES
+====================================================================================================
+
+  Four things surfaced that are not siting decisions.  Each is recorded
+  and referred; NONE is acted on.
+
+  SG2-F3  ST-01 IS SIZED FOR A BUILDING THAT IS NOT CONNECTED TO IT.
+     The septic tank is sized for 10 users, 'sentry-post shift crews +
+     shelter maintenance' [C] S-06.  The drainage package excludes the
+     sentry post from its scope, and THERE IS NO PIPE FROM THE SENTRY
+     POST TO ST-01 ANYWHERE IN THE PROJECT - the pipe schedule has
+     PD-15 (Bay 2, CASE B only, not adopted) and PD-16 (ST-01 -> SK-01)
+     and nothing upstream of the tank at all.  SG2 positions ST-01 and
+     leaves the connection to the drainage engineer.  The layout does
+     not prejudge it: ST-01 is 22.5 m from the assumed sentry position
+     and the ground between is clear.
+
+  SG2-F4  SH-1 HAS NO PLAN POSITION.  The HVAC equipment schedule gives
+     SH-2 an X range (22598-23198) and gives SH-1 only 'West of the
+     box'.  The fresh-air intake of a CBRN shelter is not a minor
+     fitting.  Until it has a coordinate, no intake separation can be
+     checked against anything - the septic vent included.  SG2-V3.
+
+  SG2-F5  PD-14 CANNOT BE ROUTED.  GY-11 sits at (14700, 1960) with its
+     invert at (-)2.150, and the headhouse floor IS the top of the 900
+     pressure slab at (-)2.000 (master A.4.6).  The gully body and its
+     outlet are therefore 150 mm INSIDE the pressure slab; outside the
+     headhouse walls that level is beneath the waterproof membrane and
+     within the engineered cover, which no pipe may enter.  SK-04's
+     FOOTPRINT IS RESERVED; ITS PIPE IS NOT ROUTED.  Referred to
+     drainage and structures together.
+
+  SG2-V5  THE PROGRAMME STOPS DEWATERING BEFORE BACKFILL.  A2070 ends
+     11-05-27; side backfill A7010 is 20-07-27 to 30-07-27.  Master
+     B.3 mitigation 1 requires dewatering 'until backfill and cover
+     complete'.  The gap spans the 2027 monsoon with the box at stage 3
+     - FoS 1.22 at the design GWT, 0.86 flooded.  See S.9.
+
+====================================================================================================
+S.12   MASTER GAP D3  -  what is now closed and what is not
+====================================================================================================
+
+  D3 has been cited as a blocker sixteen times across six packages.
+  It was never one thing.  Splitting it:
+
+       what D3 was blocking                                 status after SG2            
+  ----------------------------------------------------------------------------------------
+  1    Positions of the soakaways and the septic tank       *** CLOSED - S.5, S.6 ***   
+  2    The five 'not determinable' pipe lengths             FOUR CLOSED, PD-14 [U] SG2-F5
+  3    External chamber positions IC-01, IC-02              *** CLOSED ***              
+  4    IS 2470 offset to the septic tank, >= 5 m            *** DEMONSTRATED, 5.40 m ***
+  5    IS 2470 offset to any building, >= 2 m               *** DEMONSTRATED, 5x over ***
+  6    IS 2470 offset to any well, >= 15 m                  STILL OPEN - no well exists  SG2-V1
+  7    A concealment LAYOUT (CAM2 / CAM-V2)                 PARTLY - see below          
+  8    Berm, access and hardstanding layout                 STILL OPEN - needs levels   
+  9    Cut and fill for a level formation                   STILL OPEN - needs levels  SG-V4
+  10   The final discharge question - is any outfall available? STILL OPEN - D3 proper      
+  11   Sentry post site position (U4)                       STILL OPEN - and NOTHING here depends on it
+
+  >>> D3 IS PARTIALLY CLOSED, NOT CLOSED.  THE LAYOUT NOW EXISTS.  THE
+      SURVEY DOES NOT.  What is still missing is a boundary, a
+      benchmark and spot levels, the well, the fence distance, existing
+      services on the plot and a wind rose.  Every one of those is a
+      SURVEY output, and none of them moves anything SG2 has fixed:
+      the layout is dimensioned from confirmed structure geometry and
+      every clearance is RELATIVE, so if the fence turns out to be
+      closer than the reserve's east edge THE WHOLE RESERVE TRANSLATES
+      AND NOT ONE OFFSET CHANGES.
+
+  ON CONCEALMENT.  CAM2 could not draw a layout and still cannot draw
+  a full one.  But SG2 does fix where the new AT-GRADE SIGNATURES go -
+  four RC cover slabs and a 2 m septic vent - and it puts them 11 to
+  21 m from the structure, in one group, DOWNGRADIENT and away from the
+  approach.  That is better for concealment than scattering them: the
+  covers mark the drainage field, not the shelter.  CAM-V2 is
+  unaffected - it is a client ruling on whether the above-ground
+  signature is acceptable at all.
+
+====================================================================================================
+SUMMARY
+====================================================================================================
+
+  POSITIONS FIXED BY SG2
+    SK-02   STORM SOAKAWAY         centre (  35000,    8500)   dia 2200
+    SK-03   STAIRWELL SOAKAWAY     centre (  41400,    8500)   dia 2200
+    SK-04   HEADHOUSE SOAKAWAY     centre (  47800,    8500)   dia 2200
+    SK-01   FOUL SOAK PIT          centre (  44000,   16000)   dia 2200
+    ST-01   SEPTIC TANK              36000-37500   x   15625-16375  
+    IC-02   INSPECTION CHAMBER       39900-40500   x   15775-16225  
+    IC-01   INSPECTION CHAMBER        7200-7800    x    9575-10025  
+
+  FINDINGS
+    SG2-F1   The soak pit's problem is DEPTH, not arithmetic. 21-43 % of the required
+                      area is above the water table; the only permeable horizon gives 15 % or less.
+    SG2-F2   The SOIL REPORT's rainfall figure is the wrong one, not the deck's.
+    SG2-F3   ST-01 is sized for a building no pipe connects to it.
+    SG2-F4   SH-1, the fresh-air intake, has no plan position anywhere.
+    SG2-F5   PD-14 cannot be routed - GY-11's outlet is inside the pressure slab.
+
+  RULED BY THE PROJECT OWNER
+    SG-V9   CLOSED.  The coordinate is supplied and recorded.
+    SG-V3   RULED.  The cost of moving the monitoring is NOT accepted;
+            A1080 stays.  K.2 A2 therefore stays ASSUMED through
+            construction - and B.3 shows the completed structure is
+            bounded even flooded to grade.  SG2-V5 opened.
+
+  EVERY CLEARANCE CHECK IN S.3 AND S.4 PASSES.
+
+  NOTHING IN PARTS A, B, D, F OR L IS CHANGED BY THIS CALCULATION.
+  No load, thickness, bar, level, BOQ quantity, rate, date or float
+  moves.  SK-01 is not re-sized.  The main staircase is untouched.
+
+====================================================================================================
+END OF CALCULATIONS
+====================================================================================================

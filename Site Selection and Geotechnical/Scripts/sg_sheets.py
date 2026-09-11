@@ -90,7 +90,7 @@ def sg001():
                  "TWO SUPPLIED DOCUMENTS, THEIR LIMITS, AND EVERY MASTER "
                  "A.6 / K.2 PARAMETER AGAINST THEM",
                  flags=("SG-V1", "SG-V2", "SG-V3", "SG-V9", "D3"),
-                 sheet_of="1 OF 3")
+                 sheet_of="1 OF 5")
 
     # ---------------------------------------------------- governing banner
     sh.rect(14, 494, 640, 540, "G-FLAGG")
@@ -279,7 +279,7 @@ def sg001():
     ], gap=6.0)
 
     X.evidence_key(sh, 14, 200, 300.0)
-    sh.finish(scale="NOT TO SCALE", sheet_of="1 OF 3")
+    sh.finish(scale="NOT TO SCALE", sheet_of="1 OF 5")
     return sh.save(os.path.join(
         OUT, "SG-001_Site_and_Geotechnical_Design_Basis.dxf"))
 
@@ -291,7 +291,7 @@ def sg101():
                  "A DIAGRAM OF THE SETTING - NOT A SITE PLAN, AND NOT "
                  "CAPABLE OF BECOMING ONE",
                  flags=("D3", "SG-V1", "SG-V4", "SG-V5", "SG-V9", "CAM-V2"),
-                 sheet_of="2 OF 3")
+                 sheet_of="2 OF 5")
 
     # ------------------------------------------------- the warning banner
     sh.rect(14, 508, 400, 540, "G-FLAGG")
@@ -526,7 +526,7 @@ def sg101():
     sh.text("MONSOON.  NO PROGRAMME DATE IS CHANGED HERE - A1080 is on the "
             "critical path.  SG-V3", (22, 130), 2.1, "M-FLAG")
 
-    sh.finish(scale="NOT TO SCALE", sheet_of="2 OF 3")
+    sh.finish(scale="NOT TO SCALE", sheet_of="2 OF 5")
     return sh.save(os.path.join(
         OUT, "SG-101_Site_Setting_Selection_and_Meteorology.dxf"))
 
@@ -577,7 +577,7 @@ def sg201():
                  "THE DEPTH THE INVESTIGATION REACHED, AND THE DEPTH THE "
                  "STRUCTURE NEEDS, AT ONE SCALE",
                  flags=("SG-V1", "SG-V2", "SG-V3", "SG-V6", "A1", "A2"),
-                 sheet_of="3 OF 3")
+                 sheet_of="4 OF 5")
 
     SC = 25.0                       # 1 : 25, both ways
     G = 496.0                       # paper y of level 0.000
@@ -878,7 +878,7 @@ def sg201():
     ], gap=5.0)
 
     X.evidence_key(sh, 404, 46, 240.0)
-    sh.finish(scale="1:25", sheet_of="3 OF 3")
+    sh.finish(scale="1:25", sheet_of="4 OF 5")
     return sh.save(os.path.join(
         OUT, "SG-201_Geotechnical_Profile_and_Structure_Section.dxf"))
 

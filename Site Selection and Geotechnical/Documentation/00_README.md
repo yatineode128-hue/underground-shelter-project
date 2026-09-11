@@ -1,4 +1,4 @@
-# Site Selection and Geotechnical — revision SG1
+# Site Selection and Geotechnical — revisions SG1 and SG2
 
 **11.09.2026** · GEOMETRY REV F + M1 · **FOR REVIEW - NOT FOR CONSTRUCTION**
 
@@ -27,7 +27,10 @@ extrapolation, and the supplied report cannot be read as confirming any of it.
 | `Schedules/GEOTECHNICAL_PARAMETER_RECONCILIATION` | every `A.6` / `K.2` item against the new evidence |
 | `Calculations/SG_CALC_OUTPUT.txt` | G.1–G.14, every conversion and check with its arithmetic shown |
 | `QAQC/SG_QAQC.md` · `QAQC/SG_DRAWING_VALIDATION.txt` | consistency checks and the DXF validator output |
-| `DXF/` | `SG-001`, `SG-101`, `SG-201` — A1, AutoCAD 2010 ASCII |
+| `Documentation/SITE_LAYOUT_AND_EXTERNAL_WORKS.md` | **SG2** — where the septic tank and the soak pits go, and why. Orientation, the reserve, the positions, the offsets demonstrated, the five pipe lengths, **`SG2-F1`** (the soak pit is a depth problem), the reserved fallback, the percolation-test locations, the `SG-V3` ruling, the rainfall amendment, and what `D3` still covers |
+| `Schedules/EXTERNAL_WORKS_SCHEDULE` · `EXTERNAL_PIPE_RUN_SCHEDULE` · `SITING_CLEARANCE_SCHEDULE` · `SG2_OPEN_ITEM_STATUS` | **SG2**, `.md` + `.csv` |
+| `Calculations/SG2_SITE_CALC_OUTPUT.txt` | **SG2** — S.1–S.12, every clearance computed against the rule it has to meet |
+| `DXF/` | `SG-001`, `SG-101`, **`SG-102`**, `SG-201`, **`SG-202`** — A1, AutoCAD 2010 ASCII, **0 errors** |
 | `Scripts/sg_build_all.py` | rebuilds the whole package |
 
 ## Sources

@@ -77,3 +77,59 @@ The single item that matters most:
 > 12 d) and `A1080` (groundwater monitoring, 20 d) are both on the **critical
 > path** and both still have to happen — and `A1080`'s window, 12 November to
 > 4 December, **is not in the monsoon** (`SG-F7` / `SG-V3`).
+
+---
+
+# SG2 QA/QC — SITE LAYOUT AND EXTERNAL WORKS
+
+**Revision SG2** · 11.09.2026 · **FOR REVIEW — NOT FOR CONSTRUCTION**
+
+## 1. What was checked, and how
+
+| # | Check | Method | Result |
+|---|---|---|---|
+| 1 | **Every siting clearance** | Computed from the positions in `sg_site.py` against the rule it must meet — `SG2_SITE_CALC_OUTPUT` §S.3, §S.4 | **PASS. 28 of 28 checks.** Tightest: foul group to excavation **15.49 m** (≥ 15 adopted), pit wall to pit wall **4.20 m** (≥ 4 adopted), soak pit to septic tank **5.40 m** (≥ 5 `[C]`) |
+| 2 | **The 50 m envelope holds everything** | Furthest point of every element measured from the pin — §S.2 | **PASS. Worst case 42.5 m of 50 m.** The binding element is the **sentry post**, whose position is `[ASSUMED]` (U4) |
+| 3 | **No pipe run crosses the engineered cover** | Every leg of every polyline checked against the box footprint X 0–22000, Y 0–6200 | **PASS.** Runs use the side **backfill** corridor (Y 6200–7200), which is not the cover |
+| 4 | **No pipe run crosses an excavation it should not** | `PD-11` was re-routed **west** for exactly this reason — it would otherwise cross the stairwell excavation | **PASS, by re-routing** |
+| 5 | **Drawings validate** | `mep_validate.py` | **PASS. 5 files, 0 errors, 0 warnings** |
+| 6 | **No text-on-text overlap** | `dxfqa.py` | **PASS. 0 overlaps on all five sheets** — *two were found on `SG-102` on the first pass (the common-trench caption against `SK-02`'s label, and the `PD-16` caption against `IC-02`'s) and both were moved; recorded rather than silently passed* |
+| 7 | **Sheet identity is consistent** | Every title block read back from the DXF | **PASS.** All five read rev **SG2**, sheets **1–5 OF 5** |
+| 8 | **Nothing outside this package changed** | `git status` across every other package directory | **PASS** |
+| 9 | **The drainage design is unchanged** | `SK-01` diameter, effective depth, side area and required area all read from the DR1/RC1 values and reproduced | **PASS — 2.200 dia × 3.500 eff, 24.19 m² vs 22.50, unchanged** |
+| 10 | **Every other package still regenerates byte-identically** | All seven re-run | **PASS** — only timestamps, GUIDs and CLASS order differ |
+
+## 2. What was **not** checked, and cannot be
+
+| Item | Why |
+|---|---|
+| **The ≥ 15 m offset to any well** | **No well position exists anywhere in this project.** Not fudged, not assumed met — `SG2-V1` |
+| **Any absolute level in the reserve** | No benchmark exists and the site fall is itself disputed (`SG-V4`). Pit levels are therefore set **relative to local grade**, which is also how a soak pit is built |
+| **Whether the percolation rate is 20 L/m²/day** | The test has not been done. `SG2-F1` is deliberately an argument that **does not depend on it** — it is geometry against a stated water level, plus the measured stratum thicknesses |
+| **`PD-14`'s route** | It cannot be routed. `GY-11`'s outlet is inside the pressure slab — `SG2-F5`, referred to drainage and structures |
+| **The distance to the perimeter fence** | Never dimensioned anywhere — `SG2-V2`. The layout is built to be immune: every offset is relative |
+| **Whether the pin is the box centre** | An **adopted convention** `[A]`, stated as one. If it is not, the layout translates rigidly |
+
+## 3. Declared deviations
+
+| Item | Position |
+|---|---|
+| Four clearance rules are `[A]`, adopted by this package | No pit-to-pit, foul-to-clean or excavation-offset rule is recorded in this project or on S-06. Each is stated **with its reasoning** in `SITING_CLEARANCE_SCHEDULE`, and the pit-to-pit one is explicitly **referred to the geotechnical engineer** |
+| `SK-03` and `SK-04` are **reserved, not designed** | Neither is sized anywhere in the project (`[C]`/`[N]` in DR1). Their footprints are reserved to the SK-01/SK-02 detail |
+| The three SG1 sheets were **re-issued at SG2** | Content unchanged; only the revision and sheet-count fields move. The SG1 *documents* stay at SG1 — that revision happened and Part H preserves it (`M.11`) |
+| `SG2-F1` states a conclusion about SK-01 **without changing it** | The percolation test governs the final size and form — master `A7`, and RC1 said so too. SG2 quantifies and reserves; it does not redesign |
+
+## 4. Status
+
+**NOT CONSTRUCTION-READY.** Five new open items `SG2-V1`…`SG2-V5`; ten SG1
+items, of which one is closed (`SG-V9`), one ruled (`SG-V3`) and one amended
+(`SG-V5`).
+
+The single item to act on first:
+
+> **`SG2-F1` — the soak pit's problem is depth, not arithmetic.** At this site
+> a 3.5 m deep pit is **21–43 % above the design water table** and its only
+> demonstrably permeable horizon is **0.2–0.5 m thick**. The percolation test
+> (`PT-1` and `PT-2`, positions fixed in §S.8) should be taken at **both** the
+> pit invert and the trench invert — or the fallback is undesigned the day the
+> pit is abandoned.

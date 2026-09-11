@@ -40,8 +40,20 @@ MAIN STAIRCASE: FROZEN.  Nothing in this package refers to it except to say so.
 """
 
 PACKAGE = "SITE SELECTION AND GEOTECHNICAL"
+
+# REV / PACKAGE_DATE identify the SG1 RECORD - the documents, schedules and
+# calculation SG1 produced.  They are not bumped, because SG1 is a revision
+# that happened and Part H preserves it (rule M.11).
 REV = "SG1"
 PACKAGE_DATE = "11.09.2026"
+
+# PKG_REV is the CURRENT revision of the package, and it is what every DRAWING
+# title block carries - a drawing always shows the revision it is issued at.
+# At SG2 the three SG1 sheets were re-issued with NO CONTENT CHANGE beyond the
+# revision and sheet-count fields; SG-102 and SG-202 are new.
+PKG_REV = "SG2"
+PKG_DATE = "11.09.2026"
+SHEETS_TOTAL = 5
 GEOM_REV = "GEOMETRY REV F + M1"
 STATUS = "FOR REVIEW - NOT FOR CONSTRUCTION"
 

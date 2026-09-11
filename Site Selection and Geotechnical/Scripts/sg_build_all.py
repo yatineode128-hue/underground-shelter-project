@@ -1,11 +1,10 @@
 """
 sg_build_all.py  --  rebuild the SITE SELECTION AND GEOTECHNICAL package
-(revision SG1).
+(revisions SG1 + SG2).
 
     python3 sg_build_all.py
 
-Runs sg_calc.py, sg_schedules.py, sg_docs.py and sg_sheets.py, then validates
-the three drawings with the project's own shared validator and writes the
+Runs the SG1 modules then the SG2 modules, then validates all five drawings with the project's own shared validator and writes the
 validation report into QAQC/.
 
 NOTHING IN ANY SHARED LIBRARY IS MODIFIED.  sg_dxf.py subclasses
@@ -32,10 +31,13 @@ def run(script):
 
 
 def main():
-    run("sg_calc.py")
-    run("sg_schedules.py")
-    run("sg_docs.py")
-    run("sg_sheets.py")
+    run("sg_calc.py")          # SG1 - the geotechnical calculation
+    run("sg_schedules.py")     # SG1 - five schedules
+    run("sg_docs.py")          # SG1 - the section, README, drawing index
+    run("sg_sheets.py")        # SG1 - SG-001, SG-101, SG-201
+    run("sg_site_calc.py")     # SG2 - the siting calculation
+    run("sg_site_docs.py")     # SG2 - the layout section + four schedules
+    run("sg_site_sheets.py")   # SG2 - SG-102, SG-202
 
     print("\n=== validation " + "=" * 51)
     r = subprocess.run([sys.executable,
