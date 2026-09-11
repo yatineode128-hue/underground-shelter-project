@@ -7,7 +7,7 @@
 **Compiled from:** Phase 1 Design Report Rev D (126 KB, 2000 lines), ten Rev F architectural DXF files, nineteen STAAD.Pro screen captures, and the full Phase 2 structural design work.
 **Covers:** Phase 1 (architectural + basis of design, complete) and Phase 2 (structural design + drawings, substantially complete).
 **Discipline packages:** Structural CAD **SC1** · Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** · Works Management **WM1** (7 Sep 2026, Part H.10) + **WM2** (10 Sep 2026, Part H.13 — the owner's own BOQ, cost estimate and master construction schedule R0).
-**Drawing QA/QC:** **QA1** (9 Sep 2026, Part H.11) — all 65 DXF sanitised in place.
+**Drawing QA/QC:** **QA1** (9 Sep 2026, Part H.11) — all 65 DXF sanitised in place; **QA2** (11 Sep 2026, Part **H.25**) — the whole package re-scanned at **80 DXF, 74 PASS**, after the twelve sheets EM1 / EL1 / SG1 / SG2 added were found to be invisible to the index tool.
 **Latest design changes:** **BS1** (burster slab laid to a 1:50 crossfall) and **SP-B2** (sentry post lintel L1 + wall ties) — 10 Sep 2026, Part H.12.
 **Fire:** **FS1** (10 Sep 2026, Part H.17) — a fire safety and evacuation plan; there was none before.
 **Concealment:** **CAM1** (10 Sep 2026, Part H.16) — a short camouflage and concealment policy; it did not exist before.
@@ -17,7 +17,7 @@
 **Site and ground:** **SG1** (11 Sep 2026, Part **H.22**) — **the project's first site selection and geotechnical section.** Two owner-supplied documents recorded, checked against each other and against this master. **It resolves nothing: not one `K.2` assumption is closed.** Its governing finding — **the sub-soil investigation reached about 1.5 m; the structure founds at (−)6.800** — and the first written **provenance of the design GWT (−)2.000**. Ten new open items `SG-V1…V10`.
 **Drainage on the architectural sheets:** **DR-A1** (11 Sep 2026, Part **H.24**) — `SU-01` drawn on `A-202`, `ST-01` and `SK-01` drawn on `A-301` beyond a break. **No design value changed.** It raises **`DR-A1-V1`**: the project holds **two different assumed sentry-post positions**, and the elevation's would stand inside `SG2`'s external works reserve.
 **Site layout:** **SG2** (11 Sep 2026, Part **H.23**) — **the project's first site layout plan.** On a coordinate and a 50 m envelope the owner supplied, master `H.9`'s *"not determinable"* external works positions, **four of five pipe lengths** and **two of three IS 2470 offsets** are **determined**. Site orientation fixed: **+X = EAST**. Principal finding **`SG2-F1` — the soak pit's problem is DEPTH, not arithmetic**: 21–43 % of its required area is above the design water table and its only permeable horizon is 0.2–0.5 m thick, so the fallback dispersion field is reserved rather than the pit re-sized. **`SG-V9` closed · `SG-V3` ruled · `SG-V5` amended · five new items `SG2-V1…V5` · master gap D3 PARTIALLY closed.**
-**Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, sentry post drawing S-07 equivalent.
+**Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and the sentry post beam / column / footing sheet **S-09** (Part E.3.3).
 
 ---
 
@@ -295,6 +295,53 @@ Siting                 >= 10 m clear of the shelter excavation
 > **WM-V7 IS NOT CLOSED AND CANNOT BE CLOSED HERE: brick masonry does not give the
 > ballistic protection the Rev F "200 RC ballistic panels" were named for.** That is a
 > client / military decision, not a drafting one. `[C] instruction / [R] IS 456 design`
+
+### A.4.9 Exit hatches and blast doors — every opening through the protective boundary
+
+> **Added by RC3, 11 September 2026 (Part H.27).** Nothing here is new design. Every value is
+> collected from A.2, A.3, A.4.6, A.4.7, B.2, B.6, F.1 and the FS2 escape-route schedule, so
+> that the openings through the boundary can be read in one place instead of six.
+
+**Doors**
+
+| Mark | Where | Leaf | Level | Rating | Class |
+|---|---|---|---|---|---|
+| **Blast Door 1** | **W6**, X 14800–15200 (400 thk), opening Y 600–1800 — stair shaft → Bay 6 | **1200 × 2100** | **(−)6.100** | **≥ 7 bar, gas-tight, rebound-rated** | [C] geometry · **[V] the door itself is proprietary** |
+| **Blast Door 2** | **W7**, X 18000–18400 (400 thk), opening Y 600–1800 — stair shaft → Bay 8 | **1200 × 2100** | **(−)6.100** | **≥ 7 bar** | [C] geometry · **[V]** |
+| Inner security door | **HW2**, the headhouse north wall, X 14450–15350 | 900 × 2100 | (−)2.000 | **NOT blast rated** | [C] |
+| Entry door | Entry stairwell headwall, X 9250–9500, **opens outward** | 1000 × 2100 | 0.000 | **NOT blast rated** — outside the boundary, declared expendable | [C] |
+| **D-05, the W5 gas-tight door** | **W5, X 12600–12800** | — | (−)6.100 | — | **[NOT AVAILABLE].** W5 is designated *fire and gas-tight* and **no door exists in it anywhere in the project** (FS-1 / FN-U1). Escape route R1 has to cross it |
+| W8 partition gaps ×4 | 3500–3610, 5410–5520, 9020–9130, 10930–11040 | **permanent 900 gap, Y 2500–3400** | (−)6.100 | **no doors, by design** | [C] |
+
+**Both blast doors are the protective boundary.** They sit in the same plane as W6/W7, and
+Finding F1 is why those walls are 400 thk: the shaft equalises to full p<sub>so</sub>, so the
+doors and the walls beside them take the same 383 kPa. The opening reinforcement is in B.2 —
+**4-T20 each jamb each face** anchored L<sub>d</sub> 800 beyond, and a **400 × 1100 header,
+4-T20 top + 4-T20 bottom, T12 4-leg links @ 150.** Each frame is a **cast-in steel frame
+anchored into and welded to the cage**, which is both the blast fixing and the only EMP
+continuity the opening has.
+
+**Escape shaft heads**
+
+| | **ESC 1** | **ESC 2** |
+|---|---|---|
+| Bay / centre | Bay 1, **(2050, 2050)** | Bay 8, **(19900, 2050)** |
+| Shaft | **1400 dia clear**, 250 RC collar, OD 1900 | as ESC 1 |
+| Head level | **+0.150** | **+0.700** |
+| Climb from (−)6.100 | **6.250 m** | **6.800 m** |
+| Route | **R2** | **R3** — **shares Bay 8 with the generator (FS-3)** |
+
+> **What the project does not hold for these two heads — and must not be invented:**
+> **(1) No hatch.** Neither shaft head has a leaf, a frame, a fixing or a bonding detail
+> anywhere `[N]` (**EM-V6**). EM1 established what it has to be — a **bonded conducting hatch
+> at the head**, because a 1400 dia shaft propagates above **125.5 MHz** however well it is
+> lined — but the specification itself is vendor data the project does not contain.
+> **(2) No way to climb either shaft.** There is no ladder, no rung and no fall-arrest
+> specified in either `[N]` (**FS-V7**). These are **6.250 m and 6.800 m vertical climbs** and
+> they are two of the three escape routes. **This one needs a design, not a ruling.**
+> **(3) No blast-door vendor data of any kind**, RF performance included `[N]` (**EM-V6**, and
+> one of the 13 gaps). Blast Door 1 is the only thing across the entry path's open
+> electromagnetic route from grade to Bay 7 (**EM-F1**).
 
 ## A.5 Materials — CURRENT
 
@@ -610,7 +657,7 @@ SEISMIC 73.18 kN vs WIND 29.9 kN  →  SEISMIC GOVERNS 2.4 : 1
 > γ = 1.0 on blast because it is an extreme event checked against ULTIMATE capacity with DYNAMIC material strengths (IS 4991 Cl. 10.3.1). Applying 1.5 while also taking the 25 % material bonus would be inconsistent.
 > **Wind and earthquake are absent from 103 — IS 4991 Cl. 11.1** forbids combining them with blast.
 
-**Sentry post (15 combinations, matching the STAAD model) — [CONFIRMED from screenshots]**
+**Sentry post (16 combinations, matching the STAAD model) — [CONFIRMED, read from `current/staad/Sentry_Post_Framed_Seismic.std`]**
 
 | No. | Combination |
 |---|---|
@@ -629,6 +676,9 @@ SEISMIC 73.18 kN vs WIND 29.9 kN  →  SEISMIC GOVERNS 2.4 : 1
 | 113 | 0.9 DL + 1.5 EQ−Z |
 | 201 | 1.0 DL + 1.0 LL — SERVICE |
 | 202 | 1.0 DL + 1.0 EQ+X — **DRIFT CHECK, IS 1893 Cl. 7.11** |
+| 203 | 1.0 DL + 1.0 EQ+Z — **DRIFT CHECK, IS 1893 Cl. 7.11** |
+
+> **RC3 correction, 11 September 2026 (Part H.27).** This table read *"15 combinations"* and stopped at 202, on the authority of the screen captures. The `.std` file itself carries **sixteen** `LOAD COMB` cases — **203, the second drift check, was missing here and in Part L.** `QUICK_STATE.md` had flagged the shortfall; the master had not been corrected. **No combination factor, member force or bar changes — 203 is a serviceability drift check that was already in the model being designed to.** `[C] read from the .std`
 
 ---
 
@@ -766,9 +816,13 @@ FLOTATION — THE CONSTRUCTION STAGE GOVERNS
 | 3 box complete, no backfill  | 7 528 kN | 6 175 kN | 1.22  MARGINAL | 0.86  FLOATS |
 | 4 backfilled + cover         | 12 453 kN| 6 175 kN | 2.02  OK       | 1.41  OK |
             Require FoS ≥ 1.2.  ULS COMB 102 = 0.9 × 12453/(1.5 × 6175) = 1.21
-            Uplift acts on the REAL 133.92 m² underside, not the plate mid-surface area.
-            At the M1 geometry (22000) both uplift and resistance scale with length,
-            so EVERY FoS IS UNCHANGED.
+            Uplift acts on the REAL underside, not the plate model's mid-surface area.
+            *** THE ABSOLUTE FIGURES IN THIS TABLE ARE AT THE PRE-M1 21.600 BOX ***
+            21.600 × 6.200 = 133.92 m²  ->  46.11 × 133.92 = 6175 kN  (table)
+            22.000 × 6.200 = 136.40 m²  ->  46.11 × 136.40 = 6289 kN  (A.7.2, CURRENT)
+            Both uplift and resistance scale with length (× 22.0/21.6 = 1.01852), so
+            EVERY FoS IS UNCHANGED: 0.325 / 0.778 / 1.219 / 2.017, and COMB 102 stays
+            0.9 × 12684/(1.5 × 6289) = 1.21.  THE HAND CHECK USES 136.40 m² / 6289 kN.
 
 MANDATORY MITIGATION — a design output, not a contractor's problem:
   1 Continuous dewatering from start of excavation until backfill and cover complete
@@ -1346,10 +1400,21 @@ ANCHORAGE  Column starters T16: Ld,compression = 37 × 16 = 592 mm
 
 ## D.1 Model inventory
 
-| Model | File name shown in the title bar | Status |
-|---|---|---|
-| Underground box | `Underground_Structure_WITH_LOADS_worked_example (4)` | [CONFIRMED] |
-| Sentry post | `Sentry_Post_Framed_Seismic` | [CONFIRMED] |
+| Model | File in `current/staad/` | Role | Status |
+|---|---|---|---|
+| Underground box — reference | `Underground_Structure_WITH_LOADS_worked_example (4).STD` | The reconciled Phase 2 Rev A + M1 plate model. **Every Part B box value is checked against this one** | [CONFIRMED] |
+| Sentry post | `Sentry_Post_Framed_Seismic.std` | Two-storey RC frame, seismic | [CONFIRMED] |
+| Entry stairwell | `Entry_Stairwell.std` | Covered approach stairwell, **static only, not blast rated** (Part B.6) | [CONFIRMED] |
+| Underground box — COARSE | `Underground_Shelter_Mesh_Coarse.std` | Mesh sensitivity study **MS1** (Part H.5) — 324 joints, 336 plates | [CONFIRMED] |
+| Underground box — MEDIUM | `Underground_Shelter_Mesh_Medium.std` | MS1 reference mesh, copy of the model above — 1 113 joints, 1 138 plates | [CONFIRMED] |
+| Underground box — FINE | `Underground_Shelter_Mesh_Fine.std` | MS1 h/2 refinement — 4 500 joints, 4 552 plates | [CONFIRMED] |
+
+> **RC3 correction, 11 September 2026 (Part H.27).** This table listed **two** models, named
+> from the STAAD screen captures, and Part L still read *"2 models exist; .std NOT uploaded;
+> screenshots only."* **Six `.std` files are in the workspace and have been read, reconciled
+> and edited in it** — the underground box and `Entry_Stairwell.std` at **M1** (H.4), the three
+> mesh models built at **MS1** (H.5), and all four box models corrected at **MS2** (H.26).
+> The screen captures are no longer the only evidence of anything. **No model value changes.**
 
 **Units:** metres and kilonewtons throughout (node table headed "X m / Y m / Z m", reactions "kN", moments "kN-m"). [CONFIRMED]
 **Coordinate system:** STAAD global — **Y is vertical**, X and Z horizontal. [CONFIRMED]
@@ -1672,7 +1737,18 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 
 ## E.4 The DXF generation toolchain — CRITICAL FOR REGENERATION
 
-> **The output DXFs were not hand-drafted. They are produced by a dependency-free Python toolchain built inside this project. `ezdxf` is NOT available in the environment and the network is disabled — the writer is hand-rolled.**
+> **The output DXFs were not hand-drafted. They are produced by a dependency-free Python
+> toolchain built inside this project — the S-01…S-08 writer below is hand-rolled and has no
+> third-party dependency.**
+>
+> **RC3 correction, 11 September 2026 (Part H.27).** This paragraph used to end *"`ezdxf` is NOT
+> available in the environment and the network is disabled."* That has not been true since
+> **QA1** (Part H.11): `ezdxf` is installed and **sixteen scripts in the workspace import it** —
+> the whole of `DRAWING QAQC/Scripts/`, `Drainage/Scripts/mep_render.py` and `mep_validate.py`,
+> four scripts in `Structural CAD/Scripts/`, and all four in `current/cad/Scripts/`. The
+> hand-rolled `dxflib.py` writer below is still the S-series toolchain's own writer, and it is
+> still absent from the workspace. **Nothing about any drawing changes; this corrects a
+> statement about the environment, not about the design.**
 
 | File | Purpose |
 |---|---|
@@ -1927,7 +2003,8 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 **Verified after build:** all three files terminate with `FINISH`; every element/joint reference
 in `SUPPORTS`, `ELEMENT LOAD`, `DESIGN ELEMENT` and `PRINT SUPPORT REACTION LIST` resolves;
 every plate has a `THICKNESS`; the reference `.STD` is confirmed byte-identical to its
-pre-study copy (`git diff` clean). The main staircase is not represented in this plate model
+pre-study copy (`git diff` clean) — **true of MS1; superseded by MS2, Part H.26, which
+corrected all four box models as INPUT FILES while leaving every analysis value unchanged**. The main staircase is not represented in this plate model
 (it is a separate `.std` and DXF set, per the Frozen section of `CLAUDE.md`) and was not
 touched. `Entry_Stairwell.std` and `Sentry_Post_Framed_Seismic.std` were not touched.
 
@@ -3962,6 +4039,116 @@ overlaps** on either sheet (A-202's three are the pre-existing Rev F bay-label p
 alone); **no text outside the inner sheet border**; A-202's drawing extents are unchanged.
 **K.1b goes from thirty-two open items to thirty-three** — one new, `DR-A1-V1`; none closed.
 
+> **CORRECTED BY QA2, 11 September 2026 (Part H.25). The sentence "0 new text overlaps on
+> either sheet" above is preserved under M.11 and is WRONG for A-301.** `DR-A1` placed its own
+> revision line in A-301's title block **on the same row as `QA1`'s and overlapping it by 1 454
+> units**; A-202, the other sheet it edited, was done correctly. The check that would have
+> caught it — `DRAWING QAQC/Scripts/qa_report_data.py` — **could not see the sheet's new
+> content because it had not been re-run since `QA1`**, and the index it writes had frozen at
+> 68 drawings. Both the overlap and the tool are fixed at **QA2**; see H.25.
+
+---
+
+## H.25 Drawing package re-scanned — revision QA2 — 11 September 2026
+
+> **QA2 is a drafting QA/QC pass, not a design change.** No dimension, level, load, bar mark,
+> quantity, rate, date or float moved, and **STAAD.Pro was not run.**
+
+| # | Finding | Files | Status |
+|---|---|---|---|
+| **QA2-1** | **The drawing index had silently frozen at 68 while the package grew to 80.** `qa_report_data.py` globs every `*.dxf` in the project but maps each to a discipline through a **hard-coded prefix list** that ended at `Site and Concealment/DXF/`. The twelve sheets added by **EM1** (6), **EL1** (1), **SG1** (3) and **SG2** (2) fell through to `OTHER` and were dropped when `make_index.py` grouped by its own `ORDER` list. The index states in its own header that it *"cannot drift from the drawings"* — **it had.** | `DRAWING QAQC/Scripts/qa_report_data.py`, `make_index.py` | **FIXED** — three prefixes added to `DISCIPLINE`, three names to `ORDER`. Index regenerated from the files: **80 DXF, 74 PASS.** No drawing changed |
+| **QA2-2** | **A-301 carried a text overlap that `DR-A1` introduced and nothing had looked for.** `DR-A1` put its revision line at `(0.0, −31075.0)`, the same row as `QA1`'s at `(−6183.1, −31075.0)`, **overlapping by 1 454 units**. A-301's revision band is 400 units tall and the two notes are 7 637 and 8 045 wide against a band 14 396 wide — **they were never going to fit side by side.** A-202, the other sheet `DR-A1` edited, had already stacked them correctly | `current/cad/5_Front_Elevation.dxf` | **FIXED** — stacked to match A-202: both left-aligned at x −6183.1, `QA1` lifted to y −30905, `DR-A1` at y −31075. **Neither note shortened, no other entity touched.** Editing this DXF directly is permitted — the ten Rev F drawings are source, not build artefacts |
+| **QA2-3** | The twelve late sheets, scanned for the first time | `EMP Protection/DXF/` ×6, `Electrical/DXF/` ×1, `Site Selection and Geotechnical/DXF/` ×5 | **ALL PASS — 0 text overlaps, 0 annotations over line work, 0 geometry in a notes panel.** They introduced no defect |
+
+**Package state after QA2:** **80 DXF · 75 A1 · 4 A4 · 1 A0 · 74 PASS · 6 REVIEW REQUIRED**
+(the same six Rev F sheets QA1 §5 already lists) · **2 text-on-text overlaps, both on A-204**
+· 10 annotations over line work · 35 legend samples inside legend panels, still legitimate ·
+**80 of 80 carrying a title block.** Full record in `DRAWING QAQC/QAQC_REPORT.md` §10.
+
+> **The lesson, recorded because it will recur:** the index is only self-updating for
+> disciplines already on its list. **Any future package must add its own `DXF/` prefix to
+> `DISCIPLINE` and its name to `ORDER`, or it will be invisible to the QA tool exactly as
+> these twelve were.**
+
+---
+
+## H.26 STAAD input-file corrections — revision MS2 — 11 September 2026
+
+> **MS2 corrects the `.std` INPUT FILES. It changes NO analysis model.** Geometry,
+> thicknesses, materials, supports, load magnitudes, load case numbers and all five (box) /
+> sixteen (sentry) combinations are untouched. **STAAD.Pro is still not available here; no
+> analysis was run and MS1 §5 stays PENDING.**
+
+The project owner ran `Underground_Shelter_Mesh_Coarse.std` in STAAD.Pro — **the first time any
+model in this project has been opened in STAAD** — and it reported errors. The three mesh models
+and the reference model were re-read line by line against each other.
+
+| # | Defect | Evidence | Files | Fix |
+|---|---|---|---|---|
+| **MS2-1** | **Three `LOAD 6` (EP1) south-wall lines were 80 columns against the file's own `INPUT WIDTH 79`.** STAAD reads 79 columns and discards the rest, so it read **−77.6 / −57.3 / −37.0** where the file says **−77.64 / −57.36 / −37.07**. The north wall (79 columns) was read correctly, so **`LOAD 6` no longer balanced: 4 848.4 kN in +Z against 4 843.6 kN in −Z**, an out-of-balance of **4.8 kN** on a case that is self-equilibrating by construction — and the file asks for `PERFORM ANALYSIS PRINT STATICS CHECK`, which is exactly the check that reports it | Line lengths 80 at lines 326 / 331 / 336; re-reading the file truncated at column 79 reproduces the imbalance, and the un-truncated file is exactly balanced | `Underground_Shelter_Mesh_Coarse.std` | **FIXED** — split on the STAAD `-` continuation character, 12 element IDs then the remainder, the way the reference model already writes its own longer lists. **Every data line in all four box models is now ≤ 79 columns** |
+| **MS2-2** | **`LOAD 10` was defined AFTER `LOAD 11`** in all four box models, so the primary load case numbers ran 1…9, 11, 10 | File order | all four box `.std` | **FIXED** — `LOAD 10` moved ahead of `LOAD 11`. **Physically neutral**: combinations reference cases by number, and 101–105 are byte-identical before and after |
+| **MS2-3** | Corner spring **`KFY` at joint 1 was 27562** where the model's own formula `k_s × 0.25 × Δx × Δz` gives **27562.5**, `MESH_SENSITIVITY_STUDY.md` §3 gives **27563**, and the sibling half-value **16537.5 was rounded up to 16538** three lines below | The study's own derivation | `Underground_Shelter_Mesh_Coarse.std` | **FIXED** — **27563**. A 0.5 kN/m difference on one corner spring; the point is that the file now agrees with its own documentation |
+| **MS2-4** | The `LOAD 11` title line and the MEDIUM model's `JOB CLIENT` line also exceeded 79 columns (titles only, no numeric consequence) | Line lengths 80 and 114 | all four box `.std` | **FIXED** — both shortened to fit |
+
+**Verified after the edits, on all four box models:** 324 / 1 113 / 4 552-plate topology
+unchanged and clean — every element resolves to defined joints, no repeated node, no
+degenerate or non-planar quadrilateral, no duplicate coordinate, no duplicate element, no
+unused joint, no gap in the element numbering; **every joint still satisfies the model's own
+numbering rule** `n = (k−1)·NI·NJ + (i−1)·NJ + j` (324, 1 113 and 4 500 joints, zero
+mismatches); and, **re-read as STAAD reads them at 79 columns**, COARSE, MEDIUM and FINE now
+produce **identical panel-by-panel load resultants for all eleven load cases** — mat, roof,
+each of the four external walls, W6 and W7 — which they did not before.
+
+> **What MS2 did NOT do.** No geometry, thickness, material, support stiffness, load
+> magnitude, load case number or combination factor changed. `Sentry_Post_Framed_Seismic.std`
+> and `Entry_Stairwell.std` were not touched. **No analysis was run and no result exists.**
+> The main staircase is not in these models and was not touched.
+>
+> **Supersedes one claim, preserved under M.11:** H.5 and `MESH_SENSITIVITY_STUDY.md` §7 record
+> the reference `.STD` as *"byte-identical, unmodified"* after MS1. **That was true of MS1 and
+> is no longer true after MS2** — the reference model now carries MS2-2 and MS2-4, in common
+> with the other three. Its analysis content is still byte-identical.
+
+---
+
+## H.27 Project-wide reconciliation — revision RC3 — 11 September 2026
+
+> **RC3 is a documentation pass. It resolves contradictions INSIDE this project's own record
+> against evidence already in the workspace. It rules NOTHING that needs outside information,
+> closes no `K.1b` item, converts no evidence tag, and changes no design value.**
+
+| Ref | Contradiction | Ruled by | Outcome |
+|---|---|---|---|
+| **RC3-1** | **A.7.9 and Part L said the sentry post has 15 load combinations** and stopped at `202`. The `.std` has **sixteen** — `203`, the second drift check, was missing from both | `current/staad/Sentry_Post_Framed_Seismic.std`, read directly. `QUICK_STATE.md` had already flagged it; the master had never been corrected | **A.7.9 and Part L corrected to 16, `203` added.** No factor, force or bar changes |
+| **RC3-2** | **Part L read *"STAAD — 2 models exist; .std NOT uploaded; screenshots only"*** and D.1 listed two models | Six `.std` files are in `current/staad/` and have been edited there at H.4, H.5 and H.26 | **D.1 rebuilt as a six-model inventory with joint/plate counts; Part L STATUS corrected.** The 19 screen captures are no longer the only evidence of anything |
+| **RC3-3** | **Part L read *"DXF — 8 output sheets S-01…S-08, validated"*** while I.3, M.3 and `CLAUDE.md` all say seven of the eight are absent and cannot be regenerated | The file listing: `current/cad/` holds the ten Rev F drawings and **S-06 only** | **Part L STATUS corrected** to 80 DXF / 74 PASS, S-06 the only S-series sheet present. I.3 and E.3.3 already said so and are unchanged |
+| **RC3-4** | **E.4 said *"`ezdxf` is NOT available in the environment and the network is disabled"*** | **Sixteen scripts in the workspace import `ezdxf`** and have run — all of `DRAWING QAQC/Scripts/`, two in `Drainage/Scripts/`, four in `Structural CAD/Scripts/`, four in `current/cad/Scripts/` | **E.4 corrected.** The hand-rolled `dxflib.py` is still the S-series writer and is still absent |
+| **RC3-5** | **I.1 listed `Phase1_Design_Report_RevD.md`, `SK02_Underground_Plan.png` and the 19 STAAD captures as `CURRENT`**, which reads as present and openable | The repository holds **no `.png` and no image of any kind**, and no such `.md` | **Marked NOT IN THIS WORKSPACE, not deleted.** They are the provenance of Part A and every value they support is already transcribed with its tag |
+| **RC3-6** | **The document header said Phase 3 includes *"sentry post drawing S-07 equivalent"*** — but S-07 already exists (entry stairwell flight), and E.3.3 and Part L both name the sentry sheet **S-09** | E.3.3, Part L | **Header corrected to S-09** |
+| **RC3-7** | **`CLAUDE.md` said *"Open item C16 (roof/platform junction) is not resolved"*** | H.3, H.14 and K.1 all record **C16 RULED AT 250 AND CLOSED** by RC1 on 10 Sep 2026, and A.4.7 carries the corrected clause | **`CLAUDE.md` corrected.** The stale instruction would have had a future session re-open a closed item |
+| **RC3-8** | **`QUICK_STATE.md` said *"`current/staad/` — 3 STD"* and carried QA1's 65 / 68 drawing counts** | Six `.std`; 80 DXF | **`QUICK_STATE.md` refreshed** |
+| **RC3-9** | **H.24 claimed *"0 new text overlaps on either sheet"* for `DR-A1`** | A-301 carries one, introduced by DR-A1 | **Flagged in place under M.11 and fixed at H.25 (QA2-2)** |
+| **RC3-10** | **B.3's flotation table is computed on the PRE-M1 underside** — 21.600 × 6.200 = **133.92 m², uplift 6175 kN** — while A.7.2 and every other statement in the project use **136.40 m², 6289 kN**. B.3 also read *"uplift acts on the REAL 133.92 m² underside"*, which since M1 has not been the real underside | Arithmetic: 46.11 × 133.92 = 6175; 46.11 × 136.40 = 6289. Weights scale by 22.0/21.6 = 1.01852 | **B.3 annotated, table preserved.** **No FoS changes** — both uplift and resistance scale with length, so 0.33 / 0.78 / 1.22 / 2.02 and COMB 102 = 1.21 all stand exactly as recorded, which is what B.3 already claimed and is now shown. **The hand check must use 136.40 m² / 6289 kN** |
+
+**Also produced by RC3:** master **A.4.9**, a single short register of **every opening through
+the protective boundary** — both blast doors, the inner security door, the entry door, the
+missing W5 door `D-05`, the four permanent W8 gaps and the two escape shaft heads — collected
+from A.2, A.3, A.4.6, A.4.7, B.2, B.6, F.1 and the FS2 escape-route schedule. **It states no new
+value.** It also states, in one place, the three things the project does **not** hold for those
+openings and must not invent: **no escape-shaft head hatch** `[N]` (EM-V6), **no ladder, rung or
+fall-arrest in either 6.250 m / 6.800 m shaft** `[N]` (FS-V7), and **no blast-door vendor data
+of any kind**, RF performance included `[N]`.
+
+And `CONSOLIDATED_PROJECT_REPORT.md` — the project stated once, at its current state, for
+reproduction. See I.2.
+
+> **What RC3 did NOT do.** **No `K.1b` item is closed and none is downgraded.** No `[ASSUMED]`,
+> `[UNRESOLVED]` or `[NOT AVAILABLE]` tag was converted. No dimension, level, load, thickness,
+> bar, quantity, rate, date or float changed. **STAAD.Pro was not run.** No superseded text was
+> deleted — every correction above sits beside the record it corrects, per M.11. **The main
+> staircase is untouched:** 24 risers, 170.8333 mm, 280 mm tread, 3 flights × 8, total rise
+> 4100 mm.
+
 ---
 
 # PART I — PROJECT FILE MANIFEST
@@ -3986,9 +4173,18 @@ alone); **no text outside the inner sheet border**; A-202's drawing extents are 
 | `3_Sentry_Post_Ground_Floor_Plan.dxf` | DXF | F | Sentry GF | CURRENT |
 | `4_Sentry_Post_First_Floor_Plan.dxf` | DXF | F | Sentry FF | CURRENT |
 | `6_Sentry_Post_Framing_Plan.dxf` | DXF | F | **Primary source for the sentry frame + load schedule** | CURRENT |
-| `Phase1_Design_Report_RevD.md` | Markdown, 126 KB | **D** | **Primary source for loads, materials, geotech** | **CURRENT for loads/materials; SUPERSEDED for the entrance (C1) and headhouse roof (C2)** |
-| `SK02_Underground_Plan.png` | PNG | — | Coloured GA plan, presentation graphic | CURRENT |
-| 19 STAAD screen captures | PNG | — | **The only evidence of the STAAD models** | CURRENT |
+| `Phase1_Design_Report_RevD.md` | Markdown, 126 KB | **D** | **Primary source for loads, materials, geotech** | **CURRENT for loads/materials; SUPERSEDED for the entrance (C1) and headhouse roof (C2). NOT IN THIS WORKSPACE — see note** |
+| `SK02_Underground_Plan.png` | PNG | — | Coloured GA plan, presentation graphic | CURRENT. **NOT IN THIS WORKSPACE** |
+| 19 STAAD screen captures | PNG | — | How the STAAD models were originally recorded | CURRENT. **NOT IN THIS WORKSPACE, and no longer the only evidence — the six `.std` files are (Part D.1)** |
+
+> **RC3 correction, 11 September 2026 (Part H.27).** The three rows above were listed as
+> `CURRENT` without qualification, which reads as *present and openable*. **They are not in the
+> repository** — it holds no `.png`, no `.md` named `Phase1_Design_Report_RevD`, and no image of
+> any kind. They were supplied to the project, this master was compiled from them, and **every
+> value they support is already transcribed into Parts A, B, D and F with its evidence tag** —
+> which is why nothing downstream depends on re-opening them. **Recorded as absent rather than
+> deleted: they are the provenance of Part A, and M.11 forbids editing a record away.** Re-upload
+> is required only to re-derive something Parts A–F do not already carry. `[C] file listing`
 
 ## I.2 CURRENT FILES — output (generated in this project)
 
@@ -4152,6 +4348,17 @@ alone); **no text outside the inner sheet border**; A-202's drawing extents are 
 | `…/DXF/SG-102_Site_Layout_Plan.dxf` | **THE PROJECT'S FIRST SITE LAYOUT PLAN.** 1:150 plan + 1:900 location key. Every external structure placed, every clearance dimensioned from confirmed geometry — and, on its face, **the eight things still missing** |
 | `…/DXF/SG-202_External_Works_Siting_and_Soak_Pit_Finding.dxf` | The pit against the ground it is cut into · both water-table readings · the two checks behind `SG2-F1` · the reserved fallback · the percolation-test positions · the `SG-V3` ruling |
 | `…/Scripts/sg_site.py` · `sg_site_calc.py` · `sg_site_docs.py` · `sg_site_sheets.py` | The SG2 generators. `sg_build_all.py` now runs SG1 then SG2 and validates all five sheets |
+
+### Added by QA2 / MS2 / RC3, 11 September 2026 — see H.25, H.26, H.27
+
+| Folder / file | Contents |
+|---|---|
+| **`CONSOLIDATED_PROJECT_REPORT.md`** (repository root) | **The project stated once, at its current state, in the order needed to reproduce it — 17 sections.** What it is and the protective boundary · codes · design basis (blast, ground, materials, loads, the cover, combinations) · geometry · **exit hatches and blast doors** · element-by-element design · the reinforcement register · the analysis models and how to validate them · services · site · drawings · works management · **what the design does not demonstrate** · the fourteen assumptions · the thirty-three open items · how to rebuild every package · the rules the project is held to. **It is a statement of the design, not a history of it — Part H remains the revision record and this master remains the authority.** It states no new value and resolves nothing |
+| `current/staad/Scripts/validate_std.py` | **The `.std` validator the project did not have.** Reads each file the way STAAD reads it — truncated at the declared `INPUT WIDTH`, `-` continuations joined — and checks line width, ascending load case numbers, combination references, element and member topology, planarity, duplicates, orphan joints, thickness and property coverage, and **whether each self-equilibrating horizontal load case actually balances**. Re-run against the pre-MS2 coarse model it reports **all six defects H.26 lists**, including the 4.8 kN `LOAD 6` imbalance, from the file alone |
+| `current/staad/00_README.md` | The six-model index, what each one is for, the two input-file rules that are silent when broken, and **the four things that can never be claimed from these files** |
+| `current/staad/STD_VALIDATION_REPORT.txt` | Last validator run — **6 files, 0 errors** |
+| `DRAWING QAQC/DRAWING_INDEX.md`, `qa_index.json` | Regenerated over **80 drawings** (was frozen at 68) |
+| `DRAWING QAQC/QAQC_REPORT.md` **§10** | The QA2 addendum — why the index froze, the twelve sheets scanned for the first time, and the A-301 correction |
 
 ## I.3 SUPERSEDED / ARCHIVED
 
@@ -4542,7 +4749,7 @@ ROOF TOTAL          448.15 kPa (383 + 40.65 + 2.0 + 22.5), no live load (Cl. 11.
 HEADHOUSE ROOF      396.5 kPa   ·   HEADHOUSE WALLS 383 kPa either face (C10)
 SEISMIC             Box Ah 0.075, Vb 1050 kN (negligible)
                     Sentry Ah 0.100, R 3.0, **Vb 73.18 kN (STAAD)** vs wind 29.9 kN
-COMBINATIONS        Box 101/102/**103 BLAST**/104/105  ·  Sentry 101–113, 201, 202
+COMBINATIONS        Box 101/102/**103 BLAST**/104/105  ·  Sentry 101–113, 201, 202, 203
 
 REINFORCEMENT — THE SIX THAT MATTER
    ROOF        T25 @ 150 EF EW  ·  T12 4L @ 250 end 1500 / 2L @ 300 mid   51 %
@@ -4557,8 +4764,12 @@ SENTRY      S1 T8 @ 150 B/W + T8 @ 300 edge top + T8 @ 200 torsion 700² × 4 co
             C1 8-T16 · T10 hoops + cross-ties @ 85 over 500 · biaxial 0.819
             F1 T12 @ 150 B/W
 
-STATUS      STAAD    2 models exist; .std NOT uploaded; screenshots only
-            DXF      8 output sheets S-01…S-08, validated, + A1 PDFs
+STATUS      STAAD    6 .std in current/staad/ — box (reference), sentry, entry
+                     stairwell, + MS1 coarse/medium/fine.  ALL READ AND RECONCILED
+                     IN THIS WORKSPACE.  **STAAD.Pro NOT RUN — no result exists**
+            DXF      80 DXF, 74 PASS (QA2, H.25).  S-06 is the only S-series sheet
+                     present; S-01…S-05, S-07, S-08 are ABSENT and cannot be
+                     regenerated — the Part E.4 toolchain is not in the workspace
             CALCS    Complete to IS 456; SDOF support rotation NOT done (Phase 3)
             DRAWINGS Sentry beams/columns/footings NOT yet drawn (would be S-09)
 ```

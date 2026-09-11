@@ -11,7 +11,8 @@ OUT = os.path.join(HERE, "..", "DRAWING_INDEX.md")
 ORDER = ["ARCHITECTURAL / GENERAL - Rev F", "ARCHITECTURAL - finishes",
          "STRUCTURAL - reinforcement", "DRAINAGE", "DRAINAGE - handout",
          "HVAC", "HVAC - handout", "FIRE AND LIFE SAFETY",
-         "SITE AND CONCEALMENT"]
+         "SITE AND CONCEALMENT", "EMP PROTECTION", "ELECTRICAL",
+         "SITE SELECTION AND GEOTECHNICAL"]
 
 
 def main():
@@ -30,10 +31,12 @@ def main():
     sizes = collections.Counter(r["size"] for r in rows)
     A(f"**{len(rows)} DXF · "
       + " · ".join(f"{n} {s}" for s, n in sorted(sizes.items(), key=lambda kv: -kv[1]))
-      + ".**  Drafting QA/QC revision **QA1** (9 September 2026, master H.11); "
-      "the three FIRE AND LIFE SAFETY and SITE AND CONCEALMENT sheets were "
-      "added later at **FS2 / CAM2** (10 September 2026, master H.18) and are "
-      "drawn to the same standard.")
+      + ".**  Drafting QA/QC baseline **QA1** (9 September 2026, master H.11), "
+      "re-scanned at **QA2** (11 September 2026, master H.25).  The FIRE AND LIFE "
+      "SAFETY and SITE AND CONCEALMENT sheets were added at **FS2 / CAM2**, and the "
+      "EMP PROTECTION, ELECTRICAL and SITE SELECTION AND GEOTECHNICAL sheets at "
+      "**EM1 / EL1 / SG1 / SG2**, all after the QA1 pass and all drawn to the same "
+      "standard.")
     A("")
     A("> **Filenames are deliberately unchanged.** Master Parts E.2 and I.1 and every")
     A("> document in this project cite the current filenames, and the QA/QC brief requires")

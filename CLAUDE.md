@@ -27,7 +27,12 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
 - Structural revision: **Phase 2 Rev A + M1**. Architectural Rev F. Report Rev D.
 - **M1 is APPROVED and IMPLEMENTED** (3 Sep 2026, master H.4): W6 and W7 400 mm,
   box 22 000, shaft 15200–18000, ESC 2 at X 19 900, headhouse and covered stairwell +200.
-- Open item **C16** (roof/platform junction) is *not* resolved — see QUICK_STATE.md.
+- **C16 (roof/platform junction) is CLOSED** — ruled at **250** by RC1, 10 Sep 2026
+  (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
+  "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
+  **thirty-three in master K.1b** — read that, not this line.
+- Latest revisions: **MS2** (STAAD input files, H.26) · **QA2** (drawing package re-scan,
+  H.25) · **RC3** (project-wide reconciliation, H.27), all 11 Sep 2026.
 
 ## Frozen — do not touch
 
@@ -46,6 +51,12 @@ Landing levels, flight widths (1200), the 200 well and the 2533 headroom go with
 - **Do not fabricate missing generator scripts or unavailable output drawings.** `proj.py`,
   `dxflib.py` and `d01_wall.py`…`d08_sentryslab.py` are absent, so sheets S-01…S-05, S-07 and
   S-08 cannot be regenerated. Say so; do not invent them. (S-06 is present and already at M1.)
+  The same applies to the files master I.1 lists as **NOT IN THIS WORKSPACE** — the Phase 1
+  Rev D report, `SK02_Underground_Plan.png` and the 19 STAAD captures.
+- **A new drawing package must register itself with the QA tool.** Add its `DXF/` prefix to
+  `DISCIPLINE` in `DRAWING QAQC/Scripts/qa_report_data.py` and its name to `ORDER` in
+  `make_index.py`, then re-run both. Twelve sheets were invisible to the index for four
+  revisions because this was not done (H.25).
 - **STAAD models must be checked against the master before modification** — geometry,
   materials, thicknesses, supports, loads, load cases and combinations.
 - **Distinguish file reconciliation from STAAD.Pro execution.** STAAD.Pro is not available in

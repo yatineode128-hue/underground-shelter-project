@@ -40,6 +40,12 @@ END JOB INFORMATION
 *  j = Z index 1..19, k = Y index 1..13.
 * =====================================================================
 *
+*  REV MS2 (11 Sep 2026, master Part H.26) - INPUT-FILE CORRECTIONS ONLY.  No geometry, thickness,
+*  material, support, load magnitude or combination was changed; the analysis
+*  model is identical to MS1.  LOAD 10 now precedes LOAD 11 so the primary load
+*  case numbers ascend 1..11 (case numbers, factors and all five combinations
+*  unchanged), and the LOAD 11 title and JOB CLIENT line now fit INPUT WIDTH 79.
+*
 INPUT WIDTH 79
 UNIT METER KN
 JOINT COORDINATES
@@ -3888,15 +3894,6 @@ ELEMENT LOAD
 2753 TO 3472 PR GZ -383
 3473 TO 3688 PR GX 383
 3689 TO 3904 PR GX -383
-LOAD 11 LOADTYPE None  TITLE BL3 BLAST IN THE STAIR SHAFT ON W6 AND W7 383 KN/M2
-ELEMENT LOAD
-* FINDING F1 / MOD M1.  The shaft is open to atmosphere through the roof void, the
-* headhouse and the covered stairwell; fill time V/(A.c) = 105/(3.3 x 340) = 0.094 s
-* against td 0.13-1.33 s, so it EQUALISES TO FULL p_so.  W6 and W7 stand in the same
-* plane as the 7-bar blast doors and take the full 383 kN/m2, acting OUT of the shaft.
-4121 TO 4336 PR GX -383
-4337 TO 4552 PR GX 383
-*
 LOAD 10 LOADTYPE Live  TITLE LL2 CONSTRUCTION SURCHARGE 20.0 KN/M2
 ELEMENT LOAD
 1081 TO 2032 PR GY -20
@@ -3906,6 +3903,15 @@ ELEMENT LOAD
 2753 TO 3472 PR GZ -10
 3473 TO 3688 PR GX 10
 3689 TO 3904 PR GX -10
+*
+LOAD 11 LOADTYPE None  TITLE BL3 BLAST IN STAIR SHAFT ON W6 AND W7 383 KN/M2
+ELEMENT LOAD
+* FINDING F1 / MOD M1.  The shaft is open to atmosphere through the roof void, the
+* headhouse and the covered stairwell; fill time V/(A.c) = 105/(3.3 x 340) = 0.094 s
+* against td 0.13-1.33 s, so it EQUALISES TO FULL p_so.  W6 and W7 stand in the same
+* plane as the 7-bar blast doors and take the full 383 kN/m2, acting OUT of the shaft.
+4121 TO 4336 PR GX -383
+4337 TO 4552 PR GX 383
 *
 * --------------------------- COMBINATIONS ---------------------------
 LOAD COMB 101 ULS STATIC  1.5(DL+LL+EARTH+WATER)

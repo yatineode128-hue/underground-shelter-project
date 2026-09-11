@@ -40,6 +40,18 @@ END JOB INFORMATION
 *  j = Z index 1..6, k = Y index 1..4.
 * =====================================================================
 *
+*  REV MS2 (11 Sep 2026, master Part H.26) - INPUT-FILE CORRECTIONS ONLY.  No geometry, thickness,
+*  material, support, load magnitude or combination was changed; the analysis
+*  model is identical to MS1.  (a) Every data line now fits INPUT WIDTH 79 -
+*  three LOAD 6 (EP1) south-wall lines were 80 columns, so STAAD read
+*  -77.6 / -57.3 / -37.0 instead of -77.64 / -57.36 / -37.07 and LOAD 6 failed
+*  the PRINT STATICS CHECK by 4.8 kN in Z; they are now split on the STAAD '-'
+*  continuation character, as the reference model already does elsewhere.
+*  (b) LOAD 10 now precedes LOAD 11 so the primary load case numbers ascend
+*  1..11 (the case numbers, factors and all five combinations are unchanged).
+*  (c) Corner spring KFY at joint 1 is 27563 (exact 27562.5), consistent with
+*  16537.5 -> 16538 in the same block and with MESH_SENSITIVITY_STUDY.md 3.
+*
 INPUT WIDTH 79
 UNIT METER KN
 JOINT COORDINATES
@@ -293,7 +305,7 @@ SUPPORTS
 * KFY restated on the four corner joints: without it they would lose ALL vertical
 * restraint, because the FIXED BUT line replaces the ELASTIC MAT entry.
 * KFY = ks x A_trib, A_trib from this model's own mesh:
-1 FIXED BUT FY MX MY MZ KFY 27562
+1 FIXED BUT FY MX MY MZ KFY 27563
 6 FIXED BUT FY MX MY MZ KFY 16538
 103 FIXED BUT FY MX MY MZ KFY 28875
 108 FIXED BUT FY MX MY MZ KFY 17325
@@ -323,17 +335,20 @@ LOAD 6 LOADTYPE Soil  TITLE EP1 EARTH + WATER ON EXTERNAL WALLS
 ELEMENT LOAD
 * row 1  mid-height Y=0.9584  depth 5.7416 m  ->  77.64 KN/M2
 160 163 166 169 172 175 178 181 184 187 190 193 196 199 202 205 208 PR GZ 77.64
-211 214 217 220 223 226 229 232 235 238 241 244 247 250 253 256 259 PR GZ -77.64
+211 214 217 220 223 226 229 232 235 238 241 244 -
+247 250 253 256 259 PR GZ -77.64
 262 265 268 271 274 PR GX 77.64
 277 280 283 286 289 PR GX -77.64
 * row 2  mid-height Y=2.275  depth 4.425 m  ->  57.36 KN/M2
 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 PR GZ 57.36
-212 215 218 221 224 227 230 233 236 239 242 245 248 251 254 257 260 PR GZ -57.36
+212 215 218 221 224 227 230 233 236 239 242 245 -
+248 251 254 257 260 PR GZ -57.36
 263 266 269 272 275 PR GX 57.36
 278 281 284 287 290 PR GX -57.36
 * row 3  mid-height Y=3.5917  depth 3.1084 m  ->  37.07 KN/M2
 162 165 168 171 174 177 180 183 186 189 192 195 198 201 204 207 210 PR GZ 37.07
-213 216 219 222 225 228 231 234 237 240 243 246 249 252 255 258 261 PR GZ -37.07
+213 216 219 222 225 228 231 234 237 240 243 246 -
+249 252 255 258 261 PR GZ -37.07
 264 267 270 273 276 PR GX 37.07
 279 282 285 288 291 PR GX -37.07
 LOAD 7 LOADTYPE Soil  TITLE HY1 HYDROSTATIC UPLIFT ON MAT 46.1 KN/M2
@@ -348,15 +363,6 @@ ELEMENT LOAD
 211 TO 261 PR GZ -383
 262 TO 276 PR GX 383
 277 TO 291 PR GX -383
-LOAD 11 LOADTYPE None  TITLE BL3 BLAST IN THE STAIR SHAFT ON W6 AND W7 383 KN/M2
-ELEMENT LOAD
-* FINDING F1 / MOD M1.  The shaft is open to atmosphere through the roof void, the
-* headhouse and the covered stairwell; fill time V/(A.c) = 105/(3.3 x 340) = 0.094 s
-* against td 0.13-1.33 s, so it EQUALISES TO FULL p_so.  W6 and W7 stand in the same
-* plane as the 7-bar blast doors and take the full 383 kN/m2, acting OUT of the shaft.
-307 TO 321 PR GX -383
-322 TO 336 PR GX 383
-*
 LOAD 10 LOADTYPE Live  TITLE LL2 CONSTRUCTION SURCHARGE 20.0 KN/M2
 ELEMENT LOAD
 86 TO 159 PR GY -20
@@ -366,6 +372,15 @@ ELEMENT LOAD
 211 TO 261 PR GZ -10
 262 TO 276 PR GX 10
 277 TO 291 PR GX -10
+*
+LOAD 11 LOADTYPE None  TITLE BL3 BLAST IN STAIR SHAFT ON W6 AND W7 383 KN/M2
+ELEMENT LOAD
+* FINDING F1 / MOD M1.  The shaft is open to atmosphere through the roof void, the
+* headhouse and the covered stairwell; fill time V/(A.c) = 105/(3.3 x 340) = 0.094 s
+* against td 0.13-1.33 s, so it EQUALISES TO FULL p_so.  W6 and W7 stand in the same
+* plane as the 7-bar blast doors and take the full 383 kN/m2, acting OUT of the shaft.
+307 TO 321 PR GX -383
+322 TO 336 PR GX 383
 *
 * --------------------------- COMBINATIONS ---------------------------
 LOAD COMB 101 ULS STATIC  1.5(DL+LL+EARTH+WATER)

@@ -40,6 +40,18 @@ was re-sized.** `ST-01`'s vertical position stays **`[N]`** and is flagged as su
 **One new item `DR-A1-V1`; K.1b goes to thirty-three** — the project holds **two different
 ASSUMED sentry-post positions** (`A-301` 10 m east, `SG2`/BIM-P1 10 m north), and the
 elevation's would stand **inside `SG2`'s external works reserve**. Nothing ruled; `U4` stays open.
+Updated 11 Sep 2026 for **MS2 · QA2 · RC3** (master **H.26 · H.25 · H.27**) — **the first time
+a model in this project has been opened in STAAD.Pro.** COARSE reported errors: three `LOAD 6`
+lines were **80 columns against the file's own `INPUT WIDTH 79`**, so STAAD read the south wall
+at **−77.6 / −57.3 / −37.0** and `LOAD 6` failed its own statics check by **4.8 kN**; and
+`LOAD 10` sat after `LOAD 11` in all four box models. Fixed as **input files — no analysis value
+changed**. **QA2** found the drawing index frozen at **68 while the package had grown to 80**
+(the QA tool's discipline list is hard-coded and three packages were never added) and one text
+overlap `DR-A1` left on **A-301**; both fixed. **RC3** ruled **nine documentation
+contradictions** against evidence already in the workspace — among them the sentry post's
+**sixteenth** load combination, missing from A.7.9 and Part L — and added master **A.4.9**, one
+short register of every opening through the protective boundary.
+**Nothing in `K.1b` is closed, no evidence tag converted, no design value changed.**
 
 ---
 
@@ -61,7 +73,7 @@ elevation's would stand **inside `SG2`'s external works reserve**. Nothing ruled
 | **Site + ground** | **SG1** (11 Sep 2026, master **H.22**) — **the project's first site selection and geotechnical section; there was none, and Part J drew `[SITE INVESTIGATION]` as a root node with nothing feeding it.** Two owner-supplied documents: **SEMT/67/15**, the sub-soil investigation for the CTW PH-III ACCN project at CME Pune (**11 trial pits, 3 locations, no boreholes, no in-situ testing**), and the **P1 presentation deck**. Governing fact: **THE INVESTIGATION REACHED ABOUT 1.5 m; THE STRUCTURE FOUNDS AT (−)6.800** — **5.3 m of unlogged ground**, and only sentry footing F1 at (−)2.000 is inside the logged horizon. **The provenance of GWT (−)2.000 is now on record for the first time: no water was found, so 2 m was CHOSEN** — *not encountered* means **not reached**, and **K.2 A2 stays ASSUMED and stays OPEN**. Fourteen findings: rockhead **0.9–1.5 m**, entirely at or above the master's assumed 1.5–2.0 (**+118 m³ rock, ≈ 2 d**) · soaked SBC **1961–2059 kPa**, so worst utilisation **12.5 % → 20.6 %**, factor **4.8** still in hand, **3240 unchanged** · the structure is **lighter than the ground it replaces** by ≈ 105 kPa · **Zone III externally CORROBORATED**, A_h reproduces exactly · **40.65 kPa brackets both the as-placed and the saturated cover** · **A1080's monsoon monitoring window is NOT in the monsoon** · and, new to the project, **black cotton soil at FSI 60–65 %** under the entry stairwell raft and possibly in the concealment turf. **3 A1 DXF, 0 errors, 0 warnings, 0 text overlaps. No design value, BOQ quantity, rate, date or float changed; no other package's file modified; the main staircase untouched. Ten new open items SG-V1…V10** |
 | **Site layout** | **SG2** (11 Sep 2026, master **H.23**) — **the project's first site layout plan.** Owner supplied **18.6089876 N, 73.8587287 E** and *"the area around 50 m is all available"*; **site orientation fixed, +X = EAST, +Y = NORTH** (entry faces the campus, drainage runs downgradient, intake and exhaust end up at opposite ends of the box). **EXTERNAL WORKS RESERVE 18.0 × 10.5 m at X 33000–51000, Y 6500–17500 — 10 m clear of the excavation, downgradient, 42.5 m of the 50 m used.** Positions fixed: **ST-01** septic tank (36750, 16000) · **SK-01** foul soak pit **(44000, 16000)** · **SK-02** (35000, 8500) · **SK-03** (41400, 8500) · **SK-04** (47800, 8500) · **IC-01** (7500, 9800) · **IC-02** (40200, 16000). **Four of five pipe lengths fixed** — PD-16 **5.40 m**, PD-06 **27.00 m**, PD-11 **32.35 m**, PD-13 **29.60 m**; **PD-14 CANNOT BE ROUTED (SG2-F5)**. **Two of three IS 2470 offsets DEMONSTRATED** (5.40 m to the tank, 10.97 m to any building); **the ≥15 m well offset cannot be — no well position exists (SG2-V1)**. **28 of 28 clearance checks pass.** Principal finding **SG2-F1: THE SOAK PIT'S PROBLEM IS DEPTH, NOT ARITHMETIC** — only **21–43 %** of its required area is above the design water table and its only permeable horizon is **0.2–0.5 m thick**, so **the form that fits is shallow and wide**; **SK-01 is NOT re-sized** (the percolation test governs) and **DF-1/DF-2 dispersion fields are reserved instead**, carrying both streams down to **26–34 % of the assumed absorption rate**. Also **SG2-F3** ST-01 is sized for a building no pipe connects to it · **SG2-F4** SH-1 the fresh-air intake has **no plan position anywhere** · **SG2-V5** the programme **stops dewatering 11-05-27 but does not backfill until 20-07-27**, spanning the 2027 monsoon at flotation FoS 1.22. **5 A1 DXF, 0 errors, 0 warnings, 0 text overlaps. No design value, BOQ quantity, rate, date or float changed; SK-01 not re-sized; no other package's file modified; main staircase untouched** |
 | **Rulings** | **RC2** (11 Sep 2026, master H.21) — **two questions EM1 and EL1 asked rather than assumed, now answered by the project owner.** **(1) The three-zone EMP model and the "EMP Zone 2 standing alone" rule are ADOPTED** — the project's EMP position, `[C]`, **EM-V1 closed**. **(2) The generator MAY run during Mode 3** — all five valves shut at the shock, **BV-4 and BV-5 then reopen for GEN-1**; Bay 8 is outside the gas-tight envelope. **EL-V1 closed, Case A confirmed at 149 Ah, HV1's Mode 3 row amended.** **Neither ruling changed a number** — both confirmed what the packages had reasoned. **EM-V3 is SHARPENED, not decided**: reopening BV-4/BV-5 leaves two DN350 bores — which fail both EMP criteria — open through the post-attack period |
-| **Drawings** | **QA1** (9 Sep 2026, master H.11) — drafting QA/QC over **all 65 DXF**. Annotation, sheet frames, title blocks. **No engineering design changed** |
+| **Drawings** | **QA1** (9 Sep 2026, master H.11) — drafting QA/QC over the **65 DXF** that existed then. **QA2** (11 Sep 2026, master H.25) — whole package re-scanned at **80 DXF, 74 PASS**; the index had frozen at 68 because the QA tool's discipline list is hard-coded and EMP / Electrical / Site-Geotech were never added to it, and `DR-A1` had left a revision-block overlap on **A-301**. Both fixed. **No engineering design changed** |
 | **SP-B1** | **SENTRY POST WALLS = BRICK MASONRY** — instructed design change, 7 Sep 2026. The only design change in WM1 |
 | **SP-B2** | **SENTRY POST LINTELS + WALL TIES** — completes SP-B1, 10 Sep 2026 (master H.12 / A.4.8). Closes WM-V5 and WM-V11 |
 | **BS1** | **RC BURSTER SLAB LAID TO A 1:50 CROSSFALL** — instructed design change, 10 Sep 2026 (master H.12 / A.7.3). **No load, thickness or `.std` change** |
@@ -137,7 +149,7 @@ V_b = 73.18 kN** (STAAD value governs; hand check 59.3 kN — see U1). Wind 29.9
 construction surcharge 20 vertical / 10 lateral · staircase on W6+W7 2.947 kPa.
 
 **Combinations** — box 101 / 102 / **103 BLAST** / 104 / 105.
-Sentry 101–113, 201, 202, **203** (the `.std` has 16; master A.7.9 records 15 — the master's count is short).
+Sentry 101–113, 201, 202, **203** — **sixteen** (`RC3`: A.7.9 and Part L read 15 and stopped at 202; both corrected from the `.std`).
 
 ---
 
@@ -318,7 +330,11 @@ added east of a break line). A **`SERVICES`** layer was added to both; the other
 border, title block and NOTES box — filenames unchanged, geometry unchanged.** Drawing
 numbers A-101…A-105, A-201…A-204, A-301 live in the title blocks; `current/cad/Scripts/`
 holds the pipeline that produced this state.
-**`current/staad/` — 3 STD:** underground plate model, sentry frame, entry stairwell frame.
+**`current/staad/` — 6 STD + the mesh study:** the reconciled M1 underground plate model
+(reference), the sentry frame, the entry stairwell frame, and the **MS1** coarse / medium /
+fine mesh variants, plus `MESH_SENSITIVITY_STUDY.md`. **All four box models corrected as input
+files at MS2** (master H.26) — every data line now inside `INPUT WIDTH 79`, load cases ascending
+1…11. **STAAD.Pro has still not been run in this environment; MS1 §5 is still PENDING.**
 
 **`Structural CAD/` — reinforcement package, revision SC1 (4 Sep 2026, master H.8):**
 **30 A1 DXF reinforcement drawings** (R-001…R-805, AutoCAD 2010 ASCII, validated 0 errors),
@@ -353,10 +369,11 @@ step. **No design file was modified** — only this file and master H.3 / H.10 /
 plus preserving notes at A.4.8 and A.7.7.
 
 **`DRAWING QAQC/` — drawing QA/QC, revision QA1 (9 Sep 2026, master H.11):** the drawing
-index for all DXF in the project (**68** after CAM2 / FS2 — 63 A1 · 1 A0 · 4 A4), the QA/QC report, and five inspection
-scripts. Package state after the pass: **0 text-on-text overlaps on the 54 generated
-sheets, 12 residual items in `current/cad`, 0 entities outside a sheet border, 65 of 65
-drawings carrying a title block.** Raised **QA-1** (A-301 cannot plot at 1:50 on A1 —
+index for all DXF in the project (**80 after QA2** — 75 A1 · 1 A0 · 4 A4), the QA/QC report, and five inspection
+scripts. **Package state after QA2 (11 Sep 2026, master H.25): 80 drawings · 74 PASS · 6 REVIEW
+REQUIRED — the same six Rev F sheets · 2 text-on-text overlaps, both on A-204 · 10 annotations
+over line work · 80 of 80 carrying a title block.** The twelve sheets EM1 / EL1 / SG1 / SG2 added
+were scanned for the first time and **introduced no defect**. Raised **QA-1** (A-301 cannot plot at 1:50 on A1 —
 sheet corrected to A0, ruling invited) and **QA-2** (sheets that do not fill their paper).
 
 **`Fire and Life Safety/` — revision FS2 (10 Sep 2026, master H.18):** **2 A1 DXF**
