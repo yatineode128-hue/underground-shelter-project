@@ -32,6 +32,14 @@ CLOSED · SG-V3 RULED (the cost of moving the groundwater monitoring is not acce
 SG-V5 AMENDED (the SOIL REPORT's rainfall figure is the wrong one, not the deck's).** Five
 new items SG2-V1…V5; **K.1b goes to thirty-two. Master gap D3 is PARTIALLY CLOSED — the
 layout exists, the survey does not.**
+Updated 11 Sep 2026 for **DR-A1** (Part H.24) — the drainage items drawn on the **Rev F
+architectural sheets**: **`SU-01` clean sump pit cut into `A-202`** (it sits in that section's
+own cut plane and had never been drawn there) and **`ST-01` septic tank + `SK-01` foul soak pit
+on `A-301`, beyond a break**. **No design value, level, quantity, rate or date changed; nothing
+was re-sized.** `ST-01`'s vertical position stays **`[N]`** and is flagged as such on the sheet.
+**One new item `DR-A1-V1`; K.1b goes to thirty-three** — the project holds **two different
+ASSUMED sentry-post positions** (`A-301` 10 m east, `SG2`/BIM-P1 10 m north), and the
+elevation's would stand **inside `SG2`'s external works reserve**. Nothing ruled; `U4` stays open.
 
 ---
 
@@ -302,6 +310,10 @@ than duplicated as a constant — see `Revit/docs/00_README_WORKFLOW.md` and
 (does not block the rest of the structural model).
 
 **`current/cad/` — 11 DXF:** ten Rev F input drawings (directly editable) + `06_Underground_Plan_Services_Sump_BlastValves.dxf` = **sheet S-06**, the only output sheet present.
+**DR-A1 (11 Sep 2026, master H.24) edited two of the ten in place:** `2_Side_Section_with_Stairs.dxf`
+(**A-202**, `SU-01` sump pit added — the mat, the blinding and the formation line are now broken at
+the pit's outer face X 10768 / 12868) and `5_Front_Elevation.dxf` (**A-301**, `ST-01` and `SK-01`
+added east of a break line). A **`SERVICES`** layer was added to both; the other fifteen are unchanged.
 **At QA1 all eleven were de-clashed and the ten Rev F drawings were given an A1 (A-301: A0)
 border, title block and NOTES box — filenames unchanged, geometry unchanged.** Drawing
 numbers A-101…A-105, A-201…A-204, A-301 live in the title blocks; `current/cad/Scripts/`
