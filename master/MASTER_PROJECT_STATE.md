@@ -13,6 +13,9 @@
 **Concealment:** **CAM1** (10 Sep 2026, Part H.16) — a short camouflage and concealment policy; it did not exist before.
 **Owner's package revised:** **WM3** (10 Sep 2026, Part H.15) — the RC1 rulings applied to the owner's own BOQ, estimate and schedule, published alongside the originals.
 **Inconsistency register:** **RC1** (10 Sep 2026, Part H.14) — **every conflict that could be decided on the evidence has been ruled**; six items that need information the project does not contain remain open in K.1b.
+**EMP:** **EM1** (10 Sep 2026, Part H.19) — the project's first EMP design. **Electrical:** **EL1** (11 Sep 2026, Part H.20) — the project's first electrical design, deliberately basic. **Rulings:** **RC2** (11 Sep 2026, Part H.21).
+**Site and ground:** **SG1** (11 Sep 2026, Part **H.22**) — **the project's first site selection and geotechnical section.** Two owner-supplied documents recorded, checked against each other and against this master. **It resolves nothing: not one `K.2` assumption is closed.** Its governing finding — **the sub-soil investigation reached about 1.5 m; the structure founds at (−)6.800** — and the first written **provenance of the design GWT (−)2.000**. Ten new open items `SG-V1…V10`.
+**Site layout:** **SG2** (11 Sep 2026, Part **H.23**) — **the project's first site layout plan.** On a coordinate and a 50 m envelope the owner supplied, master `H.9`'s *"not determinable"* external works positions, **four of five pipe lengths** and **two of three IS 2470 offsets** are **determined**. Site orientation fixed: **+X = EAST**. Principal finding **`SG2-F1` — the soak pit's problem is DEPTH, not arithmetic**: 21–43 % of its required area is above the design water table and its only permeable horizon is 0.2–0.5 m thick, so the fallback dispersion field is reserved rather than the pit re-sized. **`SG-V9` closed · `SG-V3` ruled · `SG-V5` amended · five new items `SG2-V1…V5` · master gap D3 PARTIALLY closed.**
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, sentry post drawing S-07 equivalent.
 
 ---
@@ -367,6 +370,37 @@ Ld = φ σs /(4 τbd),  σs = 0.87 fy = 435 N/mm²
 | K<sub>a</sub>, dry compacted berm fill | ~0.5 | [ASSUMED — **deliberately not relied on**, see C10] |
 
 > **The hazard is not the basalt — it is the flow contacts.** A single red-bole seam under the mat produces the differential-support case that SIZES the mat. Over-excavate any red-bole or vesicular seam at founding level and replace with M15 lean concrete.
+
+> **SG1 — PROVENANCE, 11 September 2026 (Part H.22). NOT ONE VALUE OR TAG IN THE TABLE ABOVE
+> IS CHANGED BY THIS NOTE.** Until SG1 every row above was `[ASSUMED]` with **no source
+> recorded anywhere**. Two documents have now been supplied — the **SEMT/67/15** sub-soil
+> investigation for the CTW PH-III ACCN project at CME Pune, and the **P1 presentation deck**
+> — and the package `Site Selection and Geotechnical/` records what each row can and cannot
+> draw from them.
+>
+> **The one fact that governs all of it: the investigation reached about 1.5 m; this structure
+> founds at (−)6.800.** Only the sentry footing F1 at (−)2.000 lies inside the investigated
+> horizon. **Rockhead continuity, groundwater, red-bole seams, k<sub>s</sub> and rock-mass
+> permeability at the founding horizon are all still `[N]`**, and the programme's confirmatory
+> site investigation `A1075` remains mandatory in full — and must be located **on this plot**,
+> which the SEMT trial pits were not.
+>
+> | Row | What the new evidence says | Effect |
+> |---|---|---|
+> | Ground | Deccan Trap confirmed — *"horizontally bedded and more or less uniform in character over a wide area"* | **corroborated.** The flow-contact hazard is neither found nor excluded |
+> | Rockhead | **0.9–1.5 m** at three locations | the report's band is **entirely at or above** the assumed 1.5–2.0. Conservative for founding depth, **unconservative for rock excavation quantity: +118 m³, ≈ 2 days** (`SG-F5`) |
+> | **Presumptive SBC 3240** | measured basalt **1961–2059 kPa soaked**, 2942–3530 unsoaked | the founding horizon is **4.8 m below the design GWT**, so **soaked governs**. Worst utilisation rises 12.5 % → **20.6 %**; every element still passes with a factor of **4.8** in hand. **3240 stands — it is an IS 1904 presumptive value and is declared as one** (`SG-F3`) |
+> | γ 20 / γ<sub>sat</sub> 21 | 95 % MDD at OMC gives **19.12–19.61**; γ<sub>sat</sub> back-figures to **21.26** | bulk 20 is **2–5 % conservative** for lateral load; γ<sub>sat</sub> **agrees within 1.2 %** |
+> | K₀ 0.50 | measured φ **27–35°** → K₀ 0.426–0.546 | **conservative** against all three granular murrum samples. Worst case moves the wall design load **under 1 %** — the walls are blast-governed (`SG-F9`) |
+> | **Design GWT (−)2.000** | *"Water table was not encountered in any trial pit"* — **in pits ~1.5 m deep** | **the provenance of (−)2.000, recorded for the first time: no water was found, so 2 m was CHOSEN.** *Not encountered* here means **not reached**. **`K.2 A2` stays `[ASSUMED]` and stays open** (`SG-F6`) |
+> | k<sub>s</sub> | nothing — no plate load test | untouched. **Both bounds still outstanding** |
+> | Settlement | net pressure at formation is **≈ −105 kPa** — the structure is **lighter than the ground it replaces** | this is *why* "negligible" is true, and the same fact that makes **flotation** the governing foundation problem (`SG-F4`) |
+>
+> **New, and recorded nowhere in this project before SG1: the surface soil is BLACK COTTON, CH,
+> free swell index 60–65 % — the top band of the IS 1498 scale.** Nothing structural founds in
+> it. Two elements are exposed anyway and **neither is changed here**: the covered entry
+> stairwell's stepped raft (`SG-F13` / `SG-V6`) and the 300 turf concealment layer
+> (`SG-F14` / `SG-V7`).
 
 ## A.7 Loading — CURRENT, complete register
 
@@ -1756,7 +1790,11 @@ All layers: `70 = 0` (on, thawed, unlocked), linetype `CONTINUOUS`. Dashed lines
 | **IS 1786:2008** | Fe500D reinforcement | D grade — guaranteed minimum elongation |
 | **IS 1904:1986** | Presumptive bearing capacity | Table 1 (hard rock, 3240 kPa) |
 | **IS 2950 (Part 1):1981** | Raft foundations | General provisions |
-| **IS 12070** | Rock foundations | Cl. 6 (settlement on sound rock) |
+| **IS 12070** | Rock foundations | Cl. 6 (settlement on sound rock); **Table 2 (broken bedrock, 10 kg/cm² — the SEMT report's own basis, SG1)** |
+| **IS 1498:1970** | *(SG1)* Soil classification | CH, GM, GP, SC; free swell index bands — the SEMT report's classification basis |
+| **IS 2720** Pts IV, VIII, X, XIII, XL | *(SG1)* Soil testing | Classification (Pt IV), compaction / OMC-MDD (Pt VIII), UCS (Pt X), direct shear (Pt XIII), free swell (Pt XL) — **the SEMT report's own test methods, cited as it cites them** |
+| **IS 2720 (Part 28)** | *(SG1)* In-situ density | Backfill compaction testing, WBS `A7015` |
+| **IS 1121 (Part I)** | *(SG1)* Rock strength | Compressive strength of rock cores — the SEMT report's Appendix C basis. *(The report prints the year as "1874"; that is a typographical error and is transcribed as printed, not corrected.)* |
 | **IS 2470 (Part 1):1985** | Septic tank | Cl. 6.2 (24 h detention), Cl. 6.3 (30 L/person/yr sludge), Cl. 6.5 (L:B 2–4), Cl. 6.6 (min width 750, min depth 1.0 m), Cl. 6.9 (vent); **Table 1 (≤10 users: 1.5 × 0.75 × 1.0)** |
 | **IS 2470 (Part 2):1985** | Soak pit / dispersion | Cl. 4 (**percolation test — mandatory**), Cl. 5 (dispersion trench) |
 | **IS 4991:1968** | **Blast loading rules and dynamic material strengths ONLY** | **Cl. 1.1 (EXPLICITLY EXCLUDES NUCLEAR — quoted in every deliverable)**; Cl. 6.2.1 (reflected pressure, recessing); Cl. 7.2 + Table 3 (buried roof/walls, K<sub>a</sub>); Cl. 7.4 (drag on bermed faces); Cl. 10.3.1 (dynamic f<sub>ck</sub>, f<sub>y</sub>); **Cl. 10.3.1.1 (NO dynamic increase on shear; +25 % bond)**; Cl. 10.3.3 (DLF = μ/(μ−0.5)); Cl. 11.1 (no wind/EQ with blast); Cl. 11.2 (no live load on the roof at blast); Fig. 6 (SDOF — **Phase 3**) |
@@ -3416,6 +3454,414 @@ nineteen.**
 
 ---
 
+## H.22 Site selection and geotechnical investigation — revision SG1 — 11 September 2026
+
+> **The project's first site selection and geotechnical section. There was none, and the
+> absence was structural: Part J drew `[SITE INVESTIGATION]` as a root node with nothing
+> feeding it, every parameter in `A.6` was `[ASSUMED]` with no source recorded anywhere, and
+> the design report contained no site selection at all.**
+
+Two documents were supplied by the project owner and one link was supplied and could not be
+resolved:
+
+| # | Source | Class |
+|---|---|---|
+| 1 | **SEMT/67/15** — *Report on Sub-Soil Investigation for CTW PH-III ACCN Project at CME Pune*. Soil Engineering & Material Testing Wing, College of Military Engineering, Pune 411 031. Raised on CTW letter No 8722/Ph-III/CTW/116/Q dated 20 May 2015. **11 trial pits at 3 locations; Appendices A, B and C; Sketches P and Q. No boreholes, no SPT, no plate load test, no permeability test, no percolation test.** | `[C]` |
+| 2 | **P1 presentation deck** — *Construction of CBRN Hardened Underground Ops Room*, Team GROUNDZERO, 32 slides: site location, contour, watershed, road connectivity, pipelines, recce, elevation profile, SWOT, wind, precipitation, temperature, seismic and soil slides | `[C]` as a record of what was presented |
+| 3 | **Location pin** `https://maps.app.goo.gl/H2VjnrjS8X8SsXEr9` | `[N]` — **not resolved.** The session's egress policy refused `maps.app.goo.gl` (403, recorded). **No latitude or longitude was read and none was invented** — `SG-V9` |
+
+### The fact that governs the package
+
+> ## THE SUB-SOIL INVESTIGATION REACHED ABOUT 1.5 m. THE STRUCTURE FOUNDS AT (−)6.800.
+
+The deepest stratum boundary recorded anywhere in SEMT/67/15 is **1.5 m** (G Building; the
+other two locations stop at 0.9 and 1.0 m). The excavation method was *"open trench / trial
+pit by JCB"*. The mat bears at **(−)6.800** and the sump base is at **(−)8.000**. **There are
+5.3 m of completely unlogged ground under the whole structure**, and only the sentry footing
+F1 at **(−)2.000** lies inside the investigated horizon — and only just.
+
+**Nothing the report says about rockhead continuity, groundwater, jointing, red-bole seams or
+modulus of subgrade reaction can be read as covering the founding horizon.** `K.2` items
+**A1, A2, A4, A5 and A8 all stay open**, and programme activity `A1075` — *confirmatory site
+investigation: boreholes, rockhead, red-bole seams*, 12 d, **critical path** — remains
+mandatory in full. **It must also be located on this plot**, which the SEMT trial pits were
+not: they are at the G, H and Mess buildings (`SG-V1`).
+
+### Fourteen findings
+
+| Ref | Finding |
+|---|---|
+| `SG-F1` | **The SEMT report reproduces completely from its own inputs** — soil `SBC = q_ult / 2.5` (6 of 6), rock `UCS = P/A` (6 of 6), rock `SBC = UCS / 25` (6 of 6, the factor it applies but never prints). **It is usable**, and that is worth establishing before anything is built on it |
+| `SG-F2` | **THE GOVERNING FINDING — see above.** 5.3 m of unlogged ground |
+| `SG-F3` | The presumptive **3240 kPa** is **+65 %** on the measured *soaked* basalt (1961–2059 kPa) — and **no element cares**. The founding horizon is 4.8 m below the design GWT so **soaked governs**; worst utilisation in the project rises **12.5 % → 20.6 %** with a factor of **4.8** still in hand. **`A.6` is not changed**: 3240 is an IS 1904 presumptive value and is declared as one |
+| `SG-F4` | **In service the structure is LIGHTER than the ground it replaces**, by ≈ **105 kPa**. It is a fully compensated foundation and then some. This is *why* `B.3` can write *"SETTLEMENT Negligible"* and mean it, and the same fact from the other side is why **flotation** (FoS 0.33 at the mat-only stage) is the governing foundation problem |
+| `SG-F5` | The report's rockhead band **0.9–1.5 m** is **entirely at or above** the master's assumed **1.5–2.0 m** — they touch at exactly one point. Conservative for founding depth; **unconservative for excavation quantity: +118 m³ of rock, ≈ 2 extra days.** Risk `R-03` already registers the direction; SG1 supplies the number. **No BOQ quantity is changed** — WM2 governs |
+| `SG-F6` | ***"No water table"* means *"not reached"*.** `K.2 A2` stays `[ASSUMED]` and stays open — and the new evidence is a **reason to keep it open**. See below |
+| `SG-F7` | **The monsoon groundwater monitoring is programmed outside the monsoon** — `A1080`, 12 Nov to 4 Dec, TF 0 |
+| `SG-F8` | **40.65 kPa brackets both cases.** At 95 % of the measured MDD the cover is *lighter* (six-layer sum 38.49); fully saturated it is *heavier* by ≈ 1 %, which is **+0.09 % of COMB 103**. `C17`'s declared allowance turns out to be doing real work. **Nothing changes** |
+| `SG-F9` | Measured shear parameters (φ 27–35°) move the wall design load by **under 1 %**. The walls are blast-governed. `K₀ = 0.50` is **conservative** against all three granular murrum samples |
+| `SG-F10` | **The P1 deck contradicts itself on ground level** — contour map 580–581 m against an elevation profile of 593.9–596.2 m: **12–16 m apart, and ≈ 4× apart in gradient** |
+| `SG-F11` | **The two documents disagree on annual rainfall by 27–52 %** — 759.6 mm against 500–600 mm. **October is the outlier** |
+| `SG-F12` | **Seismic Zone III is externally corroborated for the first time**, by both documents, and `A.7.8`'s A<sub>h</sub> = 0.075 / 0.100 reproduce **exactly** from Z = 0.16. **The only master design input SG1 is able to corroborate externally. Nothing changes — and that is the point** |
+| `SG-F13` | **The covered entry stairwell's stepped raft founds in very-high-swelling CH clay** (FSI 60–65 %) at about `(−)0.300`, with **no strip-and-replace specification anywhere and no BOQ item**. Heave, not bearing. The stairwell is expendable against *blast* — heave is not a blast problem, and it is the **only primary access** |
+| `SG-F14` | **The 300 concealment turf may be that same clay**, re-laid from the site's own stockpile per `CAM2`: it cracks in the dry season (a concealment defect), the cracks feed the 150 granular filter directly, and the wet/dry cycles pump fines **into** the filter. **The load is unaffected; the specification is missing** |
+
+### The groundwater finding, in full — because it is the one that matters
+
+SEMT/67/15 para 13, verbatim: *"Water table was not encountered in any trial pit. However,
+water table may raise during/after rainy season."* P1 deck slide 29: *"Proposed structure safe
+for water table at depth of 2 m below GL."*
+
+**That is the provenance of `(−)2.000`, recorded for the first time in this project: no water
+was found, so a depth of 2 m below ground level was CHOSEN, and the structure was then
+designed to be safe for it.** It is an assumption adopted in the absence of data, and a
+defensible one — it puts the table near the surface, the conservative direction for uplift and
+lateral load. **It is not a measurement, and SG1 does not turn it into one.**
+
+Three reasons the observation does not reach the design question:
+
+1. **Depth.** The pits reached about 1.5 m. The design GWT at `(−)2.000` is **already below the
+   deepest pit**, and the founding horizon is 5.3 m deeper still.
+2. **Season.** The request is dated 20 May 2015; if the field work followed promptly it was the
+   **pre-monsoon minimum**. **The report nowhere states the field-work date**, so this is
+   inference, tagged `[U]`, not asserted — `SG-V10`.
+3. **Ground type.** Deccan Trap groundwater sits in the vesicular and jointed zones **at the
+   flow contacts** — the same feature `A.6` names as the hazard and that `B.3`'s red-bole case
+   is built around. Such water is commonly perched and strongly seasonal. **A dry-season open
+   trial pit is close to the worst available instrument for finding it.**
+
+Why it matters more than any other number: of the **15.41 kPa/m** lateral gradient **9.81 is
+water**; uplift is **46.11 kPa = 6 289 kN over 136.4 m²**; flotation FoS is **0.33** at the
+mat-only stage. **Everything this structure is afraid of is water.**
+
+And the programme does not close it. `A1080` — *"Monsoon groundwater monitoring — confirm the
+design GWT (−)2.000"*, 20 d, **TF 0**, annotated *"the single most important assumption in the
+project"* — runs **12 November to 4 December**. On the deck's own table June–September carry
+**559.7 mm (74 % of the year)** and November + December carry **28.6 mm between them**. That
+window measures the **recession, not the peak**, and the peak is what `A2` asks for. What
+closes `A2` is a **standpipe piezometer in the `A1075` borehole, read through a full monsoon**.
+**No programme date is changed here** — the owner's own Master Construction Schedule R0 governs
+(H.13) and `A1080` is on the critical path, so moving it moves the job. Raised as `SG-V3`.
+
+### What was produced — all under `Site Selection and Geotechnical/`
+
+| | |
+|---|---|
+| `Documentation/SITE_SELECTION_AND_GEOTECHNICAL_REPORT.md` | **the section** — 19 parts: why it exists, sources and their limits, site identification, site selection, setting, geology, the investigation, bearing, rockhead, groundwater, seismicity, meteorology, the `A.6` parameters against measured data, the black cotton soil, the deck against its own source, 14 findings, 10 open items, what changed and what did not, references |
+| `Documentation/00_README.md` · `SG_DRAWING_INDEX.md` | package orientation and the drawing register |
+| `Schedules/` (5, each `.md` + `.csv`) | trial pit and stratum · soil property · rock strength and bearing · meteorological · geotechnical parameter reconciliation |
+| `Calculations/SG_CALC_OUTPUT.txt` | **G.1–G.14**, every conversion, reproduction and check with its arithmetic shown in full |
+| `QAQC/SG_QAQC.md` · `SG_DRAWING_VALIDATION.txt` | 13 executed checks, 7 declared non-checks, 6 declared deviations; validator output |
+| `DXF/` — **3 A1 sheets** | **`SG-001`** site and geotechnical design basis · **`SG-101`** site setting, selection and meteorology · **`SG-201`** geotechnical profile against the structure section |
+| `Scripts/` (7 generators) | `sg_build_all.py` rebuilds everything |
+
+**`SG-201` is the sheet the package exists for.** Every other drawing in this project shows
+what has been designed; `SG-201` shows **what is not known**. The three trial pit logs are
+plotted at true level at the same 1:25 vertical scale as a transverse section through the box,
+with everything below `(−)1.500` drawn as an explicit hatched **NO DATA** zone carrying a list
+of what a real investigation would have had to put there. The contrast is the drawing.
+
+### Verification actually performed
+
+**3 A1 DXF, AutoCAD 2010 ASCII — 0 errors, 0 warnings** (`mep_validate.py`) and **0
+text-on-text overlaps** (`dxfqa.py`). *(`dxfqa` reports `into_titleblock: 20` on each sheet;
+this is the **established baseline for every sheet built on the shared MEP library** — the
+checker exempts only the `S-TITLE` layer — and `EM-001` and `E-001` were re-run to confirm
+they report the same 20.)*
+
+Reproduced from first principles: the report's **two bearing chains** (12 of 12 rows); the
+master's **BOQ rock quantity** at both stated bounds (1043.04 vs 1043.0 and 944.64 vs 944.6);
+the master's **seismic coefficients** from Z = 0.16 (0.0750 and 0.1000 exactly); the master's
+**bearing utilisations** (1.80 %, 12.50 %, 4.86 %); and **γ_sat** back-figured from the
+measured MDD (21.26 against the assumed 21.00, **within 1.2 %**).
+
+**`sg_dxf.py` subclasses the shared `Drainage/Scripts/mep_dxf.py`** and uses only the
+`SCOPE_NOTE` / `TB_SCOPE` / `DATE` hooks CAM2/FS2 added, exactly as EM1 and EL1 do. **No shared
+library was modified**, and Drainage, HVAC, Schedule of Finishes, Fire and Life Safety, Site
+and Concealment, EMP Protection and Electrical were all re-run and regenerate **byte-identically**.
+
+### Ten new open items — `SG-V1` to `SG-V10`
+
+In `K.1b`. **None is resolved, and that is deliberate.** Three of them — `SG-V4`, `SG-V5` and
+`SG-V8` — are disagreements **inside the supplied documents**, not inside this project's design
+record; `RC1`'s rule that a conflict which can be ruled on the evidence is ruled still holds,
+and these cannot be, because both sides are external and neither cites a source. **None of the
+three changes a design value.**
+
+### What SG1 did NOT do
+
+**It resolved nothing.** Master rule `M.6` forbids converting an `[ASSUMED]` into a confirmed
+fact; **not one `K.2` assumption is closed, and no evidence tag was converted, downgraded or
+deleted.** **No design value, load, thickness, bar, level, BOQ quantity, rate, date or float
+changed.** No `.std` file was touched and **STAAD.Pro was not run** — nothing here is an
+analysis. **No existing file in any other package was modified**; the only files outside
+`Site Selection and Geotechnical/` that change are this one and `master/QUICK_STATE.md`.
+**The main staircase is untouched.** The sentry post is in scope **for ground only** — F1 bears
+on in-situ basalt at `(−)2.000`, which is a geotechnical statement — and **no sentry structural
+value changed**.
+
+It **does not close** master gap **D3** (no site plan) — imagery is not a site plan, and there
+is still no boundary, no dimension, no benchmark and no coordinate. It **does not close**
+`DR-D1` (a monthly total cannot produce a short-duration intensity), `EL-V4`, `EL-V6` or
+`CAM-V2`. It **narrows and does not close** HVAC `H.10`'s first missing input: the outdoor
+ambient extremes are now on record, but **neither document gives a wet-bulb or any coincident
+value**, so the design dry-bulb/wet-bulb pair stays `[N]` and the other seven inputs are
+untouched. **K.1b rises from nineteen open items to twenty-nine.**
+
+---
+
+## H.23 Site layout and external works — revision SG2 — 11 September 2026
+
+> **The project's first site layout plan, and the end of a blocker that has stood since
+> DR1 on 5 September.** Master `H.9` recorded the positions of the soakaways, the septic
+> tank and the external chambers as **not determinable** — *"no site plan, boundary or
+> contour exists"* — and with them **five pipe lengths** and the **IS 2470 (Pt 2) offsets**.
+> Drainage calculation `D.11` ends on the same sentence. **Four of the five lengths and two
+> of the three offsets are now closed.**
+
+### What the project owner supplied, and one thing that was ruled
+
+| | |
+|---|---|
+| **Coordinate** | **18.6089876 N, 73.8587287 E** `[C]` — **closes `SG-V9`** |
+| **Availability** | *"the area around 50 m is all available"* `[C]` |
+| **Ruling** | **The cost of moving the groundwater monitoring is NOT accepted** — **rules `SG-V3`**, see below |
+| **Instruction** | *"use reliable source for precipitation"* — see the rainfall amendment below |
+
+**The pin convention.** One point was given for *"the project site"*. The only
+self-consistent reading that lets everything be dimensioned is that it is the **centre of
+the underground box**, project (11 000, 3 100). Adopted as a **convention `[A]`**, stated as
+one. **If it was meant as a corner or the entrance, the whole layout translates rigidly and
+not one offset, length or clearance changes.**
+
+### Site orientation — fixed for the first time
+
+### **Project +X = EAST. Project +Y = NORTH.** `[A]`
+
+The project has worked in a local frame since Rev F (`A.4.1`) and has **never been tied to
+north**. Five reasons, all pointing the same way: the entry stairwell's grade door is at its
+**west** end (`A.4.7`) and the campus and roads are west, so **the entry faces the
+installation it serves**; the ground falls **east**, so the drainage field is
+**downgradient**; SH-1 (fresh air, west) and SH-2 (generator, X 22598–23198, east) end up at
+**opposite ends, 22.6 m apart**; Bay 8 — generator, ESC 2, BV-4/BV-5 — is at the east end,
+away from the campus; and the sentry post covers the approach from the north.
+
+> **And the limit on the third reason, stated plainly.** **No wind direction data exists
+> anywhere in this project** — the deck gives monthly mean *speed* and no direction, and
+> there is no wind rose. The orientation is therefore **not** justified on prevailing wind.
+> What it does instead is put the intake and the exhaust at **opposite ends of a 22 m box**,
+> which is robust whatever the wind does. A wind rose matters for more than this — it is
+> also the **plume direction for the CBRN case** — and it is opened as **`SG2-V4`**.
+
+### The external works, positioned
+
+An **external works reserve** of **18.0 × 10.5 m** at X 33 000 – 51 000, Y 6 500 – 17 500 —
+**10.0 m clear of the main excavation's east face**, **downgradient**, and entirely inside
+the owner's 50 m envelope (worst corner **42.5 m of 50 m**; the binding element is the
+**sentry post**, whose position is `[ASSUMED]`, U4).
+
+| Tag | What | Centre (X, Y) | Serves |
+|---|---|---|---|
+| **ST-01** | Septic tank 1.5 × 0.75 | (36 750, 16 000) | 10 users, 450 L/day |
+| **SK-01** | **Foul soak pit** 2.2 dia | **(44 000, 16 000)** | ST-01 effluent — the furthest downgradient of everything |
+| **SK-02** | Storm soakaway 2.2 dia | (35 000, 8 500) | Clean sump `PD-06` + entry channel `PD-11` |
+| **SK-03** | Stairwell soakaway — **footprint reserved** | (41 400, 8 500) | Stairwell sump `PD-13`. **Size recorded nowhere** `[C]`/`[N]` |
+| **SK-04** | Headhouse soakaway — **footprint reserved** | (47 800, 8 500) | `PD-14`. **Size recorded nowhere**, and **its pipe cannot be routed** — `SG2-F5` |
+| **IC-01 · IC-02** | Inspection chambers 600 × 450 | (7 500, 9 800) · (40 200, 16 000) | On `PD-11` at the change of direction; on `PD-16` for de-sludging |
+
+**Everything in one reserve, on the downgradient side**, for four reasons: nothing recharges
+the ground upslope or alongside a box that is **flotation-critical at FoS 0.33** in the
+mat-only stage — and whose side backfill at 95 % MDD is **more permeable than the basalt
+around it**, so effluent released near it would run *into* the backfill and down the outside
+of the tanking; one percolation-test location, one keep-clear zone, one reserved fallback;
+**one trench** — `PD-06`, `PD-11` and `PD-13` share a common services trench, and where
+rockhead is 0.9–1.5 m the cost *is* the trench; and **concealment** — four cover slabs and a
+2 m septic vent, grouped 11–22 m away, **mark the drainage field, not the shelter**.
+
+**The layout is anchored to confirmed geometry only.** Nothing is dimensioned from the sentry
+post, so it survives `U4` being resolved differently; and every offset is **relative**, so if
+the perimeter fence turns out to be closer than the reserve's east edge (**`SG2-V2`** — it has
+never been dimensioned) the whole reserve translates and not one offset changes.
+
+### The offsets, and the five pipe lengths
+
+| Offset | Required | Achieved |
+|---|---|---|
+| Foul soak pit → septic tank | ≥ 5 m `[C]` | **5.40 m — DEMONSTRATED** |
+| Soak pit → any building | ≥ 2 m `[C]` | **10.97 m** nearest approach — **DEMONSTRATED, 5.5× over** |
+| Foul soak pit → any well | ≥ 15 m `[C]` | **CANNOT BE DEMONSTRATED — no well position exists anywhere in this project.** `SG2-V1` |
+
+Plus four rules SG2 adopts with their reasoning (foul group ≥ 15 m and clean group ≥ 10 m to
+any excavation face, foul-to-clean ≥ 5 m, pit wall to pit wall ≥ 4 m — the last **referred to
+the geotechnical engineer**). **28 of 28 clearance checks pass.**
+
+| Run | Length | Status |
+|---|---|---|
+| `PD-16` ST-01 → SK-01, DN100 at 1:100 | **5.40 m** | **FIXED** |
+| `PD-06` service entry plate → SK-02, DN50 rising main | **27.00 m** | **FIXED** (its vertical leg still waits on `CO-1` — the plate's level is `[N]`) |
+| `PD-11` CP-10 → SK-02, DN100 at 1:100 | **32.35 m** | **FIXED** — routed *west* first, because north would cross the stairwell excavation |
+| `PD-13` SU-02 → SK-03, DN50 rising main | **29.60 m** | **FIXED** |
+| `PD-14` GY-11 → SK-04, DN100 at 1:80 | **`[U]`** | **CANNOT BE ROUTED — `SG2-F5`** |
+
+### Five findings
+
+| Ref | Finding |
+|---|---|
+| **`SG2-F1`** | **THE SOAK PIT'S PROBLEM IS DEPTH, NOT ARITHMETIC.** See below — the principal finding of this revision |
+| **`SG2-F2`** | **The SOIL REPORT's rainfall figure is the wrong one, not the deck's.** See below |
+| **`SG2-F3`** | **ST-01 is sized for a building that no pipe connects to it.** The tank is sized for *"sentry-post shift crews + shelter maintenance"* `[C]` S-06, the drainage package excludes the sentry post from scope, and **there is no pipe from the sentry post to ST-01 anywhere in the project**. SG2 positions the tank and leaves the connection to the drainage engineer; the layout does not prejudge it |
+| **`SG2-F4`** | **SH-1, the fresh-air intake, has no plan position.** The HVAC schedule gives SH-2 an X range and gives SH-1 only *"West of the box"*. **The fresh-air intake of a CBRN shelter is not a minor fitting**; until it has a coordinate no intake separation can be checked against anything, the septic vent included. `SG2-V3` |
+| **`SG2-F5`** | **`PD-14` cannot be routed.** `GY-11` sits at (14700, 1960) with its invert at `(−)2.150`, and the headhouse floor **is** the top of the 900 pressure slab at `(−)2.000` (`A.4.6`). The gully body and its outlet are therefore **150 mm inside the pressure slab**; outside the headhouse walls that level is beneath the waterproof membrane and within the engineered cover, which no pipe may enter. **SK-04's footprint is reserved; its pipe is not routed.** Referred to drainage and structures together |
+
+### `SG2-F1` — the principal finding
+
+RC1 fixed the **arithmetic** of SK-01 (C19: widened 2.0 → 2.200 dia, 24.19 m² against 22.50
+required) and wrote the sentence this finding starts from: *"deepening drives the pit further
+below the design GWT at (−)2.000, **where it cannot soak at all**."* **So the project has
+known since RC1 that the pit is below the water table. Nobody had quantified by how much.**
+SG1 supplied the missing half — the measured ground profile — so SG2 can.
+
+**Check 1 — how much of the pit is above the design water table?** The project holds two
+readings of the GWT and 28 m east on falling ground they are not the same thing: the
+**absolute** level `(−)2.000` (`A.6`), and *"2 m below GL"* (deck slide 29). Taking the pit at
+0.600 below grade to a 3.500 effective depth:
+
+| Reading | Water below local grade | Area **above** it | of 22.50 m² |
+|---|---|---|---|
+| Absolute `(−)2.000`, reserve ≈ 0.70 m lower | 1.30 m | **4.84 m²** | **21.5 %** |
+| Relative, 2 m below local grade | 2.00 m | **9.68 m²** | **43.0 %** |
+
+**Check 2 — what is the rest of it cut through?** On SG1's profile the only demonstrably
+permeable horizon is the **broken basalt**, which is **0.20 – 0.50 m thick** and contributes
+**1.38 – 3.46 m², i.e. 6.1 – 15.4 %** of the required area. Above it: black cotton at
+FSI 60–65 % that **swells shut when wet**, over murrum the deck's own slide 30 calls
+*"impervious in nature"*. Below it: **sound basalt**, which takes water only through joints —
+and **no joint data exists**, no RQD, no packer test (`SG-V2`).
+
+> **Two independent checks, one conclusion. The form that fits this ground is SHALLOW AND
+> WIDE, not deep and narrow** — a dispersion trench worked in the 0.5–1.6 m broken-rock
+> horizon, *above* the water table. Which is exactly **IS 2470 (Pt 2) Cl. 5**, the fallback
+> `K.2 A7` has named all along.
+
+**SG2 DOES NOT CHANGE SK-01.** The percolation test governs the final size and form — `A7`,
+and RC1 said so too. What SG2 does is **say the number before the test rather than after it**,
+and **reserve the ground for the fallback**: `DF-1` (14.5 × 6.5 m) and `DF-2` (14.5 × 3.5 m)
+inside the same reserve, which carry the foul and clean streams down to **5.17 and 6.90
+L/m²/day — 26 % and 34 % of the assumed 20**. A failed test then costs a redesign, not a
+re-siting. And SG2 fixes **where the percolation test has to be done**: `PT-1` at SK-01,
+`PT-2` at SK-02, **each at its own pit's position and at BOTH the pit invert and the trench
+invert** — a test taken only at `(−)4.100` measures the formation the fallback will not use.
+
+### `SG-V3` ruled — and what the ruling leaves standing
+
+> **Ruling: the cost of moving the groundwater monitoring is not accepted.** `A1080` stays
+> 12-11-26 → 04-12-26. *(Reading: `SG-F7` showed that moving it would move a critical-path
+> activity and therefore the job; the ruling declines that cost. Stated so it can be
+> corrected if something wider was meant.)*
+
+**Consequence, stated honestly.** `A1080` as programmed measures the post-monsoon
+**recession**, so **it will not close `K.2 A2`**. The design GWT `(−)2.000` stays `[ASSUMED]`
+through construction and into service.
+
+**And the permanent works are still bounded.** `(−)2.000` is only 2 m down — the conservative
+direction — and `B.3` has already run the bound: **the completed structure is FoS 1.41
+flooded to grade**, against a requirement of 1.2. **What is exposed is the construction
+stage**, and `B.3`'s mandatory mitigation becomes the operative control rather than advisory.
+
+> **`SG2-V5` — and the programme does not do the first of those.** `A2070`, *"Dewatering —
+> continuous through the substructure works"*, ends **11-05-27**; side backfill `A7010` is
+> 20-07-27 → 30-07-27. `B.3` mitigation 1 requires dewatering *"until backfill and cover
+> complete"*. **The gap spans the whole 2027 monsoon with the box at stage 3 — FoS 1.22 at
+> the design GWT, 0.86 flooded.** No date is changed; the owner's schedule R0 governs (H.13).
+
+**One option the ruling does not preclude, because it costs no float:** a standpipe
+piezometer left in the `A1075` borehole and read weekly by staff already on site is a
+level-of-effort observation, exactly like `A2070`. It cannot verify the design in time — the
+mat is cast in February — but through the 2027 monsoon it measures the water the flotation
+case is actually exposed to. **Offered, not adopted.** `[A]`
+
+### `SG-V5` amended — rainfall
+
+**The instruction was to use a reliable source. What actually happened is recorded so it can
+be checked: ten hosts were probed and all ten were refused by the session's egress policy
+(HTTP 403)** — `imd.gov.in`, `imdpune.gov.in`, `mausam.imd.gov.in`, `data.gov.in`,
+`tropmet.res.in`, `en.wikipedia.org`, `en.climate-data.org`, `power.larc.nasa.gov`,
+`climexp.knmi.nl`, `ncei.noaa.gov`. **No IMD normal was retrieved and none is invented.**
+
+One published figure with a **named station and a named period** was obtained, and it settles
+which of the project's two figures is wrong: the **June-to-October mean at Pune Shivajinagar
+over 1978–2020 is 852.5 mm** `[R]`, from a published analysis of IMD Shivajinagar data.
+
+> **`SG2-F2`. The SEMT report's `500–600 mm` annual is the figure that is wrong, not the
+> deck's.** The June-to-October mean **alone** at the nearest long-record observatory is
+> **1.4 – 1.7 × the report's whole year**. SG1 raised this as a conflict it could not
+> adjudicate; **it can now, and the correction runs the other way from the first guess.**
+
+The deck is not vindicated: its Jun–Oct total of 699.5 mm is **18 % below** the 42-year mean
+and its October figure still does not fit a Deccan monsoon. **`SG-V5` stays open, on a
+narrower question**, with the authoritative source named exactly (IMD *Climatological Tables
+of Observatories in India 1991–2020*; the IMD Climate Data Services Portal; the National Data
+Centre) — **and separately an IDF relation, because `DR-D1`'s 50 mm/h still has no return
+period or source and a monthly total can never supply one**.
+
+> **And the reach of all of it, demonstrated:** **not one pipe, pit, pump or structure in
+> this project is sized by rainfall.** The roofs and the cover **shed at grade** — D.7: *"no
+> roof outlet, no downpipe and no rainwater pipe on the buried roof"*, so the 2.461 L/s at
+> 50 mm/h never enters a pipe; the only rainwater that does is the door-open driving-rain
+> case at order **0.008 L/s** against a DN100 carrying 6.72 L/s; and `SU-02` is sized on a
+> **1 000 L event volume** `[C]`, not an intensity. The rainfall conflict governs what the
+> design report may **claim**, and — through the monsoon window — **when** things can be
+> built. **Nobody should re-size a pipe on the back of a corrected rainfall table.**
+
+### Master gap D3 — partially closed
+
+| What D3 was blocking | Status |
+|---|---|
+| Positions of the soakaways, the septic tank, the external chambers | **CLOSED** |
+| The five "not determinable" pipe lengths | **FOUR CLOSED**, `PD-14` `[U]` |
+| IS 2470 offsets to the septic tank and to any building | **DEMONSTRATED** |
+| IS 2470 offset to any well | **STILL OPEN** — `SG2-V1` |
+| Berm, access and hardstanding · cut and fill · the final discharge question · the sentry position | **STILL OPEN** |
+
+> **D3 is PARTIALLY closed, not closed. THE LAYOUT NOW EXISTS. THE SURVEY DOES NOT.** What is
+> still missing — a boundary, a benchmark and spot levels, the well, the fence distance,
+> existing services on the plot, a wind rose — is every one of it a **survey** output, and
+> none of it moves anything SG2 has fixed.
+
+### What was produced
+
+`Documentation/SITE_LAYOUT_AND_EXTERNAL_WORKS.md` (14 parts) · four schedules as `.md` +
+`.csv` (external works, external pipe runs, siting clearances, open-item status) ·
+`Calculations/SG2_SITE_CALC_OUTPUT.txt` (**S.1–S.12**, every clearance computed against the
+rule it must meet) · an appended QA/QC section · and **two new A1 sheets**:
+
+- **`SG-102` SITE LAYOUT PLAN** — **the project's first**. 1:150, project coordinates, every
+  external structure placed and every clearance dimensioned from confirmed geometry, plus a
+  1:900 location key showing the owner's 50 m envelope. It carries **on its face** the list of
+  the eight things still missing.
+- **`SG-202` EXTERNAL WORKS SITING AND THE SOAK PIT FINDING** — the pit drawn against the
+  ground it is cut into, both water-table readings, the two checks behind `SG2-F1`, the
+  reserved fallback, and the `SG-V3` ruling.
+
+**All five sheets re-issued at rev SG2** (a drawing carries the revision it is issued at);
+`SG-001`, `SG-101` and `SG-201` changed **only** in the revision and sheet-count fields. The
+SG1 *documents* stay at SG1 — that revision happened and this Part preserves it (`M.11`).
+**5 A1 DXF, 0 errors, 0 warnings, 0 text overlaps.**
+
+### What SG2 did NOT do
+
+**No design value, load, thickness, bar, level, BOQ quantity, rate, date or float changed.**
+**SK-01 was not re-sized** — RC1's 2.200 dia × 3.500 stands and the percolation test governs.
+No `.std` file was touched and **STAAD.Pro was not run**. **No existing file in any other
+package was modified** — the only files outside `Site Selection and Geotechnical/` that change
+are this one and `master/QUICK_STATE.md`. **The main staircase is untouched.** **No evidence
+tag was converted, downgraded or deleted.** `SG-V9` is **closed** by an owner-supplied datum;
+`SG-V3` is **ruled** by the owner; `SG-V5` is **amended, not closed**. **K.1b goes from
+twenty-nine open items to thirty-two** — five new (`SG2-V1…V5`), two removed (`SG-V9` closed,
+`SG-V3` ruled into `K.1e`).
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -3569,6 +4015,42 @@ nineteen.**
 | `Electrical/DXF/E-001_Single_Line_Diagram.dxf` | **One A1 sheet.** Mains + GEN-1 with changeover, `DB-M`, battery and inverter, `DB-E`, and `DB-Z2` inside the EMP Zone 2 enclosure through its PCI. **0 errors, 0 warnings, 0 text overlaps** |
 | `Electrical/Scripts/` | `el_proj.py` · `el_calc.py` · `el_schedules.py` · `el_dxf.py` (subclasses `mep_dxf.py`, uses the CAM2/FS2 hooks) · `el_sheets.py` · `el_build_all.py` |
 
+### Added by SG1, 11 September 2026 — see H.22
+
+> **The project's first site selection and geotechnical section. It resolves nothing —
+> what it supplies is provenance and quantified margin. The investigation it reports on
+> reached about 1.5 m; the structure founds at (−)6.800.**
+
+| Folder / file | Contents |
+|---|---|
+| `Site Selection and Geotechnical/Documentation/SITE_SELECTION_AND_GEOTECHNICAL_REPORT.md` | **The main document, 19 parts.** Why it exists and what it does not do · sources and the off-site limitation · site identification · **site selection and its SWOT, with what the selection got right and what it did not consider** · setting, level and the deck's self-contradiction · geology and the flow-contact hazard · **the investigation and the 5.3 m gap** · bearing, soaked vs unsoaked · rockhead and what it costs · **groundwater, the central question** · seismicity · meteorology · the `A.6` parameters against measured data · **the black cotton soil and its two exposures** · the deck against its own cited source · **14 findings** · **10 open items** · what changed and what did not · references |
+| `…/Documentation/00_README.md` · `SG_DRAWING_INDEX.md` | Package README and the drawing register |
+| `…/Calculations/SG_CALC_OUTPUT.txt` | **G.1 – G.14**, every conversion, reproduction and check with its arithmetic in full: units · reproducing the report's own arithmetic · the depth reached vs the depth needed · bearing · net pressure · rockhead and its cost · groundwater · the `A.6` parameters · the site · meteorology · seismic · the black cotton soil · the deck against its source · the parameter register |
+| `…/Schedules/` | `TRIAL_PIT_SCHEDULE` · `SOIL_PROPERTY_SCHEDULE` · `ROCK_STRENGTH_SCHEDULE` · `METEOROLOGICAL_SCHEDULE` · `GEOTECHNICAL_PARAMETER_RECONCILIATION`, each `.md` and `.csv` |
+| `…/QAQC/SG_QAQC.md` · `SG_DRAWING_VALIDATION.txt` | 13 executed checks · 7 declared non-checks · 6 declared deviations · byte-identity evidence for all seven other packages |
+| `…/DXF/SG-001_Site_and_Geotechnical_Design_Basis.dxf` | The two sources and their limits · every `A.6` / `K.2` parameter against the evidence · all 14 findings · the bearing check at the measured value · the 10 open items |
+| `…/DXF/SG-101_Site_Setting_Selection_and_Meteorology.dxf` | **Carries a NOT A SITE PLAN banner and means it.** Setting diagram (no scale) · SWOT · what the selection did not consider · the full meteorological record · the level conflict · the rainfall conflict · the wind warning · `SG-F7` |
+| `…/DXF/SG-201_Geotechnical_Profile_and_Structure_Section.dxf` | **The sheet the package exists for.** Three trial pit logs at true level against a transverse section through the box, **1:25 both ways**, with everything below `(−)1.500` hatched as **NO DATA** and annotated with what a real investigation would have had to put there. **0 errors, 0 warnings, 0 text overlaps** |
+| `…/Scripts/` | `sg_proj.py` · `sg_data.py` (both documents transcribed, nothing averaged or corrected) · `sg_calc.py` · `sg_schedules.py` · `sg_docs.py` · `sg_dxf.py` (subclasses `mep_dxf.py`, uses the CAM2/FS2 hooks) · `sg_sheets.py` · `sg_build_all.py` |
+
+### Added by SG2, 11 September 2026 — see H.23
+
+> **The project's first site layout plan.** Master `H.9`'s *"not determinable"* positions,
+> five pipe lengths and the IS 2470 offsets — **determined**, on a coordinate and a 50 m
+> envelope the project owner supplied.
+
+| Folder / file | Contents |
+|---|---|
+| `Site Selection and Geotechnical/Documentation/SITE_LAYOUT_AND_EXTERNAL_WORKS.md` | **The SG2 document, 14 parts.** What changed and why it unblocks this · **site orientation fixed: +X = EAST** · the external works reserve · the positions · the offsets demonstrated · the five pipe lengths · **`SG2-F1`, the soak pit is a DEPTH problem** · the reserved fallback `DF-1`/`DF-2` · where the percolation test has to be done · **the `SG-V3` ruling and what it leaves standing** · **the `SG-V5` rainfall amendment** · what the siting work surfaced elsewhere · **`D3` partially closed** · what changed and what did not |
+| `…/Calculations/SG2_SITE_CALC_OUTPUT.txt` | **S.1 – S.12.** Orientation · the 50 m envelope · the IS 2470 offsets one by one · **28 of 28 clearance checks, each against the rule it must meet** · the five pipe routes leg by leg · the soak pit against the water table and against the ground · the fallback sized · the percolation test located · the `SG-V3` ruling · rainfall · cross-package findings · the `D3` split |
+| `…/Schedules/EXTERNAL_WORKS_SCHEDULE` | ST-01, SK-01…SK-04, IC-01, IC-02 — positions, sizes, levels, what each serves |
+| `…/Schedules/EXTERNAL_PIPE_RUN_SCHEDULE` | The five runs, four with lengths and one `[U]` |
+| `…/Schedules/SITING_CLEARANCE_SCHEDULE` | Seven rules — three `[C]` from S-06, four `[A]` adopted here, each with its reasoning |
+| `…/Schedules/SG2_OPEN_ITEM_STATUS` | Every SG1 and SG2 item with what SG2 did to it |
+| `…/DXF/SG-102_Site_Layout_Plan.dxf` | **THE PROJECT'S FIRST SITE LAYOUT PLAN.** 1:150 plan + 1:900 location key. Every external structure placed, every clearance dimensioned from confirmed geometry — and, on its face, **the eight things still missing** |
+| `…/DXF/SG-202_External_Works_Siting_and_Soak_Pit_Finding.dxf` | The pit against the ground it is cut into · both water-table readings · the two checks behind `SG2-F1` · the reserved fallback · the percolation-test positions · the `SG-V3` ruling |
+| `…/Scripts/sg_site.py` · `sg_site_calc.py` · `sg_site_docs.py` · `sg_site_sheets.py` | The SG2 generators. `sg_build_all.py` now runs SG1 then SG2 and validates all five sheets |
+
 ## I.3 SUPERSEDED / ARCHIVED
 
 | Item | Superseded by | Note |
@@ -3595,7 +4077,17 @@ nineteen.**
                  │
                  ▼
         [SITE INVESTIGATION]  rockhead · GWT · red-bole · k_s · SBC · percolation
-                 │
+                 │        ▲   SG2, 11.09.26 (H.23): the COORDINATE and a 50 m envelope
+                 │        │   arrive, and the SITE LAYOUT follows - external works placed,
+                 │        │   4 of 5 pipe lengths and 2 of 3 IS 2470 offsets closed.
+                 │        │   D3 PARTIALLY closed: the LAYOUT exists, the SURVEY does not.
+                 │        ▲
+                 │        └── SG1, 11.09.26 (H.22): FED FOR THE FIRST TIME, and only to
+                 │            ABOUT 1.5 m.  SEMT/67/15 + the P1 deck give rockhead, SBC,
+                 │            phi, MDD/OMC, Zone III and the provenance of GWT (−)2.000.
+                 │            BELOW 1.5 m THE NODE IS STILL EMPTY: red-bole, k_s, the
+                 │            water table at (−)6.800 and rock-mass permeability are all
+                 │            [N].  A1075 + A1080, both CRITICAL PATH, still to happen.
                  ▼
         [ARCHITECTURAL GEOMETRY — Rev F DXF]
                  │
@@ -3675,6 +4167,13 @@ nineteen.**
 > nothing contradicting it. What they need is a decision, a datum or a design from
 > outside this workspace, and no amount of choosing between recorded values can supply it. They are
 > listed separately so that a closed conflict is never confused with an open question.
+>
+> **THREE EXCEPTIONS, ADDED BY SG1 (11 Sep 2026, H.22), AND THEY ARE MARKED AS SUCH.**
+> `SG-V4`, `SG-V5` and `SG-V8` **are** disagreements — but they are disagreements **inside
+> the supplied documents**, not inside this project's own design record. **RC1's rule still
+> holds: a conflict that can be ruled on the evidence is ruled.** These cannot be, because
+> both sides are external, neither cites a source, and choosing between them would be
+> inventing evidence. **None of the three changes a design value.**
 
 | # | Item | The project's position | What it actually needs |
 |---|---|---|---|
@@ -3697,15 +4196,36 @@ nineteen.**
 | **EL-V5** | Circuit, cable, luminaire and socket schedules | **None — deliberately.** EL1 stops at board level | Detailed design stage |
 | **EL-V6** | Cooling | **No cooling plant exists anywhere in the project**, so no cooling load appears in the schedule. A sealed 332.8 m³ box with 9 occupants and a dehumidifier has a heat balance nobody has computed | **HVAC.** Referred, not resolved |
 | **EL-V7** | CO₂ scrubber air movement | **In no schedule.** EL1 assumes 0.10 kW for a recirculation fan; soda lime needs air over it and no fan is specified | **HVAC** |
+| **SG-V1** | **The geotechnical data is OFF-SITE** *(SG1, 11 Sep 2026, H.22)* | **SEMT/67/15 investigates the G Building, the H Building and the Mess Building.** The project plot is a separate undeveloped area east of the CTW blocks. The carry-across rests on the report's own para 5 — *"horizontally bedded and more or less uniform in character over a wide area"* — and is an **`[A]` of the SG1 package**, not a finding of the report. The report's own spread (rockhead 0.9 → 1.5 m over three locations) shows how much that uniformity permits | **The confirmatory site investigation `A1075` located ON THIS PLOT**, not repeated from the report. **No investigation has ever been made on the project plot** |
+| **SG-V2** | **DEPTH OF INVESTIGATION — the governing item** *(SG1)* | **The pits reached about 1.5 m. The formation is at `(−)6.800` and the sump base at `(−)8.000`.** There are **5.3 m of completely unlogged ground** under the whole structure. Only sentry footing F1 at `(−)2.000` is inside the investigated horizon, and only just | **Boreholes with core recovery and RQD to well below `(−)6.800`, logging every flow contact and red-bole seam** — that is the case that **sizes the mat** (`B.3` Case 2, 84 % utilised) — with **packer permeability** at the contacts and a **plate load test** for k<sub>s</sub> at **both** bounds |
+| **SG-V4** | **Site level and fall** *(SG1)* | **The P1 deck contradicts itself.** Its contour map puts the plot between the **580 and 581 m** contours; its elevation profile reads **593.9 → 596.2 m** over 26.8 m. **They differ by 12–16 m in level and about four times in gradient**, and neither is tied to the project datum. Neither is adopted | **A levelled benchmark on the plot** and a spot-level survey. It changes **no calculation** — the project works on a local datum with grade `= 0.000` — but the **cut and fill**, the **berm toe** and the point where the `BS1` 1:50 crossfall daylights all wait on it, and on **D3** |
+| **SG-V5** | **Annual rainfall** *(SG1, **AMENDED by SG2**, H.23)* | **SG2 settled which side is wrong.** The **June-to-October mean alone** at Pune Shivajinagar over **1978–2020 is 852.5 mm** `[R]` — **1.4 to 1.7 times the SEMT report's whole YEAR** of 500–600 mm. **`SG2-F2`: the soil report's figure is the one that is wrong, not the deck's**, which is the opposite of SG1's first guess. The deck is not vindicated either: its Jun–Oct total is **18 % below** the 42-year mean and its **October figure still does not fit a Deccan monsoon**. **No IMD normal could be retrieved — ten meteorological hosts were probed and all ten were refused by the session's egress policy (403) — and none is invented.** | **A named IMD station normal**: the *Climatological Tables of Observatories in India 1991–2020*, or the IMD Climate Data Services Portal, or the National Data Centre — with the station index and period printed on it. **And separately an IDF relation** for `DR-D1`. **Note what this does NOT reach: not one pipe, pit, pump or structure in this project is sized by rainfall** (H.23), so no design value waits on it |
+| **SG-V6** | **The entry stairwell raft founds in black cotton soil** *(SG1)* | `A.4.7` records a *"Stepped RC raft 300 thk **on compacted fill**"* from the top landing at `0.000` to the platform at `(−)2.000`; **its top founds at about `(−)0.300`, inside the 0.18–1.0 m CH horizon**, which is measured at **FSI 60–65 %** — very high swelling. *"On compacted fill"* implies a strip and replace, but **no specification says so and no BOQ item exists**. This is **heave**, not bearing | **A specification** for stripping and replacing the CH horizon under the raft, and the quantity priced. The stairwell is expendable against **blast** — **heave is not a blast problem, and this is the only primary access to the shelter** |
+| **SG-V7** | **The concealment turf may be an expansive clay** *(SG1)* | `A.7.3` puts **300 topsoil / turf** at the top of the cover and `CAM2` makes it *the* concealment layer, **"re-laid from the site's own stockpile"**. If the site's own topsoil is this CH clay, the concealment layer **cracks in the dry season** (a concealment defect — `CAM2`'s whole subject), the cracks **feed the 150 granular filter directly**, and the wet/dry cycles **pump fines into** the filter, which is the one thing it exists to stop. **The load is unaffected** — 300 at 18 kN/m³ = 5.40 kPa is right for a black cotton soil | **A specification**: a swell limit on the stockpiled topsoil, or imported non-expansive topsoil, priced. A `CAM2` coordination decision. `BS1`'s crossfall still works and is unaffected |
+| **SG-V8** | **Three P1 deck statements are not in the report they cite** *(SG1)* | Slides 29 and 30 both read *"Source : SEMT wing, CME"*. **"SBC = 300 kN/m² at 1.5 m"** is not any value in the report; **"Murrum … SBC of 25–30 kg/cm²"** — the report says 2.07–5.18, and 25–30 is the *sound basalt* band; **"609–900 kg/cm² unsoaked"** — the report says 752–900, and 609 appears nowhere. **None affects the design**, which uses none of them | **Correction at source before the next presentation.** The deck's two other soil statements are right: *"Ultimate = SBC × 2.5"* is Appendix B's own relationship, and *"safe for water table at 2 m below GL"* is the **provenance of `(−)2.000`** |
+| **SG-V10** | **The date of the SEMT field work is not stated** *(SG1)* | The report is raised on a letter of **20 May 2015** but **nowhere states when the trial pits were dug**. If the work followed promptly it was the **pre-monsoon minimum** — the one time of year a trial pit is least likely to find water. **That is inference and is tagged `[U]`, not asserted** | The field-work dates from the SEMT wing, or acceptance that the *"no water table"* observation is **season-unknown**. Either way `SG-V2` and `SG-V3` still govern |
 
-### K.1e RULED BY THE PROJECT OWNER — revision RC2, 11 September 2026 (Part H.21)
+| **SG2-V1** | **No well position exists anywhere in the project** *(SG2, 11 Sep 2026, H.23)* | **The IS 2470 (Pt 2) offset of ≥ 15 m from any well is the ONE of the three that SG2 cannot demonstrate.** The other two — ≥ 5 m to the septic tank and ≥ 2 m to any building — are now demonstrated at **5.40 m** and **10.97 m**. The only water feature recorded anywhere in the project is the RCC overhead reservoir on the deck's pipelines sketch, which is a **tank, not a well**, and is on the far side of the campus. **SG2 does not claim the offset is met** | **The position of every well within 15 m of the reserve, or confirmation that there is none.** A survey output, and the last thing standing between the foul soak pit and a complete offset set |
+| **SG2-V2** | **The distance to the perimeter fence has never been dimensioned** *(SG2)* | **It is the site's only recorded SWOT weakness** — *"Located near Perimeter Fence"* — and **no distance appears anywhere**. It bears on concealment (`CAM-V2`), on security, and on whether the external works reserve fits where SG2 puts it | **A dimension.** The layout is built to be immune to the answer: every offset in it is **relative**, so if the fence is closer than the reserve's east edge **the whole reserve translates and not one offset changes** |
+| **SG2-V3** | **SH-1, the fresh-air intake, has no plan position** *(SG2)* | The HVAC equipment schedule gives **SH-2** an X range (22 598 – 23 198) and gives **SH-1** only *"West of the box"*. **No X, no Y, no coordinate.** The fresh-air intake of a CBRN shelter is not a minor fitting: until it has one, **no intake separation can be checked against anything** — the septic vent, the generator exhaust, a surface plume. What protects it in SG2's layout is geometry, not a calculation: the reserve is **east**, SH-1 is **west**, so the separation is **at least 33 m however SH-1 is finally placed** | **A coordinate**, from HVAC. `SG2-F4` |
+| **SG2-V4** | **No wind direction data exists anywhere — there is no wind rose** *(SG2)* | The P1 deck gives monthly mean **speed** and nothing else. It matters twice: for the **intake / exhaust** relationship, and as the **plume direction for the CBRN case** the whole shelter exists to survive. **SG2's orientation is therefore justified on access, fall, noise and end-to-end separation — explicitly NOT on prevailing wind** | **A wind rose** for the nearest long-record station. Until then the design's only protection is that intake and exhaust sit at opposite ends of a 22 m box |
+| **SG2-V5** | **The programme stops dewatering before backfill** *(SG2, sharpened by the `SG-V3` ruling)* | `A2070`, *"Dewatering — continuous through the substructure works"*, ends **11-05-27**. Side backfill `A7010` runs 20-07-27 → 30-07-27 and the burster slab is not cast until 21-08-27. Master `B.3` mitigation 1 requires dewatering **"until backfill and cover complete"**. **The gap spans the whole 2027 monsoon with the box at stage 3 — flotation FoS 1.22 at the design GWT and 0.86 flooded.** The `SG-V3` ruling makes this the operative control rather than a belt-and-braces note | **A project-owner decision on the programme.** No date is changed by SG2 — the owner's own Master Construction Schedule R0 governs (H.13). Either dewatering extends to 30-07-27, or the sub-structure sequence moves, or the residual flotation risk is accepted in writing |
 
-> **Both were asked, not assumed.** Each package raised one question it could not answer from the
-> project's own evidence, stated the consequence of each answer, and stopped. **Neither ruling
-> changed a number** — both confirmed what the package had already reasoned.
+### K.1e RULED, CLOSED OR ANSWERED BY THE PROJECT OWNER — RC2 (Part H.21) and SG2 (Part H.23)
+
+> **Every one of these was asked, not assumed.** Each package raised a question it could not
+> answer from the project's own evidence, stated the consequence of each possible answer, and
+> stopped. **Not one of the four rulings changed a number.**
+>
+> **RC2, 11 September 2026 (H.21)** — `EM-V1` and `EL-V1`, the two the EMP and electrical
+> packages raised. **SG2, 11 September 2026 (H.23)** — `SG-V9`, closed by a datum the owner
+> supplied, and `SG-V3`, ruled. **The SG2 rows are listed first because one of them unblocked
+> a package.** Reasoning is preserved throughout; nothing is deleted.
 
 | # | Question | Ruling | Effect |
 |---|---|---|---|
+| **SG-V9** | Where is the site? The project had **no coordinates** — the owner's map pin could not be resolved in the SG1 session (egress policy, 403) | **CLOSED, 11 Sep 2026 (H.23). 18.6089876 N, 73.8587287 E**, supplied directly, together with *"the area around 50 m is all available"* | **It unblocked the site layout.** With the coordinate, the envelope, SG1's contours and the project's confirmed geometry, master `H.9`'s *"not determinable"* positions became determinable. **The pin is taken as the centre of the box — an adopted convention `[A]`; if it meant a corner the whole layout translates rigidly and no offset changes** |
+| **SG-V3** | The monsoon groundwater monitoring `A1080` runs 12-11-26 → 04-12-26, which is **not the monsoon**. Move it, at the cost of a critical-path activity? | **RULED, 11 Sep 2026 (H.23). NO — the cost is not accepted.** `A1080` stays where it is | **`A1080` will measure the recession, not the peak, so it will NOT close `K.2 A2`.** The design GWT `(−)2.000` stays `[ASSUMED]` through construction. **The permanent works are still bounded** — `B.3` gives the completed structure FoS **1.41 flooded to grade** against a requirement of 1.2. **What is exposed is the construction stage**, so `B.3`'s mandatory mitigation becomes the operative control — and **`SG2-V5`** records that the programme does not currently implement the first of it |
 | **EM-V1** | Adopt or reject the three-zone EMP model and the *"EMP Zone 2 standing alone"* design rule | **ADOPTED.** EMP Zone 0 / 1 / 2, and the rule that Zone 2 delivers the full 80 dB with **no attenuation credited from the concrete box at any frequency**, are the project's EMP position `[C]` | **CLOSED.** Nothing else in EM1 changes — no figure, no finding, no other open item. Five EM-V items stand |
 | **EL-V1** | May the generator run during Mode 3 CLOSED? HV1 stated both *"all five blast valves shut"* and *"BV-4 and BV-5 open … independent of modes 1–4"*, and BV-4/BV-5 are two of the five | **YES.** All five shut at the shock and hold 1.3 s; **BV-4 and BV-5 are then reopened for generator operation.** Bay 8 is outside the gas-tight envelope `[C]` | **CLOSED.** EL1's **Case A confirmed at 149 Ah** — the battery stands at the size already designed, only the class moves `[A]` → `[C]`. **HV1's Mode 3 row amended.** **EM-V3 is sharpened, not decided** |
 
@@ -3848,6 +4368,28 @@ nineteen.**
 | A13 | Sentry post STAAD has no member releases | Frame moment distribution | Upload the `.std` file |
 | A14 | Poisson's ratio 0.20 | Plate behaviour, minor | Standard |
 
+> **SG1 — 11 September 2026 (Part H.22). NOT ONE OF THE FOURTEEN IS CLOSED.** Four are
+> touched by the evidence the SEMT/67/15 sub-soil investigation and the P1 deck supply.
+> What each gains is a **provenance and a quantified margin**, never a confirmation —
+> master rule `M.6` forbids that, and the governing reason is `SG-F2`: **the investigation
+> reached about 1.5 m and this structure founds at (−)6.800.**
+>
+> | # | Provenance now on record | Margin now quantified | Still needs |
+> |---|---|---|---|
+> | **A1** | rockhead **0.9–1.5 m** at three locations `[C]` | the report's band is **entirely at or above** the assumed 1.5–2.0; **+118 m³ rock, ≈ 2 d** | boreholes **on this plot** — `A1075`, and **`SG-V1`, `SG-V2`** |
+> | **A2** | *"not encountered in any trial pit"* — **in pits ~1.5 m deep**; the P1 deck's *"safe for water table at depth of 2 m below GL"* `[C]` | **none.** *Not encountered* = **not reached**; the design GWT is already below the deepest pit | a **standpipe piezometer read through a full monsoon**. `A1080`'s window, **12 Nov – 4 Dec, is not in the monsoon** — **`SG-V3`** |
+> | **A3** | measured basalt **1961–2059 kPa soaked** / 2942–3530 unsoaked `[C]` | soaked governs; worst utilisation **12.5 % → 20.6 %**, factor **4.8** in hand | plate load / core testing at the founding horizon — **`SG-V2`** |
+> | **A4** | **nothing** | — | plate load test. **The 500 000 bound is still outstanding** |
+> | **A5** | φ **27–35°**, c ≈ 0, MDD **1.88–1.93**, OMC **8–12 %** `[C]` | K₀ 0.50 **conservative** on the murrum; γ<sub>sat</sub> agrees within **1.2 %**; wall load moves **< 1 %** | nothing further — the walls are blast-governed |
+> | **A7** | **nothing** | — | **percolation test, IS 2470 (Pt 2) Cl. 4 — still MANDATORY**, and the report's basalt makes failure likely |
+> | **A8** | **nothing** | — | packer permeability tests at the flow contacts |
+> | **A10** | the deck's monthly **mean** wind speeds `[C]` | **not the same statistic.** V<sub>b</sub> = 39 m/s is a 3-second gust at a 50-year return period | nothing. **A.7.8 IS NOT TO BE REDUCED ON THE STRENGTH OF THE DECK'S WIND SLIDE** |
+>
+> **Externally corroborated for the first time, and unchanged:** **Seismic Zone III** — both
+> documents say it, and A.7.8's A<sub>h</sub> = 0.075 / 0.100 reproduce exactly from Z = 0.16
+> (`SG-F12`); and the **40.65 kPa cover**, which brackets both the as-placed (lighter) and the
+> fully saturated (+1 %, = **+0.09 % of COMB 103**) case (`SG-F8`).
+
 ## K.3 CONFIRMED but requiring attention
 
 | # | Item |
@@ -3858,6 +4400,8 @@ nineteen.**
 | Flotation | FoS 0.33 at the mat-only stage — **a design output, mitigation is mandatory and on S-02** |
 | **Deccan basalt resistivity** 10³–10⁴ Ω·m | **Test earth resistance early** — affects EMP and lightning protection |
 | Airlock purge 13 min | **4–5 persons/hour — a manning constraint, must be on the drill card** |
+| **Black cotton soil, CH, free swell index 60–65 %** *(SG1, H.22)* | **CONFIRMED by measurement — SEMT/67/15 Appendix A — and recorded nowhere in this project before SG1.** An FSI above 50 % is the **top band of the IS 1498 scale**. Nothing structural founds in it: the mat is at (−)6.700 and footing F1 at (−)2.000, both in basalt, and **`B.8.7`'s insistence that F1 bears *"on IN-SITU ROCK, never on backfill"* is now backed by a measurement.** **Two elements are exposed anyway:** the covered entry stairwell's **stepped raft**, whose top founds at about (−)0.300 with no strip-and-replace specification anywhere (`SG-F13` / `SG-V6`), and the **300 turf concealment layer**, which `CAM2` re-lays from the site's own stockpile over the granular filter it would clog (`SG-F14` / `SG-V7`). **Neither is changed by SG1; both need a specification, not a calculation.** |
+| **The founding horizon is permanently submerged** *(SG1, H.22)* | The formation at (−)6.800 is **4.8 m below the design GWT**, so the measured **soaked** basalt bearing value (1961–2059 kPa) is the applicable one, not the unsoaked (2942–3530). **The presumptive 3240 kPa in `A.6` is an IS 1904 value, is declared as one, and is not changed** — the worst bearing utilisation in the project rises **12.5 % → 20.6 %** and everything passes with a factor of **4.8** in hand. **Say it before a reviewer does** (`SG-F3`). |
 | EMP rebar cage 0 dB @ 1 GHz | **Say it before a reviewer does.** Zone 2 welded steel room is the answer. — **EM1, 10 Sep 2026 (H.19): this figure has now been REPRODUCED from the 150 mm bar spacing alone (0.000 dB at 1 GHz, mesh cutoff 999.31 MHz), and the Zone 2 room it calls for is designed at `[A]`.** The item stands: the cage meets 80 dB only below **99.93 kHz**, one decade of the five |
 
 ---

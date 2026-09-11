@@ -1,0 +1,13 @@
+LOCATION,PITS,DEPTH,SOIL / ROCK,UCS SOAKED kg/cm2,SBC kg/cm2,SBC kPa,BASIS,CLASS
+G Building,TP-1 to TP-4,GL - 1.0 m,High plasticity Clay (CH),,0.27,26.5,,[C]
+,,1.0 - 1.2 m,Murrum (GM),,4.27,418.7,,[C]
+,,1.2 - 1.5 m,Broken Rock,,10.00,980.7,IS 12070 Table 2,[C]
+,,Below 1.5 m,Basalt Rock,509,20.00,1961.3,soaked,[C]
+H Building,TP-5 to TP-8,GL - 0.18 m,High plasticity Clay (CH),,0.25,24.5,,[C]
+,,0.18 m - 0.7 m,Murrum (GM),,4.66,457.0,,[C]
+,,0.7 m - 0.9 m,Broken Rock,,10.00,980.7,IS 12070 Table 2,[C]
+,,Below 0.9 m,Basalt Rock,513,21.00,2059.4,soaked,[C]
+Mess Bldg,TP-9 to TP-11,GL - 0.2 m,Murrum (SC),,2.07,203.0,,[C]
+,,0.2 m - 0.5 m,Murrum (GP),,5.18,508.0,,[C]
+,,0.5 m - 1.0 m,Broken Rock,,10.00,980.7,IS 12070 Table 2,[C]
+,,Below 1.0 m,Basalt Rock,529,21.00,2059.4,soaked,[C]
