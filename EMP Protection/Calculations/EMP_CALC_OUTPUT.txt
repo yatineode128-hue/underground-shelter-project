@@ -258,7 +258,7 @@ at least 80 dB in band.  Read the failures one at a time:
                          piece at the plate.  Nobody has specified one.
 
 ==============================================================================
-E.4  THE ZONE MODEL - WHICH THIS PROJECT HAS NEVER HAD
+E.4  THE ZONE MODEL - ADOPTED BY THE PROJECT OWNER, RC2
 ==============================================================================
 
 Master A.3 puts an 'EMP Zone 2 enclosure' in bay 3.  [C]
@@ -266,9 +266,17 @@ Finishes W-04 calls it 'EMP ZONE 2 SHIELDED ENCLOSURE LINING ... welded
 steel room, shielding effectiveness verified to IEEE Std 299',
 classed [C] requirement / [N] specification.
 
-THERE IS NO EMP ZONE 1 ANYWHERE IN THE PROJECT, and no EMP Zone 0.
-'Zone 2' has been used for four revisions with nothing to be the second
-of.  The three zones below are DERIVED HERE.  [D]
+THERE WAS NO EMP ZONE 1 ANYWHERE IN THE PROJECT, and no EMP Zone 0.
+'Zone 2' had been used for four revisions with nothing to be the second
+of.  The three zones below were DERIVED by EM1 and are now
+
+  *** ADOPTED BY THE PROJECT OWNER - RC2, 11 September 2026,
+      master H.21.  THE THREE-ZONE MODEL AND THE STANDING-ALONE
+      RULE BELOW ARE THE PROJECT'S ADOPTED EMP POSITION.  [C] ***
+
+EM-V1 IS CLOSED.  Nothing else in EM1 changes: no figure, no finding,
+no other open item.  The model was already what the package was built
+on - the ruling makes it the project's, not this package's.  [D]
 
   EMP ZONE 0   everything above grade.  Sentry post +7.000, headhouse
                +0.900 with no earth cover, covered stairwell +2.450,
@@ -282,10 +290,11 @@ of.  The three zones below are DERIVED HERE.  [D]
   EMP ZONE 2   the welded steel enclosure in bay 3 (U-03).  THE ONLY
                SURFACE IN THIS PROJECT THAT DELIVERS 80 dB, 10 kHz - 1 GHz.
 
-THE DESIGN RULE THAT FOLLOWS, and it is the whole package in one line:
+THE DESIGN RULE, ADOPTED WITH THE MODEL - the whole package in one line:
 
   *** ZONE 2 IS DESIGNED TO THE FULL 80 dB STANDING ALONE.  NO
-      ATTENUATION FROM THE CONCRETE BOX IS CREDITED AT ANY FREQUENCY. ***
+      ATTENUATION FROM THE CONCRETE BOX IS CREDITED AT ANY FREQUENCY.
+      ADOPTED - RC2.  [C] ***
 
   The cage is then margin rather than design, which is the only
   defensible way to use a shield you cannot survey behind 2 m of earth.

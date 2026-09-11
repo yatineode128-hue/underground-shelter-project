@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461295.1227893517
+2461295.2165625
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461295.1227893517
+2461295.2165625
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-1E3
+1EB
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{AF58363D-0CEC-4329-94F2-1B5787805E37}
+{088059CB-E86A-4A30-A0B5-6CCE317F7BF8}
   9
 $VERSIONGUID
   2
-{174C2CFF-B434-4506-8EA3-D7288A0EF86A}
+{E9C8F7DE-D92F-464B-B14F-563FC19C6C33}
   9
 $EXTNAMES
 290
@@ -1323,9 +1323,9 @@ ISM
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -1339,9 +1339,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -5199,7 +5199,7 @@ AcAecLayerStandard
   0
 APPID
   5
-1E0
+1E8
 330
 3
 100
@@ -5213,7 +5213,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-1E1
+1E9
 330
 3
 100
@@ -12189,7 +12189,7 @@ AcDbText
  40
 2.5
   1
-EL-V1  -  THE QUESTION THAT SIZES THE BATTERY
+EL-V1  -  RULED.  THE GENERATOR MAY RUN IN MODE 3
   7
 OpenSans
  11
@@ -12221,7 +12221,7 @@ AcDbText
  40
 2.2
   1
-MAY THE GENERATOR RUN DURING MODE 3 CLOSED?
+*** RULED YES - RC2, 11 Sep 2026, master H.21. ***
   7
 OpenSans
  11
@@ -12253,7 +12253,7 @@ AcDbText
  40
 2.2
   1
-The project states BOTH, in the SAME schedule  [C]:
+All five valves shut at the shock and hold 1.3 s;
   7
 OpenSans
  11
@@ -12285,7 +12285,7 @@ AcDbText
  40
 2.2
   1
-   MODE 3  'ALL FIVE BLAST VALVES SHUT.  48 h limit'
+BV-4 AND BV-5 ARE THEN REOPENED FOR GEN-1.  Bay 8 is
   7
 OpenSans
  11
@@ -12317,7 +12317,7 @@ AcDbText
  40
 2.2
   1
-   MODE 5  'BV-4 AND BV-5 OPEN ... bay 8 only - does
+outside the gas-tight envelope, so the clean zone is
   7
 OpenSans
  11
@@ -12349,7 +12349,7 @@ AcDbText
  40
 2.2
   1
-            NOT touch the gas-tight envelope', and
+unaffected.  HV1's mode 3 row is amended to match.
   7
 OpenSans
  11
@@ -12381,7 +12381,7 @@ AcDbText
  40
 2.2
   1
-           'Mode 5 is INDEPENDENT of modes 1-4'
+CASE A CONFIRMED - no number changes, only the class.
   7
 OpenSans
  11
@@ -12407,19 +12407,19 @@ AcDbText
  10
 542.0
  20
-427.1500000000004
+421.7500000000004
  30
 0.0
  40
 2.2
   1
-BV-4 and BV-5 are two of the five.  BOTH CANNOT HOLD
+The question, kept because the size of the
   7
 OpenSans
  11
 542.0
  21
-427.1500000000004
+421.7500000000004
  31
 0.0
 100
@@ -12439,19 +12439,19 @@ AcDbText
  10
 542.0
  20
-421.7500000000004
+416.3500000000004
  30
 0.0
  40
 2.2
   1
-DURING MODE 3, and nothing says which gives way.  [U]
+consequence is why it needed a ruling:
   7
 OpenSans
  11
 542.0
  21
-421.7500000000004
+416.3500000000004
  31
 0.0
 100
@@ -12477,7 +12477,7 @@ AcDbText
  40
 2.2
   1
-   CASE A   4 h      149 Ah     204 kg   a CABINET
+   MODE 3  'ALL FIVE BLAST VALVES SHUT.  48 h limit'
   7
 OpenSans
  11
@@ -12509,7 +12509,7 @@ AcDbText
  40
 2.2
   1
-   CASE B  48 h     1783 Ah    2445 kg   a ROOM
+   MODE 5  'BV-4 AND BV-5 OPEN ... bay 8 only - does
   7
 OpenSans
  11
@@ -12535,19 +12535,19 @@ AcDbText
  10
 542.0
  20
-394.7500000000005
+400.1500000000005
  30
 0.0
  40
 2.2
   1
-12x APART.  Case B needs 4.8 m2 of floor just to stay
+            NOT touch the gas-tight envelope', and
   7
 OpenSans
  11
 542.0
  21
-394.7500000000005
+400.1500000000005
  31
 0.0
 100
@@ -12567,19 +12567,19 @@ AcDbText
  10
 542.0
  20
-389.35000000000053
+394.7500000000005
  30
 0.0
  40
 2.2
   1
-inside the 5 kPa floor live load  [C] A.7.2 - AND BAY 5
+           'Mode 5 is INDEPENDENT of modes 1-4'
   7
 OpenSans
  11
 542.0
  21
-389.35000000000053
+394.7500000000005
  31
 0.0
 100
@@ -12599,19 +12599,19 @@ AcDbText
  10
 542.0
  20
-383.95000000000056
+389.35000000000053
  30
 0.0
  40
 2.2
   1
-IS ALREADY 80 % OCCUPIED (CO-3).  NOWHERE TO PUT IT.
+BV-4/BV-5 are two of the five.  BOTH COULD NOT HOLD
   7
 OpenSans
  11
 542.0
  21
-383.95000000000056
+389.35000000000053
  31
 0.0
 100
@@ -12631,19 +12631,19 @@ AcDbText
  10
 542.0
  20
-373.1500000000006
+383.95000000000056
  30
 0.0
  40
 2.2
   1
-CASE A ADOPTED  [A], because it is the reading the
+DURING MODE 3, and the project held no position.
   7
 OpenSans
  11
 542.0
  21
-373.1500000000006
+383.95000000000056
  31
 0.0
 100
@@ -12663,19 +12663,19 @@ AcDbText
  10
 542.0
  20
-367.7500000000006
+373.1500000000006
  30
 0.0
  40
 2.2
   1
-project's OWN document implies - mode 5 is called
+   CASE A   4 h      149 Ah     204 kg   a CABINET   <- RULED
   7
 OpenSans
  11
 542.0
  21
-367.7500000000006
+373.1500000000006
  31
 0.0
 100
@@ -12695,25 +12695,25 @@ AcDbText
  10
 542.0
  20
-362.35000000000065
+367.7500000000006
  30
 0.0
  40
 2.2
   1
-'power OR BATTERY CHARGING'.
+   Case B  48 h     1783 Ah    2445 kg   a ROOM      historical
   7
 OpenSans
  11
 542.0
  21
-362.35000000000065
+367.7500000000006
  31
 0.0
 100
 AcDbText
   0
-LWPOLYLINE
+TEXT
   5
 18D
 330
@@ -12721,29 +12721,29 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbText
  10
-540.0
+542.0
  20
-354.95000000000067
- 10
-830.0
- 20
-354.95000000000067
- 10
-830.0
- 20
-468.3750000000002
- 10
-540.0
- 20
-468.3750000000002
+356.95000000000067
+ 30
+0.0
+ 40
+2.2
+  1
+12x APART.  Case B needed 4.8 m2 of floor just to stay
+  7
+OpenSans
+ 11
+542.0
+ 21
+356.95000000000067
+ 31
+0.0
+100
+AcDbText
   0
 TEXT
   5
@@ -12753,25 +12753,25 @@ TEXT
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
 AcDbText
  10
 542.0
  20
-342.45000000000067
+351.5500000000007
  30
 0.0
  40
-2.5
+2.2
   1
-WHAT THIS PACKAGE UNBLOCKS
+inside the 5 kPa floor live load  [C] A.7.2 - AND BAY 5
   7
 OpenSans
  11
 542.0
  21
-342.45000000000067
+351.5500000000007
  31
 0.0
 100
@@ -12791,19 +12791,19 @@ AcDbText
  10
 542.0
  20
-338.1250000000007
+346.1500000000007
  30
 0.0
  40
 2.2
   1
-FS-V2  'No fire detection, alarm, emergency lighting or
+IS ALREADY 80 % OCCUPIED (CO-3).  That is why it was
   7
 OpenSans
  11
 542.0
  21
-338.1250000000007
+346.1500000000007
  31
 0.0
 100
@@ -12823,19 +12823,19 @@ AcDbText
  10
 542.0
  20
-332.7250000000007
+340.75000000000074
  30
 0.0
  40
 2.2
   1
-       suppression exists anywhere.  FOLLOWS THE MISSING
+put to the owner rather than assumed.  [D]
   7
 OpenSans
  11
 542.0
  21
-332.7250000000007
+340.75000000000074
  31
 0.0
 100
@@ -12855,19 +12855,19 @@ AcDbText
  10
 542.0
  20
-327.3250000000007
+329.9500000000008
  30
 0.0
  40
 2.2
   1
-       ELECTRICAL DESIGN.'  ->  S-01 and L-02 now exist on
+CONSEQUENCE, RECORDED NOT RESOLVED:  reopening BV-4
   7
 OpenSans
  11
 542.0
  21
-327.3250000000007
+329.9500000000008
  31
 0.0
 100
@@ -12887,19 +12887,19 @@ AcDbText
  10
 542.0
  20
-321.92500000000075
+324.5500000000008
  30
 0.0
  40
 2.2
   1
-       the essential board, on the battery.  THE ELECTRICAL
+and BV-5 leaves two DN350 bores open post-attack -
   7
 OpenSans
  11
 542.0
  21
-321.92500000000075
+324.5500000000008
  31
 0.0
 100
@@ -12919,19 +12919,19 @@ AcDbText
  10
 542.0
  20
-316.5250000000008
+319.15000000000083
  30
 0.0
  40
 2.2
   1
-       BLOCKER IS GONE.  The head layout and zoning remain
+the two EM1 showed FAIL BOTH EMP CRITERIA.  SHARPENS
   7
 OpenSans
  11
 542.0
  21
-316.5250000000008
+319.15000000000083
  31
 0.0
 100
@@ -12951,25 +12951,25 @@ AcDbText
  10
 542.0
  20
-311.1250000000008
+313.75000000000085
  30
 0.0
  40
 2.2
   1
-       fire engineering.  ADVANCED, NOT CLOSED.
+EM-V3 without deciding it.
   7
 OpenSans
  11
 542.0
  21
-311.1250000000008
+313.75000000000085
  31
 0.0
 100
 AcDbText
   0
-TEXT
+LWPOLYLINE
   5
 195
 330
@@ -12977,29 +12977,29 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
-AcDbText
+AcDbPolyline
+ 90
+4
+ 70
+1
  10
-542.0
+540.0
  20
-305.7250000000008
- 30
-0.0
- 40
-2.2
-  1
-EM-V2  EMP Zone 2 dimensions awaited an equipment schedule.
-  7
-OpenSans
- 11
-542.0
- 21
-305.7250000000008
- 31
-0.0
-100
-AcDbText
+306.3500000000009
+ 10
+830.0
+ 20
+306.3500000000009
+ 10
+830.0
+ 20
+468.3750000000002
+ 10
+540.0
+ 20
+468.3750000000002
   0
 TEXT
   5
@@ -13009,25 +13009,25 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
 AcDbText
  10
 542.0
  20
-300.32500000000084
+293.8500000000009
  30
 0.0
  40
-2.2
+2.5
   1
-       Z-01 gives a 1.50 kW ALLOWANCE and a sub-board, so the
+WHAT THIS PACKAGE UNBLOCKS
   7
 OpenSans
  11
 542.0
  21
-300.32500000000084
+293.8500000000009
  31
 0.0
 100
@@ -13047,19 +13047,19 @@ AcDbText
  10
 542.0
  20
-294.92500000000086
+289.5250000000009
  30
 0.0
  40
 2.2
   1
-       enclosure now has a BASIS instead of nothing.  It is
+FS-V2  'No fire detection, alarm, emergency lighting or
   7
 OpenSans
  11
 542.0
  21
-294.92500000000086
+289.5250000000009
  31
 0.0
 100
@@ -13079,19 +13079,19 @@ AcDbText
  10
 542.0
  20
-289.5250000000009
+284.1250000000009
  30
 0.0
  40
 2.2
   1
-       still an allowance.  ADVANCED, NOT CLOSED.
+       suppression exists anywhere.  FOLLOWS THE MISSING
   7
 OpenSans
  11
 542.0
  21
-289.5250000000009
+284.1250000000009
  31
 0.0
 100
@@ -13111,19 +13111,19 @@ AcDbText
  10
 542.0
  20
-284.1250000000009
+278.72500000000093
  30
 0.0
  40
 2.2
   1
-FS-V4  Generator fuel unspecified  ->  this package puts the
+       ELECTRICAL DESIGN.'  ->  S-01 and L-02 now exist on
   7
 OpenSans
  11
 542.0
  21
-284.1250000000009
+278.72500000000093
  31
 0.0
 100
@@ -13143,19 +13143,19 @@ AcDbText
  10
 542.0
  20
-278.72500000000093
+273.32500000000095
  30
 0.0
  40
 2.2
   1
-       first number on it: about 210 L for a 96 h run  [A].
+       the essential board, on the battery.  THE ELECTRICAL
   7
 OpenSans
  11
 542.0
  21
-278.72500000000093
+273.32500000000095
  31
 0.0
 100
@@ -13175,19 +13175,19 @@ AcDbText
  10
 542.0
  20
-273.32500000000095
+267.925000000001
  30
 0.0
  40
 2.2
   1
-       A bounded estimate, not a specification.
+       BLOCKER IS GONE.  The head layout and zoning remain
   7
 OpenSans
  11
 542.0
  21
-273.32500000000095
+267.925000000001
  31
 0.0
 100
@@ -13207,19 +13207,19 @@ AcDbText
  10
 542.0
  20
-267.925000000001
+262.525000000001
  30
 0.0
  40
 2.2
   1
-HVAC P11  'distribution, UPS and battery autonomy are an
+       fire engineering.  ADVANCED, NOT CLOSED.
   7
 OpenSans
  11
 542.0
  21
-267.925000000001
+262.525000000001
  31
 0.0
 100
@@ -13239,19 +13239,19 @@ AcDbText
  10
 542.0
  20
-262.525000000001
+257.125000000001
  30
 0.0
  40
 2.2
   1
-       ELECTRICAL scope item, not designed here'  ->  DESIGNED.
+EM-V2  EMP Zone 2 dimensions awaited an equipment schedule.
   7
 OpenSans
  11
 542.0
  21
-262.525000000001
+257.125000000001
  31
 0.0
 100
@@ -13271,19 +13271,19 @@ AcDbText
  10
 542.0
  20
-257.125000000001
+251.72500000000102
  30
 0.0
  40
 2.2
   1
-13 GAPS  'no electrical design package exists' was the
+       Z-01 gives a 1.50 kW ALLOWANCE and a sub-board, so the
   7
 OpenSans
  11
 542.0
  21
-257.125000000001
+251.72500000000102
  31
 0.0
 100
@@ -13303,19 +13303,19 @@ AcDbText
  10
 542.0
  20
-251.72500000000102
+246.325000000001
  30
 0.0
  40
 2.2
   1
-       LARGEST.  A BASIC one now does.  The detailed design
+       enclosure now has a BASIS instead of nothing.  It is
   7
 OpenSans
  11
 542.0
  21
-251.72500000000102
+246.325000000001
  31
 0.0
 100
@@ -13335,25 +13335,25 @@ AcDbText
  10
 542.0
  20
-246.325000000001
+240.925000000001
  30
 0.0
  40
 2.2
   1
-       still does not - EL-V5.
+       still an allowance.  ADVANCED, NOT CLOSED.
   7
 OpenSans
  11
 542.0
  21
-246.325000000001
+240.925000000001
  31
 0.0
 100
 AcDbText
   0
-LWPOLYLINE
+TEXT
   5
 1A1
 330
@@ -13361,29 +13361,29 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbText
  10
-540.0
+542.0
  20
-238.925000000001
- 10
-830.0
- 20
-238.925000000001
- 10
-830.0
- 20
-346.95000000000067
- 10
-540.0
- 20
-346.95000000000067
+235.525000000001
+ 30
+0.0
+ 40
+2.2
+  1
+FS-V4  Generator fuel unspecified  ->  this package puts the
+  7
+OpenSans
+ 11
+542.0
+ 21
+235.525000000001
+ 31
+0.0
+100
+AcDbText
   0
 TEXT
   5
@@ -13393,25 +13393,25 @@ TEXT
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
 AcDbText
  10
 542.0
  20
-226.425000000001
+230.125000000001
  30
 0.0
  40
-2.5
+2.2
   1
-WHAT NEEDS NO ELECTRICITY AT ALL  -  AND IS CONFIRMED
+       first number on it: about 210 L for a 96 h run  [A].
   7
 OpenSans
  11
 542.0
  21
-226.425000000001
+230.125000000001
  31
 0.0
 100
@@ -13431,19 +13431,19 @@ AcDbText
  10
 542.0
  20
-222.10000000000102
+224.725000000001
  30
 0.0
  40
 2.2
   1
-HAND CRANK on both filter fans   [C] HVAC schedule
+       A bounded estimate, not a specification.
   7
 OpenSans
  11
 542.0
  21
-222.10000000000102
+224.725000000001
  31
 0.0
 100
@@ -13463,19 +13463,19 @@ AcDbText
  10
 542.0
  20
-216.700000000001
+219.32500000000098
  30
 0.0
  40
 2.2
   1
-HAND PUMP PU-03                  [C] S-06
+HVAC P11  'distribution, UPS and battery autonomy are an
   7
 OpenSans
  11
 542.0
  21
-216.700000000001
+219.32500000000098
  31
 0.0
 100
@@ -13495,19 +13495,19 @@ AcDbText
  10
 542.0
  20
-205.900000000001
+213.92500000000098
  30
 0.0
  40
 2.2
   1
-These are the real last line, the project already has
+       ELECTRICAL scope item, not designed here'  ->  DESIGNED.
   7
 OpenSans
  11
 542.0
  21
-205.900000000001
+213.92500000000098
  31
 0.0
 100
@@ -13527,19 +13527,19 @@ AcDbText
  10
 542.0
  20
-200.500000000001
+208.52500000000097
  30
 0.0
  40
 2.2
   1
-them, and NO ELECTRICAL DESIGN SHOULD OBSCURE THEM. [D]
+13 GAPS  'no electrical design package exists' was the
   7
 OpenSans
  11
 542.0
  21
-200.500000000001
+208.52500000000097
  31
 0.0
 100
@@ -13559,19 +13559,19 @@ AcDbText
  10
 542.0
  20
-189.70000000000098
+203.12500000000097
  30
 0.0
  40
 2.2
   1
-Groundwater does not stop because the shelter is
+       LARGEST.  A BASIC one now does.  The detailed design
   7
 OpenSans
  11
 542.0
  21
-189.70000000000098
+203.12500000000097
  31
 0.0
 100
@@ -13591,51 +13591,19 @@ AcDbText
  10
 542.0
  20
-184.30000000000098
+197.72500000000096
  30
 0.0
  40
 2.2
   1
-sealed - the clean sump pump stays on the essential
+       still does not - EL-V5.
   7
 OpenSans
  11
 542.0
  21
-184.30000000000098
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-1A9
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-542.0
- 20
-178.90000000000097
- 30
-0.0
- 40
-2.2
-  1
-board through mode 3.  Essential total 1.283 kW.
-  7
-OpenSans
- 11
-542.0
- 21
-178.90000000000097
+197.72500000000096
  31
 0.0
 100
@@ -13643,7 +13611,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-1AA
+1A9
 330
 17
 100
@@ -13659,23 +13627,311 @@ AcDbPolyline
  10
 540.0
  20
-171.50000000000097
+190.32500000000095
  10
 830.0
  20
-171.50000000000097
+190.32500000000095
  10
 830.0
  20
-230.925000000001
+298.3500000000009
  10
 540.0
  20
-230.925000000001
+298.3500000000009
+  0
+TEXT
+  5
+1AA
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbText
+ 10
+542.0
+ 20
+177.82500000000095
+ 30
+0.0
+ 40
+2.5
+  1
+WHAT NEEDS NO ELECTRICITY AT ALL  -  AND IS CONFIRMED
+  7
+OpenSans
+ 11
+542.0
+ 21
+177.82500000000095
+ 31
+0.0
+100
+AcDbText
   0
 TEXT
   5
 1AB
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+173.50000000000097
+ 30
+0.0
+ 40
+2.2
+  1
+HAND CRANK on both filter fans   [C] HVAC schedule
+  7
+OpenSans
+ 11
+542.0
+ 21
+173.50000000000097
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1AC
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+168.10000000000096
+ 30
+0.0
+ 40
+2.2
+  1
+HAND PUMP PU-03                  [C] S-06
+  7
+OpenSans
+ 11
+542.0
+ 21
+168.10000000000096
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1AD
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+157.30000000000095
+ 30
+0.0
+ 40
+2.2
+  1
+These are the real last line, the project already has
+  7
+OpenSans
+ 11
+542.0
+ 21
+157.30000000000095
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1AE
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+151.90000000000094
+ 30
+0.0
+ 40
+2.2
+  1
+them, and NO ELECTRICAL DESIGN SHOULD OBSCURE THEM. [D]
+  7
+OpenSans
+ 11
+542.0
+ 21
+151.90000000000094
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1AF
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+141.10000000000093
+ 30
+0.0
+ 40
+2.2
+  1
+Groundwater does not stop because the shelter is
+  7
+OpenSans
+ 11
+542.0
+ 21
+141.10000000000093
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1B0
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+135.70000000000093
+ 30
+0.0
+ 40
+2.2
+  1
+sealed - the clean sump pump stays on the essential
+  7
+OpenSans
+ 11
+542.0
+ 21
+135.70000000000093
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1B1
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+130.30000000000092
+ 30
+0.0
+ 40
+2.2
+  1
+board through mode 3.  Essential total 1.283 kW.
+  7
+OpenSans
+ 11
+542.0
+ 21
+130.30000000000092
+ 31
+0.0
+100
+AcDbText
+  0
+LWPOLYLINE
+  5
+1B2
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+540.0
+ 20
+122.90000000000092
+ 10
+830.0
+ 20
+122.90000000000092
+ 10
+830.0
+ 20
+182.32500000000095
+ 10
+540.0
+ 20
+182.32500000000095
+  0
+TEXT
+  5
+1B3
 330
 17
 100
@@ -13707,7 +13963,7 @@ AcDbText
   0
 TEXT
   5
-1AC
+1B4
 330
 17
 100
@@ -13739,7 +13995,7 @@ AcDbText
   0
 TEXT
   5
-1AD
+1B5
 330
 17
 100
@@ -13771,7 +14027,7 @@ AcDbText
   0
 TEXT
   5
-1AE
+1B6
 330
 17
 100
@@ -13803,7 +14059,7 @@ AcDbText
   0
 TEXT
   5
-1AF
+1B7
 330
 17
 100
@@ -13835,7 +14091,7 @@ AcDbText
   0
 TEXT
   5
-1B0
+1B8
 330
 17
 100
@@ -13867,7 +14123,7 @@ AcDbText
   0
 TEXT
   5
-1B1
+1B9
 330
 17
 100
@@ -13899,7 +14155,7 @@ AcDbText
   0
 TEXT
   5
-1B2
+1BA
 330
 17
 100
@@ -13931,7 +14187,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-1B3
+1BB
 330
 17
 100
@@ -13963,7 +14219,7 @@ AcDbPolyline
   0
 TEXT
   5
-1B4
+1BC
 330
 17
 100
@@ -13995,7 +14251,7 @@ AcDbText
   0
 TEXT
   5
-1B5
+1BD
 330
 17
 100
@@ -14027,7 +14283,7 @@ AcDbText
   0
 TEXT
   5
-1B6
+1BE
 330
 17
 100
@@ -14059,7 +14315,7 @@ AcDbText
   0
 TEXT
   5
-1B7
+1BF
 330
 17
 100
@@ -14091,7 +14347,7 @@ AcDbText
   0
 TEXT
   5
-1B8
+1C0
 330
 17
 100
@@ -14123,7 +14379,7 @@ AcDbText
   0
 TEXT
   5
-1B9
+1C1
 330
 17
 100
@@ -14155,7 +14411,7 @@ AcDbText
   0
 TEXT
   5
-1BA
+1C2
 330
 17
 100
@@ -14187,7 +14443,7 @@ AcDbText
   0
 TEXT
   5
-1BB
+1C3
 330
 17
 100
@@ -14219,7 +14475,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-1BC
+1C4
 330
 17
 100
@@ -14251,7 +14507,7 @@ AcDbPolyline
   0
 TEXT
   5
-1BD
+1C5
 330
 17
 100
@@ -14283,7 +14539,7 @@ AcDbText
   0
 TEXT
   5
-1BE
+1C6
 330
 17
 100
@@ -14315,7 +14571,7 @@ AcDbText
   0
 LINE
   5
-1BF
+1C7
 330
 17
 100
@@ -14339,7 +14595,7 @@ AcDbLine
   0
 TEXT
   5
-1C0
+1C8
 330
 17
 100
@@ -14373,7 +14629,7 @@ AcDbText
   0
 TEXT
   5
-1C1
+1C9
 330
 17
 100
@@ -14407,7 +14663,7 @@ AcDbText
   0
 TEXT
   5
-1C2
+1CA
 330
 17
 100
@@ -14425,7 +14681,7 @@ AcDbText
  40
 1.4
   1
-OPEN ITEMS ON THIS SHEET:  EL-V1   EL-V3   EL-V4
+OPEN ITEMS ON THIS SHEET:  EL-V3   EL-V4   EM-V3
   7
 OpenSans
  11
@@ -14439,7 +14695,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-1C3
+1CB
 330
 17
 100
@@ -14471,7 +14727,7 @@ AcDbPolyline
   0
 LINE
   5
-1C4
+1CC
 330
 17
 100
@@ -14495,7 +14751,7 @@ AcDbLine
   0
 LINE
   5
-1C5
+1CD
 330
 17
 100
@@ -14519,7 +14775,7 @@ AcDbLine
   0
 LINE
   5
-1C6
+1CE
 330
 17
 100
@@ -14543,7 +14799,7 @@ AcDbLine
   0
 LINE
   5
-1C7
+1CF
 330
 17
 100
@@ -14567,7 +14823,7 @@ AcDbLine
   0
 LINE
   5
-1C8
+1D0
 330
 17
 100
@@ -14591,7 +14847,7 @@ AcDbLine
   0
 LINE
   5
-1C9
+1D1
 330
 17
 100
@@ -14615,7 +14871,7 @@ AcDbLine
   0
 LINE
   5
-1CA
+1D2
 330
 17
 100
@@ -14639,7 +14895,7 @@ AcDbLine
   0
 TEXT
   5
-1CB
+1D3
 330
 17
 100
@@ -14671,7 +14927,7 @@ AcDbText
   0
 TEXT
   5
-1CC
+1D4
 330
 17
 100
@@ -14703,7 +14959,7 @@ AcDbText
   0
 TEXT
   5
-1CD
+1D5
 330
 17
 100
@@ -14735,7 +14991,7 @@ AcDbText
   0
 TEXT
   5
-1CE
+1D6
 330
 17
 100
@@ -14767,7 +15023,7 @@ AcDbText
   0
 TEXT
   5
-1CF
+1D7
 330
 17
 100
@@ -14799,7 +15055,7 @@ AcDbText
   0
 TEXT
   5
-1D0
+1D8
 330
 17
 100
@@ -14831,7 +15087,7 @@ AcDbText
   0
 LINE
   5
-1D1
+1D9
 330
 17
 100
@@ -14855,7 +15111,7 @@ AcDbLine
   0
 TEXT
   5
-1D2
+1DA
 330
 17
 100
@@ -14887,7 +15143,7 @@ AcDbText
   0
 TEXT
   5
-1D3
+1DB
 330
 17
 100
@@ -14919,7 +15175,7 @@ AcDbText
   0
 TEXT
   5
-1D4
+1DC
 330
 17
 100
@@ -14951,7 +15207,7 @@ AcDbText
   0
 TEXT
   5
-1D5
+1DD
 330
 17
 100
@@ -14983,7 +15239,7 @@ AcDbText
   0
 TEXT
   5
-1D6
+1DE
 330
 17
 100
@@ -15015,7 +15271,7 @@ AcDbText
   0
 TEXT
   5
-1D7
+1DF
 330
 17
 100
@@ -15047,7 +15303,7 @@ AcDbText
   0
 TEXT
   5
-1D8
+1E0
 330
 17
 100
@@ -15079,7 +15335,7 @@ AcDbText
   0
 TEXT
   5
-1D9
+1E1
 330
 17
 100
@@ -15111,7 +15367,7 @@ AcDbText
   0
 TEXT
   5
-1DA
+1E2
 330
 17
 100
@@ -15143,7 +15399,7 @@ AcDbText
   0
 TEXT
   5
-1DB
+1E3
 330
 17
 100
@@ -15175,7 +15431,7 @@ AcDbText
   0
 TEXT
   5
-1DC
+1E4
 330
 17
 100
@@ -15207,7 +15463,7 @@ AcDbText
   0
 TEXT
   5
-1DD
+1E5
 330
 17
 100
@@ -15239,7 +15495,7 @@ AcDbText
   0
 TEXT
   5
-1DE
+1E6
 330
 17
 100
@@ -15271,7 +15527,7 @@ AcDbText
   0
 TEXT
   5
-1DF
+1E7
 330
 17
 100
@@ -16391,7 +16647,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-1E2
+1EA
   0
 DICTIONARYVAR
   5
@@ -16403,7 +16659,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-11T02:56:49.458726+00:00
+1.4.4 @ 2026-09-11T05:11:51.675947+00:00
   0
 VISUALSTYLE
   5
@@ -17107,7 +17363,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-1E2
+1EA
 330
 2D
 100
@@ -17115,7 +17371,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-11T02:56:49.496672+00:00
+1.4.4 @ 2026-09-11T05:11:51.719812+00:00
   0
 ENDSEC
   0

@@ -35,9 +35,11 @@ Electrical and Power package revision **EL1** · 11.09.2026 · **FOR REVIEW - NO
 
 | | Hours | Delivered kWh | Rated kWh | Ah at 48 V | Mass kg | Min floor m² |
 |---|---|---|---|---|---|---|
-| **CASE A** — generator restartable after the shock | 4 | 5.13 | 7.13 | **149** | 204 | 0.40 |
-| **CASE B** — no generator for the whole of Mode 3 | 48 | 61.61 | 85.56 | **1783** | 2445 | 4.80 |
+| **CASE A — RULED, RC2** · generator reopens BV-4/BV-5 after the shock | 4 | 5.13 | 7.13 | **149** | 204 | 0.40 |
+| *Case B — historical, the rejected reading* | 48 | 61.61 | 85.56 | **1783** | 2445 | 4.80 |
 
-> **Case A is a cabinet. Case B is a room.** They are **12× apart**. Case B is **2.4 tonnes** of lead-acid needing at least **4.8 m²** of floor merely to stay inside the **5 kPa** floor live load `[C]` A.7.2 — and **Bay 5 is already 80 % occupied as drawn** (MEP coordination **CO-3**). **There is nowhere to put it.**
+> **Case A is a cabinet. Case B was a room.** They are **12× apart**. Case B is **2.4 tonnes** of lead-acid needing at least **4.8 m²** of floor merely to stay inside the **5 kPa** floor live load `[C]` A.7.2 — and **Bay 5 is already 80 % occupied as drawn** (MEP coordination **CO-3**). **There is nowhere to put it.**
 
-**Adopted: CASE A, 4 h, 149 Ah at 48 V** `[A]` — because it is the reading **the project's own document implies**: the mode schedule calls Mode 5 *"power **or battery charging**"* and says it is *"independent of modes 1–4"*, which only makes sense if the set can run while the clean zone is closed. **If Case B is right this battery is twelve times too small — EL-V1.**
+**CONFIRMED: CASE A, 4 h, 149 Ah at 48 V** `[C]` — **RULED by the project owner, RC2, 11 September 2026 (master H.21): the generator MAY run during Mode 3.** All five valves shut at the shock and hold 1.3 s; **BV-4 and BV-5 are then reopened for generator operation.** Bay 8 is outside the gas-tight envelope, so the clean zone is unaffected — which is what the Mode 5 note always said. HV1's Mode 3 row is amended to match. **No number here changes; only the evidence class moves from `[A]` to `[C]`. EL-V1 is CLOSED.**
+
+> **One consequence, recorded not resolved.** Reopening BV-4 and BV-5 leaves **two DN350 bores open in the post-attack period** — the two EM1 showed **fail both EMP criteria** (cutoff 502 MHz, 54.8 dB). That **sharpens EM-V3** — whether Bay 8 is inside the EMP boundary — **without deciding it.** `[D]`

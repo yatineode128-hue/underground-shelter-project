@@ -111,9 +111,14 @@ The largest motor is the filter fan at **0.379 kW**; even a direct-on-line start
 
 ---
 
-## 4  The question that decides the whole package
+## 4  The question that decided the package — now ruled
 
 > ### May the generator run during Mode 3 CLOSED?
+>
+> ### RULED YES — RC2, 11 September 2026 (master H.21) `[C]`
+> **All five valves shut at the shock and hold 1.3 s; BV-4 and BV-5 are then reopened for generator operation.** Bay 8 is outside the gas-tight envelope, so the clean zone is unaffected — which is what the Mode 5 note always said. **HV1's Mode 3 row is amended to match. Case A is confirmed and EL-V1 is closed.**
+>
+> **No number in this package changes** — only the evidence class, from `[A]` to `[C]`. The question and its arithmetic are kept below, because the size of the consequence is why it was worth putting to the owner rather than assuming.
 
 The project states **both** of these, in the **same confirmed schedule**:
 
@@ -162,14 +167,19 @@ Case B is **2.4 tonnes** of lead-acid needing at least **4.8 m²** of floor mere
 the **5.0 kPa** floor live load `[C]` A.7.2 — **and Bay 5 is already 80 % occupied as drawn**
 (MEP coordination **CO-3**). **There is nowhere to put it.**
 
-**Adopted: Case A, 4 h, 149 Ah at 48 V** `[A]` — because it is the reading **the project's own
-document implies**: the mode schedule calls Mode 5 *"power **or battery charging**"* and says it
-is *"independent of modes 1–4"*, which only makes sense if the set can run while the clean zone
-is closed.
+**CONFIRMED: Case A, 4 h, 149 Ah at 48 V** `[C]` — **ruled, RC2.** EL1 had already adopted Case A
+as `[A]`, reasoning that it is the reading **the project's own document implies**: the mode
+schedule calls Mode 5 *"power **or battery charging**"* and says it is *"independent of
+modes 1–4"*. **The ruling confirms that reading.**
 
-> **If Case B is right, this battery is twelve times too small and the shelter has no room for
-> the right one.** That is **EL-V1**, and it is the single most consequential open question in
-> this package.
+> **No number changes. The battery stands at the size EL1 designed; only its evidence class
+> moves. That is the best outcome a ruling can have — it confirms the design rather than
+> replacing it. EL-V1 is CLOSED.**
+
+> **One consequence, recorded not resolved.** Reopening BV-4 and BV-5 leaves **two DN350 bores
+> open in the post-attack period** — the two EM1 showed **fail both EMP criteria** (cutoff
+> 502 MHz, 54.8 dB). That **sharpens EM-V3** — whether Bay 8 is inside the EMP boundary —
+> **without deciding it.** `[D]`
 
 ---
 
@@ -233,7 +243,7 @@ scope.
 
 | | | Whose decision |
 |---|---|---|
-| **EL-V1** | **May the generator run during Mode 3 CLOSED?** Decides whether the battery is a **149 Ah cabinet** or a **1 783 Ah, 2.4 t room** the shelter has no space for. **The most consequential question in this package** | Client / design authority |
+| **EL-V1** | ~~May the generator run during Mode 3 CLOSED?~~ **RULED YES — RC2, 11 September 2026 (master H.21). Case A confirmed at 149 Ah; HV1's Mode 3 row amended. CLOSED — and no number in this package changed.** | **Closed** |
 | **EL-V2** | **Generator fuel type, quantity and storage.** ≈ 210 L for 96 h is derived here; nothing is specified. Same root as **FS-V4** and **R-8** | Client / vendor |
 | **EL-V3** | **No equipment schedule for EMP Zone 2.** Z-01's 1.50 kW is an allowance | Client / ops |
 | **EL-V4** | **Incoming mains capacity, tariff and point of connection.** Recorded only as *"DB to Meter Panel"* in the owner's programme; no capacity anywhere. Blocks any fault level or discrimination study | Utility / client |

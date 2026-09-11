@@ -125,14 +125,14 @@ def distribution_schedule():
               "",
               "| | Hours | Delivered kWh | Rated kWh | Ah at 48 V | Mass kg | Min floor m² |",
               "|---|---|---|---|---|---|---|",
-              f"| **CASE A** — generator restartable after the shock | {P.CASE_A_H:.0f} | "
+              f"| **CASE A — RULED, RC2** · generator reopens BV-4/BV-5 after the shock | {P.CASE_A_H:.0f} | "
               f"{ess*P.CASE_A_H:.2f} | {kwh_a:.2f} | **{ah_a:.0f}** | {kwh_a*1000/P.WH_PER_KG:.0f} | "
               f"{kwh_a*1000/P.WH_PER_KG*P.G/1000/P.FLOOR_LL_KPA:.2f} |",
-              f"| **CASE B** — no generator for the whole of Mode 3 | {P.CASE_B_H:.0f} | "
+              f"| *Case B — historical, the rejected reading* | {P.CASE_B_H:.0f} | "
               f"{ess*P.CASE_B_H:.2f} | {kwh_b:.2f} | **{ah_b:.0f}** | {kwh_b*1000/P.WH_PER_KG:.0f} | "
               f"{kwh_b*1000/P.WH_PER_KG*P.G/1000/P.FLOOR_LL_KPA:.2f} |",
               "",
-              f"> **Case A is a cabinet. Case B is a room.** They are "
+              f"> **Case A is a cabinet. Case B was a room.** They are "
               f"**{ah_b/ah_a:.0f}× apart**. Case B is **"
               f"{kwh_b*1000/P.WH_PER_KG/1000:.1f} tonnes** of lead-acid needing at least "
               f"**{kwh_b*1000/P.WH_PER_KG*P.G/1000/P.FLOOR_LL_KPA:.1f} m²** of floor merely to stay "
@@ -140,13 +140,20 @@ def distribution_schedule():
               "and **Bay 5 is already 80 % occupied as drawn** (MEP "
               "coordination **CO-3**). **There is nowhere to put it.**",
               "",
-              f"**Adopted: CASE A, {P.CASE_A_H:.0f} h, {ah_a:.0f} Ah at {P.V_DC:.0f} V** `[A]` — "
-              "because it is the reading **the project's own document implies**: "
-              "the mode schedule calls Mode 5 *\"power **or battery "
-              "charging**\"* and says it is *\"independent of modes 1–4\"*, "
-              "which only makes sense if the set can run while the clean zone "
-              "is closed. **If Case B is right this battery is twelve times "
-              "too small — EL-V1.**",
+              f"**CONFIRMED: CASE A, {P.CASE_A_H:.0f} h, {ah_a:.0f} Ah at {P.V_DC:.0f} V** `[C]` — "
+              "**RULED by the project owner, RC2, 11 September 2026 (master "
+              "H.21): the generator MAY run during Mode 3.** All five valves "
+              "shut at the shock and hold 1.3 s; **BV-4 and BV-5 are then "
+              "reopened for generator operation.** Bay 8 is outside the "
+              "gas-tight envelope, so the clean zone is unaffected — which is "
+              "what the Mode 5 note always said. HV1's Mode 3 row is amended "
+              "to match. **No number here changes; only the evidence class "
+              "moves from `[A]` to `[C]`. EL-V1 is CLOSED.**\n",
+              "> **One consequence, recorded not resolved.** Reopening BV-4 "
+              "and BV-5 leaves **two DN350 bores open in the post-attack "
+              "period** — the two EM1 showed **fail both EMP criteria** "
+              "(cutoff 502 MHz, 54.8 dB). That **sharpens EM-V3** — whether "
+              "Bay 8 is inside the EMP boundary — **without deciding it.** `[D]`",
           ])
 
 

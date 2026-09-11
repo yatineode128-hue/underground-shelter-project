@@ -3362,6 +3362,60 @@ IS 694, IS 1554 Pt 1, and MIL-STD-188-125-1 §5.7.2.1 / §5.7.4.1 via EM1.
 
 ---
 
+## H.21 Two rulings by the project owner — revision RC2 — 11 September 2026
+
+**Both were asked, not assumed.** EM1 and EL1 each raised one question they could not answer from
+the project's own evidence, stated the consequence of each answer, and stopped. The project owner
+has now ruled on both. **Neither ruling changes a single number in either package** — both confirm
+what the packages had already reasoned, and move the evidence class from `[D]`/`[A]` to `[C]`.
+That is recorded because it is the outcome a ruling should have.
+
+### Ruling 1 — the three-zone EMP model is ADOPTED  (closes EM-V1)
+
+**EMP Zone 0 / EMP Zone 1 / EMP Zone 2, and the rule that EMP Zone 2 delivers the full 80 dB
+standing alone with no attenuation credited from the concrete box at any frequency, are the
+project's adopted EMP position.** `[C]`
+
+The project had named *"EMP Zone 2"* since Rev F **with nothing to be the second of** — no Zone 1
+and no Zone 0 existed anywhere. EM1 derived all three (H.19 §E.4) and made the standing-alone rule
+the basis of the package, because the cage meets 80 dB over **one decade of the five** and
+**cannot be surveyed** under 2 m of cover. **The adoption makes that the project's position rather
+than one package's proposal. Nothing else in EM1 changes** — no figure, no finding, no other open
+item. **Five EM-V items stand.**
+
+### Ruling 2 — the generator MAY run during Mode 3 CLOSED  (closes EL-V1)
+
+**All five blast valves shut at the shock and hold 1.3 s; BV-4 and BV-5 are then REOPENED for
+generator operation.** Bay 8 is outside the gas-tight envelope, so the clean zone is unaffected —
+which is what HV1's Mode 5 note always said. `[C]`
+
+As issued, HV1's mode schedule stated **both** *"all five blast valves shut"* (Mode 3) and *"BV-4
+and BV-5 open … independent of modes 1–4"* (Mode 5). **BV-4 and BV-5 are two of the five**, so the
+two could not both hold during Mode 3 and the project held no position (**EL-V1**). EL1 sized both
+readings and found them **twelve times apart** — a **149 Ah, 204 kg cabinet** against a
+**1 783 Ah, 2.4 tonne** bank needing **4.8 m²** of floor merely to stay inside the 5.0 kPa floor
+live load, in a bay already **80 % occupied** (CO-3). **That is why it was put to the owner rather
+than assumed.**
+
+**Consequences, all recorded:**
+
+| | |
+|---|---|
+| **EL1** | **Case A confirmed at 149 Ah, 48 V.** The battery stands at the size EL1 designed; only its class moves `[A]` → `[C]`. **No number changes** |
+| **HV1** | **Mode 3 amended** — *"All five shut at the shock; BV-4/5 REOPEN for GEN-1 (RC2). 48 h"* — and the ruling recorded in full in the schedule note. **Mode 3's 48 h limit is unchanged: it is set by the soda lime, not by power** (HV-F1) |
+| **EM-V3 — SHARPENED, NOT DECIDED** | Reopening BV-4 and BV-5 leaves **two DN350 bores open through the post-attack period** — the two EM1 showed **fail both EMP criteria** (cutoff 502 MHz against a 1 GHz band, 54.8 dB against 80). **Whether bay 8 is inside the EMP boundary is now more consequential than when EM1 raised it, and it is still open** |
+
+### What RC2 did NOT do
+
+**No dimension, load, bar, wall, level, valve, duct, pipe, model, BOQ quantity, rate, date or
+float changed.** No new envelope penetration. Main staircase untouched; sentry post excluded.
+**No evidence tag was deleted** — EM-V1 and EL-V1 are marked **RULED and CLOSED** in K.1b with
+their reasoning preserved, and the rejected Case B is kept in EL1 as **historical**, because the
+comparison is what made the question answerable. **K.1b falls from twenty-one open items to
+nineteen.**
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -3632,19 +3686,29 @@ IS 694, IS 1554 Pt 1, and MIL-STD-188-125-1 §5.7.2.1 / §5.7.4.1 via EM1.
 | **WM-V9** | Excavation working space and face treatment | 1.000 m working space and vertical unbenched faces, used consistently for measurement | A slope-stability assessment of the soil zone above rockhead |
 | **FS-V7** | **How is either escape shaft climbed?** Raised by drawing F-102, 10 Sep 2026 (H.18) | **Nothing. The project holds no position at all.** ESC 1 emerges at (+0.150) and ESC 2 at (+0.700) against a floor at (−)6.100 — a **6.250 m** and a **6.800 m** climb `[D]` — and **no ladder, rung or fall-arrest is specified in either shaft anywhere** | **A design.** Not a ruling between recorded values: there are no recorded values. It also needs an answer on whether an injured person is expected to use a shaft at all, which is a client question |
 | **CAM-V5** | **Head level of the generator air shaft SH-2.** Raised by drawing C-101, 10 Sep 2026 (H.18) | Its **600 × 600** size and its **BV-4 / BV-5** duty are confirmed; **how far it stands above finished grade is recorded nowhere** | **A datum.** Until it exists SH-2 cannot be assessed as an above-ground signature, and C-101 draws it with its height flagged `[N]` rather than assumed |
-| **EM-V1** | Adopt or reject the EMP zone model | **A three-zone model and the rule that EMP Zone 2 delivers 80 dB STANDING ALONE, with no credit taken for the concrete box at any frequency** (H.19). It is the only position consistent with the cage arithmetic, which reproduces K.3 | **An engineer's / client's adoption.** Everything else in `EMP Protection/` follows from it |
 | **EM-V2** | EMP Zone 2 dimensions | **Required and unspecified for four revisions; EM1 supplies a set that demonstrably fits bay 3** — 2 400 × 1 600 × 2 200 external, clear of the Y 2500–3400 circulation route, with a 300 survey gap on every free face. **Every dimension is `[A]`** | **An equipment schedule**, which waits on the **missing electrical design** — the project's largest gap (H.10). It is a fit, not a derivation |
 | **EM-V3** | Is bay 8 inside the EMP boundary? | **No EMP boundary has ever been drawn.** Bay 8 is outside the *gas-tight envelope* (A.2) — but that is a **CBRN** boundary and says nothing about EMP | **A client decision.** If bay 8 is in, BV-4/BV-5 need honeycomb WBC panels; if it is out, the 15 kVA generator, its control panel and every cable in bay 8 are unprotected and **the shelter loses power to the pulse** |
 | **EM-V4** | Communications | **There is none.** No antenna, mast, feeder or comms design exists anywhere in the project, so MIL-STD-188-125-1 §5.7.6 has nothing to apply to | **A communications design.** An antenna is by definition a deliberate conductor from outside to inside — the hardest EMP penetration there is — and it is also a concealment signature (CAM1) |
 | **EM-V5** | PD-05's pipe material | **Unspecified — as is every pipe material in the project.** The drainage package names no material for any run | **A material.** Metallic → bond it 360° to the entry plate and its exterior becomes shield. Plastic → the bore is an aperture *and* the water column is a conductor, needing a metallic spool piece nobody has specified |
 | **EM-V6** | Escape-shaft head hatch and blast-door RF performance | **Neither exists.** Lining a 1 400 shaft does not work — it propagates above 125.5 MHz however well it is lined; the treatment is a **bonded conducting hatch at the head**. Blast Door 1's frame is already cast in and welded to the cage (A.5), which is the right start | **Vendor data.** Both sit directly on the protective boundary |
-| **EL-V1** | May the generator run during Mode 3 CLOSED? | **The project states both "all five blast valves shut" (mode 3) and "BV-4 and BV-5 open … independent of modes 1–4" (mode 5), in the same confirmed schedule.** BV-4/BV-5 are two of the five. EL1 adopts the mode-5 reading because the schedule itself calls it *"power or battery charging"* | **A client ruling.** It sizes the battery: **149 Ah cabinet, or 1 783 Ah and 2.4 t needing 4.8 m² of floor in a bay already 80 % full.** Twelve times apart |
 | **EL-V2** | Generator fuel type, quantity and storage | **None specified.** EL1 derives **≈ 210 L for a 96 h run** (600.6 kWh at 0.35 L/kWh `[A]`) — the first number anyone has put on it | Client / vendor. Same root as **FS-V4** and **R-8** |
 | **EL-V3** | Equipment schedule for EMP Zone 2 | **`Z-01`, a 1.50 kW allowance.** It gives EM-V2 a basis, not an answer | Client / operational |
 | **EL-V4** | Incoming mains capacity, tariff and point of connection | **The supply is confirmed only by the owner's programme** (activities 5 and 123, *"DB to Meter Panel"*). No capacity exists anywhere | Utility / client. **Blocks any fault level or discrimination study** |
 | **EL-V5** | Circuit, cable, luminaire and socket schedules | **None — deliberately.** EL1 stops at board level | Detailed design stage |
 | **EL-V6** | Cooling | **No cooling plant exists anywhere in the project**, so no cooling load appears in the schedule. A sealed 332.8 m³ box with 9 occupants and a dehumidifier has a heat balance nobody has computed | **HVAC.** Referred, not resolved |
 | **EL-V7** | CO₂ scrubber air movement | **In no schedule.** EL1 assumes 0.10 kW for a recirculation fan; soda lime needs air over it and no fan is specified | **HVAC** |
+
+### K.1e RULED BY THE PROJECT OWNER — revision RC2, 11 September 2026 (Part H.21)
+
+> **Both were asked, not assumed.** Each package raised one question it could not answer from the
+> project's own evidence, stated the consequence of each answer, and stopped. **Neither ruling
+> changed a number** — both confirmed what the package had already reasoned.
+
+| # | Question | Ruling | Effect |
+|---|---|---|---|
+| **EM-V1** | Adopt or reject the three-zone EMP model and the *"EMP Zone 2 standing alone"* design rule | **ADOPTED.** EMP Zone 0 / 1 / 2, and the rule that Zone 2 delivers the full 80 dB with **no attenuation credited from the concrete box at any frequency**, are the project's EMP position `[C]` | **CLOSED.** Nothing else in EM1 changes — no figure, no finding, no other open item. Five EM-V items stand |
+| **EL-V1** | May the generator run during Mode 3 CLOSED? HV1 stated both *"all five blast valves shut"* and *"BV-4 and BV-5 open … independent of modes 1–4"*, and BV-4/BV-5 are two of the five | **YES.** All five shut at the shock and hold 1.3 s; **BV-4 and BV-5 are then reopened for generator operation.** Bay 8 is outside the gas-tight envelope `[C]` | **CLOSED.** EL1's **Case A confirmed at 149 Ah** — the battery stands at the size already designed, only the class moves `[A]` → `[C]`. **HV1's Mode 3 row amended.** **EM-V3 is sharpened, not decided** |
+
 
 ### K.1c Works Management items — RULED by RC1
 

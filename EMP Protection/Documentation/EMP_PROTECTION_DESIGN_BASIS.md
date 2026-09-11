@@ -100,10 +100,18 @@ designer who writes that sentence has understood the problem.
 
 ---
 
-## 2  The zone model — which this project has never had
+## 2  The zone model — adopted by the project owner
 
-**"EMP Zone 2" has been named since Rev F with nothing to be the second of.** There is no EMP
-Zone 1 and no EMP Zone 0 anywhere in the project. All three below are **derived here** `[D]`.
+**"EMP Zone 2" had been named since Rev F with nothing to be the second of.** There was no EMP
+Zone 1 and no EMP Zone 0 anywhere in the project. All three below were **derived by EM1** and are
+now:
+
+> ### ADOPTED — RC2, 11 September 2026 (master H.21) `[C]`
+> **The project owner has adopted the three-zone model and the standing-alone design rule. They
+> are the project's EMP position, not this package's proposal. EM-V1 is closed.**
+> **Nothing else in EM1 changes** — no figure, no finding, no other open item. The model was
+> already what the package was built on; the ruling makes it the project's rather than this
+> package's.
 
 | Zone | What it is | Performance | Verification |
 |---|---|---|---|
@@ -111,9 +119,9 @@ Zone 1 and no EMP Zone 0 anywhere in the project. All three below are **derived 
 | **EMP ZONE 1** | The buried box, **all eight bays**. The reinforcement cage | **99.99 dB at 10 kHz → 0 dB at 999 MHz**, pierced by a 8.85 m² stair void and two 1 400 shafts. **80 dB only below 99.93 kHz** | **Cannot be surveyed** — no accessible exterior under 2 m of cover |
 | **EMP ZONE 2** | Welded steel enclosure, bay 3 (U-03), finish `W-04` | **80 dB, 10 kHz – 1 GHz, standing alone** | **IEEE Std 299 full survey — HOLD POINT** |
 
-### The design rule, and it is the whole package in one line
+### The design rule, adopted with the model — the whole package in one line
 
-> ### EMP Zone 2 is designed to the full 80 dB **standing alone**. **No attenuation from the concrete box is credited at any frequency.**
+> ### EMP Zone 2 is designed to the full 80 dB **standing alone**. **No attenuation from the concrete box is credited at any frequency.** — **ADOPTED, RC2** `[C]`
 
 The cage is then **margin**, not design — which is the only defensible way to use a shield you
 can never survey, buried under two metres of engineered cover. `[D]`
@@ -394,14 +402,13 @@ None of these prove shielding effectiveness. **All of them catch the mistakes th
 
 ## 8  Open items — EM-V1 to EM-V6
 
-**Six new open items are raised and none is resolved. That is deliberate.** A package that
-quietly filled these in would be inventing a specification.
+**Six open items were raised and none was resolved by this package. That was deliberate** — a package that quietly filled them in would be inventing a specification. **One, EM-V1, has since been ruled by the project owner (RC2, 11 September 2026). Five stand.**
 
 | | | Whose decision |
 |---|---|---|
-| **EM-V1** | **Adopt or reject the three-zone EMP model and the "Zone 2 standing alone" design rule** (§2). Everything else in this package follows from it | Engineer / client |
+| **EM-V1** | ~~Adopt or reject the three-zone EMP model and the "Zone 2 standing alone" design rule (§2).~~ **RULED — ADOPTED by the project owner, RC2, 11 September 2026 (master H.21). CLOSED.** Everything else in this package followed from it and is unchanged | **Closed** |
 | **EM-V2** | **Every EMP Zone 2 dimension is `[A]`** pending an equipment schedule. **ADVANCED by EL1, 11 Sep 2026 (master H.20): `Z-01` gives a 1.50 kW ops/comms ALLOWANCE and a `DB-Z2` sub-board fed through the PoE-3 PCI**, so the enclosure now has a basis instead of nothing. **It is still an allowance, not a schedule, so this item stays open** | Waits on an equipment schedule — **EL-V3** |
-| **EM-V3** | **Is bay 8 inside the EMP boundary?** Decides whether BV-4/BV-5 need honeycomb, and whether the 15 kVA generator survives the pulse | Client / military |
+| **EM-V3** | **Is bay 8 inside the EMP boundary?** Decides whether BV-4/BV-5 need honeycomb, and whether the 15 kVA generator survives the pulse. **SHARPENED by RC2, 11 September 2026: the generator may run in Mode 3, so BV-4 and BV-5 are reopened after the shock and the two bores that fail both EMP criteria are open through the post-attack period.** Still open | Client / military |
 | **EM-V4** | **No communications design of any kind exists.** §5.7.6 cannot be applied, and the ops room's purpose is unmet | Client / military |
 | **EM-V5** | **PD-05's pipe material is unspecified** — as is every pipe material in the project. Metallic and plastic need completely different treatments at the entry plate | Drainage / engineer |
 | **EM-V6** | **No escape-shaft head hatch is specified, and no blast door RF data exists.** Both sit directly on the boundary | Vendor data required |
@@ -421,7 +428,7 @@ downgrades or deletes any existing `[ASSUMED]`, `[UNRESOLVED]` or `[NOT AVAILABL
 | **`[N]` Communications** | No antenna, mast, feeder or comms design |
 | **`[N]` Vendor data** | No shielded door, PCI, honeycomb, blast valve or blast door RF data |
 | **`[N]` Materials** | No pipe material anywhere in the project; no concrete permittivity or conductivity; no statement anywhere of whether rebar crossings are **tied or welded** — which materially changes §0 |
-| **`[U]` Boundary** | Whether bay 8 is inside the EMP boundary has never been decided. §2 proposes a boundary; only the client can adopt it |
+| **`[U]` Boundary** | ~~§2 proposes a boundary; only the client can adopt it.~~ **§2's zone model is now ADOPTED (RC2).** But **whether bay 8 is inside the EMP boundary is still undecided — EM-V3** — and **RC2's other ruling sharpens it**: the generator may run in Mode 3, so **BV-4 and BV-5 reopen after the shock, leaving two DN350 bores open in the post-attack period** — the two that fail both EMP criteria |
 | **Excluded** | **The sentry post**, consistent with every other services package. It is above ground, framed, brick-infilled and not blast designed. **Its EMP exposure is total and nothing here changes that** |
 
 **Every cage figure in this package is an upper bound.** The classical `−10 log₁₀(n)` array

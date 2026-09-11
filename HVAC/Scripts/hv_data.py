@@ -192,7 +192,7 @@ MODES = [
      "One train through the full filter set, second train standby",
      "300 m3/h", "+50 to +100 Pa"),
     ("3", "CLOSED", "detonation to all-clear, or a filter change",
-     "All five blast valves shut. Soda lime and O2 only. 48 h limit",
+     "All five shut at the shock; BV-4/5 REOPEN for GEN-1 (RC2). 48 h",
      "0", "sealed"),
     ("4", "PURGE", "each entry through the airlock",
      "5 air changes of decon stage 1: 12.8 min, 4-5 persons per hour",

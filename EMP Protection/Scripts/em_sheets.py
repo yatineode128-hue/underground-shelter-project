@@ -42,7 +42,7 @@ def em001():
     sh = sheet("EM-001", "EMP PROTECTION - DESIGN BASIS AND EMP ZONE KEY",
                "THE GOVERNING FACT - THE THREE EMP ZONES - FINDINGS - "
                "OPEN ITEMS - CODES",
-               flags=("EM-F1", "EM-F3", "EM-V1", "EM-V2"), of="1 OF 6")
+               flags=("EM-F1", "EM-F3", "EM-V2"), of="1 OF 6")
 
     f80, fcut = K.f_at_se(P.SE_REQUIRED_DB, S), K.f_mesh_cut(S)
 
@@ -84,13 +84,17 @@ def em001():
     ], h=NOTE, lead=LEAD)
 
     y = sh.panel(CB, y - 8, WCOL,
-                 "*** THE DESIGN RULE - THE WHOLE PACKAGE IN ONE LINE ***", [
+                 "*** THE DESIGN RULE - ADOPTED, RC2.  THE PACKAGE IN A LINE ***", [
         "EMP ZONE 2 IS DESIGNED TO THE FULL 80 dB STANDING ALONE.",
         "NO ATTENUATION FROM THE CONCRETE BOX IS CREDITED AT ANY",
         "FREQUENCY.",
         "",
         "The cage is then MARGIN, not design - the only defensible way",
-        "to use a shield you can never survey under 2 m of cover.  [D]",
+        "to use a shield you can never survey under 2 m of cover.",
+        "",
+        "*** ADOPTED BY THE PROJECT OWNER - RC2, 11 Sep 2026, master",
+        "    H.21.  THE THREE-ZONE MODEL AND THIS RULE ARE NOW THE",
+        "    PROJECT'S EMP POSITION.  [C]   EM-V1 IS CLOSED. ***",
     ], h=NOTE, lead=LEAD)
 
     sh.panel(CB, y - 8, WCOL, "WHAT EMP PROTECTION IS FOR", [
@@ -166,8 +170,10 @@ def em001():
         layer="M-FLAG")
 
     sh.table(CA, 182, [30, 500], [
-        ["EM-V1", "ADOPT OR REJECT the three-zone EMP model and the 'Zone 2 "
-         "standing alone' rule.  Everything follows from it."],
+        ["EM-V1", "*** RULED - ADOPTED BY THE PROJECT OWNER, RC2, 11 Sep 2026, "
+         "master H.21.  The three-zone model and the"],
+        ["", "     'Zone 2 standing alone' rule are the project's EMP position.  "
+         "CLOSED.  No figure or finding changed. ***"],
         ["EM-V2", "EVERY EMP ZONE 2 DIMENSION IS [A], pending an equipment "
          "schedule that waits on the MISSING ELECTRICAL DESIGN."],
         ["EM-V3", "IS BAY 8 INSIDE THE EMP BOUNDARY?  Decides BV-4/BV-5 honeycomb, "

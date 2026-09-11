@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461295.1228009257
+2461295.2165509257
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461295.1228009257
+2461295.2165509257
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-1F4
+1FA
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{5D456B49-2053-4C6A-8FAA-9C97FB049F21}
+{0DBA4EDA-E7A7-4DB4-BA58-7BB7F7AE410D}
   9
 $VERSIONGUID
   2
-{46663002-797F-4145-9554-8BD488976732}
+{4C584B1E-C0CE-413C-A932-4D442C28E354}
   9
 $EXTNAMES
 290
@@ -1323,9 +1323,9 @@ ISM
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -1339,9 +1339,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -5259,7 +5259,7 @@ AcAecLayerStandard
   0
 APPID
   5
-1F1
+1F7
 330
 3
 100
@@ -5273,7 +5273,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-1F2
+1F8
 330
 3
 100
@@ -10485,7 +10485,7 @@ AcDbText
  40
 2.5
   1
-*** THE DESIGN RULE - THE WHOLE PACKAGE IN ONE LINE ***
+*** THE DESIGN RULE - ADOPTED, RC2.  THE PACKAGE IN A LINE ***
   7
 OpenSans
  11
@@ -10645,7 +10645,7 @@ AcDbText
  40
 2.4
   1
-to use a shield you can never survey under 2 m of cover.  [D]
+to use a shield you can never survey under 2 m of cover.
   7
 OpenSans
  11
@@ -10657,7 +10657,7 @@ OpenSans
 100
 AcDbText
   0
-LWPOLYLINE
+TEXT
   5
 14C
 330
@@ -10665,29 +10665,29 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbText
  10
-286.0
+288.0
  20
-448.85000000000025
- 10
-550.0
- 20
-448.85000000000025
- 10
-550.0
- 20
-485.6750000000003
- 10
-286.0
- 20
-485.6750000000003
+446.55000000000024
+ 30
+0.0
+ 40
+2.4
+  1
+*** ADOPTED BY THE PROJECT OWNER - RC2, 11 Sep 2026, master
+  7
+OpenSans
+ 11
+288.0
+ 21
+446.55000000000024
+ 31
+0.0
+100
+AcDbText
   0
 TEXT
   5
@@ -10697,25 +10697,25 @@ TEXT
 100
 AcDbEntity
   8
-S-TITLE
+S-NOTE
 100
 AcDbText
  10
 288.0
  20
-436.35000000000025
+442.2500000000002
  30
 0.0
  40
-2.5
+2.4
   1
-WHAT EMP PROTECTION IS FOR
+    H.21.  THE THREE-ZONE MODEL AND THIS RULE ARE NOW THE
   7
 OpenSans
  11
 288.0
  21
-436.35000000000025
+442.2500000000002
  31
 0.0
 100
@@ -10735,25 +10735,25 @@ AcDbText
  10
 288.0
  20
-431.8250000000003
+437.9500000000002
  30
 0.0
  40
 2.4
   1
-HEMP IS NOT A PERSONNEL HAZARD.  The occupants are protected
+    PROJECT'S EMP POSITION.  [C]   EM-V1 IS CLOSED. ***
   7
 OpenSans
  11
 288.0
  21
-431.8250000000003
+437.9500000000002
  31
 0.0
 100
 AcDbText
   0
-TEXT
+LWPOLYLINE
   5
 14F
 330
@@ -10761,29 +10761,29 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
-AcDbText
+AcDbPolyline
+ 90
+4
+ 70
+1
  10
-288.0
+286.0
  20
-427.52500000000026
- 30
-0.0
- 40
-2.4
-  1
-from blast, CBRN and fallout by the box.  EMP protection
-  7
-OpenSans
- 11
-288.0
- 21
-427.52500000000026
- 31
-0.0
-100
-AcDbText
+431.6500000000002
+ 10
+550.0
+ 20
+431.6500000000002
+ 10
+550.0
+ 20
+485.6750000000003
+ 10
+286.0
+ 20
+485.6750000000003
   0
 TEXT
   5
@@ -10793,25 +10793,25 @@ TEXT
 100
 AcDbEntity
   8
-S-NOTE
+S-TITLE
 100
 AcDbText
  10
 288.0
  20
-423.22500000000025
+419.1500000000002
  30
 0.0
  40
-2.4
+2.5
   1
-exists so the shelter can still FUNCTION afterwards.
+WHAT EMP PROTECTION IS FOR
   7
 OpenSans
  11
 288.0
  21
-423.22500000000025
+419.1500000000002
  31
 0.0
 100
@@ -10831,19 +10831,19 @@ AcDbText
  10
 288.0
  20
-418.92500000000024
+414.6250000000002
  30
 0.0
  40
 2.4
   1
-EMP Zone 2 protects EQUIPMENT.  It is correct that it is an
+HEMP IS NOT A PERSONNEL HAZARD.  The occupants are protected
   7
 OpenSans
  11
 288.0
  21
-418.92500000000024
+414.6250000000002
  31
 0.0
 100
@@ -10863,19 +10863,19 @@ AcDbText
  10
 288.0
  20
-414.6250000000002
+410.3250000000002
  30
 0.0
  40
 2.4
   1
-enclosure and not a room, and nobody should expect to shelter
+from blast, CBRN and fallout by the box.  EMP protection
   7
 OpenSans
  11
 288.0
  21
-414.6250000000002
+410.3250000000002
  31
 0.0
 100
@@ -10895,7 +10895,103 @@ AcDbText
  10
 288.0
  20
-410.3250000000002
+406.0250000000002
+ 30
+0.0
+ 40
+2.4
+  1
+exists so the shelter can still FUNCTION afterwards.
+  7
+OpenSans
+ 11
+288.0
+ 21
+406.0250000000002
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+154
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+288.0
+ 20
+401.7250000000002
+ 30
+0.0
+ 40
+2.4
+  1
+EMP Zone 2 protects EQUIPMENT.  It is correct that it is an
+  7
+OpenSans
+ 11
+288.0
+ 21
+401.7250000000002
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+155
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+288.0
+ 20
+397.4250000000002
+ 30
+0.0
+ 40
+2.4
+  1
+enclosure and not a room, and nobody should expect to shelter
+  7
+OpenSans
+ 11
+288.0
+ 21
+397.4250000000002
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+156
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+288.0
+ 20
+393.12500000000017
  30
 0.0
  40
@@ -10907,7 +11003,7 @@ OpenSans
  11
 288.0
  21
-410.3250000000002
+393.12500000000017
  31
 0.0
 100
@@ -10915,7 +11011,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-154
+157
 330
 17
 100
@@ -10931,23 +11027,23 @@ AcDbPolyline
  10
 286.0
  20
-404.0250000000002
+386.82500000000016
  10
 550.0
  20
-404.0250000000002
+386.82500000000016
  10
 550.0
  20
-440.85000000000025
+423.6500000000002
  10
 286.0
  20
-440.85000000000025
+423.6500000000002
   0
 TEXT
   5
-155
+158
 330
 17
 100
@@ -10979,7 +11075,7 @@ AcDbText
   0
 TEXT
   5
-156
+159
 330
 17
 100
@@ -11011,7 +11107,7 @@ AcDbText
   0
 TEXT
   5
-157
+15A
 330
 17
 100
@@ -11043,7 +11139,7 @@ AcDbText
   0
 TEXT
   5
-158
+15B
 330
 17
 100
@@ -11075,7 +11171,7 @@ AcDbText
   0
 TEXT
   5
-159
+15C
 330
 17
 100
@@ -11107,7 +11203,7 @@ AcDbText
   0
 TEXT
   5
-15A
+15D
 330
 17
 100
@@ -11139,7 +11235,7 @@ AcDbText
   0
 TEXT
   5
-15B
+15E
 330
 17
 100
@@ -11171,7 +11267,7 @@ AcDbText
   0
 TEXT
   5
-15C
+15F
 330
 17
 100
@@ -11203,7 +11299,7 @@ AcDbText
   0
 TEXT
   5
-15D
+160
 330
 17
 100
@@ -11235,7 +11331,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-15E
+161
 330
 17
 100
@@ -11267,7 +11363,7 @@ AcDbPolyline
   0
 TEXT
   5
-15F
+162
 330
 17
 100
@@ -11299,7 +11395,7 @@ AcDbText
   0
 TEXT
   5
-160
+163
 330
 17
 100
@@ -11331,7 +11427,7 @@ AcDbText
   0
 TEXT
   5
-161
+164
 330
 17
 100
@@ -11363,7 +11459,7 @@ AcDbText
   0
 TEXT
   5
-162
+165
 330
 17
 100
@@ -11395,7 +11491,7 @@ AcDbText
   0
 TEXT
   5
-163
+166
 330
 17
 100
@@ -11427,7 +11523,7 @@ AcDbText
   0
 TEXT
   5
-164
+167
 330
 17
 100
@@ -11459,7 +11555,7 @@ AcDbText
   0
 TEXT
   5
-165
+168
 330
 17
 100
@@ -11491,7 +11587,7 @@ AcDbText
   0
 TEXT
   5
-166
+169
 330
 17
 100
@@ -11523,7 +11619,7 @@ AcDbText
   0
 TEXT
   5
-167
+16A
 330
 17
 100
@@ -11555,7 +11651,7 @@ AcDbText
   0
 TEXT
   5
-168
+16B
 330
 17
 100
@@ -11587,7 +11683,7 @@ AcDbText
   0
 TEXT
   5
-169
+16C
 330
 17
 100
@@ -11619,7 +11715,7 @@ AcDbText
   0
 TEXT
   5
-16A
+16D
 330
 17
 100
@@ -11651,7 +11747,7 @@ AcDbText
   0
 TEXT
   5
-16B
+16E
 330
 17
 100
@@ -11683,7 +11779,7 @@ AcDbText
   0
 TEXT
   5
-16C
+16F
 330
 17
 100
@@ -11715,7 +11811,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-16D
+170
 330
 17
 100
@@ -11747,7 +11843,7 @@ AcDbPolyline
   0
 TEXT
   5
-16E
+171
 330
 17
 100
@@ -11779,7 +11875,7 @@ AcDbText
   0
 TEXT
   5
-16F
+172
 330
 17
 100
@@ -11811,7 +11907,7 @@ AcDbText
   0
 TEXT
   5
-170
+173
 330
 17
 100
@@ -11843,7 +11939,7 @@ AcDbText
   0
 TEXT
   5
-171
+174
 330
 17
 100
@@ -11875,7 +11971,7 @@ AcDbText
   0
 TEXT
   5
-172
+175
 330
 17
 100
@@ -11907,7 +12003,7 @@ AcDbText
   0
 TEXT
   5
-173
+176
 330
 17
 100
@@ -11939,7 +12035,7 @@ AcDbText
   0
 TEXT
   5
-174
+177
 330
 17
 100
@@ -11971,7 +12067,7 @@ AcDbText
   0
 TEXT
   5
-175
+178
 330
 17
 100
@@ -12003,7 +12099,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-176
+179
 330
 17
 100
@@ -12035,7 +12131,7 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-177
+17A
 330
 17
 100
@@ -12067,7 +12163,7 @@ AcDbPolyline
   0
 TEXT
   5
-178
+17B
 330
 17
 100
@@ -12099,7 +12195,7 @@ AcDbText
   0
 TEXT
   5
-179
+17C
 330
 17
 100
@@ -12131,7 +12227,7 @@ AcDbText
   0
 TEXT
   5
-17A
+17D
 330
 17
 100
@@ -12163,7 +12259,7 @@ AcDbText
   0
 TEXT
   5
-17B
+17E
 330
 17
 100
@@ -12195,7 +12291,7 @@ AcDbText
   0
 LINE
   5
-17C
+17F
 330
 17
 100
@@ -12219,7 +12315,7 @@ AcDbLine
   0
 TEXT
   5
-17D
+180
 330
 17
 100
@@ -12251,7 +12347,7 @@ AcDbText
   0
 TEXT
   5
-17E
+181
 330
 17
 100
@@ -12283,7 +12379,7 @@ AcDbText
   0
 LINE
   5
-17F
+182
 330
 17
 100
@@ -12307,7 +12403,7 @@ AcDbLine
   0
 TEXT
   5
-180
+183
 330
 17
 100
@@ -12339,7 +12435,7 @@ AcDbText
   0
 TEXT
   5
-181
+184
 330
 17
 100
@@ -12371,7 +12467,7 @@ AcDbText
   0
 LINE
   5
-182
+185
 330
 17
 100
@@ -12395,7 +12491,7 @@ AcDbLine
   0
 TEXT
   5
-183
+186
 330
 17
 100
@@ -12427,7 +12523,7 @@ AcDbText
   0
 TEXT
   5
-184
+187
 330
 17
 100
@@ -12459,7 +12555,7 @@ AcDbText
   0
 LINE
   5
-185
+188
 330
 17
 100
@@ -12483,7 +12579,7 @@ AcDbLine
   0
 TEXT
   5
-186
+189
 330
 17
 100
@@ -12515,7 +12611,7 @@ AcDbText
   0
 TEXT
   5
-187
+18A
 330
 17
 100
@@ -12547,7 +12643,7 @@ AcDbText
   0
 LINE
   5
-188
+18B
 330
 17
 100
@@ -12571,7 +12667,7 @@ AcDbLine
   0
 TEXT
   5
-189
+18C
 330
 17
 100
@@ -12603,7 +12699,7 @@ AcDbText
   0
 TEXT
   5
-18A
+18D
 330
 17
 100
@@ -12635,7 +12731,7 @@ AcDbText
   0
 LINE
   5
-18B
+18E
 330
 17
 100
@@ -12659,7 +12755,7 @@ AcDbLine
   0
 TEXT
   5
-18C
+18F
 330
 17
 100
@@ -12691,7 +12787,7 @@ AcDbText
   0
 TEXT
   5
-18D
+190
 330
 17
 100
@@ -12723,7 +12819,7 @@ AcDbText
   0
 LINE
   5
-18E
+191
 330
 17
 100
@@ -12747,7 +12843,7 @@ AcDbLine
   0
 TEXT
   5
-18F
+192
 330
 17
 100
@@ -12779,7 +12875,7 @@ AcDbText
   0
 TEXT
   5
-190
+193
 330
 17
 100
@@ -12811,7 +12907,7 @@ AcDbText
   0
 LINE
   5
-191
+194
 330
 17
 100
@@ -12835,7 +12931,7 @@ AcDbLine
   0
 TEXT
   5
-192
+195
 330
 17
 100
@@ -12867,7 +12963,7 @@ AcDbText
   0
 TEXT
   5
-193
+196
 330
 17
 100
@@ -12899,7 +12995,7 @@ AcDbText
   0
 LINE
   5
-194
+197
 330
 17
 100
@@ -12923,7 +13019,7 @@ AcDbLine
   0
 TEXT
   5
-195
+198
 330
 17
 100
@@ -12955,7 +13051,7 @@ AcDbText
   0
 TEXT
   5
-196
+199
 330
 17
 100
@@ -12987,7 +13083,7 @@ AcDbText
   0
 LINE
   5
-197
+19A
 330
 17
 100
@@ -13011,7 +13107,7 @@ AcDbLine
   0
 TEXT
   5
-198
+19B
 330
 17
 100
@@ -13043,7 +13139,7 @@ AcDbText
   0
 TEXT
   5
-199
+19C
 330
 17
 100
@@ -13075,7 +13171,7 @@ AcDbText
   0
 LINE
   5
-19A
+19D
 330
 17
 100
@@ -13099,7 +13195,7 @@ AcDbLine
   0
 TEXT
   5
-19B
+19E
 330
 17
 100
@@ -13131,7 +13227,7 @@ AcDbText
   0
 TEXT
   5
-19C
+19F
 330
 17
 100
@@ -13163,7 +13259,7 @@ AcDbText
   0
 LINE
   5
-19D
+1A0
 330
 17
 100
@@ -13187,7 +13283,7 @@ AcDbLine
   0
 TEXT
   5
-19E
+1A1
 330
 17
 100
@@ -13219,7 +13315,7 @@ AcDbText
   0
 TEXT
   5
-19F
+1A2
 330
 17
 100
@@ -13251,7 +13347,7 @@ AcDbText
   0
 LINE
   5
-1A0
+1A3
 330
 17
 100
@@ -13275,7 +13371,7 @@ AcDbLine
   0
 TEXT
   5
-1A1
+1A4
 330
 17
 100
@@ -13307,7 +13403,7 @@ AcDbText
   0
 TEXT
   5
-1A2
+1A5
 330
 17
 100
@@ -13339,78 +13435,6 @@ AcDbText
   0
 LINE
   5
-1A3
-330
-17
-100
-AcDbEntity
-  8
-M-FLAG
-100
-AcDbLine
- 10
-14.0
- 20
-189.00000000000009
- 30
-0.0
- 11
-544.0
- 21
-189.00000000000009
- 31
-0.0
-  0
-LINE
-  5
-1A4
-330
-17
-100
-AcDbEntity
-  8
-M-FLAG
-100
-AcDbLine
- 10
-14.0
- 20
-258.0
- 30
-0.0
- 11
-544.0
- 21
-258.0
- 31
-0.0
-  0
-LINE
-  5
-1A5
-330
-17
-100
-AcDbEntity
-  8
-M-FLAG
-100
-AcDbLine
- 10
-14.0
- 20
-258.0
- 30
-0.0
- 11
-14.0
- 21
-189.00000000000009
- 31
-0.0
-  0
-LINE
-  5
 1A6
 330
 17
@@ -13421,6 +13445,78 @@ M-FLAG
 100
 AcDbLine
  10
+14.0
+ 20
+189.00000000000009
+ 30
+0.0
+ 11
+544.0
+ 21
+189.00000000000009
+ 31
+0.0
+  0
+LINE
+  5
+1A7
+330
+17
+100
+AcDbEntity
+  8
+M-FLAG
+100
+AcDbLine
+ 10
+14.0
+ 20
+258.0
+ 30
+0.0
+ 11
+544.0
+ 21
+258.0
+ 31
+0.0
+  0
+LINE
+  5
+1A8
+330
+17
+100
+AcDbEntity
+  8
+M-FLAG
+100
+AcDbLine
+ 10
+14.0
+ 20
+258.0
+ 30
+0.0
+ 11
+14.0
+ 21
+189.00000000000009
+ 31
+0.0
+  0
+LINE
+  5
+1A9
+330
+17
+100
+AcDbEntity
+  8
+M-FLAG
+100
+AcDbLine
+ 10
 44.0
  20
 258.0
@@ -13435,7 +13531,7 @@ AcDbLine
   0
 LINE
   5
-1A7
+1AA
 330
 17
 100
@@ -13459,7 +13555,7 @@ AcDbLine
   0
 LWPOLYLINE
   5
-1A8
+1AB
 330
 17
 100
@@ -13491,7 +13587,7 @@ AcDbPolyline
   0
 TEXT
   5
-1A9
+1AC
 330
 17
 100
@@ -13523,7 +13619,7 @@ AcDbText
   0
 TEXT
   5
-1AA
+1AD
 330
 17
 100
@@ -13555,7 +13651,7 @@ AcDbText
   0
 TEXT
   5
-1AB
+1AE
 330
 17
 100
@@ -13587,94 +13683,6 @@ AcDbText
   0
 TEXT
   5
-1AC
-330
-17
-100
-AcDbEntity
-  8
-M-FLAG
-100
-AcDbText
- 10
-45.4
- 20
-174.10000000000002
- 30
-0.0
- 40
-2.0
-  1
-ADOPT OR REJECT the three-zone EMP model and the 'Zone 2 standing alone' rule.  Everything follows from it.
-  7
-OpenSans
- 11
-45.4
- 21
-174.10000000000002
- 31
-0.0
-100
-AcDbText
-  0
-LINE
-  5
-1AD
-330
-17
-100
-AcDbEntity
-  8
-M-FLAG
-100
-AcDbLine
- 10
-14.0
- 20
-172.8
- 30
-0.0
- 11
-544.0
- 21
-172.8
- 31
-0.0
-  0
-TEXT
-  5
-1AE
-330
-17
-100
-AcDbEntity
-  8
-M-FLAG
-100
-AcDbText
- 10
-15.4
- 20
-169.50000000000003
- 30
-0.0
- 40
-2.0
-  1
-EM-V2
-  7
-OpenSans
- 11
-15.4
- 21
-169.50000000000003
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
 1AF
 330
 17
@@ -13687,19 +13695,19 @@ AcDbText
  10
 45.4
  20
-169.50000000000003
+174.10000000000002
  30
 0.0
  40
 2.0
   1
-EVERY EMP ZONE 2 DIMENSION IS [A], pending an equipment schedule that waits on the MISSING ELECTRICAL DESIGN.
+*** RULED - ADOPTED BY THE PROJECT OWNER, RC2, 11 Sep 2026, master H.21.  The three-zone model and the
   7
 OpenSans
  11
 45.4
  21
-169.50000000000003
+174.10000000000002
  31
 0.0
 100
@@ -13719,13 +13727,13 @@ AcDbLine
  10
 14.0
  20
-168.20000000000002
+172.8
  30
 0.0
  11
 544.0
  21
-168.20000000000002
+172.8
  31
 0.0
   0
@@ -13743,19 +13751,19 @@ AcDbText
  10
 15.4
  20
-164.90000000000003
+169.50000000000003
  30
 0.0
  40
 2.0
   1
-EM-V3
+
   7
 OpenSans
  11
 15.4
  21
-164.90000000000003
+169.50000000000003
  31
 0.0
 100
@@ -13775,19 +13783,19 @@ AcDbText
  10
 45.4
  20
-164.90000000000003
+169.50000000000003
  30
 0.0
  40
 2.0
   1
-IS BAY 8 INSIDE THE EMP BOUNDARY?  Decides BV-4/BV-5 honeycomb, and whether the 15 kVA generator survives.
+     'Zone 2 standing alone' rule are the project's EMP position.  CLOSED.  No figure or finding changed. ***
   7
 OpenSans
  11
 45.4
  21
-164.90000000000003
+169.50000000000003
  31
 0.0
 100
@@ -13807,13 +13815,13 @@ AcDbLine
  10
 14.0
  20
-163.60000000000002
+168.20000000000002
  30
 0.0
  11
 544.0
  21
-163.60000000000002
+168.20000000000002
  31
 0.0
   0
@@ -13831,19 +13839,19 @@ AcDbText
  10
 15.4
  20
-160.30000000000004
+164.90000000000003
  30
 0.0
  40
 2.0
   1
-EM-V4
+EM-V2
   7
 OpenSans
  11
 15.4
  21
-160.30000000000004
+164.90000000000003
  31
 0.0
 100
@@ -13863,19 +13871,19 @@ AcDbText
  10
 45.4
  20
-160.30000000000004
+164.90000000000003
  30
 0.0
  40
 2.0
   1
-NO COMMUNICATIONS DESIGN OF ANY KIND EXISTS.  5.7.6 cannot be applied and the ops room's purpose is unmet.
+EVERY EMP ZONE 2 DIMENSION IS [A], pending an equipment schedule that waits on the MISSING ELECTRICAL DESIGN.
   7
 OpenSans
  11
 45.4
  21
-160.30000000000004
+164.90000000000003
  31
 0.0
 100
@@ -13895,13 +13903,13 @@ AcDbLine
  10
 14.0
  20
-159.00000000000003
+163.60000000000002
  30
 0.0
  11
 544.0
  21
-159.00000000000003
+163.60000000000002
  31
 0.0
   0
@@ -13919,19 +13927,19 @@ AcDbText
  10
 15.4
  20
-155.70000000000005
+160.30000000000004
  30
 0.0
  40
 2.0
   1
-EM-V5
+EM-V3
   7
 OpenSans
  11
 15.4
  21
-155.70000000000005
+160.30000000000004
  31
 0.0
 100
@@ -13951,19 +13959,19 @@ AcDbText
  10
 45.4
  20
-155.70000000000005
+160.30000000000004
  30
 0.0
  40
 2.0
   1
-PD-05's PIPE MATERIAL IS UNSPECIFIED - as is every pipe material in the project.  Metallic and plastic need
+IS BAY 8 INSIDE THE EMP BOUNDARY?  Decides BV-4/BV-5 honeycomb, and whether the 15 kVA generator survives.
   7
 OpenSans
  11
 45.4
  21
-155.70000000000005
+160.30000000000004
  31
 0.0
 100
@@ -13983,13 +13991,13 @@ AcDbLine
  10
 14.0
  20
-154.40000000000003
+159.00000000000003
  30
 0.0
  11
 544.0
  21
-154.40000000000003
+159.00000000000003
  31
 0.0
   0
@@ -14007,19 +14015,19 @@ AcDbText
  10
 15.4
  20
-151.10000000000005
+155.70000000000005
  30
 0.0
  40
 2.0
   1
-
+EM-V4
   7
 OpenSans
  11
 15.4
  21
-151.10000000000005
+155.70000000000005
  31
 0.0
 100
@@ -14039,19 +14047,19 @@ AcDbText
  10
 45.4
  20
-151.10000000000005
+155.70000000000005
  30
 0.0
  40
 2.0
   1
-     completely different treatments at the service entry plate.
+NO COMMUNICATIONS DESIGN OF ANY KIND EXISTS.  5.7.6 cannot be applied and the ops room's purpose is unmet.
   7
 OpenSans
  11
 45.4
  21
-151.10000000000005
+155.70000000000005
  31
 0.0
 100
@@ -14071,13 +14079,13 @@ AcDbLine
  10
 14.0
  20
-149.80000000000004
+154.40000000000003
  30
 0.0
  11
 544.0
  21
-149.80000000000004
+154.40000000000003
  31
 0.0
   0
@@ -14095,19 +14103,19 @@ AcDbText
  10
 15.4
  20
-146.50000000000006
+151.10000000000005
  30
 0.0
  40
 2.0
   1
-EM-V6
+EM-V5
   7
 OpenSans
  11
 15.4
  21
-146.50000000000006
+151.10000000000005
  31
 0.0
 100
@@ -14127,19 +14135,19 @@ AcDbText
  10
 45.4
  20
-146.50000000000006
+151.10000000000005
  30
 0.0
  40
 2.0
   1
-NO ESCAPE-SHAFT HEAD HATCH IS SPECIFIED, AND NO BLAST DOOR RF DATA EXISTS.  Both sit on the boundary.
+PD-05's PIPE MATERIAL IS UNSPECIFIED - as is every pipe material in the project.  Metallic and plastic need
   7
 OpenSans
  11
 45.4
  21
-146.50000000000006
+151.10000000000005
  31
 0.0
 100
@@ -14159,17 +14167,17 @@ AcDbLine
  10
 14.0
  20
-145.20000000000005
+149.80000000000004
  30
 0.0
  11
 544.0
  21
-145.20000000000005
+149.80000000000004
  31
 0.0
   0
-LINE
+TEXT
   5
 1C0
 330
@@ -14179,21 +14187,29 @@ AcDbEntity
   8
 M-FLAG
 100
-AcDbLine
+AcDbText
  10
-14.0
+15.4
  20
-182.0
+146.50000000000006
  30
 0.0
+ 40
+2.0
+  1
+
+  7
+OpenSans
  11
-544.0
+15.4
  21
-182.0
+146.50000000000006
  31
 0.0
+100
+AcDbText
   0
-LINE
+TEXT
   5
 1C1
 330
@@ -14203,19 +14219,27 @@ AcDbEntity
   8
 M-FLAG
 100
-AcDbLine
+AcDbText
  10
-14.0
+45.4
  20
-182.0
+146.50000000000006
  30
 0.0
+ 40
+2.0
+  1
+     completely different treatments at the service entry plate.
+  7
+OpenSans
  11
-14.0
+45.4
  21
-145.20000000000005
+146.50000000000006
  31
 0.0
+100
+AcDbText
   0
 LINE
   5
@@ -14229,6 +14253,166 @@ M-FLAG
 100
 AcDbLine
  10
+14.0
+ 20
+145.20000000000005
+ 30
+0.0
+ 11
+544.0
+ 21
+145.20000000000005
+ 31
+0.0
+  0
+TEXT
+  5
+1C3
+330
+17
+100
+AcDbEntity
+  8
+M-FLAG
+100
+AcDbText
+ 10
+15.4
+ 20
+141.90000000000006
+ 30
+0.0
+ 40
+2.0
+  1
+EM-V6
+  7
+OpenSans
+ 11
+15.4
+ 21
+141.90000000000006
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1C4
+330
+17
+100
+AcDbEntity
+  8
+M-FLAG
+100
+AcDbText
+ 10
+45.4
+ 20
+141.90000000000006
+ 30
+0.0
+ 40
+2.0
+  1
+NO ESCAPE-SHAFT HEAD HATCH IS SPECIFIED, AND NO BLAST DOOR RF DATA EXISTS.  Both sit on the boundary.
+  7
+OpenSans
+ 11
+45.4
+ 21
+141.90000000000006
+ 31
+0.0
+100
+AcDbText
+  0
+LINE
+  5
+1C5
+330
+17
+100
+AcDbEntity
+  8
+M-FLAG
+100
+AcDbLine
+ 10
+14.0
+ 20
+140.60000000000005
+ 30
+0.0
+ 11
+544.0
+ 21
+140.60000000000005
+ 31
+0.0
+  0
+LINE
+  5
+1C6
+330
+17
+100
+AcDbEntity
+  8
+M-FLAG
+100
+AcDbLine
+ 10
+14.0
+ 20
+182.0
+ 30
+0.0
+ 11
+544.0
+ 21
+182.0
+ 31
+0.0
+  0
+LINE
+  5
+1C7
+330
+17
+100
+AcDbEntity
+  8
+M-FLAG
+100
+AcDbLine
+ 10
+14.0
+ 20
+182.0
+ 30
+0.0
+ 11
+14.0
+ 21
+140.60000000000005
+ 31
+0.0
+  0
+LINE
+  5
+1C8
+330
+17
+100
+AcDbEntity
+  8
+M-FLAG
+100
+AcDbLine
+ 10
 44.0
  20
 182.0
@@ -14237,13 +14421,13 @@ AcDbLine
  11
 44.0
  21
-145.20000000000005
+140.60000000000005
  31
 0.0
   0
 LINE
   5
-1C3
+1C9
 330
 17
 100
@@ -14261,13 +14445,13 @@ AcDbLine
  11
 544.0
  21
-145.20000000000005
+140.60000000000005
  31
 0.0
   0
 TEXT
   5
-1C4
+1CA
 330
 17
 100
@@ -14299,7 +14483,7 @@ AcDbText
   0
 TEXT
   5
-1C5
+1CB
 330
 17
 100
@@ -14331,7 +14515,7 @@ AcDbText
   0
 TEXT
   5
-1C6
+1CC
 330
 17
 100
@@ -14363,7 +14547,7 @@ AcDbText
   0
 TEXT
   5
-1C7
+1CD
 330
 17
 100
@@ -14395,7 +14579,7 @@ AcDbText
   0
 TEXT
   5
-1C8
+1CE
 330
 17
 100
@@ -14427,7 +14611,7 @@ AcDbText
   0
 TEXT
   5
-1C9
+1CF
 330
 17
 100
@@ -14459,7 +14643,7 @@ AcDbText
   0
 TEXT
   5
-1CA
+1D0
 330
 17
 100
@@ -14491,7 +14675,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-1CB
+1D1
 330
 17
 100
@@ -14523,7 +14707,7 @@ AcDbPolyline
   0
 TEXT
   5
-1CC
+1D2
 330
 17
 100
@@ -14555,7 +14739,7 @@ AcDbText
   0
 TEXT
   5
-1CD
+1D3
 330
 17
 100
@@ -14587,7 +14771,7 @@ AcDbText
   0
 TEXT
   5
-1CE
+1D4
 330
 17
 100
@@ -14619,7 +14803,7 @@ AcDbText
   0
 TEXT
   5
-1CF
+1D5
 330
 17
 100
@@ -14651,7 +14835,7 @@ AcDbText
   0
 LINE
   5
-1D0
+1D6
 330
 17
 100
@@ -14675,7 +14859,7 @@ AcDbLine
   0
 TEXT
   5
-1D1
+1D7
 330
 17
 100
@@ -14709,7 +14893,7 @@ AcDbText
   0
 TEXT
   5
-1D2
+1D8
 330
 17
 100
@@ -14743,7 +14927,7 @@ AcDbText
   0
 TEXT
   5
-1D3
+1D9
 330
 17
 100
@@ -14761,7 +14945,7 @@ AcDbText
  40
 1.4
   1
-OPEN ITEMS ON THIS SHEET:  EM-F1   EM-F3   EM-V1   EM-V2
+OPEN ITEMS ON THIS SHEET:  EM-F1   EM-F3   EM-V2
   7
 OpenSans
  11
@@ -14775,7 +14959,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-1D4
+1DA
 330
 17
 100
@@ -14807,7 +14991,7 @@ AcDbPolyline
   0
 LINE
   5
-1D5
+1DB
 330
 17
 100
@@ -14831,7 +15015,7 @@ AcDbLine
   0
 LINE
   5
-1D6
+1DC
 330
 17
 100
@@ -14855,7 +15039,7 @@ AcDbLine
   0
 LINE
   5
-1D7
+1DD
 330
 17
 100
@@ -14879,7 +15063,7 @@ AcDbLine
   0
 LINE
   5
-1D8
+1DE
 330
 17
 100
@@ -14903,7 +15087,7 @@ AcDbLine
   0
 LINE
   5
-1D9
+1DF
 330
 17
 100
@@ -14927,7 +15111,7 @@ AcDbLine
   0
 LINE
   5
-1DA
+1E0
 330
 17
 100
@@ -14951,7 +15135,7 @@ AcDbLine
   0
 LINE
   5
-1DB
+1E1
 330
 17
 100
@@ -14975,7 +15159,7 @@ AcDbLine
   0
 TEXT
   5
-1DC
+1E2
 330
 17
 100
@@ -15007,7 +15191,7 @@ AcDbText
   0
 TEXT
   5
-1DD
+1E3
 330
 17
 100
@@ -15039,7 +15223,7 @@ AcDbText
   0
 TEXT
   5
-1DE
+1E4
 330
 17
 100
@@ -15071,7 +15255,7 @@ AcDbText
   0
 TEXT
   5
-1DF
+1E5
 330
 17
 100
@@ -15103,7 +15287,7 @@ AcDbText
   0
 TEXT
   5
-1E0
+1E6
 330
 17
 100
@@ -15135,7 +15319,7 @@ AcDbText
   0
 TEXT
   5
-1E1
+1E7
 330
 17
 100
@@ -15167,7 +15351,7 @@ AcDbText
   0
 LINE
   5
-1E2
+1E8
 330
 17
 100
@@ -15191,7 +15375,7 @@ AcDbLine
   0
 TEXT
   5
-1E3
+1E9
 330
 17
 100
@@ -15223,7 +15407,7 @@ AcDbText
   0
 TEXT
   5
-1E4
+1EA
 330
 17
 100
@@ -15255,7 +15439,7 @@ AcDbText
   0
 TEXT
   5
-1E5
+1EB
 330
 17
 100
@@ -15287,7 +15471,7 @@ AcDbText
   0
 TEXT
   5
-1E6
+1EC
 330
 17
 100
@@ -15319,7 +15503,7 @@ AcDbText
   0
 TEXT
   5
-1E7
+1ED
 330
 17
 100
@@ -15351,7 +15535,7 @@ AcDbText
   0
 TEXT
   5
-1E8
+1EE
 330
 17
 100
@@ -15383,7 +15567,7 @@ AcDbText
   0
 TEXT
   5
-1E9
+1EF
 330
 17
 100
@@ -15415,7 +15599,7 @@ AcDbText
   0
 TEXT
   5
-1EA
+1F0
 330
 17
 100
@@ -15447,7 +15631,7 @@ AcDbText
   0
 TEXT
   5
-1EB
+1F1
 330
 17
 100
@@ -15479,7 +15663,7 @@ AcDbText
   0
 TEXT
   5
-1EC
+1F2
 330
 17
 100
@@ -15511,7 +15695,7 @@ AcDbText
   0
 TEXT
   5
-1ED
+1F3
 330
 17
 100
@@ -15543,7 +15727,7 @@ AcDbText
   0
 TEXT
   5
-1EE
+1F4
 330
 17
 100
@@ -15575,7 +15759,7 @@ AcDbText
   0
 TEXT
   5
-1EF
+1F5
 330
 17
 100
@@ -15607,7 +15791,7 @@ AcDbText
   0
 TEXT
   5
-1F0
+1F6
 330
 17
 100
@@ -16727,7 +16911,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-1F3
+1F9
   0
 DICTIONARYVAR
   5
@@ -16739,7 +16923,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-11T02:56:50.151512+00:00
+1.4.4 @ 2026-09-11T05:11:50.425553+00:00
   0
 VISUALSTYLE
   5
@@ -17443,7 +17627,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-1F3
+1F9
 330
 2D
 100
@@ -17451,7 +17635,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-11T02:56:50.189247+00:00
+1.4.4 @ 2026-09-11T05:11:50.465282+00:00
   0
 ENDSEC
   0

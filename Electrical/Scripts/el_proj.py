@@ -102,8 +102,14 @@ V_DC = 48.0
 DOD = 0.80                  # depth of discharge, flooded / VRLA  [A]
 ETA_INV = 0.90
 WH_PER_KG = 35.0            # lead-acid, order of magnitude       [A]
-CASE_A_H = 4.0              # generator restartable after the shock  [A] ADOPTED
-CASE_B_H = 48.0             # Mode 3 CLOSED limit, no generator      [C] 48 h
+# RULED - RC2, 11 Sep 2026 (master H.21).  The project owner has ruled that
+# the generator MAY run during mode 3: all five valves shut at the shock, then
+# BV-4 and BV-5 REOPEN for GEN-1.  Case A is therefore [C], not [A], and the
+# battery stands at the size EL1 already designed.  Case B is retained below
+# because the comparison is what made the question answerable - it is now
+# HISTORICAL, not an alternative.
+CASE_A_H = 4.0              # generator restartable after the shock  [C] RULED
+CASE_B_H = 48.0             # HISTORICAL - the rejected reading      [C] 48 h
 
 FLOOR_LL_KPA = 5.0          # master A.7.2 floor live load        [C]
 

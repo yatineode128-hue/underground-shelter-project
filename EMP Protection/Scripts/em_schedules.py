@@ -71,7 +71,7 @@ def zone_schedule():
          "stairwell +2.450 (**expendable**) · ESC heads +0.150 / +0.700 · "
          "burster slab",
          "**NONE CREDITED**", "**0 dB**", "n/a — nothing to verify",
-         "`[D]`"],
+         "`[C]` RC2"],
         ["**EMP ZONE 1**", "The buried box, **all eight bays**",
          "600 walls · 900 roof · 600 mat · W6 / W7 400 · reinforcement cage at "
          "**150 both curtains** · cast-in frames welded to the cage · welded "
@@ -82,7 +82,7 @@ def zone_schedule():
          "1 decade of the 5 required",
          "**CANNOT BE SURVEYED** — buried under 2 m of cover, no accessible "
          "exterior. Calculation only",
-         "`[D]` from `[C]` A.5"],
+         "`[C]` RC2 · cage from `[C]` A.5"],
         ["**EMP ZONE 2**", f"Welded steel enclosure, bay 3 (U-03), finish W-04",
          f"External **{Z['x1']-Z['x0']} × {Z['y1']-Z['y0']} × {Z['h_ext']}** at "
          f"X {Z['x0']}–{Z['x1']}, Y {Z['y0']}–{Z['y1']} · panel {Z['panel']} · "
@@ -99,9 +99,15 @@ def zone_schedule():
           ["ZONE", "WHAT IT IS", "BOUNDARY AS BUILT", "SHIELDING MECHANISM",
            "PERFORMANCE", "VERIFICATION", "CLASS"], rows,
           pre=["**The project had named `EMP Zone 2` since Rev F and had never "
-               "defined a Zone 1 or a Zone 0.** All three are derived here — "
-               "master A.3 and K.3 confirm only that a Zone 2 enclosure is "
+               "defined a Zone 1 or a Zone 0.** All three were derived by EM1 "
+               "— master A.3 and K.3 confirm only that a Zone 2 enclosure is "
                "*required*.\n",
+               "> ### ADOPTED — RC2, 11 September 2026 (master H.21)\n"
+               "> **The project owner has adopted the three-zone model and "
+               "the standing-alone rule below. They are the project's EMP "
+               "position, not this package's proposal.** `[C]` **EM-V1 is "
+               "closed.** No figure, finding or other open item in EM1 "
+               "changes.\n",
                "> **THE DESIGN RULE:** *EMP Zone 2 is designed to the full "
                f"{P.SE_REQUIRED_DB:.0f} dB standing alone. **No attenuation "
                "from the concrete box is credited at any frequency.*** The "
