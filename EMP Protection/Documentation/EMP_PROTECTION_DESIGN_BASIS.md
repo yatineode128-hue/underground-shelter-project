@@ -400,7 +400,7 @@ quietly filled these in would be inventing a specification.
 | | | Whose decision |
 |---|---|---|
 | **EM-V1** | **Adopt or reject the three-zone EMP model and the "Zone 2 standing alone" design rule** (§2). Everything else in this package follows from it | Engineer / client |
-| **EM-V2** | **Every EMP Zone 2 dimension is `[A]`** pending an equipment schedule, which waits on the **missing electrical design** — the project's largest gap | Waits on the electrical package |
+| **EM-V2** | **Every EMP Zone 2 dimension is `[A]`** pending an equipment schedule. **ADVANCED by EL1, 11 Sep 2026 (master H.20): `Z-01` gives a 1.50 kW ops/comms ALLOWANCE and a `DB-Z2` sub-board fed through the PoE-3 PCI**, so the enclosure now has a basis instead of nothing. **It is still an allowance, not a schedule, so this item stays open** | Waits on an equipment schedule — **EL-V3** |
 | **EM-V3** | **Is bay 8 inside the EMP boundary?** Decides whether BV-4/BV-5 need honeycomb, and whether the 15 kVA generator survives the pulse | Client / military |
 | **EM-V4** | **No communications design of any kind exists.** §5.7.6 cannot be applied, and the ops room's purpose is unmet | Client / military |
 | **EM-V5** | **PD-05's pipe material is unspecified** — as is every pipe material in the project. Metallic and plastic need completely different treatments at the entry plate | Drainage / engineer |
@@ -453,6 +453,7 @@ cited, and none is invented.**
 | **Drainage (DR1)** | PD-05 through the service entry plate. **Pipe material `[N]` — EM-V5** | **Referred** |
 | **Finishes (FN1)** | `W-04` *"EMP Zone 2 shielded enclosure lining"* was raised as `[C]` requirement / `[N]` specification. **This package supplies the `[A]` specification it was waiting for** | **Answered, at `[A]`** |
 | **Works Management (WM3)** | **No EMP bill item, quantity, rate, date or float is created or changed by this package.** The 25.28 m² enclosure area is stated for information only | **No change** |
+| **Electrical (EL1)** | **EL1 supplies the load allowance EM-V2 was waiting for** (`Z-01`, 1.50 kW), the `DB-Z2` sub-board inside the enclosure, and the single cable entry that uses **PoE-3 (PCI on power)** and **PoE-4 (fibre on signal)**. EL1 also **adopts EM-F5's earthing ruling unchanged** — bond to the structure, do not chase rods | **Answered at `[A]`** |
 | **Site and Concealment (CAM2)** | An antenna, if one is ever designed, is both an EMP penetration and a **concealment** signature. **And CAM2's new `CAM-V5` — the unrecorded head level of the generator air shaft SH-2 — is the same shaft that carries BV-4 / BV-5**, the two bores that fail both EMP criteria. **One shaft, two open questions: how tall is it (CAM-V5) and is it inside the EMP boundary (EM-V3)** | **Noted, EM-V4 · new link to CAM-V5** |
 | **Fire and Life Safety (FS2)** | FS-5 records that every active fire measure waits on the missing electrical design. **EM-V2 waits on the same gap.** **And FS2's new `FS-V7` — how either escape shaft is actually climbed — lands on the same two shaft heads as `EM-V6`**, which asks what conducting hatch closes them. **Whatever is fitted at those heads has to satisfy both: climbable from below, and bonded** | **Same root cause · new link to FS-V7** |
 

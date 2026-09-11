@@ -234,7 +234,7 @@ provide.** The operating-mode schedule sets a 48 h limit on Mode 3. **No rule ex
 anywhere in the project for which of the two hazards takes precedence.** That decision
 belongs to the client, and it should be made before it is needed rather than during.
 
-**FS-5  Every active fire measure follows the missing electrical design.** Detection,
+**FS-5  Every active fire measure follows the missing electrical design.** *(EL1, 11 Sep 2026, master H.20: the electrical provision now exists — see FS-V2. The fire engineering does not.)* Detection,
 alarm, emergency lighting and any suppression cannot be specified until that package
 exists. **The programme already places the electrical design as the largest gap; this
 plan adds fire to the list of things waiting on it.**
@@ -304,7 +304,7 @@ emergency lighting item exists in the bill. Anything specified is an **addition*
 | Item | What it is | Status |
 |---|---|---|
 | **FS-V1** | **W5 has no door.** The designated fire and gas-tight separation between the CBRN plant bay and the decon airlock cannot function. Same defect as **FN-U1 / D-05**, raised again here because a fire plan cannot ignore it | **OPEN — design required** |
-| **FS-V2** | No fire detection, alarm, emergency lighting or suppression exists anywhere. Follows the missing electrical design | **OPEN — follows the electrical gap** |
+| **FS-V2** | No fire detection, alarm, emergency lighting or suppression exists anywhere. Followed the missing electrical design. — **ADVANCED by EL1, 11 Sep 2026 (master H.20): `S-01` detection and alarm panel and `L-02` maintained emergency lighting now exist on essential board `DB-E`, carried on the battery. THE ELECTRICAL BLOCKER IS GONE.** What remains is fire engineering — head layout, zoning, detector type and any suppression — **and none of it is invented here** | **OPEN — no longer waiting on electrical** |
 | **FS-V3** | No rule exists for a fire during **Mode 3 CLOSED** — smoke cannot be cleared without breaking protection | **OPEN — client ruling** |
 | **FS-V4** | Generator fuel type, quantity and storage arrangement are unspecified, so the Bay 8 fire load cannot be quantified | **OPEN — follows R-8** |
 | **FS-V5** | No muster point or fire service access can be defined without the site plan | **OPEN — follows D3** |

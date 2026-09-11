@@ -159,8 +159,9 @@ VERIF = [
               "between the CBRN plant bay and the decon airlock cannot "
               "function.  Same defect as FN-U1 / D-05", "OPEN  -  DESIGN REQUIRED"),
     ("FS-V2", "NO FIRE DETECTION, ALARM, EMERGENCY LIGHTING OR SUPPRESSION "
-              "exists anywhere.  Follows the missing electrical design",
-     "OPEN  -  FOLLOWS THE ELECTRICAL GAP"),
+              "exists anywhere.  EL1 provides S-01 and L-02 on DB-E; the "
+              "fire engineering remains",
+     "OPEN  -  ELECTRICAL BLOCKER GONE"),
     ("FS-V3", "NO RULE EXISTS FOR A FIRE DURING MODE 3 CLOSED.  Smoke cannot "
               "be cleared without breaking protection", "OPEN  -  CLIENT RULING"),
     ("FS-V4", "GENERATOR FUEL TYPE, QUANTITY AND STORAGE are unspecified, so "

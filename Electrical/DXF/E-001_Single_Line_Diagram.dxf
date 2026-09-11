@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461295.1228009257
+2461295.1227893517
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461295.1228009257
+2461295.1227893517
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-33A
+1E3
   9
 $SURFTAB1
  70
@@ -929,11 +929,11 @@ $PSTYLEMODE
   9
 $FINGERPRINTGUID
   2
-{D536CA75-1C7F-466B-8634-B777F43B6652}
+{AF58363D-0CEC-4329-94F2-1B5787805E37}
   9
 $VERSIONGUID
   2
-{CA1585F5-F2D2-49FD-A020-28BDD7A03B05}
+{174C2CFF-B434-4506-8EA3-D7288A0EF86A}
   9
 $EXTNAMES
 290
@@ -1323,9 +1323,9 @@ ISM
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -1339,9 +1339,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -2233,7 +2233,7 @@ LAYER
 100
 AcDbSymbolTable
  70
-74
+72
   0
 LAYER
   5
@@ -4185,97 +4185,7 @@ AcDbSymbolTableRecord
 100
 AcDbLayerTableRecord
   2
-E-ZONE0
- 70
-0
- 62
-8
-  6
-Continuous
-370
--3
-390
-13
-347
-21
-1001
-AcAecLayerStandard
-1000
-
-1000
-EMP Zone 0 - unprotected, above grade
-  0
-LAYER
-  5
-121
-330
-1
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-E-ZONE1
- 70
-0
- 62
-4
-  6
-Continuous
-370
--3
-390
-13
-347
-21
-1001
-AcAecLayerStandard
-1000
-
-1000
-EMP Zone 1 - the reinforcement cage
-  0
-LAYER
-  5
-122
-330
-1
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-E-ZONE2
- 70
-0
- 62
-3
-  6
-Continuous
-370
--3
-390
-13
-347
-21
-1001
-AcAecLayerStandard
-1000
-
-1000
-EMP Zone 2 - the 80 dB shielded enclosure
-  0
-LAYER
-  5
-123
-330
-1
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-E-SHIELD
+E-SOURCE
  70
 0
  62
@@ -4293,11 +4203,11 @@ AcAecLayerStandard
 1000
 
 1000
-Shielded surfaces, plates, honeycomb, liners
+Sources - mains, generator, battery
   0
 LAYER
   5
-124
+121
 330
 1
 100
@@ -4305,11 +4215,11 @@ AcDbSymbolTableRecord
 100
 AcDbLayerTableRecord
   2
-E-BOND
+E-BOARD
  70
 0
  62
-6
+3
   6
 Continuous
 370
@@ -4323,11 +4233,11 @@ AcAecLayerStandard
 1000
 
 1000
-Bonding straps, earth, cage continuity
+Distribution boards
   0
 LAYER
   5
-125
+122
 330
 1
 100
@@ -4335,67 +4245,7 @@ AcDbSymbolTableRecord
 100
 AcDbLayerTableRecord
   2
-E-PENET
- 70
-0
- 62
-5
-  6
-Continuous
-370
--3
-390
-13
-347
-21
-1001
-AcAecLayerStandard
-1000
-
-1000
-Envelope penetrations - treated
-  0
-LAYER
-  5
-126
-330
-1
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-E-APERTURE
- 70
-0
- 62
-1
-  6
-Continuous
-370
--3
-390
-13
-347
-21
-1001
-AcAecLayerStandard
-1000
-
-1000
-Apertures that FAIL - findings
-  0
-LAYER
-  5
-127
-330
-1
-100
-AcDbSymbolTableRecord
-100
-AcDbLayerTableRecord
-  2
-E-CHART
+E-CABLE
  70
 0
  62
@@ -4413,11 +4263,11 @@ AcAecLayerStandard
 1000
 
 1000
-Chart axes, curves and gridlines
+Sub-mains and final circuits
   0
 LAYER
   5
-128
+123
 330
 1
 100
@@ -4425,7 +4275,97 @@ AcDbSymbolTableRecord
 100
 AcDbLayerTableRecord
   2
-E-CHART-HI
+E-DC
+ 70
+0
+ 62
+5
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+1001
+AcAecLayerStandard
+1000
+
+1000
+DC and essential distribution
+  0
+LAYER
+  5
+124
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+E-LOAD
+ 70
+0
+ 62
+4
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+1001
+AcAecLayerStandard
+1000
+
+1000
+Loads
+  0
+LAYER
+  5
+125
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+E-PROT
+ 70
+0
+ 62
+6
+  6
+Continuous
+370
+-3
+390
+13
+347
+21
+1001
+AcAecLayerStandard
+1000
+
+1000
+Protective devices, changeover, PCI
+  0
+LAYER
+  5
+126
+330
+1
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+E-FLAGE
  70
 0
  62
@@ -4443,7 +4383,7 @@ AcAecLayerStandard
 1000
 
 1000
-Chart requirement line and fail region
+Open items and findings
   0
 ENDTAB
   0
@@ -5259,7 +5199,7 @@ AcAecLayerStandard
   0
 APPID
   5
-337
+1E0
 330
 3
 100
@@ -5273,7 +5213,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-338
+1E1
 330
 3
 100
@@ -9539,13 +9479,13 @@ AcDbPolyline
   0
 LWPOLYLINE
   5
-129
+127
 330
 17
 100
 AcDbEntity
   8
-M-STRUCT
+E-SOURCE
 100
 AcDbPolyline
  90
@@ -9555,87 +9495,59 @@ AcDbPolyline
  10
 40.0
  20
-418.0
+470.0
  10
-480.0
+132.0
  20
-418.0
+470.0
  10
-480.0
+132.0
  20
-542.0
+504.0
  10
 40.0
  20
-542.0
-  0
-LWPOLYLINE
-  5
-12A
-330
-17
-100
-AcDbEntity
-  8
-M-STRUCT
-100
-AcDbPolyline
- 90
-4
- 70
-1
- 10
-52.0
- 20
-430.0
- 10
-468.0
- 20
-430.0
- 10
-468.0
- 20
-530.0
- 10
-52.0
- 20
-530.0
-  0
-LWPOLYLINE
-  5
-12B
-330
-17
-100
-AcDbEntity
-  8
-M-STRUCT
-100
-AcDbPolyline
- 90
-4
- 70
-1
- 10
-292.0
- 20
-430.0
- 10
-296.0
- 20
-430.0
- 10
-296.0
- 20
-530.0
- 10
-292.0
- 20
-530.0
+504.0
   0
 TEXT
   5
-12C
+128
+330
+17
+100
+AcDbEntity
+  8
+E-SOURCE
+100
+AcDbText
+ 10
+86.0
+ 20
+499.2
+ 30
+0.0
+ 40
+2.8
+  1
+MAINS
+  7
+OpenSans
+ 72
+1
+ 11
+86.0
+ 21
+499.2
+ 31
+0.0
+100
+AcDbText
+ 73
+2
+  0
+TEXT
+  5
+129
 330
 17
 100
@@ -9645,39 +9557,75 @@ M-TEXT
 100
 AcDbText
  10
-294.0
+86.0
  20
-533.0
+472.4
  30
 0.0
  40
-2.4
+1.9
   1
-W5
+METER PANEL  [C] OWNER'S PROGRAMME 123
   7
 OpenSans
  72
 1
  11
-294.0
+86.0
  21
-533.0
+472.4
  31
 0.0
 100
 AcDbText
  73
-1
+2
   0
-LWPOLYLINE
+TEXT
   5
-12D
+12A
 330
 17
 100
 AcDbEntity
   8
-M-STRUCT
+M-FLAG
+100
+AcDbText
+ 10
+86.0
+ 20
+462.0
+ 30
+0.0
+ 40
+1.9
+  1
+CAPACITY [N]  EL-V4
+  7
+OpenSans
+ 72
+1
+ 11
+86.0
+ 21
+462.0
+ 31
+0.0
+100
+AcDbText
+ 73
+2
+  0
+LWPOLYLINE
+  5
+12B
+330
+17
+100
+AcDbEntity
+  8
+E-SOURCE
 100
 AcDbPolyline
  90
@@ -9685,21 +9633,93 @@ AcDbPolyline
  70
 1
  10
-336.0
+168.0
  20
-430.0
+470.0
  10
-344.0
+260.0
  20
-430.0
+470.0
  10
-344.0
+260.0
  20
-530.0
+504.0
  10
-336.0
+168.0
  20
-530.0
+504.0
+  0
+TEXT
+  5
+12C
+330
+17
+100
+AcDbEntity
+  8
+E-SOURCE
+100
+AcDbText
+ 10
+214.0
+ 20
+499.2
+ 30
+0.0
+ 40
+2.8
+  1
+GEN-1
+  7
+OpenSans
+ 72
+1
+ 11
+214.0
+ 21
+499.2
+ 31
+0.0
+100
+AcDbText
+ 73
+2
+  0
+TEXT
+  5
+12D
+330
+17
+100
+AcDbEntity
+  8
+M-TEXT
+100
+AcDbText
+ 10
+214.0
+ 20
+472.4
+ 30
+0.0
+ 40
+1.9
+  1
+15 kVA  BAY 8  [C] A.3
+  7
+OpenSans
+ 72
+1
+ 11
+214.0
+ 21
+472.4
+ 31
+0.0
+100
+AcDbText
+ 73
+2
   0
 TEXT
   5
@@ -9713,31 +9733,31 @@ M-TEXT
 100
 AcDbText
  10
-340.0
+214.0
  20
-533.0
+462.0
  30
 0.0
  40
-2.4
+1.9
   1
-W6
+LOADED 49 %  -  AMPLY SIZED  [D]
   7
 OpenSans
  72
 1
  11
-340.0
+214.0
  21
-533.0
+462.0
  31
 0.0
 100
 AcDbText
  73
-1
+2
   0
-LWPOLYLINE
+LINE
   5
 12F
 330
@@ -9745,31 +9765,23 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-M-STRUCT
+E-CABLE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbLine
  10
-400.0
+86.0
  20
-430.0
- 10
-408.0
- 20
-430.0
- 10
-408.0
- 20
-530.0
- 10
-400.0
- 20
-530.0
+470.0
+ 30
+0.0
+ 11
+86.0
+ 21
+440.0
+ 31
+0.0
   0
-TEXT
+LINE
   5
 130
 330
@@ -9777,33 +9789,21 @@ TEXT
 100
 AcDbEntity
   8
-M-TEXT
+E-CABLE
 100
-AcDbText
+AcDbLine
  10
-404.0
+214.0
  20
-533.0
+470.0
  30
 0.0
- 40
-2.4
-  1
-W7
-  7
-OpenSans
- 72
-1
  11
-404.0
+214.0
  21
-533.0
+440.0
  31
 0.0
-100
-AcDbText
- 73
-1
   0
 LWPOLYLINE
   5
@@ -9813,7 +9813,7 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-M-STRUCT
+E-PROT
 100
 AcDbPolyline
  90
@@ -9821,23 +9821,23 @@ AcDbPolyline
  70
 1
  10
-110.0
+104.0
  20
-430.0
+420.0
  10
-112.2
+196.0
  20
-430.0
+420.0
  10
-112.2
+196.0
  20
-468.0
+440.0
  10
-110.0
+104.0
  20
-468.0
+440.0
   0
-LWPOLYLINE
+TEXT
   5
 132
 330
@@ -9845,31 +9845,35 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-M-STRUCT
+E-PROT
 100
-AcDbPolyline
- 90
-4
- 70
+AcDbText
+ 10
+150.0
+ 20
+435.6
+ 30
+0.0
+ 40
+2.4
+  1
+CHANGEOVER
+  7
+OpenSans
+ 72
 1
- 10
-110.0
- 20
-486.0
- 10
-112.2
- 20
-486.0
- 10
-112.2
- 20
-530.0
- 10
-110.0
- 20
-530.0
+ 11
+150.0
+ 21
+435.6
+ 31
+0.0
+100
+AcDbText
+ 73
+2
   0
-LWPOLYLINE
+LINE
   5
 133
 330
@@ -9877,31 +9881,23 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-M-STRUCT
+E-CABLE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbLine
  10
-148.2
+86.0
  20
-430.0
- 10
-150.4
- 20
-430.0
- 10
-150.4
- 20
-468.0
- 10
-148.2
- 20
-468.0
+440.0
+ 30
+0.0
+ 11
+104.0
+ 21
+440.0
+ 31
+0.0
   0
-LWPOLYLINE
+LINE
   5
 134
 330
@@ -9909,31 +9905,23 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-M-STRUCT
+E-CABLE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbLine
  10
-148.2
+196.0
  20
-486.0
- 10
-150.4
- 20
-486.0
- 10
-150.4
- 20
-530.0
- 10
-148.2
- 20
-530.0
+440.0
+ 30
+0.0
+ 11
+214.0
+ 21
+440.0
+ 31
+0.0
   0
-LWPOLYLINE
+LINE
   5
 135
 330
@@ -9941,29 +9929,21 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-M-STRUCT
+E-CABLE
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbLine
  10
-220.4
+150.0
  20
-430.0
- 10
-222.6
- 20
-430.0
- 10
-222.6
- 20
-468.0
- 10
-220.4
- 20
-468.0
+420.0
+ 30
+0.0
+ 11
+150.0
+ 21
+396.0
+ 31
+0.0
   0
 LWPOLYLINE
   5
@@ -9973,7 +9953,7 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-M-STRUCT
+E-BOARD
 100
 AcDbPolyline
  90
@@ -9981,23 +9961,23 @@ AcDbPolyline
  70
 1
  10
-220.4
+60.0
  20
-486.0
+362.0
  10
-222.6
+240.0
  20
-486.0
+362.0
  10
-222.6
+240.0
  20
-530.0
+396.0
  10
-220.4
+60.0
  20
-530.0
+396.0
   0
-LWPOLYLINE
+TEXT
   5
 137
 330
@@ -10005,169 +9985,37 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-M-STRUCT
+E-BOARD
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbText
  10
-258.6
+150.0
  20
-430.0
- 10
-260.8
- 20
-430.0
- 10
-260.8
- 20
-468.0
- 10
-258.6
- 20
-468.0
-  0
-LWPOLYLINE
-  5
-138
-330
-17
-100
-AcDbEntity
-  8
-M-STRUCT
-100
-AcDbPolyline
- 90
-4
- 70
-1
- 10
-258.6
- 20
-486.0
- 10
-260.8
- 20
-486.0
- 10
-260.8
- 20
-530.0
- 10
-258.6
- 20
-530.0
-  0
-LWPOLYLINE
-  5
-139
-330
-17
-100
-AcDbEntity
-  8
-M-FLAG
-100
-AcDbPolyline
- 90
-4
- 70
-1
- 10
-336.0
- 20
-430.0
- 10
-344.0
- 20
-430.0
- 10
-344.0
- 20
-454.0
- 10
-336.0
- 20
-454.0
-  0
-LWPOLYLINE
-  5
-13A
-330
-17
-100
-AcDbEntity
-  8
-M-FLAG
-100
-AcDbPolyline
- 90
-4
- 70
-1
- 10
-400.0
- 20
-430.0
- 10
-408.0
- 20
-430.0
- 10
-408.0
- 20
-454.0
- 10
-400.0
- 20
-454.0
-  0
-CIRCLE
-  5
-13B
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH
-100
-AcDbCircle
- 10
-81.0
- 20
-459.0
+391.2
  30
 0.0
  40
-14.0
-  0
-CIRCLE
-  5
-13C
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH
-100
-AcDbCircle
- 10
-81.0
- 20
-459.0
- 30
+2.8
+  1
+DB-M   MAIN LV BOARD
+  7
+OpenSans
+ 72
+1
+ 11
+150.0
+ 21
+391.2
+ 31
 0.0
- 40
-19.0
+100
+AcDbText
+ 73
+2
   0
 TEXT
   5
-13D
+138
 330
 17
 100
@@ -10177,31 +10025,175 @@ M-TEXT
 100
 AcDbText
  10
-81.0
+150.0
  20
-436.0
+364.4
  30
 0.0
  40
-2.4
+1.9
   1
-ESC 1
+BAY 8 - GREY ZONE - OUTSIDE THE GAS-TIGHT ENVELOPE
   7
 OpenSans
  72
 1
  11
-81.0
+150.0
  21
-436.0
+364.4
  31
 0.0
 100
 AcDbText
  73
-1
+2
   0
-CIRCLE
+LINE
+  5
+139
+330
+17
+100
+AcDbEntity
+  8
+E-CABLE
+100
+AcDbLine
+ 10
+80.0
+ 20
+362.0
+ 30
+0.0
+ 11
+80.0
+ 21
+346.0
+ 31
+0.0
+  0
+TEXT
+  5
+13A
+330
+17
+100
+AcDbEntity
+  8
+E-LOAD
+100
+AcDbText
+ 10
+80.0
+ 20
+341.0
+ 30
+0.0
+ 40
+1.9
+  1
+P-01
+  7
+OpenSans
+ 72
+1
+ 11
+80.0
+ 21
+341.0
+ 31
+0.0
+100
+AcDbText
+ 73
+2
+  0
+LINE
+  5
+13B
+330
+17
+100
+AcDbEntity
+  8
+E-CABLE
+100
+AcDbLine
+ 10
+118.0
+ 20
+362.0
+ 30
+0.0
+ 11
+118.0
+ 21
+346.0
+ 31
+0.0
+  0
+TEXT
+  5
+13C
+330
+17
+100
+AcDbEntity
+  8
+E-LOAD
+100
+AcDbText
+ 10
+118.0
+ 20
+341.0
+ 30
+0.0
+ 40
+1.9
+  1
+U-02
+  7
+OpenSans
+ 72
+1
+ 11
+118.0
+ 21
+341.0
+ 31
+0.0
+100
+AcDbText
+ 73
+2
+  0
+LINE
+  5
+13D
+330
+17
+100
+AcDbEntity
+  8
+E-CABLE
+100
+AcDbLine
+ 10
+156.0
+ 20
+362.0
+ 30
+0.0
+ 11
+156.0
+ 21
+346.0
+ 31
+0.0
+  0
+TEXT
   5
 13E
 330
@@ -10209,19 +10201,35 @@ CIRCLE
 100
 AcDbEntity
   8
-M-ARCH
+E-LOAD
 100
-AcDbCircle
+AcDbText
  10
-438.0
+156.0
  20
-459.0
+341.0
  30
 0.0
  40
-14.0
+1.9
+  1
+G-01
+  7
+OpenSans
+ 72
+1
+ 11
+156.0
+ 21
+341.0
+ 31
+0.0
+100
+AcDbText
+ 73
+2
   0
-CIRCLE
+LINE
   5
 13F
 330
@@ -10229,17 +10237,21 @@ CIRCLE
 100
 AcDbEntity
   8
-M-ARCH
+E-CABLE
 100
-AcDbCircle
+AcDbLine
  10
-438.0
+206.0
  20
-459.0
+362.0
  30
 0.0
- 40
-19.0
+ 11
+206.0
+ 21
+346.0
+ 31
+0.0
   0
 TEXT
   5
@@ -10249,35 +10261,35 @@ TEXT
 100
 AcDbEntity
   8
-M-TEXT
+E-LOAD
 100
 AcDbText
  10
-438.0
+206.0
  20
-436.0
+341.0
  30
 0.0
  40
-2.4
+1.9
   1
-ESC 2
+B-01
   7
 OpenSans
  72
 1
  11
-438.0
+206.0
  21
-436.0
+341.0
  31
 0.0
 100
 AcDbText
  73
-1
+2
   0
-LWPOLYLINE
+LINE
   5
 141
 330
@@ -10285,29 +10297,21 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-M-ARCH-HIDDEN
+E-DC
 100
-AcDbPolyline
- 90
-4
- 70
-1
+AcDbLine
  10
-344.0
+206.0
  20
-430.0
- 10
-400.0
- 20
-430.0
- 10
-400.0
- 20
-493.2
- 10
-344.0
- 20
-493.2
+341.0
+ 30
+0.0
+ 11
+206.0
+ 21
+322.0
+ 31
+0.0
   0
 LWPOLYLINE
   5
@@ -10317,7 +10321,7 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-M-ARCH
+E-SOURCE
 100
 AcDbPolyline
  90
@@ -10325,23 +10329,23 @@ AcDbPolyline
  70
 1
  10
-346.0
+152.0
  20
-430.0
+288.0
  10
-370.0
+260.0
  20
-430.0
+288.0
  10
-370.0
+260.0
  20
-517.2
+322.0
  10
-346.0
+152.0
  20
-517.2
+322.0
   0
-LWPOLYLINE
+TEXT
   5
 143
 330
@@ -10349,29 +10353,33 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-M-ARCH
+E-SOURCE
 100
-AcDbPolyline
- 90
-4
- 70
+AcDbText
+ 10
+206.0
+ 20
+317.2
+ 30
+0.0
+ 40
+2.8
+  1
+BATTERY + INVERTER
+  7
+OpenSans
+ 72
 1
- 10
-374.0
- 20
-430.0
- 10
-398.0
- 20
-430.0
- 10
-398.0
- 20
-517.2
- 10
-374.0
- 20
-517.2
+ 11
+206.0
+ 21
+317.2
+ 31
+0.0
+100
+AcDbText
+ 73
+2
   0
 TEXT
   5
@@ -10385,31 +10393,31 @@ M-TEXT
 100
 AcDbText
  10
-372.0
+206.0
  20
-501.0
+290.4
  30
 0.0
  40
-2.4
+1.9
   1
-STAIR SHAFT - FROZEN GEOMETRY
+48 V DC   149 Ah   CASE A  [A]
   7
 OpenSans
  72
 1
  11
-372.0
+206.0
  21
-501.0
+290.4
  31
 0.0
 100
 AcDbText
  73
-1
+2
   0
-CIRCLE
+TEXT
   5
 145
 330
@@ -10417,17 +10425,33 @@ CIRCLE
 100
 AcDbEntity
   8
-M-GRID
+E-FLAGE
 100
-AcDbCircle
+AcDbText
  10
-81.0
+206.0
  20
-552.4
+281.0
  30
 0.0
  40
-2.6
+1.9
+  1
+*** EL-V1 - IF CASE B IS RIGHT THIS IS
+  7
+OpenSans
+ 72
+1
+ 11
+206.0
+ 21
+281.0
+ 31
+0.0
+100
+AcDbText
+ 73
+2
   0
 TEXT
   5
@@ -10437,27 +10461,27 @@ TEXT
 100
 AcDbEntity
   8
-M-GRID
+E-FLAGE
 100
 AcDbText
  10
-81.0
+206.0
  20
-552.4
+275.0
  30
 0.0
  40
-2.4
+1.9
   1
-1
+12x TOO SMALL:  1783 Ah, 2.4 t ***
   7
 OpenSans
  72
 1
  11
-81.0
+206.0
  21
-552.4
+275.0
  31
 0.0
 100
@@ -10465,7 +10489,7 @@ AcDbText
  73
 2
   0
-TEXT
+LINE
   5
 147
 330
@@ -10473,35 +10497,23 @@ TEXT
 100
 AcDbEntity
   8
-M-TEXT
+E-CABLE
 100
-AcDbText
+AcDbLine
  10
-81.0
+100.0
  20
-523.0
+362.0
  30
 0.0
- 40
-2.4
-  1
-U-01
-  7
-OpenSans
- 72
-1
  11
-81.0
+100.0
  21
-523.0
+250.0
  31
 0.0
-100
-AcDbText
- 73
-1
   0
-CIRCLE
+LINE
   5
 148
 330
@@ -10509,17 +10521,21 @@ CIRCLE
 100
 AcDbEntity
   8
-M-GRID
+E-DC
 100
-AcDbCircle
+AcDbLine
  10
-130.2
+152.0
  20
-552.4
+305.0
  30
 0.0
- 40
-2.6
+ 11
+100.0
+ 21
+305.0
+ 31
+0.0
   0
 TEXT
   5
@@ -10529,35 +10545,31 @@ TEXT
 100
 AcDbEntity
   8
-M-GRID
+E-DC
 100
 AcDbText
  10
-130.2
+104.0
  20
-552.4
+308.0
  30
 0.0
  40
-2.4
+1.9
   1
-2
+ESSENTIAL FEED ON LOSS OF BOTH SOURCES
   7
 OpenSans
- 72
-1
  11
-130.2
+104.0
  21
-552.4
+308.0
  31
 0.0
 100
 AcDbText
- 73
-2
   0
-TEXT
+LWPOLYLINE
   5
 14A
 330
@@ -10565,35 +10577,31 @@ TEXT
 100
 AcDbEntity
   8
-M-TEXT
+E-BOARD
 100
-AcDbText
+AcDbPolyline
+ 90
+4
+ 70
+1
  10
-130.2
+40.0
  20
-523.0
- 30
-0.0
- 40
-2.4
-  1
-U-02
-  7
-OpenSans
- 72
-1
- 11
-130.2
- 21
-523.0
- 31
-0.0
-100
-AcDbText
- 73
-1
+216.0
+ 10
+220.0
+ 20
+216.0
+ 10
+220.0
+ 20
+250.0
+ 10
+40.0
+ 20
+250.0
   0
-CIRCLE
+TEXT
   5
 14B
 330
@@ -10601,17 +10609,33 @@ CIRCLE
 100
 AcDbEntity
   8
-M-GRID
+E-BOARD
 100
-AcDbCircle
+AcDbText
  10
-185.4
+130.0
  20
-552.4
+245.2
  30
 0.0
  40
-2.6
+2.8
+  1
+DB-E   ESSENTIAL BOARD
+  7
+OpenSans
+ 72
+1
+ 11
+130.0
+ 21
+245.2
+ 31
+0.0
+100
+AcDbText
+ 73
+2
   0
 TEXT
   5
@@ -10621,27 +10645,27 @@ TEXT
 100
 AcDbEntity
   8
-M-GRID
+M-TEXT
 100
 AcDbText
  10
-185.4
+130.0
  20
-552.4
+218.4
  30
 0.0
  40
-2.4
+1.9
   1
-3
+BAY 5 - INSIDE THE GAS-TIGHT ENVELOPE
   7
 OpenSans
  72
 1
  11
-185.4
+130.0
  21
-552.4
+218.4
  31
 0.0
 100
@@ -10649,7 +10673,7 @@ AcDbText
  73
 2
   0
-TEXT
+LINE
   5
 14D
 330
@@ -10657,35 +10681,23 @@ TEXT
 100
 AcDbEntity
   8
-M-TEXT
+E-CABLE
 100
-AcDbText
+AcDbLine
  10
-185.4
+58.0
  20
-523.0
+216.0
  30
 0.0
- 40
-2.4
-  1
-U-03
-  7
-OpenSans
- 72
-1
  11
-185.4
+58.0
  21
-523.0
+200.0
  31
 0.0
-100
-AcDbText
- 73
-1
   0
-CIRCLE
+TEXT
   5
 14E
 330
@@ -10693,19 +10705,35 @@ CIRCLE
 100
 AcDbEntity
   8
-M-GRID
+E-LOAD
 100
-AcDbCircle
+AcDbText
  10
-240.6
+58.0
  20
-552.4
+195.0
  30
 0.0
  40
-2.6
+1.9
+  1
+L-01
+  7
+OpenSans
+ 72
+1
+ 11
+58.0
+ 21
+195.0
+ 31
+0.0
+100
+AcDbText
+ 73
+2
   0
-TEXT
+LINE
   5
 14F
 330
@@ -10713,33 +10741,21 @@ TEXT
 100
 AcDbEntity
   8
-M-GRID
+E-CABLE
 100
-AcDbText
+AcDbLine
  10
-240.6
+92.0
  20
-552.4
+216.0
  30
 0.0
- 40
-2.4
-  1
-4
-  7
-OpenSans
- 72
-1
  11
-240.6
+92.0
  21
-552.4
+200.0
  31
 0.0
-100
-AcDbText
- 73
-2
   0
 TEXT
   5
@@ -10749,35 +10765,35 @@ TEXT
 100
 AcDbEntity
   8
-M-TEXT
+E-LOAD
 100
 AcDbText
  10
-240.6
+92.0
  20
-523.0
+195.0
  30
 0.0
  40
-2.4
+1.9
   1
-U-04
+L-02
   7
 OpenSans
  72
 1
  11
-240.6
+92.0
  21
-523.0
+195.0
  31
 0.0
 100
 AcDbText
  73
-1
+2
   0
-CIRCLE
+LINE
   5
 151
 330
@@ -10785,17 +10801,21 @@ CIRCLE
 100
 AcDbEntity
   8
-M-GRID
+E-CABLE
 100
-AcDbCircle
+AcDbLine
  10
-276.4
+126.0
  20
-552.4
+216.0
  30
 0.0
- 40
-2.6
+ 11
+126.0
+ 21
+200.0
+ 31
+0.0
   0
 TEXT
   5
@@ -10805,27 +10825,27 @@ TEXT
 100
 AcDbEntity
   8
-M-GRID
+E-LOAD
 100
 AcDbText
  10
-276.4
+126.0
  20
-552.4
+195.0
  30
 0.0
  40
-2.4
+1.9
   1
-5
+F-01
   7
 OpenSans
  72
 1
  11
-276.4
+126.0
  21
-552.4
+195.0
  31
 0.0
 100
@@ -10833,7 +10853,7 @@ AcDbText
  73
 2
   0
-TEXT
+LINE
   5
 153
 330
@@ -10841,35 +10861,23 @@ TEXT
 100
 AcDbEntity
   8
-M-TEXT
+E-CABLE
 100
-AcDbText
+AcDbLine
  10
-276.4
+160.0
  20
-523.0
+216.0
  30
 0.0
- 40
-2.4
-  1
-U-05
-  7
-OpenSans
- 72
-1
  11
-276.4
+160.0
  21
-523.0
+200.0
  31
 0.0
-100
-AcDbText
- 73
-1
   0
-CIRCLE
+TEXT
   5
 154
 330
@@ -10877,19 +10885,35 @@ CIRCLE
 100
 AcDbEntity
   8
-M-GRID
+E-LOAD
 100
-AcDbCircle
+AcDbText
  10
-316.0
+160.0
  20
-552.4
+195.0
  30
 0.0
  40
-2.6
+1.9
+  1
+D-01
+  7
+OpenSans
+ 72
+1
+ 11
+160.0
+ 21
+195.0
+ 31
+0.0
+100
+AcDbText
+ 73
+2
   0
-TEXT
+LINE
   5
 155
 330
@@ -10897,33 +10921,21 @@ TEXT
 100
 AcDbEntity
   8
-M-GRID
+E-CABLE
 100
-AcDbText
+AcDbLine
  10
-316.0
+198.0
  20
-552.4
+216.0
  30
 0.0
- 40
-2.4
-  1
-6
-  7
-OpenSans
- 72
-1
  11
-316.0
+198.0
  21
-552.4
+200.0
  31
 0.0
-100
-AcDbText
- 73
-2
   0
 TEXT
   5
@@ -10933,35 +10945,35 @@ TEXT
 100
 AcDbEntity
   8
-M-TEXT
+E-LOAD
 100
 AcDbText
  10
-316.0
+198.0
  20
-523.0
+195.0
  30
 0.0
  40
-2.4
+1.9
   1
-U-06
+U-01
   7
 OpenSans
  72
 1
  11
-316.0
+198.0
  21
-523.0
+195.0
  31
 0.0
 100
 AcDbText
  73
-1
+2
   0
-CIRCLE
+LINE
   5
 157
 330
@@ -10969,17 +10981,21 @@ CIRCLE
 100
 AcDbEntity
   8
-M-GRID
+E-CABLE
 100
-AcDbCircle
+AcDbLine
  10
-372.0
+176.0
  20
-552.4
+216.0
  30
 0.0
- 40
-2.6
+ 11
+176.0
+ 21
+206.0
+ 31
+0.0
   0
 TEXT
   5
@@ -10989,27 +11005,27 @@ TEXT
 100
 AcDbEntity
   8
-M-GRID
+E-LOAD
 100
 AcDbText
  10
-372.0
+176.0
  20
-552.4
+189.0
  30
 0.0
  40
-2.4
+1.9
   1
-7
+S-01
   7
 OpenSans
  72
 1
  11
-372.0
+176.0
  21
-552.4
+189.0
  31
 0.0
 100
@@ -11017,7 +11033,7 @@ AcDbText
  73
 2
   0
-TEXT
+LINE
   5
 159
 330
@@ -11025,35 +11041,23 @@ TEXT
 100
 AcDbEntity
   8
-M-TEXT
+E-CABLE
 100
-AcDbText
+AcDbLine
  10
-372.0
+220.0
  20
-523.0
+233.0
  30
 0.0
- 40
-2.4
-  1
-U-07
-  7
-OpenSans
- 72
-1
  11
-372.0
+286.0
  21
-523.0
+233.0
  31
 0.0
-100
-AcDbText
- 73
-1
   0
-CIRCLE
+LWPOLYLINE
   5
 15A
 330
@@ -11061,17 +11065,29 @@ CIRCLE
 100
 AcDbEntity
   8
-M-GRID
+E-PROT
 100
-AcDbCircle
+AcDbPolyline
+ 90
+4
+ 70
+1
  10
-438.0
+286.0
  20
-552.4
- 30
-0.0
- 40
-2.6
+219.0
+ 10
+332.0
+ 20
+219.0
+ 10
+332.0
+ 20
+247.0
+ 10
+286.0
+ 20
+247.0
   0
 TEXT
   5
@@ -11081,27 +11097,27 @@ TEXT
 100
 AcDbEntity
   8
-M-GRID
+E-PROT
 100
 AcDbText
  10
-438.0
+309.0
  20
-552.4
+242.6
  30
 0.0
  40
 2.4
   1
-8
+PCI
   7
 OpenSans
  72
 1
  11
-438.0
+309.0
  21
-552.4
+242.6
  31
 0.0
 100
@@ -11121,29 +11137,29 @@ M-TEXT
 100
 AcDbText
  10
-438.0
+309.0
  20
-523.0
+221.4
  30
 0.0
  40
-2.4
+1.9
   1
-U-08
+5.7.2.1
   7
 OpenSans
  72
 1
  11
-438.0
+309.0
  21
-523.0
+221.4
  31
 0.0
 100
 AcDbText
  73
-1
+2
   0
 TEXT
   5
@@ -11153,29 +11169,33 @@ TEXT
 100
 AcDbEntity
   8
-S-TITLE
+M-TEXT
 100
 AcDbText
  10
-40.0
+309.0
  20
-404.0
+212.0
  30
 0.0
  40
-3.5
+1.9
   1
-V1   EMP ZONE PLAN AT (-)6.100
+EM1 PoE-3
   7
 OpenSans
+ 72
+1
  11
-40.0
+309.0
  21
-404.0
+212.0
  31
 0.0
 100
 AcDbText
+ 73
+2
   0
 LINE
   5
@@ -11185,23 +11205,23 @@ LINE
 100
 AcDbEntity
   8
-S-TITLE
+E-CABLE
 100
 AcDbLine
  10
-40.0
+332.0
  20
-402.2
+233.0
  30
 0.0
  11
-118.67146684527796
+372.0
  21
-402.2
+233.0
  31
 0.0
   0
-TEXT
+LWPOLYLINE
   5
 15F
 330
@@ -11209,39 +11229,7 @@ TEXT
 100
 AcDbEntity
   8
-S-TEXT
-100
-AcDbText
- 10
-40.0
- 20
-396.8
- 30
-0.0
- 40
-2.0
-  1
-1:50
-  7
-OpenSans
- 11
-40.0
- 21
-396.8
- 31
-0.0
-100
-AcDbText
-  0
-LWPOLYLINE
-  5
-160
-330
-17
-100
-AcDbEntity
-  8
-E-ZONE1
+E-BOARD
 100
 AcDbPolyline
  90
@@ -11249,21 +11237,57 @@ AcDbPolyline
  70
 1
  10
-37.6
+372.0
  20
-415.6
+200.0
  10
-482.4
+502.0
  20
-415.6
+200.0
  10
-482.4
+502.0
  20
-544.4
+266.0
  10
-37.6
+372.0
  20
-544.4
+266.0
+  0
+TEXT
+  5
+160
+330
+17
+100
+AcDbEntity
+  8
+E-BOARD
+100
+AcDbText
+ 10
+437.0
+ 20
+261.2
+ 30
+0.0
+ 40
+2.8
+  1
+DB-Z2
+  7
+OpenSans
+ 72
+1
+ 11
+437.0
+ 21
+261.2
+ 31
+0.0
+100
+AcDbText
+ 73
+2
   0
 TEXT
   5
@@ -11273,31 +11297,35 @@ TEXT
 100
 AcDbEntity
   8
-E-ZONE1
+M-TEXT
 100
 AcDbText
  10
-172.0
+437.0
  20
-407.6
+202.4
  30
 0.0
  40
-2.2
+1.9
   1
-EMP ZONE 1 BOUNDARY  -  THE REINFORCEMENT CAGE AT 150 BOTH CURTAINS.  NOT A MIL-STD-188-125-1 SHIELD  [D]
+EMP ZONE 2 SUB-BOARD, BAY 3
   7
 OpenSans
+ 72
+1
  11
-172.0
+437.0
  21
-407.6
+202.4
  31
 0.0
 100
 AcDbText
+ 73
+2
   0
-LWPOLYLINE
+TEXT
   5
 162
 330
@@ -11305,31 +11333,35 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-E-ZONE2
+E-LOAD
 100
-AcDbPolyline
- 90
-4
- 70
+AcDbText
+ 10
+437.0
+ 20
+228.0
+ 30
+0.0
+ 40
+2.0
+  1
+Z-01   OPS / COMMS
+  7
+OpenSans
+ 72
 1
- 10
-156.4
- 20
-492.0
- 10
-204.4
- 20
-492.0
- 10
-204.4
- 20
-524.0
- 10
-156.4
- 20
-524.0
+ 11
+437.0
+ 21
+228.0
+ 31
+0.0
+100
+AcDbText
+ 73
+2
   0
-LWPOLYLINE
+TEXT
   5
 163
 330
@@ -11337,29 +11369,33 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-E-SHIELD
+M-FLAG
 100
-AcDbPolyline
- 90
-4
- 70
+AcDbText
+ 10
+437.0
+ 20
+221.0
+ 30
+0.0
+ 40
+1.9
+  1
+1.50 kW ALLOWANCE  [A]
+  7
+OpenSans
+ 72
 1
- 10
-157.4
- 20
-493.0
- 10
-203.4
- 20
-493.0
- 10
-203.4
- 20
-523.0
- 10
-157.4
- 20
-523.0
+ 11
+437.0
+ 21
+221.0
+ 31
+0.0
+100
+AcDbText
+ 73
+2
   0
 TEXT
   5
@@ -11369,27 +11405,27 @@ TEXT
 100
 AcDbEntity
   8
-E-ZONE2
+M-FLAG
 100
 AcDbText
  10
-180.4
+437.0
  20
-515.6
+214.0
  30
 0.0
  40
-2.6
+1.9
   1
-EMP ZONE 2
+NOT A SCHEDULE - EL-V3 / EM-V2
   7
 OpenSans
  72
 1
  11
-180.4
+437.0
  21
-515.6
+214.0
  31
 0.0
 100
@@ -11397,7 +11433,7 @@ AcDbText
  73
 2
   0
-TEXT
+LWPOLYLINE
   5
 165
 330
@@ -11405,33 +11441,29 @@ TEXT
 100
 AcDbEntity
   8
-E-ZONE2
+E-PROT
 100
-AcDbText
- 10
-180.4
- 20
-508.4
- 30
-0.0
- 40
-2.0
-  1
-2400 x 1600 x 2200 EXT
-  7
-OpenSans
- 72
+AcDbPolyline
+ 90
+4
+ 70
 1
- 11
-180.4
- 21
-508.4
- 31
-0.0
-100
-AcDbText
- 73
-2
+ 10
+364.0
+ 20
+192.0
+ 10
+510.0
+ 20
+192.0
+ 10
+510.0
+ 20
+274.0
+ 10
+364.0
+ 20
+274.0
   0
 TEXT
   5
@@ -11441,27 +11473,27 @@ TEXT
 100
 AcDbEntity
   8
-E-ZONE2
+E-PROT
 100
 AcDbText
  10
-180.4
+437.0
  20
-501.6
+277.0
  30
 0.0
  40
 2.0
   1
-80 dB STANDING ALONE
+EMP ZONE 2 SHIELDED ENCLOSURE  -  80 dB  [A] EM1
   7
 OpenSans
  72
 1
  11
-180.4
+437.0
  21
-501.6
+277.0
  31
 0.0
 100
@@ -11477,27 +11509,27 @@ TEXT
 100
 AcDbEntity
   8
-M-FLAG
+M-TEXT
 100
 AcDbText
  10
-180.4
+437.0
  20
-494.8
+185.0
  30
 0.0
  40
 1.9
   1
-EVERY DIMENSION [A] - EM-V2
+SIGNAL CROSSES AS FIBRE ONLY - 5.7.4.1, EM1 PoE-4
   7
 OpenSans
  72
 1
  11
-180.4
+437.0
  21
-494.8
+185.0
  31
 0.0
 100
@@ -11505,7 +11537,7 @@ AcDbText
  73
 2
   0
-LINE
+LWPOLYLINE
   5
 168
 330
@@ -11513,5905 +11545,33 @@ LINE
 100
 AcDbEntity
   8
-M-ARCH-HIDDEN
+E-CABLE
 100
-AcDbLine
+AcDbPolyline
+ 90
+4
+ 70
+1
  10
-52.0
+40.0
  20
-468.0
- 30
-0.0
- 11
-54.0
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-169
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-55.4
- 20
-468.0
- 30
-0.0
- 11
-57.4
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-16A
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-58.8
- 20
-468.0
- 30
-0.0
- 11
-60.8
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-16B
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-62.2
- 20
-468.0
- 30
-0.0
- 11
-64.2
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-16C
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-65.6
- 20
-468.0
- 30
-0.0
- 11
-67.6
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-16D
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-69.0
- 20
-468.0
- 30
-0.0
- 11
-71.0
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-16E
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-72.4
- 20
-468.0
- 30
-0.0
- 11
-74.4
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-16F
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-75.8
- 20
-468.0
- 30
-0.0
- 11
-77.8
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-170
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-79.19999999999999
- 20
-468.0
- 30
-0.0
- 11
-81.19999999999999
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-171
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-82.6
- 20
-468.0
- 30
-0.0
- 11
-84.6
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-172
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-86.0
- 20
-468.0
- 30
-0.0
- 11
-88.0
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-173
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-89.39999999999999
- 20
-468.0
- 30
-0.0
- 11
-91.39999999999999
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-174
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-92.79999999999998
- 20
-468.0
- 30
-0.0
- 11
-94.79999999999998
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-175
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-96.19999999999999
- 20
-468.0
- 30
-0.0
- 11
-98.19999999999999
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-176
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-99.6
- 20
-468.0
- 30
-0.0
- 11
-101.6
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-177
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-102.99999999999999
- 20
-468.0
- 30
-0.0
- 11
-104.99999999999999
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-178
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-106.39999999999998
- 20
-468.0
- 30
-0.0
- 11
-108.39999999999998
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-179
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-109.79999999999998
- 20
-468.0
- 30
-0.0
- 11
-111.79999999999998
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-17A
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-113.19999999999999
- 20
-468.0
- 30
-0.0
- 11
-115.19999999999999
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-17B
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-116.59999999999998
- 20
-468.0
- 30
-0.0
- 11
-118.59999999999998
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-17C
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-119.99999999999999
- 20
-468.0
- 30
-0.0
- 11
-121.99999999999999
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-17D
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-123.39999999999999
- 20
-468.0
- 30
-0.0
- 11
-125.39999999999999
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-17E
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-126.8
- 20
-468.0
- 30
-0.0
- 11
-128.8
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-17F
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-130.2
- 20
-468.0
- 30
-0.0
- 11
-132.2
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-180
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-133.60000000000002
- 20
-468.0
- 30
-0.0
- 11
-135.60000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-181
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-137.0
- 20
-468.0
- 30
-0.0
- 11
-139.0
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-182
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-140.40000000000003
- 20
-468.0
- 30
-0.0
- 11
-142.40000000000003
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-183
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-143.8
- 20
-468.0
- 30
-0.0
- 11
-145.8
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-184
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-147.20000000000005
- 20
-468.0
- 30
-0.0
- 11
-149.20000000000005
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-185
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-150.60000000000002
- 20
-468.0
- 30
-0.0
- 11
-152.60000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-186
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-154.00000000000006
- 20
-468.0
- 30
-0.0
- 11
-156.00000000000006
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-187
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-157.40000000000003
- 20
-468.0
- 30
-0.0
- 11
-159.40000000000003
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-188
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-160.80000000000007
- 20
-468.0
- 30
-0.0
- 11
-162.80000000000007
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-189
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-164.20000000000005
- 20
-468.0
- 30
-0.0
- 11
-166.20000000000005
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-18A
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-167.60000000000008
- 20
-468.0
- 30
-0.0
- 11
-169.60000000000008
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-18B
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-171.00000000000006
- 20
-468.0
- 30
-0.0
- 11
-173.00000000000006
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-18C
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-174.4000000000001
- 20
-468.0
- 30
-0.0
- 11
-176.4000000000001
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-18D
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-177.80000000000007
- 20
-468.0
- 30
-0.0
- 11
-179.80000000000007
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-18E
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-181.20000000000007
- 20
-468.0
- 30
-0.0
- 11
-183.20000000000007
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-18F
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-184.60000000000008
- 20
-468.0
- 30
-0.0
- 11
-186.60000000000008
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-190
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-188.00000000000009
- 20
-468.0
- 30
-0.0
- 11
-190.00000000000009
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-191
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-191.4000000000001
- 20
-468.0
- 30
-0.0
- 11
-193.4000000000001
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-192
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-194.8000000000001
- 20
-468.0
- 30
-0.0
- 11
-196.8000000000001
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-193
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-198.2000000000001
- 20
-468.0
- 30
-0.0
- 11
-200.2000000000001
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-194
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-201.6000000000001
- 20
-468.0
- 30
-0.0
- 11
-203.6000000000001
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-195
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-205.0000000000001
- 20
-468.0
- 30
-0.0
- 11
-207.0000000000001
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-196
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-208.40000000000012
- 20
-468.0
- 30
-0.0
- 11
-210.40000000000012
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-197
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-211.80000000000013
- 20
-468.0
- 30
-0.0
- 11
-213.80000000000013
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-198
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-215.20000000000013
- 20
-468.0
- 30
-0.0
- 11
-217.20000000000013
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-199
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-218.60000000000014
- 20
-468.0
- 30
-0.0
- 11
-220.60000000000014
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-19A
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-222.00000000000014
- 20
-468.0
- 30
-0.0
- 11
-224.00000000000014
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-19B
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-225.40000000000015
- 20
-468.0
- 30
-0.0
- 11
-227.40000000000015
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-19C
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-228.80000000000015
- 20
-468.0
- 30
-0.0
- 11
-230.80000000000015
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-19D
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-232.20000000000016
- 20
-468.0
- 30
-0.0
- 11
-234.20000000000016
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-19E
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-235.60000000000016
- 20
-468.0
- 30
-0.0
- 11
-237.60000000000016
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-19F
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-239.00000000000017
- 20
-468.0
- 30
-0.0
- 11
-241.00000000000017
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1A0
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-242.40000000000018
- 20
-468.0
- 30
-0.0
- 11
-244.40000000000018
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1A1
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-245.80000000000018
- 20
-468.0
- 30
-0.0
- 11
-247.80000000000018
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1A2
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-249.2000000000002
- 20
-468.0
- 30
-0.0
- 11
-251.2000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1A3
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-252.6000000000002
- 20
-468.0
- 30
-0.0
- 11
-254.6000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1A4
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-256.0000000000002
- 20
-468.0
- 30
-0.0
- 11
-258.0000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1A5
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-259.4000000000002
- 20
-468.0
- 30
-0.0
- 11
-261.4000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1A6
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-262.8000000000002
- 20
-468.0
- 30
-0.0
- 11
-264.8000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1A7
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-266.2000000000002
- 20
-468.0
- 30
-0.0
- 11
-268.2000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1A8
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-269.60000000000025
- 20
-468.0
- 30
-0.0
- 11
-271.60000000000025
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1A9
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-273.0000000000002
- 20
-468.0
- 30
-0.0
- 11
-275.0000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1AA
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-276.4000000000002
- 20
-468.0
- 30
-0.0
- 11
-278.4000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1AB
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-279.80000000000024
- 20
-468.0
- 30
-0.0
- 11
-281.80000000000024
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1AC
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-283.2000000000003
- 20
-468.0
- 30
-0.0
- 11
-285.2000000000003
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1AD
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-286.60000000000025
- 20
-468.0
- 30
-0.0
- 11
-288.60000000000025
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1AE
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-290.0000000000002
- 20
-468.0
- 30
-0.0
- 11
-292.0000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1AF
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-293.40000000000026
- 20
-468.0
- 30
-0.0
- 11
-295.40000000000026
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1B0
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-296.8000000000003
- 20
-468.0
- 30
-0.0
- 11
-298.8000000000003
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1B1
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-300.2000000000003
- 20
-468.0
- 30
-0.0
- 11
-302.2000000000003
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1B2
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-303.60000000000025
- 20
-468.0
- 30
-0.0
- 11
-305.60000000000025
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1B3
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-307.0000000000003
- 20
-468.0
- 30
-0.0
- 11
-309.0000000000003
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1B4
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-310.40000000000026
- 20
-468.0
- 30
-0.0
- 11
-312.40000000000026
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1B5
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-313.80000000000024
- 20
-468.0
- 30
-0.0
- 11
-315.80000000000024
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1B6
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-317.2000000000002
- 20
-468.0
- 30
-0.0
- 11
-319.2000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1B7
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-320.6000000000002
- 20
-468.0
- 30
-0.0
- 11
-322.6000000000002
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1B8
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-324.00000000000017
- 20
-468.0
- 30
-0.0
- 11
-326.00000000000017
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1B9
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-327.40000000000015
- 20
-468.0
- 30
-0.0
- 11
-329.40000000000015
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1BA
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-330.8000000000001
- 20
-468.0
- 30
-0.0
- 11
-332.8000000000001
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1BB
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-334.2000000000001
- 20
-468.0
- 30
-0.0
- 11
-336.2000000000001
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1BC
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-337.6000000000001
- 20
-468.0
- 30
-0.0
- 11
-339.6000000000001
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1BD
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-341.00000000000006
- 20
-468.0
- 30
-0.0
- 11
-343.00000000000006
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1BE
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-344.40000000000003
- 20
-468.0
- 30
-0.0
- 11
-346.40000000000003
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1BF
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-347.8
- 20
-468.0
- 30
-0.0
- 11
-349.8
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1C0
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-351.2
- 20
-468.0
- 30
-0.0
- 11
-353.2
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1C1
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-354.59999999999997
- 20
-468.0
- 30
-0.0
- 11
-356.59999999999997
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1C2
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-357.99999999999994
- 20
-468.0
- 30
-0.0
- 11
-359.99999999999994
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1C3
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-361.3999999999999
- 20
-468.0
- 30
-0.0
- 11
-363.3999999999999
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1C4
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-364.7999999999999
- 20
-468.0
- 30
-0.0
- 11
-366.7999999999999
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1C5
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-368.1999999999999
- 20
-468.0
- 30
-0.0
- 11
-370.1999999999999
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1C6
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-371.59999999999985
- 20
-468.0
- 30
-0.0
- 11
-373.59999999999985
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1C7
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-374.99999999999983
- 20
-468.0
- 30
-0.0
- 11
-376.99999999999983
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1C8
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-378.3999999999998
- 20
-468.0
- 30
-0.0
- 11
-380.3999999999998
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1C9
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-381.7999999999998
- 20
-468.0
- 30
-0.0
- 11
-383.7999999999998
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1CA
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-385.19999999999976
- 20
-468.0
- 30
-0.0
- 11
-387.19999999999976
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1CB
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-388.59999999999974
- 20
-468.0
- 30
-0.0
- 11
-390.59999999999974
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1CC
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-391.9999999999997
- 20
-468.0
- 30
-0.0
- 11
-393.9999999999997
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1CD
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-395.3999999999997
- 20
-468.0
- 30
-0.0
- 11
-397.3999999999997
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1CE
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-398.79999999999967
- 20
-468.0
- 30
-0.0
- 11
-400.79999999999967
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1CF
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-402.19999999999965
- 20
-468.0
- 30
-0.0
- 11
-404.19999999999965
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1D0
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-405.5999999999996
- 20
-468.0
- 30
-0.0
- 11
-407.5999999999996
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1D1
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-408.9999999999996
- 20
-468.0
- 30
-0.0
- 11
-410.9999999999996
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1D2
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-412.3999999999996
- 20
-468.0
- 30
-0.0
- 11
-414.3999999999996
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1D3
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-415.79999999999956
- 20
-468.0
- 30
-0.0
- 11
-417.79999999999956
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1D4
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-419.19999999999953
- 20
-468.0
- 30
-0.0
- 11
-421.19999999999953
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1D5
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-422.5999999999995
- 20
-468.0
- 30
-0.0
- 11
-424.5999999999995
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1D6
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-425.9999999999995
- 20
-468.0
- 30
-0.0
- 11
-427.9999999999995
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1D7
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-429.39999999999947
- 20
-468.0
- 30
-0.0
- 11
-431.39999999999947
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1D8
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-432.79999999999944
- 20
-468.0
- 30
-0.0
- 11
-434.79999999999944
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1D9
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-436.1999999999994
- 20
-468.0
- 30
-0.0
- 11
-438.1999999999994
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1DA
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-439.5999999999994
- 20
-468.0
- 30
-0.0
- 11
-441.5999999999994
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1DB
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-442.9999999999994
- 20
-468.0
- 30
-0.0
- 11
-444.9999999999994
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1DC
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-446.39999999999935
- 20
-468.0
- 30
-0.0
- 11
-448.39999999999935
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1DD
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-449.79999999999933
- 20
-468.0
- 30
-0.0
- 11
-451.79999999999933
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1DE
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-453.1999999999993
- 20
-468.0
- 30
-0.0
- 11
-455.1999999999993
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1DF
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-456.5999999999993
- 20
-468.0
- 30
-0.0
- 11
-458.5999999999993
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1E0
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-459.99999999999926
- 20
-468.0
- 30
-0.0
- 11
-461.99999999999926
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1E1
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-463.39999999999924
- 20
-468.0
- 30
-0.0
- 11
-465.39999999999924
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1E2
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-466.7999999999992
- 20
-468.0
- 30
-0.0
- 11
-468.0
- 21
-468.0
- 31
-0.0
-  0
-LINE
-  5
-1E3
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-52.0
- 20
-486.0
- 30
-0.0
- 11
-54.0
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1E4
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-55.4
- 20
-486.0
- 30
-0.0
- 11
-57.4
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1E5
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-58.8
- 20
-486.0
- 30
-0.0
- 11
-60.8
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1E6
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-62.2
- 20
-486.0
- 30
-0.0
- 11
-64.2
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1E7
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-65.6
- 20
-486.0
- 30
-0.0
- 11
-67.6
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1E8
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-69.0
- 20
-486.0
- 30
-0.0
- 11
-71.0
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1E9
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-72.4
- 20
-486.0
- 30
-0.0
- 11
-74.4
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1EA
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-75.8
- 20
-486.0
- 30
-0.0
- 11
-77.8
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1EB
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-79.19999999999999
- 20
-486.0
- 30
-0.0
- 11
-81.19999999999999
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1EC
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-82.6
- 20
-486.0
- 30
-0.0
- 11
-84.6
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1ED
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-86.0
- 20
-486.0
- 30
-0.0
- 11
-88.0
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1EE
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-89.39999999999999
- 20
-486.0
- 30
-0.0
- 11
-91.39999999999999
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1EF
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-92.79999999999998
- 20
-486.0
- 30
-0.0
- 11
-94.79999999999998
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1F0
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-96.19999999999999
- 20
-486.0
- 30
-0.0
- 11
-98.19999999999999
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1F1
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-99.6
- 20
-486.0
- 30
-0.0
- 11
-101.6
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1F2
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-102.99999999999999
- 20
-486.0
- 30
-0.0
- 11
-104.99999999999999
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1F3
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-106.39999999999998
- 20
-486.0
- 30
-0.0
- 11
-108.39999999999998
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1F4
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-109.79999999999998
- 20
-486.0
- 30
-0.0
- 11
-111.79999999999998
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1F5
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-113.19999999999999
- 20
-486.0
- 30
-0.0
- 11
-115.19999999999999
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1F6
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-116.59999999999998
- 20
-486.0
- 30
-0.0
- 11
-118.59999999999998
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1F7
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-119.99999999999999
- 20
-486.0
- 30
-0.0
- 11
-121.99999999999999
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1F8
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-123.39999999999999
- 20
-486.0
- 30
-0.0
- 11
-125.39999999999999
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1F9
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-126.8
- 20
-486.0
- 30
-0.0
- 11
-128.8
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1FA
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-130.2
- 20
-486.0
- 30
-0.0
- 11
-132.2
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1FB
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-133.60000000000002
- 20
-486.0
- 30
-0.0
- 11
-135.60000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1FC
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-137.0
- 20
-486.0
- 30
-0.0
- 11
-139.0
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1FD
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-140.40000000000003
- 20
-486.0
- 30
-0.0
- 11
-142.40000000000003
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1FE
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-143.8
- 20
-486.0
- 30
-0.0
- 11
-145.8
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-1FF
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-147.20000000000005
- 20
-486.0
- 30
-0.0
- 11
-149.20000000000005
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-200
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-150.60000000000002
- 20
-486.0
- 30
-0.0
- 11
-152.60000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-201
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-154.00000000000006
- 20
-486.0
- 30
-0.0
- 11
-156.00000000000006
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-202
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-157.40000000000003
- 20
-486.0
- 30
-0.0
- 11
-159.40000000000003
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-203
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-160.80000000000007
- 20
-486.0
- 30
-0.0
- 11
-162.80000000000007
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-204
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-164.20000000000005
- 20
-486.0
- 30
-0.0
- 11
-166.20000000000005
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-205
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-167.60000000000008
- 20
-486.0
- 30
-0.0
- 11
-169.60000000000008
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-206
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-171.00000000000006
- 20
-486.0
- 30
-0.0
- 11
-173.00000000000006
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-207
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-174.4000000000001
- 20
-486.0
- 30
-0.0
- 11
-176.4000000000001
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-208
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-177.80000000000007
- 20
-486.0
- 30
-0.0
- 11
-179.80000000000007
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-209
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-181.20000000000007
- 20
-486.0
- 30
-0.0
- 11
-183.20000000000007
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-20A
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-184.60000000000008
- 20
-486.0
- 30
-0.0
- 11
-186.60000000000008
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-20B
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-188.00000000000009
- 20
-486.0
- 30
-0.0
- 11
-190.00000000000009
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-20C
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-191.4000000000001
- 20
-486.0
- 30
-0.0
- 11
-193.4000000000001
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-20D
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-194.8000000000001
- 20
-486.0
- 30
-0.0
- 11
-196.8000000000001
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-20E
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-198.2000000000001
- 20
-486.0
- 30
-0.0
- 11
-200.2000000000001
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-20F
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-201.6000000000001
- 20
-486.0
- 30
-0.0
- 11
-203.6000000000001
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-210
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-205.0000000000001
- 20
-486.0
- 30
-0.0
- 11
-207.0000000000001
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-211
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-208.40000000000012
- 20
-486.0
- 30
-0.0
- 11
-210.40000000000012
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-212
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-211.80000000000013
- 20
-486.0
- 30
-0.0
- 11
-213.80000000000013
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-213
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-215.20000000000013
- 20
-486.0
- 30
-0.0
- 11
-217.20000000000013
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-214
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-218.60000000000014
- 20
-486.0
- 30
-0.0
- 11
-220.60000000000014
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-215
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-222.00000000000014
- 20
-486.0
- 30
-0.0
- 11
-224.00000000000014
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-216
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-225.40000000000015
- 20
-486.0
- 30
-0.0
- 11
-227.40000000000015
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-217
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-228.80000000000015
- 20
-486.0
- 30
-0.0
- 11
-230.80000000000015
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-218
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-232.20000000000016
- 20
-486.0
- 30
-0.0
- 11
-234.20000000000016
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-219
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-235.60000000000016
- 20
-486.0
- 30
-0.0
- 11
-237.60000000000016
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-21A
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-239.00000000000017
- 20
-486.0
- 30
-0.0
- 11
-241.00000000000017
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-21B
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-242.40000000000018
- 20
-486.0
- 30
-0.0
- 11
-244.40000000000018
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-21C
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-245.80000000000018
- 20
-486.0
- 30
-0.0
- 11
-247.80000000000018
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-21D
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-249.2000000000002
- 20
-486.0
- 30
-0.0
- 11
-251.2000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-21E
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-252.6000000000002
- 20
-486.0
- 30
-0.0
- 11
-254.6000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-21F
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-256.0000000000002
- 20
-486.0
- 30
-0.0
- 11
-258.0000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-220
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-259.4000000000002
- 20
-486.0
- 30
-0.0
- 11
-261.4000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-221
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-262.8000000000002
- 20
-486.0
- 30
-0.0
- 11
-264.8000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-222
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-266.2000000000002
- 20
-486.0
- 30
-0.0
- 11
-268.2000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-223
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-269.60000000000025
- 20
-486.0
- 30
-0.0
- 11
-271.60000000000025
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-224
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-273.0000000000002
- 20
-486.0
- 30
-0.0
- 11
-275.0000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-225
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-276.4000000000002
- 20
-486.0
- 30
-0.0
- 11
-278.4000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-226
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-279.80000000000024
- 20
-486.0
- 30
-0.0
- 11
-281.80000000000024
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-227
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-283.2000000000003
- 20
-486.0
- 30
-0.0
- 11
-285.2000000000003
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-228
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-286.60000000000025
- 20
-486.0
- 30
-0.0
- 11
-288.60000000000025
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-229
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-290.0000000000002
- 20
-486.0
- 30
-0.0
- 11
-292.0000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-22A
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-293.40000000000026
- 20
-486.0
- 30
-0.0
- 11
-295.40000000000026
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-22B
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-296.8000000000003
- 20
-486.0
- 30
-0.0
- 11
-298.8000000000003
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-22C
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-300.2000000000003
- 20
-486.0
- 30
-0.0
- 11
-302.2000000000003
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-22D
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-303.60000000000025
- 20
-486.0
- 30
-0.0
- 11
-305.60000000000025
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-22E
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-307.0000000000003
- 20
-486.0
- 30
-0.0
- 11
-309.0000000000003
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-22F
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-310.40000000000026
- 20
-486.0
- 30
-0.0
- 11
-312.40000000000026
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-230
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-313.80000000000024
- 20
-486.0
- 30
-0.0
- 11
-315.80000000000024
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-231
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-317.2000000000002
- 20
-486.0
- 30
-0.0
- 11
-319.2000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-232
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-320.6000000000002
- 20
-486.0
- 30
-0.0
- 11
-322.6000000000002
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-233
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-324.00000000000017
- 20
-486.0
- 30
-0.0
- 11
-326.00000000000017
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-234
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-327.40000000000015
- 20
-486.0
- 30
-0.0
- 11
-329.40000000000015
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-235
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-330.8000000000001
- 20
-486.0
- 30
-0.0
- 11
-332.8000000000001
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-236
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-334.2000000000001
- 20
-486.0
- 30
-0.0
- 11
-336.2000000000001
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-237
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-337.6000000000001
- 20
-486.0
- 30
-0.0
- 11
-339.6000000000001
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-238
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-341.00000000000006
- 20
-486.0
- 30
-0.0
- 11
-343.00000000000006
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-239
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-344.40000000000003
- 20
-486.0
- 30
-0.0
- 11
-346.40000000000003
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-23A
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-347.8
- 20
-486.0
- 30
-0.0
- 11
-349.8
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-23B
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-351.2
- 20
-486.0
- 30
-0.0
- 11
-353.2
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-23C
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-354.59999999999997
- 20
-486.0
- 30
-0.0
- 11
-356.59999999999997
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-23D
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-357.99999999999994
- 20
-486.0
- 30
-0.0
- 11
-359.99999999999994
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-23E
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-361.3999999999999
- 20
-486.0
- 30
-0.0
- 11
-363.3999999999999
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-23F
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-364.7999999999999
- 20
-486.0
- 30
-0.0
- 11
-366.7999999999999
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-240
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-368.1999999999999
- 20
-486.0
- 30
-0.0
- 11
-370.1999999999999
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-241
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-371.59999999999985
- 20
-486.0
- 30
-0.0
- 11
-373.59999999999985
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-242
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-374.99999999999983
- 20
-486.0
- 30
-0.0
- 11
-376.99999999999983
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-243
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-378.3999999999998
- 20
-486.0
- 30
-0.0
- 11
-380.3999999999998
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-244
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-381.7999999999998
- 20
-486.0
- 30
-0.0
- 11
-383.7999999999998
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-245
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-385.19999999999976
- 20
-486.0
- 30
-0.0
- 11
-387.19999999999976
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-246
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-388.59999999999974
- 20
-486.0
- 30
-0.0
- 11
-390.59999999999974
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-247
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-391.9999999999997
- 20
-486.0
- 30
-0.0
- 11
-393.9999999999997
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-248
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-395.3999999999997
- 20
-486.0
- 30
-0.0
- 11
-397.3999999999997
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-249
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-398.79999999999967
- 20
-486.0
- 30
-0.0
- 11
-400.79999999999967
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-24A
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-402.19999999999965
- 20
-486.0
- 30
-0.0
- 11
-404.19999999999965
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-24B
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-405.5999999999996
- 20
-486.0
- 30
-0.0
- 11
-407.5999999999996
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-24C
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-408.9999999999996
- 20
-486.0
- 30
-0.0
- 11
-410.9999999999996
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-24D
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-412.3999999999996
- 20
-486.0
- 30
-0.0
- 11
-414.3999999999996
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-24E
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-415.79999999999956
- 20
-486.0
- 30
-0.0
- 11
-417.79999999999956
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-24F
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-419.19999999999953
- 20
-486.0
- 30
-0.0
- 11
-421.19999999999953
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-250
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-422.5999999999995
- 20
-486.0
- 30
-0.0
- 11
-424.5999999999995
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-251
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-425.9999999999995
- 20
-486.0
- 30
-0.0
- 11
-427.9999999999995
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-252
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-429.39999999999947
- 20
-486.0
- 30
-0.0
- 11
-431.39999999999947
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-253
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-432.79999999999944
- 20
-486.0
- 30
-0.0
- 11
-434.79999999999944
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-254
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-436.1999999999994
- 20
-486.0
- 30
-0.0
- 11
-438.1999999999994
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-255
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-439.5999999999994
- 20
-486.0
- 30
-0.0
- 11
-441.5999999999994
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-256
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-442.9999999999994
- 20
-486.0
- 30
-0.0
- 11
-444.9999999999994
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-257
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-446.39999999999935
- 20
-486.0
- 30
-0.0
- 11
-448.39999999999935
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-258
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-449.79999999999933
- 20
-486.0
- 30
-0.0
- 11
-451.79999999999933
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-259
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-453.1999999999993
- 20
-486.0
- 30
-0.0
- 11
-455.1999999999993
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-25A
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
- 10
-456.5999999999993
- 20
-486.0
- 30
-0.0
- 11
-458.5999999999993
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-25B
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
+150.0
  10
-459.99999999999926
+332.0
  20
-486.0
- 30
-0.0
- 11
-461.99999999999926
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-25C
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
+150.0
  10
-463.39999999999924
+332.0
  20
-486.0
- 30
-0.0
- 11
-465.39999999999924
- 21
-486.0
- 31
-0.0
-  0
-LINE
-  5
-25D
-330
-17
-100
-AcDbEntity
-  8
-M-ARCH-HIDDEN
-100
-AcDbLine
+176.0
  10
-466.7999999999992
+40.0
  20
-486.0
- 30
-0.0
- 11
-468.0
- 21
-486.0
- 31
-0.0
+176.0
   0
 TEXT
   5
-25E
+169
 330
 17
 100
@@ -17421,661 +11581,181 @@ M-TEXT
 100
 AcDbText
  10
-86.0
+46.0
  20
-476.8
+168.0
  30
 0.0
  40
 2.0
   1
-CIRCULATION Y 2500-3400 THROUGH THE W8 DOOR GAPS - EMP ZONE 2 IS ENTIRELY CLEAR OF IT  [C] A.3
+ONE CABLE ENTRY.  Every conductor crossing the protective envelope uses the SERVICE ENTRY
   7
 OpenSans
  11
-86.0
+46.0
  21
-476.8
+168.0
  31
 0.0
 100
 AcDbText
-  0
-CIRCLE
-  5
-25F
-330
-17
-100
-AcDbEntity
-  8
-E-PENET
-100
-AcDbCircle
- 10
-51.96
- 20
-462.0
- 30
-0.0
- 40
-2.4
   0
 TEXT
   5
-260
+16A
 330
 17
 100
 AcDbEntity
   8
-E-PENET
+M-TEXT
 100
 AcDbText
  10
-51.96
+46.0
  20
-449.6
+162.0
  30
 0.0
  40
 2.0
   1
-BV-1  PASS
+PLATE - the project's single services penetration [C].  PCI on power, FIBRE on signal.
   7
 OpenSans
- 72
-1
  11
-51.96
+46.0
  21
-449.6
+162.0
  31
 0.0
 100
 AcDbText
- 73
-2
-  0
-CIRCLE
-  5
-261
-330
-17
-100
-AcDbEntity
-  8
-E-PENET
-100
-AcDbCircle
- 10
-51.96
- 20
-498.0
- 30
-0.0
- 40
-2.4
   0
 TEXT
   5
-262
+16B
 330
 17
 100
 AcDbEntity
   8
-E-PENET
+M-FLAG
 100
 AcDbText
  10
-51.96
+46.0
  20
-485.6
+155.0
  30
 0.0
  40
 2.0
   1
-BV-2  PASS
+THIS PACKAGE CREATES NO NEW PENETRATION.  Its level and size remain [N].
   7
 OpenSans
- 72
-1
  11
-51.96
+46.0
  21
-485.6
+155.0
  31
 0.0
 100
 AcDbText
- 73
-2
   0
-CIRCLE
+TEXT
   5
-263
+16C
 330
 17
 100
 AcDbEntity
   8
-E-PENET
+S-TITLE
 100
-AcDbCircle
+AcDbText
  10
-339.96
+40.0
  20
-516.0
+530.0
  30
 0.0
  40
-2.4
+3.5
+  1
+V1   SINGLE LINE DIAGRAM
+  7
+OpenSans
+ 11
+40.0
+ 21
+530.0
+ 31
+0.0
+100
+AcDbText
   0
 LINE
   5
-264
+16D
 330
 17
 100
 AcDbEntity
   8
-E-PENET
+S-TITLE
 100
 AcDbLine
  10
-339.96
+40.0
  20
-516.0
+528.2
  30
 0.0
  11
-311.96
+105.0488948425988
  21
-507.2
+528.2
  31
 0.0
   0
 TEXT
   5
-265
+16E
 330
 17
 100
 AcDbEntity
   8
-E-PENET
+S-TEXT
 100
 AcDbText
  10
-311.96
+40.0
  20
-503.6
+522.8
  30
 0.0
  40
 2.0
   1
-BV-3  PASS
+NOT TO SCALE
   7
 OpenSans
- 72
-1
  11
-311.96
+40.0
  21
-503.6
+522.8
  31
 0.0
 100
 AcDbText
- 73
-2
-  0
-CIRCLE
-  5
-266
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbCircle
- 10
-467.96
- 20
-444.0
- 30
-0.0
- 40
-2.4
   0
 TEXT
   5
-267
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbText
- 10
-467.96
- 20
-431.6
- 30
-0.0
- 40
-2.0
-  1
-BV-4  FAIL
-  7
-OpenSans
- 72
-1
- 11
-467.96
- 21
-431.6
- 31
-0.0
-100
-AcDbText
- 73
-2
-  0
-CIRCLE
-  5
-268
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbCircle
- 10
-467.96
- 20
-512.0
- 30
-0.0
- 40
-2.4
-  0
-TEXT
-  5
-269
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbText
- 10
-467.96
- 20
-499.6
- 30
-0.0
- 40
-2.0
-  1
-BV-5  FAIL
-  7
-OpenSans
- 72
-1
- 11
-467.96
- 21
-499.6
- 31
-0.0
-100
-AcDbText
- 73
-2
-  0
-CIRCLE
-  5
-26A
-330
-17
-100
-AcDbEntity
-  8
-E-PENET
-100
-AcDbCircle
- 10
-275.96000000000004
- 20
-536.0
- 30
-0.0
- 40
-2.4
-  0
-TEXT
-  5
-26B
-330
-17
-100
-AcDbEntity
-  8
-E-PENET
-100
-AcDbText
- 10
-275.96000000000004
- 20
-543.6
- 30
-0.0
- 40
-2.0
-  1
-SEP
-  7
-OpenSans
- 72
-1
- 11
-275.96000000000004
- 21
-543.6
- 31
-0.0
-100
-AcDbText
- 73
-2
-  0
-CIRCLE
-  5
-26C
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbCircle
- 10
-81.0
- 20
-459.0
- 30
-0.0
- 40
-14.0
-  0
-TEXT
-  5
-26D
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbText
- 10
-81.0
- 20
-427.8
- 30
-0.0
- 40
-2.0
-  1
-ESC 1  FAIL
-  7
-OpenSans
- 72
-1
- 11
-81.0
- 21
-427.8
- 31
-0.0
-100
-AcDbText
- 73
-2
-  0
-CIRCLE
-  5
-26E
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbCircle
- 10
-438.0
- 20
-459.0
- 30
-0.0
- 40
-14.0
-  0
-TEXT
-  5
-26F
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbText
- 10
-438.0
- 20
-427.8
- 30
-0.0
- 40
-2.0
-  1
-ESC 2  FAIL
-  7
-OpenSans
- 72
-1
- 11
-438.0
- 21
-427.8
- 31
-0.0
-100
-AcDbText
- 73
-2
-  0
-LWPOLYLINE
-  5
-270
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbPolyline
- 90
-4
- 70
-1
- 10
-344.0
- 20
-430.0
- 10
-400.0
- 20
-430.0
- 10
-400.0
- 20
-493.2
- 10
-344.0
- 20
-493.2
-  0
-TEXT
-  5
-271
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbText
- 10
-372.0
- 20
-465.0
- 30
-0.0
- 40
-2.2
-  1
-STAIR VOID 2800 x 3160
-  7
-OpenSans
- 72
-1
- 11
-372.0
- 21
-465.0
- 31
-0.0
-100
-AcDbText
- 73
-2
-  0
-TEXT
-  5
-272
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbText
- 10
-372.0
- 20
-457.0
- 30
-0.0
- 40
-2.0
-  1
-THE LARGEST APERTURE IN
-  7
-OpenSans
- 72
-1
- 11
-372.0
- 21
-457.0
- 31
-0.0
-100
-AcDbText
- 73
-2
-  0
-TEXT
-  5
-273
-330
-17
-100
-AcDbEntity
-  8
-E-APERTURE
-100
-AcDbText
- 10
-372.0
- 20
-449.0
- 30
-0.0
- 40
-2.0
-  1
-THE ENVELOPE  -  EM-F1
-  7
-OpenSans
- 72
-1
- 11
-372.0
- 21
-449.0
- 31
-0.0
-100
-AcDbText
- 73
-2
-  0
-INSERT
-  5
-274
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbBlockReference
-  2
-NORTH
- 10
-790.0
- 20
-500.0
- 30
-0.0
-  0
-TEXT
-  5
-276
+16F
 330
 17
 100
@@ -18085,57 +11765,21 @@ S-TITLE
 100
 AcDbText
  10
-790.0
+542.0
  20
-514.0
- 30
-0.0
- 40
-2.0
-  1
-N
-  7
-OpenSans
- 72
-1
- 11
-790.0
- 21
-514.0
- 31
-0.0
-100
-AcDbText
- 73
-2
-  0
-TEXT
-  5
-277
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbText
- 10
-16.0
- 20
-387.5
+547.5
  30
 0.0
  40
 2.5
   1
-PENETRATION SUMMARY  -  FULL REGISTER IN Schedules/ENVELOPE_PENETRATION_REGISTER.md
+THE LOAD, AND THE GENERATOR CHECK
   7
 OpenSans
  11
-16.0
+542.0
  21
-387.5
+547.5
  31
 0.0
 100
@@ -18143,7 +11787,7 @@ AcDbText
   0
 TEXT
   5
-278
+170
 330
 17
 100
@@ -18153,21 +11797,21 @@ S-NOTE
 100
 AcDbText
  10
-16.0
+542.0
  20
-382.975
+543.175
  30
 0.0
  40
-2.4
+2.2
   1
-PASS = below cutoff across the whole 10 kHz - 1 GHz band AND at least 80 dB in band.
+Connected load              6.256 kW
   7
 OpenSans
  11
-16.0
+542.0
  21
-382.975
+543.175
  31
 0.0
 100
@@ -18175,7 +11819,7 @@ AcDbText
   0
 TEXT
   5
-279
+171
 330
 17
 100
@@ -18185,21 +11829,21 @@ S-NOTE
 100
 AcDbText
  10
-16.0
+542.0
  20
-378.675
+537.775
  30
 0.0
  40
-2.4
+2.2
   1
-A DEPTH (WAVEGUIDE) CREDIT IS TAKEN ONLY WHERE THE BORE IS BOUNDED BY METAL.
+at power factor 0.85         7.360 kVA
   7
 OpenSans
  11
-16.0
+542.0
  21
-378.675
+537.775
  31
 0.0
 100
@@ -18207,7 +11851,7 @@ AcDbText
   0
 TEXT
   5
-27A
+172
 330
 17
 100
@@ -18217,21 +11861,277 @@ S-NOTE
 100
 AcDbText
  10
-16.0
+542.0
  20
-374.375
+532.375
  30
 0.0
  40
-2.4
+2.2
   1
-Concrete is a lossy dielectric, not a waveguide wall.  [D]
+GEN-1  [C] master A.3     15.000 kVA
   7
 OpenSans
  11
-16.0
+542.0
  21
-374.375
+532.375
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+173
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+526.975
+ 30
+0.0
+ 40
+2.2
+  1
+UTILISATION                 49.1 %
+  7
+OpenSans
+ 11
+542.0
+ 21
+526.975
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+174
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+521.575
+ 30
+0.0
+ 40
+2.2
+  1
+SPARE                       7.640 kVA
+  7
+OpenSans
+ 11
+542.0
+ 21
+521.575
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+175
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+510.7750000000001
+ 30
+0.0
+ 40
+2.2
+  1
+THE CONFIRMED 15 kVA IS ABOUT TWICE THE CONNECTED
+  7
+OpenSans
+ 11
+542.0
+ 21
+510.7750000000001
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+176
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+505.3750000000001
+ 30
+0.0
+ 40
+2.2
+  1
+DEMAND, and 49 % sits in the healthy loading band for
+  7
+OpenSans
+ 11
+542.0
+ 21
+505.3750000000001
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+177
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+499.97500000000014
+ 30
+0.0
+ 40
+2.2
+  1
+a diesel set.  THE PROJECT'S OWN FIGURE NEEDS NO
+  7
+OpenSans
+ 11
+542.0
+ 21
+499.97500000000014
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+178
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+494.57500000000016
+ 30
+0.0
+ 40
+2.2
+  1
+CHANGE.  Largest motor is the filter fan at 0.379 kW;
+  7
+OpenSans
+ 11
+542.0
+ 21
+494.57500000000016
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+179
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+489.1750000000002
+ 30
+0.0
+ 40
+2.2
+  1
+even a DOL start is about 2.7 kVA.  NO STARTING
+  7
+OpenSans
+ 11
+542.0
+ 21
+489.1750000000002
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+17A
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+483.7750000000002
+ 30
+0.0
+ 40
+2.2
+  1
+PROBLEM.  [D]
+  7
+OpenSans
+ 11
+542.0
+ 21
+483.7750000000002
  31
 0.0
 100
@@ -18239,7 +12139,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-27B
+17B
 330
 17
 100
@@ -18253,31 +12153,575 @@ AcDbPolyline
  70
 1
  10
-14.0
+540.0
  20
-368.075
+476.3750000000002
  10
-410.0
+830.0
  20
-368.075
+476.3750000000002
  10
-410.0
+830.0
  20
-392.0
+552.0
  10
-14.0
+540.0
  20
-392.0
+552.0
   0
-LWPOLYLINE
+TEXT
   5
-27C
+17C
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-TITLE
+100
+AcDbText
+ 10
+542.0
+ 20
+463.8750000000002
+ 30
+0.0
+ 40
+2.5
+  1
+EL-V1  -  THE QUESTION THAT SIZES THE BATTERY
+  7
+OpenSans
+ 11
+542.0
+ 21
+463.8750000000002
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+17D
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+459.55000000000024
+ 30
+0.0
+ 40
+2.2
+  1
+MAY THE GENERATOR RUN DURING MODE 3 CLOSED?
+  7
+OpenSans
+ 11
+542.0
+ 21
+459.55000000000024
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+17E
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+454.15000000000026
+ 30
+0.0
+ 40
+2.2
+  1
+The project states BOTH, in the SAME schedule  [C]:
+  7
+OpenSans
+ 11
+542.0
+ 21
+454.15000000000026
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+17F
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+448.7500000000003
+ 30
+0.0
+ 40
+2.2
+  1
+   MODE 3  'ALL FIVE BLAST VALVES SHUT.  48 h limit'
+  7
+OpenSans
+ 11
+542.0
+ 21
+448.7500000000003
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+180
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+443.3500000000003
+ 30
+0.0
+ 40
+2.2
+  1
+   MODE 5  'BV-4 AND BV-5 OPEN ... bay 8 only - does
+  7
+OpenSans
+ 11
+542.0
+ 21
+443.3500000000003
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+181
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+437.95000000000033
+ 30
+0.0
+ 40
+2.2
+  1
+            NOT touch the gas-tight envelope', and
+  7
+OpenSans
+ 11
+542.0
+ 21
+437.95000000000033
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+182
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+432.55000000000035
+ 30
+0.0
+ 40
+2.2
+  1
+           'Mode 5 is INDEPENDENT of modes 1-4'
+  7
+OpenSans
+ 11
+542.0
+ 21
+432.55000000000035
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+183
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+427.1500000000004
+ 30
+0.0
+ 40
+2.2
+  1
+BV-4 and BV-5 are two of the five.  BOTH CANNOT HOLD
+  7
+OpenSans
+ 11
+542.0
+ 21
+427.1500000000004
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+184
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+421.7500000000004
+ 30
+0.0
+ 40
+2.2
+  1
+DURING MODE 3, and nothing says which gives way.  [U]
+  7
+OpenSans
+ 11
+542.0
+ 21
+421.7500000000004
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+185
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+410.95000000000044
+ 30
+0.0
+ 40
+2.2
+  1
+   CASE A   4 h      149 Ah     204 kg   a CABINET
+  7
+OpenSans
+ 11
+542.0
+ 21
+410.95000000000044
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+186
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+405.55000000000047
+ 30
+0.0
+ 40
+2.2
+  1
+   CASE B  48 h     1783 Ah    2445 kg   a ROOM
+  7
+OpenSans
+ 11
+542.0
+ 21
+405.55000000000047
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+187
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+394.7500000000005
+ 30
+0.0
+ 40
+2.2
+  1
+12x APART.  Case B needs 4.8 m2 of floor just to stay
+  7
+OpenSans
+ 11
+542.0
+ 21
+394.7500000000005
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+188
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+389.35000000000053
+ 30
+0.0
+ 40
+2.2
+  1
+inside the 5 kPa floor live load  [C] A.7.2 - AND BAY 5
+  7
+OpenSans
+ 11
+542.0
+ 21
+389.35000000000053
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+189
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+383.95000000000056
+ 30
+0.0
+ 40
+2.2
+  1
+IS ALREADY 80 % OCCUPIED (CO-3).  NOWHERE TO PUT IT.
+  7
+OpenSans
+ 11
+542.0
+ 21
+383.95000000000056
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+18A
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+373.1500000000006
+ 30
+0.0
+ 40
+2.2
+  1
+CASE A ADOPTED  [A], because it is the reading the
+  7
+OpenSans
+ 11
+542.0
+ 21
+373.1500000000006
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+18B
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+367.7500000000006
+ 30
+0.0
+ 40
+2.2
+  1
+project's OWN document implies - mode 5 is called
+  7
+OpenSans
+ 11
+542.0
+ 21
+367.7500000000006
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+18C
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+542.0
+ 20
+362.35000000000065
+ 30
+0.0
+ 40
+2.2
+  1
+'power OR BATTERY CHARGING'.
+  7
+OpenSans
+ 11
+542.0
+ 21
+362.35000000000065
+ 31
+0.0
+100
+AcDbText
+  0
+LWPOLYLINE
+  5
+18D
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
 100
 AcDbPolyline
  90
@@ -18285,49 +12729,49 @@ AcDbPolyline
  70
 1
  10
-14.0
+540.0
  20
-355.675
+354.95000000000067
  10
-246.0
+830.0
  20
-355.675
+354.95000000000067
  10
-246.0
+830.0
  20
-360.075
+468.3750000000002
  10
-14.0
+540.0
  20
-360.075
+468.3750000000002
   0
 TEXT
   5
-27D
+18E
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-TITLE
 100
 AcDbText
  10
-15.4
+542.0
  20
-356.875
+342.45000000000067
  30
 0.0
  40
-2.0
+2.5
   1
-TAG
+WHAT THIS PACKAGE UNBLOCKS
   7
 OpenSans
  11
-15.4
+542.0
  21
-356.875
+342.45000000000067
  31
 0.0
 100
@@ -18335,31 +12779,31 @@ AcDbText
   0
 TEXT
   5
-27E
+18F
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-41.4
+542.0
  20
-356.875
+338.1250000000007
  30
 0.0
  40
-2.0
+2.2
   1
-BORE
+FS-V2  'No fire detection, alarm, emergency lighting or
   7
 OpenSans
  11
-41.4
+542.0
  21
-356.875
+338.1250000000007
  31
 0.0
 100
@@ -18367,31 +12811,31 @@ AcDbText
   0
 TEXT
   5
-27F
+190
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-67.4
+542.0
  20
-356.875
+332.7250000000007
  30
 0.0
  40
-2.0
+2.2
   1
-WALL
+       suppression exists anywhere.  FOLLOWS THE MISSING
   7
 OpenSans
  11
-67.4
+542.0
  21
-356.875
+332.7250000000007
  31
 0.0
 100
@@ -18399,1031 +12843,63 @@ AcDbText
   0
 TEXT
   5
-280
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-93.4
- 20
-356.875
- 30
-0.0
- 40
-2.0
-  1
-BOUNDED
-  7
-OpenSans
- 11
-93.4
- 21
-356.875
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-281
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-129.4
- 20
-356.875
- 30
-0.0
- 40
-2.0
-  1
-f_c MHz
-  7
-OpenSans
- 11
-129.4
- 21
-356.875
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-282
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-163.4
- 20
-356.875
- 30
-0.0
- 40
-2.0
-  1
-WBC dB
-  7
-OpenSans
- 11
-163.4
- 21
-356.875
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-283
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-191.4
- 20
-356.875
- 30
-0.0
- 40
-2.0
-  1
-SE 1MHz
-  7
-OpenSans
- 11
-191.4
- 21
-356.875
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-284
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-221.4
- 20
-356.875
- 30
-0.0
- 40
-2.0
-  1
-VERDICT
-  7
-OpenSans
- 11
-221.4
- 21
-356.875
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-285
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-15.4
- 20
-352.475
- 30
-0.0
- 40
-2.0
-  1
-BV-1
-  7
-OpenSans
- 11
-15.4
- 21
-352.475
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-286
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-41.4
- 20
-352.475
- 30
-0.0
- 40
-2.0
-  1
-100
-  7
-OpenSans
- 11
-41.4
- 21
-352.475
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-287
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-67.4
- 20
-352.475
- 30
-0.0
- 40
-2.0
-  1
-600
-  7
-OpenSans
- 11
-67.4
- 21
-352.475
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-288
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-93.4
- 20
-352.475
- 30
-0.0
- 40
-2.0
-  1
-STEEL
-  7
-OpenSans
- 11
-93.4
- 21
-352.475
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-289
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-129.4
- 20
-352.475
- 30
-0.0
- 40
-2.0
-  1
-1757.0
-  7
-OpenSans
- 11
-129.4
- 21
-352.475
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-28A
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-163.4
- 20
-352.475
- 30
-0.0
- 40
-2.0
-  1
-192
-  7
-OpenSans
- 11
-163.4
- 21
-352.475
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-28B
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-191.4
- 20
-352.475
- 30
-0.0
- 40
-2.0
-  1
-255
-  7
-OpenSans
- 11
-191.4
- 21
-352.475
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-28C
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-221.4
- 20
-352.475
- 30
-0.0
- 40
-2.0
-  1
-PASS
-  7
-OpenSans
- 11
-221.4
- 21
-352.475
- 31
-0.0
-100
-AcDbText
-  0
-LINE
-  5
-28D
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-351.27500000000003
- 30
-0.0
- 11
-246.0
- 21
-351.27500000000003
- 31
-0.0
-  0
-TEXT
-  5
-28E
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-15.4
- 20
-348.07500000000005
- 30
-0.0
- 40
-2.0
-  1
-BV-2
-  7
-OpenSans
- 11
-15.4
- 21
-348.07500000000005
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-28F
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-41.4
- 20
-348.07500000000005
- 30
-0.0
- 40
-2.0
-  1
-100
-  7
-OpenSans
- 11
-41.4
- 21
-348.07500000000005
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-290
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-67.4
- 20
-348.07500000000005
- 30
-0.0
- 40
-2.0
-  1
-600
-  7
-OpenSans
- 11
-67.4
- 21
-348.07500000000005
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-291
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-93.4
- 20
-348.07500000000005
- 30
-0.0
- 40
-2.0
-  1
-STEEL
-  7
-OpenSans
- 11
-93.4
- 21
-348.07500000000005
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-292
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-129.4
- 20
-348.07500000000005
- 30
-0.0
- 40
-2.0
-  1
-1757.0
-  7
-OpenSans
- 11
-129.4
- 21
-348.07500000000005
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-293
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-163.4
- 20
-348.07500000000005
- 30
-0.0
- 40
-2.0
-  1
-192
-  7
-OpenSans
- 11
-163.4
- 21
-348.07500000000005
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-294
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-191.4
- 20
-348.07500000000005
- 30
-0.0
- 40
-2.0
-  1
-255
-  7
-OpenSans
- 11
-191.4
- 21
-348.07500000000005
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-295
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-221.4
- 20
-348.07500000000005
- 30
-0.0
- 40
-2.0
-  1
-PASS
-  7
-OpenSans
- 11
-221.4
- 21
-348.07500000000005
- 31
-0.0
-100
-AcDbText
-  0
-LINE
-  5
-296
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-346.87500000000006
- 30
-0.0
- 11
-246.0
- 21
-346.87500000000006
- 31
-0.0
-  0
-TEXT
-  5
-297
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-15.4
- 20
-343.67500000000007
- 30
-0.0
- 40
-2.0
-  1
-BV-3
-  7
-OpenSans
- 11
-15.4
- 21
-343.67500000000007
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-298
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-41.4
- 20
-343.67500000000007
- 30
-0.0
- 40
-2.0
-  1
-100
-  7
-OpenSans
- 11
-41.4
- 21
-343.67500000000007
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-299
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-67.4
- 20
-343.67500000000007
- 30
-0.0
- 40
-2.0
-  1
-400
-  7
-OpenSans
- 11
-67.4
- 21
-343.67500000000007
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-29A
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-93.4
- 20
-343.67500000000007
- 30
-0.0
- 40
-2.0
-  1
-STEEL
-  7
-OpenSans
- 11
-93.4
- 21
-343.67500000000007
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-29B
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-129.4
- 20
-343.67500000000007
- 30
-0.0
- 40
-2.0
-  1
-1757.0
-  7
-OpenSans
- 11
-129.4
- 21
-343.67500000000007
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-29C
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-163.4
- 20
-343.67500000000007
- 30
-0.0
- 40
-2.0
-  1
-128
-  7
-OpenSans
- 11
-163.4
- 21
-343.67500000000007
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-29D
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-191.4
- 20
-343.67500000000007
- 30
-0.0
- 40
-2.0
-  1
 191
-  7
-OpenSans
- 11
-191.4
- 21
-343.67500000000007
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-29E
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-221.4
+542.0
  20
-343.67500000000007
+327.3250000000007
  30
 0.0
  40
-2.0
+2.2
   1
-PASS
+       ELECTRICAL DESIGN.'  ->  S-01 and L-02 now exist on
   7
 OpenSans
  11
-221.4
+542.0
  21
-343.67500000000007
+327.3250000000007
  31
 0.0
 100
 AcDbText
-  0
-LINE
-  5
-29F
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-342.4750000000001
- 30
-0.0
- 11
-246.0
- 21
-342.4750000000001
- 31
-0.0
   0
 TEXT
   5
-2A0
+192
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-15.4
+542.0
  20
-339.2750000000001
+321.92500000000075
  30
 0.0
  40
-2.0
+2.2
   1
-BV-4
+       the essential board, on the battery.  THE ELECTRICAL
   7
 OpenSans
  11
-15.4
+542.0
  21
-339.2750000000001
+321.92500000000075
  31
 0.0
 100
@@ -19431,31 +12907,31 @@ AcDbText
   0
 TEXT
   5
-2A1
+193
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-41.4
+542.0
  20
-339.2750000000001
+316.5250000000008
  30
 0.0
  40
-2.0
+2.2
   1
-350
+       BLOCKER IS GONE.  The head layout and zoning remain
   7
 OpenSans
  11
-41.4
+542.0
  21
-339.2750000000001
+316.5250000000008
  31
 0.0
 100
@@ -19463,31 +12939,31 @@ AcDbText
   0
 TEXT
   5
-2A2
+194
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-67.4
+542.0
  20
-339.2750000000001
+311.1250000000008
  30
 0.0
  40
-2.0
+2.2
   1
-600
+       fire engineering.  ADVANCED, NOT CLOSED.
   7
 OpenSans
  11
-67.4
+542.0
  21
-339.2750000000001
+311.1250000000008
  31
 0.0
 100
@@ -19495,31 +12971,31 @@ AcDbText
   0
 TEXT
   5
-2A3
+195
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-93.4
+542.0
  20
-339.2750000000001
+305.7250000000008
  30
 0.0
  40
-2.0
+2.2
   1
-STEEL
+EM-V2  EMP Zone 2 dimensions awaited an equipment schedule.
   7
 OpenSans
  11
-93.4
+542.0
  21
-339.2750000000001
+305.7250000000008
  31
 0.0
 100
@@ -19527,31 +13003,31 @@ AcDbText
   0
 TEXT
   5
-2A4
+196
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-129.4
+542.0
  20
-339.2750000000001
+300.32500000000084
  30
 0.0
  40
-2.0
+2.2
   1
-502.0
+       Z-01 gives a 1.50 kW ALLOWANCE and a sub-board, so the
   7
 OpenSans
  11
-129.4
+542.0
  21
-339.2750000000001
+300.32500000000084
  31
 0.0
 100
@@ -19559,31 +13035,31 @@ AcDbText
   0
 TEXT
   5
-2A5
+197
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-163.4
+542.0
  20
-339.2750000000001
+294.92500000000086
  30
 0.0
  40
-2.0
+2.2
   1
-55
+       enclosure now has a BASIS instead of nothing.  It is
   7
 OpenSans
  11
-163.4
+542.0
  21
-339.2750000000001
+294.92500000000086
  31
 0.0
 100
@@ -19591,31 +13067,31 @@ AcDbText
   0
 TEXT
   5
-2A6
+198
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-191.4
+542.0
  20
-339.2750000000001
+289.5250000000009
  30
 0.0
  40
-2.0
+2.2
   1
-107
+       still an allowance.  ADVANCED, NOT CLOSED.
   7
 OpenSans
  11
-191.4
+542.0
  21
-339.2750000000001
+289.5250000000009
  31
 0.0
 100
@@ -19623,87 +13099,63 @@ AcDbText
   0
 TEXT
   5
-2A7
+199
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-221.4
+542.0
  20
-339.2750000000001
+284.1250000000009
  30
 0.0
  40
-2.0
+2.2
   1
-FAIL
+FS-V4  Generator fuel unspecified  ->  this package puts the
   7
 OpenSans
  11
-221.4
+542.0
  21
-339.2750000000001
+284.1250000000009
  31
 0.0
 100
 AcDbText
-  0
-LINE
-  5
-2A8
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-338.0750000000001
- 30
-0.0
- 11
-246.0
- 21
-338.0750000000001
- 31
-0.0
   0
 TEXT
   5
-2A9
+19A
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-15.4
+542.0
  20
-334.8750000000001
+278.72500000000093
  30
 0.0
  40
-2.0
+2.2
   1
-BV-5
+       first number on it: about 210 L for a 96 h run  [A].
   7
 OpenSans
  11
-15.4
+542.0
  21
-334.8750000000001
+278.72500000000093
  31
 0.0
 100
@@ -19711,31 +13163,31 @@ AcDbText
   0
 TEXT
   5
-2AA
+19B
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-41.4
+542.0
  20
-334.8750000000001
+273.32500000000095
  30
 0.0
  40
-2.0
+2.2
   1
-350
+       A bounded estimate, not a specification.
   7
 OpenSans
  11
-41.4
+542.0
  21
-334.8750000000001
+273.32500000000095
  31
 0.0
 100
@@ -19743,31 +13195,31 @@ AcDbText
   0
 TEXT
   5
-2AB
+19C
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-67.4
+542.0
  20
-334.8750000000001
+267.925000000001
  30
 0.0
  40
-2.0
+2.2
   1
-600
+HVAC P11  'distribution, UPS and battery autonomy are an
   7
 OpenSans
  11
-67.4
+542.0
  21
-334.8750000000001
+267.925000000001
  31
 0.0
 100
@@ -19775,31 +13227,31 @@ AcDbText
   0
 TEXT
   5
-2AC
+19D
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-93.4
+542.0
  20
-334.8750000000001
+262.525000000001
  30
 0.0
  40
-2.0
+2.2
   1
-STEEL
+       ELECTRICAL scope item, not designed here'  ->  DESIGNED.
   7
 OpenSans
  11
-93.4
+542.0
  21
-334.8750000000001
+262.525000000001
  31
 0.0
 100
@@ -19807,31 +13259,31 @@ AcDbText
   0
 TEXT
   5
-2AD
+19E
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-129.4
+542.0
  20
-334.8750000000001
+257.125000000001
  30
 0.0
  40
-2.0
+2.2
   1
-502.0
+13 GAPS  'no electrical design package exists' was the
   7
 OpenSans
  11
-129.4
+542.0
  21
-334.8750000000001
+257.125000000001
  31
 0.0
 100
@@ -19839,31 +13291,31 @@ AcDbText
   0
 TEXT
   5
-2AE
+19F
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-163.4
+542.0
  20
-334.8750000000001
+251.72500000000102
  30
 0.0
  40
-2.0
+2.2
   1
-55
+       LARGEST.  A BASIC one now does.  The detailed design
   7
 OpenSans
  11
-163.4
+542.0
  21
-334.8750000000001
+251.72500000000102
  31
 0.0
 100
@@ -19871,119 +13323,127 @@ AcDbText
   0
 TEXT
   5
-2AF
+1A0
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-191.4
+542.0
  20
-334.8750000000001
+246.325000000001
  30
 0.0
  40
-2.0
+2.2
   1
-107
+       still does not - EL-V5.
   7
 OpenSans
  11
-191.4
+542.0
  21
-334.8750000000001
+246.325000000001
  31
 0.0
 100
 AcDbText
   0
-TEXT
+LWPOLYLINE
   5
-2B0
+1A1
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-TITLE
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+540.0
+ 20
+238.925000000001
+ 10
+830.0
+ 20
+238.925000000001
+ 10
+830.0
+ 20
+346.95000000000067
+ 10
+540.0
+ 20
+346.95000000000067
+  0
+TEXT
+  5
+1A2
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
 100
 AcDbText
  10
-221.4
+542.0
  20
-334.8750000000001
+226.425000000001
  30
 0.0
  40
-2.0
+2.5
   1
-FAIL
+WHAT NEEDS NO ELECTRICITY AT ALL  -  AND IS CONFIRMED
   7
 OpenSans
  11
-221.4
+542.0
  21
-334.8750000000001
+226.425000000001
  31
 0.0
 100
 AcDbText
-  0
-LINE
-  5
-2B1
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-333.6750000000001
- 30
-0.0
- 11
-246.0
- 21
-333.6750000000001
- 31
-0.0
   0
 TEXT
   5
-2B2
+1A3
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-15.4
+542.0
  20
-330.47500000000014
+222.10000000000102
  30
 0.0
  40
-2.0
+2.2
   1
-SEP
+HAND CRANK on both filter fans   [C] HVAC schedule
   7
 OpenSans
  11
-15.4
+542.0
  21
-330.47500000000014
+222.10000000000102
  31
 0.0
 100
@@ -19991,31 +13451,31 @@ AcDbText
   0
 TEXT
   5
-2B3
+1A4
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-41.4
+542.0
  20
-330.47500000000014
+216.700000000001
  30
 0.0
  40
-2.0
+2.2
   1
-800
+HAND PUMP PU-03                  [C] S-06
   7
 OpenSans
  11
-41.4
+542.0
  21
-330.47500000000014
+216.700000000001
  31
 0.0
 100
@@ -20023,31 +13483,31 @@ AcDbText
   0
 TEXT
   5
-2B4
+1A5
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-67.4
+542.0
  20
-330.47500000000014
+205.900000000001
  30
 0.0
  40
-2.0
+2.2
   1
-600
+These are the real last line, the project already has
   7
 OpenSans
  11
-67.4
+542.0
  21
-330.47500000000014
+205.900000000001
  31
 0.0
 100
@@ -20055,31 +13515,31 @@ AcDbText
   0
 TEXT
   5
-2B5
+1A6
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-93.4
+542.0
  20
-330.47500000000014
+200.500000000001
  30
 0.0
  40
-2.0
+2.2
   1
-STEEL
+them, and NO ELECTRICAL DESIGN SHOULD OBSCURE THEM. [D]
   7
 OpenSans
  11
-93.4
+542.0
  21
-330.47500000000014
+200.500000000001
  31
 0.0
 100
@@ -20087,31 +13547,31 @@ AcDbText
   0
 TEXT
   5
-2B6
+1A7
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-129.4
+542.0
  20
-330.47500000000014
+189.70000000000098
  30
 0.0
  40
-2.0
+2.2
   1
-187.4
+Groundwater does not stop because the shelter is
   7
 OpenSans
  11
-129.4
+542.0
  21
-330.47500000000014
+189.70000000000098
  31
 0.0
 100
@@ -20119,31 +13579,31 @@ AcDbText
   0
 TEXT
   5
-2B7
+1A8
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-163.4
+542.0
  20
-330.47500000000014
+184.30000000000098
  30
 0.0
  40
-2.0
+2.2
   1
-20
+sealed - the clean sump pump stays on the essential
   7
 OpenSans
  11
-163.4
+542.0
  21
-330.47500000000014
+184.30000000000098
  31
 0.0
 100
@@ -20151,1455 +13611,71 @@ AcDbText
   0
 TEXT
   5
-2B8
+1A9
 330
 17
 100
 AcDbEntity
   8
-S-TABLE
+S-NOTE
 100
 AcDbText
  10
-191.4
+542.0
  20
-330.47500000000014
+178.90000000000097
  30
 0.0
  40
-2.0
+2.2
   1
-66
+board through mode 3.  Essential total 1.283 kW.
   7
 OpenSans
  11
-191.4
+542.0
  21
-330.47500000000014
+178.90000000000097
  31
 0.0
 100
 AcDbText
+  0
+LWPOLYLINE
+  5
+1AA
+330
+17
+100
+AcDbEntity
+  8
+S-TITLE
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+540.0
+ 20
+171.50000000000097
+ 10
+830.0
+ 20
+171.50000000000097
+ 10
+830.0
+ 20
+230.925000000001
+ 10
+540.0
+ 20
+230.925000000001
   0
 TEXT
   5
-2B9
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-221.4
- 20
-330.47500000000014
- 30
-0.0
- 40
-2.0
-  1
-FAIL
-  7
-OpenSans
- 11
-221.4
- 21
-330.47500000000014
- 31
-0.0
-100
-AcDbText
-  0
-LINE
-  5
-2BA
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-329.27500000000015
- 30
-0.0
- 11
-246.0
- 21
-329.27500000000015
- 31
-0.0
-  0
-TEXT
-  5
-2BB
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-15.4
- 20
-326.07500000000016
- 30
-0.0
- 40
-2.0
-  1
-PD-05
-  7
-OpenSans
- 11
-15.4
- 21
-326.07500000000016
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2BC
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-41.4
- 20
-326.07500000000016
- 30
-0.0
- 40
-2.0
-  1
-50
-  7
-OpenSans
- 11
-41.4
- 21
-326.07500000000016
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2BD
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-67.4
- 20
-326.07500000000016
- 30
-0.0
- 40
-2.0
-  1
-600
-  7
-OpenSans
- 11
-67.4
- 21
-326.07500000000016
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2BE
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-93.4
- 20
-326.07500000000016
- 30
-0.0
- 40
-2.0
-  1
-STEEL
-  7
-OpenSans
- 11
-93.4
- 21
-326.07500000000016
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2BF
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-129.4
- 20
-326.07500000000016
- 30
-0.0
- 40
-2.0
-  1
-3514.0
-  7
-OpenSans
- 11
-129.4
- 21
-326.07500000000016
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2C0
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-163.4
- 20
-326.07500000000016
- 30
-0.0
- 40
-2.0
-  1
-384
-  7
-OpenSans
- 11
-163.4
- 21
-326.07500000000016
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2C1
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-191.4
- 20
-326.07500000000016
- 30
-0.0
- 40
-2.0
-  1
-453
-  7
-OpenSans
- 11
-191.4
- 21
-326.07500000000016
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2C2
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-221.4
- 20
-326.07500000000016
- 30
-0.0
- 40
-2.0
-  1
-PASS
-  7
-OpenSans
- 11
-221.4
- 21
-326.07500000000016
- 31
-0.0
-100
-AcDbText
-  0
-LINE
-  5
-2C3
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-324.87500000000017
- 30
-0.0
- 11
-246.0
- 21
-324.87500000000017
- 31
-0.0
-  0
-TEXT
-  5
-2C4
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-15.4
- 20
-321.6750000000002
- 30
-0.0
- 40
-2.0
-  1
-ESC1
-  7
-OpenSans
- 11
-15.4
- 21
-321.6750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2C5
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-41.4
- 20
-321.6750000000002
- 30
-0.0
- 40
-2.0
-  1
-1400
-  7
-OpenSans
- 11
-41.4
- 21
-321.6750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2C6
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-67.4
- 20
-321.6750000000002
- 30
-0.0
- 40
-2.0
-  1
-3050
-  7
-OpenSans
- 11
-67.4
- 21
-321.6750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2C7
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-93.4
- 20
-321.6750000000002
- 30
-0.0
- 40
-2.0
-  1
-CONCRETE
-  7
-OpenSans
- 11
-93.4
- 21
-321.6750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2C8
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-129.4
- 20
-321.6750000000002
- 30
-0.0
- 40
-2.0
-  1
-125.5
-  7
-OpenSans
- 11
-129.4
- 21
-321.6750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2C9
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-163.4
- 20
-321.6750000000002
- 30
-0.0
- 40
-2.0
-  1
--
-  7
-OpenSans
- 11
-163.4
- 21
-321.6750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2CA
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-191.4
- 20
-321.6750000000002
- 30
-0.0
- 40
-2.0
-  1
-41
-  7
-OpenSans
- 11
-191.4
- 21
-321.6750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2CB
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-221.4
- 20
-321.6750000000002
- 30
-0.0
- 40
-2.0
-  1
-FAIL
-  7
-OpenSans
- 11
-221.4
- 21
-321.6750000000002
- 31
-0.0
-100
-AcDbText
-  0
-LINE
-  5
-2CC
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-320.4750000000002
- 30
-0.0
- 11
-246.0
- 21
-320.4750000000002
- 31
-0.0
-  0
-TEXT
-  5
-2CD
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-15.4
- 20
-317.2750000000002
- 30
-0.0
- 40
-2.0
-  1
-ESC2
-  7
-OpenSans
- 11
-15.4
- 21
-317.2750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2CE
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-41.4
- 20
-317.2750000000002
- 30
-0.0
- 40
-2.0
-  1
-1400
-  7
-OpenSans
- 11
-41.4
- 21
-317.2750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2CF
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-67.4
- 20
-317.2750000000002
- 30
-0.0
- 40
-2.0
-  1
-3600
-  7
-OpenSans
- 11
-67.4
- 21
-317.2750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2D0
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-93.4
- 20
-317.2750000000002
- 30
-0.0
- 40
-2.0
-  1
-CONCRETE
-  7
-OpenSans
- 11
-93.4
- 21
-317.2750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2D1
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-129.4
- 20
-317.2750000000002
- 30
-0.0
- 40
-2.0
-  1
-125.5
-  7
-OpenSans
- 11
-129.4
- 21
-317.2750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2D2
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-163.4
- 20
-317.2750000000002
- 30
-0.0
- 40
-2.0
-  1
--
-  7
-OpenSans
- 11
-163.4
- 21
-317.2750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2D3
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-191.4
- 20
-317.2750000000002
- 30
-0.0
- 40
-2.0
-  1
-41
-  7
-OpenSans
- 11
-191.4
- 21
-317.2750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2D4
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-221.4
- 20
-317.2750000000002
- 30
-0.0
- 40
-2.0
-  1
-FAIL
-  7
-OpenSans
- 11
-221.4
- 21
-317.2750000000002
- 31
-0.0
-100
-AcDbText
-  0
-LINE
-  5
-2D5
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-316.0750000000002
- 30
-0.0
- 11
-246.0
- 21
-316.0750000000002
- 31
-0.0
-  0
-TEXT
-  5
-2D6
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-15.4
- 20
-312.8750000000002
- 30
-0.0
- 40
-2.0
-  1
-VOID
-  7
-OpenSans
- 11
-15.4
- 21
-312.8750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2D7
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-41.4
- 20
-312.8750000000002
- 30
-0.0
- 40
-2.0
-  1
-3160
-  7
-OpenSans
- 11
-41.4
- 21
-312.8750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2D8
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-67.4
- 20
-312.8750000000002
- 30
-0.0
- 40
-2.0
-  1
-900
-  7
-OpenSans
- 11
-67.4
- 21
-312.8750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2D9
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-93.4
- 20
-312.8750000000002
- 30
-0.0
- 40
-2.0
-  1
-CONCRETE
-  7
-OpenSans
- 11
-93.4
- 21
-312.8750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2DA
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-129.4
- 20
-312.8750000000002
- 30
-0.0
- 40
-2.0
-  1
-47.4
-  7
-OpenSans
- 11
-129.4
- 21
-312.8750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2DB
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-163.4
- 20
-312.8750000000002
- 30
-0.0
- 40
-2.0
-  1
--
-  7
-OpenSans
- 11
-163.4
- 21
-312.8750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2DC
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-191.4
- 20
-312.8750000000002
- 30
-0.0
- 40
-2.0
-  1
-34
-  7
-OpenSans
- 11
-191.4
- 21
-312.8750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2DD
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbText
- 10
-221.4
- 20
-312.8750000000002
- 30
-0.0
- 40
-2.0
-  1
-FAIL
-  7
-OpenSans
- 11
-221.4
- 21
-312.8750000000002
- 31
-0.0
-100
-AcDbText
-  0
-LINE
-  5
-2DE
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-311.67500000000024
- 30
-0.0
- 11
-246.0
- 21
-311.67500000000024
- 31
-0.0
-  0
-LINE
-  5
-2DF
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-360.075
- 30
-0.0
- 11
-246.0
- 21
-360.075
- 31
-0.0
-  0
-LINE
-  5
-2E0
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-14.0
- 20
-360.075
- 30
-0.0
- 11
-14.0
- 21
-311.67500000000024
- 31
-0.0
-  0
-LINE
-  5
-2E1
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-40.0
- 20
-360.075
- 30
-0.0
- 11
-40.0
- 21
-311.67500000000024
- 31
-0.0
-  0
-LINE
-  5
-2E2
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-66.0
- 20
-360.075
- 30
-0.0
- 11
-66.0
- 21
-311.67500000000024
- 31
-0.0
-  0
-LINE
-  5
-2E3
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-92.0
- 20
-360.075
- 30
-0.0
- 11
-92.0
- 21
-311.67500000000024
- 31
-0.0
-  0
-LINE
-  5
-2E4
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-128.0
- 20
-360.075
- 30
-0.0
- 11
-128.0
- 21
-311.67500000000024
- 31
-0.0
-  0
-LINE
-  5
-2E5
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-162.0
- 20
-360.075
- 30
-0.0
- 11
-162.0
- 21
-311.67500000000024
- 31
-0.0
-  0
-LINE
-  5
-2E6
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-190.0
- 20
-360.075
- 30
-0.0
- 11
-190.0
- 21
-311.67500000000024
- 31
-0.0
-  0
-LINE
-  5
-2E7
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-220.0
- 20
-360.075
- 30
-0.0
- 11
-220.0
- 21
-311.67500000000024
- 31
-0.0
-  0
-LINE
-  5
-2E8
-330
-17
-100
-AcDbEntity
-  8
-S-TABLE
-100
-AcDbLine
- 10
-246.0
- 20
-360.075
- 30
-0.0
- 11
-246.0
- 21
-311.67500000000024
- 31
-0.0
-  0
-TEXT
-  5
-2E9
+1AB
 330
 17
 100
@@ -21611,7 +13687,7 @@ AcDbText
  10
 16.0
  20
-297.17500000000024
+135.5
  30
 0.0
  40
@@ -21623,7 +13699,7 @@ OpenSans
  11
 16.0
  21
-297.17500000000024
+135.5
  31
 0.0
 100
@@ -21631,7 +13707,7 @@ AcDbText
   0
 TEXT
   5
-2EA
+1AC
 330
 17
 100
@@ -21643,19 +13719,19 @@ AcDbText
  10
 16.0
  20
-293.05000000000024
+131.375
  30
 0.0
  40
 2.0
   1
-[C] CONFIRMED      traceable to the master, a Rev F drawing or S-06
+[C] CONFIRMED      master, a Rev F drawing, S-06, or the owner's own
   7
 OpenSans
  11
 16.0
  21
-293.05000000000024
+131.375
  31
 0.0
 100
@@ -21663,7 +13739,7 @@ AcDbText
   0
 TEXT
   5
-2EB
+1AD
 330
 17
 100
@@ -21675,19 +13751,19 @@ AcDbText
  10
 16.0
  20
-289.65000000000026
+127.975
  30
 0.0
  40
 2.0
   1
-[R] RECONSTRUCTED  computed here from confirmed values; arithmetic shown
+                   Works Management documents, which govern
   7
 OpenSans
  11
 16.0
  21
-289.65000000000026
+127.975
  31
 0.0
 100
@@ -21695,7 +13771,7 @@ AcDbText
   0
 TEXT
   5
-2EC
+1AE
 330
 17
 100
@@ -21707,7 +13783,39 @@ AcDbText
  10
 16.0
  20
-286.2500000000003
+124.57499999999999
+ 30
+0.0
+ 40
+2.0
+  1
+[R] RECONSTRUCTED  computed here from confirmed values
+  7
+OpenSans
+ 11
+16.0
+ 21
+124.57499999999999
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1AF
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+16.0
+ 20
+121.17499999999998
  30
 0.0
  40
@@ -21719,7 +13827,7 @@ OpenSans
  11
 16.0
  21
-286.2500000000003
+121.17499999999998
  31
 0.0
 100
@@ -21727,7 +13835,7 @@ AcDbText
   0
 TEXT
   5
-2ED
+1B0
 330
 17
 100
@@ -21739,7 +13847,7 @@ AcDbText
  10
 16.0
  20
-282.8500000000003
+117.77499999999998
  30
 0.0
  40
@@ -21751,7 +13859,7 @@ OpenSans
  11
 16.0
  21
-282.8500000000003
+117.77499999999998
  31
 0.0
 100
@@ -21759,7 +13867,7 @@ AcDbText
   0
 TEXT
   5
-2EE
+1B1
 330
 17
 100
@@ -21771,19 +13879,19 @@ AcDbText
  10
 16.0
  20
-279.45000000000033
+114.37499999999997
  30
 0.0
  40
 2.0
   1
-[U] UNRESOLVED     the project holds no single position
+[U] UNRESOLVED     the project holds two positions, or none
   7
 OpenSans
  11
 16.0
  21
-279.45000000000033
+114.37499999999997
  31
 0.0
 100
@@ -21791,7 +13899,7 @@ AcDbText
   0
 TEXT
   5
-2EF
+1B2
 330
 17
 100
@@ -21803,19 +13911,19 @@ AcDbText
  10
 16.0
  20
-276.05000000000035
+110.97499999999997
  30
 0.0
  40
 2.0
   1
-[N] NOT AVAILABLE  no source exists anywhere in the project - DATA REQUIRED
+[N] NOT AVAILABLE  no source exists anywhere in the project
   7
 OpenSans
  11
 16.0
  21
-276.05000000000035
+110.97499999999997
  31
 0.0
 100
@@ -21823,7 +13931,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-2F0
+1B3
 330
 17
 100
@@ -21839,23 +13947,23 @@ AcDbPolyline
  10
 14.0
  20
-270.6500000000004
+105.57499999999996
  10
-410.0
+304.0
  20
-270.6500000000004
+105.57499999999996
  10
-410.0
+304.0
  20
-301.67500000000024
+140.0
  10
 14.0
  20
-301.67500000000024
+140.0
   0
 TEXT
   5
-2F1
+1B4
 330
 17
 100
@@ -21865,21 +13973,21 @@ S-TITLE
 100
 AcDbText
  10
-16.0
+322.0
  20
-256.1500000000004
+135.5
  30
 0.0
  40
 2.5
   1
-WHY DN100 PASSES AND DN350 DOES NOT  -  BORE, NOT WORKMANSHIP
+WHAT THIS SHEET DOES NOT SHOW
   7
 OpenSans
  11
-16.0
+322.0
  21
-256.1500000000004
+135.5
  31
 0.0
 100
@@ -21887,7 +13995,7 @@ AcDbText
   0
 TEXT
   5
-2F2
+1B5
 330
 17
 100
@@ -21897,21 +14005,21 @@ S-NOTE
 100
 AcDbText
  10
-16.0
+322.0
  20
-251.8250000000004
+130.975
  30
 0.0
  40
-2.2
+2.4
   1
-DN100 in a 600 wall   cutoff  1757.0 MHz  >  1 GHz        192 dB      PASS
+NO circuit schedule, NO cable sizing, NO luminaire or
   7
 OpenSans
  11
-16.0
+322.0
  21
-251.8250000000004
+130.975
  31
 0.0
 100
@@ -21919,7 +14027,7 @@ AcDbText
   0
 TEXT
   5
-2F3
+1B6
 330
 17
 100
@@ -21929,21 +14037,21 @@ S-NOTE
 100
 AcDbText
  10
-16.0
+322.0
  20
-246.42500000000038
+126.675
  30
 0.0
  40
-2.2
+2.4
   1
-DN350 in a 600 wall   cutoff   502.0 MHz  <  1 GHz         55 dB      FAIL
+socket layout, NO protection or discrimination study.
   7
 OpenSans
  11
-16.0
+322.0
  21
-246.42500000000038
+126.675
  31
 0.0
 100
@@ -21951,7 +14059,7 @@ AcDbText
   0
 TEXT
   5
-2F4
+1B7
 330
 17
 100
@@ -21961,21 +14069,21 @@ S-NOTE
 100
 AcDbText
  10
-16.0
+322.0
  20
-235.62500000000037
+122.375
  30
 0.0
  40
-2.2
+2.4
   1
-THE SAME WALL, THE SAME STEEL, THE SAME WORKMANSHIP.  Only the bore differs, and it
+It stops at BOARD LEVEL on purpose - EL-V5.  A fault
   7
 OpenSans
  11
-16.0
+322.0
  21
-235.62500000000037
+122.375
  31
 0.0
 100
@@ -21983,7 +14091,7 @@ AcDbText
   0
 TEXT
   5
-2F5
+1B8
 330
 17
 100
@@ -21993,21 +14101,21 @@ S-NOTE
 100
 AcDbText
  10
-16.0
+322.0
  20
-230.22500000000036
+118.075
  30
 0.0
  40
-2.2
+2.4
   1
-moves the TE11 cutoff from above the top of the band to well below it.  Above its
+level cannot be computed until the incoming supply
   7
 OpenSans
  11
-16.0
+322.0
  21
-230.22500000000036
+118.075
  31
 0.0
 100
@@ -22015,7 +14123,7 @@ AcDbText
   0
 TEXT
   5
-2F6
+1B9
 330
 17
 100
@@ -22025,21 +14133,21 @@ S-NOTE
 100
 AcDbText
  10
-16.0
+322.0
  20
-224.82500000000036
+113.775
  30
 0.0
  40
-2.2
+2.4
   1
-cutoff a bore propagates however long it is - so BV-4 and BV-5 cannot be rescued by
+capacity exists, and that is [N] - EL-V4.
   7
 OpenSans
  11
-16.0
+322.0
  21
-224.82500000000036
+113.775
  31
 0.0
 100
@@ -22047,7 +14155,7 @@ AcDbText
   0
 TEXT
   5
-2F7
+1BA
 330
 17
 100
@@ -22057,21 +14165,53 @@ S-NOTE
 100
 AcDbText
  10
-16.0
+322.0
  20
-219.42500000000035
+105.17500000000001
  30
 0.0
  40
-2.2
+2.4
   1
-a thicker wall, only by a honeycomb panel inboard of the valve.  [D]
+NO BOQ QUANTITY, RATE, DATE OR FLOAT IS CHANGED.
   7
 OpenSans
  11
-16.0
+322.0
  21
-219.42500000000035
+105.17500000000001
+ 31
+0.0
+100
+AcDbText
+  0
+TEXT
+  5
+1BB
+330
+17
+100
+AcDbEntity
+  8
+S-NOTE
+100
+AcDbText
+ 10
+322.0
+ 20
+100.87500000000001
+ 30
+0.0
+ 40
+2.4
+  1
+The owner's Works Management package governs.
+  7
+OpenSans
+ 11
+322.0
+ 21
+100.87500000000001
  31
 0.0
 100
@@ -22079,7 +14219,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-2F8
+1BC
 330
 17
 100
@@ -22093,889 +14233,25 @@ AcDbPolyline
  70
 1
  10
-14.0
+320.0
  20
-212.02500000000035
+94.57500000000002
  10
-410.0
+520.0
  20
-212.02500000000035
+94.57500000000002
  10
-410.0
+520.0
  20
-260.6500000000004
+140.0
  10
-14.0
+320.0
  20
-260.6500000000004
+140.0
   0
 TEXT
   5
-2F9
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbText
- 10
-432.0
- 20
-387.5
- 30
-0.0
- 40
-2.5
-  1
-NOTES
-  7
-OpenSans
- 11
-432.0
- 21
-387.5
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2FA
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-383.175
- 30
-0.0
- 40
-2.2
-  1
-1  THIS SHEET CREATES NO PENETRATION AND MOVES NONE.  Every position, bore and wall
-  7
-OpenSans
- 11
-432.0
- 21
-383.175
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2FB
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-377.77500000000003
- 30
-0.0
- 40
-2.2
-  1
-   thickness is read from a confirmed document - the HVAC damper and valve schedule,
-  7
-OpenSans
- 11
-432.0
- 21
-377.77500000000003
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2FC
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-372.37500000000006
- 30
-0.0
- 40
-2.2
-  1
-   MEP_AND_FINISHES_COORDINATION.md CO-1, and master A.4.4 / A.4.5.
-  7
-OpenSans
- 11
-432.0
- 21
-372.37500000000006
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2FD
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-366.9750000000001
- 30
-0.0
- 40
-2.2
-  1
-2  BV-1, BV-2 AND BV-3 NEED NO TREATMENT.  THE WALL IS THE WAVEGUIDE.  Keep the bore
-  7
-OpenSans
- 11
-432.0
- 21
-366.9750000000001
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2FE
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-361.5750000000001
- 30
-0.0
- 40
-2.2
-  1
-   metallic and the frame welded to the cage, which master A.5 already requires  [C].
-  7
-OpenSans
- 11
-432.0
- 21
-361.5750000000001
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-2FF
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-356.1750000000001
- 30
-0.0
- 40
-2.2
-  1
-3  SEP IS NOT AN APERTURE.  A MIL-STD-188-125-1 entry plate IS the shield: a solid
-  7
-OpenSans
- 11
-432.0
- 21
-356.1750000000001
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-300
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-350.77500000000015
- 30
-0.0
- 40
-2.2
-  1
-   welded plate bonded 360 deg to the cast-in frame, itself welded to the cage.  Its
-  7
-OpenSans
- 11
-432.0
- 21
-350.77500000000015
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-301
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-345.37500000000017
- 30
-0.0
- 40
-2.2
-  1
-   apertures are the individual sleeves.  ITS LEVEL AND SIZE ARE [N] - see EM-302.
-  7
-OpenSans
- 11
-432.0
- 21
-345.37500000000017
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-302
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-339.9750000000002
- 30
-0.0
- 40
-2.2
-  1
-4  THE TWO ESCAPE SHAFTS AND THE STAIR VOID ARE CONCRETE-BOUNDED and earn no depth
-  7
-OpenSans
- 11
-432.0
- 21
-339.9750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-303
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-334.5750000000002
- 30
-0.0
- 40
-2.2
-  1
-   credit.  The collars carry 5-T25 each side/face/direction and the void's thickened
-  7
-OpenSans
- 11
-432.0
- 21
-334.5750000000002
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-304
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-329.17500000000024
- 30
-0.0
- 40
-2.2
-  1
-   free edge 6-T25 top and bottom  [C] F.1 - five and six bars, not conducting
-  7
-OpenSans
- 11
-432.0
- 21
-329.17500000000024
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-305
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-323.77500000000026
- 30
-0.0
- 40
-2.2
-  1
-   surfaces.  See EM-102, where that path is drawn.
-  7
-OpenSans
- 11
-432.0
- 21
-323.77500000000026
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-306
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-318.3750000000003
- 30
-0.0
- 40
-2.2
-  1
-5  EMP ZONE 2 IS SHOWN AT ITS [A] SIZE AND POSITION.  It fits, it clears the
-  7
-OpenSans
- 11
-432.0
- 21
-318.3750000000003
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-307
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-312.9750000000003
- 30
-0.0
- 40
-2.2
-  1
-   circulation route, and it holds a 300 survey gap on every free face - see EM-301.
-  7
-OpenSans
- 11
-432.0
- 21
-312.9750000000003
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-308
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-307.57500000000033
- 30
-0.0
- 40
-2.2
-  1
-   IT IS NOT A DERIVED SIZE, because no equipment schedule exists.  EM-V2.
-  7
-OpenSans
- 11
-432.0
- 21
-307.57500000000033
- 31
-0.0
-100
-AcDbText
-  0
-LWPOLYLINE
-  5
-309
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbPolyline
- 90
-4
- 70
-1
- 10
-430.0
- 20
-300.17500000000035
- 10
-830.0
- 20
-300.17500000000035
- 10
-830.0
- 20
-392.0
- 10
-430.0
- 20
-392.0
-  0
-TEXT
-  5
-30A
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbText
- 10
-432.0
- 20
-287.67500000000035
- 30
-0.0
- 40
-2.5
-  1
-THE ONE DECISION BEHIND BV-4 AND BV-5  -  EM-V3
-  7
-OpenSans
- 11
-432.0
- 21
-287.67500000000035
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-30B
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-283.35000000000036
- 30
-0.0
- 40
-2.2
-  1
-The question is not how to fix them.  It is WHETHER BAY 8 IS INSIDE THE EMP BOUNDARY
-  7
-OpenSans
- 11
-432.0
- 21
-283.35000000000036
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-30C
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-277.9500000000004
- 30
-0.0
- 40
-2.2
-  1
-AT ALL - and NO EMP BOUNDARY HAS EVER BEEN DRAWN.  [U]
-  7
-OpenSans
- 11
-432.0
- 21
-277.9500000000004
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-30D
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-267.15000000000043
- 30
-0.0
- 40
-2.2
-  1
-Bay 8 is outside the GAS-TIGHT ENVELOPE  [C] A.2 - but that is a CBRN boundary and
-  7
-OpenSans
- 11
-432.0
- 21
-267.15000000000043
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-30E
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-261.75000000000045
- 30
-0.0
- 40
-2.2
-  1
-says nothing whatever about EMP.
-  7
-OpenSans
- 11
-432.0
- 21
-261.75000000000045
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-30F
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-250.95000000000047
- 30
-0.0
- 40
-2.2
-  1
-IF BAY 8 IS IN    both bores need a honeycomb WBC panel inboard of the valve.
-  7
-OpenSans
- 11
-432.0
- 21
-250.95000000000047
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-310
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-245.55000000000047
- 30
-0.0
- 40
-2.2
-  1
-IF BAY 8 IS OUT   the 15 kVA generator, its control panel and every cable in bay 8
-  7
-OpenSans
- 11
-432.0
- 21
-245.55000000000047
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-311
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-240.15000000000046
- 30
-0.0
- 40
-2.2
-  1
-                  are unprotected, AND THE SHELTER LOSES POWER TO THE PULSE.
-  7
-OpenSans
- 11
-432.0
- 21
-240.15000000000046
- 31
-0.0
-100
-AcDbText
-  0
-TEXT
-  5
-312
-330
-17
-100
-AcDbEntity
-  8
-S-NOTE
-100
-AcDbText
- 10
-432.0
- 20
-229.35000000000045
- 30
-0.0
- 40
-2.2
-  1
-IT IS A CLIENT DECISION, NOT A DRAFTING ONE, AND IT IS NOT TAKEN HERE.
-  7
-OpenSans
- 11
-432.0
- 21
-229.35000000000045
- 31
-0.0
-100
-AcDbText
-  0
-LWPOLYLINE
-  5
-313
-330
-17
-100
-AcDbEntity
-  8
-S-TITLE
-100
-AcDbPolyline
- 90
-4
- 70
-1
- 10
-430.0
- 20
-221.95000000000044
- 10
-830.0
- 20
-221.95000000000044
- 10
-830.0
- 20
-292.17500000000035
- 10
-430.0
- 20
-292.17500000000035
-  0
-TEXT
-  5
-314
+1BD
 330
 17
 100
@@ -22993,7 +14269,7 @@ AcDbText
  40
 5.0
   1
-EMP PROTECTION PACKAGE
+ELECTRICAL AND POWER PACKAGE
   7
 OpenSans
  11
@@ -23007,7 +14283,7 @@ AcDbText
   0
 TEXT
   5
-315
+1BE
 330
 17
 100
@@ -23025,7 +14301,7 @@ AcDbText
  40
 2.4
   1
-EM-101   EMP ZONE PLAN - UNDERGROUND LEVEL (-)6.100
+E-001   SINGLE LINE DIAGRAM - SOURCES, BOARDS AND ESSENTIAL SERVICES
   7
 OpenSans
  11
@@ -23039,7 +14315,7 @@ AcDbText
   0
 LINE
   5
-316
+1BF
 330
 17
 100
@@ -23063,7 +14339,7 @@ AcDbLine
   0
 TEXT
   5
-317
+1C0
 330
 17
 100
@@ -23097,7 +14373,7 @@ AcDbText
   0
 TEXT
   5
-318
+1C1
 330
 17
 100
@@ -23115,7 +14391,7 @@ AcDbText
  40
 1.4
   1
-NO DESIGN VALUE IS CHANGED BY THIS PACKAGE - PENDING ENGINEERING VERIFICATION
+BASIC DESIGN - STOPS AT BOARD LEVEL - PENDING ENGINEERING VERIFICATION
   7
 OpenSans
  72
@@ -23131,7 +14407,7 @@ AcDbText
   0
 TEXT
   5
-319
+1C2
 330
 17
 100
@@ -23149,7 +14425,7 @@ AcDbText
  40
 1.4
   1
-OPEN ITEMS ON THIS SHEET:  EM-F1   EM-F4   EM-V3
+OPEN ITEMS ON THIS SHEET:  EL-V1   EL-V3   EL-V4
   7
 OpenSans
  11
@@ -23163,7 +14439,7 @@ AcDbText
   0
 LWPOLYLINE
   5
-31A
+1C3
 330
 17
 100
@@ -23195,7 +14471,7 @@ AcDbPolyline
   0
 LINE
   5
-31B
+1C4
 330
 17
 100
@@ -23219,7 +14495,7 @@ AcDbLine
   0
 LINE
   5
-31C
+1C5
 330
 17
 100
@@ -23243,7 +14519,7 @@ AcDbLine
   0
 LINE
   5
-31D
+1C6
 330
 17
 100
@@ -23267,7 +14543,7 @@ AcDbLine
   0
 LINE
   5
-31E
+1C7
 330
 17
 100
@@ -23291,7 +14567,7 @@ AcDbLine
   0
 LINE
   5
-31F
+1C8
 330
 17
 100
@@ -23315,7 +14591,7 @@ AcDbLine
   0
 LINE
   5
-320
+1C9
 330
 17
 100
@@ -23339,7 +14615,7 @@ AcDbLine
   0
 LINE
   5
-321
+1CA
 330
 17
 100
@@ -23363,7 +14639,7 @@ AcDbLine
   0
 TEXT
   5
-322
+1CB
 330
 17
 100
@@ -23395,7 +14671,7 @@ AcDbText
   0
 TEXT
   5
-323
+1CC
 330
 17
 100
@@ -23413,7 +14689,7 @@ AcDbText
  40
 3.5
   1
-EM-101
+E-001
   7
 OpenSans
  11
@@ -23427,7 +14703,7 @@ AcDbText
   0
 TEXT
   5
-324
+1CD
 330
 17
 100
@@ -23459,7 +14735,7 @@ AcDbText
   0
 TEXT
   5
-325
+1CE
 330
 17
 100
@@ -23477,7 +14753,7 @@ AcDbText
  40
 3.5
   1
-EM1
+EL1
   7
 OpenSans
  11
@@ -23491,7 +14767,7 @@ AcDbText
   0
 TEXT
   5
-326
+1CF
 330
 17
 100
@@ -23523,7 +14799,7 @@ AcDbText
   0
 TEXT
   5
-327
+1D0
 330
 17
 100
@@ -23541,7 +14817,7 @@ AcDbText
  40
 1.6
   1
-2 OF 6
+1 OF 1
   7
 OpenSans
  11
@@ -23555,7 +14831,7 @@ AcDbText
   0
 LINE
   5
-328
+1D1
 330
 17
 100
@@ -23579,7 +14855,7 @@ AcDbLine
   0
 TEXT
   5
-329
+1D2
 330
 17
 100
@@ -23597,7 +14873,7 @@ AcDbText
  40
 1.6
   1
-SCALE   1:50
+SCALE   NOT TO SCALE
   7
 OpenSans
  11
@@ -23611,7 +14887,7 @@ AcDbText
   0
 TEXT
   5
-32A
+1D3
 330
 17
 100
@@ -23629,7 +14905,7 @@ AcDbText
  40
 1.6
   1
-DATE   10.09.2026
+DATE   11.09.2026
   7
 OpenSans
  11
@@ -23643,7 +14919,7 @@ AcDbText
   0
 TEXT
   5
-32B
+1D4
 330
 17
 100
@@ -23675,7 +14951,7 @@ AcDbText
   0
 TEXT
   5
-32C
+1D5
 330
 17
 100
@@ -23707,7 +14983,7 @@ AcDbText
   0
 TEXT
   5
-32D
+1D6
 330
 17
 100
@@ -23739,7 +15015,7 @@ AcDbText
   0
 TEXT
   5
-32E
+1D7
 330
 17
 100
@@ -23771,7 +15047,7 @@ AcDbText
   0
 TEXT
   5
-32F
+1D8
 330
 17
 100
@@ -23803,7 +15079,7 @@ AcDbText
   0
 TEXT
   5
-330
+1D9
 330
 17
 100
@@ -23835,7 +15111,7 @@ AcDbText
   0
 TEXT
   5
-331
+1DA
 330
 17
 100
@@ -23853,7 +15129,7 @@ AcDbText
  40
 2.4
   1
-EMP ZONE PLAN - UNDERGROUND LEVEL (-)6.100
+SINGLE LINE DIAGRAM - SOURCES, BOARDS AND ESSENTIAL 
   7
 OpenSans
  11
@@ -23867,7 +15143,7 @@ AcDbText
   0
 TEXT
   5
-332
+1DB
 330
 17
 100
@@ -23885,7 +15161,7 @@ AcDbText
  40
 1.4
   1
-EMP ZONE 1 ENVELOPE - EVERY PENETRATION - EMP ZONE 2 ENCLOSURE IN BAY 3
+BASIC ELECTRICAL DESIGN - THREE BOARDS, ONE CABLE ENTRY, ONE BATTERY
   7
 OpenSans
  11
@@ -23899,7 +15175,7 @@ AcDbText
   0
 TEXT
   5
-333
+1DC
 330
 17
 100
@@ -23931,7 +15207,7 @@ AcDbText
   0
 TEXT
   5
-334
+1DD
 330
 17
 100
@@ -23963,7 +15239,7 @@ AcDbText
   0
 TEXT
   5
-335
+1DE
 330
 17
 100
@@ -23995,7 +15271,7 @@ AcDbText
   0
 TEXT
   5
-336
+1DF
 330
 17
 100
@@ -24013,7 +15289,7 @@ AcDbText
  40
 1.4
   1
-GEOMETRY REV F + M1   -   EMP PROTECTION EM1  -  SENTRY POST NOT IN THIS PACKAGE
+GEOMETRY REV F + M1   -   ELECTRICAL EL1  -  SENTRY POST NOT IN THIS PACKAGE
   7
 OpenSans
  11
@@ -25115,7 +16391,7 @@ CREATED_BY_EZDXF
   3
 WRITTEN_BY_EZDXF
 350
-339
+1E2
   0
 DICTIONARYVAR
   5
@@ -25127,7 +16403,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-11T02:56:50.218093+00:00
+1.4.4 @ 2026-09-11T02:56:49.458726+00:00
   0
 VISUALSTYLE
   5
@@ -25831,7 +17107,7 @@ X-Ray
   0
 DICTIONARYVAR
   5
-339
+1E2
 330
 2D
 100
@@ -25839,7 +17115,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-11T02:56:50.248733+00:00
+1.4.4 @ 2026-09-11T02:56:49.496672+00:00
   0
 ENDSEC
   0

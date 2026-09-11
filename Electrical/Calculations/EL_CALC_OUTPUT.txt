@@ -1,0 +1,198 @@
+ELECTRICAL AND POWER - DESIGN CALCULATIONS
+Underground CBRN-hardened blast-resistant protective structure - Pune
+Package revision EL1  ·  11.09.2026  ·  GEOMETRY REV F + M1
+FOR REVIEW - NOT FOR CONSTRUCTION   ·   SENTRY POST EXCLUDED
+
+A BASIC PACKAGE, ON PURPOSE.  It stops at BOARD LEVEL.  No circuit
+schedule, no cable sizing, no luminaire layout - see E.6 and EL-V5.
+
+============================================================================
+E.1  SOURCES - AND ONE THE MASTER NEVER RECORDED
+============================================================================
+
+  GEN-1    15 kVA standby set, bay 8, the grey zone     [C] master A.3
+  MAINS    via a METER PANEL                            [C] but only in
+           the OWNER'S OWN PROGRAMME - activity 123, 'Electrical Wiring
+           Works - Mains wire Pulling, Mater Panel Fixing etc. (DB to
+           Meter Panel)', and activity 5 'Electricity Provision'.
+           WM2 ruled that the owner's package GOVERNS, so an incoming
+           mains supply IS part of this project - but it appears
+           NOWHERE in the master, and its capacity, tariff and point of
+           connection are [N].  EL-V4.
+  BATTERY  DOES NOT EXIST ANYWHERE IN THE PROJECT.  [N]
+           HVAC QA/QC P11 says so explicitly: 'distribution, UPS and
+           battery autonomy are an ELECTRICAL scope item, not designed
+           here'.  E.5 designs it.
+
+  AND TWO SOURCES THAT NEED NO ELECTRICITY AT ALL, BOTH CONFIRMED:
+    - a HAND CRANK on both filter fans      [C] HVAC equipment schedule
+    - hand pump PU-03                       [C] drainage schedule, S-06
+  These are the real last line, the project already has them, and no
+  electrical design should be allowed to obscure them.  [D]
+
+============================================================================
+E.2  LOAD SCHEDULE
+============================================================================
+
+  Fan       P = Q.dp / (eta_fan . eta_motor)
+            Q = 300 m3/h [C],  dp = 2000 Pa [A] DIRTY filter
+            -> 0.379 kW
+  Pump      P = rho.g.Q.H / (eta_pump . eta_motor)
+            PU-01 1.5 L/s [C] at 10 m [A] -> 0.334 kW
+            PU-04 2.0 L/s [C] at 5 m [A] -> 0.223 kW
+  Lighting  104 m2 [C] x 5 W/m2 [A] -> 0.520 kW
+
+   TAG DESCRIPTION                             BOARD      kW  CLASS
+----------------------------------------------------------------------------
+  L-01 GENERAL LIGHTING, BAYS 1-8, LED          DB-E   0.520  [A]
+  L-02 EMERGENCY LIGHTING, MAINTAINED, DC       DB-E   0.100  [A]
+  P-01 SMALL POWER, SOCKET OUTLETS              DB-M   1.000  [A]
+  F-01 FILTER TRAIN FAN, 1 DUTY OF 2            DB-E   0.379  [R]
+  D-01 DEHUMIDIFIER DH-1                        DB-E   1.000  [A]
+  U-01 CLEAN SUMP PUMP PU-01, 1 DUTY OF 2       DB-E   0.334  [R]
+  U-02 STAIRWELL PUMP PU-04, 1 DUTY OF 2        DB-M   0.223  [R]
+  Z-01 EMP ZONE 2 OPS / COMMS EQUIPMENT        DB-Z2   1.500  [A]
+  S-01 FIRE DETECTION AND ALARM PANEL           DB-E   0.100  [A]
+  B-01 BATTERY CHARGER / INVERTER               DB-M   0.800  [A]
+  G-01 GENERATOR AUXILIARIES                    DB-M   0.300  [A]
+----------------------------------------------------------------------------
+       CONNECTED LOAD                                  6.256  kW
+       at power factor 0.85                            7.360  kVA
+
+  STANDBY UNITS ARE NOT COUNTED TWICE.  FAN-2, PU-02 and PU-05 are
+  standby to FAN-1, PU-01 and PU-04 and never run simultaneously with
+  them  [C].  The schedule carries the duty unit only.
+
+============================================================================
+E.3  IS THE 15 kVA GENERATOR THE RIGHT SIZE?  -  YES, COMFORTABLY
+============================================================================
+
+  Connected load                         6.256 kW
+  at PF 0.85                             7.360 kVA
+  GEN-1 rating                          15.000 kVA   [C] master A.3
+  UTILISATION                             49.1 %
+  SPARE                                  7.640 kVA
+
+  Largest motor: the filter fan at 0.379 kW.  Even a direct-on-line
+  start at 6x full-load current is about 2.7 kVA - trivial against
+  a 15 kVA set.  THERE IS NO STARTING PROBLEM.  [D]
+
+  ** THE CONFIRMED 15 kVA IS ABOUT TWICE THE CONNECTED DEMAND, and at
+     49 % it sits in the healthy loading band for a diesel set - high
+     enough to avoid wet-stacking, low enough to carry growth.  The
+     project's own figure needs no change.  [D] **
+
+============================================================================
+E.4  THE QUESTION THAT DECIDES THE WHOLE PACKAGE
+============================================================================
+
+  MAY THE GENERATOR RUN DURING MODE 3 CLOSED?
+
+  The project states BOTH of these, in the SAME confirmed schedule:
+
+    MODE 3  CLOSED            'ALL FIVE BLAST VALVES SHUT.  48 h limit'
+    MODE 5  GENERATOR RUNNING 'BV-4 AND BV-5 OPEN ... bay 8 only - does
+                               NOT touch the gas-tight envelope'
+            and, in the note, 'Mode 5 is INDEPENDENT of modes 1-4'
+
+  BV-4 and BV-5 are two of the five.  Mode 3 shuts them; mode 5 needs
+  them open.  The two statements cannot both hold during mode 3, and
+  NOTHING IN THE PROJECT SAYS WHICH GIVES WAY.  [U]
+
+  Both readings are defensible:
+    CASE A  the valves shut at the shock, hold 1.3 s [C], and BV-4/BV-5
+            are REOPENED once it has passed.  Bay 8 is outside the
+            gas-tight envelope, so the clean zone is untouched - which
+            is exactly what the mode 5 note says.  The generator is
+            available after a short outage.
+    CASE B  mode 3 means SEALED, all five, for the full 48 h.  The
+            generator cannot run at all and the battery carries
+            everything.
+
+  E.5 sizes both.  THE ANSWER DIFFERS BY A FACTOR OF TWELVE.
+
+============================================================================
+E.5  THE ESSENTIAL SYSTEM AND THE BATTERY
+============================================================================
+
+  Loads that stay live with NO generator and NO mains:
+
+       L-02  0.100 kW   EMERGENCY LIGHTING - maintained
+      L-01r  0.150 kW   REDUCED GENERAL LIGHTING, 25 % of L-01  [A]
+       S-01  0.100 kW   FIRE DETECTION AND ALARM
+      Z-01r  0.750 kW   EMP ZONE 2 AT 50 % DUTY  [A]
+      U-01i  0.033 kW   CLEAN SUMP PUMP, INTERMITTENT AT 10 % DUTY  [A]
+       R-01  0.100 kW   CO2 SCRUBBER RECIRCULATION FAN  [A] - NOT IN ANY SCHEDULE, EL-V7
+       I-01  0.050 kW   INSTRUMENTS AND MONITORING  [A]
+      TOTAL  1.283 kW
+
+  GROUNDWATER DOES NOT STOP BECAUSE THE SHELTER IS SEALED.  The clean
+  sump pump has to stay powered through mode 3, and the project's third
+  line - hand pump PU-03 [C] - is what covers it if the battery fails.
+
+  Battery:  48 V DC, depth of discharge 0.80 [A],
+            inverter efficiency 0.90 [A]
+
+             HOURS   DELIVERED      RATED    CAPACITY      MASS    FLOOR
+                           kWh        kWh  Ah at 48 V        kg   m2 min
+----------------------------------------------------------------------------
+    CASE A     4.0        5.13       7.13       148.5       204     0.40
+    CASE B    48.0       61.61      85.56      1782.6      2445     4.80
+----------------------------------------------------------------------------
+
+  ** CASE A IS A CABINET.  CASE B IS A ROOM. **   12x apart.  [D]
+
+  CASE A   149 Ah, about 204 kg - one small battery cabinet,
+           anywhere convenient.
+  CASE B   1783 Ah, about 2.4 TONNES of lead-acid needing at least
+           4.8 m2 of floor just to stay inside the 5 kPa floor live
+           load  [C] A.7.2 - and BAY 5 IS ALREADY 80 % OCCUPIED as drawn
+           (MEP coordination CO-3).  THERE IS NOWHERE TO PUT IT.
+
+  ADOPTED FOR THIS PACKAGE: CASE A, 4 h, 149 Ah at 48 V.  [A]
+  Chosen because it is the reading THE PROJECT'S OWN DOCUMENT implies -
+  the mode schedule calls mode 5 'power OR BATTERY CHARGING' and says it
+  is 'independent of modes 1-4', which only makes sense if the set can
+  run while the clean zone is closed.
+
+  ** IF CASE B IS RIGHT, THIS BATTERY IS TWELVE TIMES TOO SMALL AND THE
+     SHELTER HAS NO ROOM FOR THE RIGHT ONE.  That is EL-V1, and it is
+     the single most consequential open question in this package. **
+
+============================================================================
+E.6  FUEL - THE OTHER WAY THE 96 h MISSION CAN FAIL
+============================================================================
+
+  If the generator is the sole source for the full mission:
+    connected load           6.256 kW      [D] E.2
+    mission                  96.0 h       [C] master A.1
+    energy                  600.6 kWh
+    at 0.35 L/kWh [A]          210 L of fuel
+
+  ORDER 200-250 L, AND NO FUEL STORE IS SPECIFIED ANYWHERE.  [N]
+  The fire plan already carries this as FS-V4 ('generator fuel type,
+  quantity and storage arrangement are unspecified, so the bay 8 fire
+  load cannot be quantified') and the Works Management reconciliation
+  as R-8.  THIS PACKAGE PUTS A NUMBER ON IT for the first time - it is
+  a bounded estimate, not a specification, and the specific fuel
+  consumption behind it is vendor data.  EL-V2.
+
+============================================================================
+E.7  WHAT THIS PACKAGE DID NOT DO
+============================================================================
+
+  1  NO CIRCUIT SCHEDULE, NO CABLE SIZING, NO LUMINAIRE OR SOCKET LAYOUT.  It stops at board level on purpose.  EL-V5.
+
+  2  NO EQUIPMENT SCHEDULE FOR EMP ZONE 2.  Z-01 is a 1.50 kW ALLOWANCE, which is a basis for EM-V2, not an answer to it.  EL-V3.
+
+  3  NO PROTECTION OR DISCRIMINATION STUDY, no fault level, no earth-loop impedance - all need the incoming supply capacity, which is [N].
+
+  4  NO CHANGE TO ANY BOQ QUANTITY, RATE, DATE OR FLOAT.  The owner's Works Management package governs and is untouched.
+
+  5  NO COOLING LOAD, because NO COOLING PLANT EXISTS anywhere in the project.  Referred to HVAC, not resolved here.  EL-V6.
+
+  6  NOTHING RESOLVED.  No existing [ASSUMED], [UNRESOLVED] or [NOT AVAILABLE] tag is converted, downgraded or deleted.
+
+============================================================================
+END OF CALCULATIONS
+============================================================================

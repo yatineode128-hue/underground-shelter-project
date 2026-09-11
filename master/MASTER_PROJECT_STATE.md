@@ -3248,6 +3248,120 @@ wait on anything** — they are arithmetic on confirmed geometry.
 
 ---
 
+## H.20 Electrical and power package — revision EL1 — 11 September 2026
+
+**Requested, deliberately basic, and it closes the project's largest hole.** *"No electrical
+design package exists"* has headed the thirteen-gap list since WM1 (H.10): *"the scope is
+confirmed — EMP Zone 2 enclosure, 15 kVA generator, earthing to 5 Ω, penetration protection —
+but no circuit, cable, luminaire, DB or earth-electrode schedule does."* **Three packages were
+stuck behind it in their own words** — **FS-V2** (*"no fire detection, alarm, emergency lighting
+or suppression exists anywhere. **Follows the missing electrical design**"*), **EM-V2** (Zone 2
+dimensions await an equipment schedule), and **HVAC QA/QC P11** (*"distribution, UPS and battery
+autonomy are an **electrical** scope item, **not designed here**"*). `Electrical/` now supplies
+the minimum that unblocks them, and stops there: **it ends at board level.**
+
+### A source the master never recorded
+
+The shelter has **two** supplies, not one. **GEN-1, 15 kVA, Bay 8** is confirmed in A.3 — and an
+**incoming mains via a meter panel** is confirmed too, but **only in the owner's own master
+construction schedule**, activity **5 "Electricity Provision"** and activity **123 "Electrical
+Wiring Works — Mains wire Pulling, Mater Panel Fixing etc. (DB to Meter Panel)"**. WM2 ruled that
+the owner's package governs, so the mains is part of this project; **its capacity, tariff and
+point of connection are `[N]`**, which is why no fault level or discrimination study is possible.
+**EL-V4.**
+
+**And two sources needing no electricity at all, both already confirmed and both now credited in
+writing: the hand crank on each filter fan, and hand pump PU-03.** They are the real last line.
+
+### The 15 kVA is right, and needs no change
+
+| | |
+|---|---|
+| Connected load | **6.256 kW · 7.360 kVA** at PF 0.85 |
+| GEN-1 `[C]` A.3 | **15.0 kVA** |
+| **Utilisation** | **49.1 %** · spare 7.64 kVA |
+
+About **twice** the connected demand, and 49 % is the healthy loading band for a diesel set —
+high enough to avoid wet-stacking, low enough to carry growth. Largest motor is the filter fan at
+**0.379 kW**; even a direct-on-line start is ≈ 2.7 kVA. **No starting problem.** `[D]`
+Standby plant is not double-counted: FAN-2, PU-02 and PU-05 never run with their duty units `[C]`.
+
+### The finding — the battery is either a cabinet or a room
+
+**MAY THE GENERATOR RUN DURING MODE 3 CLOSED?** The project states **both** of these in the
+**same confirmed schedule**: Mode 3 — *"**all five blast valves shut**, 48 h limit"*; Mode 5 —
+*"**BV-4 and BV-5 open** … bay 8 only, does not touch the gas-tight envelope"*, with the note
+*"Mode 5 is **independent** of modes 1–4"*. **BV-4 and BV-5 are two of the five. Both cannot hold
+during Mode 3, and nothing says which gives way.** `[U]`
+
+| | Hours | Ah at 48 V | Mass | Min floor |
+|---|---|---|---|---|
+| **Case A** — generator restartable after the shock | 4 | **149** | 204 kg | 0.40 m² |
+| **Case B** — no generator for the whole of Mode 3 | 48 | **1 783** | **2 445 kg** | **4.80 m²** |
+
+**Twelve times apart.** Case B is **2.4 tonnes** of lead-acid needing **4.8 m²** merely to stay
+inside the **5.0 kPa** floor live load `[C]` A.7.2 — **and Bay 5 is already 80 % occupied as
+drawn** (MEP coordination **CO-3**). **There is nowhere to put it.**
+
+**Case A is adopted** `[A]` because it is the reading **the project's own document implies** —
+the mode schedule calls Mode 5 *"power **or battery charging**"* and *"independent of modes 1–4"*,
+which only makes sense if the set can run while the clean zone is closed. **If Case B is right,
+the battery is twelve times too small and the shelter has no room for the right one. EL-V1.**
+
+### What was produced — all under `Electrical/`
+
+**One A1 DXF** (`E-001` single line diagram, **validated 0 errors 0 warnings, 0 text overlaps**),
+**two schedules** as `.md` and `.csv` (load; distribution, essential services and battery), a
+**design basis** carrying its own QA/QC section, a **README**, a **full calculation printout**,
+and **six Python generators** (`el_build_all.py` rebuilds everything). `el_dxf.py` subclasses the
+shared `mep_dxf.py` and uses the `SCOPE_NOTE` / `TB_SCOPE` / `DATE` hooks CAM2 / FS2 added —
+**no shared library is modified.**
+
+**Three boards, one cable entry.** `DB-M` main (Bay 8, outside the gas-tight envelope, mains +
+generator changeover) · `DB-E` essential (Bay 5, inside it, also fed from the battery inverter) ·
+`DB-Z2` (inside the EMP Zone 2 enclosure, fed **through the PoE-3 PCI**). **Every conductor
+crossing the envelope uses the existing service entry plate** — PCI on power, **fibre on signal**
+(EM1 PoE-3 / PoE-4). **No new penetration is created.** Earthing **adopts EM-F5 unchanged** and is
+not re-argued.
+
+### What EL1 unblocks — and what it does not claim
+
+| Item | Now |
+|---|---|
+| **13 gaps — "no electrical design package exists"** | **A basic design exists.** The detailed design does not — **EL-V5**. **Advanced, not closed** |
+| **FS-V2** | **`S-01` detection/alarm and `L-02` maintained emergency lighting now exist on `DB-E`, on the battery. The electrical blocker is gone.** Head layout, zoning, detector type and suppression remain **fire engineering and are not invented**. **Advanced, not closed** |
+| **EM-V2** | **`Z-01` gives a 1.50 kW allowance and a `DB-Z2` sub-board**, so EMP Zone 2 has a basis instead of nothing. **Still an allowance. Advanced, not closed** |
+| **HVAC P11** | **Designed. The one item EL1 closes**, and it was explicitly a deferral to this scope |
+| **FS-V4 / R-8** | **First number on generator fuel: ≈ 210 L for a 96 h run** (600.6 kWh at 0.35 L/kWh `[A]`). A bounded estimate, not a specification. **Advanced, not closed** |
+
+**FS2 was regenerated from its own generator** (`fs_data.py`, `fs_docs.py`, then
+`fs_build_all.py`) rather than edited by hand, because its plan carries a *"do not edit this
+file"* banner. **The FS-V2 register text was first written long enough to overflow a panel on
+F-102 and fail validation; it was shortened to drawing-safe length and the full explanation kept
+in the prose.** F-101 and F-102 now validate **0 errors**; their remaining diff is ezdxf
+timestamp and GUID churn, not geometry.
+
+### Seven new open items — EL-V1 to EL-V7
+
+**EL-V1** may the generator run in Mode 3 (sizes the battery, 12×) · **EL-V2** generator fuel
+type, quantity and storage · **EL-V3** no equipment schedule for EMP Zone 2 · **EL-V4** incoming
+mains capacity, tariff and point of connection · **EL-V5** no circuit, cable, luminaire or socket
+schedule — deliberate · **EL-V6** **no cooling plant exists anywhere in the project**, so no
+cooling load appears · **EL-V7** the CO₂ scrubber's air movement is in no schedule.
+
+### What EL1 did NOT do
+
+**No design value, BOQ quantity, rate, date or float changed** — the owner's Works Management
+package governs and is untouched. **No new envelope penetration.** Main staircase untouched;
+sentry post excluded. **No protection or discrimination study** (needs EL-V4). **No existing
+`[ASSUMED]`, `[UNRESOLVED]` or `[NOT AVAILABLE]` tag converted, downgraded or deleted.** Codes
+cited are only those already in the project's own references — IS 732, IS 3043, IEEE 142,
+IS 694, IS 1554 Pt 1, and MIL-STD-188-125-1 §5.7.2.1 / §5.7.4.1 via EM1.
+
+**Status: FOR REVIEW — NOT FOR CONSTRUCTION.**
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -3388,6 +3502,19 @@ wait on anything** — they are arithmetic on confirmed geometry.
 > **Drainage, HVAC and Schedule of Finishes regenerate byte-identically.** Verified: `git status`
 > is clean on all five `Scripts/` directories.
 
+### Added by EL1, 11 September 2026 — see H.20
+
+> **The project's first electrical design. Deliberately basic — it stops at board level.**
+
+| Folder / file | Contents |
+|---|---|
+| `Electrical/Documentation/ELECTRICAL_DESIGN_BASIS.md` | **The main document.** Sources (including the mains the master never recorded) · load schedule · the 15 kVA check · **EL-V1, the Mode 3 question** · the essential system and battery · distribution, cable entry and earthing · what it did not do · **what it unblocks** · **EL-V1…V7** · a QA/QC section |
+| `Electrical/Documentation/00_README.md` | Package README |
+| `Electrical/Calculations/EL_CALC_OUTPUT.txt` | Every figure with its inputs, formula and arithmetic — E.1 sources · E.2 loads · E.3 the generator check · E.4 the Mode 3 question · E.5 the battery, both cases · E.6 fuel · E.7 what it did not do |
+| `Electrical/Schedules/` | `LOAD_SCHEDULE` (11 rows) and `DISTRIBUTION_AND_ESSENTIAL_SCHEDULE` (3 boards + the essential list and both battery cases), each `.md` and `.csv` |
+| `Electrical/DXF/E-001_Single_Line_Diagram.dxf` | **One A1 sheet.** Mains + GEN-1 with changeover, `DB-M`, battery and inverter, `DB-E`, and `DB-Z2` inside the EMP Zone 2 enclosure through its PCI. **0 errors, 0 warnings, 0 text overlaps** |
+| `Electrical/Scripts/` | `el_proj.py` · `el_calc.py` · `el_schedules.py` · `el_dxf.py` (subclasses `mep_dxf.py`, uses the CAM2/FS2 hooks) · `el_sheets.py` · `el_build_all.py` |
+
 ## I.3 SUPERSEDED / ARCHIVED
 
 | Item | Superseded by | Note |
@@ -3511,6 +3638,13 @@ wait on anything** — they are arithmetic on confirmed geometry.
 | **EM-V4** | Communications | **There is none.** No antenna, mast, feeder or comms design exists anywhere in the project, so MIL-STD-188-125-1 §5.7.6 has nothing to apply to | **A communications design.** An antenna is by definition a deliberate conductor from outside to inside — the hardest EMP penetration there is — and it is also a concealment signature (CAM1) |
 | **EM-V5** | PD-05's pipe material | **Unspecified — as is every pipe material in the project.** The drainage package names no material for any run | **A material.** Metallic → bond it 360° to the entry plate and its exterior becomes shield. Plastic → the bore is an aperture *and* the water column is a conductor, needing a metallic spool piece nobody has specified |
 | **EM-V6** | Escape-shaft head hatch and blast-door RF performance | **Neither exists.** Lining a 1 400 shaft does not work — it propagates above 125.5 MHz however well it is lined; the treatment is a **bonded conducting hatch at the head**. Blast Door 1's frame is already cast in and welded to the cage (A.5), which is the right start | **Vendor data.** Both sit directly on the protective boundary |
+| **EL-V1** | May the generator run during Mode 3 CLOSED? | **The project states both "all five blast valves shut" (mode 3) and "BV-4 and BV-5 open … independent of modes 1–4" (mode 5), in the same confirmed schedule.** BV-4/BV-5 are two of the five. EL1 adopts the mode-5 reading because the schedule itself calls it *"power or battery charging"* | **A client ruling.** It sizes the battery: **149 Ah cabinet, or 1 783 Ah and 2.4 t needing 4.8 m² of floor in a bay already 80 % full.** Twelve times apart |
+| **EL-V2** | Generator fuel type, quantity and storage | **None specified.** EL1 derives **≈ 210 L for a 96 h run** (600.6 kWh at 0.35 L/kWh `[A]`) — the first number anyone has put on it | Client / vendor. Same root as **FS-V4** and **R-8** |
+| **EL-V3** | Equipment schedule for EMP Zone 2 | **`Z-01`, a 1.50 kW allowance.** It gives EM-V2 a basis, not an answer | Client / operational |
+| **EL-V4** | Incoming mains capacity, tariff and point of connection | **The supply is confirmed only by the owner's programme** (activities 5 and 123, *"DB to Meter Panel"*). No capacity exists anywhere | Utility / client. **Blocks any fault level or discrimination study** |
+| **EL-V5** | Circuit, cable, luminaire and socket schedules | **None — deliberately.** EL1 stops at board level | Detailed design stage |
+| **EL-V6** | Cooling | **No cooling plant exists anywhere in the project**, so no cooling load appears in the schedule. A sealed 332.8 m³ box with 9 occupants and a dehumidifier has a heat balance nobody has computed | **HVAC.** Referred, not resolved |
+| **EL-V7** | CO₂ scrubber air movement | **In no schedule.** EL1 assumes 0.10 kW for a recirculation fan; soda lime needs air over it and no fan is specified | **HVAC** |
 
 ### K.1c Works Management items — RULED by RC1
 

@@ -1,0 +1,12 @@
+TAG,LOAD,BOARD,kW,CLASS,NOTES
+L-01,"GENERAL LIGHTING, BAYS 1-8, LED",DB-E,0.520,[A],104 m2 at 5 W/m2. No luminaire schedule exists - EL-V5
+L-02,"EMERGENCY LIGHTING, MAINTAINED, DC",DB-E,0.100,[A],On the battery at all times.  FS-V2 waits on this
+P-01,"SMALL POWER, SOCKET OUTLETS",DB-M,1.000,[A],Allowance.  No socket schedule exists - EL-V5
+F-01,"FILTER TRAIN FAN, 1 DUTY OF 2",DB-E,0.379,[R],"AHU-1 / AHU-2 [C].  FAN-2 is standby, NOT simultaneous"
+D-01,DEHUMIDIFIER DH-1,DB-E,1.000,[A],DH-1 confirmed in master A.3; ITS DUTY IS [N] - allowance only
+U-01,"CLEAN SUMP PUMP PU-01, 1 DUTY OF 2",DB-E,0.334,[R],"1.5 L/s [C].  PU-02 standby, auto-alternating, NOT simultaneous"
+U-02,"STAIRWELL PUMP PU-04, 1 DUTY OF 2",DB-M,0.223,[R],2.0 L/s [C].  OUTSIDE the protective envelope
+Z-01,EMP ZONE 2 OPS / COMMS EQUIPMENT,DB-Z2,1.500,[A],"ALLOWANCE, NOT A SCHEDULE.  This is the number EM-V2 was waiting for"
+S-01,FIRE DETECTION AND ALARM PANEL,DB-E,0.100,[A],Panel and loop only.  Head layout is fire engineering - FS-V2
+B-01,BATTERY CHARGER / INVERTER,DB-M,0.800,[A],"Sized with the battery, section E.5"
+G-01,GENERATOR AUXILIARIES,DB-M,0.300,[A],"Controls, block heater, starting.  Vendor data [N]"
