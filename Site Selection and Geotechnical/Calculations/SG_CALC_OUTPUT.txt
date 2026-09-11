@@ -1,0 +1,828 @@
+====================================================================================================
+SITE SELECTION AND GEOTECHNICAL  -  CALCULATION PRINTOUT
+revision SG1   11.09.2026   GEOMETRY REV F + M1
+====================================================================================================
+
+SOURCES
+  1  SEMT/67/15   REPORT ON SUB-SOIL INVESTIGATION FOR CTW PH-III ACCN PROJECT AT CME PUNE
+     Soil Engineering & Material Testing Wing, College of Military Engineering, Pune 411 031
+     Raised on CTW letter No 8722/Ph-III/CTW/116/Q dated 20 May 2015
+  2  P1 deck, "CONSTRUCTION OF CBRN HARDENED UNDERGROUND OPS ROOM", TEAM GROUNDZERO, 32 slides
+  3  Location pin https://maps.app.goo.gl/H2VjnrjS8X8SsXEr9
+     NOT RESOLVED - maps.app.goo.gl refused by the session egress policy (403). Coordinates [N]; supply lat/long to close.
+
+EVIDENCE CLASSES, as everywhere in this project
+  [C] CONFIRMED       traceable to the master, to a Rev F drawing, to sheet S-06, or read verbatim off one of the two supplied documents
+  [R] RECONSTRUCTED   computed here from confirmed values; the arithmetic is shown in full
+  [D] DERIVED         an engineering result computed by THIS package
+  [A] ASSUMED         an engineering selection made by THIS package - confirm before construction
+  [U] UNRESOLVED      the two documents disagree, or they disagree with the master
+  [N] NOT AVAILABLE   no source exists anywhere in the project - DATA REQUIRED
+
+THIS PACKAGE RESOLVES NOTHING.  Master rule M.6 forbids converting an
+[ASSUMED] into a confirmed fact.  Every K.2 assumption stands after
+this calculation exactly as it stood before it; what changes is that
+each one now has a stated provenance and a quantified margin.
+
+====================================================================================================
+G.1   UNIT CONVERSION  -  the report is in kgf/cm2, the project is in kPa
+====================================================================================================
+
+  1 kgf/cm2 = 1 kgf / 1e-4 m2 = 9.80665 N / 1e-4 m2 = 98 066.5 Pa
+           = 98.0665 kPa      [R] exact, from the definition of kgf
+
+  Every bearing figure in the report, converted once, here:
+
+     kgf/cm2           kPa   what it is                                                
+  ------------------------------------------------------------------------------------
+        0.25          24.5   H Building, CH clay, GL to 0.18 m                         
+        0.27          26.5   G Building, CH clay, GL to 1.0 m                          
+        2.07         203.0   Mess Bldg, murrum SC, GL to 0.2 m                         
+        4.27         418.7   G Building, murrum GM, 1.0 to 1.2 m                       
+        4.66         457.0   H Building, murrum GM, 0.18 to 0.7 m                      
+        5.18         508.0   Mess Bldg, murrum GP, 0.2 to 0.5 m                        
+       10.00         980.7   BROKEN basalt, all three locations, IS 12070 Table 2      
+       20.00        1961.3   SOUND basalt, SOAKED, G Building, below 1.5 m             
+       21.00        2059.4   SOUND basalt, SOAKED, H Building and Mess Bldg            
+       30.00        2942.0   SOUND basalt, UNSOAKED, H Building, below 0.9 m           
+       33.00        3236.2   SOUND basalt, UNSOAKED, G Building, below 1.5 m           
+       36.00        3530.4   SOUND basalt, UNSOAKED, Mess Bldg, below 1.0 m            
+
+  MASTER A.6 presumptive SBC                            3240 kPa  = 33.04 kgf/cm2
+  IS 1904:1986 Table 1, hard rock without lamination.          [A]
+
+  *** THE MASTER'S PRESUMPTIVE VALUE AND THE REPORT'S MEASURED ONES ***
+  3240 kPa sits INSIDE the report's UNSOAKED band (2942 to 3530 kPa)
+  and +65.2% ABOVE the report's SOAKED band (1961 to 2059 kPa).
+  Which one applies is settled in G.4 - it is not a free choice.
+
+====================================================================================================
+G.2   REPRODUCING THE REPORT'S OWN ARITHMETIC  -  is it self-consistent?
+====================================================================================================
+
+  A report is only usable if its numbers follow from each other.  Both
+  of its bearing derivations are reproduced here from its own inputs.
+
+  (a)  SOIL  -  Appendix B.  Remark (ii): 'The recommended bearing
+       capacity is calculated with factor of safety = 2.5 in submerged
+       condition of soil.'   So SBC = q_ult / 2.5.
+
+  sample   class     q_ult     /2.5  SBC printed  check 
+  --------------------------------------------------------
+  44/15    CH        0.670    0.268         0.27  OK    
+  45/15    GM       10.680    4.272         4.27  OK    
+  61/15    CH        0.617    0.247         0.25  OK    
+  62/15    GM       11.650    4.660         4.66  OK    
+  64/15    SC        5.170    2.068         2.07  OK    
+  65/15    GP       12.950    5.180         5.18  OK    
+
+  6 of 6 reproduce to the printed precision.   [R]
+
+  (b)  ROCK  -  Appendix C.  The report cites IS 1121 (Pt-I) for the
+       compressive strength and IS 12070 Cl. 6 for the bearing value,
+       but prints no factor.  Solving for it from its own six rows:
+
+  condition  location                   UCS    SBC   UCS/SBC
+  ----------------------------------------------------------
+  UNSOAKED   G- Building (TP-1)         814     33     24.67
+  UNSOAKED   H- Building (TP-8)         752     30     25.07
+  UNSOAKED   Mess Bldg (TP-9)           900     36     25.00
+  SOAKED     G- Building (TP-1)         509     20     25.45
+  SOAKED     H- Building (TP-8)         513     21     24.43
+  SOAKED     Mess Bldg (TP-9)           529     21     25.19
+
+  mean 24.97, range 24.43 to 25.45
+  The factor is 25, applied to the compressive strength and rounded to
+  the nearest whole kgf/cm2.  Checking that back:
+
+     814 / 25 =  32.56  ->  rounds to 33   printed 33   OK
+     752 / 25 =  30.08  ->  rounds to 30   printed 30   OK
+     900 / 25 =  36.00  ->  rounds to 36   printed 36   OK
+     509 / 25 =  20.36  ->  rounds to 20   printed 20   OK
+     513 / 25 =  20.52  ->  rounds to 21   printed 21   OK
+     529 / 25 =  21.16  ->  rounds to 21   printed 21   OK
+
+  All six reproduce.  SBC_rock = UCS / 25, rounded.          [R]
+
+  (c)  The specimen arithmetic behind the UCS itself:
+
+  condition  location                 load kg  area cm2      P/A  printed
+  ----------------------------------------------------------------------
+  UNSOAKED   G- Building (TP-1)         42356     52.06    813.6      814
+  UNSOAKED   H- Building (TP-8)         21924     29.15    752.1      752
+  UNSOAKED   Mess Bldg (TP-9)           57573     63.96    900.1      900
+  SOAKED     G- Building (TP-1)         24563     48.30    508.6      509
+  SOAKED     H- Building (TP-8)         14133     27.56    512.8      513
+  SOAKED     Mess Bldg (TP-9)           27033     51.12    528.8      529
+
+  Every row is its own load divided by its own specimen area, to the
+  nearest whole kgf/cm2.  The report is internally consistent.    [R]
+
+  >>> FINDING SG-F1.  The SEMT report reproduces completely from its
+      own inputs - both the soil chain (q_ult / 2.5) and the rock
+      chain (P/A, then /25).  It is usable.  That is worth saying
+      before anything is built on it.
+
+====================================================================================================
+G.3   THE DEPTH THE INVESTIGATION REACHED  -  and the depth the structure needs
+====================================================================================================
+
+  Field method, verbatim, report para 10:
+    "Excavation in open trench / trial pit by JCB was carried out and 11 trial pits were made."
+
+  The deepest stratum boundary recorded anywhere in the report:
+
+  location                 deepest boundary stated         level*
+  ----------------------------------------------------------------
+  G Building (TP-1 to TP-4) Below 1.5 m                     -1.500
+  H Building (TP-5 to TP-8) Below 0.9 m                     -0.900
+  Mess Bldg (TP-9 to TP-11) Below 1.0 m                     -1.000
+
+  * expressed on the project datum, taking the report's GL as the
+    project's finished grade 0.000.  That equivalence is itself [A] -
+    see G.9, the site is not level and no benchmark ties the two.
+
+  DEEPEST INFORMATION IN THE REPORT      (-)1.500
+  Rock cores were taken at and below that level; no pit is stated to
+  have gone deeper, and a JCB in broken basalt cannot go much deeper.
+
+  WHAT THE STRUCTURE NEEDS:
+
+  element                                          level   below the deepest data
+  --------------------------------------------------------------------------------
+  Sentry footing F1, in-situ basalt               -2.000                 0.500 m
+  Underground box, top of roof slab               -2.000                 0.500 m
+  Underground box, internal floor                 -6.100                 4.600 m
+  Mat soffit                                      -6.700                 5.200 m
+  FORMATION - what the mat bears on               -6.800                 5.300 m
+  Sump SU-01 base                                 -8.000                 6.500 m
+
+  >>> FINDING SG-F2  -  THE GOVERNING FINDING OF THIS PACKAGE.
+      The investigation reached about 1.5 m.  The structure
+      founds at -6.800, which is 5.3 m deeper, and the sump goes
+      6.5 m deeper still.  ONLY THE SENTRY POST FOOTING F1 AT (-)2.000
+      IS INSIDE THE INVESTIGATED HORIZON, AND ONLY JUST.
+
+      Nothing the report says about rockhead, water, jointing,
+      red-bole seams or modulus can be read as covering the founding
+      horizon of the shelter.  Master K.2 A1, A2, A4, A5 and A8 all
+      stay OPEN, and the programme's confirmatory site investigation
+      A1075 - boreholes, rockhead, red-bole seams, 12 d, critical
+      path - remains mandatory in full.
+
+====================================================================================================
+G.4   BEARING  -  which of the report's two rock values applies, and does it matter?
+====================================================================================================
+
+  The report gives the sound basalt TWO bearing values: one SOAKED, one
+  UNSOAKED.  They differ by a factor of about 1.6.  The design GWT and
+  the founding level decide between them, and it is not a free choice:
+
+    design GWT   (master A.6, [A])                  -2.000
+    mat soffit                                      -6.700
+    formation                                       -6.800
+    depth of the formation below the design GWT      4.800 m
+
+  The founding horizon is permanently below the design water table.
+  THE SOAKED VALUE IS THE APPLICABLE ONE.  Appendix B's own remark (ii)
+  makes the same choice for the soils: it computes them 'in submerged
+  condition of soil'.
+
+  SOAKED, lowest of the three                     1961.3 kPa  [C]
+  UNSOAKED, lowest of the three                   2942.0 kPa  [C]
+  MASTER A.6 presumptive, IS 1904 Table 1         3240.0 kPa  [A]
+
+  Re-running every bearing check in the master at the SOAKED value:
+
+  check                                        demand   /3240 [A]  /1961 soaked   verdict
+  ----------------------------------------------------------------------------------------
+  Mat, service (master B.3)                    58.4 kPa      1.80%        2.98%      PASS
+  Mat, BLAST (master B.3)                     404.9 kPa     12.50%       20.64%      PASS
+  Sentry footing F1 (master B.8.7)            157.6 kPa      4.86%        8.04%      PASS
+
+  >>> FINDING SG-F3.  The master's presumptive 3240 kPa is 65 % above
+      the report's soaked basalt value, and it does not matter.  The
+      worst bearing utilisation in the whole project rises from 12.5 %
+      to 20.6% and every element still passes with a factor of about
+      4.8 in hand.  MASTER A.6 IS NOT CHANGED - it is a presumptive
+      value from IS 1904 and it is declared as one.  What SG1 adds is
+      that the design is now known to survive the measured value too.
+
+  A second robustness check, because the report offers it for free:
+      BROKEN basalt, IS 12070 Table 2                  980.7 kPa
+      mat blast bearing / broken basalt SBC            41.3%
+      Even if the formation were left in the BROKEN rock horizon - it
+      will not be, it is 5 m below it - the mat would still pass under
+      full blast.  The bearing case is not close to governing anything.
+
+====================================================================================================
+G.5   NET BEARING PRESSURE  -  why settlement was never the problem, and flotation always was
+====================================================================================================
+
+  The excavation removes ground before the structure replaces it.  The
+  report's own profile lets that be quantified for the first time.
+
+    mean rockhead over the report's three locations      1.133 m     [R]
+    overburden removed, 1.13 m soil at 19.5 kN/m3          22.10 kPa   [A] gamma
+    overburden removed, 5.67 m basalt at 25.0 kN/m3       141.67 kPa   [A] gamma
+    TOTAL GROSS PRESSURE REMOVED AT FORMATION          163.77 kPa   [D]
+
+    replaced by, in service                             58.40 kPa   [C] B.3
+    NET CHANGE IN PRESSURE AT FORMATION               -105.37 kPa   [D]
+
+  >>> FINDING SG-F4.  IN SERVICE THE STRUCTURE IS LIGHTER THAN THE
+      GROUND IT REPLACES, by about 105 kPa.  It is a fully compensated
+      foundation and then some.  This is the physical reason master
+      B.3 can write 'SETTLEMENT Negligible' and mean it, and it is the
+      same fact seen from the other side that makes FLOTATION the
+      governing foundation problem - FoS 0.33 at the mat-only stage.
+      The report does not change either conclusion; it explains them.
+
+    under blast, momentarily                           404.90 kPa   [C] B.3
+    net, under blast                                  +241.13 kPa   [D]
+    A transient, on rock, at 21 % of the soaked SBC.  Not a settlement
+    case in any code sense.
+
+====================================================================================================
+G.6   ROCKHEAD  -  the report's band against the master's, and what it costs
+====================================================================================================
+
+  Report para 12, last sentence, verbatim:
+    "Basalt rock is encountered below this murrum / broken rock, below a depth 0.9 m to 1.5 m."
+
+  Rockhead, as the findings table gives it location by location:
+
+  location                     sound basalt below     on the project datum
+  --------------------------------------------------------------------------
+  G Building (TP-1 to TP-4)               1.500 m                  -1.500
+  H Building (TP-5 to TP-8)               0.900 m                  -0.900
+  Mess Bldg (TP-9 to TP-11)               1.000 m                  -1.000
+
+  REPORT BAND                        (-)0.900 to (-)1.500    [C]
+  MASTER A.6 ASSUMED BAND            (-)1.500 to (-)2.000    [A]
+
+  >>> FINDING SG-F5.  THE TWO BANDS TOUCH AT EXACTLY ONE POINT,
+      (-)1.500.  The report's rock is at or ABOVE the master's whole
+      assumed range.  The master is therefore CONSERVATIVE for
+      founding depth - the rock is there sooner than assumed - and
+      UNCONSERVATIVE for excavation quantity, because more of the
+      excavation is in rock and less is in soil.
+
+  Quantifying that.  The WM1 BOQ gives item E-02b at the mean
+  rockhead and states its own range, which fixes the plan area:
+
+    E-02b at rockhead (-)1.750         993.84 m3   [C]
+    depth of rock cut                   5.050 m
+    implied plan area                 196.800 m2   [R]
+    check at (-)1.500   1043.04 m3 vs the BOQ's stated 1043.0   OK
+    check at (-)2.000    944.64 m3 vs the BOQ's stated 944.6   OK
+
+  rockhead       rock cut    volume m3   vs BOQ upper bound
+  ----------------------------------------------------------
+  (-)0.900         5.900 m      1161.12            +118.12
+  (-)1.000         5.800 m      1141.44             +98.44
+  (-)1.500         5.300 m      1043.04              +0.04
+  (-)1.750         5.050 m       993.84             -49.16
+  (-)2.000         4.800 m       944.64             -98.36
+
+  ON THE REPORT'S BAND the rock quantity is 1043.0 to 1161.1 m3.
+  The BOQ prices 944.6 to 1043.0 m3.  The report's LOWER bound equals the
+  BOQ's UPPER bound.  At the report's shallow rockhead the overrun is
+      118.12 m3   (+11.3% on the priced upper bound)
+        1.97 days at the WBS A2050 output of 60 m3/day
+
+  TOTAL excavation does not change - soil falls by the same volume as
+  rock rises - so the money at stake is the RATE DIFFERENCE over about
+  118 m3, not a rock rate over 118 m3.  NO BOQ QUANTITY IS CHANGED HERE:
+  WM2 adopted the project owner's own BOQ and it governs (master H.13),
+  and risk R-03 in the WM safety and risk register already carries
+  'rock excavation quantity exceeds the estimate because rockhead is
+  shallower than the mean assumed'.  What SG1 adds is the number: the
+  register says 'roughly one extra day', and on the report's band it
+  is about 2.
+
+  One favourable consequence, recorded because it is free.  Master B.3
+  argues sliding away on the grounds that the box is 'socketed ~4.8 m
+  into basalt'.  On the report's band the socket is
+    5.3 m to 5.9 m.  The argument gets stronger, not weaker.
+
+====================================================================================================
+G.7   GROUNDWATER  -  what 'not encountered' does and does not establish
+====================================================================================================
+
+  Report para 13, in full, verbatim:
+    "Water table was not encountered in any trial pit. However, water table may raise during/after rainy season."
+
+  P1 deck slide 29, verbatim:
+    "Water Table not encountered in any trial pit"
+    "Might increase during monsoon"
+    "Proposed structure safe for water table at depth of 2 m below GL"
+
+  THIS IS THE FIRST WRITTEN PROVENANCE THE PROJECT HAS EVER HAD FOR THE
+  DESIGN GROUNDWATER TABLE.  Master A.6 and K.2 A2 record (-)2.000 as
+  [ASSUMED - the single most important number to confirm] and give no
+  source.  The source is now known, and it is this: no water was found,
+  so a depth of 2 m below GL was CHOSEN and the structure was designed
+  to be safe for it.  That is an assumption adopted in the absence of
+  data.  It is a defensible one.  It is not a measurement.
+
+  THREE REASONS THE OBSERVATION DOES NOT REACH THE DESIGN QUESTION:
+
+  (1) DEPTH.  The pits reached about 1.5 m (G.3).  The design GWT is at
+      (-)2.000, already BELOW the deepest pit, and the founding
+      horizon is at -6.800.  A pit that stops at 1.5 m
+      cannot find a water table at 2 m, let alone characterise one at
+      6.8 m.  'Not encountered' here means 'not reached'.
+
+  (2) SEASON.  The report itself says the table 'may raise
+      during/after rainy season'.  The request is dated 20 May 2015.
+      If the field work followed promptly it was done in the last weeks
+      before the monsoon - the annual minimum.  THE REPORT NOWHERE
+      STATES THE DATE OF THE FIELD WORK, so this is inference, and it
+      is recorded as an open item, not as a finding.               [U]
+
+  (3) GROUND TYPE.  Deccan Trap groundwater is not a simple water
+      table in a porous medium.  It sits in the vesicular and jointed
+      zones AT THE FLOW CONTACTS - which is the same feature master A.6
+      already names as 'the hazard is not the basalt, it is the flow
+      contacts' and which the red-bole differential-support case in B.3
+      is built around.  Such water is commonly perched and strongly
+      seasonal.  An open trial pit in the dry season is close to the
+      worst available instrument for finding it.
+
+  >>> FINDING SG-F6.  K.2 A2 STAYS [ASSUMED] AND STAYS OPEN.  The new
+      evidence supports keeping it open, not closing it.  Master B.3's
+      own arithmetic shows why this matters more than any other number
+      in the project:
+
+        of the 15.41 kPa/m lateral gradient, 9.81 is water and 5.60 is soil
+        hydrostatic uplift on the mat    46.11 kPa = 6289 kN over 136.4 m2
+        flotation FoS, mat cast only     0.33   FAIL
+        flotation FoS, box complete      1.22   MARGINAL
+      Water is nearly two thirds of the lateral load and the whole of
+      the uplift.  Everything the structure is afraid of is water.
+
+  WHAT WOULD ACTUALLY CLOSE A2, and what the programme currently does:
+
+      WBS A1080  'Monsoon groundwater monitoring - confirm the design
+                  GWT (-)2.000',  20 d,  12-11-26 to 04-12-26,  TF 0
+
+      >>> FINDING SG-F7.  THAT WINDOW IS NOT IN THE MONSOON.  On the
+          deck's own precipitation table the wet months are June to
+          October; November and December carry 22.7 and 5.9 mm between
+          them.  An activity called 'monsoon groundwater monitoring'
+          scheduled 12 Nov to 4 Dec measures the recession, not the
+          peak, and the peak is what A2 asks for.  A standpipe
+          piezometer installed in the A1075 borehole and read through
+          a full monsoon is what closes A2; nothing shorter does.
+          NO PROGRAMME DATE IS CHANGED HERE - the owner's own Master
+          Construction Schedule R0 governs (master H.13) and the
+          activity is on the critical path at TF 0, so moving it
+          moves the job.  It is raised, with the reason, as SG-V3.
+
+====================================================================================================
+G.8   THE SOIL PARAMETERS IN MASTER A.6, CHECKED AGAINST MEASURED DATA
+====================================================================================================
+
+  Appendix B gives compaction and shear results for the murrum, which
+  is the material the engineered fill, the side backfill and the berm
+  will actually be built from.  Master A.6 and A.7.3 have carried
+  round-number values for them since Rev D with no measurement behind
+  either.  They are now checkable.
+
+  (a)  UNIT WEIGHT AT PLACEMENT.  The fill is specified at 95 % MDD
+       (master A.7.3, WBS A7010).  gamma_bulk = 0.95 x MDD x (1 + OMC).
+
+  sample   class    MDD   OMC  0.95 MDD   gamma_d  gamma_bulk
+  ------------------------------------------------------------
+  45/15    GM      1.93    9%    1.8335    17.99       19.61
+  62/15    GM      1.90    8%    1.8050    17.71       19.12
+  65/15    GP      1.91    8%    1.8145    17.80       19.22
+
+  MEASURED PLACEMENT RANGE          19.12 to 19.61 kN/m3      [D]
+  MASTER A.7.3 uses                 20.00 kN/m3 for the 750 fill   [A]
+  MASTER A.6 uses                   20.00 kN/m3 bulk, 21.00 saturated  [A]
+
+       The assumed 20 is 2 to 5 % ABOVE what 95 % of the measured MDD
+       gives.  For LATERAL load that is conservative and welcome.  For
+       the COVER it makes the cover slightly lighter than assumed:
+
+         750 fill at 19.61 kN/m3  ->  14.70 kPa  (assumed 15.00, -0.30)
+         750 fill at 19.12 kN/m3  ->  14.34 kPa  (assumed 15.00, -0.66)
+         six-layer sum falls from 39.15 to 38.49 kPa
+         the RC1 declared allowance grows from 1.50 to 2.16 kPa
+
+       AND THE OTHER WAY, which matters more.  Saturate the three
+       soil-like layers and the cover gets HEAVIER, not lighter:
+
+         gamma_d at 95 % of MDD 1.93         17.99 kN/m3
+         void ratio e = G_s.gamma_w/gamma_d - 1  = 0.4999   [A] G_s = 2.75
+         gamma_sat = (G_s + e)/(1 + e).gamma_w  = 21.26 kN/m3
+         vs master A.6 gamma_sat             21.00 kN/m3   -> agrees within 1.2%    [R]
+
+         750 fill   20.00 -> 21.26   +0.94 kPa
+         300 topsoil 18.00 -> 20.00        +0.60 kPa   [A]
+         150 filter  19.00 -> 21.50        +0.38 kPa   [A]
+         layer sum on full saturation      41.07 kPa
+         against the held design value     40.65 kPa   (+0.42)
+         as a fraction of COMB 103 = 448.15 kPa   +0.09%
+
+       >>> FINDING SG-F8.  The held cover value of 40.65 kPa brackets
+           BOTH the as-placed case (lighter) and the fully saturated
+           case (heavier by about 1 %, which is 0.1 % of COMB 103).
+           C17's declared allowance turns out to be doing real work.
+           NOTHING IS CHANGED: 40.65 stands, COMB 103 stays 448.15,
+           no .std file is touched.
+
+  (b)  SHEAR STRENGTH AND K0.  Master A.6 takes K0 = 1 - sin(phi) with
+       phi ~ 30 deg.  Appendix B measured phi on four samples:
+
+  sample   class  c kg/cm2   phi  1 - sin phi   vs 0.50
+  ------------------------------------------------------
+  45/15    GM         0.00   33d       0.4554   -0.0446
+  62/15    GM         0.00   34d       0.4408   -0.0592
+  64/15    SC         0.01   27d       0.5460   +0.0460
+  65/15    GP         0.00   35d       0.4264   -0.0736
+
+       Three granular murrum samples (GM, GM, GP) give K0 0.426 to
+       0.455 - the assumed 0.50 is CONSERVATIVE against all three.
+       One clayey sand (SC, TP-9, a 0.2 m surface layer) gives 0.546.
+
+       Worst case, carrying the SC value to full depth, which no
+       reading of the profile supports:
+         gradient  K0.gamma' + gamma_w = 0.5460 x 11.19 + 9.81 = 15.920 kPa/m
+         wall pressure at the floor (-)6.100
+             master       83.18 kPa   [C] A.7.2
+             worst case   87.11 kPa   [D]   +4.73%
+         with blast 383 kPa on the same wall face:
+             master      466.18 kPa
+             worst case  470.11 kPa   +0.84%
+
+       >>> FINDING SG-F9.  The measured shear parameters move the wall
+           design load by under 1 %.  The walls are blast-governed;
+           the soil is 18 % of the load and the soil PARAMETERS are a
+           fraction of that.  A.6's K0 = 0.50 is not changed, and the
+           report gives no reason to change it.
+
+  (c)  A LIMIT ON ALL OF (a) AND (b), STATED PLAINLY.  On the report's
+       own rockhead band the box occupies (-)2.000 to (-)6.800 and is
+       therefore ENTIRELY WITHIN BASALT.  What bears on the walls is
+       rock and the 300 lean-concrete annulus, not soil.  The master's
+       K0-soil-plus-hydrostatic model is a conservative idealisation of
+       that, and correctly keeps the full hydrostatic term, because
+       water pressure in a jointed rock mass is real and is two thirds
+       of the load.  The measured soil parameters are the right check
+       on the berm, the backfill and the cover.  They are NOT a
+       description of what the buried walls retain.
+
+====================================================================================================
+G.9   THE SITE ITSELF  -  setting, level, fall, and one conflict inside the deck
+====================================================================================================
+
+  SETTING, from deck slides 13, 14, 17, 18 and 22:
+    - The plot is an undeveloped rectangle EAST of the two CTW blocks and WEST of the perimeter track and nullah line.
+    - CBRN LIVE TRG A lies to the SOUTH.
+    - North arrow shown; no scale bar, no grid, no boundary dimension, no coordinate.
+    - CTW LAKE to the north-west.
+    - PARADE GROUND 82.0 m x 82.0 m - the only dimensioned object on any supplied site sketch.
+    - RCC OH RESERVOIR, 15000 GLNS CAPACITY, 15 MTR STAGING, beside building 527.
+    - SS-15 substation beside building 526.
+    - The SITE box is drawn OUTSIDE the pipe network - no main crosses it.
+
+  SELECTION, the deck's own SWOT, verbatim:
+    STRENGTH
+      - Proximity to FCBRNP
+      - Availability of electric lines
+      - Good road connectivity
+      - Good water supply
+      - No pipelines
+    WEAKNESS
+      - Located near Perimeter Fence
+    OPPORTUNITY
+      - Enhanced trg opportunities
+      - Live demo model to facilitate practical trg
+      - Good connectivity
+    THREATS
+      - Interference with CTW schedule
+
+  GROUND LEVEL.  Two statements, and they do not agree.
+
+    (i)  CONTOUR MAP, slide 15.  1 m contours labelled 575 to 584.
+         The 580 and 581 contours both cross the plot; ground
+         falls east / north-east, towards the track and nullah.
+         => site ground level approximately 580 to 582 m on that map's datum,
+         with of the order of 1 to 1.5 m of fall across the plot.  [R]
+
+    (ii) ELEVATION PROFILE, slide 21.  593.9 m at 0 m rising to 596.2 m
+         at 26.8 m.
+         rise 2.3 m over 26.8 m  =  1 in 11.7  =  8.6%
+
+    THE TWO DISAGREE ON LEVEL BY 12 to 16 m, and on gradient
+    by roughly a factor of four (1 in 12 against of the order of 1 in 40).
+
+    >>> FINDING SG-F10.  These are two different measurements of two
+        different things on two different datums, and the deck presents
+        them as one site description.  The most likely reading is that
+        the contour map is a local/survey datum and the profile is a
+        satellite-derived MSL profile taken across a short transect
+        that includes the track embankment east of the plot - but THAT
+        IS A GUESS AND IT IS RECORDED AS ONE.  Neither number is
+        adopted.  Open item SG-V4.
+
+  WHY THE LEVEL MATTERS, AND WHY IT DOES NOT.
+    It does not matter to any design value.  The project works on a
+    LOCAL datum with finished grade = 0.000 (master A.4.1), every level
+    in Parts A, B and F is relative to it, and no absolute reduced
+    level appears anywhere in the project.  Nothing recalculates.
+    It DOES matter to three things that are not yet drawn: the cut and
+    fill needed to produce a level formation for a 22 m long box, the
+    berm toe, and the point where the cover's 1:50 crossfall (BS1)
+    daylights.  With 1 to 1.5 m of natural fall across the plot, the
+    finished grade at 0.000 cannot be the natural surface everywhere.
+    No cut-and-fill item exists in the BOQ because no site plan exists
+    (master gap D3).  SG1 does not close D3 and cannot: there is still
+    no boundary, no dimension, no benchmark and no coordinate.
+
+  THE REPORT'S OWN TERRAIN SENTENCE, for completeness:
+    "The location for the proposed buildings is on fairly level ground."
+    That is said of the G, H and Mess building locations, not of this
+    plot, and the contour map shows this plot is the edge of a slope.
+
+====================================================================================================
+G.10   METEOROLOGY  -  three statistics, one conflict, and what the design actually uses
+====================================================================================================
+
+  (a)  RAINFALL.  The two documents disagree.
+
+  month              mm    month              mm
+  ------------------------------------------------
+  January           0.1    July            166.2
+  February          3.0    August          120.8
+  March             5.5    September       134.9
+  April             3.9    October         139.8
+  May              19.0    November         22.7
+  June            137.8    December          5.9
+  ------------------------------------------------
+  DECK TOTAL, slide 25 (last 10 years avg)        759.6 mm   [C]
+  SEMT REPORT para 9                    500 to 600 mm   [C]
+  DIFFERENCE                            +27% to +52%
+
+  >>> FINDING SG-F11.  THE TWO SUPPLIED DOCUMENTS DISAGREE ON ANNUAL
+      RAINFALL BY BETWEEN A QUARTER AND A HALF.  Neither names a
+      station, a period of record or a source; the deck says 'last 10
+      years avg' and the report says 'the region'.  Published
+      tertiary figures for 'Pune' themselves range from about 720 mm
+      to over 1000 mm depending on which gauge and which period is
+      quoted, which is the reason a NAMED STATION AND PERIOD is
+      required and is why NO THIRD FIGURE IS ADOPTED HERE.
+
+  ONE MONTH IS THE OUTLIER.  Reading the deck's own table as a monsoon
+  distribution for the interior Deccan:
+
+      June to September            559.7 mm    73.7% of the year
+      October alone                139.8 mm    18.4% of the year
+      October / September           1.04
+
+      The south-west monsoon withdraws from interior Maharashtra in
+      the first half of October.  An October that nearly equals
+      September, and exceeds August, is not the shape of a Deccan
+      rainfall year.  THE OCTOBER FIGURE IS THE ONE TO GO BACK AND
+      CHECK.  It is NOT corrected here - correcting a datum whose
+      source is unknown would be inventing evidence.  SG-V5.
+
+  AND THE PART THAT MATTERS MOST: NOTHING IN THE DESIGN USES THE
+  ANNUAL TOTAL.  What the design uses is:
+      - the 50 mm/h design intensity, Rev F drawing 5 note 1, which is
+        the ONLY intensity anywhere in the project and carries no
+        return period, duration or IDF source - drainage open item
+        DR-D1, which SG1 does NOT close, because a monthly total
+        cannot produce a short-duration intensity;
+      - the soak pit absorption rate of 20 L/m2/day, K.2 A7, which
+        needs a percolation test and nothing else;
+      - the monsoon window, which is a PROGRAMME input - see SG-F7.
+  So the rainfall conflict changes no number in this project.  It
+  changes what the design report may claim, and it changes when the
+  groundwater monitoring has to happen.
+
+  (b)  TEMPERATURE.  The two documents measure different things and
+       therefore do NOT conflict:
+
+      SEMT para 8, ABSOLUTE extremes    summer 40 / 12 C   winter 26 / 4 C   [C]
+      Deck slide 26, MONTHLY MEANS      hottest Apr 38.3 C mean daily max
+                                        coldest Jan 11.6 C mean daily min   [C]
+      A monthly mean daily maximum of 38.3 C sitting under an
+      absolute maximum of 40 C is exactly what one expects.  Consistent.
+
+       HVAC calculation H.10 records 'outdoor design dry-bulb /
+       wet-bulb, Pune .... NOT IN THE PROJECT [N]' as the first of
+       eight missing inputs that stop a cooling load being computed.
+       SG1 NARROWS that gap and does not close it: an absolute extreme
+       and a monthly mean are not a design dry-bulb, and NEITHER
+       DOCUMENT GIVES A WET-BULB OR ANY COINCIDENT VALUE AT ALL.  The
+       remaining seven inputs are untouched.  EL-V6 - no cooling plant
+       exists anywhere in the project - is also untouched.
+
+  (c)  WIND.  A WARNING, because this one invites a wrong 'correction'.
+
+      Deck slide 24, windiest month     June 6.6 km/h = 1.83 m/s
+      Master A.7.8 design basic wind     39 m/s
+      ratio                             21.3 : 1
+
+      THESE ARE NOT THE SAME QUANTITY AND THE RATIO IS NOT AN ERROR.
+      The deck plots a MONTHLY MEAN SPEED.  IS 875 (Part 3):2015 V_b is
+      a 3-SECOND GUST at 10 m with a 50-year return period.  A mean of
+      1.8 m/s and a 50-year gust of 39 m/s are entirely compatible.
+      MASTER A.7.8 IS NOT TO BE REDUCED ON THE STRENGTH OF SLIDE 24 -
+      and in any case seismic governs the sentry post 2.4 : 1, so the
+      wind case decides nothing.
+
+====================================================================================================
+G.11   SEISMIC ZONE  -  externally corroborated for the first time
+====================================================================================================
+
+  SEMT report para 7:  "Pune falls under Seismic Zone III as per IS 1893 of 1984. However, the earthquake activity in 1993 at Killari (Latur, Maharastra) should be kept in mind while designing the structure."
+  Deck slide 27:       ZONE III, design per IS 1893:2016
+  Master A.7.8:        Z = 0.16 (Zone III), IS 1893 (Part 1):2016
+
+  The report cites the 1984 zone map and the design uses the 2016 code.
+  Pune is Zone III on both; Z = 0.16 is read from IS 1893 (Part 1):2016
+  Table 3 for Zone III.  Reproducing the master's two A_h values:
+
+    underground box     A_h = (Z/2)(I/R)(Sa/g) = (0.16/2)(1.5/4.0)(2.5) = 0.0750   master 0.075   OK
+    sentry post         A_h = (Z/2)(I/R)(Sa/g) = (0.16/2)(1.5/3.0)(2.5) = 0.1000   master 0.100   OK
+
+  >>> FINDING SG-F12.  ZONE III IS NOW CORROBORATED BY A DOCUMENT
+      OUTSIDE THE PROJECT, and the master's seismic coefficients
+      reproduce exactly from it.  This is the ONLY master design input
+      that SG1 is able to corroborate externally.  Nothing changes,
+      and that is the point - it was already right.
+
+  The two documents name DIFFERENT 1993 events - the report names
+  Killari (Latur), the deck names the Koyna area on 28 Aug 1993.  Both
+  are recorded as they stand; neither changes the zone, which is what
+  the design uses, and this package does not adjudicate seismology.
+  The deck's three regional events (M 4.8, 3.2, 2.6) are all well
+  below the Zone III design basis and are recorded as context.
+
+====================================================================================================
+G.12   THE BLACK COTTON SOIL  -  where it is harmless, and the two places it is not
+====================================================================================================
+
+  Measured properties, Appendix A and para 14(a):
+    depth               0.18 to 1.0 m
+    liquid limit        61 to 63 %
+    plastic limit       29 to 30 %
+    plasticity index    32 to 33 %   [R]
+    free swell index    60 to 65 %
+    classification      CH  (IS 1498)
+    SBC                 0.25 to 0.27 kgf/cm2 = 24.5 to 26.5 kPa
+
+    A free swell index above 50 % is the top band of IS 1498's own
+    scale - VERY HIGH swelling potential.  The deck's slide 30 puts it
+    in plain words: the soil 'contracts and produce cracks in dry
+    season, 10 to 15 cm wide extending to maximum depth of 1 m' and is
+    'Not suitable for foundation'.
+
+  WHERE IT IS HARMLESS - and this is most of the project.
+    Nothing structural founds in it.  The mat is at (-)6.700 and the
+    sentry footing F1 at (-)2.000, both in basalt, both far below the
+    0.18 to 1.0 m black cotton horizon.  Master B.8.7's insistence
+    that F1 bears 'on IN-SITU ROCK, never on backfill' is now backed by
+    a measurement.  NO ACTION.
+
+  TWO PLACES IT IS NOT HARMLESS.  Both are raised, neither is changed.
+
+    (1)  THE COVERED ENTRY STAIRWELL'S STEPPED RAFT.  Master A.4.7:
+         'Stepped RC raft 300 thk ON COMPACTED FILL', stepping from the
+         top landing at 0.000 down to the platform at (-)2.000.  With
+         300 of raft the top of that raft founds at about (-)0.300 -
+         INSIDE the black cotton horizon at two of the report's three
+         locations.  'On compacted fill' implies the black cotton is
+         stripped and replaced, but NO SPECIFICATION ANYWHERE SAYS SO,
+         no strip-and-replace item exists in the BOQ, and a very-high-
+         swelling CH clay under a stepped raft is a heave problem, not
+         a bearing one.
+         The stairwell is declared EXPENDABLE against blast (master
+         B.6) - but heave is a service-life problem, not a blast one,
+         and this stair is the ONLY primary access to the shelter.
+         >>> SG-F13 / open item SG-V6.
+
+    (2)  THE CONCEALMENT LAYER.  Master A.7.3 puts 300 of topsoil/turf
+         at the top of the cover, and CAM2 makes it the concealment
+         layer, 're-laid from the site's own stockpile'.  If the site's
+         own topsoil is this CH clay at FSI 60 to 65 %, then the
+         concealment layer is a very-high-swelling clay 300 mm thick:
+           - it cracks in the dry season, and a cracked patchy turf is
+             a CONCEALMENT DEFECT, which is CAM2's entire subject;
+           - the cracks are a direct infiltration path into the 150
+             granular filter immediately below it;
+           - wetting and drying cycles pump clay fines INTO that
+             filter, which is the one thing the filter exists to stop
+             (A.7.3: 'Stops fines clogging').
+         The LOAD is unaffected - 300 at 18 kN/m3 = 5.40 kPa is right
+         for a black cotton soil - so no calculation moves.  What is
+         missing is a SPECIFICATION: either qualify the stockpiled
+         topsoil against a swell limit, or import a non-expansive
+         topsoil.  Neither exists.
+         >>> SG-F14 / open item SG-V7.  BS1's 1:50 crossfall on the
+         burster slab still works and is unaffected; it is the filter
+         above it that sees more water and more fines than assumed.
+
+====================================================================================================
+G.13   THE P1 DECK AGAINST ITS OWN CITED SOURCE
+====================================================================================================
+
+  Deck slides 29 and 30 both carry the source line 'Source : SEMT wing,
+  CME'.  Three of their statements are not in that report.  They are
+  listed here because the deck is a PRESENTED document and the same
+  claims will be presented again unless they are corrected at source.
+
+  (1)  'Safe Bearing Capacity = 300 kN/m2 at 1.5 m depth from Top'
+       300 kPa = 3.06 kgf/cm2.  At 1.5 m the report gives:
+           CH clay,  GL to 1.0 m                      26.5 kPa
+           murrum GM, 1.0 to 1.2 m                   418.7 kPa
+           BROKEN rock, 1.2 to 1.5 m                 980.7 kPa
+           SOUND basalt below 1.5 m, soaked         1961.3 kPa
+           SOUND basalt below 1.5 m, unsoaked       3236.2 kPa
+       300 kPa is not any of them.  It is 6.5 times BELOW the lowest
+       rock value at that depth and 72 % ABOVE the clay value.  It is
+       conservative, and the design does not use it - master A.6 uses
+       the IS 1904 presumptive 3240 kPa - so NO DESIGN VALUE IS
+       AFFECTED.  The slide is wrong; the structure is not.   SG-V8
+
+  (2)  'Murrum ... SBC of 25 - 30 kg/cm2', slide 30.
+       The report's murrum SBCs are 2.07, 4.27, 4.66 and 5.18 kgf/cm2.
+       25 to 30 kgf/cm2 is the SOUND BASALT unsoaked band (30 to 36).
+       The slide is about five to six times high, and it has assigned
+       ROCK strength to SOIL.  Nothing in the design uses it.   SG-V8
+
+  (3)  'Compressive strength ranging from 609 - 900 kg/cm2 in unsoaked
+       condition', slide 30.
+       Appendix C's unsoaked results are [752, 814, 900].
+       The range is 752 to 900, not 609 to 900.
+       609 appears nowhere in the report.  The upper bound is right.
+       Nothing in the design uses it.                            SG-V8
+
+  ONE DECK STATEMENT THAT IS RIGHT AND IMPORTANT:
+       'Ultimate Bearing Capacity = S.B.C x 2.5'
+       This is Appendix B's own relationship read backwards, and the
+       factor 2.5 is the report's stated factor of safety.  Correct.
+
+  AND THE ONE THIS PACKAGE EXISTS FOR:
+       'Proposed structure safe for water table at depth of 2 m
+        below GL'
+       True, and now traceable.  See G.7.
+
+====================================================================================================
+G.14   PARAMETER REGISTER  -  every master A.6 / K.2 item against the new evidence
+====================================================================================================
+
+  ref    parameter                    master           report says              status after SG1  
+  ------------------------------------------------------------------------------------------------
+  A1     Rockhead 1.5-2.0 m           (-)1.5/(-)2.0 [A] 0.9-1.5 m, 3 locations   OPEN - SG-F5      
+  A2     Design GWT (-)2.000          (-)2.000 [A]     not encountered, <1.5 m  OPEN - SG-F6      
+  A3     SBC 3240 kPa                 3240 [A]         1961-2059 soaked         OPEN - SG-F3      
+  A4     k_s 100k-500k kN/m3          both bounds [A]  nothing                  OPEN - untouched  
+  A5     K0 0.50, gamma 20/21         0.50, 20/21 [A]  K0 0.43-0.55, 19.1-19.6  OPEN - SG-F9      
+  A6     K_a 1.0 saturated            1.0 [C]          nothing                  unchanged         
+  A7     Soak pit 20 L/m2/day         20 [A]           nothing - no perc test   OPEN - untouched  
+  A8     Seepage 0.5 L/m2/day         0.5 [A]          nothing                  OPEN - untouched  
+  A10    Wind k1 1.08, V_b 39         39 m/s [C]       monthly means only       unchanged - G.10(c)
+  -      Seismic Zone III             Z 0.16 [C]       Zone III, IS 1893-1984   CORROBORATED      
+  -      Cover 40.65 kPa              40.65 held [C]   MDD 1.90-1.93, OMC 8-9   CORROBORATED - SG-F8
+  -      Black cotton                 not recorded     CH, FSI 60-65, 0.18-1.0  NEW - SG-F13/F14  
+  D3     Site plan                    does not exist   imagery, no dimension    STILL OPEN        
+
+  FOUR of the fourteen K.2 assumptions are touched by the new evidence.
+  NONE IS CLOSED.  Two master inputs are corroborated for the first
+  time (Zone III, the cover weight).  One master gap (D3, no site plan)
+  is better informed and still open.  Two entirely new items appear,
+  both about the black cotton soil, neither previously recorded
+  anywhere in the project.
+
+====================================================================================================
+SUMMARY OF FINDINGS
+====================================================================================================
+
+  SG-F1    The SEMT report reproduces completely from its own inputs.
+  SG-F2    THE INVESTIGATION REACHED 1.5 m; THE STRUCTURE FOUNDS AT 6.8 m.
+  SG-F3    Presumptive SBC is 65 % above the measured soaked value, and no element cares.
+  SG-F4    In service the structure is lighter than the ground it replaces.
+  SG-F5    The report's rockhead band is entirely at or above the master's.
+  SG-F6    'No water table' means 'not reached'.  A2 stays open.
+  SG-F7    The monsoon groundwater monitoring is programmed outside the monsoon.
+  SG-F8    40.65 kPa brackets both the as-placed and the saturated cover.
+  SG-F9    Measured shear parameters move the wall load by under 1 %.
+  SG-F10   The deck's contour map and its elevation profile disagree by 12 to 16 m.
+  SG-F11   The two documents disagree on annual rainfall by 27 to 52 %.
+  SG-F12   Zone III externally corroborated; A_h reproduces exactly.
+  SG-F13   The entry stairwell raft founds in very-high-swelling CH clay.
+  SG-F14   The concealment layer may be a very-high-swelling CH clay.
+
+NOTHING IN PARTS A, B, D, F OR L IS CHANGED BY THIS CALCULATION.
+No load, thickness, bar, level, quantity, rate, date or float moves.
+No [ASSUMED] becomes [CONFIRMED].  The main staircase is untouched.
+
+====================================================================================================
+END OF CALCULATIONS
+====================================================================================================

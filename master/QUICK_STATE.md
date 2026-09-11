@@ -20,6 +20,11 @@ Updated 11 Sep 2026 for **RC2** (Part H.21) — **two rulings by the project own
 **three-zone EMP model is ADOPTED** (closes EM-V1) and **the generator MAY run during Mode 3**
 (closes EL-V1). **Neither changed a number.** K.1b falls to **nineteen**; the two ruled items
 move to the new **K.1e**.
+Updated 11 Sep 2026 for the **site selection and geotechnical section SG1** (Part H.22) — the
+project's **first** one. Two owner-supplied documents recorded and checked. **It resolves
+nothing: not one K.2 assumption is closed.** Governing finding: **the sub-soil investigation
+reached about 1.5 m and this structure founds at (−)6.800.** **Ten new open items SG-V1…V10;
+K.1b rises to twenty-nine.**
 
 ---
 
@@ -38,6 +43,7 @@ move to the new **K.1e**.
 | **Fire** | **FS2** (10 Sep 2026, master **H.18**) — the FS1 plan **moved out of `WORKS MANAGEMENT/` into its own package `Fire and Life Safety/`** and **drawn as `F-101` and `F-102`, the escape plans**. Governing fact: **the shelter cannot be ventilated of smoke** — 332.8 m³ at 300 m³/h is **0.9 ACH**, and in Mode 3 CLOSED it is **zero**. Three routes: **R1** main stair, longest travel **14.6 m**; **R2** ESC 1; **R3** ESC 2. Findings **FS-1** W5 has **no door** and R1 has to cross it · **FS-2** Bays 1–6 are **one smoke compartment** · **FS-3** **ESC 2 shares Bay 8 with the generator** · **FS-4** no rule for a fire in Mode 3 · **FS-5** all active measures wait on the **missing electrical design** · **FS-6**, which the drawings raised: **no ladder, rung or fall-arrest in either escape shaft**, and they are **6.250 m** and **6.800 m** climbs. **Blast Doors 1 and 2 are the only two real fire barriers.** Open items **FS-V1…V7** |
 | **EMP** | **EM1** (10 Sep 2026, master H.19) — **the project's first EMP design; there was none before.** Governing fact: **the concrete box is not an EMP shield and never could have been** — at the confirmed 150 bar spacing the cage gives **99.99 dB at 10 kHz falling 20 dB/decade to 0.00 dB at 1 GHz**, meeting the MIL-STD-188-125-1 80 dB requirement **only below 99.93 kHz — one decade of the five**. **This reproduces master K.3's own confirmed figure from the bar spacing alone.** So the 80 dB boundary must be **EMP Zone 2**, which has been named since Rev F and **never specified**. Findings **EM-F1** the **2800 × 3160 stair void** is an open EM path from grade to Bay 7 · **EM-F2** one decade of five · **EM-F3** Zone 2 named for four revisions with no Zone 1 and no spec · **EM-F4** **BV-4/BV-5 DN350** fail both criteria and nobody has decided whether Bay 8 is inside the EMP boundary · **EM-F5** **5 Ω is unachievable in basalt and is not an EMP number** · **EM-F6** **no antenna, mast, feeder or comms design exists anywhere**. Six new items **EM-V1…V6**. **6 A1 DXF, 0 errors. No design value changed** |
 | **Electrical** | **EL1** (11 Sep 2026, master H.20) — **the project's first electrical design; there was none before, and it was the largest of the 13 gaps.** Deliberately **basic — it stops at board level.** Connected load **6.256 kW / 7.360 kVA** against the confirmed **15 kVA** = **49 % utilisation**, so **GEN-1 is amply sized and needs no change**. Finding: **the battery is either a cabinet or a room and the project does not contain the sentence that decides which** — Mode 3 says *all five blast valves shut*, Mode 5 says *BV-4 and BV-5 open* and *independent of modes 1–4*, and BV-4/BV-5 are two of the five. **149 Ah vs 1 783 Ah / 2.4 t — 12× apart (EL-V1).** Three boards, **one cable entry** via the existing service entry plate with **PCI on power and fibre on signal** (EM1 PoE-3/4). **Unblocks FS-V2 and EM-V2; closes HVAC P11.** **1 A1 DXF, 0 errors. No design value, BOQ quantity, rate, date or float changed** |
+| **Site + ground** | **SG1** (11 Sep 2026, master **H.22**) — **the project's first site selection and geotechnical section; there was none, and Part J drew `[SITE INVESTIGATION]` as a root node with nothing feeding it.** Two owner-supplied documents: **SEMT/67/15**, the sub-soil investigation for the CTW PH-III ACCN project at CME Pune (**11 trial pits, 3 locations, no boreholes, no in-situ testing**), and the **P1 presentation deck**. Governing fact: **THE INVESTIGATION REACHED ABOUT 1.5 m; THE STRUCTURE FOUNDS AT (−)6.800** — **5.3 m of unlogged ground**, and only sentry footing F1 at (−)2.000 is inside the logged horizon. **The provenance of GWT (−)2.000 is now on record for the first time: no water was found, so 2 m was CHOSEN** — *not encountered* means **not reached**, and **K.2 A2 stays ASSUMED and stays OPEN**. Fourteen findings: rockhead **0.9–1.5 m**, entirely at or above the master's assumed 1.5–2.0 (**+118 m³ rock, ≈ 2 d**) · soaked SBC **1961–2059 kPa**, so worst utilisation **12.5 % → 20.6 %**, factor **4.8** still in hand, **3240 unchanged** · the structure is **lighter than the ground it replaces** by ≈ 105 kPa · **Zone III externally CORROBORATED**, A_h reproduces exactly · **40.65 kPa brackets both the as-placed and the saturated cover** · **A1080's monsoon monitoring window is NOT in the monsoon** · and, new to the project, **black cotton soil at FSI 60–65 %** under the entry stairwell raft and possibly in the concealment turf. **3 A1 DXF, 0 errors, 0 warnings, 0 text overlaps. No design value, BOQ quantity, rate, date or float changed; no other package's file modified; the main staircase untouched. Ten new open items SG-V1…V10** |
 | **Rulings** | **RC2** (11 Sep 2026, master H.21) — **two questions EM1 and EL1 asked rather than assumed, now answered by the project owner.** **(1) The three-zone EMP model and the "EMP Zone 2 standing alone" rule are ADOPTED** — the project's EMP position, `[C]`, **EM-V1 closed**. **(2) The generator MAY run during Mode 3** — all five valves shut at the shock, **BV-4 and BV-5 then reopen for GEN-1**; Bay 8 is outside the gas-tight envelope. **EL-V1 closed, Case A confirmed at 149 Ah, HV1's Mode 3 row amended.** **Neither ruling changed a number** — both confirmed what the packages had reasoned. **EM-V3 is SHARPENED, not decided**: reopening BV-4/BV-5 leaves two DN350 bores — which fail both EMP criteria — open through the post-attack period |
 | **Drawings** | **QA1** (9 Sep 2026, master H.11) — drafting QA/QC over **all 65 DXF**. Annotation, sheet frames, title blocks. **No engineering design changed** |
 | **SP-B1** | **SENTRY POST WALLS = BRICK MASONRY** — instructed design change, 7 Sep 2026. The only design change in WM1 |
@@ -78,7 +84,8 @@ ESC 2 → X 19 900; headhouse and covered stairwell **+200**. Nothing west of X 
 (1200 × 2100, 7 bar) at Y 600–1800 and **are the protective boundary**.
 
 **Levels:** grade 0.000 · T/slab −2.000 · roof soffit −2.900 · floor −6.100 · u/s mat −6.700 ·
-formation −6.800 · **GWT −2.000 [ASSUMED]** · L1 −4.7333 · L2 −3.3667 · sump invert −7.600
+formation −6.800 · **GWT −2.000 [ASSUMED — provenance now recorded, SG1: no water was found
+in any trial pit, so 2 m was CHOSEN. The pits reached ~1.5 m. STILL OPEN]** · L1 −4.7333 · L2 −3.3667 · sump invert −7.600
 (base −8.000) · HH roof soffit +0.400 / top +0.900 · stairwell head +2.450 (soffit +2.200) ·
 sentry +0.450 / +3.650 / +6.700 / parapet +7.000.
 
@@ -222,10 +229,28 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 ## Current assumptions (all `[ASSUMED]` — confirm before construction)
 
 - **GWT −2.000** — the single most important number; water is ⅔ of the lateral load. Needs monsoon monitoring.
+  **SG1: the provenance is now on record and the assumption still stands.** No water was found
+  in any trial pit — **but the pits reached about 1.5 m, and the design GWT is already below the
+  deepest of them.** *Not encountered* means **not reached**. **A1080, the programme's monsoon
+  monitoring, runs 12 Nov – 4 Dec, which is NOT the monsoon (SG-F7 / SG-V3).**
 - **k_s 100 000–500 000 kN/m³ — the master requires BOTH bounds be run. Only 100 000 exists.**
+  **SG1 adds nothing here — no plate load test exists.**
 - Rockhead −1.5/−2.0 · SBC 3240 kPa · γ 20 / 21 · K₀ 0.50 · K_a 1.0 saturated.
+  **SG1, and none of these changes:** measured rockhead **0.9–1.5 m**, entirely at or above the
+  assumed band · measured **soaked** basalt **1961–2059 kPa**, and the founding horizon is 4.8 m
+  below the design GWT so **soaked governs** — worst utilisation **12.5 % → 20.6 %**, still a
+  factor of **4.8** in hand · measured γ at 95 % MDD **19.12–19.61**, so bulk 20 is **2–5 %
+  conservative**, and γ_sat back-figures to **21.26**, within **1.2 %** of the assumed 21 ·
+  measured **φ 27–35°**, so K₀ 0.50 is **conservative** on the murrum and the worst case moves
+  the wall design load **under 1 %**.
 - Soak-pit absorption 20 L/m²/day — **percolation test mandatory**, likely to fail on basalt.
+  **SG1 adds nothing — no percolation test exists, and the report's basalt makes failure likely.**
 - Sentry infill not separated from the frame → R = 3.0.
+- **NEW, SG1 — the surface soil is BLACK COTTON, CH, free swell index 60–65 %**, the top band of
+  the IS 1498 scale. **Nothing structural founds in it**, but the **entry stairwell's stepped
+  raft** founds at about −0.300 inside it with no strip-and-replace specification (**SG-V6**),
+  and **CAM2's 300 concealment turf** may be the same clay, re-laid over the filter it would
+  clog (**SG-V7**).
 
 ## Remaining unresolved
 
@@ -249,7 +274,7 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 | **QA-1 · QA-2** | **BOTH RULED.** **QA-1: A0 confirmed** — 880 mm at 1:50 against an A1 area of 821 mm makes A1 impossible, the scale is a measurement statement, and splitting would break a continuous 44 m elevation. **QA-2: accepted as drawn, with the reason stated** — six sheets carry an empty bottom strip, and re-scaling, renumbering and reflowing are each worse than the space. **Every sheet is correct, complete and legible. Combining them stays your call.** |
 | **EL-V1…V7** | **Seven new items from EL1** (master H.20 / K.1b). **EL-V1 RULED — YES (RC2), CLOSED**, Case A confirmed at 149 Ah · **EL-V2** generator fuel (≈ 210 L for 96 h derived, nothing specified) · **EL-V3** no equipment schedule for EMP Zone 2 · **EL-V4** incoming mains capacity — **blocks any fault level study** · **EL-V5** no circuit/cable/luminaire schedule, deliberately · **EL-V6** **no cooling plant exists anywhere in the project** · **EL-V7** the CO₂ scrubber's air movement is in no schedule |
 | **RULED — master K.1e** | **EM-V1 and EL-V1, by the project owner, RC2, 11 Sep 2026 (H.21).** Reasoning preserved, nothing deleted; EL1's rejected Case B is kept as **historical** because the comparison is what made the question answerable |
-| **STILL OPEN — master K.1b** | **Nineteen items, none of them a conflict.** Each is a single position the project holds — or, in the last two, a position it does not hold at all — that needs something from outside: **U2** direct hit (military sign-off) · **U3** DBT yield (client) · **U8** the 4.162 kN/m parapet load (cannot be re-derived until the parapet detail is confirmed) · **WM-V6** seismic re-check (STAAD not available; direction certain and favourable) · **WM-V7** ballistic requirement (client / military decision) · **WM-V9** slope stability (geotech) · **FS-V7** *(new, FS2)* **how either escape shaft is climbed** — 6.250 m and 6.800 m with no ladder, rung or fall-arrest specified anywhere; this one needs a **design**, not a ruling · **CAM-V5** *(new, CAM2)* **SH-2's head level, recorded nowhere**. |
+| **STILL OPEN — master K.1b** | **Twenty-nine items after SG1.** Each is a single position the project holds — or, in the last two, a position it does not hold at all — that needs something from outside: **U2** direct hit (military sign-off) · **U3** DBT yield (client) · **U8** the 4.162 kN/m parapet load (cannot be re-derived until the parapet detail is confirmed) · **WM-V6** seismic re-check (STAAD not available; direction certain and favourable) · **WM-V7** ballistic requirement (client / military decision) · **WM-V9** slope stability (geotech) · **FS-V7** *(new, FS2)* **how either escape shaft is climbed** — 6.250 m and 6.800 m with no ladder, rung or fall-arrest specified anywhere; this one needs a **design**, not a ruling · **CAM-V5** *(new, CAM2)* **SH-2's head level, recorded nowhere** · **SG-V1…V10** *(new, SG1)* — the geotechnical data is **off-site**; the investigation reached **1.5 m against a formation at (−)6.800**; **A1080's monsoon window is not in the monsoon**; the deck's **level** and **rainfall** figures contradict themselves or the report; the **entry stairwell raft** and the **concealment turf** sit in very-high-swelling clay with no specification; **three deck statements are not in the report they cite**; the project has **no coordinates**; and the **date of the SEMT field work is unrecorded**. **Three of these — SG-V4, SG-V5, SG-V8 — ARE disagreements, but inside the SUPPLIED DOCUMENTS, not inside this project's design record, and none changes a design value.** |
 | **EM-V1…V6** | **Six new items from EM1** (master H.19 / K.1b). **EM-V1 RULED — ADOPTED (RC2), CLOSED** · **EM-V2** every Zone 2 dimension is `[A]` pending an equipment schedule that waits on the **missing electrical design** · **EM-V3** **is Bay 8 inside the EMP boundary?** — no EMP boundary has ever been drawn · **EM-V4** no communications design of any kind · **EM-V5** PD-05's pipe material is unspecified, **as is every pipe material in the project** · **EM-V6** no escape-shaft head hatch and no blast-door RF data. **None is resolved, and that is deliberate.** |
 | **13 gaps** | **Information the project does not contain**, each dated against the WM1 programme. Largest was **no electrical design package exists** — **EL1, 11 Sep 2026 (master H.20), supplies a BASIC one: sources, loads, the 15 kVA check, three boards and the battery. The DETAILED design still does not exist (EL-V5).** The original statement follows: scope confirmed, design absent, every electrical quantity 'to be verified from final measurement'. Also: no site plan, **the sentry lintel and tie detail is now SUPPLIED — SP-B2, master A.4.8, so this gap is closed**, blast door and blast valve vendor data, service-entry plate size, duct penetration schedule, **the EMP enclosure specification is now SUPPLIED AT `[A]` — EM1, master H.18, and the ten envelope penetrations are analysed; the vision panel spec and every EMP vendor figure remain `[N]`**, sentry GF slab, finish products, W5 door D-05. |
 
@@ -363,6 +388,23 @@ changed; no new envelope penetration; main staircase untouched; sentry post excl
 **EL-V1 is now RULED (RC2, H.21): the generator MAY run in Mode 3, Case A confirmed at 149 Ah,
 HV1's Mode 3 row amended. No number in EL1 changed.**
 
+**`Site Selection and Geotechnical/` — site selection and geotechnical section, revision SG1
+(11 Sep 2026, master H.22):** **the project's first.** **3 A1 DXF** (**SG-001** design basis,
+**SG-101** setting, selection and meteorology — which **carries a NOT A SITE PLAN banner and
+means it**, and **SG-201** the geotechnical profile against the structure section, **the sheet
+the package exists for**: three trial pit logs at true level against a transverse section
+through the box at **1:25 both ways**, with everything below **(−)1.500** hatched as an explicit
+**NO DATA** zone). **Validated 0 errors, 0 warnings, 0 text overlaps.** Five schedules as `.md`
++ `.csv`, the section itself in 19 parts, a full calculation printout (**G.1–G.14**, every
+conversion and reproduction with its arithmetic shown), a QA/QC report and seven Python
+generators (`sg_build_all.py` rebuilds everything). `sg_dxf.py` **subclasses the shared
+`mep_dxf.py`** and uses the CAM2/FS2 hooks — **no shared library modified**, and all seven other
+packages regenerate byte-identically (verified). **It resolves nothing: no K.2 assumption is
+closed, no evidence tag converted, no design value, BOQ quantity, rate, date or float changed,
+no other package's file modified, STAAD.Pro not run, main staircase untouched.** Sentry post in
+scope **for ground only** (F1 on in-situ basalt at −2.000). Raised **SG-F1…F14** and
+**SG-V1…V10**. **Not construction-ready — and neither is the investigation it reports on.**
+
 **`master/`** — `MASTER_PROJECT_STATE.md` (authority), `MASTER_PROJECT_STATE.pdf`, this file.
 
 **Changed in the M1 reconciliation (9):**
@@ -393,9 +435,17 @@ HV1's Mode 3 row amended. No number in EL1 changed.**
   **9 September 2026** and there is no generator for it in the workspace, so it cannot be
   refreshed here. It predates **H.12** (BS1 / SP-B2), **H.13** (WM2), **H.14** (RC1),
   **H.15** (WM3), **H.16 / H.17** (CAM1 / FS1), **H.18** (CAM2 / FS2), **H.19** (EM1),
-  **H.20** (EL1) and **H.21** (RC2).
+  **H.20** (EL1), **H.21** (RC2) and **H.22** (SG1).
   **Read the `.md`.**
 - **Second k_s bound (500 000) outstanding.**
+- **SG1 ran no analysis and resolved nothing.** It is a reading of somebody else's site
+  investigation, for three other buildings, that stopped **5.3 m above the founding horizon**.
+  It is **not** a site investigation report and **not** a site plan — **master gap D3 stays
+  open**: no boundary, no dimension, no benchmark, no coordinate. The owner's Google Maps pin
+  **could not be resolved in the SG1 session** (egress policy, 403) and **no coordinate was
+  invented** (**SG-V9**). **No rainfall figure was substituted** for the two that disagree, and
+  **the suspect October figure was not corrected** — correcting a datum whose source is unknown
+  would be inventing evidence (**SG-V5**).
 - **Phase 3 not started:** non-linear SDOF support rotation, shock propagation down the entry
   shaft, transient soil–structure interaction, blast-door vendor testing, sentry sheet S-09.
 - **EMP Zone 1 cannot be surveyed and is never claimed.** A buried box under 2 m of cover has no accessible exterior for an IEEE 299 transmitter, so the cage figures are a **calculation and will stay one** — and an **upper bound**: the `−10 log₁₀(n)` array correction is not applied, the crossings are **tied not welded** (and nothing anywhere in the project says which), and no concrete absorption is credited. **A measured cage will be worse.**
