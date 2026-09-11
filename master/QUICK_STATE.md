@@ -52,6 +52,20 @@ contradictions** against evidence already in the workspace — among them the se
 **sixteenth** load combination, missing from A.7.9 and Part L — and added master **A.4.9**, one
 short register of every opening through the protective boundary.
 **Nothing in `K.1b` is closed, no evidence tag converted, no design value changed.**
+Updated 11 Sep 2026 for **RC4** (master **H.28**) — **the project owner ruled on SIXTEEN open
+items, one by one.** Thirteen actioned, **three deliberately left open**. **K.1b falls from
+thirty-three to twenty-one.** Closed: **U2** no direct hit · **U3** 50 psi held as the basis ·
+**WM-V7** ballistic not required · **EM-V3 bay 8 is INSIDE the EMP boundary** (so BV-4/BV-5 now
+need honeycomb panels, and the project holds **two protective boundaries that do not
+coincide**) · **EL-V6** the 96-hour heat balance computed · **CAM-V5 + SG2-V3** both air shafts
+fixed · **FS-1** W5 finally has a door. Ruled but still open: **FS-V7** a ladder is designed and
+**fall-arrest is deferred** · **U8** half re-derived · **U4 the EAST sentry position adopted** ·
+**SG-V6** strip-and-replace specified and measured · **A4** the k_s 500 000 model built.
+**Four findings** — `RC4-F1` the master's sentry X range is wrong, `RC4-F2` the predicted clash
+rested on an assumed Y and does not happen, `RC4-F3` the EAST position gives **9.00 m against
+the ≥10 m rule as written**, `U8-F1` the projection dimension is recorded nowhere. **One new
+item `RC4-V1`: a sealed shelter with a 4 kW heat surplus and no route out for it.**
+**No analysis run, no tag converted by inference, main staircase untouched.**
 
 ---
 
@@ -330,9 +344,10 @@ added east of a break line). A **`SERVICES`** layer was added to both; the other
 border, title block and NOTES box — filenames unchanged, geometry unchanged.** Drawing
 numbers A-101…A-105, A-201…A-204, A-301 live in the title blocks; `current/cad/Scripts/`
 holds the pipeline that produced this state.
-**`current/staad/` — 6 STD + the mesh study:** the reconciled M1 underground plate model
+**`current/staad/` — 7 STD + the mesh study:** the reconciled M1 underground plate model
 (reference), the sentry frame, the entry stairwell frame, and the **MS1** coarse / medium /
-fine mesh variants, plus `MESH_SENSITIVITY_STUDY.md`. **All four box models corrected as input
+fine mesh variants, the **k_s = 500 000 subgrade upper bound** (RC4), plus
+`MESH_SENSITIVITY_STUDY.md`. **All four box models corrected as input
 files at MS2** (master H.26) — every data line now inside `INPUT WIDTH 79`, load cases ascending
 1…11. **STAAD.Pro has still not been run in this environment; MS1 §5 is still PENDING.**
 

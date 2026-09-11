@@ -230,7 +230,29 @@ Spiral stair           external, 1000 R, 250 dia central pole
 Door D1                900
 Storey heights         ground 3200 (+0.450 → +3.650), first 3050 (+3.650 → +6.700)
 Siting                 >= 10 m clear of the shelter excavation
+Site position          X 32000 - 36000,  Y 600 - 5600   [A] -- RC4, see below
 ```
+
+> **U4 RULED — THE EAST POSITION IS ADOPTED, 11 September 2026 (RC4, Part H.28).** The project
+> held **two** contradictory assumed positions; it now holds **one**. `A-301`'s own note 2 sets
+> **X 32000 – 36000** — 4000 wide, which is the post's actual external dimension. (**`RC4-F1`:
+> master DR-A1-V1 recorded this as X 31700 – 36300, which is 4600 and matches nothing. The
+> drawing is the primary source and is corrected here.**) **An elevation cannot give a Y**, so
+> **Y 600 – 5600, centred on the box longitudinal centreline Y 3100**, is set by RC4 — 5000
+> deep, the post's other external dimension.
+>
+> **`RC4-F3` — AND IT FAILS THE RULE AS WRITTEN.** *"≥ 10 m clear of the shelter EXCAVATION"*:
+> X 32000 is 10.00 m clear of the **box face** at X 22000, but the **excavation** face with its
+> 1000 mm working space is at X 23000 — giving **9.00 m**. `A-301`'s note cites the excavation
+> rule while applying the box face. Satisfying it as written moves the post to
+> **X 33000 – 37000**, which passes every check. **BOTH readings are recorded and NEITHER is
+> adopted over the other: the EAST position is a drawing convention, not a survey coordinate,
+> and `U4` STAYS `[ASSUMED]`.**
+>
+> **Consequence.** SG2's fifth reason for +X = east was *"the sentry post covers the approach
+> from the north"*. With the post 10 m beyond the **far** end of the box it covers nothing —
+> the approach is at the **west** end. No stated rule fails, but **the EAST position costs the
+> sentry post its stated function**, and a reviewer will ask. `[C] owner ruling / [A] position`
 
 > **SP-B1 — WALLS CHANGED TO BRICK MASONRY, 7 September 2026 (Part H.10).** The Rev F text
 > above is preserved unaltered. By instruction, the **ground storey "200 RC ballistic
@@ -330,6 +352,20 @@ continuity the opening has.
 | Head level | **+0.150** | **+0.700** |
 | Climb from (−)6.100 | **6.250 m** | **6.800 m** |
 | Route | **R2** | **R3** — **shares Bay 8 with the generator (FS-3)** |
+
+> **THE SHAFTS ARE NOW CLIMBABLE — RC4, 11 September 2026 (Part H.28).** `FS-V7` ruled:
+> **ladder only, fall-arrest deferred.** One ladder type serves both shafts —
+> **20 mm dia galvanised MS rungs, 400 clear width, equal pitch within each shaft**
+> (ESC 1 297.6 mm over 21 spaces; ESC 2 295.7 mm over 23), **≥ 200 behind the rung and ≥ 750
+> clear climbing space in front**, 2 No. 50 × 10 galvanised flat stringers, cast-in lugs to the
+> 250 collar and the roof-slab bore with expansion-anchored brackets at 1.5 m over the lower
+> 3.200 m, and **grab rails 1100 above the head**. `IS 3696 (Part 2)` and `NBC 2016 Part 4` are
+> named **by title only** — neither is in the workspace and Part G forbids citing an
+> unconfirmed clause. **`FS-V7` DOES NOT CLOSE. It CHANGES**, and three things are still
+> missing: **no fall-arrest** (deferred by ruling), **no rest platform** (a 1400 bore cannot
+> take one without blocking the escape), and **the injured-person question** — a vertical
+> ladder cannot pass a stretcher, and whether a casualty is expected to use a shaft is a client
+> question. `[C] owner ruling / [A] geometry`
 
 > **What the project does not hold for these two heads — and must not be invented:**
 > **(1) No hatch.** Neither shaft head has a leaf, a frame, a fixing or a bonding detail
@@ -586,7 +622,9 @@ Static ULS 101 on the roof = 1.5 × (40.65 + 2.0 + 22.5 + 20) = 127.7 kPa → **
 | Peak two-way intensity, LL roof | 2.737 kN/m | 1.50 × 1.825 ✔ |
 | Infill on first-floor beams | 13.000 kN/m | 0.200 × 2.600 × 25 ✔ |
 | — SP-B1 note, 7 Sep 2026 | **13.000 kN/m STANDS** | Brick masonry at ≈ 20 kN/m³ over 0.190 × 2.600 gives ≈ 9.9 kN/m, i.e. **lighter**, so the design value and V<sub>b</sub> = 73.18 kN remain **conservative**. **A direction, not a verification — the structural discipline must re-run the check (WM-V6). NOT changed here.** |
-| Roof projection + parapet | 4.162 kN/m | [C] as drawn, not independently derived |
+| Roof projection + parapet | 4.162 kN/m | **[C] as drawn. HALF re-derived — see below** |
+| — parapet term, 0.300 × 0.150 × 25 | **1.125 kN/m** | **[CONFIRMED, reproduces exactly]** |
+| — roof projection term | **3.037 kN/m** | **[NOT AVAILABLE — the projection dimension is recorded nowhere]** |
 | w<sub>u</sub> floor = 1.5(4.75 + 3.00) | **11.625 kPa** | governs the slab |
 | w<sub>u</sub> roof = 1.5(5.25 + 1.50) | 10.125 kPa | |
 
@@ -1408,6 +1446,7 @@ ANCHORAGE  Column starters T16: Ld,compression = 37 × 16 = 592 mm
 | Underground box — COARSE | `Underground_Shelter_Mesh_Coarse.std` | Mesh sensitivity study **MS1** (Part H.5) — 324 joints, 336 plates | [CONFIRMED] |
 | Underground box — MEDIUM | `Underground_Shelter_Mesh_Medium.std` | MS1 reference mesh, copy of the model above — 1 113 joints, 1 138 plates | [CONFIRMED] |
 | Underground box — FINE | `Underground_Shelter_Mesh_Fine.std` | MS1 h/2 refinement — 4 500 joints, 4 552 plates | [CONFIRMED] |
+| Underground box — **k<sub>s</sub> UPPER BOUND** | `Underground_Shelter_ks500000.std` | **RC4 (H.28).** The reference model at **k<sub>s</sub> = 500 000** — `ELASTIC MAT SUBGRADE` and the four corner `KFY` (×5) are **the only lines that differ**; verified by diff | [CONFIRMED] |
 
 > **RC3 correction, 11 September 2026 (Part H.27).** This table listed **two** models, named
 > from the STAAD screen captures, and Part L still read *"2 models exist; .std NOT uploaded;
@@ -4151,6 +4190,77 @@ reproduction. See I.2.
 
 ---
 
+## H.28 Sixteen rulings by the project owner — revision RC4 — 11 September 2026
+
+> **The owner was taken through the open register item by item and ruled on sixteen.
+> Thirteen are actioned; three were deliberately left open.** Every ruling is
+> `[C] owner ruling`, the class RC2's two rulings carry. **RC4 ran no analysis, executed no
+> STAAD.Pro, converted no evidence tag by inference, and did not touch the main staircase.**
+> Full record: `Owner Rulings RC4/Documentation/RC4_OWNER_RULINGS.md`; arithmetic in
+> `Owner Rulings RC4/Calculations/`.
+
+| # | Item | Ruling | Outcome |
+|---|---|---|---|
+| 1 | **SG2-V5** | **Accept the residual flotation risk in writing** | **A DEPARTURE FROM B.3 MITIGATION 1, RECORDED AS ONE.** No date moves. 70 days of exposure, 11-05-27 → 20-07-27, spanning the 2027 monsoon at stage 3: **FoS 1.22 at the design GWT, 0.86 flooded to grade.** B.3's other three mitigations stay mandatory |
+| 2 | **FS-V7** | **Ladder only; fall-arrest deferred** | Ladder designed, one type both shafts. **Does NOT close — it changes.** Three named gaps: no fall-arrest, no rest platform, and the injured-person question |
+| 3 | **EM-V3** | **Bay 8 is INSIDE the EMP boundary** | **CLOSED.** BV-4/BV-5 now REQUIRE honeycomb WBC panels. **The project now holds two protective boundaries that do not coincide** — gas-tight is bays 1–6, EMP is bays 1–8 — **and only one has ever been drawn** |
+| 4 | **A4** | **Build the k_s = 500 000 variant** | `Underground_Shelter_ks500000.std` built and validated. **k_s stays `[A]` at BOTH bounds; neither has been run** |
+| 5 | **U2** | **No direct hit — as designed** | **CLOSED.** Nothing changes |
+| 6 | **U3** | **Hold 50 psi / t<sub>d</sub> 0.13–1.33 s** | **CLOSED.** Nothing changes; the yield stays unstated rather than invented |
+| 7 | **WM-V7** | **Ballistic protection not required** | **CLOSED.** Brick stands; nothing changes |
+| 8 | **U4 / DR-A1-V1** | **Adopt the EAST position** | **Three findings — see below.** One assumed position instead of two. **`U4` stays `[A]`** |
+| 9 | **FS-1 / D-05** | **Design it now** | **FS-1 CLOSES.** Route R1 crosses an opening that exists |
+| 10 | **EL-V6** | **Compute the heat balance** | **CLOSED as computed; opens `RC4-V1`** |
+| 11 | **EM-V5** | **LEAVE OPEN** | Unchanged. **Sharpened by rulings 10 and 12** |
+| 12 | **SG-V6** | **Specify and price it** | Specified; **8 m³ BOQ item added, rate `[A]`** |
+| 13 | **EM-V4** | **LEAVE OPEN** | Unchanged |
+| 14 | **CAM-V5 / SG2-V3** | **Fix both from the design's own logic** | **BOTH CLOSED.** SH-1 **RECOVERED** from the project's own 12.3 m; SH-2 head **+1.500** |
+| 15 | **U8** | **Confirm 300 × 150 and verify** | **HALF re-derived — see `U8-F1`** |
+| 16 | **SG-V7** | **LEAVE OPEN** | Unchanged. **Sharpened by ruling 12** |
+
+### The four findings RC4 produced
+
+| Ref | Finding |
+|---|---|
+| **`RC4-F1`** | **DR-A1-V1's sentry X range is wrong.** It records A-301 as drawing the post at **X 31700–36300**. A-301's own note 2 says **X 32000–36000** — **4000 wide, which IS the post's external dimension**; 4600 matches nothing. The drawing is the primary source and is self-consistent. **Corrected.** An elevation gives no Y, so **Y 600–5600, centred on Y 3100**, is set by RC4 `[A]` |
+| **`RC4-F2`** | **The clash DR-A1-V1 predicted does not happen — it rested on an assumed Y.** Reserve X 33000–51000 **Y 6500–17500**; sentry X 32000–36000 **Y 600–5600**. They overlap in X and **not at all in Y**, clear gap **0.90 m**. **The external works reserve does not move and SG2's 28 checks stand.** One NEW check fails: **SK-02 to the sentry post 1.80 m against IS 2470's 2.0 m** — SG2 never ran it because its post was 10 m north. **Fixed by moving SK-02 300 mm north to (35000, 8800) → 2.10 m.** All 8 checks that move touches, and all 5 against the post, re-run and PASS |
+| **`RC4-F3`** | **The EAST position fails the ≥ 10 m rule as that rule is written.** A.2/A.4.8 say *"≥ 10 m clear of the shelter EXCAVATION"*. A-301's X 32000 is 10.00 m clear of the **box face** (X 22000); the **excavation** face with its 1000 working space is at X 23000, giving **9.00 m**. A-301's note cites the excavation rule while applying the box face. Satisfying it as written moves the post to **X 33000–37000**, which passes everything. **BOTH readings recorded; NEITHER adopted over the other — the EAST position is a drawing convention, not a survey coordinate** |
+| **`U8-F1`** | **The parapet confirmation is necessary but not sufficient.** Parapet 0.300 × 0.150 × 25 = **1.125 kN/m**, exact. Residual **3.037 kN/m** is the roof projection, and **the projection dimension is recorded nowhere** — back-solving gives 810 mm (slab alone) or 578 mm (slab + finish). Neither is round, neither is drawn, **neither is adopted** |
+
+> **Also recovered, and it was never written down: SG2's 50 m envelope pin is the box centre
+> (11000, 3100).** Solving from SG2's own worst case — the reserve far corner at 42.51 m —
+> reproduces it exactly. `[R]`
+
+### `RC4-V1` — the one new open item
+
+> **A SEALED SHELTER WITH A 4 kW HEAT SURPLUS AND NO ROUTE OUT FOR IT.** The 96-hour closed-mode
+> balance is now computed: **6.363 kW sensible**, **2.199 GJ over 96 h**, air rising **13.2 K**
+> to about **39 °C and still climbing**, and a mean duty of **3.60 kW (adopt 4 kW, 1.14 TR)** to
+> hold 30 °C. The duty is small. **The rejection path does not exist** — in closed mode there is
+> no ventilation air to reject to and every envelope penetration is already spoken for, so the
+> heat has to go to the ground, which means **a new penetration of the protective envelope that
+> nobody has designed** and an EMP treatment for it. **Referred, not solved.**
+
+### What RC4 changed in Parts A–L
+
+| Where | Change |
+|---|---|
+| **A.4.8** | Sentry post — the EAST position adopted at **X 32000–36000, Y 600–5600** `[A]`, with `RC4-F1` and `RC4-F3` recorded beside it |
+| **A.4.9** | Exit hatches and blast doors — **the escape shaft ladder added**, with its three named gaps |
+| **A.7.7** | `U8` note — the parapet term now `[C]` and exact; the projection term `[N]` |
+| **A.7.2 / B.3** | Untouched. **The flotation ruling changes no number — it accepts the programme as written** |
+| **D.1** | `Underground_Shelter_ks500000.std` added — seven `.std` files |
+| **K.1b** | **Thirty-three → twenty-one.** Closed: U2, U3, WM-V7, EM-V3, EL-V6, CAM-V5, SG2-V3, FS-1/D-05. Changed but open: FS-V7, U8, U4/DR-A1-V1, SG-V6, A4. **New: `RC4-V1`** |
+| **K.1e** | The RC4 rulings recorded alongside RC2's and SG2's |
+| **K.2 A4** | The upper bound is now buildable and built. **Still `[ASSUMED]`, still unrun** |
+
+> **What RC4 did NOT do.** No `[A]`/`[U]`/`[N]` tag converted by inference. No analysis run.
+> No dimension, level, load, thickness or bar in A, B, F or L changed, except where a ruling
+> created something that did not exist. One BOQ item added; no existing quantity, rate, date or
+> float moved. **Main staircase untouched.**
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -4360,6 +4470,17 @@ reproduction. See I.2.
 | `DRAWING QAQC/DRAWING_INDEX.md`, `qa_index.json` | Regenerated over **80 drawings** (was frozen at 68) |
 | `DRAWING QAQC/QAQC_REPORT.md` **§10** | The QA2 addendum — why the index froze, the twelve sheets scanned for the first time, and the A-301 correction |
 
+### Added by RC4, 11 September 2026 — see H.28
+
+| Folder / file | Contents |
+|---|---|
+| `Owner Rulings RC4/Documentation/RC4_OWNER_RULINGS.md` | **The sixteen rulings and what each produced.** Thirteen actioned, three deliberately left open, four findings (`RC4-F1…F3`, `U8-F1`) and one new item (`RC4-V1`) |
+| `…/Calculations/RC4_CALC_OUTPUT.txt` | **R.1–R.6 with every step shown** — the parapet re-derivation · the 96-hour heat balance across three bounds · the escape shaft ladder · D-05 and its trim steel · the raft strip-and-replace · both air shafts |
+| `…/Calculations/RC4_SITING_OUTPUT.txt` | **T.1–T.7** — the 50 m envelope pin recovered from SG2's own arithmetic; the EAST sentry position re-run against every SG2 rule; the one check that fails and the 300 mm that fixes it |
+| `…/Schedules/RC4_BOQ_ADDENDUM` | The two items the rulings added. **8 m³ each, rate `[A]`, NOT PRICED** — a second declared exclusion from WM3's lower bound |
+| `…/Scripts/rc4_calc.py` · `rc4_siting.py` | The generators. Everything above is regenerated by running the two |
+| `current/staad/Underground_Shelter_ks500000.std` | **The subgrade upper bound.** Identical to the reference model but for the `ELASTIC MAT` line and four `KFY` values — verified by diff |
+
 ## I.3 SUPERSEDED / ARCHIVED
 
 | Item | Superseded by | Note |
@@ -4472,6 +4593,18 @@ reproduction. See I.2.
 
 ## K.1b STILL OPEN — these need information the project does not contain
 
+> **RC4, 11 September 2026 (Part H.28) — THE OWNER RULED ON SIXTEEN OF THESE, ITEM BY ITEM.
+> K.1b falls from thirty-three to twenty-one.**
+>
+> **CLOSED and moved to K.1e (8):** `U2` · `U3` · `WM-V7` · `EM-V3` · `EL-V6` · `CAM-V5` ·
+> `SG2-V3` · `FS-1 / D-05`.
+> **RULED AND CHANGED, but still open, and their rows below now say how (5):** `FS-V7` ·
+> `U8` · `U4 / DR-A1-V1` · `SG-V6` · `A4` (K.2).
+> **DELIBERATELY LEFT OPEN by the owner (3):** `EM-V4` · `EM-V5` · `SG-V7` — **and two of the
+> three were SHARPENED by rulings elsewhere in RC4.** Leaving an item open is a decision with
+> consequences, not a way of avoiding one.
+> **NEW (1):** `RC4-V1`.
+
 > **These are NOT inconsistencies.** Each is a single position the project holds, with
 > nothing contradicting it. What they need is a decision, a datum or a design from
 > outside this workspace, and no amount of choosing between recorded values can supply it. They are
@@ -4488,11 +4621,11 @@ reproduction. See I.2.
 |---|---|---|---|
 | **U2** | Is a direct hit a requirement? | **No direct hit is designed for.** The 2.0 m cover is sized for prompt neutron and gamma attenuation (A.7.3), not for a penetrating hit; the burster slab breaks up a penetrating item, it does not defeat one. This is stated, consistent, and carried through every load case | **A military representative's sign-off.** If a direct hit becomes a requirement the cover depth and the burster design both change |
 | **U3** | Design basis threat yield | **50 psi with t<sub>d</sub> 0.13–1.33 s is the stated basis and is what every load case uses.** The pressure and duration are the design inputs; the yield behind them is not needed to execute the design as recorded | Client confirmation. It would drive the prompt-radiation cover depth if it moved |
-| **U8** | Roof projection + parapet, 4.162 kN/m | **Adopted as given on the Rev F framing plan and used in the analysis.** It is not a conflict — no second value exists | It cannot be re-derived because the parapet detail behind it (300 high × 150 thick) is itself `[ASSUMED]`. Confirm the parapet detail and the load follows |
+| **U8** | Roof projection + parapet, 4.162 kN/m. **RULED AND HALF-CLOSED — RC4 (H.28): the parapet is CONFIRMED at 300 × 150** | **The parapet term is now `[C]` and exact: 0.300 × 0.150 × 25 = 1.125 kN/m.** The residual **3.037 kN/m** is the roof projection | **ONE DIMENSION.** `U8-F1`: **the projection dimension is recorded nowhere in this project.** Back-solving gives 810 mm (slab alone) or 578 mm (slab + finish); neither is round, neither is drawn, **neither is adopted.** 4.162 continues to be used as given — no member force changes |
 | **WM-V6** | Sentry seismic weight after SP-B1 | **The direction is certain and favourable.** Brick at 20 kN/m³ over 0.190 × 2.600 gives **9.88 kN/m** against the **13.000 kN/m** modelled, so W falls, V<sub>b</sub> falls, and every member designed to 73.18 kN is over-designed. **Nothing is unsafe and nothing is inconsistent** | A STAAD re-run to put a number on the margin. **STAAD.Pro is not available in this environment**, so it is confirmation, not risk |
 | **WM-V7** | Ballistic function of the Rev F panels | **Brick masonry does not give ballistic protection, and every drawing now says brick.** There is no longer any inconsistency — the drawings, the master and the Works Management package all agree | **A client / military decision** on whether that protection is required at all. No drafting or design work in this project can supply it |
 | **WM-V9** | Excavation working space and face treatment | 1.000 m working space and vertical unbenched faces, used consistently for measurement | A slope-stability assessment of the soil zone above rockhead |
-| **FS-V7** | **How is either escape shaft climbed?** Raised by drawing F-102, 10 Sep 2026 (H.18) | **Nothing. The project holds no position at all.** ESC 1 emerges at (+0.150) and ESC 2 at (+0.700) against a floor at (−)6.100 — a **6.250 m** and a **6.800 m** climb `[D]` — and **no ladder, rung or fall-arrest is specified in either shaft anywhere** | **A design.** Not a ruling between recorded values: there are no recorded values. It also needs an answer on whether an injured person is expected to use a shaft at all, which is a client question |
+| **FS-V7** | **How is either escape shaft climbed?** Raised by drawing F-102, 10 Sep 2026 (H.18). **RULED AND CHANGED — RC4, 11 Sep 2026 (H.28): LADDER DESIGNED, FALL-ARREST DEFERRED.** A.4.9 carries the ladder. **Three things are still missing and the ruling knows it: no fall-arrest, no rest platform (a 1400 bore cannot take one without blocking the escape), and the injured-person question — a vertical ladder cannot pass a stretcher.** The row below is the position BEFORE the ruling, preserved under M.11 | **Was: nothing. The project held no position at all.** ESC 1 emerges at (+0.150) and ESC 2 at (+0.700) against a floor at (−)6.100 — a **6.250 m** and a **6.800 m** climb `[D]` — and **no ladder, rung or fall-arrest is specified in either shaft anywhere** | **A design.** Not a ruling between recorded values: there are no recorded values. It also needs an answer on whether an injured person is expected to use a shaft at all, which is a client question |
 | **CAM-V5** | **Head level of the generator air shaft SH-2.** Raised by drawing C-101, 10 Sep 2026 (H.18) | Its **600 × 600** size and its **BV-4 / BV-5** duty are confirmed; **how far it stands above finished grade is recorded nowhere** | **A datum.** Until it exists SH-2 cannot be assessed as an above-ground signature, and C-101 draws it with its height flagged `[N]` rather than assumed |
 | **EM-V2** | EMP Zone 2 dimensions | **Required and unspecified for four revisions; EM1 supplies a set that demonstrably fits bay 3** — 2 400 × 1 600 × 2 200 external, clear of the Y 2500–3400 circulation route, with a 300 survey gap on every free face. **Every dimension is `[A]`** | **An equipment schedule**, which waits on the **missing electrical design** — the project's largest gap (H.10). It is a fit, not a derivation |
 | **EM-V3** | Is bay 8 inside the EMP boundary? | **No EMP boundary has ever been drawn.** Bay 8 is outside the *gas-tight envelope* (A.2) — but that is a **CBRN** boundary and says nothing about EMP | **A client decision.** If bay 8 is in, BV-4/BV-5 need honeycomb WBC panels; if it is out, the 15 kVA generator, its control panel and every cable in bay 8 are unprotected and **the shelter loses power to the pulse** |
@@ -4509,7 +4642,7 @@ reproduction. See I.2.
 | **SG-V2** | **DEPTH OF INVESTIGATION — the governing item** *(SG1)* | **The pits reached about 1.5 m. The formation is at `(−)6.800` and the sump base at `(−)8.000`.** There are **5.3 m of completely unlogged ground** under the whole structure. Only sentry footing F1 at `(−)2.000` is inside the investigated horizon, and only just | **Boreholes with core recovery and RQD to well below `(−)6.800`, logging every flow contact and red-bole seam** — that is the case that **sizes the mat** (`B.3` Case 2, 84 % utilised) — with **packer permeability** at the contacts and a **plate load test** for k<sub>s</sub> at **both** bounds |
 | **SG-V4** | **Site level and fall** *(SG1)* | **The P1 deck contradicts itself.** Its contour map puts the plot between the **580 and 581 m** contours; its elevation profile reads **593.9 → 596.2 m** over 26.8 m. **They differ by 12–16 m in level and about four times in gradient**, and neither is tied to the project datum. Neither is adopted | **A levelled benchmark on the plot** and a spot-level survey. It changes **no calculation** — the project works on a local datum with grade `= 0.000` — but the **cut and fill**, the **berm toe** and the point where the `BS1` 1:50 crossfall daylights all wait on it, and on **D3** |
 | **SG-V5** | **Annual rainfall** *(SG1, **AMENDED by SG2**, H.23)* | **SG2 settled which side is wrong.** The **June-to-October mean alone** at Pune Shivajinagar over **1978–2020 is 852.5 mm** `[R]` — **1.4 to 1.7 times the SEMT report's whole YEAR** of 500–600 mm. **`SG2-F2`: the soil report's figure is the one that is wrong, not the deck's**, which is the opposite of SG1's first guess. The deck is not vindicated either: its Jun–Oct total is **18 % below** the 42-year mean and its **October figure still does not fit a Deccan monsoon**. **No IMD normal could be retrieved — ten meteorological hosts were probed and all ten were refused by the session's egress policy (403) — and none is invented.** | **A named IMD station normal**: the *Climatological Tables of Observatories in India 1991–2020*, or the IMD Climate Data Services Portal, or the National Data Centre — with the station index and period printed on it. **And separately an IDF relation** for `DR-D1`. **Note what this does NOT reach: not one pipe, pit, pump or structure in this project is sized by rainfall** (H.23), so no design value waits on it |
-| **SG-V6** | **The entry stairwell raft founds in black cotton soil** *(SG1)* | `A.4.7` records a *"Stepped RC raft 300 thk **on compacted fill**"* from the top landing at `0.000` to the platform at `(−)2.000`; **its top founds at about `(−)0.300`, inside the 0.18–1.0 m CH horizon**, which is measured at **FSI 60–65 %** — very high swelling. *"On compacted fill"* implies a strip and replace, but **no specification says so and no BOQ item exists**. This is **heave**, not bearing | **A specification** for stripping and replacing the CH horizon under the raft, and the quantity priced. The stairwell is expendable against **blast** — **heave is not a blast problem, and this is the only primary access to the shelter** |
+| **SG-V6** | **The entry stairwell raft founds in black cotton soil** *(SG1)*. **RULED — RC4 (H.28): STRIP AND REPLACE, SPECIFIED AND PRICED.** Strip the CH horizon to 1.000 m below existing ground over 4.410 × 4.000 m, replace with granular fill at **FSI ≤ 20 %** (IS 2720 Pt XL) in 200 layers to **≥ 95 % MDD**, extending **1.000 m beyond every raft edge** so the raft never bears partly on replaced and partly on natural CH. **BOQ item added: 8 m³, rate `[A]` — not invented.** **It collides with `SG-V7`, which the owner left open: this work produces a stockpile of exactly the material SG-V7 warns against re-laying as the cover turf.** The row below is the position before the ruling | `A.4.7` records a *"Stepped RC raft 300 thk **on compacted fill**"* from the top landing at `0.000` to the platform at `(−)2.000`; **its top founds at about `(−)0.300`, inside the 0.18–1.0 m CH horizon**, which is measured at **FSI 60–65 %** — very high swelling. *"On compacted fill"* implies a strip and replace, but **no specification says so and no BOQ item exists**. This is **heave**, not bearing | **A specification** for stripping and replacing the CH horizon under the raft, and the quantity priced. The stairwell is expendable against **blast** — **heave is not a blast problem, and this is the only primary access to the shelter** |
 | **SG-V7** | **The concealment turf may be an expansive clay** *(SG1)* | `A.7.3` puts **300 topsoil / turf** at the top of the cover and `CAM2` makes it *the* concealment layer, **"re-laid from the site's own stockpile"**. If the site's own topsoil is this CH clay, the concealment layer **cracks in the dry season** (a concealment defect — `CAM2`'s whole subject), the cracks **feed the 150 granular filter directly**, and the wet/dry cycles **pump fines into** the filter, which is the one thing it exists to stop. **The load is unaffected** — 300 at 18 kN/m³ = 5.40 kPa is right for a black cotton soil | **A specification**: a swell limit on the stockpiled topsoil, or imported non-expansive topsoil, priced. A `CAM2` coordination decision. `BS1`'s crossfall still works and is unaffected |
 | **SG-V8** | **Three P1 deck statements are not in the report they cite** *(SG1)* | Slides 29 and 30 both read *"Source : SEMT wing, CME"*. **"SBC = 300 kN/m² at 1.5 m"** is not any value in the report; **"Murrum … SBC of 25–30 kg/cm²"** — the report says 2.07–5.18, and 25–30 is the *sound basalt* band; **"609–900 kg/cm² unsoaked"** — the report says 752–900, and 609 appears nowhere. **None affects the design**, which uses none of them | **Correction at source before the next presentation.** The deck's two other soil statements are right: *"Ultimate = SBC × 2.5"* is Appendix B's own relationship, and *"safe for water table at 2 m below GL"* is the **provenance of `(−)2.000`** |
 | **SG-V10** | **The date of the SEMT field work is not stated** *(SG1)* | The report is raised on a letter of **20 May 2015** but **nowhere states when the trial pits were dug**. If the work followed promptly it was the **pre-monsoon minimum** — the one time of year a trial pit is least likely to find water. **That is inference and is tagged `[U]`, not asserted** | The field-work dates from the SEMT wing, or acceptance that the *"no water table"* observation is **season-unknown**. Either way `SG-V2` and `SG-V3` still govern |
@@ -4519,9 +4652,30 @@ reproduction. See I.2.
 | **SG2-V3** | **SH-1, the fresh-air intake, has no plan position** *(SG2)* | The HVAC equipment schedule gives **SH-2** an X range (22 598 – 23 198) and gives **SH-1** only *"West of the box"*. **No X, no Y, no coordinate.** The fresh-air intake of a CBRN shelter is not a minor fitting: until it has one, **no intake separation can be checked against anything** — the septic vent, the generator exhaust, a surface plume. What protects it in SG2's layout is geometry, not a calculation: the reserve is **east**, SH-1 is **west**, so the separation is **at least 33 m however SH-1 is finally placed** | **A coordinate**, from HVAC. `SG2-F4` |
 | **SG2-V4** | **No wind direction data exists anywhere — there is no wind rose** *(SG2)* | The P1 deck gives monthly mean **speed** and nothing else. It matters twice: for the **intake / exhaust** relationship, and as the **plume direction for the CBRN case** the whole shelter exists to survive. **SG2's orientation is therefore justified on access, fall, noise and end-to-end separation — explicitly NOT on prevailing wind** | **A wind rose** for the nearest long-record station. Until then the design's only protection is that intake and exhaust sit at opposite ends of a 22 m box |
 | **SG2-V5** | **The programme stops dewatering before backfill** *(SG2, sharpened by the `SG-V3` ruling)* | `A2070`, *"Dewatering — continuous through the substructure works"*, ends **11-05-27**. Side backfill `A7010` runs 20-07-27 → 30-07-27 and the burster slab is not cast until 21-08-27. Master `B.3` mitigation 1 requires dewatering **"until backfill and cover complete"**. **The gap spans the whole 2027 monsoon with the box at stage 3 — flotation FoS 1.22 at the design GWT and 0.86 flooded.** The `SG-V3` ruling makes this the operative control rather than a belt-and-braces note | **A project-owner decision on the programme.** No date is changed by SG2 — the owner's own Master Construction Schedule R0 governs (H.13). Either dewatering extends to 30-07-27, or the sub-structure sequence moves, or the residual flotation risk is accepted in writing |
-| **DR-A1-V1** | **THE PROJECT HOLDS TWO DIFFERENT ASSUMED SENTRY-POST POSITIONS, AND ONE OF THEM LANDS IN THE DRAINAGE RESERVE** *(DR-A1, 11 Sep 2026, H.24)* | `U4` records that **no sentry-post coordinate exists** — `A.2`/`A.4.8` and the four Rev F sentry sheets say only *"≥ 10 m clear of the shelter excavation"*. Two placements now satisfy that rule in different directions: **`A-301` draws the post at `X 31700 – 36300`, 10 m EAST**, and **BIM-P1 / `SG2` assume `X 9000 – 13000, Y 15250 – 20250`, 10 m NORTH**. `SG2`'s external works reserve is `X 33000 – 51000`, so **the elevation's placement would put the sentry post inside the reserve**, and `SG2`'s 28 of 28 clearance checks — run against the northern assumption, and giving `ST-01` **22.5 m** from the post — would have to be re-run. On the elevation's own placement the same gap measures about **0.25 m**. **Nothing is ruled: both stay `[ASSUMED]`, and `A-301` now says on its face that its sentry position is a convention, not a coordinate** | **The sentry post's real site position — `U4`.** Until it exists, `ST-01` and `SK-01` are drawn on `A-301` beyond a break rather than at true X, and no clearance between the sentry post and the external works can be stated |
+| **DR-A1-V1** | **RULED — RC4, 11 Sep 2026 (H.28): THE EAST POSITION IS ADOPTED.** One assumed position instead of two. **`RC4-F1`: the X range below is WRONG** — `A-301`'s own note 2 says **X 32000–36000** (4000 = the post's external dimension), not 31700–36300 (4600, matching nothing). **`RC4-F2`: the clash below DOES NOT HAPPEN** — it rested on an assumed Y, and with the post at **Y 600–5600** the reserve does not move and SG2's 28 checks stand. One NEW check failed — **SK-02 to the post at 1.80 m against IS 2470's 2.0 m** — fixed by moving **SK-02 300 mm north**. **`RC4-F3`: the EAST position gives 9.00 m to the EXCAVATION face against the ≥ 10 m rule as written**; both readings recorded, neither adopted. **`U4` STAYS `[ASSUMED]`.** The row below is preserved under M.11 | **Was:** `U4` records that **no sentry-post coordinate exists** — `A.2`/`A.4.8` and the four Rev F sentry sheets say only *"≥ 10 m clear of the shelter excavation"*. Two placements now satisfy that rule in different directions: **`A-301` draws the post at `X 31700 – 36300`, 10 m EAST**, and **BIM-P1 / `SG2` assume `X 9000 – 13000, Y 15250 – 20250`, 10 m NORTH**. `SG2`'s external works reserve is `X 33000 – 51000`, so **the elevation's placement would put the sentry post inside the reserve**, and `SG2`'s 28 of 28 clearance checks — run against the northern assumption, and giving `ST-01` **22.5 m** from the post — would have to be re-run. On the elevation's own placement the same gap measures about **0.25 m**. **Nothing is ruled: both stay `[ASSUMED]`, and `A-301` now says on its face that its sentry position is a convention, not a coordinate** | **The sentry post's real site position — `U4`.** Until it exists, `ST-01` and `SK-01` are drawn on `A-301` beyond a break rather than at true X, and no clearance between the sentry post and the external works can be stated |
 
-### K.1e RULED, CLOSED OR ANSWERED BY THE PROJECT OWNER — RC2 (Part H.21) and SG2 (Part H.23)
+### K.1e RULED, CLOSED OR ANSWERED BY THE PROJECT OWNER — RC2 (H.21), SG2 (H.23) and RC4 (H.28)
+
+> **RC4, 11 September 2026 (Part H.28) — EIGHT CLOSED BY OWNER RULING.**
+>
+> | Item | Ruling | What it cost |
+> |---|---|---|
+> | **U2** — is a direct hit a requirement? | **NO. The design stands as it is.** The 2.0 m cover is for prompt neutron and gamma attenuation, not to defeat a penetrating weapon, and the burster slab breaks up a penetrating item rather than stopping one | Nothing. The position was already consistent through every load case; it is now **ruled** rather than assumed |
+> | **U3** — design basis threat yield | **HOLD p<sub>so</sub> 344.7 kPa (50 psi) and t<sub>d</sub> 0.13–1.33 s as THE stated basis.** The overpressure and duration ARE the design inputs | Nothing. **The yield stays unstated rather than invented** — the honest position, and the one every load case already uses |
+> | **WM-V7** — ballistic function | **NOT REQUIRED. Brick stands.** | Nothing. The sentry post is already declared not blast designed and expendable |
+> | **EM-V3** — is bay 8 inside the EMP boundary? | **INSIDE.** The generator, its panel and its cabling are protected | **BV-4/BV-5 now REQUIRE honeycomb WBC panels**, and **the project now holds two protective boundaries that do not coincide** — gas-tight bays 1–6, EMP bays 1–8 — **only one of which has ever been drawn.** RC2 lets the generator run in mode 3 with those two bores open, so the panels must work with the valves open |
+> | **EL-V6** — cooling | **COMPUTE THE HEAT BALANCE.** Done: 6.363 kW sensible, 2.199 GJ over 96 h, air +13.2 K to ≈ 39 °C and still rising, duty **4 kW (1.14 TR)** to hold 30 °C | **Closed as computed — and it opens `RC4-V1`.** The duty is trivial; **the rejection path does not exist** |
+> | **CAM-V5** — SH-2 head level | **+1.500**, the same gooseneck head as SH-1 `[A]` | A consistency argument, not a dispersion calculation. **C-101 can now draw SH-2 to scale** instead of flagging it `[N]` |
+> | **SG2-V3** — SH-1 plan position | **CENTRED (−2400, 3100)**, 600 × 600 `[A]` | **RECOVERED, not chosen** — it reproduces the project's own recorded *"12.3 m from the intake to the entry"* to **28 mm**. 25.30 m from SH-2 |
+> | **FS-1 / D-05** — W5 has no door | **DESIGN IT.** 900 × 2100 gas-tight fire door, **opening EAST into bay 6** in the direction of escape on R1; 2-T16 each jamb each face; 200 × 300 header band | **FS-1 CLOSES.** The **EI 120 rating is `[A]` and must stay `[A]`** — nothing in this project states a required fire rating for any element |
+>
+> **AND THREE THE OWNER DELIBERATELY LEFT OPEN:** `EM-V4` (no communications design),
+> `EM-V5` (no pipe material anywhere) and `SG-V7` (the concealment turf may be expansive clay).
+> **Two of the three were sharpened by other RC4 rulings** — the cooling ruling adds a second
+> boundary crossing with EM-V5's problem, and the raft ruling produces a stockpile of exactly
+> the material SG-V7 warns against. **They stay in K.1b, unchanged.**
+
+### K.1e — earlier rulings: RC2 (Part H.21) and SG2 (Part H.23)
 
 > **Every one of these was asked, not assumed.** Each package raised a question it could not
 > answer from the project's own evidence, stated the consequence of each possible answer, and
@@ -4666,7 +4820,7 @@ reproduction. See I.2.
 | A1 | Rockhead 1.5–2.0 m, competent below | Founding level, excavation cost | Site investigation |
 | A2 | **GWT (−)2.000** | **Uplift, flotation, waterproofing class, wall design** | **Monsoon-season monitoring** |
 | A3 | SBC 3240 kPa | Footing and mat sizing (both ≪ 13 % utilised) | Plate load / core testing |
-| A4 | **k<sub>s</sub> 100 000–500 000 kN/m³** | **Mat moments — sensitive. Run both bounds** | Plate load test |
+| A4 | **k<sub>s</sub> 100 000–500 000 kN/m³** | **Mat moments — sensitive. Run both bounds** | Plate load test. **RC4 (H.28): the UPPER-BOUND MODEL NOW EXISTS** — `Underground_Shelter_ks500000.std`, identical to the reference model but for the subgrade line and the four corner `KFY`. **STILL `[ASSUMED]` AT BOTH BOUNDS, AND NEITHER HAS BEEN RUN** |
 | A5 | K₀ = 0.50, γ 20/21 | Wall lateral load | Site investigation |
 | A6 | K<sub>a</sub> = 1.0 saturated (used); K<sub>a</sub> ≈ 0.5 dry berm (**not relied on**) | Headhouse wall load — removed from the critical path by C10 | Would allow a reduction if measured |
 | A7 | Soak-pit absorption 20 L/m²/day | **Soak pit will not work if lower — likely on basalt** | **Percolation test, IS 2470 Pt 2 Cl. 4 — MANDATORY** |
@@ -4734,6 +4888,10 @@ HEADHOUSE           14000–18000 × 600–5600 internal · walls 400 · roof 50
 ENTRY STAIRWELL     9500–15800 × 6000–7500 internal · 12R @ 166.667/300 · waist 250
 SENTRY POST         4000 × 5000 · grid 3650 × 4650 · C1 350² · B1/B2 250 × 450 · S1 150
                     F1 1500² × 600 · levels +0.450 / +3.650 / +6.700 / +7.000
+                    SITE POSITION X 32000–36000, Y 600–5600 [A] — RC4, EAST ruling
+                    (9.00 m to the excavation face against the ≥10 m rule — RC4-F3)
+AIR SHAFTS          SH-1 intake centred (−2400, 3100), head +1.500 [A] — RC4
+                    SH-2 generator X 22598–23198, head +1.500 [A] — RC4
 
 MATERIALS           Box M35 / Fe500D  ·  Sentry M30 / Fe500
                     Ec 29 580 / 27 386 N/mm²  ·  cover 75/50/40 (box), 30/40 (sentry)
@@ -4764,8 +4922,9 @@ SENTRY      S1 T8 @ 150 B/W + T8 @ 300 edge top + T8 @ 200 torsion 700² × 4 co
             C1 8-T16 · T10 hoops + cross-ties @ 85 over 500 · biaxial 0.819
             F1 T12 @ 150 B/W
 
-STATUS      STAAD    6 .std in current/staad/ — box (reference), sentry, entry
-                     stairwell, + MS1 coarse/medium/fine.  ALL READ AND RECONCILED
+STATUS      STAAD    7 .std in current/staad/ — box (reference), sentry, entry
+                     stairwell, MS1 coarse/medium/fine, + ks 500 000 upper bound.
+                     ALL READ AND RECONCILED
                      IN THIS WORKSPACE.  **STAAD.Pro NOT RUN — no result exists**
             DXF      80 DXF, 74 PASS (QA2, H.25).  S-06 is the only S-series sheet
                      present; S-01…S-05, S-07, S-08 are ABSENT and cannot be
