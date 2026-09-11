@@ -1,0 +1,4 @@
+BOARD,NAME,BAY,POSITION,FED FROM,NOTES
+DB-M,MAIN LV BOARD,Bay 8,"BAY 8 - GREY ZONE, WITH GEN-1","MAINS (meter panel) + GEN-1 15 kVA, with changeover",Mains + generator changeover.  OUTSIDE the gas-tight envelope
+DB-E,ESSENTIAL BOARD,Bay 5,BAY 5 - CBRN PLANT,"DB-M, and from the battery inverter on loss of both sources",Fed from DB-M and from the inverter.  INSIDE the gas-tight envelope
+DB-Z2,EMP ZONE 2 SUB-BOARD,Bay 3,BAY 3 - INSIDE THE SHIELDED ENCLOSURE,DB-E through the PCI on the EMP Zone 2 boundary,Fed through the PCI on the Zone 2 boundary - EM1 PoE-3

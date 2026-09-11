@@ -10,6 +10,16 @@ Updated 10 Sep 2026 for revisions **BS1** and **SP-B2** (Part H.12) and for Work
 Management **WM2** (Part H.13).
 Updated 10 Sep 2026 for **RC1** (Part H.14) — **every inconsistency that could be ruled
 on the evidence has been ruled**; six items needing outside information stay open in K.1b.
+Updated 10 Sep 2026 for **CAM2 / FS2** (Part H.18) — the camouflage policy and the fire plan
+moved into their own packages and drawn.
+Updated 10 Sep 2026 for the **EMP protection package EM1** (Part H.19) — the project's first
+EMP design. **Six new open items EM-V1…V6**.
+Updated 11 Sep 2026 for the **electrical and power package EL1** (Part H.20) — the project's
+first electrical design, deliberately basic. **Seven new open items EL-V1…V7.**
+Updated 11 Sep 2026 for **RC2** (Part H.21) — **two rulings by the project owner**: the
+**three-zone EMP model is ADOPTED** (closes EM-V1) and **the generator MAY run during Mode 3**
+(closes EL-V1). **Neither changed a number.** K.1b falls to **nineteen**; the two ruled items
+move to the new **K.1e**.
 
 ---
 
@@ -26,6 +36,9 @@ on the evidence has been ruled**; six items needing outside information stay ope
 | **Works Management — revised** | **WM3** (10 Sep 2026, master H.15) — the **RC1 rulings applied** to the owner's own BOQ, estimate and schedule and published alongside the originals as `.xlsx`/CSV/MD. Burster 300 M35 → **200 M30**; escape shaft collars and the 15 kVA generator **added**; 13 programme activities reworded. **Revised final cost ₹2,97,90,913** — a **LOWER BOUND**, the generator is deliberately unpriced (**no rate invented**). `USER_SOURCE/` untouched |
 | **Concealment** | **CAM2** (10 Sep 2026, master **H.18**) — the CAM1 policy **moved out of `WORKS MANAGEMENT/` into its own package `Site and Concealment/`** and **drawn as `C-101`, the above-ground signature elevation**. Text unchanged. Its finding: **the shelter is concealed, the installation is not** — sentry post **+7.000**, headhouse **+0.900 with no earth cover**, stairwell **+2.450**, gooseneck **+1.500**. The 300 turf is the concealment layer, re-laid from the site's own stockpile, and the cover is drained with **no pipe, so no manhole or gully breaks the roof**. **No net, paint or screen is specified anywhere and none is invented**; `B-camo` has no rate. **No concealment LAYOUT can be drawn — there is no site plan (D3)**, so C-101 shows the sentry post beyond a break at no fixed distance. Open items **CAM-V1…V4**, plus **CAM-V5** which the drawing raised: **SH-2 has no recorded head level anywhere** |
 | **Fire** | **FS2** (10 Sep 2026, master **H.18**) — the FS1 plan **moved out of `WORKS MANAGEMENT/` into its own package `Fire and Life Safety/`** and **drawn as `F-101` and `F-102`, the escape plans**. Governing fact: **the shelter cannot be ventilated of smoke** — 332.8 m³ at 300 m³/h is **0.9 ACH**, and in Mode 3 CLOSED it is **zero**. Three routes: **R1** main stair, longest travel **14.6 m**; **R2** ESC 1; **R3** ESC 2. Findings **FS-1** W5 has **no door** and R1 has to cross it · **FS-2** Bays 1–6 are **one smoke compartment** · **FS-3** **ESC 2 shares Bay 8 with the generator** · **FS-4** no rule for a fire in Mode 3 · **FS-5** all active measures wait on the **missing electrical design** · **FS-6**, which the drawings raised: **no ladder, rung or fall-arrest in either escape shaft**, and they are **6.250 m** and **6.800 m** climbs. **Blast Doors 1 and 2 are the only two real fire barriers.** Open items **FS-V1…V7** |
+| **EMP** | **EM1** (10 Sep 2026, master H.19) — **the project's first EMP design; there was none before.** Governing fact: **the concrete box is not an EMP shield and never could have been** — at the confirmed 150 bar spacing the cage gives **99.99 dB at 10 kHz falling 20 dB/decade to 0.00 dB at 1 GHz**, meeting the MIL-STD-188-125-1 80 dB requirement **only below 99.93 kHz — one decade of the five**. **This reproduces master K.3's own confirmed figure from the bar spacing alone.** So the 80 dB boundary must be **EMP Zone 2**, which has been named since Rev F and **never specified**. Findings **EM-F1** the **2800 × 3160 stair void** is an open EM path from grade to Bay 7 · **EM-F2** one decade of five · **EM-F3** Zone 2 named for four revisions with no Zone 1 and no spec · **EM-F4** **BV-4/BV-5 DN350** fail both criteria and nobody has decided whether Bay 8 is inside the EMP boundary · **EM-F5** **5 Ω is unachievable in basalt and is not an EMP number** · **EM-F6** **no antenna, mast, feeder or comms design exists anywhere**. Six new items **EM-V1…V6**. **6 A1 DXF, 0 errors. No design value changed** |
+| **Electrical** | **EL1** (11 Sep 2026, master H.20) — **the project's first electrical design; there was none before, and it was the largest of the 13 gaps.** Deliberately **basic — it stops at board level.** Connected load **6.256 kW / 7.360 kVA** against the confirmed **15 kVA** = **49 % utilisation**, so **GEN-1 is amply sized and needs no change**. Finding: **the battery is either a cabinet or a room and the project does not contain the sentence that decides which** — Mode 3 says *all five blast valves shut*, Mode 5 says *BV-4 and BV-5 open* and *independent of modes 1–4*, and BV-4/BV-5 are two of the five. **149 Ah vs 1 783 Ah / 2.4 t — 12× apart (EL-V1).** Three boards, **one cable entry** via the existing service entry plate with **PCI on power and fibre on signal** (EM1 PoE-3/4). **Unblocks FS-V2 and EM-V2; closes HVAC P11.** **1 A1 DXF, 0 errors. No design value, BOQ quantity, rate, date or float changed** |
+| **Rulings** | **RC2** (11 Sep 2026, master H.21) — **two questions EM1 and EL1 asked rather than assumed, now answered by the project owner.** **(1) The three-zone EMP model and the "EMP Zone 2 standing alone" rule are ADOPTED** — the project's EMP position, `[C]`, **EM-V1 closed**. **(2) The generator MAY run during Mode 3** — all five valves shut at the shock, **BV-4 and BV-5 then reopen for GEN-1**; Bay 8 is outside the gas-tight envelope. **EL-V1 closed, Case A confirmed at 149 Ah, HV1's Mode 3 row amended.** **Neither ruling changed a number** — both confirmed what the packages had reasoned. **EM-V3 is SHARPENED, not decided**: reopening BV-4/BV-5 leaves two DN350 bores — which fail both EMP criteria — open through the post-attack period |
 | **Drawings** | **QA1** (9 Sep 2026, master H.11) — drafting QA/QC over **all 65 DXF**. Annotation, sheet frames, title blocks. **No engineering design changed** |
 | **SP-B1** | **SENTRY POST WALLS = BRICK MASONRY** — instructed design change, 7 Sep 2026. The only design change in WM1 |
 | **SP-B2** | **SENTRY POST LINTELS + WALL TIES** — completes SP-B1, 10 Sep 2026 (master H.12 / A.4.8). Closes WM-V5 and WM-V11 |
@@ -53,7 +66,7 @@ ESC 2 → X 19 900; headhouse and covered stairwell **+200**. Nothing west of X 
 |---|---|---|---|
 | 1 | 600–3500 | 2900 | Stores, 1000 L tank, **ESC 1** |
 | 2 | 3610–5410 | 1800 | Lavatory + medical |
-| 3 | 5520–9020 | 3500 | Ops room; EMP Zone 2 |
+| 3 | 5520–9020 | 3500 | Ops room; **EMP Zone 2** — enclosure designed at `[A]` by EM1, 2400 × 1600 × 2200 ext at X 5820–8220, Y 3700–5300 |
 | 4 | 9130–10930 | 1800 | Berthing, 9 berths |
 | 5 | 11040–12600 | 1560 | CBRN plant, **sump** |
 | 6 | 12800–14800 | 2000 | Decon airlock, 3 stages |
@@ -82,6 +95,7 @@ sentry +0.450 / +3.650 / +6.700 / parapet +7.000.
 | Cover | 75 blinding / 50 earth / 40 internal | 30 beams+slabs, 40 columns, 50 footings |
 
 Max bar spacing **150 both curtains — EMP requirement**, stricter than IS 456.
+**EM1 quantifies what that buys:** `SE = 20 log₁₀(λ/2s)` → **99.99 dB at 10 kHz, 0.00 dB at 1 GHz**, mesh cutoff **999.31 MHz**. Real, and **not** a MIL-STD-188-125-1 boundary.
 
 ---
 
@@ -233,8 +247,11 @@ stair-void free edge thickened 900 → 1200 with 6-T25 top + bottom.
 | **WM-V1…12** | **Nine CLOSED** (V1 at **2.600**, confirmed twice; V2, V3, V4, V5, V8, V10, V11, V12). **V6, V7, V9 remain open — see below.** |
 | **R-1…R-14** | **All fourteen RULED** — master **K.1c** and `WM_RECONCILIATION_REGISTER.md` §9. The three against the owner's documents: **R-1** burster **200 M30** not 300 M35; **R-2** cover **2.0 m** not 4 m; **R-3** roof slab **900** not 1000. |
 | **QA-1 · QA-2** | **BOTH RULED.** **QA-1: A0 confirmed** — 880 mm at 1:50 against an A1 area of 821 mm makes A1 impossible, the scale is a measurement statement, and splitting would break a continuous 44 m elevation. **QA-2: accepted as drawn, with the reason stated** — six sheets carry an empty bottom strip, and re-scaling, renumbering and reflowing are each worse than the space. **Every sheet is correct, complete and legible. Combining them stays your call.** |
-| **STILL OPEN — master K.1b** | **Eight items, none of them a conflict.** Each is a single position the project holds — or, in the last two, a position it does not hold at all — that needs something from outside: **U2** direct hit (military sign-off) · **U3** DBT yield (client) · **U8** the 4.162 kN/m parapet load (cannot be re-derived until the parapet detail is confirmed) · **WM-V6** seismic re-check (STAAD not available; direction certain and favourable) · **WM-V7** ballistic requirement (client / military decision) · **WM-V9** slope stability (geotech) · **FS-V7** *(new, FS2)* **how either escape shaft is climbed** — 6.250 m and 6.800 m with no ladder, rung or fall-arrest specified anywhere; this one needs a **design**, not a ruling · **CAM-V5** *(new, CAM2)* **SH-2's head level, recorded nowhere**. |
-| **13 gaps** | **Information the project does not contain**, each dated against the WM1 programme. Largest: **no electrical design package exists** — scope confirmed, design absent, every electrical quantity 'to be verified from final measurement'. Also: no site plan, **the sentry lintel and tie detail is now SUPPLIED — SP-B2, master A.4.8, so this gap is closed**, blast door and blast valve vendor data, service-entry plate size, duct penetration schedule, EMP enclosure and vision panel specs, sentry GF slab, finish products, W5 door D-05. |
+| **EL-V1…V7** | **Seven new items from EL1** (master H.20 / K.1b). **EL-V1 RULED — YES (RC2), CLOSED**, Case A confirmed at 149 Ah · **EL-V2** generator fuel (≈ 210 L for 96 h derived, nothing specified) · **EL-V3** no equipment schedule for EMP Zone 2 · **EL-V4** incoming mains capacity — **blocks any fault level study** · **EL-V5** no circuit/cable/luminaire schedule, deliberately · **EL-V6** **no cooling plant exists anywhere in the project** · **EL-V7** the CO₂ scrubber's air movement is in no schedule |
+| **RULED — master K.1e** | **EM-V1 and EL-V1, by the project owner, RC2, 11 Sep 2026 (H.21).** Reasoning preserved, nothing deleted; EL1's rejected Case B is kept as **historical** because the comparison is what made the question answerable |
+| **STILL OPEN — master K.1b** | **Nineteen items, none of them a conflict.** Each is a single position the project holds — or, in the last two, a position it does not hold at all — that needs something from outside: **U2** direct hit (military sign-off) · **U3** DBT yield (client) · **U8** the 4.162 kN/m parapet load (cannot be re-derived until the parapet detail is confirmed) · **WM-V6** seismic re-check (STAAD not available; direction certain and favourable) · **WM-V7** ballistic requirement (client / military decision) · **WM-V9** slope stability (geotech) · **FS-V7** *(new, FS2)* **how either escape shaft is climbed** — 6.250 m and 6.800 m with no ladder, rung or fall-arrest specified anywhere; this one needs a **design**, not a ruling · **CAM-V5** *(new, CAM2)* **SH-2's head level, recorded nowhere**. |
+| **EM-V1…V6** | **Six new items from EM1** (master H.19 / K.1b). **EM-V1 RULED — ADOPTED (RC2), CLOSED** · **EM-V2** every Zone 2 dimension is `[A]` pending an equipment schedule that waits on the **missing electrical design** · **EM-V3** **is Bay 8 inside the EMP boundary?** — no EMP boundary has ever been drawn · **EM-V4** no communications design of any kind · **EM-V5** PD-05's pipe material is unspecified, **as is every pipe material in the project** · **EM-V6** no escape-shaft head hatch and no blast-door RF data. **None is resolved, and that is deliberate.** |
+| **13 gaps** | **Information the project does not contain**, each dated against the WM1 programme. Largest was **no electrical design package exists** — **EL1, 11 Sep 2026 (master H.20), supplies a BASIC one: sources, loads, the 15 kVA check, three boards and the battery. The DETAILED design still does not exist (EL-V5).** The original statement follows: scope confirmed, design absent, every electrical quantity 'to be verified from final measurement'. Also: no site plan, **the sentry lintel and tie detail is now SUPPLIED — SP-B2, master A.4.8, so this gap is closed**, blast door and blast valve vendor data, service-entry plate size, duct penetration schedule, **the EMP enclosure specification is now SUPPLIED AT `[A]` — EM1, master H.18, and the ten envelope penetrations are analysed; the vision panel spec and every EMP vendor figure remain `[N]`**, sentry GF slab, finish products, W5 door D-05. |
 
 ---
 
@@ -316,6 +333,36 @@ Python generators; `Scripts/cm_build_all.py` rebuilds the package. **The policy 
 drawing added **CAM-V5**. **No concealment layout is drawn and none can be — there is no
 site plan (D3).**
 
+**`EMP Protection/` — EMP protection package, revision EM1 (10 Sep 2026, master H.19):**
+**the project's first EMP design.** **6 A1 DXF** (EM-001, EM-101, EM-102, EM-201, EM-301,
+EM-302 — AutoCAD 2010 ASCII, **validated 0 errors 0 warnings, 0 text overlaps**), five
+schedules as `.md` + `.csv`, a design basis, a QA/QC report, a drawing index, a full
+calculation printout showing every formula and its arithmetic, and six Python generators
+(`em_build_all.py` rebuilds everything). The sheet library **subclasses the shared
+`Drainage/Scripts/mep_dxf.py`** rather than editing it, so **Drainage, HVAC and Schedule of
+Finishes regenerate byte-identically** — verified, `git status` clean on all five `Scripts/`
+directories. **No existing design, drawing, model, schedule or bill file was modified; no
+penetration created or moved; the main staircase untouched; the sentry post excluded.**
+Raised **EM-F1…F6** and **EM-V1…V6**; **resolved nothing.**
+**EM-V1 is now RULED (RC2, H.21): the three-zone model and the standing-alone rule are ADOPTED.
+No figure or finding changed.** **Not construction-ready.**
+Merged with **CAM2 / FS2** on 11 Sep 2026: this package moved H.18 → **H.19**, `em_dxf.py`
+**dropped its duplicated title block** for the hooks CAM2/FS2 added, and two cross-package
+links were recorded — **CAM-V5 is the same shaft SH-2 that carries BV-4/BV-5 (EM-V3)**, and
+**FS-V7 is the same two shaft heads as EM-V6**. **No EMP figure or finding changed.**
+
+**`Electrical/` — electrical and power package, revision EL1 (11 Sep 2026, master H.20):**
+**the project's first electrical design, and deliberately basic — it stops at board level.**
+**1 A1 DXF** (`E-001` single line diagram, **validated 0 errors 0 warnings, 0 text
+overlaps**), two schedules as `.md` + `.csv`, a design basis carrying its own QA/QC section,
+a README, a full calculation printout and six Python generators (`el_build_all.py` rebuilds
+everything). `el_dxf.py` subclasses the shared `mep_dxf.py` and uses the CAM2/FS2 hooks —
+**no shared library modified.** **No design value, BOQ quantity, rate, date or float
+changed; no new envelope penetration; main staircase untouched; sentry post excluded.**
+**Unblocks FS-V2 and EM-V2 and closes HVAC P11**; raised **EL-V1…V7**.
+**EL-V1 is now RULED (RC2, H.21): the generator MAY run in Mode 3, Case A confirmed at 149 Ah,
+HV1's Mode 3 row amended. No number in EL1 changed.**
+
 **`master/`** — `MASTER_PROJECT_STATE.md` (authority), `MASTER_PROJECT_STATE.pdf`, this file.
 
 **Changed in the M1 reconciliation (9):**
@@ -345,9 +392,12 @@ site plan (D3).**
 - **`MASTER_PROJECT_STATE.pdf` is a stale render.** It is the user-supplied upload of
   **9 September 2026** and there is no generator for it in the workspace, so it cannot be
   refreshed here. It predates **H.12** (BS1 / SP-B2), **H.13** (WM2), **H.14** (RC1),
-  **H.15** (WM3), **H.16 / H.17** (CAM1 / FS1) and **H.18** (CAM2 / FS2). **Read the `.md`.**
+  **H.15** (WM3), **H.16 / H.17** (CAM1 / FS1), **H.18** (CAM2 / FS2), **H.19** (EM1),
+  **H.20** (EL1) and **H.21** (RC2).
+  **Read the `.md`.**
 - **Second k_s bound (500 000) outstanding.**
 - **Phase 3 not started:** non-linear SDOF support rotation, shock propagation down the entry
   shaft, transient soil–structure interaction, blast-door vendor testing, sentry sheet S-09.
+- **EMP Zone 1 cannot be surveyed and is never claimed.** A buried box under 2 m of cover has no accessible exterior for an IEEE 299 transmitter, so the cage figures are a **calculation and will stay one** — and an **upper bound**: the `−10 log₁₀(n)` array correction is not applied, the crossings are **tied not welded** (and nothing anywhere in the project says which), and no concrete absorption is credited. **A measured cage will be worse.**
 - A static STAAD run gives **demand**, never proof of blast resistance. Flotation can never be
   read off the model — the springs take tension; it is a hand check (master B.3).
