@@ -3,7 +3,7 @@
 Generated from the DXF files themselves by `DRAWING QAQC/Scripts/qa_report_data.py`
 and `make_index.py`, so it cannot drift from the drawings.
 
-**65 DXF · 60 A1 · 4 A4 · 1 A0.**  Drawing revision **QA1** (drafting QA/QC, 9 September 2026, master H.11).
+**68 DXF · 63 A1 · 4 A4 · 1 A0.**  Drafting QA/QC revision **QA1** (9 September 2026, master H.11); the three FIRE AND LIFE SAFETY and SITE AND CONCEALMENT sheets were added later at **FS2 / CAM2** (10 September 2026, master H.18) and are drawn to the same standard.
 
 > **Filenames are deliberately unchanged.** Master Parts E.2 and I.1 and every
 > document in this project cite the current filenames, and the QA/QC brief requires
@@ -210,9 +210,35 @@ and `make_index.py`, so it cannot drift from the drawings.
 
 </details>
 
+## FIRE AND LIFE SAFETY  (2)
+
+| Drawing No. | Title | Scale | Size | Texts | Final QA |
+|---|---|---|---|---|---|
+| **F-101** | UNDERGROUND LEVEL ESCAPE PLAN | 1:33 | A1 | 160 | PASS |
+| **F-102** | ENTRY LEVEL ESCAPE PLAN AND VERTICAL PROFILE | 1:38 | A1 | 155 | PASS |
+
+<details><summary>filenames</summary>
+
+- `F-101` — `Fire and Life Safety/DXF/F-101_Underground_Level_Escape_Plan.dxf`
+- `F-102` — `Fire and Life Safety/DXF/F-102_Entry_Level_Escape_Plan.dxf`
+
+</details>
+
+## SITE AND CONCEALMENT  (1)
+
+| Drawing No. | Title | Scale | Size | Texts | Final QA |
+|---|---|---|---|---|---|
+| **C-101** | ABOVE-GROUND SIGNATURE ELEVATION | 1:60 | A1 | 162 | PASS |
+
+<details><summary>filenames</summary>
+
+- `C-101` — `Site and Concealment/DXF/C-101_Above_Ground_Signature_Elevation.dxf`
+
+</details>
+
 ---
 
-**Package QA result — 65 drawings, 59 PASS, 6 REVIEW REQUIRED, 12 residual items in total.**
+**Package QA result — 68 drawings, 62 PASS, 6 REVIEW REQUIRED, 12 residual items in total.**
 
 Every REVIEW item is a single annotation still crossing a dimension or a wall line
 in a dense zone of a section or plan. Each one is named individually in

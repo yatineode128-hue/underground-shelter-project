@@ -15,7 +15,9 @@ CHECKS
    8  drawing extents lie inside the A1 sheet, 0..841 x 0..594
    9  nothing intrudes into the title-block rectangle except the title block
   10  no text runs off the right-hand sheet edge
-  11  the package scope-exclusion note is present on every sheet
+  11  every sheet DECLARES its sentry post scope - excluded, as the
+      DRAINAGE / HVAC / FINISHES / FIRE sheets do, or included, as C-101
+      does because the sentry post is the tallest signature on the site
 
 Run:  python3 mep_validate.py <dxf-dir> [<dxf-dir> ...]
 """
@@ -30,7 +32,8 @@ import ezdxf
 SHEET_W, SHEET_H = 841.0, 594.0
 TB = (651.0, 10.0, 831.0, 110.0)          # title block rectangle
 TB_LAYERS = {"M-TITLE", "S-TITLE", "M-FLAG"}
-SCOPE_TOKEN = "SENTRY POST EXCLUDED"
+# A sheet must SAY which it is.  Silence is the error, not inclusion.
+SCOPE_TOKENS = ("SENTRY POST EXCLUDED", "SENTRY POST INCLUDED")
 
 
 def _pts(e):
@@ -161,9 +164,9 @@ def check(path):
     if over:
         r["errors"].append(f"{over} text entities run past the sheet edge")
 
-    if not any(SCOPE_TOKEN in (e.dxf.text if e.dxftype() == "TEXT" else e.text)
-               for e in txt):                                    # 11
-        r["errors"].append("scope-exclusion note missing")
+    if not any(tok in (e.dxf.text if e.dxftype() == "TEXT" else e.text)
+               for e in txt for tok in SCOPE_TOKENS):            # 11
+        r["errors"].append("sentry post scope not declared on the sheet")
 
     return r
 

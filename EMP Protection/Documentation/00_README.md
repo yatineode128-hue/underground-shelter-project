@@ -36,7 +36,7 @@ This package supplies the design, and says plainly where it could not.
 | `Schedules/` | Five schedules, each as `.md` and `.csv` — zones, envelope penetrations, points of entry, bonding and earthing, shielding effectiveness |
 | `QAQC/EMP_QAQC.md` | What was verified, how, and what could not be |
 | `DXF/` | Six A1 drawings, `EM-001` … `EM-302` |
-| `Scripts/` | `em_proj.py` (constants) · `em_calc.py` (derivations) · `em_schedules.py` · `em_dxf.py` (sheet library) · `em_sheets.py` · `em_build_all.py` |
+| `Scripts/` | `em_proj.py` (constants) · `em_calc.py` (derivations) · `em_schedules.py` · `em_dxf.py` (sheet library — sets `SCOPE_NOTE` / `TB_SCOPE` / `DATE` and **inherits the house title block**, using the hooks FS2 / CAM2 added) · `em_sheets.py` · `em_build_all.py` |
 
 ## Rebuild
 

@@ -91,7 +91,19 @@ MEP_LAYERS = {
 
 
 class Sheet(S.Sheet):
-    """One A1 MEP / architectural sheet."""
+    """One A1 MEP / architectural sheet.
+
+    The three class attributes below were literals until FS2/CAM2 (10.09.26)
+    added the FIRE AND LIFE SAFETY and SITE AND CONCEALMENT packages, which
+    need their own issue date, and - for C-101 - need the sentry post IN scope
+    rather than excluded from it.  The defaults are the previous literals
+    exactly, so every sheet in DRAINAGE, HVAC and SCHEDULE OF FINISHES
+    regenerates byte for byte unchanged.
+    """
+
+    SCOPE_NOTE = "SENTRY POST EXCLUDED FROM THIS PACKAGE"
+    TB_SCOPE = "SENTRY POST NOT IN THIS PACKAGE"
+    DATE = P.PACKAGE_DATE
 
     def __init__(self, number, title, subtitle="", package="DRAINAGE",
                  rev="DR1", status=P.STATUS, flags=(), sheet_of=""):
@@ -259,7 +271,7 @@ class Sheet(S.Sheet):
         self.text(f"{self.number}   {self.title}", (IN_L + 2, IN_T - 14.5),
                   TXT["detail_label"], "M-TITLE")
         self.line((IN_L, IN_T - 17.5), (IN_R, IN_T - 17.5), "M-TITLE")
-        self.text("SENTRY POST EXCLUDED FROM THIS PACKAGE", (IN_R - 2, IN_T - 7.0),
+        self.text(self.SCOPE_NOTE, (IN_R - 2, IN_T - 7.0),
                   TXT["note"], "M-FLAG", "RIGHT")
         self.text("DEVELOPED FOR PROJECT COORDINATION - PENDING ENGINEERING VERIFICATION",
                   (IN_R - 2, IN_T - 13.5), TXT["small"], "M-FLAG", "RIGHT")
@@ -286,7 +298,7 @@ class Sheet(S.Sheet):
                   TXT["table"], "M-TITLE")
         self.line((x + 96, y + 20), (x + 96, y + 32), "M-TITLE")
         self.text(f"SCALE   {scale}", (x + 2, y + 24.4), TXT["table"], "M-TITLE")
-        self.text(f"DATE   {P.PACKAGE_DATE}", (x + 98, y + 24.4), TXT["table"], "M-TITLE")
+        self.text(f"DATE   {self.DATE}", (x + 98, y + 24.4), TXT["table"], "M-TITLE")
         self.text(f"DESIGNED  {designed}", (x + 2, y + 36.4), TXT["small"], "M-TITLE")
         self.text(f"CHECKED  {checked}", (x + 62, y + 36.4), TXT["small"], "M-TITLE")
         self.text(f"APPROVED  {approved}", (x + 122, y + 36.4), TXT["small"], "M-TITLE")
@@ -301,7 +313,7 @@ class Sheet(S.Sheet):
                   TXT["table"], "M-TITLE")
         self.text("PROTECTIVE STRUCTURE  -  PUNE, MAHARASHTRA", (x + 2, y + 85.0),
                   TXT["table"], "M-TITLE")
-        self.text(f"{P.GEOM_REV}   -   SENTRY POST NOT IN THIS PACKAGE",
+        self.text(f"{P.GEOM_REV}   -   {self.TB_SCOPE}",
                   (x + 2, y + 80.0), TXT["small"], "M-TITLE")
 
     def finish(self, scale="AS NOTED", sheet_of="", extra=None):

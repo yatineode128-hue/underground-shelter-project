@@ -49,7 +49,19 @@ EM_LAYERS = {
 
 
 class Sheet(M.Sheet):
-    """One A1 EMP Protection sheet."""
+    """One A1 EMP Protection sheet.
+
+    FS2 / CAM2 (10.09.26) turned the scope note, the title-block scope line and
+    the issue date into class attributes on the shared Sheet, precisely so a new
+    package need not restate the whole title block to change them.  EM1 uses
+    those hooks.  It previously carried its own copy of `titleblock()`, which
+    worked but froze the EMP sheets at one revision of the house standard; that
+    copy is gone and the house method is inherited again.
+    """
+
+    SCOPE_NOTE = "SENTRY POST EXCLUDED FROM THIS PACKAGE"
+    TB_SCOPE = f"EMP PROTECTION {P.REV}  -  SENTRY POST NOT IN THIS PACKAGE"
+    DATE = P.PACKAGE_DATE
 
     def __init__(self, number, title, subtitle="", flags=(), sheet_of=""):
         super().__init__(number, title, subtitle=subtitle,
@@ -68,7 +80,7 @@ class Sheet(M.Sheet):
         self.text(f"{self.number}   {self.title}", (IN_L + 2, IN_T - 14.5),
                   TXT["detail_label"], "M-TITLE")
         self.line((IN_L, IN_T - 17.5), (IN_R, IN_T - 17.5), "M-TITLE")
-        self.text("SENTRY POST EXCLUDED FROM THIS PACKAGE",
+        self.text(self.SCOPE_NOTE,
                   (IN_R - 2, IN_T - 7.0), TXT["note"], "M-FLAG", "RIGHT")
         self.text("NO DESIGN VALUE IS CHANGED BY THIS PACKAGE - "
                   "PENDING ENGINEERING VERIFICATION",
@@ -79,47 +91,6 @@ class Sheet(M.Sheet):
         if extra:
             self.text(extra, (IN_L + 2, IN_T - 27.0), TXT["small"], "M-TEXT")
 
-    # -------------------------------------------------------- title block
-    def titleblock(self, designed="[PLACEHOLDER]", checked="[PLACEHOLDER]",
-                   approved="[PLACEHOLDER]", scale="AS NOTED", sheet_of=""):
-        x, y, w, h = TB_X, TB_Y, TB_W, TB_H
-        self.rect(x, y, x + w, y + h, "M-TITLE")
-        for yy in (20, 32, 44, 56, 78):
-            self.line((x, y + yy), (x + w, y + yy), "M-TITLE")
-        self.line((x + 112, y), (x + 112, y + 20), "M-TITLE")
-        self.line((x + 146, y), (x + 146, y + 20), "M-TITLE")
-        self.text("DRAWING No.", (x + 2, y + 14.6), TXT["small"], "M-TITLE")
-        self.text(self.number, (x + 20, y + 4.2), TXT["view_title"], "M-TITLE")
-        self.text("REV", (x + 114, y + 14.6), TXT["small"], "M-TITLE")
-        self.text(self.rev, (x + 118, y + 4.2), TXT["view_title"], "M-TITLE")
-        self.text("SHEET", (x + 148, y + 14.6), TXT["small"], "M-TITLE")
-        self.text(sheet_of or self.sheet_of or "-", (x + 148, y + 5.0),
-                  TXT["table"], "M-TITLE")
-        self.line((x + 96, y + 20), (x + 96, y + 32), "M-TITLE")
-        self.text(f"SCALE   {scale}", (x + 2, y + 24.4), TXT["table"], "M-TITLE")
-        self.text(f"DATE   {P.PACKAGE_DATE}", (x + 98, y + 24.4),
-                  TXT["table"], "M-TITLE")
-        self.text(f"DESIGNED  {designed}", (x + 2, y + 36.4), TXT["small"],
-                  "M-TITLE")
-        self.text(f"CHECKED  {checked}", (x + 62, y + 36.4), TXT["small"],
-                  "M-TITLE")
-        self.text(f"APPROVED  {approved}", (x + 122, y + 36.4), TXT["small"],
-                  "M-TITLE")
-        self.text("STATUS", (x + 2, y + 48.4), TXT["small"], "M-TITLE")
-        self.text(self.status, (x + 22, y + 48.0), TXT["table"], "M-FLAG")
-        self.text("DRAWING TITLE", (x + 2, y + 73.4), TXT["small"], "M-TITLE")
-        self.text(self.title[:52], (x + 2, y + 65.4), TXT["detail_label"],
-                  "M-TITLE")
-        if self.subtitle:
-            self.text(self.subtitle[:74], (x + 2, y + 58.8), TXT["small"],
-                      "M-TITLE")
-        self.text("PROJECT", (x + 2, y + 95.2), TXT["small"], "M-TITLE")
-        self.text("UNDERGROUND CBRN-HARDENED BLAST-RESISTANT",
-                  (x + 2, y + 89.6), TXT["table"], "M-TITLE")
-        self.text("PROTECTIVE STRUCTURE  -  PUNE, MAHARASHTRA",
-                  (x + 2, y + 85.0), TXT["table"], "M-TITLE")
-        self.text(f"{P.GEOM_REV}   -   EMP PROTECTION  REV {P.REV}",
-                  (x + 2, y + 80.0), TXT["small"], "M-TITLE")
 
 
 def evidence_key(sh, x, y, w=168):

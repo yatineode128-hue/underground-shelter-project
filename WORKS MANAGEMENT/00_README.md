@@ -87,6 +87,18 @@ to handover.
 | `WM_SENTRY_POST_BRICK_MASONRY.md` | **Design change SP-B1** in full — geometry, method, programme, verification items |
 | `WM_PROGRESS_MONITORING.md` | Baseline, three reporting streams, cycle, delay tracking, corrective action |
 | `WM_ASSUMPTIONS_AND_VERIFICATION_REGISTER.md` | Everything assumed, everything missing, everything left open |
+| `WM_RECONCILIATION_REGISTER.md` | R-1 to R-14, the conflicts between the owner's package and the master, and how each was ruled |
+
+> **TWO DOCUMENTS THAT USED TO BE HERE HAVE MOVED — 10 September 2026, master H.18.**
+> `WM_CAMOUFLAGE_AND_CONCEALMENT_POLICY.md` is now
+> **`Site and Concealment/Documentation/CAMOUFLAGE_AND_CONCEALMENT_POLICY.md`** (revision **CAM2**),
+> and `WM_FIRE_SAFETY_AND_EVACUATION_PLAN.md` is now
+> **`Fire and Life Safety/Documentation/FIRE_SAFETY_AND_EVACUATION_PLAN.md`** (revision **FS2**).
+> Neither was ever a works-management document — they were generated here only because this
+> package's generator happened to hold them. **Each now sits in its own discipline package with
+> the drawings the move added** — `C-101` for concealment, `F-101` and `F-102` for escape. The
+> text moved verbatim; each package's own revision note records the one finding its drawings
+> raised. `Scripts/wm_audit.py` §15 fails if either document reappears here or goes missing there.
 
 ### Working files
 

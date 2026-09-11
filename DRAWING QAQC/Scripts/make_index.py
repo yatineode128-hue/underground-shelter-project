@@ -10,7 +10,8 @@ OUT = os.path.join(HERE, "..", "DRAWING_INDEX.md")
 
 ORDER = ["ARCHITECTURAL / GENERAL - Rev F", "ARCHITECTURAL - finishes",
          "STRUCTURAL - reinforcement", "DRAINAGE", "DRAINAGE - handout",
-         "HVAC", "HVAC - handout"]
+         "HVAC", "HVAC - handout", "FIRE AND LIFE SAFETY",
+         "SITE AND CONCEALMENT"]
 
 
 def main():
@@ -29,7 +30,10 @@ def main():
     sizes = collections.Counter(r["size"] for r in rows)
     A(f"**{len(rows)} DXF · "
       + " · ".join(f"{n} {s}" for s, n in sorted(sizes.items(), key=lambda kv: -kv[1]))
-      + ".**  Drawing revision **QA1** (drafting QA/QC, 9 September 2026, master H.11).")
+      + ".**  Drafting QA/QC revision **QA1** (9 September 2026, master H.11); "
+      "the three FIRE AND LIFE SAFETY and SITE AND CONCEALMENT sheets were "
+      "added later at **FS2 / CAM2** (10 September 2026, master H.18) and are "
+      "drawn to the same standard.")
     A("")
     A("> **Filenames are deliberately unchanged.** Master Parts E.2 and I.1 and every")
     A("> document in this project cite the current filenames, and the QA/QC brief requires")

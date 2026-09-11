@@ -453,8 +453,8 @@ cited, and none is invented.**
 | **Drainage (DR1)** | PD-05 through the service entry plate. **Pipe material `[N]` — EM-V5** | **Referred** |
 | **Finishes (FN1)** | `W-04` *"EMP Zone 2 shielded enclosure lining"* was raised as `[C]` requirement / `[N]` specification. **This package supplies the `[A]` specification it was waiting for** | **Answered, at `[A]`** |
 | **Works Management (WM3)** | **No EMP bill item, quantity, rate, date or float is created or changed by this package.** The 25.28 m² enclosure area is stated for information only | **No change** |
-| **Camouflage (CAM1)** | An antenna, if one is ever designed, is both an EMP penetration and a **concealment** signature | **Noted, EM-V4** |
-| **Fire (FS1)** | FS-5 records that every active fire measure waits on the missing electrical design. **EM-V2 waits on the same gap** | **Same root cause** |
+| **Site and Concealment (CAM2)** | An antenna, if one is ever designed, is both an EMP penetration and a **concealment** signature. **And CAM2's new `CAM-V5` — the unrecorded head level of the generator air shaft SH-2 — is the same shaft that carries BV-4 / BV-5**, the two bores that fail both EMP criteria. **One shaft, two open questions: how tall is it (CAM-V5) and is it inside the EMP boundary (EM-V3)** | **Noted, EM-V4 · new link to CAM-V5** |
+| **Fire and Life Safety (FS2)** | FS-5 records that every active fire measure waits on the missing electrical design. **EM-V2 waits on the same gap.** **And FS2's new `FS-V7` — how either escape shaft is actually climbed — lands on the same two shaft heads as `EM-V6`**, which asks what conducting hatch closes them. **Whatever is fitted at those heads has to satisfy both: climbable from below, and bonded** | **Same root cause · new link to FS-V7** |
 
 ---
 

@@ -1,0 +1,10 @@
+SITE AND CONCEALMENT  -  DXF VALIDATION  -  revision CAM2
+Produced by Drainage/Scripts/mep_validate.py, the same validator used by the
+DRAINAGE, HVAC, SCHEDULE OF FINISHES and FIRE AND LIFE SAFETY packages.
+==============================================================================
+
+FILE                                                         ENTS  TEXT  DIM  LAY  RESULT
+--------------------------------------------------------------------------------------------------------------
+C-101_Above_Ground_Signature_Elevation.dxf                    505   162    2   14  PASS
+--------------------------------------------------------------------------------------------------------------
+1 files   0 errors   0 warnings

@@ -11,6 +11,11 @@ title block, text heights, dimension styles and layer conventions** as the issue
 reinforcement drawings and the D / M / A-6xx services drawings. **Nothing in either shared
 library was modified.**
 
+`em_dxf.py` sets the three class attributes **FS2 / CAM2 added to the shared `Sheet`** for
+exactly this purpose — `SCOPE_NOTE`, `TB_SCOPE` and `DATE` — and **inherits `titleblock()`
+rather than restating it.** It carries its own `sheet_header()` only because every EMP sheet
+must say *"no design value is changed by this package"*, for which there is no hook.
+
 | Sheet | Title | Content | Scale | Open items |
 |---|---|---|---|---|
 | **EM-001** | EMP protection — design basis and EMP zone key | The governing fact · the three EMP zones · the design rule · what the design already does right · all six findings · all six open items · codes | NTS | EM-F1, EM-F3, EM-V1, EM-V2 |

@@ -1,0 +1,11 @@
+FIRE AND LIFE SAFETY  -  DXF VALIDATION  -  revision FS2
+Produced by Drainage/Scripts/mep_validate.py, the same validator used by the
+DRAINAGE, HVAC and SCHEDULE OF FINISHES packages.  11 checks per file.
+==============================================================================
+
+FILE                                                         ENTS  TEXT  DIM  LAY  RESULT
+--------------------------------------------------------------------------------------------------------------
+F-101_Underground_Level_Escape_Plan.dxf                       271   161    1   18  PASS
+F-102_Entry_Level_Escape_Plan.dxf                            1126   156    1   18  PASS
+--------------------------------------------------------------------------------------------------------------
+2 files   0 errors   0 warnings
