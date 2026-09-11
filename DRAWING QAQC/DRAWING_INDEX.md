@@ -3,7 +3,7 @@
 Generated from the DXF files themselves by `DRAWING QAQC/Scripts/qa_report_data.py`
 and `make_index.py`, so it cannot drift from the drawings.
 
-**68 DXF · 63 A1 · 4 A4 · 1 A0.**  Drafting QA/QC revision **QA1** (9 September 2026, master H.11); the three FIRE AND LIFE SAFETY and SITE AND CONCEALMENT sheets were added later at **FS2 / CAM2** (10 September 2026, master H.18) and are drawn to the same standard.
+**80 DXF · 75 A1 · 4 A4 · 1 A0.**  Drafting QA/QC baseline **QA1** (9 September 2026, master H.11), re-scanned at **QA2** (11 September 2026, master H.25).  The FIRE AND LIFE SAFETY and SITE AND CONCEALMENT sheets were added at **FS2 / CAM2**, and the EMP PROTECTION, ELECTRICAL and SITE SELECTION AND GEOTECHNICAL sheets at **EM1 / EL1 / SG1 / SG2**, all after the QA1 pass and all drawn to the same standard.
 
 > **Filenames are deliberately unchanged.** Master Parts E.2 and I.1 and every
 > document in this project cite the current filenames, and the QA/QC brief requires
@@ -20,10 +20,10 @@ and `make_index.py`, so it cannot drift from the drawings.
 | **A-104** | SENTRY POST - FIRST FLOOR PLAN | 1:50 | A1 | 46 | PASS |
 | **A-105** | SENTRY POST - FRAMING PLAN | 1:50 | A1 | 99 | PASS |
 | **A-201** | SECTION A-A - MAIN STAIRCASE | 1:50 | A1 | 65 | REVIEW (2) |
-| **A-202** | SECTION X-X - SIDE SECTION WITH STAIRS | 1:50 | A1 | 87 | REVIEW (2) |
+| **A-202** | SECTION X-X - SIDE SECTION WITH STAIRS | 1:50 | A1 | 104 | REVIEW (2) |
 | **A-203** | SECTION B-B - HEADHOUSE CUTAWAY | 1:50 | A1 | 57 | REVIEW (1) |
 | **A-204** | SECTION C-C - COVERED ENTRY STAIRWELL | 1:50 | A1 | 105 | REVIEW (3) |
-| **A-301** | FRONT ELEVATION | 1:50 | A0 | 63 | PASS |
+| **A-301** | FRONT ELEVATION | 1:50 | A0 | 113 | PASS |
 | **S-06** | UNDERGROUND PLAN - SERVICES AND DRAINAGE | AS SHOWN | A1 | 280 | REVIEW (2) |
 
 <details><summary>filenames</summary>
@@ -236,9 +236,63 @@ and `make_index.py`, so it cannot drift from the drawings.
 
 </details>
 
+## EMP PROTECTION  (6)
+
+| Drawing No. | Title | Scale | Size | Texts | Final QA |
+|---|---|---|---|---|---|
+| **EM-001** | EMP PROTECTION - DESIGN BASIS AND EMP ZONE KEY | NOT TO SCALE | A1 | 146 | PASS |
+| **EM-101** | EMP ZONE PLAN - UNDERGROUND LEVEL (-)6.100 | 1:50 | A1 | 198 | PASS |
+| **EM-102** | EMP BOUNDARY SECTION - THE ENTRY PATH | 1:40 | A1 | 119 | PASS |
+| **EM-201** | SHIELDING EFFECTIVENESS - CAGE AND APERTURES | NOT TO SCALE | A1 | 152 | PASS |
+| **EM-301** | EMP ZONE 2 ENCLOSURE - PLAN, SECTION AND SITING | 1:25 | A1 | 105 | PASS |
+| **EM-302** | EMP PENETRATION, BONDING AND EARTHING DETAILS | AS NOTED | A1 | 126 | PASS |
+
+<details><summary>filenames</summary>
+
+- `EM-001` — `EMP Protection/DXF/EM-001_EMP_Design_Basis_and_Zone_Key.dxf`
+- `EM-101` — `EMP Protection/DXF/EM-101_EMP_Zone_Plan_Underground.dxf`
+- `EM-102` — `EMP Protection/DXF/EM-102_EMP_Boundary_Section_Entry_Path.dxf`
+- `EM-201` — `EMP Protection/DXF/EM-201_Shielding_Effectiveness_Cage_and_Apertures.dxf`
+- `EM-301` — `EMP Protection/DXF/EM-301_EMP_Zone_2_Enclosure.dxf`
+- `EM-302` — `EMP Protection/DXF/EM-302_EMP_Penetration_Bonding_and_Earthing_Details.dxf`
+
+</details>
+
+## ELECTRICAL  (1)
+
+| Drawing No. | Title | Scale | Size | Texts | Final QA |
+|---|---|---|---|---|---|
+| **E-001** | SINGLE LINE DIAGRAM - SOURCES, BOARDS AND ESSENTIAL SERVICES | NOT TO SCALE | A1 | 146 | PASS |
+
+<details><summary>filenames</summary>
+
+- `E-001` — `Electrical/DXF/E-001_Single_Line_Diagram.dxf`
+
+</details>
+
+## SITE SELECTION AND GEOTECHNICAL  (5)
+
+| Drawing No. | Title | Scale | Size | Texts | Final QA |
+|---|---|---|---|---|---|
+| **SG-001** | SITE AND GEOTECHNICAL DESIGN BASIS | NOT TO SCALE | A1 | 210 | PASS |
+| **SG-101** | SITE SETTING, SELECTION AND METEOROLOGY | NOT to scale | A1 | 228 | PASS |
+| **SG-102** | SITE LAYOUT PLAN | 1:150. | A1 | 138 | PASS |
+| **SG-201** | GEOTECHNICAL PROFILE AGAINST THE STRUCTURE SECTION | 1:25 | A1 | 207 | PASS |
+| **SG-202** | EXTERNAL WORKS SITING AND THE SOAK PIT FINDING | 1:25 | A1 | 126 | PASS |
+
+<details><summary>filenames</summary>
+
+- `SG-001` — `Site Selection and Geotechnical/DXF/SG-001_Site_and_Geotechnical_Design_Basis.dxf`
+- `SG-101` — `Site Selection and Geotechnical/DXF/SG-101_Site_Setting_Selection_and_Meteorology.dxf`
+- `SG-102` — `Site Selection and Geotechnical/DXF/SG-102_Site_Layout_Plan.dxf`
+- `SG-201` — `Site Selection and Geotechnical/DXF/SG-201_Geotechnical_Profile_and_Structure_Section.dxf`
+- `SG-202` — `Site Selection and Geotechnical/DXF/SG-202_External_Works_Siting_and_Soak_Pit_Finding.dxf`
+
+</details>
+
 ---
 
-**Package QA result — 68 drawings, 62 PASS, 6 REVIEW REQUIRED, 12 residual items in total.**
+**Package QA result — 80 drawings, 74 PASS, 6 REVIEW REQUIRED, 12 residual items in total.**
 
 Every REVIEW item is a single annotation still crossing a dimension or a wall line
 in a dense zone of a section or plan. Each one is named individually in

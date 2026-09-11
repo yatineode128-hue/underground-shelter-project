@@ -1,8 +1,12 @@
 # DRAWING QA/QC REPORT — revisions QA1 and QA1B
 
+> **§10, 11 September 2026, is the current package state — revision QA2 (master H.25).**
+> It re-scans the whole package, records the **twelve** sheets added at EM1 / EL1 / SG1 /
+> SG2, explains why the index had frozen at 68, and corrects one revision-block overlap
+> that `DR-A1` left on A-301. **The package is now 80 drawings, 74 PASS.**
+
 > **§9, 10 September 2026, records the three sheets added after this pass** — F-101,
-> F-102 and C-101, at revisions FS2 / CAM2 (master H.18). Sections 1–8 count 65 drawings;
-> the package is now 68.
+> F-102 and C-101, at revisions FS2 / CAM2 (master H.18). Sections 1–8 count 65 drawings.
 
 > **QA1B addendum, 10 September 2026, is at §8** — the drawing outcome of design changes
 > **BS1** and **SP-B2** (master Part H.12). Sections 1–7 record QA1 as issued on 9 September
@@ -434,3 +438,96 @@ one of the ten differing blocks is inside `$TDCREATE`, `$TDUPDATE`, `$FINGERPRIN
 `$VERSIONGUID`, `CLASS` ordering or the ezdxf `DictionaryVariables` stamp. **No geometry,
 no text, no layer changed, and no issued sheet was regenerated into the repository.**
 The other 24 sheets were re-validated in place and still pass.
+
+---
+
+## 10  ADDENDUM — revision QA2, 11 September 2026 (master H.25)
+
+**Twelve sheets drawn after §9 had never been scanned, and the index had silently
+frozen at 68.** §9 closed with *"68 drawings, 62 PASS"*. Since then EM1, EL1, SG1 and
+SG2 added twelve A1 sheets. The index says at the top of its own file that it
+*"cannot drift from the drawings"* — **it had drifted, and this is why.**
+
+### 10.1  The cause — a hard-coded discipline list, not a scanning failure
+
+`Scripts/qa_report_data.py` globs every `*.dxf` under the project root, but maps each
+file to a discipline through a **hard-coded `DISCIPLINE` prefix list**. That list ended
+at `Site and Concealment/DXF/`. It had no entry for `EMP Protection/DXF/`,
+`Electrical/DXF/` or `Site Selection and Geotechnical/DXF/`, and `make_index.py`'s
+`ORDER` list had no entry for their discipline names, so the twelve sheets were
+collected as `OTHER` and then dropped when the index was grouped and ordered.
+
+**Fixed** — three prefixes added to `DISCIPLINE`, three names added to `ORDER`. The
+index is regenerated from the files and now reports **80**. **No drawing was changed by
+this fix.**
+
+> **The claim in the index header is now true, but it was only ever true for
+> disciplines already on the list.** Any package added in future must add its own
+> prefix, or it will be invisible to this tool in exactly the same way.
+
+### 10.2  The twelve sheets, as scanned
+
+| Sheet | Package | Title | Size | Texts | Overlap | Over line work | In panel |
+|---|---|---|---|---:|---:|---:|---:|
+| **EM-001** | `EMP Protection/` | EMP PROTECTION — DESIGN BASIS AND EMP ZONE KEY | A1 | 146 | 0 | 0 | 0 |
+| **EM-101** | `EMP Protection/` | EMP ZONE PLAN — UNDERGROUND LEVEL (−)6.100 | A1 | 198 | 0 | 0 | 0 |
+| **EM-102** | `EMP Protection/` | EMP BOUNDARY SECTION — THE ENTRY PATH | A1 | 119 | 0 | 0 | 0 |
+| **EM-201** | `EMP Protection/` | SHIELDING EFFECTIVENESS — CAGE AND APERTURES | A1 | 152 | 0 | 0 | 0 |
+| **EM-301** | `EMP Protection/` | EMP ZONE 2 ENCLOSURE — PLAN, SECTION AND SITING | A1 | 105 | 0 | 0 | 0 |
+| **EM-302** | `EMP Protection/` | EMP PENETRATION, BONDING AND EARTHING DETAILS | A1 | 126 | 0 | 0 | 0 |
+| **E-001** | `Electrical/` | SINGLE LINE DIAGRAM — SOURCES, BOARDS AND ESSENTIAL SERVICES | A1 | 146 | 0 | 0 | 0 |
+| **SG-001** | `Site Selection and Geotechnical/` | SITE AND GEOTECHNICAL DESIGN BASIS | A1 | 210 | 0 | 0 | 0 |
+| **SG-101** | `Site Selection and Geotechnical/` | SITE SETTING, SELECTION AND METEOROLOGY | A1 | 228 | 0 | 0 | 0 |
+| **SG-102** | `Site Selection and Geotechnical/` | SITE LAYOUT PLAN | A1 | 138 | 0 | 0 | 0 |
+| **SG-201** | `Site Selection and Geotechnical/` | GEOTECHNICAL PROFILE AGAINST THE STRUCTURE SECTION | A1 | 207 | 0 | 0 | 0 |
+| **SG-202** | `Site Selection and Geotechnical/` | EXTERNAL WORKS SITING AND THE SOAK PIT FINDING | A1 | 126 | 0 | 0 | 0 |
+
+**All twelve: 0 text-on-text overlaps, 0 annotations over line work, 0 geometry inside a
+notes panel.** They were drawn against the post-QA1 shared library and each package ran
+its own `mep_validate.py` at issue. **They add nothing to §5's residual list.**
+
+### 10.3  A regression this scan caught — A-301, and it was invisible until now
+
+**`DR-A1` (master H.24) added its revision line to A-301 on the same row as `QA1`'s, and
+the two overlapped.** A-301 had been `PASS` with 0 overlaps at QA1; it was scanned again
+here for the first time since, and the overlap is real:
+
+```
+QA1    09.09.2026 ...   at (-6183.1, -31075.0)   ends x = 1454.0
+DR-A1  11.09.2026 ...   at (    0.0, -31075.0)   starts x = 0.0
+                                                  -> 1454 units of overlap
+```
+
+The revision band on A-301 is 400 units tall (rules at −30800 and −31200) and the two
+notes are 7 637 and 8 045 units wide against a band 14 396 wide, so **they cannot sit
+side by side and were never going to.** A-202, the other sheet DR-A1 edited, had already
+done it correctly — QA1 at −24073, DR-A1 at −24373, both at the same x.
+
+**Corrected on A-301 to match A-202's convention** — the two notes stacked, both left-
+aligned at x = −6183.1, QA1 lifted to y = −30905 and DR-A1 placed at y = −31075.
+Both sit clear of both rules and of each other; **neither note's text was shortened and
+no other entity was touched.** Editing this DXF directly is permitted — the ten Rev F
+architectural drawings are source, not build artefacts.
+
+### 10.4  Package state after QA2
+
+| Measure | §9 (68 sheets) | QA2 (80 sheets) |
+|---|---:|---:|
+| Drawings indexed | 68 | **80** |
+| PASS | 62 | **74** |
+| REVIEW REQUIRED | 6 | **6** — the same six Rev F sheets |
+| Text-on-text overlaps | 0 | **2**, both on A-204, both listed in §5.1 |
+| Annotations over line work | 12 | **10** |
+| Geometry inside a notes panel | 35 | **35** — the same legend samples, still legitimate (§1 note) |
+| Sheets carrying a title block | 65 / 65 | **80 / 80** |
+
+**The twelve new sheets introduced no defect. The one defect found was A-301's, it came
+from `DR-A1`, and it is fixed.** §5's residual list is unchanged in substance: the same
+six Rev F sheets, now carrying ten items rather than twelve, because the A-202 and A-301
+counts were re-measured against their current content.
+
+### 10.5  What QA2 did NOT do
+
+No engineering design was reviewed or changed. No dimension, level, load, bar mark,
+quantity, rate, date or float moved. No generated sheet was regenerated into the
+repository. **STAAD.Pro was not run.** The main staircase was not touched.

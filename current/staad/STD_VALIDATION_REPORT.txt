@@ -1,0 +1,17 @@
+STAAD .std INPUT-FILE VALIDATION  -  file check only, NOT an analysis
+====================================================================================================
+file                                                  joints  elems  mbrs  cases  comb  result
+----------------------------------------------------------------------------------------------------
+Entry_Stairwell.std                                       20      0    20      5     5  PASS
+Sentry_Post_Framed_Seismic.std                            12      0    16      6    16  PASS
+Underground_Shelter_Mesh_Coarse.std                      324    336     0     11     5  PASS
+Underground_Shelter_Mesh_Fine.std                       4500   4552     0     11     5  PASS
+Underground_Shelter_Mesh_Medium.std                     1113   1138     0     11     5  PASS
+Underground_Structure_WITH_LOADS_worked_example (4).STD    1113   1138     0     11     5  PASS
+----------------------------------------------------------------------------------------------------
+6 files   0 errors
+
+A PASS means the INPUT FILE is well formed and self-consistent.
+It does NOT mean the structure has been analysed, and it says
+nothing about whether the structure works.  STAAD.Pro has not been
+run in this environment - see master Parts H.4, H.5 and H.26.

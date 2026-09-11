@@ -22,6 +22,9 @@ DISCIPLINE = [
     ("Schedule of Finishes/DXF/", "ARCHITECTURAL - finishes"),
     ("Fire and Life Safety/DXF/", "FIRE AND LIFE SAFETY"),
     ("Site and Concealment/DXF/", "SITE AND CONCEALMENT"),
+    ("EMP Protection/DXF/",  "EMP PROTECTION"),
+    ("Electrical/DXF/",      "ELECTRICAL"),
+    ("Site Selection and Geotechnical/DXF/", "SITE SELECTION AND GEOTECHNICAL"),
     ("current/cad/",        "ARCHITECTURAL / GENERAL - Rev F"),
 ]
 

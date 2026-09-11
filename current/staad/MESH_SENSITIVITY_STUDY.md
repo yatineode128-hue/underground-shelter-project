@@ -3,6 +3,17 @@
 **Revision identifier: MS1** (master `MASTER_PROJECT_STATE.md` Part H.5). Verification/QA study —
 does **not** change the M1 design, any Part A/B value, any load, or any support condition.
 
+> **MS2, 11 September 2026 (master Part H.26) — the three `.std` files were CORRECTED as input
+> files; the analysis models are unchanged.** The project owner opened COARSE in STAAD.Pro, the
+> first time any model here has been run, and it reported errors. Three `LOAD 6` south-wall
+> lines in COARSE were **80 columns against the file's own `INPUT WIDTH 79`**, so STAAD read
+> **−77.6 / −57.3 / −37.0** instead of **−77.64 / −57.36 / −37.07** and `LOAD 6` failed its own
+> `PRINT STATICS CHECK` by **4.8 kN** in Z; `LOAD 10` was defined after `LOAD 11` in all four box
+> models; and COARSE's corner `KFY` at joint 1 read **27562** against the **27563** §3 derives
+> below. All are fixed. **No geometry, thickness, material, support stiffness, load magnitude,
+> case number or combination factor changed, and §5 is still PENDING — STAAD.Pro is not
+> available in this environment and no analysis has been run here.**
+
 ---
 
 ## 1. Reference model
@@ -170,7 +181,11 @@ refinement) should be adopted, and Part B's hand checks revisited.
   models.
 * All 11 load cases present and all referenced correctly in all 5 combinations, in all three
   files.
-* `git diff` on the reference `.STD` after the study: clean — **byte-identical, unmodified.**
+* `git diff` on the reference `.STD` after **MS1**: clean — **byte-identical, unmodified.**
+  **Superseded by MS2 (H.26), 11 Sep 2026:** the reference `.STD` now carries the two
+  input-file corrections that apply to it — `LOAD 10` ahead of `LOAD 11`, and two over-width
+  title lines shortened. **Its analysis content is still byte-identical**; no joint, element,
+  thickness, support, load magnitude or combination changed.
 * `Entry_Stairwell.std`, `Sentry_Post_Framed_Seismic.std` and the main staircase (24 risers @
   170.8333 mm, 280 mm tread, 3 flights × 8, 4100 total rise — frozen per `CLAUDE.md`) are not
   represented in this plate model and were not touched by this study.
