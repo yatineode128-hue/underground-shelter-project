@@ -1419,17 +1419,24 @@ Stated here rather than left for a reviewer to find.
 
 ## 15  Open items
 
-**Twenty-one**, each a single position the project holds — or, in a few, one it does not hold at
-all — that needs something from outside it. Twelve were settled by the project owner ruling on
-them one by one; **three more were deliberately left open, which is itself a position.** The
-register is master **K.1b**; the shape of what remains:
+**Thirteen**, each a single position the project holds — or, in a few, one it does not hold at
+all — that needs something from outside it. The register is master **K.1b**.
+
+Getting from thirty-three to thirteen took ruling on every item that could be ruled: some were
+settled by the owner's knowledge of the plot, several were **defects in supplied documents rather
+than in this design record**, one was **read out of a file that had been in the workspace all
+along**, and a few were **declared scope boundaries that were never gaps at all** — those now sit
+separately in **K.1f** so a deliberate decision is not counted as an outstanding problem. A
+handful were deliberately **left open**, which is itself a position. The shape of what remains:
 
 | Group | What is outstanding |
 |---|---|
 | **Threat** | Is a direct hit a requirement? · What is the design basis yield? — **military / client sign-off** |
 | **Structural** | The sentry seismic re-check after the infill change (direction certain, favourable) · the ballistic requirement the brick infill no longer meets · the 4.162 kN/m parapet load, not independently reproducible |
 | **Escape** | The ladders are designed; **fall-arrest and a rest platform are not, and a vertical ladder cannot pass a stretcher.** Whether a casualty is expected to leave by a shaft is unanswered |
-| **Heat** | **A 4 kW surplus in a sealed box with no rejection path**, needing a ground loop and an envelope penetration nobody has designed |
+| **Heat** | **A 4 kW surplus in a sealed box.** The rejection path is the ground through the structure, and **it has not been modelled** — a transient soil–structure *thermal* model, sibling of the soil–structure *interaction* already deferred. The ventilation air cannot do it: 300 m³/h is a **contaminant** rate needing a **63.3 K** difference to shed the load, and when ambient exceeds the internal temperature it **adds** heat |
+| **The boundary** | **Two 1400 dia penetrations of the protective boundary have no specified closure.** ESC 1 and ESC 2 bore through the **pressure slab**; the hatch is now designed structurally to the full 383 kPa, but **its EMP bonding is not**, and bonding is continuity designed *into* the weldment, not applied to it |
+| **Circularity** | The **EMP Zone 2 enclosure** is sized to fit a bay; the **1.50 kW** load is chosen to give the enclosure a basis. **They corroborate each other and neither is evidence.** Breaking the loop needs an operational equipment list |
 | **EMP** | Every Zone 2 dimension is `[A]` pending an equipment schedule · **is Bay 8 inside the EMP boundary?** — no EMP boundary has ever been drawn · no communications design of any kind · no escape-shaft head hatch and no blast-door RF data · **no pipe material is specified anywhere in the project** |
 | **Electrical** | Generator fuel (≈ 210 L for 96 h derived, nothing specified) · incoming mains capacity, which **blocks any fault-level study** · no circuit / cable / luminaire schedule · **no cooling plant exists anywhere in the project** · the CO₂ scrubber's air movement is in no schedule |
 | **Geotechnical** | The data is **off-site** and reached 1.5 m against a formation at (−)6.800 · no plate load test · no percolation test · **the monsoon monitoring window is not in the monsoon** · the entry stairwell raft and the concealment turf sit in very-high-swelling clay with no specification |
