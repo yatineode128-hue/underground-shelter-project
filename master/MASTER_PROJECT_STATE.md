@@ -4464,6 +4464,121 @@ and still needed.**
 
 ---
 
+## H.31 Six more closed, and the IS 2470 offset set completed — revision RC7 — 12 September 2026
+
+> **K.1b GOES FROM TWENTY-ONE TO FIFTEEN.** Calculation:
+> `Owner Rulings RC4/Calculations/RC7_CALC_OUTPUT.txt` §R.11.
+
+| # | Item | Ruling | Outcome |
+|---|---|---|---|
+| 25 | **EL-V7** CO₂ scrubber air movement | **Compute the airflow** | **RULED AND NARROWED.** Duty **0.18 m³/h of CO₂**, loop **75 m³/h**. See below |
+| 26 | **EL-V4** incoming mains | **The mains does not gate the protective design — CLOSED** | See below |
+| 27 | **SG-V4 · SG-V5 · SG-V8 · SG-V10** | **Source defects — ALL FOUR CLOSED** | They are defects in the **supplied documents**, not in this design record |
+| 28 | **SG2-V1** foul soak pit to any well | **OWNER CONFIRMS THERE IS NO WELL WITHIN 15 m — CLOSED** | **The IS 2470 offset set is complete for the first time.** See the caveat |
+| — | **SG2-V2** perimeter fence distance | **NOT ADDRESSED by the ruling — STAYS OPEN** | Recorded as still open, not assumed closed |
+
+### Ruling 25 — the CO₂ scrubber duty, recovered from the project's own arithmetic
+
+**The production rate did not have to be assumed. It was already embedded in the HVAC package's
+own 9.9 h figure**, and reading that backwards gives every term:
+
+```
+time to 1.0 % CO2, airlock shut = (0.0096 x 184.96) / (9 x 0.02) = 9.9 h
+
+   allowable rise 0.04 % -> 1.0 %        0.0096 fraction        [C]
+   occupied volume, airlock shut         184.96 m3              [C]
+   occupants x production                9 x 0.02 m3/h/person   [C]
+   TOTAL CO2 PRODUCTION                  0.18 m3/h
+   check 1.7756 / 0.18 = 9.86 h   -- reproduces the stated 9.9 h
+   over 96 h closed                      17.28 m3 of CO2
+```
+
+> **The scrubber is a CLOSED-MODE device, and it is not optional.** In open mode the 300 m³/h
+> flushes CO₂. In **Mode 3 CLOSED** there is no fresh air at all, and without a scrubber the
+> envelope reaches 1.0 % in **9.9 hours against a 96-hour design occupancy**. That ratio is the
+> whole argument.
+
+```
+Q = production / (eta x C_target)
+
+   target CO2     eta 0.50   eta 0.80   eta 0.95
+      0.5 %          72.0       45.0       37.9   m3/h
+      1.0 %          36.0       22.5       18.9   m3/h
+
+ADOPTED   75 m3/h recirculation loop  [R]  -- the worst cell, because
+          designing to it costs almost nothing
+```
+
+**And it checks the only number the project already had.** A 75 m³/h fan at an assumed 250 Pa
+across a packed bed draws **≈ 11.6 W** against EL1's **0.10 kW** allowance — **roughly 8 × margin**.
+**So EL-V7 changes no electrical value**: the load schedule, the 6.256 kW connected load and the
+15 kVA check at 49 % all stand. **What changes is that the allowance is now checked rather than
+assumed.**
+
+**Not designed, not invented** `[N]`: the absorber vessel, bed depth, face area and residence
+time; the **soda lime charge** (17.28 m³ of CO₂ is the duty — converting it to a mass needs the
+product's absorption capacity, which is vendor data); the single-pass efficiency, taken across a
+range rather than from any product; and **where in bay 5 the absorber stands — bay 5 is the
+tightest bay at 1560 clear, and HV-F3 already records that the filter trains leave 110 mm at the
+sides.**
+
+### Ruling 26 — the mains does not gate the protective design
+
+**The shelter is designed to operate on GEN-1 alone for the full 96 hours.** RC2 allows the
+generator to run in the closed mode, RC4 put it inside the EMP boundary, and the connected load
+is **7.360 kVA against 15 kVA — 49 %**. The battery carries the essential services for 4 h if the
+set is down.
+
+> **So incoming mains capacity affects normal-mode operation and cost, and never the protected
+> function.** `EL-V4` had been recorded as *blocking any fault level or discrimination study*; it
+> still does — **for the normal-mode installation** — but it blocks nothing protective, and that
+> is the distinction the register was missing. **No capacity figure is invented.**
+
+### Ruling 27 — four source defects, closed
+
+**None of the four is a defect in this design record**, and the project's position on every one
+is already correct:
+
+| | The defect, in the supplied document | This project's position |
+|---|---|---|
+| **SG-V4** | the P1 deck's contour map and its elevation profile disagree by **12–16 m in level** | **Neither is adopted.** The project works on a local datum with grade = 0.000 |
+| **SG-V5** | the soil report's annual rainfall is **1.4–1.7 ×** too low against the 42-year Jun–Oct mean | **No figure was substituted and the suspect one was not corrected** — and SG2 established that **not one pipe, pit, pump or structure is sized by rainfall** |
+| **SG-V8** | three deck statements are attributed to the SEMT report and **are not in it** | **All three are used nowhere in the design** |
+| **SG-V10** | the SEMT field-work date is nowhere, so *"no water table"* is **season-unknown** | **Flagged as `[U]`, not asserted** — and `SG-V2` governs regardless |
+
+> **These are corrections owed to the SOURCE documents before the next presentation, not open
+> questions in this design.** Closed on that basis.
+
+### Ruling 28 — the well, and what the ruling is and is not
+
+**The project owner confirms there is no well within 15 m of the foul soak pit.** `[C] owner
+ruling`
+
+**The IS 2470 offset set is therefore complete for the first time in this project:**
+
+```
+foul soak pit to the SEPTIC TANK   >= 5 m     5.40 m      DEMONSTRATED  (SG2)
+soak pit to any BUILDING           >= 2 m    10.97 m      DEMONSTRATED  (SG2)
+foul soak pit to any WELL          >= 15 m      --        OWNER RULING  (RC7)
+```
+
+> **THE CAVEAT, AND IT MATTERS.** This is an **owner ruling, not a survey result.** It is recorded
+> as `[C] owner ruling` and not as `[C] surveyed`, and the distinction is deliberate: **if a well
+> is later found within 15 m, SK-01 moves.** Foul effluent near a water source is the one
+> clearance nobody should carry on an assumption, which is why it stayed open through SG2 — and
+> the ruling closes it on the owner's knowledge of the plot, which is evidence the project did
+> not previously have.
+
+> **`SG2-V2` — the perimeter fence distance — was NOT addressed by this ruling and STAYS OPEN.**
+> It is recorded here so that it is not mistaken for closed. SG2's own reasoning still holds: the
+> layout is dimensioned so every offset is relative, so a fence distance changes **where** the
+> reserve sits, never **whether** it works.
+
+> **What RC7 did NOT do.** No analysis run. No electrical value, dimension, level, load,
+> thickness, bar, BOQ quantity, rate, date or float changed. **Main staircase untouched.**
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -4683,7 +4798,8 @@ and still needed.**
 | `…/Schedules/RC4_BOQ_ADDENDUM` | The two items the rulings added. **8 m³ each, rate `[A]`, NOT PRICED** — a second declared exclusion from WM3's lower bound |
 | `…/Calculations/RC5_CALC_OUTPUT.txt` | **R.7–R.9 (RC5, H.29)** — what the ventilation air can actually reject · the escape shaft head hatch as a protective closure · the generator day tank and the penetrations it avoids |
 | `…/Calculations/RC6_CALC_OUTPUT.txt` | **R.10 (RC6, H.30)** — the excavation soil cap, three batter angles and a bench alternative costed in volume |
-| `…/Scripts/rc4_calc.py` · `rc4_siting.py` · `rc5_calc.py` · `rc6_calc.py` | The generators. Everything above is regenerated by running the four |
+| `…/Calculations/RC7_CALC_OUTPUT.txt` | **R.11 (RC7, H.31)** — the CO₂ scrubber duty recovered from the project's own 9.9 h figure, and the fan check against EL1's allowance |
+| `…/Scripts/rc4_calc.py` · `rc4_siting.py` · `rc5_calc.py` · `rc6_calc.py` · `rc7_calc.py` | The generators. Everything above is regenerated by running the five |
 | `current/staad/Underground_Shelter_ks500000.std` | **The subgrade upper bound.** Identical to the reference model but for the `ELASTIC MAT` line and four `KFY` values — verified by diff |
 
 ## I.3 SUPERSEDED / ARCHIVED
@@ -4817,6 +4933,18 @@ and still needed.**
 > was never sized to) and **`RC5-F2` — two 1400 dia penetrations of the protective boundary have
 > no specified closure.** `A13` closed in K.2 without a ruling: the `.std` the register asked for
 > has been in the workspace since H.4.
+>
+> **RC6, 12 September 2026 (H.30):** `WM-V9` **RULED** — batter the soil cap, vertical in rock.
+> **K.2 falls from fourteen to seven, and the seven that remain are exactly the site
+> investigation.**
+>
+> **RC7, 12 September 2026 (H.31) — K.1b GOES FROM TWENTY-ONE TO FIFTEEN.**
+> **CLOSED (6):** `EL-V4` the mains does not gate the protective design · `SG-V4` `SG-V5` `SG-V8`
+> `SG-V10` — **four defects in the SUPPLIED DOCUMENTS, not in this design record**, on which the
+> project's position was already correct · **`SG2-V1` — the owner confirms no well within 15 m,
+> so the IS 2470 offset set is COMPLETE for the first time.** **RULED AND NARROWED (1):**
+> `EL-V7`, a 0.18 m³/h CO₂ duty and a 75 m³/h loop. **`SG2-V2` was NOT addressed and STAYS
+> OPEN.**
 
 > **These are NOT inconsistencies.** Each is a single position the project holds, with
 > nothing contradicting it. What they need is a decision, a datum or a design from
@@ -4847,10 +4975,10 @@ and still needed.**
 | **EM-V6** | Escape-shaft head hatch and blast-door RF performance. **RULED AND SPLIT — RC5, 12 Sep 2026 (H.29): the hatch is DESIGNED AS A STRUCTURAL ELEMENT; the EMP bonding stays with the EMP package, so THIS ROW STAYS OPEN FOR ITS EMP HALF.** And the design raised **`RC5-F2`: these are 1400 dia bores through the PRESSURE SLAB, which A.2 names as part of the protective boundary — so each head is a 1.54 m² hole in that boundary and nothing in the project had ever stated what it must resist structurally.** Designed to the full **383 kPa**: 589.6 kN on the leaf, M 38.71 kNm/m, a ribbed steel weldment on a cast-in seating ring with quarter-turn dogs against uplift, counterbalanced and openable from inside. **A flat plate would be 32 mm and 505 kg — unliftable, which is why it is not one.** The row below is the position before the ruling | **Was: neither exists.** Lining a 1 400 shaft does not work — it propagates above 125.5 MHz however well it is lined; the treatment is a **bonded conducting hatch at the head**. Blast Door 1's frame is already cast in and welded to the cage (A.5), which is the right start | **Vendor data.** Both sit directly on the protective boundary |
 | **EL-V2** | Generator fuel type, quantity and storage. **RULED AND NARROWED — RC5 (H.29): a DAY TANK INSIDE.** 210 L usable / **250 L nominal** / 275 L bund, bay 8, welded steel, contents gauge and low-level alarm to the S-01 panel. **The fill and the vent are routed up the EXISTING SH-2 bore so NO new envelope penetration is created** — the same instinct the owner applied to RC4-V1. **Fuel type still unconfirmed, 0.35 L/kWh still `[A]`, no vendor set, no rate. Needs an HVAC/EMP fit check: two DN25 lines sharing a 600 × 600 bore with two DN350 blast valves.** The row below is the position before the ruling | **Was: none specified.** EL1 derives **≈ 210 L for a 96 h run** (600.6 kWh at 0.35 L/kWh `[A]`) — the first number anyone has put on it | Client / vendor. Same root as **FS-V4** and **R-8** |
 | **EL-V3** | Equipment schedule for EMP Zone 2 | **`Z-01`, a 1.50 kW allowance.** It gives EM-V2 a basis, not an answer | Client / operational |
-| **EL-V4** | Incoming mains capacity, tariff and point of connection | **The supply is confirmed only by the owner's programme** (activities 5 and 123, *"DB to Meter Panel"*). No capacity exists anywhere | Utility / client. **Blocks any fault level or discrimination study** |
+| **EL-V4** | Incoming mains capacity. **CLOSED — RC7 (H.31): THE MAINS DOES NOT GATE THE PROTECTIVE DESIGN.** The shelter runs on **GEN-1 alone for the full 96 h** — RC2 allows it in closed mode, RC4 put it inside the EMP boundary, connected load **7.360 kVA against 15 kVA = 49 %**, battery 4 h if the set is down | **The supply is confirmed only by the owner's programme.** No capacity exists anywhere | **It still blocks a fault level and discrimination study FOR THE NORMAL-MODE INSTALLATION, and blocks nothing protective.** No capacity figure invented |
 | **EL-V5** | Circuit, cable, luminaire and socket schedules | **None — deliberately.** EL1 stops at board level | Detailed design stage |
 | **EL-V6** | Cooling | **No cooling plant exists anywhere in the project**, so no cooling load appears in the schedule. A sealed 332.8 m³ box with 9 occupants and a dehumidifier has a heat balance nobody has computed | **HVAC.** Referred, not resolved |
-| **EL-V7** | CO₂ scrubber air movement | **In no schedule.** EL1 assumes 0.10 kW for a recirculation fan; soda lime needs air over it and no fan is specified | **HVAC** |
+| **EL-V7** | CO₂ scrubber air movement. **RULED AND NARROWED — RC7 (H.31).** The production rate was already embedded in the HVAC package's own 9.9 h figure: **0.18 m³/h of CO₂**, 17.28 m³ over 96 h. **Adopted: a 75 m³/h recirculation loop.** A 75 m³/h fan draws **≈ 11.6 W against EL1's 100 W allowance — now CHECKED rather than assumed, and NO electrical value changes.** **A closed-mode device, and not optional: without it the envelope reaches 1.0 % in 9.9 h against a 96 h occupancy** | **Was: in no schedule** | **The absorber, bed, residence time, soda lime charge and single-pass efficiency are all `[N]`**, and **where in bay 5 it stands** — the tightest bay at 1560 clear, where HV-F3 already records 110 mm at the sides |
 | **SG-V1** | **The geotechnical data is OFF-SITE** *(SG1, 11 Sep 2026, H.22)* | **SEMT/67/15 investigates the G Building, the H Building and the Mess Building.** The project plot is a separate undeveloped area east of the CTW blocks. The carry-across rests on the report's own para 5 — *"horizontally bedded and more or less uniform in character over a wide area"* — and is an **`[A]` of the SG1 package**, not a finding of the report. The report's own spread (rockhead 0.9 → 1.5 m over three locations) shows how much that uniformity permits | **The confirmatory site investigation `A1075` located ON THIS PLOT**, not repeated from the report. **No investigation has ever been made on the project plot** |
 | **SG-V2** | **DEPTH OF INVESTIGATION — the governing item** *(SG1)* | **The pits reached about 1.5 m. The formation is at `(−)6.800` and the sump base at `(−)8.000`.** There are **5.3 m of completely unlogged ground** under the whole structure. Only sentry footing F1 at `(−)2.000` is inside the investigated horizon, and only just | **Boreholes with core recovery and RQD to well below `(−)6.800`, logging every flow contact and red-bole seam** — that is the case that **sizes the mat** (`B.3` Case 2, 84 % utilised) — with **packer permeability** at the contacts and a **plate load test** for k<sub>s</sub> at **both** bounds |
 | **SG-V4** | **Site level and fall** *(SG1)* | **The P1 deck contradicts itself.** Its contour map puts the plot between the **580 and 581 m** contours; its elevation profile reads **593.9 → 596.2 m** over 26.8 m. **They differ by 12–16 m in level and about four times in gradient**, and neither is tied to the project datum. Neither is adopted | **A levelled benchmark on the plot** and a spot-level survey. It changes **no calculation** — the project works on a local datum with grade `= 0.000` — but the **cut and fill**, the **berm toe** and the point where the `BS1` 1:50 crossfall daylights all wait on it, and on **D3** |

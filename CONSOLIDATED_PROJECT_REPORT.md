@@ -1277,9 +1277,18 @@ excavation, downgradient, using 42.5 m of the 50 m available.
 | **IC-02** | (40200, 16000) | | |
 
 **Four of five external pipe runs are fixed** — PD-16 **5.40 m**, PD-06 **27.00 m**,
-PD-11 **32.35 m**, PD-13 **29.60 m**. **PD-14 cannot be routed** `[U]`. **Two of three IS 2470
-offsets are demonstrated** (5.40 m to the tank, 10.97 m to any building); **the ≥ 15 m well
-offset cannot be — no well position exists** `[N]`. **28 of 28 clearance checks pass.**
+PD-11 **32.35 m**, PD-13 **29.60 m**. **PD-14 cannot be routed** `[U]`. **28 of 28 clearance
+checks pass**, and **all three IS 2470 offsets are now satisfied:**
+
+| Offset | Required | |
+|---|---|---|
+| Foul soak pit to the septic tank | ≥ 5 m | **5.40 m — demonstrated** |
+| Soak pit to any building | ≥ 2 m | **10.97 m — demonstrated** |
+| Foul soak pit to any well | ≥ 15 m | **No well within 15 m** `[C] owner ruling` |
+
+> **The well offset rests on an owner ruling, not a survey.** The distinction is deliberate:
+> **if a well is later found within 15 m, SK-01 moves.** Foul effluent near a water source is the
+> one clearance nobody should carry on an assumption.
 
 > **There is a site LAYOUT. There is no site SURVEY.** Still missing: a boundary, a benchmark and
 > spot levels, the well, the perimeter fence distance, existing services, and a wind rose. Every
@@ -1424,7 +1433,7 @@ register is master **K.1b**; the shape of what remains:
 | **EMP** | Every Zone 2 dimension is `[A]` pending an equipment schedule · **is Bay 8 inside the EMP boundary?** — no EMP boundary has ever been drawn · no communications design of any kind · no escape-shaft head hatch and no blast-door RF data · **no pipe material is specified anywhere in the project** |
 | **Electrical** | Generator fuel (≈ 210 L for 96 h derived, nothing specified) · incoming mains capacity, which **blocks any fault-level study** · no circuit / cable / luminaire schedule · **no cooling plant exists anywhere in the project** · the CO₂ scrubber's air movement is in no schedule |
 | **Geotechnical** | The data is **off-site** and reached 1.5 m against a formation at (−)6.800 · no plate load test · no percolation test · **the monsoon monitoring window is not in the monsoon** · the entry stairwell raft and the concealment turf sit in very-high-swelling clay with no specification |
-| **Site** | No well position, so the ≥ 15 m offset cannot be demonstrated · the perimeter fence distance has never been dimensioned · there is no wind rose · **the sentry post's real coordinate** — the adopted EAST position is a drawing convention, and it gives **9.00 m to the excavation face against the ≥ 10 m rule as written** |
+| **Site** | The perimeter fence distance has never been dimensioned · there is no wind rose · **the sentry post's real coordinate** — the adopted EAST position is a drawing convention, and it gives **9.00 m to the excavation face against the ≥ 10 m rule as written** |
 | **Drawings / data** | Service-entry plate size · duct penetration schedule · vision panel specification · finish product selections · **the sentry roof projection dimension**, without which the 4.162 kN/m parapet load stays half-derived |
 
 > **None of these may be silently resolved.** An `[ASSUMED]`, `[UNRESOLVED]` or `[NOT AVAILABLE]`

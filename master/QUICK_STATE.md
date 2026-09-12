@@ -91,6 +91,18 @@ measured **rockhead at 0.9–1.5 m with FSI 60–65 % clay on top** — so **bat
 minimum, keep vertical in rock**; **+76 m³ at 1:1, +118 m³ at 1.5:1**, working space unmoved,
 **and the angle is the geotechnical engineer's.** It also produces **76–118 m³ more CH clay** —
 the material **SG-V7 (left open)** warns against re-laying as the cover turf.
+Updated 12 Sep 2026 for **RC7** (master **H.31**) — **K.1b goes from twenty-one to fifteen.**
+**EL-V7 narrowed:** the CO₂ production rate was already inside HVAC's own 9.9 h figure —
+**0.18 m³/h**, 17.28 m³ over 96 h — so the loop is **75 m³/h** and a fan for it draws **≈ 11.6 W
+against EL1's 100 W allowance**, which is now *checked* rather than assumed. **The scrubber is a
+closed-mode device and is not optional: without it the envelope reaches 1.0 % CO₂ in 9.9 h against
+a 96 h occupancy.** **EL-V4 closed** — the shelter runs on GEN-1 alone for the full 96 h, so mains
+capacity gates normal-mode operation and cost, never the protected function. **SG-V4, SG-V5,
+SG-V8, SG-V10 closed as defects in the SUPPLIED DOCUMENTS**, not in this design record — the
+project's position was already right on all four. **SG2-V1 closed by owner ruling: no well within
+15 m, so the IS 2470 offset set is COMPLETE for the first time** — recorded as `[C] owner ruling`,
+**not** as a survey result, and **if a well is later found within 15 m, SK-01 moves.**
+**SG2-V2 was not addressed and stays open.**
 
 ---
 
