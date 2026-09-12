@@ -91,7 +91,7 @@ measured **rockhead at 0.9–1.5 m with FSI 60–65 % clay on top** — so **bat
 minimum, keep vertical in rock**; **+76 m³ at 1:1, +118 m³ at 1.5:1**, working space unmoved,
 **and the angle is the geotechnical engineer's.** It also produces **76–118 m³ more CH clay** —
 the material **SG-V7 (left open)** warns against re-laying as the cover turf.
-Updated 12 Sep 2026 for **RC7** (master **H.31**) — **K.1b goes from twenty-one to fifteen.**
+Updated 12 Sep 2026 for **RC7** (master **H.31**) — **K.1b goes from twenty-five to nineteen** (*the “twenty-one to fifteen” first recorded here was wrong — corrected by RC9, H.33*).
 **EL-V7 narrowed:** the CO₂ production rate was already inside HVAC's own 9.9 h figure —
 **0.18 m³/h**, 17.28 m³ over 96 h — so the loop is **75 m³/h** and a fan for it draws **≈ 11.6 W
 against EL1's 100 W allowance**, which is now *checked* rather than assumed. **The scrubber is a
