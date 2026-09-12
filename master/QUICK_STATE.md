@@ -52,6 +52,90 @@ contradictions** against evidence already in the workspace — among them the se
 **sixteenth** load combination, missing from A.7.9 and Part L — and added master **A.4.9**, one
 short register of every opening through the protective boundary.
 **Nothing in `K.1b` is closed, no evidence tag converted, no design value changed.**
+Updated 11 Sep 2026 for **RC4** (master **H.28**) — **the project owner ruled on SIXTEEN open
+items, one by one.** Thirteen actioned, **three deliberately left open**. **K.1b falls from
+thirty-three to twenty-one.** Closed: **U2** no direct hit · **U3** 50 psi held as the basis ·
+**WM-V7** ballistic not required · **EM-V3 bay 8 is INSIDE the EMP boundary** (so BV-4/BV-5 now
+need honeycomb panels, and the project holds **two protective boundaries that do not
+coincide**) · **EL-V6** the 96-hour heat balance computed · **CAM-V5 + SG2-V3** both air shafts
+fixed · **FS-1** W5 finally has a door. Ruled but still open: **FS-V7** a ladder is designed and
+**fall-arrest is deferred** · **U8** half re-derived · **U4 the EAST sentry position adopted** ·
+**SG-V6** strip-and-replace specified and measured · **A4** the k_s 500 000 model built.
+**Four findings** — `RC4-F1` the master's sentry X range is wrong, `RC4-F2` the predicted clash
+rested on an assumed Y and does not happen, `RC4-F3` the EAST position gives **9.00 m against
+the ≥10 m rule as written**, `U8-F1` the projection dimension is recorded nowhere. **One new
+item `RC4-V1`: a sealed shelter with a 4 kW heat surplus and no route out for it.**
+**No analysis run, no tag converted by inference, main staircase untouched.**
+Updated 12 Sep 2026 for **RC5** (master **H.29**) — **four more rulings and the FIRST of K.2's
+fourteen assumptions to close.** **`A13` closed WITHOUT a ruling**: the register asked for the
+sentry `.std` and **the file has been in the workspace since H.4** — there is no `MEMBER RELEASE`
+in it, supports are `1 2 11 12 FIXED`, infill is carried as load not stiffness. Ruled and
+narrowed: **RC4-V1** reject to ventilation air in open mode only · **EM-V6** the shaft head hatch
+designed structurally, EMP bonding left with the EMP package · **EL-V2** a 250 L day tank in bay
+8 with fill and vent routed up the **existing** SH-2 bore, adding **no new penetration**.
+**WM-V6 left open.** **Two findings — `RC5-F1`: the ventilation air cannot reject the heat and
+was never sized to** (300 m³/h is a *contaminant* rate; it needs 63.3 K, and in Pune it can add
+heat), so the ruling is **an acceptance of ~39 °C, not a solution** · **`RC5-F2`: TWO 1400 dia
+PENETRATIONS OF THE PROTECTIVE BOUNDARY HAVE NO SPECIFIED CLOSURE** — ESC 1 and ESC 2 bore
+straight through the **pressure slab**, which A.2 names as part of that boundary, and nobody had
+asked what the head must resist. **K.1b holds at twenty-one.**
+Updated 12 Sep 2026 for **RC6** (master **H.30**) — **K.2 GOES FROM FOURTEEN OPEN TO SEVEN, AND
+THE SEVEN THAT REMAIN ARE EXACTLY THE SITE INVESTIGATION.** Closed: **A6** K_a conservative ·
+**A9 R = 3.0 kept** (the conservative position — R = 5.0 would need an SMRF this project does not
+claim) · **A10** wind k1, and wind does not govern · **A11** b_eff, the HW3 strip is at 26 %/41 %
+· **A12** the trapezoid factor, ≈ 2 % inside B2's 89 % · **A13** read from the `.std` · **A14**
+Poisson. **Everything a competent engineer could decide is now decided; what is left needs a
+borehole, a piezometer, a plate load test, a percolation test or a packer test — on this plot.**
+**WM-V9 ruled:** the project measured a vertical unbenched face for the full 6.800 m, but SG1
+measured **rockhead at 0.9–1.5 m with FSI 60–65 % clay on top** — so **batter the soil cap 1:1
+minimum, keep vertical in rock**; **+76 m³ at 1:1, +118 m³ at 1.5:1**, working space unmoved,
+**and the angle is the geotechnical engineer's.** It also produces **76–118 m³ more CH clay** —
+the material **SG-V7 (left open)** warns against re-laying as the cover turf.
+Updated 12 Sep 2026 for **RC7** (master **H.31**) — **K.1b goes from twenty-five to nineteen** (*the “twenty-one to fifteen” first recorded here was wrong — corrected by RC9, H.33*).
+**EL-V7 narrowed:** the CO₂ production rate was already inside HVAC's own 9.9 h figure —
+**0.18 m³/h**, 17.28 m³ over 96 h — so the loop is **75 m³/h** and a fan for it draws **≈ 11.6 W
+against EL1's 100 W allowance**, which is now *checked* rather than assumed. **The scrubber is a
+closed-mode device and is not optional: without it the envelope reaches 1.0 % CO₂ in 9.9 h against
+a 96 h occupancy.** **EL-V4 closed** — the shelter runs on GEN-1 alone for the full 96 h, so mains
+capacity gates normal-mode operation and cost, never the protected function. **SG-V4, SG-V5,
+SG-V8, SG-V10 closed as defects in the SUPPLIED DOCUMENTS**, not in this design record — the
+project's position was already right on all four. **SG2-V1 closed by owner ruling: no well within
+15 m, so the IS 2470 offset set is COMPLETE for the first time** — recorded as `[C] owner ruling`,
+**not** as a survey result, and **if a well is later found within 15 m, SK-01 moves.**
+**SG2-V2 was not addressed and stays open.**
+Updated 12 Sep 2026 for **RC8** (master **H.32**) — **K.1b goes from nineteen to seventeen** (*the “fifteen to thirteen” first recorded here was wrong — corrected by RC9, H.33*).
+**SG2-V2 CLOSED** on the layout's immunity: every offset is relative to the structure, so a fence
+distance changes *where* the reserve sits, never *whether* it works. **SG2-V4 SPLIT** — the
+intake/exhaust half **closed** (SH-1 and SH-2 are **25.30 m apart at opposite ends of a 22 m
+box**, robust whatever the wind does, which is why SG2 chose geometry over meteorology); **the
+PLUME half stays open, and must — a CBRN shelter with no wind direction data cannot state which
+way a release drifts.** **EM-V2 and EL-V3: the circularity is now DOCUMENTED and both stay open**
+— the enclosure is sized to fit bay 3, the 1.50 kW is chosen to give the enclosure a basis, **and
+neither is evidence.** **EL-V5 RECLASSIFIED out of K.1b into the new K.1f** — *declared scope
+boundaries, true and visible but not gaps*: EL1 said in its own opening paragraph that it stops
+at board level.
+Updated 12 Sep 2026 for **RC9** (master **H.33**) — **a count this session got wrong, corrected.**
+RC4–RC8 recorded every ruling faithfully in Part H and K.1e **but never annotated fourteen of the
+rows in the K.1b table itself**, so the table read as **34** while the narratives claimed 21, then
+15, then 13. **All three were wrong.** Every row is now annotated and a new **`K.1b-INDEX`** at the
+head of the register states the totals, so the count can be verified by reading rather than taken
+on trust. **Corrected sequence: 33 → 25 (RC4) → 25 (RC5, RC6) → 19 (RC7) → 17 (RC8).**
+**K.1b holds 34 rows — SEVENTEEN STILL OPEN** (nine narrowed by a ruling, two annotated but not
+narrowed, six untouched), **sixteen closed, one moved to K.1f**, all retained under M.11.
+**K.2 holds seven, and they are the site investigation.**
+Updated 12 Sep 2026 for **RC10** (master **H.34**) — **what the rulings left stale in the
+packages.** RC4–RC9 ruled on thirty-two items and recorded every one in the master **but never
+touched the discipline packages**, so **six artefacts still say something the master has settled**:
+the EMP penetration register's *"**if** bay 8 is inside the EMP boundary"* (**it is** — EM-V3) and
+its *"no hatch is specified"* (**one is, structurally** — EM-V6) · the HVAC equipment schedule's
+SH-1 *"West of the box"* (**centred (−2400, 3100)**) and SH-2's missing head level (**+1.500**) ·
+the fire escape route schedule's two climbs with no means of climbing (**a ladder is designed —
+and it must still say there is no fall-arrest and no rest platform**) · and the concealment
+policy's *"SH-2, whose head level is recorded nowhere"* with **CAM-V5 listed open**.
+**Nothing was silently edited** — all six are build artefacts and the project's rule is to edit
+the generator and re-run. **Applying the register is a package-by-package job with a regeneration
+check, and it has NOT been done.** **The lesson, which M.14 already states: a ruling is not
+finished when the master records it.**
 
 ---
 
@@ -330,9 +414,10 @@ added east of a break line). A **`SERVICES`** layer was added to both; the other
 border, title block and NOTES box — filenames unchanged, geometry unchanged.** Drawing
 numbers A-101…A-105, A-201…A-204, A-301 live in the title blocks; `current/cad/Scripts/`
 holds the pipeline that produced this state.
-**`current/staad/` — 6 STD + the mesh study:** the reconciled M1 underground plate model
+**`current/staad/` — 7 STD + the mesh study:** the reconciled M1 underground plate model
 (reference), the sentry frame, the entry stairwell frame, and the **MS1** coarse / medium /
-fine mesh variants, plus `MESH_SENSITIVITY_STUDY.md`. **All four box models corrected as input
+fine mesh variants, the **k_s = 500 000 subgrade upper bound** (RC4), plus
+`MESH_SENSITIVITY_STUDY.md`. **All four box models corrected as input
 files at MS2** (master H.26) — every data line now inside `INPUT WIDTH 79`, load cases ascending
 1…11. **STAAD.Pro has still not been run in this environment; MS1 §5 is still PENDING.**
 

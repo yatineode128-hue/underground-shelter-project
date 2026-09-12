@@ -1,0 +1,152 @@
+
+====================================================================================
+  T.1  THE PIN, RECOVERED FROM SG2'S OWN ARITHMETIC
+====================================================================================
+
+  SG2 measures its 50 m envelope 'about the pin' and never says where the
+  pin is.  Its worst case is the reserve's far corner at 42.51 m.  Solving:
+
+    reserve far corner (51000, 17500)
+    |corner - (11000, 3100)| = 42513 mm = 42.51 m   <-- SG2's 42.51 m, exactly
+  THE PIN IS THE BOX CENTRE (11000, 3100).  [R] recovered, not assumed.
+
+====================================================================================
+  T.2  THE SENTRY POST -- WHAT THE DRAWING ACTUALLY SAYS
+====================================================================================
+
+  RULING: adopt the EAST position.
+
+  Master DR-A1-V1 records the elevation's placement as 'X 31700 - 36300'.
+  A-301's OWN NOTE 2 says something different:
+
+    'THIS SHEET DRAWS THE SENTRY POST AT X 32000-36000, WHICH IS MASTER
+     A.2's ">= 10 m CLEAR OF THE SHELTER EXCAVATION" CONVENTION AND NOT A
+     SITE COORDINATE'
+
+  X 32000 - 36000 is 4000 wide, which IS the sentry post's external
+  dimension (master A.4.8, 4000 x 5000).  31700 - 36300 is 4600 and matches
+  nothing.  THE DRAWING IS THE PRIMARY SOURCE AND IT IS SELF-CONSISTENT.
+  FINDING RC4-F1: master DR-A1-V1's X range is wrong; corrected to
+  X 32000 - 36000.
+
+  AND THE Y IS STILL MISSING.  An ELEVATION cannot give a Y -- it is a view
+  along Y.  So the EAST ruling fixes X and leaves Y to be set here.
+
+    X 32000 - 36000   = 4000 wide   [C] from A-301 note 2
+    clear of the box east face (X 22000)  = 10000 mm = 10.0 m
+
+  Y ADOPTED  600 - 5600  = 5000 deep, centred on Y 3100   [A]
+
+    - 5000 is the sentry post's other external dimension, so the footprint
+      is the real one and not a guess at proportions
+    - Y 3100 is the box longitudinal centreline: the post sits square on
+      the shelter's own axis, which is the only symmetry the site has
+    - it keeps the post SOUTH of SG2's external works reserve (Y 6500 up),
+      so the two do not occupy the same ground
+
+
+====================================================================================
+  T.3  THE CLASH THE MASTER PREDICTED -- AND WHY IT DOES NOT HAPPEN
+====================================================================================
+
+  Master DR-A1-V1: 'SG2's external works reserve is X 33000 - 51000, so the
+  elevation's placement would put the sentry post INSIDE the reserve.'
+
+    reserve   X 33000 - 51000   Y 6500 - 17500
+    sentry    X 32000 - 36000   Y 600 - 5600
+
+  They DO overlap in X, over X 33000 - 36000.  They do NOT overlap in Y:
+    reserve south edge  Y 6500
+    sentry north face   Y 5600
+    clear gap           900 mm = 0.90 m
+
+  clear distance, sentry to reserve = 0.90 m   -- NO OVERLAP
+
+  FINDING RC4-F2.  THE PREDICTED CLASH RESTED ON AN ASSUMED Y.
+  The master reasoned from X alone and concluded the post would land in the
+  reserve.  It only would if the post's Y overlapped Y 6500-17500 -- and an
+  elevation never gave a Y.  With the post on the box centreline the reserve
+  DOES NOT HAVE TO MOVE.  That is the good news.  The bad news is T.5.
+
+====================================================================================
+  T.4  THE 50 m ENVELOPE, RE-RUN
+====================================================================================
+    MAIN EXCAVATION + 1000 working space            12.68 m
+    STAIRWELL EXCAVATION + working space             8.28 m
+    SENTRY POST  --  EAST, THIS RULING              25.12 m
+    ST-01 SEPTIC TANK                               29.64 m
+    SK-01 FOUL SOAK PIT                             36.53 m
+    SK-03 STAIRWELL SOAKAWAY                        31.98 m
+    SK-04 HEADHOUSE SOAKAWAY                        38.29 m
+    EXTERNAL WORKS RESERVE, far corner              42.51 m
+
+    SENTRY POST radius   NORTH assumption 17.27 m  ->  EAST ruling 25.12 m
+    WORST CASE is still the reserve at 42.51 m, against 50.00 m available.
+    EVERYTHING STILL FITS.  The sentry post is no longer the binding element.
+
+====================================================================================
+  T.5  THE CHECK THAT FAILS  --  SK-02 AGAINST THE EAST SENTRY POST
+====================================================================================
+
+  IS 2470: SOAK PIT TO ANY BUILDING >= 2.0 m  [C], and the sentry post is a
+  building.  SG2 never had to check this -- its sentry post was 10 m NORTH,
+  nowhere near SK-02.
+
+    SK-02 as sited by SG2   centre (35000, 8500), wall radius 1100
+                            -> spans X 33900-36100,  Y 7400-9600
+    sentry north face       Y 5600
+    clear separation        1800 mm  =  1.80 m
+
+  *** 1.80 m  vs  2.00 m REQUIRED   ->   FAIL ***
+
+  THE FIX -- MOVE SK-02 300 mm NORTH, and nothing else.
+    SK-02 (35000, 8800), wall radius 1100  ->  Y 7700 - 9900
+    clear separation to the sentry post = 2.10 m  vs 2.00 m   PASS
+  A 300 mm nudge is the whole cost of the EAST ruling in the layout.
+
+====================================================================================
+  T.6  EVERY CHECK SK-02'S MOVE TOUCHES, RE-RUN
+====================================================================================
+  SK-02 wall to MAIN EXCAVATION + working space      11.01 m  vs  10.0 m [A]   PASS
+  SK-02 wall to STAIRWELL EXCAVATION + wk space      16.85 m  vs  10.0 m [A]   PASS
+  SK-02 wall to SK-03 wall                            4.21 m  vs   4.0 m [A]   PASS
+  SK-02 wall to SK-04 wall                           10.60 m  vs   4.0 m [A]   PASS
+  SK-02 wall to SK-01 wall                            9.33 m  vs   4.0 m [A]   PASS
+  SK-01 wall to SK-02 wall  (foul to clean)           9.33 m  vs   5.0 m [A]   PASS
+  ST-01 face to SK-02 wall  (foul to clean)           5.80 m  vs   5.0 m [A]   PASS
+  SK-02 wall to the SENTRY POST                       2.10 m  vs   2.0 m [C]   PASS
+
+
+====================================================================================
+  T.7  EVERY CHECK AGAINST THE SENTRY POST, WHICH SG2 NEVER RAN
+====================================================================================
+  ST-01 face to the SENTRY POST                      10.03 m  vs   2.0 m [C]   PASS
+  SK-01 wall to the SENTRY POST                      12.02 m  vs   2.0 m [C]   PASS
+  SK-02 wall to the SENTRY POST                       2.10 m  vs   2.0 m [C]   PASS
+  SK-03 wall to the SENTRY POST                       5.03 m  vs   2.0 m [C]   PASS
+  SK-04 wall to the SENTRY POST                      11.05 m  vs   2.0 m [C]   PASS
+  SENTRY POST to the MAIN EXCAVATION face             9.00 m  vs  10.0 m [C]   *** FAIL ***
+
+  *** AND HERE IS THE SECOND ONE. ***
+  Master A.2 / A.4.8: the sentry post stands '>= 10 m CLEAR OF THE SHELTER
+  EXCAVATION'.  A-301 sets X 32000, which is 10.00 m clear of the BOX FACE
+  at X 22000 -- but the EXCAVATION face, with its 1000 mm working space, is
+  at X 23000.  Measured from the excavation, as the rule actually reads, the
+  clearance is 9.00 m.
+
+  FINDING RC4-F3.  A-301's convention is 10 m FROM THE BOX, not from the
+  excavation, and the sheet's own note cites the excavation rule while
+  applying the box face.  To satisfy the rule AS WRITTEN the post moves to
+  X 33000 - 37000.
+
+  IF THE POST MOVES TO X 33000 - 37000:
+    to the excavation face          10.00 m  vs 10.0 m [C]   PASS
+    to the external works reserve   0.90 m   (still no overlap in Y)
+    to ST-01                        10.03 m  vs  2.0 m [C]   PASS
+    to SK-02 as moved               2.10 m  vs  2.0 m [C]   PASS
+    envelope radius                 26.12 m  vs 50.00 m     PASS
+  BOTH READINGS ARE RECORDED.  NEITHER IS ADOPTED OVER THE OTHER HERE --
+  the ruling was 'adopt the EAST position', and the EAST position is a
+  CONVENTION on a drawing, not a survey coordinate.  U4 stays [A].
+
+  RESULT OF THE RE-RUN:  14 checks, 1 failing before the fixes above.

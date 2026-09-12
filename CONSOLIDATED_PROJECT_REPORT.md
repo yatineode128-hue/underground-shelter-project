@@ -547,20 +547,50 @@ cage** — that weld is both the blast fixing and the only EMP continuity the op
 | Shaft | **1400 dia clear**, 250 RC collar, OD 1900 | as ESC 1 |
 | Head level · climb from (−)6.100 | **+0.150 · 6.250 m** | **+0.700 · 6.800 m** |
 | Escape route | **R2** | **R3** — **shares Bay 8 with the generator** |
+| **Ladder** | 21 spaces @ **297.6 mm** | 23 spaces @ **295.7 mm** |
+
+**One ladder type serves both shafts:** 20 mm dia galvanised MS rungs, **400 clear width**,
+equal pitch within each shaft so there is no short step to trip on in the dark, **≥ 200 behind
+the rung and ≥ 750 clear climbing space in front**, 2 No. 50 × 10 galvanised flat stringers,
+cast-in lugs to the 250 collar and the roof-slab bore with expansion-anchored brackets at 1.5 m
+over the lower 3.200 m, and **grab rails 1100 above the head**.
 
 > **Three things the project does not hold for these openings, and must not invent:**
 >
-> **1. No hatch on either shaft head.** No leaf, frame, fixing or bonding detail exists anywhere
-> `[N]`. What it has to be is established — a **bonded conducting hatch at the head**, because a
-> 1400 dia shaft propagates above **125.5 MHz** however well it is lined — but the specification
-> itself is vendor data the project does not contain.
+> **1. The shaft heads are HOLES IN THE PROTECTIVE BOUNDARY.** ESC 1 and ESC 2 bore straight
+> through the **pressure slab**, which §1.1 names as part of that boundary — so each head is a
+> **1.54 m² opening in it**, beginning in Bay 1 **inside the gas-tight envelope**. The hatch is
+> therefore designed as a **protective closure taking the full 383 kPa**: 589.6 kN on the leaf,
+> M 38.71 kNm/m, a **1600 dia ribbed steel weldment** (12 mm face, 8 radial ribs 150 × 10, 150 ×
+> 12 perimeter ring) on a **steel seating ring cast into the 250 collar**, 150 mm bearing, with
+> **four quarter-turn dogs so it resists UPLIFT as well** — the negative phase and the rebound
+> both lift it — **counterbalanced and openable from inside by one person without a key**.
+> *A flat plate would be 32 mm and 505 kg: unliftable, which is why it is not one.* The rib
+> proportioning and the counterbalance mechanism are specialist items `[N]`, and **the EMP
+> bonding — continuity between leaf, seat and collar reinforcement — is not designed here**,
+> though a 1400 dia shaft propagates above **125.5 MHz** however well it is lined.
 >
-> **2. No way to climb either shaft.** No ladder, no rung, no fall-arrest is specified `[N]`.
-> These are **6.250 m and 6.800 m vertical climbs** and they are two of the three escape routes.
-> **This one needs a design, not a ruling.**
+> **2. The ladders have NO FALL-ARREST and NO REST PLATFORM.** Both are deliberate: fall-arrest
+> is deferred, and a 1400 dia bore cannot take a rest platform without blocking the escape it
+> exists to serve. A **6.250 m and a 6.800 m** unprotected vertical climb, in the dark, in an
+> emergency, is the exact case a fall-arrest rail exists for. **And a vertical ladder cannot
+> pass a stretcher** — whether a casualty is expected to leave by a shaft has never been
+> answered.
 >
 > **3. No blast-door vendor data of any kind**, RF performance included `[N]`. Blast Door 1 is
 > the only thing across the entry path's open electromagnetic route from grade to Bay 7.
+
+**D-05 — the W5 gas-tight fire door.** 900 × 2100 clear in W5 (200 thk), sill (−)6.100,
+**opening EAST into Bay 6, in the direction of escape travel on route R1**. Full-perimeter
+compression gasket with a cam-action latch on all four edges; **EI 120** `[A]`; escape-openable
+from the Bay 5 side without a key. **Not blast rated, and it must not be represented as one** —
+W5 carries no pressure differential. Opening steel: **2-T16 each jamb each face** anchored
+L<sub>d</sub> 640 beyond, with a **200 × 300 header band, 2-T12 top + 2-T12 bottom, T8 links
+@ 150** (the wall arches over a 900 opening, so the header is 1.3 % utilised).
+
+> **The EI 120 rating is `[A]` and must stay `[A]`. Nothing in this project states a required
+> fire rating for W5 or for any element** — there is no fire strategy with rated periods. It is
+> specified so the door can be procured, not derived.
 
 ---
 
@@ -691,13 +721,24 @@ Require FoS ≥ 1.2. ULS COMB 102 = **1.21**.
 > **The hand check uses 136.40 m² and 6 289 kN**, which is the figure §3.4 carries. Uplift acts
 > on the **real underside**, never on the plate model's mid-surface area.
 
+**Excavation face.** The soil cap above rockhead — about **1.0–1.5 m**, including a **black
+cotton CH horizon at FSI 60–65 %** — is **battered at 1 : 1 minimum** from grade to rockhead on
+all four sides; the face stays **vertical in rock** below it. Roughly **+76 m³ at 1 : 1, +118 m³
+at 1.5 : 1**; the 1.000 m working space is at formation and does not move. **1 : 1 is a minimum,
+not the answer** — a batter in that clay, undercut and wetted across a monsoon, may need to be
+considerably flatter, and **the angle is the geotechnical engineer's** `[A]`.
+
 **Mandatory mitigation — four items, all of them design requirements:**
 
 1. **Continuous dewatering** from the start of excavation until backfill and cover are complete.
 2. **Temporary pressure-relief valves / knock-out plugs in the mat** (6 No.), grouted up **only
    after** backfill.
 3. Programme the sub-structure to complete **before the monsoon**, or bund and positively drain
-   with standby pumping and generator back-up.
+   with standby pumping and generator back-up. **The programme as it stands does neither:
+   dewatering ends 11-05-27 and backfill does not start until 20-07-27, so the box stands at
+   stage 3 through the 2027 monsoon — FoS 1.22 at the design GWT, 0.86 if the excavation floods
+   to grade. That exposure is ACCEPTED IN WRITING by the project owner. It is a departure from
+   this mitigation and is recorded as one; the other three mitigations stay mandatory.**
 4. **Backfill symmetrically, in layers.**
 
 > **Flotation can never be read off the analysis model.** The `ELASTIC MAT` springs take
@@ -1022,7 +1063,7 @@ HH WALLS  T16 @ 150 EF EW  ·  T12 4L @ 250                              59 %
 
 ## 8  Analysis models
 
-Six STAAD.Pro `.std` files, all in `current/staad/`, all validated as input files.
+Seven STAAD.Pro `.std` files, all in `current/staad/`, all validated as input files.
 
 | Model | File | Form | Size |
 |---|---|---|---|
@@ -1032,6 +1073,7 @@ Six STAAD.Pro `.std` files, all in `current/staad/`, all validated as input file
 | Box — **COARSE** | `Underground_Shelter_Mesh_Coarse.std` | Mesh sensitivity variant | 324 joints · 336 plates |
 | Box — **MEDIUM** | `Underground_Shelter_Mesh_Medium.std` | The reference mesh | 1 113 · 1 138 |
 | Box — **FINE** | `Underground_Shelter_Mesh_Fine.std` | Exact h/2 refinement | 4 500 joints · 4 552 plates |
+| Box — **k<sub>s</sub> upper bound** | `Underground_Shelter_ks500000.std` | The reference model at k<sub>s</sub> = 500 000 — the subgrade line and four corner `KFY` are **the only lines that differ** | 1 113 · 1 138 |
 
 **Box model conventions** — metres and kilonewtons; STAAD global **Y is vertical**; **mid-surface
 geometry with a 6.700 m Y-offset**, so model Y 0.300 = mat mid-surface = site (−)6.400, and model
@@ -1235,9 +1277,18 @@ excavation, downgradient, using 42.5 m of the 50 m available.
 | **IC-02** | (40200, 16000) | | |
 
 **Four of five external pipe runs are fixed** — PD-16 **5.40 m**, PD-06 **27.00 m**,
-PD-11 **32.35 m**, PD-13 **29.60 m**. **PD-14 cannot be routed** `[U]`. **Two of three IS 2470
-offsets are demonstrated** (5.40 m to the tank, 10.97 m to any building); **the ≥ 15 m well
-offset cannot be — no well position exists** `[N]`. **28 of 28 clearance checks pass.**
+PD-11 **32.35 m**, PD-13 **29.60 m**. **PD-14 cannot be routed** `[U]`. **28 of 28 clearance
+checks pass**, and **all three IS 2470 offsets are now satisfied:**
+
+| Offset | Required | |
+|---|---|---|
+| Foul soak pit to the septic tank | ≥ 5 m | **5.40 m — demonstrated** |
+| Soak pit to any building | ≥ 2 m | **10.97 m — demonstrated** |
+| Foul soak pit to any well | ≥ 15 m | **No well within 15 m** `[C] owner ruling` |
+
+> **The well offset rests on an owner ruling, not a survey.** The distinction is deliberate:
+> **if a well is later found within 15 m, SK-01 moves.** Foul effluent near a water source is the
+> one clearance nobody should carry on an assumption.
 
 > **There is a site LAYOUT. There is no site SURVEY.** Still missing: a boundary, a benchmark and
 > spot levels, the well, the perimeter fence distance, existing services, and a wind rose. Every
@@ -1317,13 +1368,18 @@ Stated here rather than left for a reviewer to find.
    hand check on the real 136.40 m² underside — §6.3.
 4. **The mesh convergence conclusion does not exist.** The table is a template with the result
    columns blank, and it must not be filled with reconstructed numbers.
-5. **The second subgrade bound (k<sub>s</sub> = 500 000) has not been run.** The mat moments are
-   sensitive to it and the master requires **both** bounds.
+5. **The second subgrade bound (k<sub>s</sub> = 500 000) has not been run.** The model now
+   exists and validates, but **neither bound has been run**, and k<sub>s</sub> is `[ASSUMED]` at
+   both — there is no plate load test.
 6. **EMP Zone 1 has not been and cannot be surveyed**, and the cage figure is an upper bound on
    an untested assumption about tied-versus-welded crossings.
 7. **No blast door, blast valve or EMP vendor data exists** `[N]`. Ratings are specified;
    products are not selected.
-8. Also not started: shock propagation down the entry shaft, transient soil–structure
+8. **There is no heat rejection path.** The 96-hour closed-mode balance is computed —
+   **6.363 kW sensible, air rising 13.2 K to about 39 °C and still climbing, a 4 kW duty to
+   hold 30 °C** — but a sealed shelter has nowhere to put the heat. It has to go to the ground,
+   which means a ground loop and **a new envelope penetration nobody has designed**.
+9. Also not started: shock propagation down the entry shaft, transient soil–structure
    interaction, and blast-door vendor testing.
 
 ---
@@ -1335,7 +1391,7 @@ Stated here rather than left for a reviewer to find.
 | **A1** | Rockhead 1.5–2.0 m, competent below | Founding level, excavation cost | Boreholes **on this plot** |
 | **A2** | **GWT (−)2.000** | **Uplift, flotation, waterproofing class, wall design** | **Standpipe piezometer read through a FULL monsoon** |
 | **A3** | SBC 3240 kPa | Mat and footing sizing (both ≤ 21 % utilised) | Plate load / core testing at the founding horizon |
-| **A4** | **k<sub>s</sub> 100 000–500 000 kN/m³** | **Mat moments — sensitive. RUN BOTH BOUNDS** | Plate load test |
+| **A4** | **k<sub>s</sub> 100 000–500 000 kN/m³** | **Mat moments — sensitive. RUN BOTH BOUNDS** | Plate load test. **Both models now exist; neither has been run** |
 | **A5** | K₀ = 0.50, γ 20/21 | Wall lateral load (< 1 % — walls are blast-governed) | Site investigation |
 | **A6** | K<sub>a</sub> = 1.0 saturated used; K<sub>a</sub> ≈ 0.5 dry berm **not relied on** | Headhouse wall load — deliberately off the critical path | Would permit a reduction if measured |
 | **A7** | Soak-pit absorption 20 L/m²/day | **The soak pit will not work if lower — likely on basalt** | **Percolation test, IS 2470 Pt 2 Cl. 4 — MANDATORY** |
@@ -1347,28 +1403,47 @@ Stated here rather than left for a reviewer to find.
 | **A13** | Sentry frame has no member releases | Frame moment distribution | The `.std` |
 | **A14** | Poisson's ratio 0.20 | Plate behaviour, minor | Standard |
 
-> **Not one of these is closed by anything currently in the project.** The available sub-soil
-> investigation gives four of them a **provenance and a quantified margin — never a
-> confirmation**, for the reason in §3.2: it reached about 1.5 m and this structure founds at
-> (−)6.800.
+> **SEVEN OF THE FOURTEEN ARE NOW CLOSED, AND THE SEVEN THAT REMAIN ARE EXACTLY THE SITE
+> INVESTIGATION.** `A6`, `A9`, `A10`, `A11`, `A12` and `A14` were each either the **conservative**
+> choice or a simplification the **margin swallows**, and are accepted and closed. `A13` closed on
+> the evidence — the analysis model was in the workspace all along and carries **no
+> `MEMBER RELEASE`**.
+>
+> **What is left — A1, A2, A3, A4, A5, A7, A8 — cannot be settled by anyone in a room.** Each
+> needs a **borehole, a piezometer read through a full monsoon, a plate load test, a percolation
+> test or a packer test, on this plot.** The available sub-soil investigation gives four of them a
+> **provenance and a quantified margin — never a confirmation**, for the reason in §3.2: it
+> reached about 1.5 m and this structure founds at (−)6.800.
 
 ---
 
 ## 15  Open items
 
-**Thirty-three**, each a single position the project holds — or, in a few, one it does not hold
-at all — that needs something from outside it. The register is master **K.1b**; the shape of it:
+**Seventeen**, each a single position the project holds — or, in a few, one it does not hold at
+all — that needs something from outside it. The register is master **K.1b**, where every row
+carries its current state and a **status index** states the totals, so the count can be checked by
+reading rather than taken on trust.
+
+Getting from thirty-three to seventeen took ruling on every item that could be ruled: some were
+settled by the owner's knowledge of the plot, several were **defects in supplied documents rather
+than in this design record**, one was **read out of a file that had been in the workspace all
+along**, and a few were **declared scope boundaries that were never gaps at all** — those now sit
+separately in **K.1f** so a deliberate decision is not counted as an outstanding problem. A
+handful were deliberately **left open**, which is itself a position. The shape of what remains:
 
 | Group | What is outstanding |
 |---|---|
 | **Threat** | Is a direct hit a requirement? · What is the design basis yield? — **military / client sign-off** |
 | **Structural** | The sentry seismic re-check after the infill change (direction certain, favourable) · the ballistic requirement the brick infill no longer meets · the 4.162 kN/m parapet load, not independently reproducible |
-| **Escape** | **How either escape shaft is climbed** — 6.250 m and 6.800 m with no ladder, rung or fall-arrest. **This needs a design, not a ruling** |
+| **Escape** | The ladders are designed; **fall-arrest and a rest platform are not, and a vertical ladder cannot pass a stretcher.** Whether a casualty is expected to leave by a shaft is unanswered |
+| **Heat** | **A 4 kW surplus in a sealed box.** The rejection path is the ground through the structure, and **it has not been modelled** — a transient soil–structure *thermal* model, sibling of the soil–structure *interaction* already deferred. The ventilation air cannot do it: 300 m³/h is a **contaminant** rate needing a **63.3 K** difference to shed the load, and when ambient exceeds the internal temperature it **adds** heat |
+| **The boundary** | **Two 1400 dia penetrations of the protective boundary have no specified closure.** ESC 1 and ESC 2 bore through the **pressure slab**; the hatch is now designed structurally to the full 383 kPa, but **its EMP bonding is not**, and bonding is continuity designed *into* the weldment, not applied to it |
+| **Circularity** | The **EMP Zone 2 enclosure** is sized to fit a bay; the **1.50 kW** load is chosen to give the enclosure a basis. **They corroborate each other and neither is evidence.** Breaking the loop needs an operational equipment list |
 | **EMP** | Every Zone 2 dimension is `[A]` pending an equipment schedule · **is Bay 8 inside the EMP boundary?** — no EMP boundary has ever been drawn · no communications design of any kind · no escape-shaft head hatch and no blast-door RF data · **no pipe material is specified anywhere in the project** |
 | **Electrical** | Generator fuel (≈ 210 L for 96 h derived, nothing specified) · incoming mains capacity, which **blocks any fault-level study** · no circuit / cable / luminaire schedule · **no cooling plant exists anywhere in the project** · the CO₂ scrubber's air movement is in no schedule |
 | **Geotechnical** | The data is **off-site** and reached 1.5 m against a formation at (−)6.800 · no plate load test · no percolation test · **the monsoon monitoring window is not in the monsoon** · the entry stairwell raft and the concealment turf sit in very-high-swelling clay with no specification |
-| **Site** | No well position, so the ≥ 15 m offset cannot be demonstrated · the perimeter fence distance has never been dimensioned · the fresh-air intake **SH-1 has no plan position** · SH-2 has **no recorded head level** · there is no wind rose · **the programme stops dewatering before backfill** |
-| **Drawings / data** | Two different **assumed** sentry-post positions are held in the project · W5's gas-tight door D-05 does not exist · service-entry plate size · duct penetration schedule · vision panel specification · finish product selections |
+| **Site** | The perimeter fence distance has never been dimensioned · there is no wind rose · **the sentry post's real coordinate** — the adopted EAST position is a drawing convention, and it gives **9.00 m to the excavation face against the ≥ 10 m rule as written** |
+| **Drawings / data** | Service-entry plate size · duct penetration schedule · vision panel specification · finish product selections · **the sentry roof projection dimension**, without which the 4.162 kN/m parapet load stays half-derived |
 
 > **None of these may be silently resolved.** An `[ASSUMED]`, `[UNRESOLVED]` or `[NOT AVAILABLE]`
 > item stays what it is until someone supplies the information. **Do not convert a tag. Ask.**

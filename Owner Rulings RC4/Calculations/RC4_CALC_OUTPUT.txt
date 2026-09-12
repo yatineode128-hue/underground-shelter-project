@@ -1,0 +1,373 @@
+
+==============================================================================
+  R.1  U8 -- ROOF PROJECTION + PARAPET, 4.162 kN/m
+==============================================================================
+
+RULING: the parapet is CONFIRMED at 300 high x 150 thick.  Re-derive 4.162.
+
+The 300 height is not in fact an assumption -- master A.4.3 records sentry
+roof +6.700 and parapet top +7.000, so the height is CONFIRMED by the drawn
+levels.  Only the 150 thickness was ever [A], and the ruling confirms it.
+
+  parapet      0.300 x 0.150 x 25.0      = 1.125 kN/m
+  stated total                              = 4.162 kN/m  [C]
+  residual attributable to the projection   = 3.037 kN/m
+
+  slab self weight  0.150 x 25.0          = 3.750 kPa
+  roof finish (A.7.7 roof dead 5.250 = 3.75 + 1.5) = 1.500 kPa
+
+  projection implied, slab self only   : 3.037 / 3.750 = 810 mm
+  projection implied, slab + finish    : 3.037 / 5.250 = 578 mm
+
+  FINDING U8-F1 -- THE PARAPET CONFIRMATION IS NECESSARY BUT NOT SUFFICIENT.
+
+  The parapet accounts for 1.125 kN/m of the 4.162.  The remaining 3.037
+  kN/m is the roof projection, and THE PROJECTION DIMENSION IS RECORDED
+  NOWHERE IN THIS PROJECT.  The Rev F framing plan carries the lumped figure
+  "roof projection + parapet 4.162 kN/m" and no breakdown; no plan, section
+  or elevation dimensions an overhang.
+
+  Back-solving gives 810 mm (slab self only) or 578 mm (slab + finish).
+  Neither is a round number and neither is drawn, so NEITHER IS ADOPTED.
+
+  U8 therefore moves from "cannot be re-derived at all" to "half re-derived":
+  the parapet term is now [C] and reproduces exactly; the projection term
+  stays [N] pending ONE dimension.  4.162 kN/m continues to be used as given,
+  which is what the analysis already does.  No member force changes.
+
+==============================================================================
+  R.2  EL-V6 -- 96-HOUR CLOSED-MODE HEAT BALANCE
+==============================================================================
+
+RULING: compute the heat balance.  The plant itself stays [N].
+
+WHAT IS INSIDE THE GAS-TIGHT ENVELOPE (bays 1-6).  Every watt of electrical
+load dissipated inside the envelope becomes heat inside it -- there is no
+other place for it to go.  From the EL1 load schedule:
+
+    L-01   general lighting, LED               0.520 kW  [A]
+    L-02   emergency lighting, maintained      0.100 kW  [A]
+    P-01   small power allowance               1.000 kW  [A]
+    F-01   filter train fan, 1 duty of 2       0.379 kW  [R]
+    D-01   dehumidifier DH-1                   1.000 kW  [A]
+    U-01   clean sump pump, 1 duty of 2        0.334 kW  [R]
+    Z-01   EMP Zone 2 ops equipment            1.500 kW  [A]
+    S-01   fire detection panel                0.100 kW  [A]
+    B-01   battery charger / inverter          0.800 kW  [A]
+           ELECTRICAL, INSIDE THE ENVELOPE     5.733 kW
+
+    U-02   stairwell pump -- OUTSIDE the envelope  0.223 kW  excluded
+    G-01   generator auxiliaries -- bay 8, OUTSIDE  0.300 kW  excluded
+    connected load, whole project             6.256 kW  [C] = EL1's 6.256
+
+  NO DIVERSITY IS APPLIED.  This is the connected load, so it is an
+  UPPER BOUND on the electrical gain, which is the right side to be on
+  for sizing cooling.  [A]
+
+  OCCUPANTS   9 persons at 70 W sensible + 45 W latent  [A] seated, light activity
+              sensible 0.630 kW   latent 0.405 kW   total 1.035 kW
+
+  TOTAL SENSIBLE GAIN  5.733 + 0.630          = 6.363 kW
+  TOTAL LATENT GAIN                              = 0.405 kW
+
+  NOTE ON THE DEHUMIDIFIER.  DH-1 does not reduce the sensible problem --
+  it makes it worse.  A refrigerant dehumidifier condenses moisture and
+  returns the latent heat, plus its own 1.0 kW of motor work, to the same
+  air as SENSIBLE heat.  It is already counted above as a sensible source.
+
+  HEAT RELEASED OVER 96 h = 6.363 kW x 345600 s = 2.199 GJ
+
+  BOUND 1 -- ADIABATIC, AIR ONLY (to show why it is not the answer)
+    air 216.96 m3 x 1.2 x 1.005 = 261.7 kJ/K
+    dT = 2199053 / 261.7 = 8404 K   -- PHYSICALLY MEANINGLESS
+    The air holds nothing.  The structure is the entire story.
+
+  BOUND 2 -- AIR + THE CONCRETE THE HEAT CAN REACH IN 96 h
+    thermal penetration depth  sqrt(alpha.t) = sqrt(5.5e-07 x 345600)
+                                             = 0.436 m in 96 h
+      floor (top of mat)                    67.80 m2
+      ceiling (roof soffit)                 67.80 m2
+      two long perimeter walls              86.78 m2
+      west end wall W3                      16.00 m2
+      W6 inner face                         16.00 m2
+      four W8 partitions, both faces       128.00 m2
+      W5, both faces                        32.00 m2
+      TOTAL WETTED CONCRETE SURFACE        414.38 m2
+    effective responding depth taken as 0.30 m  [A]
+      -- below the 0.436 m penetration depth, and below half the
+         110 mm partitions' own thickness, so it is not double-counted
+    concrete 124.3 m3 x 2500 x 0.88 = 273,493 kJ/K
+    dT over 96 h = 2199053 / 273,755 = 8.03 K
+
+  BOUND 3 -- THE AIR-TO-SURFACE FILM (the air runs hotter than the concrete)
+    h taken as 3.0 W/m2K  [A] natural convection, sealed still air
+    dT_film = 6363 / (3.0 x 414.38) = 5.12 K
+
+  AIR TEMPERATURE RISE OVER 96 h  =  8.03 + 5.12  =  13.2 K
+
+    starting from a ground temperature of 26 C at 6 m depth  [A]
+    (26 C is about the Pune annual mean air temperature; at (-)6.100
+     the rock is at the annual mean, not the daily or seasonal value)
+    -> the envelope reaches about 39 C by hour 96, and it is
+       still rising, because nothing has reached equilibrium
+
+  COOLING DUTY TO HOLD 30 C
+    structure can absorb  273,493 x 4 K = 1.094 GJ
+    heat to be rejected   2.199 - 1.094 = 1.105 GJ
+    mean sensible duty    1105079 / 345600 = 3.20 kW
+    plus latent           0.405 kW
+    TOTAL MEAN DUTY       3.60 kW  =  1.02 TR
+    ADOPT 4 kW (1.14 TR) as the closed-mode cooling duty  [R]
+
+    Conservative, and deliberately so: it credits the concrete but credits
+    NOTHING to the rock beyond it, which will keep absorbing for far longer
+    than 96 h.  The duty is a mean -- the peak is at hour 0, before the
+    structure has warmed, and falls as it does.
+
+  FINDING EL-V6-F1 -- THE DUTY IS NOT THE PROBLEM.  THE REJECTION PATH IS.
+
+  A 3-4 kW cooling duty is small.  But a SEALED shelter has nowhere to put
+  the heat.  In closed mode there is no ventilation air to reject to, and
+  every existing envelope penetration is a blast valve or a pipe that is
+  already spoken for.  The heat has to go to the ground, which means a
+  ground loop -- boreholes or a buried coil -- and therefore A NEW PENETRATION
+  OF THE PROTECTIVE ENVELOPE THAT NOBODY HAS DESIGNED, plus an EMP treatment
+  for it (a metallic pipe pair crossing the boundary is exactly EM-V5's case).
+
+  THE HEAT BALANCE IS NOW COMPUTED.  THE PLANT, THE REJECTION PATH AND THAT
+  PENETRATION ARE NOT DESIGNED AND ARE NOT INVENTED HERE.  EL-V6 closes as
+  "no cooling load had ever been computed"; it opens RC4-V1 in its place --
+  a sealed shelter with a 4 kW heat surplus and no route out for it.
+
+==============================================================================
+  R.3  FS-V7 -- ESCAPE SHAFT LADDERS  (fall-arrest DEFERRED by ruling)
+==============================================================================
+
+RULING: ladder only.  Fall-arrest is deferred.  This is therefore a
+KNOWINGLY INCOMPLETE DESIGN and is recorded as one.
+
+The shafts are 1400 dia clear with a 250 RC collar.  Each climb is made up
+of three different constructions, and the ladder has to be fixed to all
+three:
+
+  ESC 1   head (+0.150)
+    (-)6.100 -> (-)2.900   3.200 m   open bay, ladder on brackets off the wall
+    (-)2.900 -> (-)2.000   0.900 m   through the 900 roof slab, 1400 dia bore
+    (-)2.000 -> (+)0.150   2.150 m   through the cover, 1400 ID shaft
+    TOTAL CLIMB                    6.250 m
+
+  ESC 2   head (+0.700)
+    (-)6.100 -> (-)2.900   3.200 m   open bay, ladder on brackets off the wall
+    (-)2.900 -> (-)2.000   0.900 m   through the 900 roof slab, 1400 dia bore
+    (-)2.000 -> (+)0.700   2.700 m   through the cover, 1400 ID shaft
+    TOTAL CLIMB                    6.800 m
+
+  RUNG GEOMETRY -- equal pitch within each shaft, no odd bottom space
+    ESC 1  climb 6.250 m / 21 equal spaces = pitch 297.6 mm  (20 intermediate rungs)
+    ESC 2  climb 6.800 m / 23 equal spaces = pitch 295.7 mm  (22 intermediate rungs)
+
+    Pitch held between 250 and 300 mm, the normal band for a fixed vertical
+    ladder, and EQUAL within each shaft so there is no short step to trip on
+    in the dark.  [A] -- IS 3696 (Part 2) and NBC 2016 Part 4 are named by
+    title; no clause is quoted from either, because neither document is in
+    this workspace.  Master Part G's rule applies: a clause that cannot be
+    confirmed is not cited.
+
+  ADOPTED LADDER -- one type, both shafts
+    Rungs          20 mm dia MS, hot-dip galvanised, 400 mm clear width
+    Pitch          297.6 mm (ESC 1, 21 spaces) / 295.7 mm (ESC 2, 23 spaces)
+    Clearance      >= 200 mm behind the rung to the shaft wall
+                   >= 750 mm clear climbing space in front of the rung
+    Stringers      2 No. 50 x 10 MS flat, galvanised
+    Fixing         cast-in lugs to the 250 RC collar and to the roof slab
+                   bore; expansion-anchored brackets at 1.5 m centres to the
+                   bay wall over the lower 3.200 m
+    Head           top rung set level with the shaft head; grab rails both
+                   sides extending 1100 above the head  [A] -- 1100 is the
+                   project's own guarding height, NBC 2016 Part 4, used at
+                   the stair void free edge
+
+  WHAT THIS DESIGN DOES NOT DO, AND THE RULING KNOWS IT:
+
+    (1) NO FALL-ARREST.  Deferred by the project owner's ruling.  A 6.250 m
+        and a 6.800 m unprotected vertical climb, in the dark, under
+        emergency conditions, is the exact case a fall-arrest rail exists
+        for.  A fixed ladder of this height would normally carry either a
+        rail-and-shuttle system or a safety cage.  NEITHER IS PROVIDED.
+
+    (2) NO REST PLATFORM.  Both climbs exceed the height at which an
+        intermediate landing is normally provided, and a 1400 dia bore
+        cannot take one without blocking the escape it exists to serve.
+        Recorded, not solved.
+
+    (3) THE INJURED-PERSON QUESTION IS STILL OPEN.  Whether a casualty is
+        expected to leave by a shaft at all is a client question, not a
+        design one.  A vertical ladder cannot pass a stretcher.  If the
+        answer is yes, this design does not satisfy it and a different
+        arrangement is needed.
+
+    FS-V7 therefore does not close.  It CHANGES: from "no position at all"
+    to "a ladder is designed, and two named things are missing from it".
+
+==============================================================================
+  R.4  FS-1 / D-05 -- THE W5 GAS-TIGHT FIRE DOOR
+==============================================================================
+
+RULING: design D-05 now.
+
+W5 is 200 thk at X 12600-12800, reinforced T12 @ 150 EF EW = 754 mm2/face,
+no links, nominal -- it carries NO pressure differential (master A.3), which
+is what makes a 200 wall adequate there and what makes this door a fire and
+gas-tight element rather than a blast element.
+
+  OPENING       900 x 2100, sill at the floor (-)6.100, head at (-)4.000
+  WALL ABOVE    (-)4.000 to the roof soffit (-)2.900 = 1.100 m
+
+  TRIM STEEL -- replace what the opening interrupts
+    interrupted vertical steel  754 x 0.900   = 679 mm2/face
+    trimmer each jamb           679 / 2        = 339 mm2/face
+    ADOPTED  2-T16 EACH JAMB EACH FACE = 402 mm2  (1.19 x required)
+    anchored Ld = 40 phi = 640 mm beyond the opening (M35, master A.5)
+
+  HEADER -- what the strip over the opening actually carries
+    60 deg arching height over a 0.900 m clear span = 0.866 x 0.900 = 0.779 m
+    wall available above the opening                      = 1.100 m
+    0.779 < 1.100, SO THE WALL ARCHES over the opening.
+    Load on the header is the triangle only:
+      0.5 x 0.900 x 0.779 x 0.200 x 25 = 1.754 kN total
+      M = W.L/6 (triangular load, simply supported) = 0.263 kNm
+      a nominal 200 x 300 header, d = 248 mm:
+      Mu,lim = 0.133 x 35 x 200 x 248^2 = 57.3 kNm  -> 0.5 % utilised
+
+    ADOPTED  header band 200 x 300 over the opening + 600 each side
+             2-T12 top + 2-T12 bottom, T8 two-legged links @ 150
+             -- nominal throughout; the arching case is under 1 % utilised
+             and minimum steel governs everywhere.
+
+  THE DOOR ITSELF -- performance specified, product [V]
+    Size           900 x 2100 clear
+    Function       GAS-TIGHT and FIRE RATED.  NOT blast rated, and it must
+                   not be represented as one -- the blast boundary is Blast
+                   Doors 1 and 2 at W6 / W7, and W5 carries no differential
+    Seal           full-perimeter compression gasket with a cam-action latch
+                   on all four edges, so the seal is made by closing  [A]
+    Fire rating    EI 120 (120 min integrity AND insulation)  [A]
+    OPENS EAST, INTO BAY 6 -- in the direction of escape travel on route R1,
+                   which runs bays 1-4 -> bay 5 -> W5 -> bay 6 -> Blast Door 1
+    Hardware       escape-openable from the bay 5 side without a key
+
+  WHY THE FIRE RATING IS [A] AND MUST STAY [A]:
+    NOTHING IN THIS PROJECT STATES A REQUIRED FIRE RATING FOR W5, OR FOR ANY
+    ELEMENT.  The fire plan names W5 as a fire and gas-tight wall and stops
+    there; there is no fire engineering, no compartment strategy with rated
+    periods, and no head layout (FS-V2, still open).  EI 120 is specified
+    here as the rating a compartment wall of this duty would normally carry,
+    so that the door can be procured -- NOT as a derived requirement.
+    Confirm it against a fire strategy before ordering.
+
+  FS-1 CLOSES: W5 now has a door, and route R1 crosses an opening that
+  exists.  The RATING behind it is [A] and is flagged, not hidden.
+
+==============================================================================
+  R.5  SG-V6 -- STRIP AND REPLACE UNDER THE ENTRY STAIRWELL RAFT
+==============================================================================
+
+RULING: specify it and price it.  The rate stays [A].
+
+THE PROBLEM IS HEAVE, NOT BEARING.  The stepped raft's shallow end founds
+inside a CH horizon measured at free swell index 60-65 %, the top band of
+the IS 1498 scale.  A.4.7 says "on compacted fill", which implies a strip
+and replace -- but no specification says so and no BOQ item exists.  The
+stairwell is expendable against BLAST.  Heave is not a blast problem, and
+this is the only primary access to the shelter.
+
+  CH horizon, measured                      0.180 to 1.000 m depth  [C]
+  raft 300 thk; top landing at 0.000, platform at -2.000
+  raft underside at the top landing end     -0.600
+  the flight drops 2.000 m over X 11000 -> 14300
+  raft underside passes below the CH base ((-)1.000) at X = 11660
+  AFFECTED RAFT LENGTH  X 9250 -> 11660 = 2.410 m, width 2.000 m
+
+  STRIP EXTENT  1.000 m beyond every raft edge  [A]
+    2.410 + 2(1.000) = 4.410 m  x  2.000 + 2(1.000) = 4.000 m
+    plan area = 17.64 m2
+  DEPTH BELOW THE RAFT FORMATION  1.000 - 0.600 = 0.400 m
+    (mean; it reduces to zero at X 11660 where the raft passes below the CH)
+  VOLUME  17.64 x 0.400 = 7.06 m3, say 8 m3
+
+  SPECIFICATION -- ADOPTED
+    Strip the CH horizon to 1.000 m below existing ground level over the
+    full plan extent above, under and beyond the stepped raft.
+    Replace with granular fill, free-draining, FREE SWELL INDEX <= 20 %
+    (IS 2720 Pt XL), laid in 200 mm layers and compacted to >= 95 % MDD
+    (IS 2720 Pt VIII), tested to IS 2720 Pt 28.
+    Blind with 50 mm sand before the raft blinding.
+    The replacement must extend 1.000 m beyond every raft edge so the raft
+    never bears partly on replaced and partly on natural CH -- a differential
+    heave line under the only primary access is worse than uniform heave.
+
+  BOQ ITEM -- ADDED, QUANTITY DERIVED, RATE [A]
+    Item   Strip and replace expansive CH horizon under the entry stairwell
+           stepped raft, including disposal, granular replacement and
+           compaction testing
+    Qty    8 m3          Unit  m3          Rate  [A] -- NOT INVENTED
+
+  NOTE.  The excavated CH material MUST NOT go to the cover's turf layer.
+  That is SG-V7, which the owner has LEFT OPEN -- so the two now interact:
+  this ruling produces a stockpile of exactly the material SG-V7 warns
+  against re-laying over the granular filter.  RECORDED, NOT RESOLVED.
+
+==============================================================================
+  R.6  CAM-V5 / SG2-V3 -- THE TWO AIR SHAFTS
+==============================================================================
+
+RULING: fix both from the design's own logic.
+
+The two gaps are COMPLEMENTARY, which is why one ruling settles both:
+    SH-1  fresh air       head +1.500 gooseneck [C]   plan position  [N]
+    SH-2  generator air   X 22598-23198 [C]           head level     [N]
+
+  SG2-V3 -- SH-1's PLAN POSITION
+  The project already records "12.3 m from the intake to the entry, against
+  a >= 10 m rule".  That figure could only have been computed from a
+  position -- so the position is implied by the project's own arithmetic
+  and does not have to be invented.  Recovering it:
+
+    entry door, X 9250-9500 in the headwall, stairwell Y 6000-7500
+      -> door centre (9375, 6750)
+    SH-1 centred (-2100, 3100)  ->  distance to entry = 12.04 m
+    SH-1 centred (-2400, 3100)  ->  distance to entry = 12.33 m  <-- reproduces the recorded 12.3 m
+    SH-1 centred (-2700, 3100)  ->  distance to entry = 12.61 m
+
+    ADOPTED  SH-1 centred (-2400, 3100), i.e. 600 x 600 occupying
+             X -2700 to -2100,  Y 2800 to 3400   [A]
+
+    It satisfies every rule the project states, and it was DERIVED, not chosen:
+      west of the box                        X -2100 < 0                 [C] rule
+      >= 10 m intake to entry                12.33 m              [C] rule
+      reproduces the recorded 12.3 m         to within 28 mm
+      on the box longitudinal centreline     Y 3100 = Y 3100        symmetry
+      clear of the 1.000 m excavation working space   2100 mm clear
+
+    SEPARATION FROM SH-2, the generator exhaust
+      SH-2 centre X 22898  -  SH-1 centre X -2400  =  25.30 m
+      Intake and exhaust sit at opposite ends of the site, 25.3 m apart,
+      which is what protects the intake -- NOT stack height.
+
+  CAM-V5 -- SH-2's HEAD LEVEL
+    ADOPTED  +1.500, the same gooseneck head as SH-1  [A]
+
+    Reasoning, and it is a consistency argument rather than a derivation:
+      - +1.500 is the ONLY shaft head level this project contains, and it is
+        [C] for SH-1
+      - both shafts are 600 x 600 and both carry blast valves
+      - it keeps the above-ground signature consistent, which is CAM2's
+        whole subject: the installation now reads +7.000 sentry, +2.450
+        stairwell, +1.500 BOTH shaft heads, +0.900 headhouse
+      - the 25.3 m intake-to-exhaust separation is what protects the intake,
+        so extra stack height on SH-2 buys little
+
+    WHAT THIS IS NOT.  It is not a dispersion calculation.  No plume
+    analysis of the generator exhaust exists in this project, and if one is
+    ever done it may call for more height on SH-2.  Tagged [A] for that
+    reason.  C-101 can now draw SH-2 to scale instead of flagging it [N].

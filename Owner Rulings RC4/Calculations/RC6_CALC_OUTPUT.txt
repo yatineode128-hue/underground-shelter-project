@@ -1,0 +1,64 @@
+==============================================================================
+  R.10  WM-V9 -- BENCH OR BATTER THE SOIL CAP
+==============================================================================
+
+RULING: keep the vertical face in rock; batter or bench ONLY the soil
+overburden above rockhead.
+
+WHY THIS IS THE RIGHT PLACE TO CUT.  The project measures 1.000 m working
+space and VERTICAL UNBENCHED faces for the full 6.800 m.  In basalt that is
+reasonable.  But SG1 measured what is actually on top of the basalt:
+
+    rockhead                      0.9 - 1.5 m below grade        [C] off-site
+    black cotton CH horizon       0.18 - 1.0 m, FSI 60-65 %      [C] off-site
+    murrum below it to rockhead                                  [C] off-site
+
+So the face is about 1.0-1.5 m of SOIL -- including very-high-swelling clay --
+standing vertically on 5.3-5.9 m of rock, and the rock excavation UNDERCUTS
+it.  Under the SG2-V5 acceptance the excavation also stands open across a
+monsoon.  A vertical face in FSI 60-65 % clay, undercut and wetted, is the
+one part of this excavation that has no business being vertical.
+
+  EXCAVATION AS MEASURED
+    box external            22.000 x 6.200 m
+    + 1.000 m working space each side -> 24.000 x 8.200 m at formation
+    depth, grade 0.000 to formation (-)6.800 = 6.800 m
+    soil cap to batter, worst-case rockhead  = 1.500 m
+
+  ADDITIONAL EXCAVATION, battering the top 1.500 m
+        batter   offset         top plan   extra volume
+         1 : 1   1.500 m   27.00 x 11.20        76.4 m3
+      1.25 : 1   1.875 m   27.75 x 11.95        96.7 m3
+       1.5 : 1   2.250 m   28.50 x 12.70       117.6 m3
+
+  ALTERNATIVE -- a 1.000 m BENCH at rockhead instead of a batter
+    perimeter at formation 2(24.000 + 8.200)        = 64.40 m
+    64.40 x 1.000 wide x 1.500 deep          = 96.6 m3
+
+  ADOPTED -- BATTER THE SOIL CAP, VERTICAL IN ROCK BELOW IT
+
+    Batter    1 : 1 MINIMUM over the soil cap, from grade down to rockhead,
+              all four sides.  Vertical face retained in rock below rockhead.
+    Extra     about 76 m3 at 1:1, rising to about 118 m3 at 1.5:1   [R]
+    Working   UNCHANGED.  The 1.000 m working space is at FORMATION, 5.3 m
+              below the battered zone, so no BOQ working-space quantity moves.
+
+  *** AND THE PART THAT IS NOT MINE TO SETTLE. ***
+  1 : 1 is stated as a MINIMUM, not as the answer.  A batter in FSI 60-65 %
+  clay, undercut by rock excavation and exposed across a monsoon, may need
+  to be considerably flatter, or need the cap stripped wider and replaced.
+  IS 3764 is named BY TITLE ONLY -- it is not in this workspace and master
+  Part G forbids citing a clause that cannot be confirmed.  THE BATTER ANGLE
+  AND ITS SEASONAL VARIATION ARE THE GEOTECHNICAL ENGINEER'S, and the
+  quantity above moves with the angle.  [A]
+
+  *** AND THE SAME COLLISION SG-V6 HAS. ***
+  This produces MORE excavated CH clay -- about 76-118 m3 of it, on top of
+  the 8 m3 from the stairwell raft.  SG-V7, which the owner LEFT OPEN, warns
+  against re-laying that material as the cover's 300 turf over the granular
+  filter.  RECORDED, NOT RESOLVED -- and the stockpile is now an order of
+  magnitude bigger than when SG-V6 raised it.
+
+  WM-V9 CLOSES as a measurement basis -- the project now states a face
+  treatment instead of an unexamined vertical.  The slope-stability
+  ASSESSMENT it always asked for is still outstanding, and still needed.
