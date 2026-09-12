@@ -123,6 +123,19 @@ on trust. **Corrected sequence: 33 → 25 (RC4) → 25 (RC5, RC6) → 19 (RC7) �
 **K.1b holds 34 rows — SEVENTEEN STILL OPEN** (nine narrowed by a ruling, two annotated but not
 narrowed, six untouched), **sixteen closed, one moved to K.1f**, all retained under M.11.
 **K.2 holds seven, and they are the site investigation.**
+Updated 12 Sep 2026 for **RC10** (master **H.34**) — **what the rulings left stale in the
+packages.** RC4–RC9 ruled on thirty-two items and recorded every one in the master **but never
+touched the discipline packages**, so **six artefacts still say something the master has settled**:
+the EMP penetration register's *"**if** bay 8 is inside the EMP boundary"* (**it is** — EM-V3) and
+its *"no hatch is specified"* (**one is, structurally** — EM-V6) · the HVAC equipment schedule's
+SH-1 *"West of the box"* (**centred (−2400, 3100)**) and SH-2's missing head level (**+1.500**) ·
+the fire escape route schedule's two climbs with no means of climbing (**a ladder is designed —
+and it must still say there is no fall-arrest and no rest platform**) · and the concealment
+policy's *"SH-2, whose head level is recorded nowhere"* with **CAM-V5 listed open**.
+**Nothing was silently edited** — all six are build artefacts and the project's rule is to edit
+the generator and re-run. **Applying the register is a package-by-package job with a regeneration
+check, and it has NOT been done.** **The lesson, which M.14 already states: a ruling is not
+finished when the master records it.**
 
 ---
 

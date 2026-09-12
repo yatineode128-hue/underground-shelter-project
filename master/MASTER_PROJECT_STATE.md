@@ -4690,6 +4690,40 @@ sixteen closed rows and one moved to `K.1f`, all retained in the table.
 
 ---
 
+## H.34 What the rulings left stale in the packages — revision RC10 — 12 September 2026
+
+> **RC4 to RC9 ruled on thirty-two items and recorded every ruling in this master. THEY DID NOT
+> TOUCH THE DISCIPLINE PACKAGES.** Six artefacts therefore now say something the master has
+> settled. **This is the same class of defect `RC9` corrected one level up** — and it was found by
+> looking for it rather than by waiting for it. Register:
+> `Owner Rulings RC4/Schedules/RC10_PACKAGE_IMPACT_REGISTER.md`.
+
+| # | Artefact | What it still says | What the master has ruled |
+|---|---|---|---|
+| 1 | `EMP Protection/…/ENVELOPE_PENETRATION_REGISTER` — **BV-4, BV-5** | *"honeycomb WBC panel … **if** bay 8 is inside the EMP boundary"* | **`EM-V3` RULED: bay 8 IS inside.** The panels move from conditional to **required**. **And RC2 lets BV-4/BV-5 REOPEN in closed mode — so the panels must work with the valves open** |
+| 2 | Same register — **ESC1, ESC2** | *"**No hatch is specified.**"* | **`EM-V6` RULED AND SPLIT: a hatch IS specified structurally** (1600 dia ribbed weldment, quarter-turn dogs against uplift, counterbalanced). **The EMP half is still open, so `FAIL` stands.** The register should also carry **`RC5-F2`** — these bores pierce the **pressure slab**, so each head is a **1.54 m² hole in the blast boundary**, not only an EMP aperture |
+| 3 | `HVAC/…/HVAC_EQUIPMENT_SCHEDULE` — **SH-1** | Location *"West of the box"* | **`SG2-V3` CLOSED: centred (−2400, 3100)** — **recovered from this schedule's own "12.3 m to the entry" note, to within 28 mm** |
+| 4 | Same schedule — **SH-2** | No head level | **`CAM-V5` CLOSED: +1.500** |
+| 5 | `Fire and Life Safety/…/FS_ESCAPE_ROUTE_SCHEDULE` — **R2, R3** | 6.250 m and 6.800 m climbs, **no means of climbing** | **`FS-V7` RULED: a ladder is designed** (297.6 / 295.7 mm pitch). **And the schedule must still say there is NO fall-arrest, NO rest platform, and that a vertical ladder cannot pass a stretcher — `FS-V7` did not close, it changed** |
+| 6 | `Site and Concealment/…/CAMOUFLAGE_AND_CONCEALMENT_POLICY` | *"SH-2, whose head level is recorded nowhere"*; **`CAM-V5` listed OPEN** | **`CAM-V5` CLOSED at +1.500.** The above-ground signature is **complete for the first time** — +7.000 · +2.450 · **+1.500 both shafts** · +0.900. **`C-101` can draw SH-2 to scale** |
+
+> **NOTHING IS SILENTLY EDITED.** All six are **build artefacts** regenerated from their packages'
+> `Scripts/`. The project's rule is to edit the generator and re-run, never the artefact — and
+> EM1, EL1, SG1 and SG2 each verified that **every other package regenerates byte-identically**,
+> a property worth not breaking casually. **Applying this register is a package-by-package job
+> with a regeneration check, and it has NOT been done.**
+
+> **THE LESSON, AND M.14 ALREADY STATES IT.** *"A change that stops at 'reinforcement' and never
+> reaches 'drawings' is not finished."* **RC4 to RC9 stopped at this master.** This register is
+> where they did not reach. **The failure mode has now appeared twice in two days** — once inside
+> the master (`RC9`), once between the master and its packages (here) — and both times the fix was
+> to make the thing countable rather than to trust a narrative.
+
+> **What RC10 did NOT do.** No artefact edited, no generator run, no item closed or re-ruled, no
+> design value, quantity, rate, date or float changed. **Main staircase untouched.**
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -4907,6 +4941,7 @@ sixteen closed rows and one moved to `K.1f`, all retained in the table.
 | `…/Calculations/RC4_CALC_OUTPUT.txt` | **R.1–R.6 with every step shown** — the parapet re-derivation · the 96-hour heat balance across three bounds · the escape shaft ladder · D-05 and its trim steel · the raft strip-and-replace · both air shafts |
 | `…/Calculations/RC4_SITING_OUTPUT.txt` | **T.1–T.7** — the 50 m envelope pin recovered from SG2's own arithmetic; the EAST sentry position re-run against every SG2 rule; the one check that fails and the 300 mm that fixes it |
 | `…/Schedules/RC4_BOQ_ADDENDUM` | The two items the rulings added. **8 m³ each, rate `[A]`, NOT PRICED** — a second declared exclusion from WM3's lower bound |
+| `…/Schedules/RC10_PACKAGE_IMPACT_REGISTER.md` | **RC10 (H.34) — the six package artefacts the rulings left stale**, each with what it says, what the master has ruled, and which generator would have to change. **Not applied** |
 | `…/Calculations/RC5_CALC_OUTPUT.txt` | **R.7–R.9 (RC5, H.29)** — what the ventilation air can actually reject · the escape shaft head hatch as a protective closure · the generator day tank and the penetrations it avoids |
 | `…/Calculations/RC6_CALC_OUTPUT.txt` | **R.10 (RC6, H.30)** — the excavation soil cap, three batter angles and a bench alternative costed in volume |
 | `…/Calculations/RC7_CALC_OUTPUT.txt` | **R.11 (RC7, H.31)** — the CO₂ scrubber duty recovered from the project's own 9.9 h figure, and the fan check against EL1's allowance |
