@@ -721,6 +721,13 @@ Require FoS ≥ 1.2. ULS COMB 102 = **1.21**.
 > **The hand check uses 136.40 m² and 6 289 kN**, which is the figure §3.4 carries. Uplift acts
 > on the **real underside**, never on the plate model's mid-surface area.
 
+**Excavation face.** The soil cap above rockhead — about **1.0–1.5 m**, including a **black
+cotton CH horizon at FSI 60–65 %** — is **battered at 1 : 1 minimum** from grade to rockhead on
+all four sides; the face stays **vertical in rock** below it. Roughly **+76 m³ at 1 : 1, +118 m³
+at 1.5 : 1**; the 1.000 m working space is at formation and does not move. **1 : 1 is a minimum,
+not the answer** — a batter in that clay, undercut and wetted across a monsoon, may need to be
+considerably flatter, and **the angle is the geotechnical engineer's** `[A]`.
+
 **Mandatory mitigation — four items, all of them design requirements:**
 
 1. **Continuous dewatering** from the start of excavation until backfill and cover are complete.
@@ -1387,10 +1394,17 @@ Stated here rather than left for a reviewer to find.
 | **A13** | Sentry frame has no member releases | Frame moment distribution | The `.std` |
 | **A14** | Poisson's ratio 0.20 | Plate behaviour, minor | Standard |
 
-> **Not one of these is closed by anything currently in the project.** The available sub-soil
-> investigation gives four of them a **provenance and a quantified margin — never a
-> confirmation**, for the reason in §3.2: it reached about 1.5 m and this structure founds at
-> (−)6.800.
+> **SEVEN OF THE FOURTEEN ARE NOW CLOSED, AND THE SEVEN THAT REMAIN ARE EXACTLY THE SITE
+> INVESTIGATION.** `A6`, `A9`, `A10`, `A11`, `A12` and `A14` were each either the **conservative**
+> choice or a simplification the **margin swallows**, and are accepted and closed. `A13` closed on
+> the evidence — the analysis model was in the workspace all along and carries **no
+> `MEMBER RELEASE`**.
+>
+> **What is left — A1, A2, A3, A4, A5, A7, A8 — cannot be settled by anyone in a room.** Each
+> needs a **borehole, a piezometer read through a full monsoon, a plate load test, a percolation
+> test or a packer test, on this plot.** The available sub-soil investigation gives four of them a
+> **provenance and a quantified margin — never a confirmation**, for the reason in §3.2: it
+> reached about 1.5 m and this structure founds at (−)6.800.
 
 ---
 

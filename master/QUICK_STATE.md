@@ -79,6 +79,18 @@ heat), so the ruling is **an acceptance of ~39 °C, not a solution** · **`RC5-F
 PENETRATIONS OF THE PROTECTIVE BOUNDARY HAVE NO SPECIFIED CLOSURE** — ESC 1 and ESC 2 bore
 straight through the **pressure slab**, which A.2 names as part of that boundary, and nobody had
 asked what the head must resist. **K.1b holds at twenty-one.**
+Updated 12 Sep 2026 for **RC6** (master **H.30**) — **K.2 GOES FROM FOURTEEN OPEN TO SEVEN, AND
+THE SEVEN THAT REMAIN ARE EXACTLY THE SITE INVESTIGATION.** Closed: **A6** K_a conservative ·
+**A9 R = 3.0 kept** (the conservative position — R = 5.0 would need an SMRF this project does not
+claim) · **A10** wind k1, and wind does not govern · **A11** b_eff, the HW3 strip is at 26 %/41 %
+· **A12** the trapezoid factor, ≈ 2 % inside B2's 89 % · **A13** read from the `.std` · **A14**
+Poisson. **Everything a competent engineer could decide is now decided; what is left needs a
+borehole, a piezometer, a plate load test, a percolation test or a packer test — on this plot.**
+**WM-V9 ruled:** the project measured a vertical unbenched face for the full 6.800 m, but SG1
+measured **rockhead at 0.9–1.5 m with FSI 60–65 % clay on top** — so **batter the soil cap 1:1
+minimum, keep vertical in rock**; **+76 m³ at 1:1, +118 m³ at 1.5:1**, working space unmoved,
+**and the angle is the geotechnical engineer's.** It also produces **76–118 m³ more CH clay** —
+the material **SG-V7 (left open)** warns against re-laying as the cover turf.
 
 ---
 

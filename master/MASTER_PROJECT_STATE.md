@@ -4375,6 +4375,95 @@ blast valves is a fit that has not been checked here** `[A]`. Fuel type unconfir
 
 ---
 
+## H.30 Six assumptions closed, and the excavation face ruled — revision RC6 — 12 September 2026
+
+> **K.2 GOES FROM FOURTEEN OPEN TO SEVEN, AND THE SEVEN THAT REMAIN ARE EXACTLY THE SITE
+> INVESTIGATION.** Every assumption that could be closed by engineering judgement is now closed.
+> Nothing left in K.2 can be settled by anyone in a room — each of the seven needs a borehole, a
+> piezometer, a plate load test, a percolation test or a packer test. Calculation:
+> `Owner Rulings RC4/Calculations/RC6_CALC_OUTPUT.txt` §R.10.
+
+| # | Item | Ruling | Basis |
+|---|---|---|---|
+| 21 | **A9** sentry infill separation | **KEEP R = 3.0 — CLOSED** | The position in use is **the conservative one**: R = 5.0 would give A<sub>h</sub> 0.060 against 0.100, so **V<sub>b</sub> 73.18 kN is ≈ 1.67 × what a separated special moment frame would need.** Separating would require an SMRF and the IS 13920 detailing this project does not claim, and would undo SP-B2's tie detail. **Nothing changes** |
+| 22 | **WM-V9** excavation face | **BATTER THE SOIL CAP; VERTICAL IN ROCK BELOW IT** | See below |
+| 23 | **A6** K<sub>a</sub> | **ACCEPT — CLOSED** | K<sub>a</sub> = 1.0 saturated is **used**; the dry-berm ≈ 0.5 is **deliberately not relied on**. Taking the full 383 kPa on the headhouse walls rather than crediting unverifiable berm attenuation is the conservative choice, and C10 already took it off the critical path |
+| 23 | **A10** wind k1 = 1.08 | **ACCEPT — CLOSED** | A 100-year life on a load path that **does not govern** — seismic beats wind **2.4 : 1** |
+| 23 | **A14** Poisson 0.20 | **ACCEPT — CLOSED** | The standard value for concrete; plate behaviour, minor |
+| 24 | **A11** b<sub>eff</sub> 2.5 m, HW3 | **ACCEPT — CLOSED** | The strip is at **26 % two-way / 41 % on the conservative one-way bound**. More than half the capacity is spare, so b<sub>eff</sub> would have to be badly wrong to matter |
+| 24 | **A12** trapezoid factor 0.7946 | **ACCEPT — CLOSED** | ≈ **2 %** on B2's support moment, inside its 89 % utilisation. **The factor itself is exact**: 1 − 1/(3r²) at r = 1.2740 gives 0.79463. Using it for both BM and FEM is the simplification, and the margin swallows it |
+
+### What K.2 now looks like — and why this is the useful result
+
+```
+CLOSED (7)   A6   Ka = 1.0 saturated, dry berm not relied on      conservative
+             A9   sentry infill not separated, R = 3.0            conservative
+             A10  wind k1 = 1.08, wind does not govern            standard
+             A11  b_eff 2.5 m for HW3, strip at 26 % / 41 %       margin
+             A12  trapezoid factor for both BM and FEM, ~2 %      margin
+             A13  sentry frame has no member releases             READ FROM THE .std
+             A14  Poisson's ratio 0.20                            standard
+
+STILL OPEN (7) -- AND EVERY ONE NEEDS A PHYSICAL TEST ON THIS PLOT
+             A1   rockhead 1.5-2.0 m                    boreholes
+             A2   DESIGN GWT (-)2.000                   piezometer, FULL monsoon
+             A3   SBC 3240 kPa                          plate load / core testing
+             A4   ks 100 000 - 500 000 kN/m3            plate load test (BOTH bounds)
+             A5   K0 0.50, gamma 20/21                  site investigation
+             A7   soak-pit absorption 20 L/m2/day       PERCOLATION TEST, mandatory
+             A8   structural seepage 0.5 L/m2/day       packer permeability tests
+```
+
+> **That is the sentence worth carrying into the viva.** The assumption register is no longer a
+> mixed bag of judgement calls and missing data. **Everything a competent engineer could decide
+> has been decided. What is left is precisely the site investigation the project has never
+> had** — and `SG-V1`/`SG-V2` already say why: the only investigation available is **off-site**
+> and **reached about 1.5 m against a formation at (−)6.800**.
+
+### Ruling 22 — the excavation face
+
+**The project measured 1.000 m working space and VERTICAL UNBENCHED faces for the full 6.800 m.**
+In basalt that is reasonable. But SG1 measured what sits on top of the basalt: **rockhead at
+0.9–1.5 m**, with a **black cotton CH horizon at FSI 60–65 %** in the top 0.18–1.0 m.
+
+> So the face is about **1.0–1.5 m of soil — including very-high-swelling clay — standing
+> vertically on 5.3–5.9 m of rock, with the rock excavation undercutting it.** Under the
+> `SG2-V5` acceptance it also stands open **across a monsoon**. That soil cap is the one part of
+> this excavation that has no business being vertical.
+
+```
+ADOPTED   batter 1 : 1 MINIMUM over the soil cap, grade to rockhead, all four
+          sides; VERTICAL FACE RETAINED IN ROCK below rockhead
+
+          extra excavation   1 : 1     1.500 m offset      76.4 m3
+                          1.25 : 1     1.875 m offset      96.7 m3
+                           1.5 : 1     2.250 m offset     117.6 m3
+          (a 1.000 m bench at rockhead instead would be 96.6 m3)
+
+          WORKING SPACE UNCHANGED -- the 1.000 m is at FORMATION, 5.3 m below
+          the battered zone, so no BOQ working-space quantity moves
+```
+
+**1 : 1 is a MINIMUM, not the answer.** A batter in FSI 60–65 % clay, undercut and wetted across
+a monsoon, may need to be considerably flatter. `IS 3764` is named **by title only** — it is not
+in the workspace and Part G forbids citing an unconfirmed clause. **The angle and its seasonal
+variation are the geotechnical engineer's, and the quantity moves with the angle** `[A]`.
+
+> **The same collision `SG-V6` has, an order of magnitude bigger.** This produces **76–118 m³ of
+> excavated CH clay** on top of the 8 m³ from the stairwell raft. **`SG-V7`, which the owner left
+> open, warns against re-laying exactly that material as the cover's 300 turf over the granular
+> filter.** Recorded, not resolved.
+
+**`WM-V9` closes as a measurement basis** — the project now states a face treatment instead of an
+unexamined vertical. **The slope-stability assessment it always asked for is still outstanding,
+and still needed.**
+
+> **What RC6 did NOT do.** No analysis run. No dimension, level, load, thickness or bar changed.
+> **No BOQ quantity, rate, date or float moved** — the 76–118 m³ is derived and recorded, not
+> priced. **Main staircase untouched.**
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -4593,7 +4682,8 @@ blast valves is a fit that has not been checked here** `[A]`. Fuel type unconfir
 | `…/Calculations/RC4_SITING_OUTPUT.txt` | **T.1–T.7** — the 50 m envelope pin recovered from SG2's own arithmetic; the EAST sentry position re-run against every SG2 rule; the one check that fails and the 300 mm that fixes it |
 | `…/Schedules/RC4_BOQ_ADDENDUM` | The two items the rulings added. **8 m³ each, rate `[A]`, NOT PRICED** — a second declared exclusion from WM3's lower bound |
 | `…/Calculations/RC5_CALC_OUTPUT.txt` | **R.7–R.9 (RC5, H.29)** — what the ventilation air can actually reject · the escape shaft head hatch as a protective closure · the generator day tank and the penetrations it avoids |
-| `…/Scripts/rc4_calc.py` · `rc4_siting.py` · `rc5_calc.py` | The generators. Everything above is regenerated by running the three |
+| `…/Calculations/RC6_CALC_OUTPUT.txt` | **R.10 (RC6, H.30)** — the excavation soil cap, three batter angles and a bench alternative costed in volume |
+| `…/Scripts/rc4_calc.py` · `rc4_siting.py` · `rc5_calc.py` · `rc6_calc.py` | The generators. Everything above is regenerated by running the four |
 | `current/staad/Underground_Shelter_ks500000.std` | **The subgrade upper bound.** Identical to the reference model but for the `ELASTIC MAT` line and four `KFY` values — verified by diff |
 
 ## I.3 SUPERSEDED / ARCHIVED
@@ -4747,7 +4837,7 @@ blast valves is a fit that has not been checked here** `[A]`. Fuel type unconfir
 | **U8** | Roof projection + parapet, 4.162 kN/m. **RULED AND HALF-CLOSED — RC4 (H.28): the parapet is CONFIRMED at 300 × 150** | **The parapet term is now `[C]` and exact: 0.300 × 0.150 × 25 = 1.125 kN/m.** The residual **3.037 kN/m** is the roof projection | **ONE DIMENSION.** `U8-F1`: **the projection dimension is recorded nowhere in this project.** Back-solving gives 810 mm (slab alone) or 578 mm (slab + finish); neither is round, neither is drawn, **neither is adopted.** 4.162 continues to be used as given — no member force changes |
 | **WM-V6** | Sentry seismic weight after SP-B1 | **The direction is certain and favourable.** Brick at 20 kN/m³ over 0.190 × 2.600 gives **9.88 kN/m** against the **13.000 kN/m** modelled, so W falls, V<sub>b</sub> falls, and every member designed to 73.18 kN is over-designed. **Nothing is unsafe and nothing is inconsistent** | A STAAD re-run to put a number on the margin. **STAAD.Pro is not available in this environment**, so it is confirmation, not risk |
 | **WM-V7** | Ballistic function of the Rev F panels | **Brick masonry does not give ballistic protection, and every drawing now says brick.** There is no longer any inconsistency — the drawings, the master and the Works Management package all agree | **A client / military decision** on whether that protection is required at all. No drafting or design work in this project can supply it |
-| **WM-V9** | Excavation working space and face treatment | 1.000 m working space and vertical unbenched faces, used consistently for measurement | A slope-stability assessment of the soil zone above rockhead |
+| **WM-V9** | Excavation working space and face treatment. **RULED — RC6, 12 Sep 2026 (H.30): BATTER THE SOIL CAP, VERTICAL IN ROCK BELOW IT.** The project measured a vertical unbenched face for the full 6.800 m; SG1 then measured **rockhead at 0.9–1.5 m** with a **CH horizon at FSI 60–65 %** on top. **That is 1.0–1.5 m of very-high-swelling clay standing vertically on rock, undercut by the rock excavation, and open across a monsoon under the SG2-V5 acceptance.** Adopted: **1 : 1 minimum batter over the soil cap, grade to rockhead, all four sides; vertical retained in rock.** Extra excavation **76.4 m³ at 1:1, 117.6 m³ at 1.5:1** `[R]`; **the 1.000 m working space is at FORMATION and does not move.** **1 : 1 is a MINIMUM, not the answer — the angle is the geotechnical engineer's** `[A]` | **The slope-stability assessment is STILL OUTSTANDING.** What RC6 closes is the measurement basis: the project now states a face treatment instead of an unexamined vertical. **And it produces 76–118 m³ more CH clay, on top of SG-V6's 8 m³ — exactly the material `SG-V7` warns against re-laying as the cover turf** |
 | **FS-V7** | **How is either escape shaft climbed?** Raised by drawing F-102, 10 Sep 2026 (H.18). **RULED AND CHANGED — RC4, 11 Sep 2026 (H.28): LADDER DESIGNED, FALL-ARREST DEFERRED.** A.4.9 carries the ladder. **Three things are still missing and the ruling knows it: no fall-arrest, no rest platform (a 1400 bore cannot take one without blocking the escape), and the injured-person question — a vertical ladder cannot pass a stretcher.** The row below is the position BEFORE the ruling, preserved under M.11 | **Was: nothing. The project held no position at all.** ESC 1 emerges at (+0.150) and ESC 2 at (+0.700) against a floor at (−)6.100 — a **6.250 m** and a **6.800 m** climb `[D]` — and **no ladder, rung or fall-arrest is specified in either shaft anywhere** | **A design.** Not a ruling between recorded values: there are no recorded values. It also needs an answer on whether an injured person is expected to use a shaft at all, which is a client question |
 | **CAM-V5** | **Head level of the generator air shaft SH-2.** Raised by drawing C-101, 10 Sep 2026 (H.18) | Its **600 × 600** size and its **BV-4 / BV-5** duty are confirmed; **how far it stands above finished grade is recorded nowhere** | **A datum.** Until it exists SH-2 cannot be assessed as an above-ground signature, and C-101 draws it with its height flagged `[N]` rather than assumed |
 | **EM-V2** | EMP Zone 2 dimensions | **Required and unspecified for four revisions; EM1 supplies a set that demonstrably fits bay 3** — 2 400 × 1 600 × 2 200 external, clear of the Y 2500–3400 circulation route, with a 300 survey gap on every free face. **Every dimension is `[A]`** | **An equipment schedule**, which waits on the **missing electrical design** — the project's largest gap (H.10). It is a fit, not a derivation |
@@ -4940,6 +5030,19 @@ blast valves is a fit that has not been checked here** `[A]`. Fuel type unconfir
 
 ## K.2 ASSUMED — must be confirmed before construction
 
+> **SEVEN OF THE FOURTEEN ARE CLOSED — RC5 and RC6, 12 September 2026 (Parts H.29, H.30).**
+> **`A13`** closed on the evidence (the `.std` was in the workspace all along); **`A6` `A9` `A10`
+> `A11` `A12` `A14`** closed by owner ruling, each either the conservative choice or a
+> simplification the margin swallows. **The rows below are preserved unaltered under M.11** and
+> each closed one is marked in its last column.
+>
+> **AND THE SEVEN THAT REMAIN ARE EXACTLY THE SITE INVESTIGATION.** `A1` boreholes · `A2` a
+> piezometer read through a **full** monsoon · `A3` plate load / core testing · `A4` a plate load
+> test at **both** bounds · `A5` site investigation · `A7` **the mandatory percolation test** ·
+> `A8` packer permeability tests. **Nothing left in this register can be settled by anyone in a
+> room.** `SG-V1` and `SG-V2` say why: the only investigation available is **off-site** and
+> **reached about 1.5 m against a formation at (−)6.800.**
+
 | # | Assumption | Impact if wrong | Verify by |
 |---|---|---|---|
 | A1 | Rockhead 1.5–2.0 m, competent below | Founding level, excavation cost | Site investigation |
@@ -4947,15 +5050,15 @@ blast valves is a fit that has not been checked here** `[A]`. Fuel type unconfir
 | A3 | SBC 3240 kPa | Footing and mat sizing (both ≪ 13 % utilised) | Plate load / core testing |
 | A4 | **k<sub>s</sub> 100 000–500 000 kN/m³** | **Mat moments — sensitive. Run both bounds** | Plate load test. **RC4 (H.28): the UPPER-BOUND MODEL NOW EXISTS** — `Underground_Shelter_ks500000.std`, identical to the reference model but for the subgrade line and the four corner `KFY`. **STILL `[ASSUMED]` AT BOTH BOUNDS, AND NEITHER HAS BEEN RUN** |
 | A5 | K₀ = 0.50, γ 20/21 | Wall lateral load | Site investigation |
-| A6 | K<sub>a</sub> = 1.0 saturated (used); K<sub>a</sub> ≈ 0.5 dry berm (**not relied on**) | Headhouse wall load — removed from the critical path by C10 | Would allow a reduction if measured |
+| A6 | K<sub>a</sub> = 1.0 saturated (used); K<sub>a</sub> ≈ 0.5 dry berm (**not relied on**) | Headhouse wall load — removed from the critical path by C10 | ~~Would allow a reduction if measured~~ — **CLOSED, RC6 (H.30). ACCEPTED AS THE CONSERVATIVE CHOICE:** the full 383 kPa is taken rather than crediting unverifiable berm attenuation |
 | A7 | Soak-pit absorption 20 L/m²/day | **Soak pit will not work if lower — likely on basalt** | **Percolation test, IS 2470 Pt 2 Cl. 4 — MANDATORY** |
 | A8 | Structural seepage 0.5 L/m²/day | Sump storage (currently 8.4 days) | Packer permeability tests |
-| A9 | Sentry infill NOT separated → R = 3.0 | V<sub>b</sub> × 1.67 if separated | Architect's decision |
-| A10 | k1 = 1.08 (100-yr wind life) | Wind (does not govern) | Client brief |
-| A11 | b<sub>eff</sub> = 2.5 m for the HW3 line load | HW3 strip check (26 % / 41 %) | Refined FE if ever critical |
-| A12 | Trapezoid factor 0.7946 used for both BM and FEM | ~2 % on B2 support moment | Frame model |
+| A9 | Sentry infill NOT separated → R = 3.0 | V<sub>b</sub> × 1.67 if separated | ~~Architect's decision~~ — **CLOSED, RC6 (H.30). R = 3.0 KEPT.** It is the conservative position: R = 5.0 gives A<sub>h</sub> 0.060 against 0.100, so 73.18 kN is ≈ 1.67 × a separated SMRF's demand. Separating would need an SMRF this project does not claim, and would undo SP-B2 |
+| A10 | k1 = 1.08 (100-yr wind life) | Wind (does not govern) | ~~Client brief~~ — **CLOSED, RC6 (H.30). ACCEPTED:** a 100-year life on a load path seismic beats **2.4 : 1** |
+| A11 | b<sub>eff</sub> = 2.5 m for the HW3 line load | HW3 strip check (26 % / 41 %) | ~~Refined FE if ever critical~~ — **CLOSED, RC6 (H.30). ACCEPTED ON THE MARGIN:** 41 % on the conservative one-way bound leaves more than half the capacity spare, so b<sub>eff</sub> would have to be badly wrong to matter |
+| A12 | Trapezoid factor 0.7946 used for both BM and FEM | ~2 % on B2 support moment | ~~Frame model~~ — **CLOSED, RC6 (H.30). ACCEPTED ON THE MARGIN.** The factor itself is exact — 1 − 1/(3r²) at r = 1.2740 = 0.79463; using it for both BM and FEM is the simplification, and 2 % sits inside B2's 89 % |
 | A13 | Sentry post STAAD has no member releases | Frame moment distribution | ~~Upload the `.std` file~~ — **DONE. `A13` IS CLOSED ON THE EVIDENCE, 12 Sep 2026 (RC5, Part H.29). The file is in the workspace and has been read: there is NO `MEMBER RELEASE` command anywhere in it.** See below |
-| A14 | Poisson's ratio 0.20 | Plate behaviour, minor | Standard |
+| A14 | Poisson's ratio 0.20 | Plate behaviour, minor | ~~Standard~~ — **CLOSED, RC6 (H.30). ACCEPTED** as the standard value for concrete |
 
 > **`A13` CLOSED ON THE EVIDENCE — 12 September 2026 (RC5, Part H.29). THE FIRST OF THE
 > FOURTEEN TO CLOSE, AND IT NEEDED NO RULING.** K.2 asked for the `.std` file; the file has been
