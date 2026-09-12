@@ -136,6 +136,27 @@ policy's *"SH-2, whose head level is recorded nowhere"* with **CAM-V5 listed ope
 the generator and re-run. **Applying the register is a package-by-package job with a regeneration
 check, and it has NOT been done.** **The lesson, which M.14 already states: a ruling is not
 finished when the master records it.**
+Updated 12 Sep 2026 for **DR-A2** (master **H.35**) — **the sump pit head, and where the pits
+actually are.** Two drafting requests, and the first one exposed a gap. **`A-202` showed no floor
+over `SU-01` because the project records a 1500 × 1500 OPENING through the mat** (`F.1` trims it
+with 4-T20 each face each side, `BBS` line `F10` calls it an opening, `WM-V8` measures the mat
+gross by its 1.35 m³) **and records nothing that closes it.** **`DR-A2-F1`: a cover is not
+optional** — Bay 5 is **1560** clear against a **1500** opening, so with it open there is no route
+past to the filter trains, the CO₂/O₂ plant or the dehumidifier, and `ROOM_FINISH_SCHEDULE` falls
+room `U-05` **1:80 direct to the sump**, so it has to pass water. A cover is now drawn at
+**(−)6.100** as **`[A]`** with its specification stated **`[N]`** on the sheet's face.
+**One new item `DR-A2-V1`; K.1b goes from seventeen to eighteen.**
+On **`A-301`**, `SU-01` is drawn **at true X** on the buried box, and a **1:200 KEY PLAN** was
+added because an elevation cannot show a plan offset and all three items are offset in Y —
+`SU-01`, `ST-01` and `SK-01` at true project X **and** Y, with **11068 / 1500** and **900 / 1500**
+to the pit, **14750 to `ST-01`**, **7250 on to `SK-01`** and **9800 north**. Two more findings:
+**`DR-A2-F2`** note 2 said the strip is displaced **5450**, the drawn geometry and master H.24
+both say **4950** — corrected; **`DR-A2-F3`** `DR-A1`'s own revision line on `A-202` sat **below
+the inner sheet border** (QA2 fixed the `A-301` half and never re-scanned `A-202`) — both bands
+re-stacked. **`DR-A2-F4` is recorded and NOT fixed:** `A-301`'s `3500 EFFECTIVE` dimension text
+overruns the inner border by 42 units. **No design value changed, nothing re-sized, no tag
+converted, no `.std` touched, STAAD.Pro not run, main staircase untouched.** **Package still 80
+drawings, 74 PASS.**
 
 ---
 
@@ -410,6 +431,12 @@ than duplicated as a constant — see `Revit/docs/00_README_WORKFLOW.md` and
 (**A-202**, `SU-01` sump pit added — the mat, the blinding and the formation line are now broken at
 the pit's outer face X 10768 / 12868) and `5_Front_Elevation.dxf` (**A-301**, `ST-01` and `SK-01`
 added east of a break line). A **`SERVICES`** layer was added to both; the other fifteen are unchanged.
+**DR-A2 (12 Sep 2026, master H.35) edited the same two again, adding no further layer:** on
+**A-202** the pit head is now closed at floor level (−)6.100 by a **removable cover, `[A]`, drawn
+as one line on `SERVICES`** — the mat, the blinding and the formation stay broken exactly as
+DR-A1 left them — and on **A-301** `SU-01` is drawn **at true X** plus a **1:200 key plan** giving
+`SU-01`, `ST-01` and `SK-01` at true project X and Y. **The cover's type, depth, duty and fixing
+are `[N]` — new open item `DR-A2-V1`.**
 **At QA1 all eleven were de-clashed and the ten Rev F drawings were given an A1 (A-301: A0)
 border, title block and NOTES box — filenames unchanged, geometry unchanged.** Drawing
 numbers A-101…A-105, A-201…A-204, A-301 live in the title blocks; `current/cad/Scripts/`

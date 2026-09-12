@@ -20,10 +20,10 @@ and `make_index.py`, so it cannot drift from the drawings.
 | **A-104** | SENTRY POST - FIRST FLOOR PLAN | 1:50 | A1 | 46 | PASS |
 | **A-105** | SENTRY POST - FRAMING PLAN | 1:50 | A1 | 99 | PASS |
 | **A-201** | SECTION A-A - MAIN STAIRCASE | 1:50 | A1 | 65 | REVIEW (2) |
-| **A-202** | SECTION X-X - SIDE SECTION WITH STAIRS | 1:50 | A1 | 104 | REVIEW (2) |
+| **A-202** | SECTION X-X - SIDE SECTION WITH STAIRS | 1:50 | A1 | 114 | REVIEW (2) |
 | **A-203** | SECTION B-B - HEADHOUSE CUTAWAY | 1:50 | A1 | 57 | REVIEW (1) |
 | **A-204** | SECTION C-C - COVERED ENTRY STAIRWELL | 1:50 | A1 | 105 | REVIEW (3) |
-| **A-301** | FRONT ELEVATION | 1:50 | A0 | 113 | PASS |
+| **A-301** | FRONT ELEVATION | 1:50 | A0 | 143 | PASS |
 | **S-06** | UNDERGROUND PLAN - SERVICES AND DRAINAGE | AS SHOWN | A1 | 280 | REVIEW (2) |
 
 <details><summary>filenames</summary>
