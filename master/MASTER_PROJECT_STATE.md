@@ -4261,6 +4261,120 @@ reproduction. See I.2.
 
 ---
 
+## H.29 Four more rulings, and one assumption closed on the evidence — revision RC5 — 12 September 2026
+
+> **Three rulings actioned, one left open, and `A13` closed WITHOUT a ruling — the first of
+> K.2's fourteen assumptions to close.** RC5 ran no analysis and executed no STAAD.Pro.
+> Calculations: `Owner Rulings RC4/Calculations/RC5_CALC_OUTPUT.txt` §R.7–R.9.
+
+| # | Item | Ruling | Outcome |
+|---|---|---|---|
+| 17 | **RC4-V1** heat rejection | **Reject to the ventilation air in open mode only — NO new penetration** | **RULED AND NARROWED, not closed.** See `RC5-F1` |
+| 18 | **EM-V6** shaft head hatches | **Design the hatch as a structural element only**; EMP bonding stays with the EMP package | Structural design done. **EM-V6 stays open for its EMP half.** See `RC5-F2` |
+| 19 | **WM-V6** sentry seismic re-check | **LEAVE OPEN — wait for STAAD** | Unchanged. Nothing unsafe; every member over-designed, direction favourable, margin unquantified |
+| 20 | **EL-V2** generator fuel | **Day tank inside, sized to the derived duty** | 250 L nominal / 210 L usable in bay 8. **RULED AND NARROWED** |
+| — | **`A13`** sentry frame member releases | **NO RULING NEEDED — closed on the evidence** | K.2 asked for the `.std`; **the file has been in the workspace since H.4 and nobody re-read it.** See K.2 |
+
+### `RC5-F1` — the ventilation air cannot reject this heat, and was never sized to
+
+```
+ventilation 300 m3/h -> 0.1005 kW/K  ->  63.3 K needed to reject 6.363 kW
+ventilation 600 m3/h -> 0.2010 kW/K  ->  31.7 K needed
+
+at a realistic difference:   5 K, 300 m3/h ->  0.50 kW =  7.9 % of the gain
+                            10 K, 600 m3/h ->  2.01 kW = 31.6 % of the gain
+```
+
+**300 m³/h is a CONTAMINANT rate** — FEMA 453's 0.25 cfm/ft² over the clean zone, for CO₂ and
+filtration — and it is about **an order of magnitude short of a heat-rejection rate**. The
+second train is **standby, not simultaneous**, so 600 m³/h is not a case the design contemplates.
+
+**And in Pune it can be worse than nothing.** The supply air is ambient; whenever ambient
+exceeds the internal temperature, ventilating **adds** sensible heat. **No ambient design
+temperature exists anywhere in this project** `[N]`, so the number of hours cannot be stated —
+the direction can.
+
+> **The ruling is therefore recorded as an ACCEPTANCE of the ~39 °C condition, not as a solution
+> to it.** The structure and the rock carry essentially the whole load in both modes, and R.2's
+> 96-hour answer — **13.2 K of rise, reaching about 39 °C and still climbing** — is unchanged.
+> That is a habitability judgement and it is the owner's to make; what RC5 adds is the
+> arithmetic, so it is accepted with the number in view. **`RC4-V1` is NARROWED, not closed:
+> from "no rejection path exists" to "the rejection path is the ground through the structure,
+> and it has not been modelled."** A transient soil–structure **thermal** model is the missing
+> piece, and it is a sibling of the transient soil–structure **interaction** already in Part C.
+
+### `RC5-F2` — TWO 1400 dia PENETRATIONS OF THE PROTECTIVE BOUNDARY HAVE NO SPECIFIED CLOSURE
+
+> **This is the finding of the whole RC4/RC5 pass, and nobody had asked the question.**
+>
+> A.2 defines the protective boundary as Blast Doors 1 and 2 **plus the perimeter walls, the mat
+> and THE PRESSURE SLAB**. **ESC 1 and ESC 2 are 1400 dia bores straight through the pressure
+> slab.** They begin in bay 1 — **inside the gas-tight envelope** — and in bay 8, and they finish
+> at grade.
+>
+> **Each shaft head is therefore a 1.54 m² hole in the protective boundary, and the only thing
+> that can close it is a hatch that does not exist.** The envelope penetration register lists
+> ESC1 and ESC2 as **FAIL** and prescribes a bonded conducting hatch — **but it prescribes it for
+> EMP. Nothing anywhere in this project states what the head has to resist STRUCTURALLY.**
+>
+> The design is silent, so RC5 takes the only defensible reading: **the head is part of the
+> boundary and takes the full 383 kPa design blast.**
+
+**The structural demand, and why a flat plate is the wrong answer:**
+
+```
+total force on the leaf   383 x pi x 0.700^2              = 589.6 kN
+M = w.a^2.(3+nu)/16                                       =  38.71 kNm/m
+V at the seating = w.a/2                                  = 134.1 kN/m
+flat Fe250 plate  t = sqrt(6M/sigma) = 30.5 -> say 32 mm
+mass of a 1600 dia x 32 leaf                              =  505 kg
+```
+
+**505 kg is the point, not the thickness.** Half a tonne cannot be lifted by a person escaping up
+a 6.8 m ladder in the dark. **Adopted instead: a ribbed steel weldment** — 1600 dia, 12 mm face,
+8 No. radial ribs 150 × 10 and a 150 × 12 perimeter ring — on a **steel seating ring cast into
+the 250 collar**, bearing 150 mm all round, with **four quarter-turn dogs so the leaf resists
+UPLIFT as well as downward pressure** (the negative phase and the rebound both lift it), and
+**counterbalanced or spring-assisted, openable from inside by one person without a key or a
+tool.** Indicative leaf mass **≈ 322 kg — still a mechanically assisted item.**
+
+**Not designed and not invented** `[N]`: the rib proportioning (an orthotropic plate problem —
+the flat-plate demand above is exact and is the **brief**), the counterbalance mechanism, and
+every EMP figure.
+
+> **And the consequence of splitting it the way the ruling splits it, stated plainly.** The EMP
+> treatment for this opening is a **bonded conducting** hatch. Bonding is not a finish applied
+> later — it is continuity between the leaf, the seating ring and the collar reinforcement, and
+> it has to be designed **into** the weldment and the seat. **Ruling the structure and the
+> bonding into different packages is exactly how these two shaft heads came to be undesigned for
+> four revisions.** `EM-V6` stays open for its EMP half.
+
+### Ruling 20 — the day tank, and the penetrations it did NOT add
+
+```
+600.6 kWh over 96 h x 0.35 L/kWh [A]   =  210.2 L
+ADOPTED   210 L usable  ·  250 L nominal  ·  275 L bund (110 %)
+          BAY 8 -- outside the gas-tight envelope, INSIDE the EMP boundary (RC4)
+          welded steel, bunded, contents gauge, low-level alarm to the S-01 panel
+```
+
+**The fill and the vent are the real design question, not the tank.** Both cross the protective
+boundary, and RC4 has just ruled bay 8 inside the EMP boundary, so two new bores would each need
+blast, gas and EMP treatment — in the same wall where **BV-4/BV-5 already FAIL** the EMP criteria.
+
+**ADOPTED: route both up the existing SH-2 bore and add no new penetration** — DN25 metallic fill
+with a lockable cap at the SH-2 head, DN25 metallic gooseneck vent, both bonded to the shaft
+earth. **This is the same instinct the owner applied to RC4-V1: use what already crosses.**
+It needs HVAC and EMP coordination — **two DN25 lines sharing a 600 × 600 bore with two DN350
+blast valves is a fit that has not been checked here** `[A]`. Fuel type unconfirmed, the
+0.35 L/kWh rate still `[A]`, no vendor set, no fuel polishing, no tank fire suppression, no rate.
+
+> **What RC5 did NOT do.** No tag converted by inference. No analysis run. No dimension, level,
+> load, thickness or bar in A, B, F or L changed. No BOQ quantity, rate, date or float moved.
+> **Main staircase untouched.**
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -4478,7 +4592,8 @@ reproduction. See I.2.
 | `…/Calculations/RC4_CALC_OUTPUT.txt` | **R.1–R.6 with every step shown** — the parapet re-derivation · the 96-hour heat balance across three bounds · the escape shaft ladder · D-05 and its trim steel · the raft strip-and-replace · both air shafts |
 | `…/Calculations/RC4_SITING_OUTPUT.txt` | **T.1–T.7** — the 50 m envelope pin recovered from SG2's own arithmetic; the EAST sentry position re-run against every SG2 rule; the one check that fails and the 300 mm that fixes it |
 | `…/Schedules/RC4_BOQ_ADDENDUM` | The two items the rulings added. **8 m³ each, rate `[A]`, NOT PRICED** — a second declared exclusion from WM3's lower bound |
-| `…/Scripts/rc4_calc.py` · `rc4_siting.py` | The generators. Everything above is regenerated by running the two |
+| `…/Calculations/RC5_CALC_OUTPUT.txt` | **R.7–R.9 (RC5, H.29)** — what the ventilation air can actually reject · the escape shaft head hatch as a protective closure · the generator day tank and the penetrations it avoids |
+| `…/Scripts/rc4_calc.py` · `rc4_siting.py` · `rc5_calc.py` | The generators. Everything above is regenerated by running the three |
 | `current/staad/Underground_Shelter_ks500000.std` | **The subgrade upper bound.** Identical to the reference model but for the `ELASTIC MAT` line and four `KFY` values — verified by diff |
 
 ## I.3 SUPERSEDED / ARCHIVED
@@ -4604,6 +4719,14 @@ reproduction. See I.2.
 > three were SHARPENED by rulings elsewhere in RC4.** Leaving an item open is a decision with
 > consequences, not a way of avoiding one.
 > **NEW (1):** `RC4-V1`.
+>
+> **RC5, 12 September 2026 (Part H.29) — four more, and `A13` closed on the evidence.**
+> **RULED AND NARROWED, still open (3):** `RC4-V1` · `EM-V6` (its EMP half) · `EL-V2`.
+> **LEFT OPEN (1):** `WM-V6`. **K.1b holds at twenty-one** — nothing closed, three narrowed —
+> **but two findings came out of it**, `RC5-F1` (the ventilation air cannot reject the heat and
+> was never sized to) and **`RC5-F2` — two 1400 dia penetrations of the protective boundary have
+> no specified closure.** `A13` closed in K.2 without a ruling: the `.std` the register asked for
+> has been in the workspace since H.4.
 
 > **These are NOT inconsistencies.** Each is a single position the project holds, with
 > nothing contradicting it. What they need is a decision, a datum or a design from
@@ -4631,8 +4754,8 @@ reproduction. See I.2.
 | **EM-V3** | Is bay 8 inside the EMP boundary? | **No EMP boundary has ever been drawn.** Bay 8 is outside the *gas-tight envelope* (A.2) — but that is a **CBRN** boundary and says nothing about EMP | **A client decision.** If bay 8 is in, BV-4/BV-5 need honeycomb WBC panels; if it is out, the 15 kVA generator, its control panel and every cable in bay 8 are unprotected and **the shelter loses power to the pulse** |
 | **EM-V4** | Communications | **There is none.** No antenna, mast, feeder or comms design exists anywhere in the project, so MIL-STD-188-125-1 §5.7.6 has nothing to apply to | **A communications design.** An antenna is by definition a deliberate conductor from outside to inside — the hardest EMP penetration there is — and it is also a concealment signature (CAM1) |
 | **EM-V5** | PD-05's pipe material | **Unspecified — as is every pipe material in the project.** The drainage package names no material for any run | **A material.** Metallic → bond it 360° to the entry plate and its exterior becomes shield. Plastic → the bore is an aperture *and* the water column is a conductor, needing a metallic spool piece nobody has specified |
-| **EM-V6** | Escape-shaft head hatch and blast-door RF performance | **Neither exists.** Lining a 1 400 shaft does not work — it propagates above 125.5 MHz however well it is lined; the treatment is a **bonded conducting hatch at the head**. Blast Door 1's frame is already cast in and welded to the cage (A.5), which is the right start | **Vendor data.** Both sit directly on the protective boundary |
-| **EL-V2** | Generator fuel type, quantity and storage | **None specified.** EL1 derives **≈ 210 L for a 96 h run** (600.6 kWh at 0.35 L/kWh `[A]`) — the first number anyone has put on it | Client / vendor. Same root as **FS-V4** and **R-8** |
+| **EM-V6** | Escape-shaft head hatch and blast-door RF performance. **RULED AND SPLIT — RC5, 12 Sep 2026 (H.29): the hatch is DESIGNED AS A STRUCTURAL ELEMENT; the EMP bonding stays with the EMP package, so THIS ROW STAYS OPEN FOR ITS EMP HALF.** And the design raised **`RC5-F2`: these are 1400 dia bores through the PRESSURE SLAB, which A.2 names as part of the protective boundary — so each head is a 1.54 m² hole in that boundary and nothing in the project had ever stated what it must resist structurally.** Designed to the full **383 kPa**: 589.6 kN on the leaf, M 38.71 kNm/m, a ribbed steel weldment on a cast-in seating ring with quarter-turn dogs against uplift, counterbalanced and openable from inside. **A flat plate would be 32 mm and 505 kg — unliftable, which is why it is not one.** The row below is the position before the ruling | **Was: neither exists.** Lining a 1 400 shaft does not work — it propagates above 125.5 MHz however well it is lined; the treatment is a **bonded conducting hatch at the head**. Blast Door 1's frame is already cast in and welded to the cage (A.5), which is the right start | **Vendor data.** Both sit directly on the protective boundary |
+| **EL-V2** | Generator fuel type, quantity and storage. **RULED AND NARROWED — RC5 (H.29): a DAY TANK INSIDE.** 210 L usable / **250 L nominal** / 275 L bund, bay 8, welded steel, contents gauge and low-level alarm to the S-01 panel. **The fill and the vent are routed up the EXISTING SH-2 bore so NO new envelope penetration is created** — the same instinct the owner applied to RC4-V1. **Fuel type still unconfirmed, 0.35 L/kWh still `[A]`, no vendor set, no rate. Needs an HVAC/EMP fit check: two DN25 lines sharing a 600 × 600 bore with two DN350 blast valves.** The row below is the position before the ruling | **Was: none specified.** EL1 derives **≈ 210 L for a 96 h run** (600.6 kWh at 0.35 L/kWh `[A]`) — the first number anyone has put on it | Client / vendor. Same root as **FS-V4** and **R-8** |
 | **EL-V3** | Equipment schedule for EMP Zone 2 | **`Z-01`, a 1.50 kW allowance.** It gives EM-V2 a basis, not an answer | Client / operational |
 | **EL-V4** | Incoming mains capacity, tariff and point of connection | **The supply is confirmed only by the owner's programme** (activities 5 and 123, *"DB to Meter Panel"*). No capacity exists anywhere | Utility / client. **Blocks any fault level or discrimination study** |
 | **EL-V5** | Circuit, cable, luminaire and socket schedules | **None — deliberately.** EL1 stops at board level | Detailed design stage |
@@ -4653,6 +4776,8 @@ reproduction. See I.2.
 | **SG2-V4** | **No wind direction data exists anywhere — there is no wind rose** *(SG2)* | The P1 deck gives monthly mean **speed** and nothing else. It matters twice: for the **intake / exhaust** relationship, and as the **plume direction for the CBRN case** the whole shelter exists to survive. **SG2's orientation is therefore justified on access, fall, noise and end-to-end separation — explicitly NOT on prevailing wind** | **A wind rose** for the nearest long-record station. Until then the design's only protection is that intake and exhaust sit at opposite ends of a 22 m box |
 | **SG2-V5** | **The programme stops dewatering before backfill** *(SG2, sharpened by the `SG-V3` ruling)* | `A2070`, *"Dewatering — continuous through the substructure works"*, ends **11-05-27**. Side backfill `A7010` runs 20-07-27 → 30-07-27 and the burster slab is not cast until 21-08-27. Master `B.3` mitigation 1 requires dewatering **"until backfill and cover complete"**. **The gap spans the whole 2027 monsoon with the box at stage 3 — flotation FoS 1.22 at the design GWT and 0.86 flooded.** The `SG-V3` ruling makes this the operative control rather than a belt-and-braces note | **A project-owner decision on the programme.** No date is changed by SG2 — the owner's own Master Construction Schedule R0 governs (H.13). Either dewatering extends to 30-07-27, or the sub-structure sequence moves, or the residual flotation risk is accepted in writing |
 | **DR-A1-V1** | **RULED — RC4, 11 Sep 2026 (H.28): THE EAST POSITION IS ADOPTED.** One assumed position instead of two. **`RC4-F1`: the X range below is WRONG** — `A-301`'s own note 2 says **X 32000–36000** (4000 = the post's external dimension), not 31700–36300 (4600, matching nothing). **`RC4-F2`: the clash below DOES NOT HAPPEN** — it rested on an assumed Y, and with the post at **Y 600–5600** the reserve does not move and SG2's 28 checks stand. One NEW check failed — **SK-02 to the post at 1.80 m against IS 2470's 2.0 m** — fixed by moving **SK-02 300 mm north**. **`RC4-F3`: the EAST position gives 9.00 m to the EXCAVATION face against the ≥ 10 m rule as written**; both readings recorded, neither adopted. **`U4` STAYS `[ASSUMED]`.** The row below is preserved under M.11 | **Was:** `U4` records that **no sentry-post coordinate exists** — `A.2`/`A.4.8` and the four Rev F sentry sheets say only *"≥ 10 m clear of the shelter excavation"*. Two placements now satisfy that rule in different directions: **`A-301` draws the post at `X 31700 – 36300`, 10 m EAST**, and **BIM-P1 / `SG2` assume `X 9000 – 13000, Y 15250 – 20250`, 10 m NORTH**. `SG2`'s external works reserve is `X 33000 – 51000`, so **the elevation's placement would put the sentry post inside the reserve**, and `SG2`'s 28 of 28 clearance checks — run against the northern assumption, and giving `ST-01` **22.5 m** from the post — would have to be re-run. On the elevation's own placement the same gap measures about **0.25 m**. **Nothing is ruled: both stay `[ASSUMED]`, and `A-301` now says on its face that its sentry position is a convention, not a coordinate** | **The sentry post's real site position — `U4`.** Until it exists, `ST-01` and `SK-01` are drawn on `A-301` beyond a break rather than at true X, and no clearance between the sentry post and the external works can be stated |
+
+| **RC4-V1** | **A SEALED SHELTER WITH A 4 kW HEAT SURPLUS AND NO ROUTE OUT FOR IT** *(RC4, 11 Sep 2026, H.28)*. **RULED AND NARROWED — RC5 (H.29): reject to the ventilation air in OPEN MODE ONLY, and add no new penetration.** | **The ruling's value is real — every penetration not made cannot fail.** But `RC5-F1`: **the ventilation air cannot reject this heat and was never sized to.** 300 m³/h is a *contaminant* rate (FEMA 0.25 cfm/ft²), about an order of magnitude short; it needs a **63.3 K** difference to reject 6.363 kW, and at a realistic 5 K removes **7.9 %**. **In Pune, whenever ambient exceeds the internal temperature, ventilating ADDS heat.** So the structure and the rock carry essentially the whole load in both modes, and the 96-hour answer stays **13.2 K of rise to about 39 °C, still climbing.** **The ruling is an ACCEPTANCE of that condition, not a solution to it** | **A transient soil–structure THERMAL model** — the sibling of the soil–structure *interaction* already deferred to Phase 3 — and **an ambient design temperature, which exists nowhere in this project** `[N]` |
 
 ### K.1e RULED, CLOSED OR ANSWERED BY THE PROJECT OWNER — RC2 (H.21), SG2 (H.23) and RC4 (H.28)
 
@@ -4829,8 +4954,28 @@ reproduction. See I.2.
 | A10 | k1 = 1.08 (100-yr wind life) | Wind (does not govern) | Client brief |
 | A11 | b<sub>eff</sub> = 2.5 m for the HW3 line load | HW3 strip check (26 % / 41 %) | Refined FE if ever critical |
 | A12 | Trapezoid factor 0.7946 used for both BM and FEM | ~2 % on B2 support moment | Frame model |
-| A13 | Sentry post STAAD has no member releases | Frame moment distribution | Upload the `.std` file |
+| A13 | Sentry post STAAD has no member releases | Frame moment distribution | ~~Upload the `.std` file~~ — **DONE. `A13` IS CLOSED ON THE EVIDENCE, 12 Sep 2026 (RC5, Part H.29). The file is in the workspace and has been read: there is NO `MEMBER RELEASE` command anywhere in it.** See below |
 | A14 | Poisson's ratio 0.20 | Plate behaviour, minor | Standard |
+
+> **`A13` CLOSED ON THE EVIDENCE — 12 September 2026 (RC5, Part H.29). THE FIRST OF THE
+> FOURTEEN TO CLOSE, AND IT NEEDED NO RULING.** K.2 asked for the `.std` file; the file has been
+> in the workspace since H.4 and the register was never revisited. Reading it settles the row:
+>
+> | Read from `current/staad/Sentry_Post_Framed_Seismic.std` | |
+> |---|---|
+> | **`MEMBER RELEASE`** | **Absent. The command appears nowhere in the file.** Every beam–column joint is fully continuous — which is what a moment frame requires, and what the portal-method member forces in B.8.1 assume |
+> | Supports | `1 2 11 12 FIXED` — **all four column bases fully fixed** |
+> | Members | 1–8 columns `PRIS YD 0.35 ZD 0.35`; 9–16 beams `PRIS YD 0.45 ZD 0.25` — matching A.4.8 |
+> | Infill | modelled as **`MEMBER LOAD` only**, never as a strut |
+>
+> **The assumption was right and is now CONFIRMED.** `[C] read from the .std`
+>
+> **One observation that follows, and it is not a defect.** The infill is carried as **load, not
+> stiffness**. The frame is analysed bare, which is conservative for the frame's own moments and
+> is normal practice at **R = 3.0** — and A.7.8 already takes the *with-infill* period formula
+> (IS 1893 Cl. 7.6.2(c)), so the infill is credited where it shortens the period and not
+> credited where it would attract force. **What a bare-frame model does not capture is the
+> local effect of infill on individual columns.** Nothing in this project claims it does.
 
 > **SG1 — 11 September 2026 (Part H.22). NOT ONE OF THE FOURTEEN IS CLOSED.** Four are
 > touched by the evidence the SEMT/67/15 sub-soil investigation and the P1 deck supply.

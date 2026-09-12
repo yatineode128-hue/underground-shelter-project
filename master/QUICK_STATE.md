@@ -66,6 +66,19 @@ rested on an assumed Y and does not happen, `RC4-F3` the EAST position gives **9
 the ≥10 m rule as written**, `U8-F1` the projection dimension is recorded nowhere. **One new
 item `RC4-V1`: a sealed shelter with a 4 kW heat surplus and no route out for it.**
 **No analysis run, no tag converted by inference, main staircase untouched.**
+Updated 12 Sep 2026 for **RC5** (master **H.29**) — **four more rulings and the FIRST of K.2's
+fourteen assumptions to close.** **`A13` closed WITHOUT a ruling**: the register asked for the
+sentry `.std` and **the file has been in the workspace since H.4** — there is no `MEMBER RELEASE`
+in it, supports are `1 2 11 12 FIXED`, infill is carried as load not stiffness. Ruled and
+narrowed: **RC4-V1** reject to ventilation air in open mode only · **EM-V6** the shaft head hatch
+designed structurally, EMP bonding left with the EMP package · **EL-V2** a 250 L day tank in bay
+8 with fill and vent routed up the **existing** SH-2 bore, adding **no new penetration**.
+**WM-V6 left open.** **Two findings — `RC5-F1`: the ventilation air cannot reject the heat and
+was never sized to** (300 m³/h is a *contaminant* rate; it needs 63.3 K, and in Pune it can add
+heat), so the ruling is **an acceptance of ~39 °C, not a solution** · **`RC5-F2`: TWO 1400 dia
+PENETRATIONS OF THE PROTECTIVE BOUNDARY HAVE NO SPECIFIED CLOSURE** — ESC 1 and ESC 2 bore
+straight through the **pressure slab**, which A.2 names as part of that boundary, and nobody had
+asked what the head must resist. **K.1b holds at twenty-one.**
 
 ---
 

@@ -557,10 +557,18 @@ over the lower 3.200 m, and **grab rails 1100 above the head**.
 
 > **Three things the project does not hold for these openings, and must not invent:**
 >
-> **1. No hatch on either shaft head.** No leaf, frame, fixing or bonding detail exists anywhere
-> `[N]`. What it has to be is established — a **bonded conducting hatch at the head**, because a
-> 1400 dia shaft propagates above **125.5 MHz** however well it is lined — but the specification
-> itself is vendor data the project does not contain.
+> **1. The shaft heads are HOLES IN THE PROTECTIVE BOUNDARY.** ESC 1 and ESC 2 bore straight
+> through the **pressure slab**, which §1.1 names as part of that boundary — so each head is a
+> **1.54 m² opening in it**, beginning in Bay 1 **inside the gas-tight envelope**. The hatch is
+> therefore designed as a **protective closure taking the full 383 kPa**: 589.6 kN on the leaf,
+> M 38.71 kNm/m, a **1600 dia ribbed steel weldment** (12 mm face, 8 radial ribs 150 × 10, 150 ×
+> 12 perimeter ring) on a **steel seating ring cast into the 250 collar**, 150 mm bearing, with
+> **four quarter-turn dogs so it resists UPLIFT as well** — the negative phase and the rebound
+> both lift it — **counterbalanced and openable from inside by one person without a key**.
+> *A flat plate would be 32 mm and 505 kg: unliftable, which is why it is not one.* The rib
+> proportioning and the counterbalance mechanism are specialist items `[N]`, and **the EMP
+> bonding — continuity between leaf, seat and collar reinforcement — is not designed here**,
+> though a 1400 dia shaft propagates above **125.5 MHz** however well it is lined.
 >
 > **2. The ladders have NO FALL-ARREST and NO REST PLATFORM.** Both are deliberate: fall-arrest
 > is deferred, and a 1400 dia bore cannot take a rest platform without blocking the escape it

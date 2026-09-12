@@ -1,0 +1,195 @@
+
+==============================================================================
+  R.7  RC4-V1 -- REJECT THE HEAT TO THE VENTILATION AIR, OPEN MODE ONLY
+==============================================================================
+
+RULING: no new envelope penetration.  Cool only when the shelter is
+ventilating; ride out closed mode on thermal mass.
+
+THE VALUE OF THIS RULING IS REAL AND SHOULD BE SAID FIRST: every penetration
+you do not make is a penetration that cannot fail.  A ground loop would have
+put TWO more metallic bores through a boundary that already has eleven
+entries in the penetration register, two of which (BV-4/BV-5) already fail
+the EMP criteria.  This ruling adds none.
+
+WHAT IT BUYS, ARITHMETICALLY.
+
+  ventilation 300 m3/h  ->  thermal capacity 300/3600 x 1.2 x 1.005 = 0.1005 kW/K
+    temperature difference needed to reject 6.363 kW : 63.3 K
+  ventilation 600 m3/h  ->  thermal capacity 600/3600 x 1.2 x 1.005 = 0.2010 kW/K
+    temperature difference needed to reject 6.363 kW : 31.7 K
+
+  300 m3/h is the DUTY rate -- master A.3 and the EL1 load schedule are
+  explicit that the second filter train is STANDBY, NOT SIMULTANEOUS.
+  600 m3/h is both trains running, which the design does not contemplate.
+
+  AT A REALISTIC TEMPERATURE DIFFERENCE:
+    dT  5.0 K, 300 m3/h  ->   0.50 kW rejected =  7.9 % of the 6.363 kW gain
+    dT  5.0 K, 600 m3/h  ->   1.00 kW rejected = 15.8 % of the 6.363 kW gain
+    dT 10.0 K, 300 m3/h  ->   1.00 kW rejected = 15.8 % of the 6.363 kW gain
+    dT 10.0 K, 600 m3/h  ->   2.01 kW rejected = 31.6 % of the 6.363 kW gain
+
+  *** FINDING RC5-F1.  THE VENTILATION AIR CANNOT REJECT THIS HEAT, AND IT
+      WAS NEVER SIZED TO. ***
+
+  The 300 m3/h is set by FEMA 453's 0.25 cfm/ft2 over the clean zone -- a
+  CONTAMINANT rate, for CO2 and filtration.  It is about one order of
+  magnitude short of a heat-rejection rate.  Even with BOTH trains running
+  and a 10 K difference it removes about a third of the gain, and the design
+  does not run both trains.
+
+  AND IN PUNE IT CAN BE WORSE THAN NOTHING.  The supply air is ambient.
+  Whenever ambient exceeds the internal temperature -- which in Pune is a
+  large part of the year in the afternoon -- ventilating in open mode ADDS
+  sensible heat rather than removing it.  No ambient design temperature
+  exists anywhere in this project [N], so the number of hours cannot be
+  stated; the direction can.
+
+  WHAT THIS MEANS FOR THE RULING.  Taken literally the ruling rejects little
+  heat in open mode and none in closed mode, so THE STRUCTURE AND THE ROCK
+  CARRY ESSENTIALLY THE WHOLE LOAD IN BOTH MODES.  The 96 h closed-mode
+  answer is therefore unchanged from R.2: about 13.2 K of rise, reaching
+  roughly 39 C and still climbing.
+
+  *** THE RULING IS THEREFORE RECORDED AS AN ACCEPTANCE OF THAT CONDITION,
+      NOT AS A SOLUTION TO IT. ***  That is a habitability judgement and it
+  is the owner's to make.  What RC5 adds is the arithmetic showing what is
+  being accepted, so that it is accepted with the number in view.
+
+  NOT DESIGNED, NOT INVENTED: no cooling plant, no coil, no ground loop and
+  no ambient design condition.  RC4-V1 is NOT closed -- it is RULED AND
+  NARROWED, from 'no rejection path exists' to 'the rejection path is the
+  ground through the structure, and it has not been modelled'.  A transient
+  soil-structure thermal model is the missing piece and it is a sibling of
+  the transient soil-structure INTERACTION already listed for Phase 3.
+
+==============================================================================
+  R.8  EM-V6 -- THE ESCAPE SHAFT HEAD HATCH, AS A STRUCTURAL ELEMENT
+==============================================================================
+
+RULING: design the hatch as a structural element only; EMP bonding stays
+with the EMP package.
+
+  *** BEFORE THE DESIGN, THE QUESTION NOBODY HAS ASKED. ***
+
+  Master A.2: 'PROTECTIVE BOUNDARY = Blast Doors 1 and 2 at (-)6.100, plus
+  walls W6/W7, THE PERIMETER WALLS, THE MAT AND THE PRESSURE SLAB.'
+
+  ESC 1 and ESC 2 are 1400 dia bores THROUGH THE PRESSURE SLAB.  They start
+  in bay 1 and bay 8 -- both inside the perimeter walls and under the slab --
+  and they finish at grade.
+
+  So each shaft head is a 1.54 m2 hole in the protective boundary, and the
+  ONLY thing that can close it is a hatch that does not exist.  The envelope
+  penetration register lists ESC1 and ESC2 as FAIL and prescribes a bonded
+  conducting hatch -- but it prescribes it FOR EMP.  NOTHING ANYWHERE IN THIS
+  PROJECT STATES WHAT THE HEAD HAS TO RESIST STRUCTURALLY.
+
+  *** FINDING RC5-F2.  TWO 1400 dia PENETRATIONS OF THE PROTECTIVE BOUNDARY
+      HAVE NO SPECIFIED CLOSURE.  If the head is only a weather cover, blast
+      runs down a 1400 bore into bay 1 -- which is inside the gas-tight
+      envelope -- and into bay 8.  The design is silent, so this design takes
+      the only defensible reading: THE HEAD IS PART OF THE BOUNDARY AND TAKES
+      THE FULL DESIGN BLAST. ***
+
+  DEMAND, head at grade -- IS 4991: everything at grade takes p_so
+    design blast pressure                       = 383 kPa
+    clear opening 1400 dia, radius a            = 0.700 m
+    total force on the leaf  383 x pi x 0.700^2   = 589.6 kN
+    simply-supported circular plate, UDL:
+      M = w.a^2.(3+nu)/16 = 383 x 0.4900 x 3.3/16 = 38.71 kNm/m
+      V at the seating    = w.a/2 = 134.0 kN/m
+
+  IF IT WERE A FLAT STEEL PLATE, Fe250:
+    t = sqrt(6M/sigma) = sqrt(6 x 38707 / 250) = 30.5 mm  -> say 32 mm
+    mass of a 1600 dia x 32 leaf = 505 kg
+
+    *** 505 kg IS THE POINT, NOT THE THICKNESS. ***
+    Half a tonne cannot be lifted by a person escaping up a 6.8 m ladder in
+    the dark.  A FLAT PLATE IS THE WRONG FORM, and the calculation is worth
+    doing precisely because it shows why.
+
+  ADOPTED -- RIBBED STEEL LEAF ON A CAST-IN SEATING RING
+
+    Leaf        1600 dia, 12 mm face plate, 8 No. radial ribs 150 x 10 and a
+                150 x 12 perimeter ring, all welded -- a weldment, not a plate
+    Seating     continuous steel ring cast into the 250 RC collar, machined
+                seat, with a compressible gasket for weather and gas
+    Bearing     150 mm all round onto the collar, so the 1900 OD collar
+                carries the 589.5 kN as a ring load
+    Fixing      four quarter-turn dogs engaging the seating ring, so the leaf
+                resists UPLIFT as well as downward pressure -- the negative
+                phase and the rebound both lift it
+    Operation   COUNTERBALANCED OR SPRING-ASSISTED, openable from INSIDE by
+                one person without a key or a tool, and lockable from outside
+    Drainage    the seat drains outward; no ponding on the gasket
+
+    indicative leaf mass  320 kg  -- still a mechanically assisted item
+
+  WHAT IS NOT DESIGNED HERE, AND IS NOT INVENTED:
+    - THE RIB PROPORTIONING.  A ribbed circular leaf is an orthotropic plate
+      problem; the flat-plate demand above is exact and is the BRIEF, but the
+      weldment itself needs FE or a proprietary design.  [N]
+    - THE COUNTERBALANCE MECHANISM.  Specialist. [N]
+    - EVERY EMP FIGURE.  By ruling, bonding stays with the EMP package.
+
+  *** AND THE CONSEQUENCE OF SPLITTING IT THAT WAY, STATED PLAINLY. ***
+  The EMP treatment for this opening is a BONDED CONDUCTING hatch.  Bonding
+  is not a finish applied later -- it is continuity between the leaf, the
+  seating ring and the collar reinforcement, and it has to be designed into
+  the weldment and the seat, not added to them.  Ruling the structure and the
+  bonding into different packages is exactly how these two shaft heads came
+  to be undesigned for four revisions.  EM-V6 STAYS OPEN for its EMP half.
+
+==============================================================================
+  R.9  EL-V2 -- GENERATOR FUEL: A DAY TANK INSIDE
+==============================================================================
+
+RULING: specify a day tank inside, sized to the derived duty.
+
+  DERIVATION, from EL1 and unchanged:
+    generator energy over a 96 h run              = 600.6 kWh   [R]
+    specific fuel consumption                     = 0.35 L/kWh [A]
+    fuel for 96 h  600.6 x 0.35                  = 210.2 L
+
+  ADOPTED
+    usable volume                             = 210 L  [R]
+    nominal tank                              = 250 L  (ullage + draw-off allowance)
+    bund                                      = 275 L  = 110 % of nominal
+    location                                  = BAY 8, the grey zone
+                                                 outside the gas-tight envelope,
+                                                 INSIDE the EMP boundary (RC4)
+    construction                              = welded steel, bunded, with a
+                                                 contents gauge and a low-level
+                                                 alarm to the S-01 fire panel
+    fuel type                                 = [A] diesel assumed by the
+                                                 0.35 L/kWh rate; NOT CONFIRMED
+
+  *** THE FILL AND THE VENT ARE THE REAL DESIGN QUESTION, NOT THE TANK. ***
+
+  A tank inside the structure needs a fill point outside it and a vent to
+  atmosphere.  Both cross the protective boundary.  The project already
+  carries eleven entries in its envelope penetration register, and RC4 has
+  just ruled bay 8 INSIDE the EMP boundary -- so two new bores would each
+  need blast, gas and EMP treatment, and BV-4/BV-5 in the same wall already
+  FAIL the EMP criteria.
+
+  ADOPTED -- ROUTE BOTH THROUGH THE EXISTING SH-2 BORE, AND ADD NO NEW
+  PENETRATION.  SH-2 is the generator air shaft, 600 x 600, already crossing
+  at X 22598-23198 with its head now fixed at +1.500 (RC4).  The fill line
+  and the vent run up inside it.
+
+    fill    DN25 metallic, lockable cap at the SH-2 head, bonded 360 deg
+    vent    DN25 metallic gooseneck at the SH-2 head, discharging away from
+            the SH-1 intake -- which RC4 placed 25.30 m away at the far end
+    both    bonded to the same earth as the shaft; EMP treatment is the EMP
+            package's, as EM-V6's ruling establishes for shaft penetrations
+
+  This is the same instinct the owner applied to RC4-V1: USE WHAT ALREADY
+  CROSSES.  It needs HVAC and EMP coordination, because SH-2 also carries
+  BV-4 and BV-5, and two DN25 metallic lines sharing a 600 x 600 bore with
+  two DN350 blast valves is a fit that has not been checked here.  [A]
+
+  NOT DESIGNED, NOT INVENTED: fuel type unconfirmed; the 0.35 L/kWh rate is
+  still [A]; no vendor set, no fuel polishing, no fire suppression for the
+  tank, and no rate for any of it.  EL-V2 is RULED AND NARROWED, not closed.
