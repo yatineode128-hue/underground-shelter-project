@@ -103,7 +103,7 @@ project's position was already right on all four. **SG2-V1 closed by owner rulin
 15 m, so the IS 2470 offset set is COMPLETE for the first time** — recorded as `[C] owner ruling`,
 **not** as a survey result, and **if a well is later found within 15 m, SK-01 moves.**
 **SG2-V2 was not addressed and stays open.**
-Updated 12 Sep 2026 for **RC8** (master **H.32**) — **K.1b goes from fifteen to thirteen.**
+Updated 12 Sep 2026 for **RC8** (master **H.32**) — **K.1b goes from nineteen to seventeen** (*the “fifteen to thirteen” first recorded here was wrong — corrected by RC9, H.33*).
 **SG2-V2 CLOSED** on the layout's immunity: every offset is relative to the structure, so a fence
 distance changes *where* the reserve sits, never *whether* it works. **SG2-V4 SPLIT** — the
 intake/exhaust half **closed** (SH-1 and SH-2 are **25.30 m apart at opposite ends of a 22 m
@@ -114,6 +114,15 @@ way a release drifts.** **EM-V2 and EL-V3: the circularity is now DOCUMENTED and
 neither is evidence.** **EL-V5 RECLASSIFIED out of K.1b into the new K.1f** — *declared scope
 boundaries, true and visible but not gaps*: EL1 said in its own opening paragraph that it stops
 at board level.
+Updated 12 Sep 2026 for **RC9** (master **H.33**) — **a count this session got wrong, corrected.**
+RC4–RC8 recorded every ruling faithfully in Part H and K.1e **but never annotated fourteen of the
+rows in the K.1b table itself**, so the table read as **34** while the narratives claimed 21, then
+15, then 13. **All three were wrong.** Every row is now annotated and a new **`K.1b-INDEX`** at the
+head of the register states the totals, so the count can be verified by reading rather than taken
+on trust. **Corrected sequence: 33 → 25 (RC4) → 25 (RC5, RC6) → 19 (RC7) → 17 (RC8).**
+**K.1b holds 34 rows — SEVENTEEN STILL OPEN** (nine narrowed by a ruling, two annotated but not
+narrowed, six untouched), **sixteen closed, one moved to K.1f**, all retained under M.11.
+**K.2 holds seven, and they are the site investigation.**
 
 ---
 

@@ -1419,10 +1419,12 @@ Stated here rather than left for a reviewer to find.
 
 ## 15  Open items
 
-**Thirteen**, each a single position the project holds — or, in a few, one it does not hold at
-all — that needs something from outside it. The register is master **K.1b**.
+**Seventeen**, each a single position the project holds — or, in a few, one it does not hold at
+all — that needs something from outside it. The register is master **K.1b**, where every row
+carries its current state and a **status index** states the totals, so the count can be checked by
+reading rather than taken on trust.
 
-Getting from thirty-three to thirteen took ruling on every item that could be ruled: some were
+Getting from thirty-three to seventeen took ruling on every item that could be ruled: some were
 settled by the owner's knowledge of the plot, several were **defects in supplied documents rather
 than in this design record**, one was **read out of a file that had been in the workspace all
 along**, and a few were **declared scope boundaries that were never gaps at all** — those now sit
