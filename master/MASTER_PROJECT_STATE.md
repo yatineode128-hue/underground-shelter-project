@@ -15,7 +15,7 @@
 **Inconsistency register:** **RC1** (10 Sep 2026, Part H.14) — **every conflict that could be decided on the evidence has been ruled**; six items that need information the project does not contain remain open in K.1b.
 **EMP:** **EM1** (10 Sep 2026, Part H.19) — the project's first EMP design. **Electrical:** **EL1** (11 Sep 2026, Part H.20) — the project's first electrical design, deliberately basic. **Rulings:** **RC2** (11 Sep 2026, Part H.21).
 **Site and ground:** **SG1** (11 Sep 2026, Part **H.22**) — **the project's first site selection and geotechnical section.** Two owner-supplied documents recorded, checked against each other and against this master. **It resolves nothing: not one `K.2` assumption is closed.** Its governing finding — **the sub-soil investigation reached about 1.5 m; the structure founds at (−)6.800** — and the first written **provenance of the design GWT (−)2.000**. Ten new open items `SG-V1…V10`.
-**Drainage on the architectural sheets:** **DR-A1** (11 Sep 2026, Part **H.24**) — `SU-01` drawn on `A-202`, `ST-01` and `SK-01` drawn on `A-301` beyond a break. **No design value changed.** It raises **`DR-A1-V1`**: the project holds **two different assumed sentry-post positions**, and the elevation's would stand inside `SG2`'s external works reserve.
+**Drainage on the architectural sheets:** **DR-A1** (11 Sep 2026, Part **H.24**) — `SU-01` drawn on `A-202`, `ST-01` and `SK-01` drawn on `A-301` beyond a break. **No design value changed.** It raises **`DR-A1-V1`**: the project holds **two different assumed sentry-post positions**, and the elevation's would stand inside `SG2`'s external works reserve. · **DR-A2** (12 Sep 2026, Part **H.35**) — **`SU-01`'s cover** drawn on `A-202` at (−)6.100, and a **1:200 key plan** on `A-301` putting `SU-01`, `ST-01` and `SK-01` at true project X **and Y**. **No design value changed.** It raises **`DR-A2-V1`**: **the project records a 1500 × 1500 opening through the mat and nothing that closes it**, in a bay 1560 wide.
 **Site layout:** **SG2** (11 Sep 2026, Part **H.23**) — **the project's first site layout plan.** On a coordinate and a 50 m envelope the owner supplied, master `H.9`'s *"not determinable"* external works positions, **four of five pipe lengths** and **two of three IS 2470 offsets** are **determined**. Site orientation fixed: **+X = EAST**. Principal finding **`SG2-F1` — the soak pit's problem is DEPTH, not arithmetic**: 21–43 % of its required area is above the design water table and its only permeable horizon is 0.2–0.5 m thick, so the fallback dispersion field is reserved rather than the pit re-sized. **`SG-V9` closed · `SG-V3` ruled · `SG-V5` amended · five new items `SG2-V1…V5` · master gap D3 PARTIALLY closed.**
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and the sentry post beam / column / footing sheet **S-09** (Part E.3.3).
 
@@ -4724,6 +4724,111 @@ sixteen closed rows and one moved to `K.1f`, all retained in the table.
 
 ---
 
+## H.35 The sump pit head, and where the pits actually are — revision DR-A2 — 12 September 2026
+
+> **What was asked.** *"You added the sump pit to the side section but it now shows no floor
+> above the sump pit — correct it. Also make the front elevation indicate the soak pit and sump
+> pit location relative to the project."* Both are drafting requests. **The first one is not a
+> drafting error in `DR-A1` — the floor really was missing, and it was missing because the thing
+> that closes the opening has never existed anywhere in this project.**
+
+### What changed
+
+| Sheet | File | Changed |
+|---|---|---|
+| **A-202** | `current/cad/2_Side_Section_with_Stairs.dxf` | **`SU-01`'s cover** drawn at floor level (−)6.100 across the 1500 clear opening; eight note lines; revision strip |
+| **A-301** | `current/cad/5_Front_Elevation.dxf` | **`SU-01` drawn at true X** on the buried box; a **1:200 KEY PLAN** carrying `SU-01`, `ST-01` and `SK-01` at true project X **and Y**; note 7; note 2's displacement corrected; bottom dimension chain moved down 1200; revision strip |
+
+Both are Rev F **input** drawings and are directly editable (`CLAUDE.md`). **No new layer was
+added** — the work uses `SERVICES`, `HIDDEN`, `WALLS`, `CENTRE`, `DIM`, `LEADER`, `TEXT` and
+`SHEET-TEXT`, all already present.
+
+### A-202 — why there was no floor, and what now closes it
+
+`DR-A1` drew the pit correctly. **The mat is genuinely interrupted over `SU-01`** — `F.1` bars a
+*"sump pit opening"* with 4-T20 trimmers each face each side, `BBS_MASTER` line `F10` calls it an
+opening 1500 × 1500 at X 11070–12570, Y 900–2400, and `WM-V8` measures the mat **gross by
+1.35 m³ = 1.5 × 1.5 × 0.600** for it. **A 1500 × 1500 hole through the floor is what the project
+records, so that is what `DR-A1` drew.**
+
+**`DR-A2-F1` — but Bay 5 cannot be crossed like that, and no cover is recorded anywhere.**
+Bay 5 is **1560** clear (`A.3`) and the pit is **1500** of it, so the opening runs effectively
+the full width of the bay: with the pit open there is no way past it to the two filter trains,
+the CO₂/O₂ plant or the dehumidifier. The `ROOM_FINISH_SCHEDULE` also falls room `U-05`
+**1:80 direct to the sump**, so whatever closes the opening has to pass water. **A cover is not
+optional here — and the project contains no cover: no type, no depth, no duty, no fixing, no
+lifting arrangement, in any schedule, drawing or document.**
+
+So the cover is drawn as **one line at (−)6.100 across the 1500 clear opening, on the `SERVICES`
+layer because it is not structure**, tagged `SU-01 COVER [A]`, with eight note lines on the
+sheet's face stating all of the above. **The line is diagrammatic and implies no thickness**;
+the mat, the blinding and the formation stay interrupted exactly as `DR-A1` drew them, and the
+rising main still passes through. **Nothing was converted into a confirmed element** — the cover
+is `[A]`, its specification is `[N]`, and **`DR-A2-V1` is opened for it**.
+
+> **`S-06` V3 has the same question the other way round, and it is left alone.** The 1:30 detail
+> draws the mat as one rectangle **straight across** the pit while also drawing the void dashed
+> **up to floor level** — the two cannot both be true, and it reads as a background rectangle
+> that was never trimmed. **No change is made to `S-06`**: it is the dimensioned authority for
+> the pit itself, that is not what is wrong with it, and it is a separate sheet from the two this
+> request names. **Recorded here so the next reader finds it, not fixed here.**
+
+### A-301 — the sump pit at true X, and a key plan because an elevation cannot show Y
+
+`SU-01` is drawn inside the buried box **at true X 10768–12868 (clear 11068–12568)**, dashed like
+the rest of the box, hanging from (−)6.100 to (−)8.000 with the clear void to the invert at
+(−)7.600, leadered and labelled with its true position. It is the first time the sump appears on
+this sheet.
+
+**`SK-01` could not be handled the same way, and neither could `ST-01`.** They stand at plan
+**Y 16000**, which is **9.8 m north of the box's north face** — an elevation has no way to show
+that, and `DR-A1`'s break puts them at a displaced X as well. **So a 1:200 key plan was added**,
+carrying at true project X *and* Y: the box `22000 × 6200`, the excavation face at X 23000, the
+sentry post `X 32000–36000, Y 600–5600` `[ASSUMED]` (`U4`, east position per `RC4`), `SG2`'s
+external works reserve `X 33000–51000, Y 6500–17500`, and `SU-01`, `ST-01` and `SK-01` in their
+real positions. Dimensioned: **11068 and 1500** to the pit in X, **900 and 1500** in Y,
+**14750 to `ST-01`** and **7250 on to `SK-01`** from the box east face, and **9800 north**.
+**Every figure on it is transcribed from `A.3`/`A.4`, `SG2` and the drainage schedules; not one
+is new.** Note 7 says why the plan is there and the key-plan notes carry `U4`, `RC4-F3`, the
+displacement and the rest of the reserve's contents.
+
+### Three findings — two fixed here, one recorded and left
+
+| | |
+|---|---|
+| **`DR-A2-F2`** | **Note 2 said the east strip is displaced `5450`. It is displaced `4950`.** `ST-01` true centre X 36750 is drawn at 41700, `SK-01` true 44000 at 48950 — **4950 both times** — and `H.24` says 4950 too. **Corrected on the sheet to 4950.** Sizes, spacing and the 5400 offset were always right; only the sentence was wrong |
+| **`DR-A2-F3`** | **`DR-A1`'s own revision line on A-202 sat BELOW the inner sheet border**, at y −24373 against a border at −24198, and `DR-A1` recorded *"no text outside the inner sheet border"*. **`QA2` (H.25 / report §10.3) had found and fixed the A-301 half of this and did not re-scan A-202.** All three revision lines on **both** sheets are now stacked evenly inside their own 400-tall band, and **A-202 now has 0 texts outside its inner border** |
+| **`DR-A2-F4`** | **NOT FIXED, recorded only.** On A-301 the dimension text `3500 EFFECTIVE` (x 50860 → 52209) overruns the inner border at x 52166.889 by **42 units, 0.84 mm on paper**. It is `DR-A1`'s and it is still in the margin, not off the sheet. **Moving it ~120 left clears it**; that is not part of what was asked and it is left for the owner to call |
+
+### What DR-A2 did NOT do
+
+**No design value, load, thickness, level, bar, BOQ quantity, rate, date or float changed.**
+`SU-01` was **not** re-sized or moved; `SK-01` and `ST-01` were **not** re-sized or moved; `C18`
+and `C19` stand as ruled. **No evidence tag was converted, downgraded or deleted.** No `.std`
+file was touched and **STAAD.Pro was not run.** `S-06` was **not** edited (see the note above).
+**No discipline package was modified** — the only files that change outside the two DXF are this
+one, `master/QUICK_STATE.md`, and `DRAWING QAQC/qa_index.json` + `DRAWING_INDEX.md`, both of which
+are **regenerated output**: `qa_report_data.py` and `make_index.py` were re-run and the only
+difference they produce is A-202's text count **104 → 114** and A-301's **113 → 143**. **The
+main staircase is untouched** — 24 risers, 170.8333, 280, 3 flights × 8, total rise 4100, and its
+44 entities on A-202 and 23 on A-301 are byte-identical to the previous revision.
+
+**Verified — entity by entity, against the previous revision.** **A-202: 533 → 544**, 11 added,
+and **exactly 2** pre-existing entities differ — the `QA1` and `DR-A1` revision-strip lines,
+**Y only** (+156 and +337, the `DR-A2-F3` re-stack); **every other entity is byte-identical**.
+**A-301: 502 → 625**, 123 added, and **exactly 21** differ, each intended: the **18** that make up
+the bottom dimension chain, changed **only** in their Y (−1200 — **no dimension VALUE touched**,
+`22000 SHELTER` / `10000 MIN CLEAR` / `4000 SENTRY POST` all unchanged); the two revision-strip
+lines, **Y only** (−14 and +37); and note 2's string. Both files pass `ezdxf` audit with
+**0 errors**.
+`qa_report_data.py` and `make_index.py` were **re-run**: A-202 **114 texts, 0 overlaps, 2
+annotations over line work (the same two as before)**; A-301 **143 texts, 0 overlaps, 0 over line
+work**; sheet sizes still **A1** and **A0**, so **neither drawing's extents moved**; **the package
+is still 80 drawings, 74 PASS.** **K.1b goes from seventeen open items to eighteen** — one new,
+`DR-A2-V1`; none closed.
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -5069,17 +5174,21 @@ sixteen closed rows and one moved to `K.1f`, all retained in the table.
 > then thirteen. **All three of those counts were wrong.** Every row is now annotated, and this
 > index exists so the count can be verified by reading rather than by trusting a sentence.
 >
-> **THE TABLE BELOW HAS 34 ROWS. SEVENTEEN ARE STILL OPEN** — nine narrowed by a ruling, two
-> annotated but not narrowed, six untouched.
+> **THE TABLE BELOW HAS 35 ROWS. EIGHTEEN ARE STILL OPEN** — nine narrowed by a ruling, two
+> annotated but not narrowed, six untouched, one new.
+>
+> **Updated by DR-A2, 12 September 2026 (Part H.35):** one row added, `DR-A2-V1`. ~~34 rows,
+> seventeen open~~ — preserved under M.11; the figures above are current.
 
 | State | Count | Items |
 |---|---:|---|
 | **STILL OPEN — ruled, and NARROWED by the ruling** | **9** | `U8` (parapet half-derived; **one dimension missing**) · `WM-V9` (face ruled; **slope-stability assessment outstanding**) · `FS-V7` (ladder designed; **no fall-arrest, no rest platform, injured-person question**) · `EM-V6` (**structural half designed, EMP half open**) · `EL-V2` (day tank sized; fuel type, rate and vendor open) · `EL-V7` (duty computed; absorber and soda lime open) · `SG-V6` (specified and measured; **rate `[A]`**) · `SG2-V4` (**intake/exhaust closed, PLUME half open**) · `RC4-V1` (**rejection path narrowed to "the ground, unmodelled"**) |
 | **STILL OPEN — annotated, but NOT narrowed** | **2** | `EM-V2` and `EL-V3` — RC8 documented the **circularity** between them (the enclosure is sized to fit a bay, the 1.50 kW is chosen to give the enclosure a basis, **and neither is evidence**). **Nothing about either was resolved** |
 | **STILL OPEN — untouched** | **6** | `WM-V6` · `EM-V4` · `EM-V5` · `SG-V1` · `SG-V2` · `SG-V7` |
+| **STILL OPEN — NEW, raised by `DR-A2` (H.35)** | **1** | `DR-A2-V1` — **`SU-01` has no cover, and Bay 5 is 1560 wide against a 1500 opening** |
 | **CLOSED by ruling** | **16** | `U2` `U3` `WM-V7` `CAM-V5` `EM-V3` `EL-V4` `EL-V6` `SG-V4` `SG-V5` `SG-V8` `SG-V10` `SG2-V1` `SG2-V2` `SG2-V3` `SG2-V5` `DR-A1-V1` |
 | **MOVED to `K.1f`** — a declared scope boundary, never a gap | **1** | `EL-V5` |
-| | **34** | |
+| | **35** | |
 
 > **Closed and moved rows are KEPT IN THE TABLE under M.11**, each carrying its ruling in the
 > first cell and its original entry beside it. **Nothing is deleted; the count is stated instead.**
@@ -5185,6 +5294,7 @@ sixteen closed rows and one moved to `K.1f`, all retained in the table.
 | **DR-A1-V1** |**CLOSED — RC4 (H.28): THE EAST POSITION IS ADOPTED — one assumed position instead of two. **`U4` itself stays `[ASSUMED]`**.** *Entry as it stood before the ruling, preserved under M.11:* **RULED — RC4, 11 Sep 2026 (H.28): THE EAST POSITION IS ADOPTED.** One assumed position instead of two. **`RC4-F1`: the X range below is WRONG** — `A-301`'s own note 2 says **X 32000–36000** (4000 = the post's external dimension), not 31700–36300 (4600, matching nothing). **`RC4-F2`: the clash below DOES NOT HAPPEN** — it rested on an assumed Y, and with the post at **Y 600–5600** the reserve does not move and SG2's 28 checks stand. One NEW check failed — **SK-02 to the post at 1.80 m against IS 2470's 2.0 m** — fixed by moving **SK-02 300 mm north**. **`RC4-F3`: the EAST position gives 9.00 m to the EXCAVATION face against the ≥ 10 m rule as written**; both readings recorded, neither adopted. **`U4` STAYS `[ASSUMED]`.** The row below is preserved under M.11 | **Was:** `U4` records that **no sentry-post coordinate exists** — `A.2`/`A.4.8` and the four Rev F sentry sheets say only *"≥ 10 m clear of the shelter excavation"*. Two placements now satisfy that rule in different directions: **`A-301` draws the post at `X 31700 – 36300`, 10 m EAST**, and **BIM-P1 / `SG2` assume `X 9000 – 13000, Y 15250 – 20250`, 10 m NORTH**. `SG2`'s external works reserve is `X 33000 – 51000`, so **the elevation's placement would put the sentry post inside the reserve**, and `SG2`'s 28 of 28 clearance checks — run against the northern assumption, and giving `ST-01` **22.5 m** from the post — would have to be re-run. On the elevation's own placement the same gap measures about **0.25 m**. **Nothing is ruled: both stay `[ASSUMED]`, and `A-301` now says on its face that its sentry position is a convention, not a coordinate** | **The sentry post's real site position — `U4`.** Until it exists, `ST-01` and `SK-01` are drawn on `A-301` beyond a break rather than at true X, and no clearance between the sentry post and the external works can be stated |
 
 | **RC4-V1** | **A SEALED SHELTER WITH A 4 kW HEAT SURPLUS AND NO ROUTE OUT FOR IT** *(RC4, 11 Sep 2026, H.28)*. **RULED AND NARROWED — RC5 (H.29): reject to the ventilation air in OPEN MODE ONLY, and add no new penetration.** | **The ruling's value is real — every penetration not made cannot fail.** But `RC5-F1`: **the ventilation air cannot reject this heat and was never sized to.** 300 m³/h is a *contaminant* rate (FEMA 0.25 cfm/ft²), about an order of magnitude short; it needs a **63.3 K** difference to reject 6.363 kW, and at a realistic 5 K removes **7.9 %**. **In Pune, whenever ambient exceeds the internal temperature, ventilating ADDS heat.** So the structure and the rock carry essentially the whole load in both modes, and the 96-hour answer stays **13.2 K of rise to about 39 °C, still climbing.** **The ruling is an ACCEPTANCE of that condition, not a solution to it** | **A transient soil–structure THERMAL model** — the sibling of the soil–structure *interaction* already deferred to Phase 3 — and **an ambient design temperature, which exists nowhere in this project** `[N]` |
+| **DR-A2-V1** | **`SU-01` HAS NO COVER, AND BAY 5 CANNOT BE CROSSED WITHOUT ONE** *(DR-A2, 12 Sep 2026, H.35)*. The mat carries a **1500 × 1500 opening** over the clean sump — `F.1` trims it with 4-T20 each face each side, `BBS` line `F10` calls it an opening, `WM-V8` measures the mat gross by its 1.35 m³. **Nothing in this project says what closes it.** | **A cover is not optional.** Bay 5 is **1560** clear and the pit is **1500** of it, so with the opening open there is no route past it to the filter trains, the CO₂/O₂ plant or the dehumidifier; and `ROOM_FINISH_SCHEDULE` falls room `U-05` **1:80 direct to the sump**, so the cover has to pass water. **A-202 now draws a cover at (−)6.100 as `[A]` and says on its face that its specification is `[N]`.** Nothing was converted | **The cover itself:** type (open grating vs slotted vs solid with a gully), depth, **imposed load duty**, frame and rebate, fixing, and how it is lifted for withdrawal of `PU-01`/`PU-02` and use of the `PU-03` hand pump. **Until it exists the 1500 span is undesigned and the bay is not demonstrably passable.** `[N]` |
 
 ### K.1e RULED, CLOSED OR ANSWERED BY THE PROJECT OWNER — RC2 (H.21), SG2 (H.23) and RC4 (H.28)
 

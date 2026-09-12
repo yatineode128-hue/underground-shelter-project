@@ -956,7 +956,7 @@
   "title": "SECTION X-X - SIDE SECTION WITH STAIRS",
   "scale": "1:50",
   "size": "A1",
-  "texts": 104,
+  "texts": 114,
   "overlap": 0,
   "over_geom": 2,
   "geom_in_panel": 0
@@ -1021,7 +1021,7 @@
   "title": "FRONT ELEVATION",
   "scale": "1:50",
   "size": "A0",
-  "texts": 113,
+  "texts": 143,
   "overlap": 0,
   "over_geom": 0,
   "geom_in_panel": 0
