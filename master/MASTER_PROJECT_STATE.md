@@ -17,6 +17,7 @@
 **Site and ground:** **SG1** (11 Sep 2026, Part **H.22**) — **the project's first site selection and geotechnical section.** Two owner-supplied documents recorded, checked against each other and against this master. **It resolves nothing: not one `K.2` assumption is closed.** Its governing finding — **the sub-soil investigation reached about 1.5 m; the structure founds at (−)6.800** — and the first written **provenance of the design GWT (−)2.000**. Ten new open items `SG-V1…V10`.
 **Drainage on the architectural sheets:** **DR-A1** (11 Sep 2026, Part **H.24**) — `SU-01` drawn on `A-202`, `ST-01` and `SK-01` drawn on `A-301` beyond a break. **No design value changed.** It raises **`DR-A1-V1`**: the project holds **two different assumed sentry-post positions**, and the elevation's would stand inside `SG2`'s external works reserve. · **DR-A2** (12 Sep 2026, Part **H.35**) — **`SU-01`'s cover** drawn on `A-202` at (−)6.100, and a **1:200 key plan** on `A-301` putting `SU-01`, `ST-01` and `SK-01` at true project X **and Y**. **No design value changed.** It raises **`DR-A2-V1`**: **the project records a 1500 × 1500 opening through the mat and nothing that closes it**, in a bay 1560 wide.
 **Site layout:** **SG2** (11 Sep 2026, Part **H.23**) — **the project's first site layout plan.** On a coordinate and a 50 m envelope the owner supplied, master `H.9`'s *"not determinable"* external works positions, **four of five pipe lengths** and **two of three IS 2470 offsets** are **determined**. Site orientation fixed: **+X = EAST**. Principal finding **`SG2-F1` — the soak pit's problem is DEPTH, not arithmetic**: 21–43 % of its required area is above the design water table and its only permeable horizon is 0.2–0.5 m thick, so the fallback dispersion field is reserved rather than the pit re-sized. **`SG-V9` closed · `SG-V3` ruled · `SG-V5` amended · five new items `SG2-V1…V5` · master gap D3 PARTIALLY closed.**
+**Master project report:** **PR1** (13 September 2026, Part **H.36**) — `Project Report/MASTER_PROJECT_REPORT.pdf`, **89 pages**, the project stated once and in full with the engineering science, the calculations and the citations. **It changes no design value**; its 498-check verification pass raised two new findings, **`PR1-F1`** and **`PR1-F2`**, both **recorded and NOT corrected**.
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and the sentry post beam / column / footing sheet **S-09** (Part E.3.3).
 
 ---
@@ -4829,6 +4830,77 @@ is still 80 drawings, 74 PASS.** **K.1b goes from seventeen open items to eighte
 
 ---
 
+## H.36 The master project report — revision PR1 — 13 September 2026
+
+> **PR1 is a DOCUMENT, not a design change.** It changes no dimension, level, load, thickness,
+> bar, quantity, rate, date or float; it touches no `.std` file; STAAD.Pro was not run; the main
+> staircase is untouched; and **no `[C]`, `[R]`, `[A]`, `[U]` or `[N]` tag is converted,
+> downgraded or deleted anywhere in it.**
+
+**What was asked.** A detailed, consistent project report that can act as a master document —
+every section in full, with the basic science behind the design considerations, detailed
+calculations, and correct citations and IS code references.
+
+**What was produced — all under `Project Report/`.**
+
+| Deliverable | Contents |
+|---|---|
+| `MASTER_PROJECT_REPORT.pdf` | **89 pages, A4, 19 parts and 4 appendices**, contents list with page numbers, PDF outline bookmarks, running head and foot |
+| `Documentation/MASTER_PROJECT_REPORT.md` | **The report SOURCE.** Edit this and re-run the renderer; never edit the PDF |
+| `Scripts/report_render.py` | The Markdown-subset typesetter. **It adds no content of its own** beyond the cover, the running head and foot and the paginated contents |
+| `Scripts/report_verify.py` | **498 independent recomputations** of the figures the report reproduces |
+| `Calculations/REPORT_VERIFICATION_OUTPUT.txt` | Their output, check by check |
+
+**How it differs from `CONSOLIDATED_PROJECT_REPORT.md`** (H.25). That document states the project
+once and remains valid as far as it goes. **PR1 adds three things it does not have**: a full
+**Part 2 on the engineering science** behind every design decision — shock physics, the SDOF
+regime, strain-rate effects, radiation attenuation, buoyancy and effective stress, Winkler
+foundations, filtration and CO₂ kinetics, aperture and waveguide theory, bonding inductance;
+the **calculations set out in full with every substitution and clause**; and **an executable
+verification of its own arithmetic**. It is also current to **RC10 and DR-A2**, which the
+consolidated report predates.
+
+> **And that is itself a finding. `PR1-F3`: `CONSOLIDATED_PROJECT_REPORT.md` is now stale on
+> three counts** — it states *"thirty-three open items"* against the current **eighteen**,
+> *"fourteen standing assumptions"* against **seven still open**, and it predates RC4 to RC10 and
+> DR-A2. **It is not edited here.** It is a build-level artefact of exactly the class `RC10`
+> (H.34) exists to register, and the same rule applies: **record it, do not silently edit it.**
+
+### The verification pass, and the two differences it found
+
+**498 checks: 494 PASS, 4 differences, 0 unexplained.** Each check recomputes a value from its own
+inputs — the formulas are written out again in `report_verify.py`, not copied — and compares the
+result with the value the project prints. **A PASS means the printed number follows from the
+printed inputs. It is not a design check and not an analysis.**
+
+| Ref | Where | Computed | Printed | Assessment |
+|---|---|---|---|---|
+| **`PR1-F1`** | **`A.7.8`, underground box wall shear stress.** 525 × 10³ / (600 × 0.8 × 21600) | **0.0506 N/mm²** | **0.063 N/mm²** | **NOT previously recorded.** Both values are negligible **by two orders of magnitude**; *"IS 13920 Cl. 10.4 boundary elements NOT triggered"* holds on either, and **no adopted value depends on it** |
+| **`PR1-F2`** | **`B.8.7`, sentry footing F1 at ULS.** e<sub>u</sub> = M<sub>u</sub>/P<sub>u</sub> = 43.9 / 276.8; and the printed expression 276.8/2.25 × (1 + 6 × 0.128/1.5) | **0.159 m** and **186.0 kPa** | **0.128 m** and **190.0 kPa** | **NOT previously recorded.** The footing's steel is governed by **IS 456 Cl. 26.5.2.1 minimum** (720 against 136 mm²/m required) and its depth by **starter anchorage**, so **no bar, spacing or dimension moves** on either figure. One-way shear 0.012 and punching 0.065 against τ<sub>c</sub> 1.369 are unaffected |
+| — | The project owner's cost summary | ₹ 2 99 33 306 | ₹ 3 00 33 306 | **ALREADY RECORDED — `R-14` (H.13)**, exactly ₹ 1 00 000 apart. The pass **reproduced a known finding independently**, which is the outcome a check like this is for |
+
+> **`PR1-F1` AND `PR1-F2` ARE RECORDED HERE AND ARE NOT CORRECTED.** Rule **M.11** forbids editing
+> a recorded value away, and rule **M.6** forbids resolving anything by inference. `A.7.8` and
+> `B.8.7` are left exactly as they stand.
+>
+> **Both have the same shape, and it is worth naming.** Each is a figure quoted to demonstrate
+> that something is negligible or non-governing — a shear stress two orders of magnitude below any
+> limit, and a bearing pressure on an element whose steel is a code minimum and whose depth is set
+> by anchorage. **Nothing downstream is sensitive to either, which is precisely why both survived
+> every previous pass.** They are offered to the owner as a ruling item, not asserted as errors:
+> **whether to restate them, and to what, is the owner's call.**
+
+### What PR1 did NOT do
+
+**No design value, evidence tag, quantity, rate, date or float changed. No `.std` file touched and
+no analysis run. No drawing edited and no generator re-run. No open item closed, opened,
+narrowed or reclassified** — `K.1b` still holds **eighteen** open, `K.2` still holds **seven**.
+**No package artefact edited**, including the six `RC10` registers and `CONSOLIDATED_PROJECT_REPORT.md`.
+**The main staircase is untouched** — 24 risers, 170.8333 mm riser, 280 mm tread, 3 flights × 8,
+total rise 4 100 mm.
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -5052,6 +5124,16 @@ is still 80 drawings, 74 PASS.** **K.1b goes from seventeen open items to eighte
 | `…/Calculations/RC7_CALC_OUTPUT.txt` | **R.11 (RC7, H.31)** — the CO₂ scrubber duty recovered from the project's own 9.9 h figure, and the fan check against EL1's allowance |
 | `…/Scripts/rc4_calc.py` · `rc4_siting.py` · `rc5_calc.py` · `rc6_calc.py` · `rc7_calc.py` | The generators. Everything above is regenerated by running the five |
 | `current/staad/Underground_Shelter_ks500000.std` | **The subgrade upper bound.** Identical to the reference model but for the `ELASTIC MAT` line and four `KFY` values — verified by diff |
+
+### Added by PR1, 13 September 2026 — see H.36
+
+| Folder / file | Contents |
+|---|---|
+| **`Project Report/MASTER_PROJECT_REPORT.pdf`** | **The master project report — 89 pages, 19 parts and 4 appendices.** The project stated once and in full: the engineering science behind every decision · codes clause by clause · site and geotechnics · the complete dimensional register · materials and detailing rules · every load derived · the analysis models and what they cannot prove · **element-by-element calculations with every substitution** · the reinforcement register and quantities · drawings and drawing quality · services, CBRN, EMP and life safety · site layout, finishes and concealment · works management · **what the design does not demonstrate** · the assumption and open-item registers · **the verification performed on its own arithmetic** · notation, a clause index, reproduction instructions and a revision index |
+| `Project Report/Documentation/MASTER_PROJECT_REPORT.md` | **The report SOURCE.** Edit this, never the PDF |
+| `Project Report/Scripts/report_render.py` | Markdown-subset → PDF typesetter. Adds no content of its own |
+| `Project Report/Scripts/report_verify.py` | **498 independent recomputations** of the figures the report reproduces |
+| `Project Report/Calculations/REPORT_VERIFICATION_OUTPUT.txt` | Their output — **494 PASS, 4 differences, 0 unexplained** — and the two new findings `PR1-F1` and `PR1-F2`, **reported, not corrected** |
 
 ## I.3 SUPERSEDED / ARCHIVED
 
