@@ -29,6 +29,9 @@ Markdown subset supported -- deliberately small, and the report is written to it
     **b** *i* `c`      inline bold, italic, fixed pitch
     <sub> <sup>        as written in the master
     <!-- PAGEBREAK --> forced page break
+    <!-- FIG: name --> a drawn figure from report_figures.py, numbered and
+                       captioned in document order
+    <!-- LOF -->       the list of figures
 """
 
 import os
@@ -53,6 +56,12 @@ except ImportError:                                          # pragma: no cover
     sys.exit("reportlab is required.  python3 -m pip install reportlab")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+try:
+    import report_figures as FIGS
+except ImportError:                                          # pragma: no cover
+    sys.exit("report_figures.py must sit beside report_render.py")
+
 PKG = os.path.abspath(os.path.join(HERE, ".."))
 SRC = os.path.join(PKG, "Documentation", "MASTER_PROJECT_REPORT.md")
 OUT = os.path.join(PKG, "MASTER_PROJECT_REPORT.pdf")
@@ -165,6 +174,13 @@ def styles():
                              leading=9.2, textColor=INK, alignment=TA_LEFT)
     s["cap"] = ParagraphStyle("cap", fontName="RepSans-Oblique", fontSize=7.4,
                               leading=9.4, textColor=MID, spaceAfter=6)
+    s["figcap"] = ParagraphStyle("figcap", fontName="RepSans", fontSize=7.5,
+                                 leading=9.6, textColor=MID,
+                                 alignment=TA_LEFT, spaceBefore=2.6,
+                                 spaceAfter=9)
+    s["lof"] = ParagraphStyle("lof", fontName="RepSans", fontSize=8.0,
+                              leading=11.0, textColor=INK, leftIndent=17,
+                              firstLineIndent=-17)
     # cover
     s["cvt"] = ParagraphStyle("cvt", fontName="RepSans-Bold", fontSize=21,
                               leading=25, textColor=INK, alignment=TA_LEFT)
@@ -379,6 +395,11 @@ def parse(md):
             blocks.append(("toc", None)); i += 1; continue
         if s == "<!-- COVER -->":
             blocks.append(("cover", None)); i += 1; continue
+        if s == "<!-- LOF -->":
+            blocks.append(("lof", None)); i += 1; continue
+        m = re.match(r"^<!--\s*FIG:\s*([A-Za-z0-9_]+)\s*-->$", s)
+        if m:
+            blocks.append(("fig", m.group(1))); i += 1; continue
         if s.startswith("<!--"):
             while i < len(lines) and "-->" not in lines[i]:
                 i += 1
@@ -470,6 +491,36 @@ def parse_quote(buf):
 
 
 # ------------------------------------------------------------------ heading
+class FigureList(TableOfContents):
+    """A contents list fed by FIGEntry notifications only."""
+
+    def notify(self, kind, stuff):
+        if kind == "FIGEntry":
+            self.addEntry(*stuff)
+
+
+class FigCaption(Paragraph):
+    """The caption under a figure;  it is what registers the figure."""
+
+    def __init__(self, num, caption, key):
+        Paragraph.__init__(self,
+                           inline("**Figure %d**   %s" % (num, caption)),
+                           ST["figcap"])
+        self._figEntry = (num, caption, key)
+
+
+def figure_block(name, num, key):
+    """A drawn figure and its caption, kept on one page."""
+    drawing, caption = FIGS.figure(name)
+    if drawing.width > BODY_W:                       # never overflow the page
+        sc = BODY_W / float(drawing.width)
+        drawing.scale(sc, sc)
+        drawing.width *= sc
+        drawing.height *= sc
+    return KeepTogether([Spacer(1, 3), drawing,
+                         FigCaption(num, caption, key)])
+
+
 class Head(Paragraph):
     """A heading that registers itself with the contents list."""
 
@@ -544,6 +595,16 @@ class Report(BaseDocTemplate):
         c.restoreState()
 
     def afterFlowable(self, flowable):
+        fig = getattr(flowable, "_figEntry", None)
+        if fig is not None:
+            num, cap, key = fig
+            clean = sanitize(re.sub(r"[*`]", "", cap))
+            self.canv.bookmarkPage(key)
+            self.canv.addOutlineEntry("Figure %d  %s" % (num, clean[:70]),
+                                      key, 2, 1)
+            self.notify("FIGEntry",
+                        (0, "Figure %d   %s" % (num, clean), self.page, key))
+            return
         entry = getattr(flowable, "_tocEntry", None)
         if entry is None:
             return
@@ -571,6 +632,11 @@ def build(md, meta):
     toc.levelStyles = [ST["toc1"], ST["toc2"]]
     toc.dotsMinLevel = 0
 
+    lof = FigureList()
+    lof.levelStyles = [ST["lof"]]
+    lof.dotsMinLevel = 1
+    nfig = [0]
+
     def brk():
         """One page break, never two in a row (which leaves a blank page)."""
         if story and isinstance(story[-1], PageBreak):
@@ -585,6 +651,14 @@ def build(md, meta):
             story.append(Rule(BODY_W))
             story.append(toc)
             brk()
+        elif kind == "lof":
+            story.append(Paragraph(inline("LIST OF FIGURES"), ST["h2"]))
+            story.append(Rule(BODY_W))
+            story.append(lof)
+            brk()
+        elif kind == "fig":
+            nfig[0] += 1
+            story.append(figure_block(payload, nfig[0], key()))
         elif kind == "pagebreak":
             brk()
         elif kind == "hr":
