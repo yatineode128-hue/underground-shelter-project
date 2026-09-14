@@ -17,6 +17,7 @@
 **Site and ground:** **SG1** (11 Sep 2026, Part **H.22**) — **the project's first site selection and geotechnical section.** Two owner-supplied documents recorded, checked against each other and against this master. **It resolves nothing: not one `K.2` assumption is closed.** Its governing finding — **the sub-soil investigation reached about 1.5 m; the structure founds at (−)6.800** — and the first written **provenance of the design GWT (−)2.000**. Ten new open items `SG-V1…V10`.
 **Drainage on the architectural sheets:** **DR-A1** (11 Sep 2026, Part **H.24**) — `SU-01` drawn on `A-202`, `ST-01` and `SK-01` drawn on `A-301` beyond a break. **No design value changed.** It raises **`DR-A1-V1`**: the project holds **two different assumed sentry-post positions**, and the elevation's would stand inside `SG2`'s external works reserve. · **DR-A2** (12 Sep 2026, Part **H.35**) — **`SU-01`'s cover** drawn on `A-202` at (−)6.100, and a **1:200 key plan** on `A-301` putting `SU-01`, `ST-01` and `SK-01` at true project X **and Y**. **No design value changed.** It raises **`DR-A2-V1`**: **the project records a 1500 × 1500 opening through the mat and nothing that closes it**, in a bay 1560 wide.
 **Site layout:** **SG2** (11 Sep 2026, Part **H.23**) — **the project's first site layout plan.** On a coordinate and a 50 m envelope the owner supplied, master `H.9`'s *"not determinable"* external works positions, **four of five pipe lengths** and **two of three IS 2470 offsets** are **determined**. Site orientation fixed: **+X = EAST**. Principal finding **`SG2-F1` — the soak pit's problem is DEPTH, not arithmetic**: 21–43 % of its required area is above the design water table and its only permeable horizon is 0.2–0.5 m thick, so the fallback dispersion field is reserved rather than the pit re-sized. **`SG-V9` closed · `SG-V3` ruled · `SG-V5` amended · five new items `SG2-V1…V5` · master gap D3 PARTIALLY closed.**
+**Master project report:** **PR2** (13 September 2026, Part **H.37**) — `Project Report/MASTER_PROJECT_REPORT.pdf`, **151 pages, 25 parts, 4 appendices and 57 drawn figures**, the project stated once and in full as a single as-built design, with the engineering science, the calculations, the citations, the soil report, the M35 and M30 mix designs, the openings and closures, the five services parts, works management and an environmental management plan. **It changes no design value**; its 559-check verification pass holds the two PR1 findings **`PR1-F1`** and **`PR1-F2`** and adds two, **`PR2-F1`** and **`PR2-F2`**, all **recorded and NOT corrected**. PR1 (89 pages, 19 parts) is at Part **H.36**.
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and the sentry post beam / column / footing sheet **S-09** (Part E.3.3).
 
 ---
@@ -4829,6 +4830,270 @@ is still 80 drawings, 74 PASS.** **K.1b goes from seventeen open items to eighte
 
 ---
 
+## H.36 The master project report — revision PR1 — 13 September 2026
+
+> **PR1 is a DOCUMENT, not a design change.** It changes no dimension, level, load, thickness,
+> bar, quantity, rate, date or float; it touches no `.std` file; STAAD.Pro was not run; the main
+> staircase is untouched; and **no `[C]`, `[R]`, `[A]`, `[U]` or `[N]` tag is converted,
+> downgraded or deleted anywhere in it.**
+
+**What was asked.** A detailed, consistent project report that can act as a master document —
+every section in full, with the basic science behind the design considerations, detailed
+calculations, and correct citations and IS code references.
+
+**What was produced — all under `Project Report/`.**
+
+| Deliverable | Contents |
+|---|---|
+| `MASTER_PROJECT_REPORT.pdf` | **89 pages, A4, 19 parts and 4 appendices**, contents list with page numbers, PDF outline bookmarks, running head and foot |
+| `Documentation/MASTER_PROJECT_REPORT.md` | **The report SOURCE.** Edit this and re-run the renderer; never edit the PDF |
+| `Scripts/report_render.py` | The Markdown-subset typesetter. **It adds no content of its own** beyond the cover, the running head and foot and the paginated contents |
+| `Scripts/report_verify.py` | **498 independent recomputations** of the figures the report reproduces |
+| `Calculations/REPORT_VERIFICATION_OUTPUT.txt` | Their output, check by check |
+
+**How it differs from `CONSOLIDATED_PROJECT_REPORT.md`** (H.25). That document states the project
+once and remains valid as far as it goes. **PR1 adds three things it does not have**: a full
+**Part 2 on the engineering science** behind every design decision — shock physics, the SDOF
+regime, strain-rate effects, radiation attenuation, buoyancy and effective stress, Winkler
+foundations, filtration and CO₂ kinetics, aperture and waveguide theory, bonding inductance;
+the **calculations set out in full with every substitution and clause**; and **an executable
+verification of its own arithmetic**. It is also current to **RC10 and DR-A2**, which the
+consolidated report predates.
+
+> **And that is itself a finding. `PR1-F3`: `CONSOLIDATED_PROJECT_REPORT.md` is now stale on
+> three counts** — it states *"thirty-three open items"* against the current **eighteen**,
+> *"fourteen standing assumptions"* against **seven still open**, and it predates RC4 to RC10 and
+> DR-A2. **It is not edited here.** It is a build-level artefact of exactly the class `RC10`
+> (H.34) exists to register, and the same rule applies: **record it, do not silently edit it.**
+
+### The verification pass, and the two differences it found
+
+**498 checks: 494 PASS, 4 differences, 0 unexplained.** Each check recomputes a value from its own
+inputs — the formulas are written out again in `report_verify.py`, not copied — and compares the
+result with the value the project prints. **A PASS means the printed number follows from the
+printed inputs. It is not a design check and not an analysis.**
+
+| Ref | Where | Computed | Printed | Assessment |
+|---|---|---|---|---|
+| **`PR1-F1`** | **`A.7.8`, underground box wall shear stress.** 525 × 10³ / (600 × 0.8 × 21600) | **0.0506 N/mm²** | **0.063 N/mm²** | **NOT previously recorded.** Both values are negligible **by two orders of magnitude**; *"IS 13920 Cl. 10.4 boundary elements NOT triggered"* holds on either, and **no adopted value depends on it** |
+| **`PR1-F2`** | **`B.8.7`, sentry footing F1 at ULS.** e<sub>u</sub> = M<sub>u</sub>/P<sub>u</sub> = 43.9 / 276.8; and the printed expression 276.8/2.25 × (1 + 6 × 0.128/1.5) | **0.159 m** and **186.0 kPa** | **0.128 m** and **190.0 kPa** | **NOT previously recorded.** The footing's steel is governed by **IS 456 Cl. 26.5.2.1 minimum** (720 against 136 mm²/m required) and its depth by **starter anchorage**, so **no bar, spacing or dimension moves** on either figure. One-way shear 0.012 and punching 0.065 against τ<sub>c</sub> 1.369 are unaffected |
+| — | The project owner's cost summary | ₹ 2 99 33 306 | ₹ 3 00 33 306 | **ALREADY RECORDED — `R-14` (H.13)**, exactly ₹ 1 00 000 apart. The pass **reproduced a known finding independently**, which is the outcome a check like this is for |
+
+> **`PR1-F1` AND `PR1-F2` ARE RECORDED HERE AND ARE NOT CORRECTED.** Rule **M.11** forbids editing
+> a recorded value away, and rule **M.6** forbids resolving anything by inference. `A.7.8` and
+> `B.8.7` are left exactly as they stand.
+>
+> **Both have the same shape, and it is worth naming.** Each is a figure quoted to demonstrate
+> that something is negligible or non-governing — a shear stress two orders of magnitude below any
+> limit, and a bearing pressure on an element whose steel is a code minimum and whose depth is set
+> by anchorage. **Nothing downstream is sensitive to either, which is precisely why both survived
+> every previous pass.** They are offered to the owner as a ruling item, not asserted as errors:
+> **whether to restate them, and to what, is the owner's call.**
+
+### What PR1 did NOT do
+
+**No design value, evidence tag, quantity, rate, date or float changed. No `.std` file touched and
+no analysis run. No drawing edited and no generator re-run. No open item closed, opened,
+narrowed or reclassified** — `K.1b` still holds **eighteen** open, `K.2` still holds **seven**.
+**No package artefact edited**, including the six `RC10` registers and `CONSOLIDATED_PROJECT_REPORT.md`.
+**The main staircase is untouched** — 24 risers, 170.8333 mm riser, 280 mm tread, 3 flights × 8,
+total rise 4 100 mm.
+
+## H.37 The master project report — revision PR2 — 13 September 2026
+
+> **PR2 is a DOCUMENT, not a design change.** It changes no dimension, level, load, thickness,
+> bar, quantity, rate, date or float; it touches no `.std` file; STAAD.Pro was not run; no drawing
+> was edited and no generator re-run; the main staircase is untouched; and **no `[C]`, `[R]`,
+> `[A]`, `[U]` or `[N]` tag is converted, downgraded or deleted anywhere in it.**
+
+**What was asked.** Add drawings and layout wherever they aid understanding; **write the report as
+though the project had always been in its latest form**; and cover in detail the bill of
+quantities, the cost estimate, the programme and its critical path activities, works management,
+water, sewage and drainage, the environmental management plan, the M35 and M30 mix design
+calculations, HVAC, and a section on openings, escape hatches and blast doors — with the soil
+report and the site maps included in site selection.
+
+**What was produced — all under `Project Report/`.**
+
+| | |
+|---|---|
+| `MASTER_PROJECT_REPORT.pdf` | **151 pages · 25 parts · 4 appendices · 57 figures · 916 kB** |
+| `Documentation/MASTER_PROJECT_REPORT.md` | The report source — **6 720 lines, 398 kB** (PR1: 4 796 lines, 285 kB) |
+| `Documentation/00_README.md` | Rewritten for PR2 |
+| `Scripts/report_figures.py` | **NEW — the 57 drawn figures**, plus the bounds checker |
+| `Scripts/report_render.py` | Gains `<!-- FIG: -->` and `<!-- LOF -->`, a figure register and a list of figures |
+| `Scripts/report_verify.py` | **559 checks** (PR1: 498), including three new sections |
+| `Calculations/REPORT_VERIFICATION_OUTPUT.txt` | **553 PASS · 6 recorded differences · 0 unexplained fail** |
+
+### H.37.1 The voice
+
+**PR1 told the project's story including its revision history. PR2 states the design as it stands,
+in the present tense, as though it had always been in this form.** Revision identifiers — `M1`,
+the `C`-series conflicts, `RC1`–`RC10`, `QA1`/`QA2`, `SP-B1`/`SP-B2`, `BS1`, `DR-A1`/`DR-A2`,
+`MS1`/`MS2`, `ERR-1`, `WM1`–`WM3`, `FS1`/`FS2`, `CAM1`/`CAM2`, `EM1`, `EL1`, `SG1`/`SG2`, `HV1`,
+`DR1` — are **out of the design narrative**.
+
+**Every engineering reason is kept.** A reason is part of a design; a revision number is not. Where
+a reader would otherwise ask *why is this wall 400 and not 200*, the answer is given as a reason,
+in the present tense, as part of the design.
+
+> **Nothing is lost, and the rule against overwriting a revision is not breached.** The full
+> history moves to the report's **Appendix D — Traceability: decisions, conflicts and revision
+> history**, which carries the conflict table, the ruling-by-ruling register and the revision list
+> intact. **The master's Part H remains the ledger and is unchanged by PR2 except for this
+> section.** Live register keys — `SG-V2`, `RC4-V1`, `EM-V3`, `DR-A2-V1`, `WM-V6` and the rest —
+> are **kept in the narrative**, because an open item is part of the current state, not of the
+> history.
+
+### H.37.2 The figures
+
+**Fifty-seven**, generated by `report_figures.py` from `GEOM`, `LEV` and `COVER` constants held in
+**project coordinates**, so a dimension changed there changes every figure that uses it and no
+figure can drift from the geometry it is drawn from. **Nothing is traced and nothing is measured
+off a picture.**
+
+> **They are NOT the issued drawings, and the module says so in its own docstring.** No title
+> block, no revision box, no bar mark; drawn at reading scale rather than at a plotting scale;
+> **never to be used for setting out or fabrication.** They are also **NOT** reconstructions of
+> the seven S-series sheets absent from the workspace (`I.1`), and **no absent drawing is
+> fabricated by PR2.**
+>
+> **No photograph, satellite image, contour sheet or survey drawing of the plot exists in this
+> project, and PR2 creates none.** The site figures are schematic, drawn from the project's own
+> coordinate system and from relationships the record states, and the report says so in Part 4.1
+> before the first of them.
+
+**A second gate was added alongside the numerical one.** `check_all()` walks every drawing and
+reports any line, rectangle, circle, polygon **or string** falling outside its own frame or past
+the 174 mm text measure — reportlab does not clip, so anything drawn outside a figure silently
+bleeds onto the following flowable. **The gate is zero and it is met.**
+
+### H.37.3 What PR2 added to the report
+
+| Part | Content |
+|---|---|
+| **4** | The **full soil report** — 11 trial pits with every stratum and SBC, 6 soil samples with LL/PL/PI/FSI/OMC/MDD/φ, 6 rock cores soaked and unsoaked, the 12-month meteorological record, and the site figures |
+| **6.5** | **Concrete mix design, M35 and M30**, to the IS 10262:2019 method — target mean strength, water content, w/c, absolute-volume proportioning, and the IS 456 Table 5 durability checks |
+| **12** | **Openings, blast doors, escape hatches and closures** — the register, the four duties, both doors, D-05, both shaft heads, the stair void and the re-entrant corner |
+| **2.8** | **EMP SCIENCE, deepened** — the Compton-current mechanism that makes a HEMP and why it puts energy to a gigahertz; the three coupling paths and why **conducted penetration** decides the answer; why the 10 kHz – 1 GHz band has that shape; and **Schelkunoff's A + R + B for a solid shield**, with the skin-depth arithmetic showing that **about 1 mm of steel is 80 dB at the hardest frequency in the band** |
+| **18** | **EMP PROTECTION DESIGN, deepened** — a design basis table; the panel-versus-seam argument; **the honeycomb waveguide panel designed in full, with the array correction (`PR2-F2`)**; bonding inductance and the five bonding rules; earthing against 1 000–10 000 Ω·m basalt; and the IEEE Std 299 acceptance survey set out as a procedure with its hold point |
+| **6.5** | **MIX DESIGN, rewritten as the IS 10262:2019 Annex A procedure** in the code's own step order, A-1 to A-11 — stipulations, test data, target strength, air content, w/c, water content, cement content, aggregate proportions, absolute-volume mix calculations, trial proportions with a **two-fraction coarse aggregate split and a batch-by-the-bag table**, and the **SSD / field-moisture correction stated as a procedure because both its terms are `[N]`** |
+| **16.7** | **THE WATER, SEWAGE AND DRAINAGE OPERATING PROCEDURE — NEW.** What happens to every stream in each of the five operating modes, mode by mode: peacetime, the changeover on warning, closed mode and the order to work in if the sump rises with no power, the airlock purge, and the recovery sequence after the all-clear |
+| **15–19** | HVAC and CBRN · water, sewage and drainage · electrical and power · EMP protection · fire and life safety, **each now a part in its own right** (PR1 carried them as five sections of one part) |
+| **21** | **Works management** — the bill section by section, the cost estimate by package and by head, the programme, the critical path, the 18 milestones, procurement, the 16 hold points, resources and risk |
+| **22** | **The environmental management plan — NEW.** No environmental management plan exists in this project; PR2 **derives** one from quantities and methods the project confirms, and names every statutory gap as `[N]` rather than inventing a consent condition |
+| **Appendix D** | Retitled **Traceability**, and now carries the conflicts, the rulings and the revision history that left the narrative |
+
+**Renumbering.** Parts 12→13, 13→14, 15→20, 17→23, 18→24, 19→25, with every cross-reference in the
+source resolved. The old Part 14 (services) became Parts 15 to 19.
+
+### H.37.4 The verification pass
+
+```
+CHECKS EXECUTED                 559        (PR1: 498)
+PASS                            553
+KNOWN / RECORDED difference       6
+UNEXPLAINED FAIL                  0
+```
+
+Three sections are new: **§21 concrete mix design** — both target mean strengths and which branch of
+IS 10262 Cl. 5.2 governs, the water content at each slump and after the admixture reduction, the
+cement from the water/cement ratio, **the resulting free w/c against the IS 456 cap and the cement
+against both the minimum and the shrinkage maximum**, the coarse aggregate fraction and its
+congestion correction, the absolute-volume closure on 1.000 m³, both aggregate masses, both fresh
+densities and both mixes by mass; and **§22 programme and cost** — the calendar span and the
+Sundays in it, the six-day working count, the activity total, the basic cost re-summed from its
+five priced parts, each part's share, and the final project cost re-derived from the seven
+percentage heads; and **§23 EMP shielding physics** — skin depth in steel at three decades and the
+thickness that alone gives 80 dB, the absorption of a 2 mm skin and the plane-wave reflection term,
+the honeycomb TE11 cutoff and its 32 L/d attenuation, the cell area, **the number of cells in a
+square metre and the array correction on them**, and the hatch leaf force and flat-plate moment at
+ν = 0.30 for steel.
+
+### H.37.5 `PR2-F1` — one new difference, recorded and NOT corrected
+
+> **The programme states 384 calendar days, a six-day working week and five date-certain national
+> holidays, and 326 working days.** A raw Monday-to-Saturday count of that span gives 330 days;
+> less five holidays, **325**. The difference is **one day**.
+>
+> **It is far more likely a property of how a scheduling tool counts a finish milestone than an
+> error**, and **no date, duration or float in this project depends on it.** It is recorded here
+> because a one-day difference reported is worth more than a one-day difference rounded into
+> agreement. **Offered to the project owner as a ruling item, not asserted as an error.**
+
+### H.37.5a `PR2-F2` — the honeycomb margin, recorded and NOT corrected
+
+> **The EMP package states a honeycomb waveguide panel margin of +53 dB.** That is the attenuation
+> of **one** 6 mm × 25 mm cell — `32 L/d` = 133.3 dB against the 80 dB requirement — with **no
+> array correction applied.**
+>
+> A panel is an array. A hexagonal 6 mm cell has an area of 31.18 mm², so **one square metre holds
+> about 32 075 cells**, and the classical `−10 log₁₀(n)` correction for `n` identical apertures in
+> one screen is **−45.1 dB**. The net is **88.3 dB**, and the margin is **+8.3 dB, not +53.**
+>
+> **The panel still PASSES.** What changes is **a procurement requirement, not a design value**:
+> require a certified attenuation curve for the panel **as built**, not for one cell. Eight
+> decibels is a margin a bad gasket eats; fifty-three is not.
+>
+> **Recorded, not corrected.** The project's +53 dB is reproduced in the report and the array term
+> is offered alongside it. **No dimension, load, thickness, bar, quantity, rate, date or float
+> moves on it.** Offered to the project owner as a ruling item.
+>
+> The same caveat already stood against the reinforcement cage figures, where the array correction
+> is likewise not applied — H.37 records it there as one of three reasons every cage figure in
+> this project is an upper bound.
+
+**`PR1-F1` and `PR1-F2` stand unchanged** (H.36), and the owner's ₹ 1 00 000 cost-summary
+difference is still reproduced on both sides as `R-14` (H.13).
+
+### H.37.6 The mix design is a trial mix, and it is tagged as one
+
+> **No mix proportion is confirmed anywhere in this project, and PR2 converts nothing.** What Part
+> 6.5 produces is a **trial mix to the IS 10262 method**, with every assumed input tagged `[A]` —
+> target slump, superplasticiser water reduction, specific gravities, grading zone, the congestion
+> reduction — and every unavailable input tagged `[N]`: the aggregate source and its grading, the
+> admixture products, the supplier's standard deviation, and the trial cubes.
+>
+> **The confirmed durability limits are the constraints it is checked against**, not results it
+> produces: M35, free w/c ≤ 0.45, minimum cement 340 kg/m³, and both are satisfied at 0.395 and
+> 400 kg/m³.
+>
+> **It lands independently on the same 400 and 360 kg/m³ the bill's procurement take-off already
+> assumes** (`M-01`). That is a **consistency check, not a confirmation** — both remain `[A]`, and
+> both are replaced the day a laboratory trial is run under QA/QC item `Q-06`.
+
+### H.37.7 The environmental management plan is derived, not reported
+
+> **No environmental management plan, environmental impact assessment, consent, clearance or
+> monitoring schedule exists in this project.** Part 22 **derives** a plan from quantities and
+> methods the project does confirm — 1 338 m³ of excavation, 994 m³ of rock broken without
+> blasting, 1 113.937 m³ re-used on site, 194.2 t of cement, 450 L/day of foul effluent, a
+> tanker-only decon stream, a 275 L bund — and **names every statutory gap rather than filling
+> it.**
+>
+> **Nothing statutory is invented.** No consent condition, limit value, discharge standard, noise
+> limit or receptor distance is stated, because none exists. The Part says so item by item, and
+> ends by saying plainly that it **is not a substitute for a construction environmental management
+> plan as a contract document.**
+>
+> One operational liability is raised there that the project had nowhere else: **spent CBRN
+> filters are hazardous waste, produced for the life of the structure, and the project holds no
+> change-out interval, no disposal route and no cost for them.**
+
+### What PR2 did NOT do
+
+**No design value, evidence tag, quantity, rate, date or float changed. No `.std` file touched and
+no analysis run. No drawing edited and no generator re-run. No open item closed, opened, narrowed
+or reclassified** — `K.1b` still holds **eighteen** open, `K.2` still holds **seven**. **No package
+artefact edited**, including the six `RC10` registers and `CONSOLIDATED_PROJECT_REPORT.md`. **No
+absent drawing or generator fabricated.** **The main staircase is untouched** — 24 risers,
+170.8333 mm riser, 280 mm tread, 3 flights × 8, total rise 4 100 mm.
+
+Evidence-tag counts in the report source moved **only upwards**, which is what adding content with
+no deletion looks like: `[C]` 94 → 124, `[R]` 22 → 25, `[A]` 55 → 72, `[U]` 4 → 7, `[N]` 30 → 73.
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -5052,6 +5317,17 @@ is still 80 drawings, 74 PASS.** **K.1b goes from seventeen open items to eighte
 | `…/Calculations/RC7_CALC_OUTPUT.txt` | **R.11 (RC7, H.31)** — the CO₂ scrubber duty recovered from the project's own 9.9 h figure, and the fan check against EL1's allowance |
 | `…/Scripts/rc4_calc.py` · `rc4_siting.py` · `rc5_calc.py` · `rc6_calc.py` · `rc7_calc.py` | The generators. Everything above is regenerated by running the five |
 | `current/staad/Underground_Shelter_ks500000.std` | **The subgrade upper bound.** Identical to the reference model but for the `ELASTIC MAT` line and four `KFY` values — verified by diff |
+
+### Added by PR1, 13 September 2026 — see H.36
+
+| Folder / file | Contents |
+|---|---|
+| **`Project Report/MASTER_PROJECT_REPORT.pdf`** | **The master project report — 89 pages, 19 parts and 4 appendices.** The project stated once and in full: the engineering science behind every decision · codes clause by clause · site and geotechnics · the complete dimensional register · materials and detailing rules · every load derived · the analysis models and what they cannot prove · **element-by-element calculations with every substitution** · the reinforcement register and quantities · drawings and drawing quality · services, CBRN, EMP and life safety · site layout, finishes and concealment · works management · **what the design does not demonstrate** · the assumption and open-item registers · **the verification performed on its own arithmetic** · notation, a clause index, reproduction instructions and a revision index |
+| `Project Report/Documentation/MASTER_PROJECT_REPORT.md` | **The report SOURCE.** Edit this, never the PDF |
+| `Project Report/Scripts/report_render.py` | Markdown-subset → PDF typesetter. Adds no content of its own |
+| **`Project Report/Scripts/report_figures.py`** | **Added by PR2 (H.37) — the 44 drawn report figures**, generated from `GEOM` / `LEV` / `COVER` in project coordinates, with the bounds checker. **NOT the issued drawings, and NOT reconstructions of the absent S-series sheets** |
+| `Project Report/Scripts/report_verify.py` | **498 independent recomputations** of the figures the report reproduces |
+| `Project Report/Calculations/REPORT_VERIFICATION_OUTPUT.txt` | Their output — **494 PASS, 4 differences, 0 unexplained** — and the two new findings `PR1-F1` and `PR1-F2`, **reported, not corrected** |
 
 ## I.3 SUPERSEDED / ARCHIVED
 

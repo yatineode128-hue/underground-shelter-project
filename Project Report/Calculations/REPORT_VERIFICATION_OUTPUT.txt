@@ -1,0 +1,746 @@
+REPORT VERIFICATION OUTPUT
+Underground CBRN-hardened blast-resistant protective structure + sentry post
+Pune, Maharashtra  .  Project Report package, revision PR1
+
+Independent recomputation of every figure the master project report
+reproduces.  Each check recomputes a value FROM ITS OWN INPUTS and
+compares it with the value the report prints.
+
+Reproduce:  python3 "Project Report/Scripts/report_verify.py"
+
+==============================================================================
+  1  BLAST LOADING AND STRUCTURAL DYNAMICS   (report Parts 2.1-2.2, 7.1)
+==============================================================================
+  DLF = mu/(mu-0.5),  mu = 5                                  1.111  vs      1.111  PASS   
+  DLF at mu = 1  (elastic step load)                          2.000  vs      2.000  PASS   
+        the expression reduces correctly at its own limit
+  design blast pressure  p_so x DLF                          383.00  vs     383.00  PASS   kPa
+  reflection coefficient  p_r / p_so                          3.963  vs      3.960  PASS   
+  50 psi expressed in kPa                                    344.74  vs     344.70  PASS   kPa
+  Ec = 5000 sqrt(fck), M35                                  29580.4  vs    29580.0  PASS   N/mm2
+  Ec = 5000 sqrt(fck), M30                                  27386.1  vs    27386.0  PASS   N/mm2
+  roof participating mass                                    3250.0  vs     3250.0  PASS   kg/m2
+  0.5 EIg of the 900 slab                                 8.985e+08  vs  8.985e+08  PASS   N.m2/m
+  roof first natural frequency                                74.89  vs      74.90  PASS   Hz
+  roof natural period T                                       13.35  vs      13.40  PASS   ms
+  t_d/T at t_d = 0.13 s                                       9.736  vs      10.00  PASS   
+  t_d/T at t_d = 1.33 s                                       99.60  vs     100.00  PASS   
+        10 to 100 -> QUASI-STATIC, the key dynamic result
+  dynamic fck,  1.25 x 35                                     43.75  vs      43.75  PASS   N/mm2
+  dynamic fy,   1.25 x 500                                   625.00  vs     625.00  PASS   N/mm2
+
+==============================================================================
+  2  ENGINEERED COVER AND THE ROOF TOTAL   (report Part 7.3, 7.4)
+==============================================================================
+  cover layer  topsoil / turf                                 5.400  vs      5.400  PASS   kPa
+  cover layer  granular filter                                2.850  vs      2.850  PASS   kPa
+  cover layer  burster slab M30                               5.000  vs      5.000  PASS   kPa
+  cover layer  crushed rubble                                 8.500  vs      8.500  PASS   kPa
+  cover layer  compacted fill                                 15.00  vs      15.00  PASS   kPa
+  cover layer  protection screed                              2.400  vs      2.400  PASS   kPa
+  sum of the six layers                                       39.15  vs      39.15  PASS   kPa
+  declared allowance held                                     1.500  vs      1.500  PASS   kPa
+  total cover thickness                                       2.000  vs      2.000  PASS   m
+  burster slab crossfall drop over the half width             62.00  vs      62.00  PASS   mm
+  COMB 103 total roof load                                   448.15  vs     448.15  PASS   kPa
+  COMB 101 static ULS on the roof                            127.73  vs     127.70  PASS   kPa
+  blast : static ratio                                        3.509  vs      3.510  PASS   
+  headhouse roof total  383 + 12.5 + 1.0                     396.50  vs     396.50  PASS   kPa
+
+==============================================================================
+  3  SOIL, WATER AND FLOTATION   (report Parts 2.5, 4.3, 7.2, 9.3)
+==============================================================================
+  submerged unit weight  gamma_sat - gamma_w                  11.19  vs      11.19  PASS   kN/m3
+  lateral gradient  K0.gamma' + gamma_w                       15.41  vs      15.41  PASS   kPa/m
+  water share of the gradient                                 63.68  vs      63.70  PASS   %
+  dry soil above the GWT,  K0.gamma.2.0 m                     20.00  vs      20.00  PASS   kPa
+  lateral pressure at the roof soffit (-)2.900                33.86  vs      33.90  PASS   kPa
+  lateral pressure at the floor (-)6.100                      83.16  vs      83.20  PASS   kPa
+  hydrostatic uplift intensity                                46.11  vs      46.11  PASS   kPa
+  mat plan area, post-M1                                     136.40  vs     136.40  PASS   m2
+  total uplift, post-M1                                      6289.0  vs     6289.0  PASS   kN
+  mat plan area, pre-M1                                      133.92  vs     133.92  PASS   m2
+  total uplift, pre-M1 (the table's basis)                   6174.6  vs     6175.0  PASS   kN
+  flotation FoS, stage 1                                     0.3253  vs     0.3250  PASS   
+  flotation FoS, stage 2                                     0.7777  vs     0.7780  PASS   
+  flotation FoS, stage 3                                      1.219  vs      1.219  PASS   
+  flotation FoS, stage 4                                      2.017  vs      2.017  PASS   
+  COMB 102 at the pre-M1 figures                              1.210  vs      1.210  PASS   
+  length scale factor 22.0 / 21.6                             1.019  vs      1.019  PASS   
+  stage-4 weight scaled to the post-M1 box                  12683.6  vs    12684.0  PASS   kN
+  COMB 102 at the post-M1 figures                             1.210  vs      1.210  PASS   
+        every FoS is unchanged by M1 -- both sides scale with length
+  net pressure removed at formation, soil term                22.03  vs      22.10  PASS   kPa
+  net pressure removed at formation, rock term               141.75  vs     141.67  PASS   kPa
+  net change in pressure at formation                       -105.38  vs    -105.37  PASS   kPa
+        the structure is LIGHTER than the ground it replaces
+  mat bearing utilisation, service, on 3240 kPa               1.802  vs      1.800  PASS   %
+  mat bearing utilisation, blast, on 3240 kPa                 12.50  vs      12.50  PASS   %
+  mat bearing utilisation, blast, on 1961 kPa soaked          20.65  vs      20.64  PASS   %
+  sentry footing bearing utilisation on 3240 kPa              4.864  vs      4.860  PASS   %
+  rock excavation at rockhead (-)0.900                       1161.1  vs     1161.1  PASS   m3
+  rock excavation at rockhead (-)1.000                       1141.4  vs     1141.4  PASS   m3
+  rock excavation at rockhead (-)1.500                       1043.0  vs     1043.0  PASS   m3
+  rock excavation at rockhead (-)1.750                       993.84  vs     993.84  PASS   m3
+  rock excavation at rockhead (-)2.000                       944.64  vs     944.64  PASS   m3
+  rock overrun, shallow rockhead vs the BOQ UPPER boun       118.08  vs     118.12  PASS   m3
+  that overrun as a percentage of the BOQ upper bound         11.32  vs      11.30  PASS   %
+  extra days at 60 m3/day                                     1.969  vs      2.000  PASS   days
+
+==============================================================================
+  4  PERIMETER WALLS W1-W4, 600 thk   (report Part 9.1)
+==============================================================================
+  effective depth d                                          517.00  vs     517.00  PASS   mm
+  Mp = w.Ln^2/16                                             245.12  vs     245.10  PASS   kNm/m
+  Mu,lim = 0.133 fck,dyn b d^2                               1555.3  vs     1556.0  PASS   kNm/m
+  T16 @ 150 area per face                                    1340.4  vs     1340.0  PASS   mm2/m
+  Mu of the section (fy,dyn 625, fck,dyn 43.75)              362.86  vs     362.80  PASS   kNm/m
+  utilisation                                                 67.55  vs      68.00  PASS   %
+  xu                                                          46.28  vs      46.30  PASS   mm
+  xu/d                                                       0.0895  vs     0.0890  PASS   
+  min vertical steel, Cl. 32.5(a)                            720.00  vs     720.00  PASS   mm2/m
+  min horizontal steel, Cl. 32.5(b)                          1200.0  vs     1200.0  PASS   mm2/m
+  IS 3370 surface zone, 0.35 % x 250                         875.00  vs     875.00  PASS   mm2/m/face
+  V at d from the support                                    414.79  vs     414.80  PASS   kN/m
+  tau_v                                                      0.8023  vs     0.8020  PASS   N/mm2
+  pt                                                         0.2593  vs     0.2590  PASS   %
+  Vus                                                        220.91  vs     220.80  PASS   kN/m
+  Asv/sv required                                            0.9823  vs     0.9820  PASS   mm2/mm
+  -> T12 2-leg spacing                                       230.27  vs     230.00  PASS   mm
+  T12 closed @ 200 supplied Asv/sv                            1.131  vs      1.131  PASS   mm2/mm
+  axial N from the roof + self                               1168.4  vs     1168.0  PASS   kN/m
+  axial stress f                                              1.947  vs      1.950  PASS   N/mm2
+  f as a fraction of 0.4 fck,dyn                              11.13  vs      11.00  PASS   %
+
+==============================================================================
+  5  WALLS W6 / W7, 400 thk -- MODIFICATION M1   (report Part 9.2)
+==============================================================================
+  d of a 200 wall                                            154.00  vs     154.00  PASS   mm
+  Mu,lim of a 200 wall                                       138.00  vs     138.00  PASS   kNm/m
+        138 < 245 demand -> NO STEEL RATIO MAKES IT WORK
+  d of the 400 wall                                          342.00  vs     342.00  PASS   mm
+  Mu,lim of the 400 wall                                     680.58  vs     680.60  PASS   kNm/m
+  T20 @ 150 area per face                                    2094.4  vs     2094.0  PASS   mm2/m
+  Mu of the 400 section                                      355.41  vs     355.30  PASS   kNm/m
+  utilisation                                                 68.97  vs      69.00  PASS   %
+  xu/d                                                       0.2114  vs     0.2110  PASS   
+  V at d                                                     481.81  vs     481.80  PASS   kN/m
+  tau_v                                                       1.409  vs      1.409  PASS   N/mm2
+  pt                                                         0.6124  vs     0.6120  PASS   %
+  Vus                                                        297.20  vs     297.20  PASS   kN/m
+  Asv/sv required                                             1.998  vs      1.998  PASS   mm2/mm
+  -> T12 4-leg spacing                                       226.45  vs     226.00  PASS   mm
+  interrupted steel over a 1200 opening                      2513.3  vs     2513.0  PASS   mm2/face
+  -> per jamb                                                1256.6  vs     1256.0  PASS   mm2
+  4-T20 provided                                             1256.6  vs     1257.0  PASS   mm2
+  header load  w = p x h/2                                   402.15  vs     402.00  PASS   kN/m
+  header M = wL^2/12                                          48.26  vs      48.20  PASS   kNm
+  header V = wL/2                                            241.29  vs     241.00  PASS   kN
+  shaft fill time V/(A.c)                                    0.0936  vs     0.0940  PASS   s
+        0.094 s against t_d 0.13-1.33 s -> the shaft EQUALISES
+
+==============================================================================
+  6  MAT FOUNDATION, 600 thk   (report Part 9.3)
+==============================================================================
+  net uplift over self weight                                 31.11  vs      31.11  PASS   kPa
+  Case 1 nominal Mp                                           48.60  vs      48.60  PASS   kNm/m
+  Case 2 red-bole band  M = qL^2/12                          303.68  vs     303.70  PASS   kNm/m
+  Mu of the mat section                                      362.86  vs     362.80  PASS   kNm/m
+  utilisation -- the governing element of the box             83.69  vs      84.00  PASS   %
+  V at d from the soft-band edge                             398.02  vs     398.00  PASS   kN/m
+  tau_v                                                      0.7699  vs     0.7700  PASS   N/mm2
+  Vus                                                        204.14  vs     204.20  PASS   kN/m
+  Asv/sv required                                            0.9077  vs     0.9080  PASS   mm2/mm
+  T12 on a 250 x 250 grid, supplied                           1.810  vs      1.810  PASS   mm2/mm
+  supplied / required                                         1.993  vs      2.000  PASS   
+
+==============================================================================
+  7  PRESSURE (ROOF) SLAB, 900 thk   (report Parts 9.4, 9.5)
+==============================================================================
+  roof aspect ratio 20.8 / 5.0                                4.160  vs      4.200  PASS   
+        Table 26 stops at 2.0, so two-way action CANNOT be claimed
+  effective depth d                                          812.50  vs     812.50  PASS   mm
+  Mp = w.Ln^2/16                                             700.23  vs     700.20  PASS   kNm/m
+  Mu,lim                                                     3841.3  vs     3841.0  PASS   kNm/m
+  T25 @ 150 area per face                                    3272.5  vs     3272.0  PASS   mm2/m
+  Mu of the roof section                                     1362.6  vs     1362.4  PASS   kNm/m
+  utilisation                                                 51.39  vs      51.00  PASS   %
+  xu                                                         112.98  vs     113.00  PASS   mm
+  xu/d -- the proof that mu = 5 is defensible                0.1391  vs     0.1390  PASS   
+  min steel Cl. 26.5.2.1, 0.12 % x 900                       1080.0  vs     1080.0  PASS   mm2/m
+  max bar dia D/8                                            112.50  vs     112.00  PASS   mm
+  V at the support face                                      1120.4  vs     1120.0  PASS   kN/m
+  V at d from the face                                       756.25  vs     756.30  PASS   kN/m
+  tau_v                                                      0.9308  vs     0.9310  PASS   N/mm2
+  pt                                                         0.4028  vs     0.4030  PASS   %
+  direct shear capacity 0.16 fck,dyn b d                     5687.5  vs     5688.0  PASS   kN/m
+  direct shear utilisation                                    19.69  vs      19.70  PASS   %
+  interrupted steel over a 1400 dia opening                  4581.5  vs     4581.0  PASS   mm2/face/dirn
+  trimmer each side                                          2290.7  vs     2291.0  PASS   mm2
+  5-T25 provided                                             2454.4  vs     2454.0  PASS   mm2
+  750 clearance rule -> minimum bay width                    2900.0  vs     2900.0  PASS   mm
+  stair-void cantilever root moment                          758.63  vs     758.60  PASS   kNm/m
+  cantilever root exceeds the midspan Mp by                   8.339  vs      8.300  PASS   %
+  cantilever root shear                                      824.60  vs     824.60  PASS   kN/m
+  tau_v at the root                                           1.015  vs      1.015  PASS   N/mm2
+  stair void area, 2800 x 3160                                8.848  vs      8.850  PASS   m2
+
+==============================================================================
+  8  HEADHOUSE   (report Parts 10.3, 10.4)
+==============================================================================
+  one-way strip moment, 4.0 m clear                          396.50  vs     396.50  PASS   kNm/m
+  effective depth d                                          415.00  vs     415.00  PASS   mm
+  Mu,lim                                                     1002.1  vs     1002.0  PASS   kNm/m
+  Mu of the roof section                                     438.54  vs     438.50  PASS   kNm/m
+  utilisation -- the highest in the project                   90.41  vs      90.00  PASS   %
+  xu/d                                                       0.1742  vs     0.1740  PASS   
+  V at d                                                     628.45  vs     628.40  PASS   kN/m
+  tau_v                                                       1.514  vs      1.514  PASS   N/mm2
+  pt                                                         0.5047  vs     0.5050  PASS   %
+  Vus                                                        420.12  vs     420.00  PASS   kN/m
+  Asv/sv required                                             2.327  vs      2.327  PASS   mm2/mm
+  -> T12 4-leg spacing                                       194.39  vs     194.00  PASS   mm
+  yield-line validation:  48/3 = the fixed-fixed strip        16.00  vs      16.00  PASS   
+        the 24-coefficient version gives 8 = simply supported -- ERR-1
+  wall moment on the 113 kPa drag basis                       40.68  vs      40.70  PASS   kNm/m
+  wall moment on the 383 kPa envelope (ADOPTED)              137.88  vs     137.90  PASS   kNm/m
+  Mu of the 400 wall section                                 235.31  vs     235.20  PASS   kNm/m
+  utilisation on the adopted basis                            58.60  vs      59.00  PASS   %
+  utilisation on the superseded basis                         17.29  vs      17.00  PASS   %
+  V at d                                                     328.61  vs     328.60  PASS   kN/m
+  tau_v                                                      0.9609  vs     0.9610  PASS   N/mm2
+  door head band depth  300 wall + 500 roof                  800.00  vs     800.00  PASS   mm
+  HW3 effective strip width 0.400 + 2 x 1.05                  2.500  vs      2.500  PASS   m
+  HW3 case 1 equivalent UDL                                  226.50  vs     226.00  PASS   kPa
+  HW3 case 1 moment                                          353.91  vs     354.00  PASS   kNm/m
+  HW3 case 1 utilisation of the slab                          25.97  vs      26.00  PASS   %
+  HW3 case 2 equivalent UDL                                  353.30  vs     353.00  PASS   kPa
+  HW3 case 2 moment                                          552.03  vs     552.00  PASS   kNm/m
+  HW3 case 2 utilisation of the slab                          40.51  vs      41.00  PASS   %
+
+==============================================================================
+  9  STAIRS   (report Parts 10.1, 10.2)
+==============================================================================
+  main stair pitch angle                                      31.39  vs      31.40  PASS   deg
+  cos of the pitch                                           0.8537  vs     0.8535  PASS   
+  waist self weight 0.200 x 25 / cos                          5.857  vs      5.858  PASS   kPa
+  steps, IS 456 Cl. 33.2                                      2.135  vs      2.135  PASS   kPa
+  total flight load                                           13.99  vs      13.99  PASS   kPa
+  wu = 1.5 x total                                            20.99  vs      21.00  PASS   kPa
+  going, 7 x 280                                             1960.0  vs     1960.0  PASS   mm
+  Leff = going + 600 + 600                                   3160.0  vs     3160.0  PASS   mm
+  M = wu.Leff^2/8                                             26.21  vs      26.20  PASS   kNm/m
+  T12 @ 150                                                  753.98  vs     754.00  PASS   mm2/m
+  Mu of the flight section (static)                           50.26  vs      50.30  PASS   kNm/m
+  utilisation                                                 52.13  vs      52.00  PASS   %
+  landing M = 44.2 x 3.0^2 / 8                                49.73  vs      49.70  PASS   kNm/m
+  T12 @ 125                                                  904.78  vs     905.00  PASS   mm2/m
+  Mu of the landing section                                   59.46  vs      59.50  PASS   kNm/m
+  utilisation                                                 83.59  vs      84.00  PASS   %
+  T12 @ 150 on the landing would be                           98.89  vs      99.00  PASS   %
+        which is why it was tightened to @ 125 -- 100 % is not a design
+  total rise closes, 24 x 170.8333                           4100.0  vs     4100.0  PASS   mm
+  riser against the NBC limit 190                             89.91  vs      89.90  PASS   %
+  entry stairwell pitch angle                                 29.05  vs      29.05  PASS   deg
+  cos of the pitch                                           0.8742  vs     0.8742  PASS   
+  waist 0.250 x 25 / cos                                      7.150  vs      7.150  PASS   kPa
+  steps                                                       2.083  vs      2.083  PASS   kPa
+  total                                                       15.23  vs      15.23  PASS   kPa
+  wu                                                          22.85  vs      22.85  PASS   kPa
+  11 goings x 300                                            3300.0  vs     3300.0  PASS   mm
+  Leff = 3300 + 750 + 750                                    4800.0  vs     4800.0  PASS   mm
+  M = wu.Leff^2/8                                             65.81  vs      65.80  PASS   kNm/m
+  T16 @ 200                                                  1005.3  vs     1005.0  PASS   mm2/m
+  Mu                                                          87.30  vs      87.30  PASS   kNm/m
+  utilisation                                                 75.37  vs      75.00  PASS   %
+  side wall pressure at base, K0.gamma.h + 0.5 surchar        34.00  vs      34.00  PASS   kPa
+  raking roof total, incl. the deliberate 20 kPa impos        33.65  vs      33.65  PASS   kPa
+  opening corner, top of the flight                          209.05  vs     209.00  PASS   deg
+        the tension face turns through an OBTUSE angle -- bars not bent
+  opening corner, foot of the flight                         150.95  vs     151.00  PASS   deg
+
+==============================================================================
+  10  ESCAPE SHAFT HEAD HATCH   (report Part 10.5)
+==============================================================================
+  total force on the leaf, 383 kPa on a 1400 dia bore        589.58  vs     589.60  PASS   kN
+  hole area in the protective boundary, each                  1.539  vs      1.540  PASS   m2
+  M = w.a^2.(3+nu)/16,  nu = 0.30 for a steel leaf            38.71  vs      38.71  PASS   kNm/m
+  V at the seating, w.a/2                                    134.05  vs     134.10  PASS   kN/m
+  flat Fe250 plate thickness required, t = sqrt(6M/sig        30.48  vs      30.50  PASS   mm
+  mass of a 1600 dia x 32 mm flat leaf                       505.07  vs     505.00  PASS   kg
+        505 kg is the POINT, not the thickness
+  ESC 1 climb from the floor                                  6.250  vs      6.250  PASS   m
+  ESC 2 climb from the floor                                  6.800  vs      6.800  PASS   m
+  ESC 1 rung pitch, 21 spaces                                297.62  vs     297.60  PASS   mm
+  ESC 2 rung pitch, 23 spaces                                295.65  vs     295.70  PASS   mm
+
+==============================================================================
+  11  SEISMIC AND WIND   (report Part 7.8)
+==============================================================================
+  Ah, underground box                                        0.0750  vs     0.0750  PASS   
+  Vb, underground box                                        1050.1  vs     1050.0  PASS   kN
+  wall shear stress from the seismic base shear              0.0506  vs     0.0630  KNOWN  N/mm2
+        RECORDED ALREADY: NOT previously recorded -- offered to the master as an observation.  BOTH values are negligible by two orders of magnitude; IS 13920 Cl. 10.4 stays untriggered and no adopted value depends on it
+  Ah, sentry post at R = 3.0                                 0.1000  vs     0.1000  PASS   
+  Ah, sentry post at R = 5.0 (not claimed)                   0.0600  vs     0.0600  PASS   
+  the R=3.0 conservatism factor                               1.667  vs      1.670  PASS   
+  Vb from the model seismic weight                            73.18  vs      73.18  PASS   kN
+  Ah returned by Vb / W                                      0.1000  vs     0.1000  PASS   
+  model storey weights sum                                   731.80  vs     731.80  PASS   kN
+  hand seismic weight                                        592.70  vs     592.70  PASS   kN
+  Vb, hand                                                    59.27  vs      59.30  PASS   kN
+  gap between model and hand                                 139.10  vs     139.10  PASS   kN
+  explained: half first-storey infill + beam depth dou       139.00  vs     139.00  PASS   kN
+  Fx per column x 4                                           73.18  vs      73.18  PASS   kN
+  Ta bare frame, 0.075 h^0.75                                0.2965  vs     0.2970  PASS   s
+  Ta with infill, X:  0.09h/sqrt(d)                          0.2812  vs     0.2810  PASS   s
+  Ta with infill, Z                                          0.2516  vs     0.2520  PASS   s
+  Vz = Vb.k1.k2.k3.k4                                         42.12  vs      42.12  PASS   m/s
+  pz = 0.6 Vz^2                                               1.064  vs      1.065  PASS   kPa
+  pd = pz.Kd.Ka.Kc                                           0.8593  vs     0.8590  PASS   kPa
+  wind force F = Cf.Ae.pd                                     29.94  vs      29.90  PASS   kN
+  seismic : wind                                              2.447  vs      2.400  PASS   
+  reflected force on the sentry post face                   36608.8  vs    36600.0  PASS   kN
+  that force in tonnes                                       3731.8  vs     3730.0  PASS   t
+  Q_roof                                                      59.51  vs      59.51  PASS   kN
+  Q_floor                                                     13.67  vs      13.67  PASS   kN
+  column shear, ground storey                                 18.30  vs      18.30  PASS   kN
+  column shear, first storey                                  14.88  vs      14.88  PASS   kN
+  column moment, ground                                       29.27  vs      29.27  PASS   kNm
+  column moment, first                                        22.69  vs      22.69  PASS   kNm
+  beam moment at the first-floor joint                        51.96  vs      51.96  PASS   kNm
+
+==============================================================================
+  12  SENTRY POST MEMBERS   (report Parts 11.2-11.7)
+==============================================================================
+  effective span lx, Cl. 22.2(a)                             3516.0  vs     3516.0  PASS   mm
+  effective span ly                                          4508.0  vs     4508.0  PASS   mm
+  ly/lx -> two-way                                            1.282  vs      1.282  PASS   
+  wu, first floor (governs)                                   11.62  vs      11.62  PASS   kPa
+  wu, roof                                                    10.12  vs      10.12  PASS   kPa
+  Mx = alpha_x.wu.lx^2                                        11.17  vs      11.17  PASS   kNm/m
+  My = alpha_y.wu.lx^2                                        8.048  vs      8.050  PASS   kNm/m
+  T8 @ 150                                                   335.10  vs     335.00  PASS   mm2/m
+  Mu_x                                                        16.10  vs      16.09  PASS   kNm/m
+  Mu_y                                                        14.93  vs      14.92  PASS   kNm/m
+  corner torsion band lx/5                                   703.20  vs     700.00  PASS   mm
+  beam effective depth                                       404.00  vs     404.00  PASS   mm
+  Mu,lim of a 250 x 450 M30 beam                             162.81  vs     162.80  PASS   kNm
+  b/D ratio against IS 13920 Cl. 6.1                         0.5556  vs     0.5560  PASS   
+  clear span / D                                              7.333  vs      7.330  PASS   
+  B1 governing combination 1.5(DL + EL)                      103.45  vs     103.50  PASS   kNm
+  4-T16                                                      804.25  vs     804.00  PASS   mm2
+  Mu of B1 top                                               122.58  vs     122.60  PASS   kNm
+  B1 utilisation                                              84.43  vs      84.00  PASS   %
+  Mu of B1 bottom, 2-T16                                      65.98  vs      66.00  PASS   kNm
+  IS 13920 Cl. 6.2.3, 50 % of the negative steel             402.00  vs     402.00  PASS   mm2
+  IS 13920 rho_min = 0.24 sqrt(fck)/fy x b d                 265.54  vs     266.00  PASS   mm2
+  IS 456 As,min = 0.85 b d / fy                              171.70  vs     172.00  PASS   mm2
+  B1 capacity-design shear                                   120.40  vs     120.40  PASS   kN
+  B1 tau_v                                                    1.192  vs      1.192  PASS   N/mm2
+  B1 EQ share of the shear                                    60.08  vs      60.00  PASS   %
+        >= 50 % -> Cl. 6.3.4, tau_c TAKEN AS ZERO in the hinge
+  B1 Asv/sv                                                  0.6851  vs     0.6850  PASS   mm2/mm
+  hinge length 2d                                            808.00  vs     810.00  PASS   mm
+  hinge hoop spacing min(d/4, 8 phi), not less than 10       101.00  vs     101.00  PASS   mm
+  B2 governing combination 1.5(DL + EL)                      124.82  vs     124.80  PASS   kNm
+  3-T20                                                      942.48  vs     942.00  PASS   mm2
+  Mu of B2 top                                               139.87  vs     139.80  PASS   kNm
+  B2 utilisation                                              89.22  vs      89.00  PASS   %
+  Mu of B2 bottom, 2-T20                                      98.97  vs      98.90  PASS   kNm
+  width needed by 5-T16 in a 250 beam                        256.00  vs     256.00  PASS   mm
+        which is why 3-T20 was chosen -- 256 > 250
+  B2 capacity-design shear                                   144.71  vs     144.70  PASS   kN
+  B2 tau_v                                                    1.433  vs      1.433  PASS   N/mm2
+  B2 EQ share -- a hair under the 50 % trigger                49.66  vs      49.70  PASS   %
+  trapezoid factor 1 - 1/(3 r^2), r = 4650/3650              0.7946  vs     0.7946  PASS   
+  peak beam intensity factor, short span / 2                  1.825  vs      1.825  PASS   m
+  column clear height                                        2750.0  vs     2750.0  PASS   mm
+  lex = 1.2 x clear height                                   3300.0  vs     3300.0  PASS   mm
+  lex/D -> short column                                       9.429  vs      9.430  PASS   
+  emin = l/500 + D/30, but not less than 20                   20.00  vs      20.00  PASS   mm
+        computed 17.2 -> the 20 mm floor governs
+  8-T16                                                      1608.5  vs     1608.0  PASS   mm2
+  p %                                                         1.313  vs      1.310  PASS   %
+  Cl. 26.5.3.1 minimum 0.8 %                                 980.00  vs     980.00  PASS   mm2
+  Puz = 0.45 fck Ac + 0.75 fy Asc                            2235.0  vs     2235.0  PASS   kN
+  Pu/Puz -> alpha_n = 1.0                                    0.1238  vs     0.1240  PASS   
+  biaxial interaction sum                                    0.8184  vs     0.8190  PASS   
+  axial 1.5(DL + EL)                                         276.79  vs     276.80  PASS   kN
+  axial 1.5(DL - EL)                                         168.41  vs     168.40  PASS   kN
+  axial 1.5(DL + LL)                                         251.25  vs     251.30  PASS   kN
+  Ash, IS 13920 Cl. 8.1                                      168.64  vs     168.50  PASS   mm2
+  Ash minimum                                                 68.85  vs      68.90  PASS   mm2
+  3 legs of T10 provided                                     235.62  vs     235.50  PASS   mm2
+  confining length requirement max(350, h/6, 450)            458.33  vs     458.30  PASS   mm
+  lo adopted (500) satisfies the requirement                  1.091  vs      1.090  PASS   
+        500 >= 458.3 -- rounded up, which is the safe direction
+  SCWB first floor X:  1.4 SigmaMb                           171.64  vs     171.60  PASS   kNm
+  SCWB first floor Z:  1.4 SigmaMb                           195.72  vs     195.70  PASS   kNm
+  SCWB roof Z:  1.4 SigmaMb                                  138.46  vs     138.50  PASS   kNm
+  drift limit, ground storey, 0.004 h                         12.80  vs      12.80  PASS   mm
+  drift limit, first storey                                   12.20  vs      12.20  PASS   mm
+  footing self weight                                         33.75  vs      33.75  PASS   kN
+  service axial                                              237.35  vs     237.40  PASS   kN
+  service eccentricity                                       0.1234  vs     0.1230  PASS   m
+  L/6 -> no tension                                          0.2500  vs     0.2500  PASS   m
+  q_max service                                              157.39  vs     157.60  PASS   kPa
+  ULS axial                                                  276.79  vs     276.80  PASS   kN
+  ULS moment                                                  43.91  vs      43.90  PASS   kNm
+  ULS eccentricity Mu/Pu                                     0.1586  vs     0.1280  KNOWN  m
+        RECORDED ALREADY: NOT previously recorded -- offered to the master.  The footing is governed by MINIMUM STEEL and by starter ANCHORAGE, so no adopted bar or dimension moves on this figure
+  q_u,max from the printed expression                        186.00  vs     190.00  KNOWN  kPa
+        RECORDED ALREADY: the printed expression evaluates to 186.0 -- same item as above
+  footing cantilever from the column face                    575.00  vs     575.00  PASS   mm
+  flexural moment on the cantilever                           31.41  vs      31.40  PASS   kNm/m
+  Cl. 26.5.2.1 minimum 0.12 % x 600 -- GOVERNS               720.00  vs     720.00  PASS   mm2/m
+  T12 @ 150 provided                                         753.98  vs     754.00  PASS   mm2/m
+  punching perimeter b0 = 4(c + d)                           3568.0  vs     3568.0  PASS   mm
+  punching shear force                                       125.62  vs     125.60  PASS   kN
+  punching tau_v                                             0.0650  vs     0.0650  PASS   N/mm2
+  punching tau_c = 0.25 sqrt(fck)                             1.369  vs      1.369  PASS   N/mm2
+  column starter Ld,compression 37 phi                       592.00  vs     592.00  PASS   mm
+  anchorage available, straight + bend                       654.00  vs     654.00  PASS   mm
+  lintel effective span min(clear + d, c/c bearings)          1.315  vs      1.315  PASS   m
+  60 deg arching height 0.866 L                               1.139  vs      1.139  PASS   m
+  lintel load w = t.gamma.h                                   4.327  vs      4.330  PASS   kN/m
+  lintel M = wL^2/8                                          0.9354  vs     0.9350  PASS   kNm
+  lintel V = wL/2                                             2.845  vs      2.850  PASS   kN
+  Mu = 1.5 M                                                  1.403  vs      1.403  PASS   kNm
+  Mu,lim of the lintel                                        10.03  vs      10.03  PASS   kNm
+  lintel utilisation                                          13.99  vs      14.00  PASS   %
+  Cl. 26.5.1.1 minimum 0.85 b d / fy -- GOVERNS               37.15  vs      37.10  PASS   mm2
+  2-T10 provided                                             157.08  vs     157.00  PASS   mm2
+  lintel tau_v                                               0.1957  vs     0.1950  PASS   N/mm2
+  brick infill line load vs the modelled 13.000               9.880  vs      9.880  PASS   kN/m
+        lighter, so the modelled value stays conservative
+  RC infill line load as modelled                             13.00  vs      13.00  PASS   kN/m
+
+==============================================================================
+  13  DEVELOPMENT, LAPS AND COVER   (report Part 6.3)
+==============================================================================
+  Ld/phi in tension, M35  (rounded UP in the register)        39.98  vs      40.00  PASS   
+  Ld/phi in compression, M35                                  31.99  vs      32.00  PASS   
+  Ld/phi in tension, M30  (rounded UP in the register)        45.31  vs      46.00  PASS   
+  Ld/phi in compression, M30                                  36.25  vs      37.00  PASS   
+  Ld for T8 in M35, 40 phi                                   320.00  vs     320.00  PASS   mm
+  Ld for T10 in M35, 40 phi                                  400.00  vs     400.00  PASS   mm
+  Ld for T12 in M35, 40 phi                                  480.00  vs     480.00  PASS   mm
+  Ld for T16 in M35, 40 phi                                  640.00  vs     640.00  PASS   mm
+  Ld for T20 in M35, 40 phi                                  800.00  vs     800.00  PASS   mm
+  Ld for T25 in M35, 40 phi                                  1000.0  vs     1000.0  PASS   mm
+  lap policy 50 phi against the 40 phi requirement            1.250  vs      1.250  PASS   
+        25 % above requirement, all laps staggered to <= 50 %
+
+==============================================================================
+  14  CBRN VENTILATION   (report Parts 2.7, 15.1)
+==============================================================================
+  gas-tight envelope floor area                               67.80  vs      67.80  PASS   m2
+  gas-tight envelope volume                                  216.96  vs     216.96  PASS   m3
+  clean zone area                                             57.80  vs      57.80  PASS   m2
+  occupied volume, airlock shut                              184.96  vs     184.96  PASS   m3
+  FEMA 453 rate, 0.25 cfm/ft2 over the clean zone            264.26  vs     264.30  PASS   m3/h
+  leakage at 0.15 vol/h                                       32.54  vs      32.50  PASS   m3/h
+  leakage as a fraction of one train                          10.85  vs      10.80  PASS   %
+  CO2 production, 9 x 0.020                                  0.1800  vs     0.1800  PASS   m3/h
+  time to 1.0 % CO2                                           9.865  vs      9.900  PASS   h
+  CO2 released over 96 h closed                               17.28  vs      17.28  PASS   m3
+  airlock volume, 5 changes of 2.0 x 2.0 x 3.2                64.00  vs      64.00  PASS   m3
+  airlock purge time at 300 m3/h                              12.80  vs      12.80  PASS   min
+  persons per hour through the airlock                        4.688  vs      4.700  PASS   
+        4-5 per hour -- a MANNING constraint, not a ventilation figure
+  DN100 throat velocity                                       10.61  vs      10.61  PASS   m/s
+  DN350 throat velocity                                       7.507  vs      7.510  PASS   m/s
+  oxygen store, 2 x 50 L at 150 bar                           15.00  vs      15.00  PASS   m3
+  oxygen endurance at 4.5 m3/day                              80.00  vs      80.00  PASS   h
+  survival rate, 5 m3/h/person                                45.00  vs      45.00  PASS   m3/h
+  working rate, 15 m3/h/person                               135.00  vs     135.00  PASS   m3/h
+  design flow per person                                      33.33  vs      33.30  PASS   m3/h
+  ACH on the whole envelope                                   1.383  vs      1.380  PASS   
+  ACH on the clean zone                                       1.622  vs      1.620  PASS   
+  ACH on the gross internal volume                           0.9014  vs     0.9000  PASS   
+        the fire strategy's governing number
+  gross internal volume                                      332.80  vs     332.80  PASS   m3
+  scrubber Q at eta 0.50, target 0.5 %                        72.00  vs      72.00  PASS   m3/h
+  scrubber Q at eta 0.80, target 0.5 %                        45.00  vs      45.00  PASS   m3/h
+  scrubber Q at eta 0.95, target 0.5 %                        37.89  vs      37.90  PASS   m3/h
+  scrubber Q at eta 0.50, target 1.0 %                        36.00  vs      36.00  PASS   m3/h
+  scrubber Q at eta 0.80, target 1.0 %                        22.50  vs      22.50  PASS   m3/h
+  scrubber Q at eta 0.95, target 1.0 %                        18.95  vs      18.90  PASS   m3/h
+  scrubber fan hydraulic power, 75 m3/h at 250 Pa             5.208  vs      5.210  PASS   W
+        the 11.6 W quoted implies a combined fan+motor efficiency of 0.45
+
+==============================================================================
+  15  THERMAL BALANCE   (report Parts 2.11, 15.2)
+==============================================================================
+  electrical load dissipated inside the envelope              5.733  vs      5.733  PASS   kW
+  occupant sensible, 9 x 70 W                                0.6300  vs     0.6300  PASS   kW
+  total sensible gain                                         6.363  vs      6.363  PASS   kW
+  heat released over 96 h                                     2.199  vs      2.199  PASS   GJ
+  thermal penetration depth sqrt(alpha.t)                    0.4360  vs     0.4360  PASS   m
+  responding concrete heat capacity, 124.3 m3             2.735e+05  vs  2.735e+05  PASS   kJ/K
+  dT from the concrete                                        8.033  vs      8.030  PASS   K
+  air-to-surface film dT, h = 3.0 W/m2K                       5.118  vs      5.120  PASS   K
+  total air temperature rise over 96 h                        13.15  vs      13.20  PASS   K
+  adiabatic air-only bound (to show it is meaningless)       8404.4  vs     8404.0  PASS   K
+  cooling duty to hold 30 C, sensible                         3.198  vs      3.200  PASS   kW
+  total mean duty incl. latent                                3.603  vs      3.600  PASS   kW
+  in tons of refrigeration                                    1.024  vs      1.020  PASS   TR
+  ventilation heat capacity rate at 300 m3/h                 0.1005  vs     0.1005  PASS   kW/K
+  dT needed to reject 6.363 kW at 300 m3/h                    63.31  vs      63.30  PASS   K
+  fraction rejected at a realistic 5 K                        7.897  vs      7.900  PASS   %
+  dT needed at 600 m3/h                                       31.66  vs      31.70  PASS   K
+  fraction rejected at 10 K and 600 m3/h                      31.59  vs      31.60  PASS   %
+
+==============================================================================
+  16  EMP   (report Parts 2.8, 18)
+==============================================================================
+  cage SE at 1e+04 Hz                                         99.99  vs      99.99  PASS   dB
+  cage SE at 1e+05 Hz                                         79.99  vs      79.99  PASS   dB
+  cage SE at 1e+06 Hz                                         59.99  vs      59.99  PASS   dB
+  cage SE at 1e+08 Hz                                         19.99  vs      19.99  PASS   dB
+  cage SE at 1e+09 Hz                                       -0.0060  vs     0.0000  PASS   dB
+  mesh cutoff c/2s                                           999.31  vs     999.31  PASS   MHz
+  highest frequency meeting 80 dB                             99.93  vs      99.93  PASS   kHz
+  wavelength at 1 GHz against 2s = 300 mm                    299.79  vs     299.79  PASS   mm
+  decades of the five that the cage meets                    0.9997  vs      1.000  PASS   
+  TE11 cutoff of a 1.400 m bore                              125.50  vs     125.50  PASS   MHz
+  TE11 cutoff of a 0.350 m bore                              502.00  vs     502.00  PASS   MHz
+  TE11 cutoff of a 0.100 m bore                              1757.0  vs     1757.0  PASS   MHz
+  TE11 cutoff of a 0.050 m bore                              3514.0  vs     3514.0  PASS   MHz
+  waveguide-below-cutoff attenuation, BV-1/2                 192.00  vs     192.00  PASS   dB
+  waveguide-below-cutoff attenuation, BV-3                   128.00  vs     128.00  PASS   dB
+  waveguide-below-cutoff attenuation, BV-4/5                  54.86  vs      54.80  PASS   dB
+  waveguide-below-cutoff attenuation, PD-05                  384.00  vs     384.00  PASS   dB
+  waveguide-below-cutoff attenuation, ESC 1 if lined          69.71  vs      69.70  PASS   dB
+  waveguide-below-cutoff attenuation, ESC 2 if lined          82.29  vs      82.30  PASS   dB
+  stair void SE at 10 kHz                                     73.52  vs      73.52  PASS   dB
+  stair void open above                                       47.44  vs      47.40  PASS   MHz
+  honeycomb cutoff, 6 mm cell                                 29.28  vs      29.30  PASS   GHz
+  honeycomb attenuation, 25 mm deep x 6 mm cell              133.33  vs     133.00  PASS   dB
+  inductance of a 600 x 25 x 3 strap                         512.20  vs     512.20  PASS   nH
+  inductance of a 100 x 50 x 3 strap                          38.93  vs      38.90  PASS   nH
+  reactance of the long strap at 100 MHz                     321.82  vs     321.80  PASS   ohm
+  reactance of the short strap at 100 MHz                     24.46  vs      24.50  PASS   ohm
+  improvement factor                                          13.16  vs      13.20  PASS   
+  one 3 m x 16 mm rod at rho = 1000                          334.93  vs     335.00  PASS   ohm
+  rods for 5 ohm, ignoring interaction                        66.99  vs      67.00  PASS   
+  equivalent radius of the structure electrode                6.589  vs      6.589  PASS   m
+  structure as an electrode, rho/4r                           37.94  vs      38.00  PASS   ohm
+  EMP Zone 2 shielded envelope area, 2.4 x 1.6 x 2.2          25.28  vs      25.28  PASS   m2
+  EMP Zone 2 seam length, 12 edges                            24.80  vs      24.80  PASS   m
+  EMP Zone 2 internal floor area, 2.3 x 1.5                   3.450  vs      3.450  PASS   m2
+  EMP Zone 2 internal volume                                  7.245  vs      7.245  PASS   m3
+
+==============================================================================
+  17  DRAINAGE AND EXTERNAL WORKS   (report Parts 16, 20.1)
+==============================================================================
+  submerged wall area, perimeter x depth                     265.08  vs     265.08  PASS   m2
+  wetted external envelope below the GWT                     401.48  vs     401.48  PASS   m2
+  seepage at 0.5 L/m2/day                                    200.50  vs     200.00  PASS   L/day
+  total collected flow                                       400.00  vs     400.00  PASS   L/day
+  that flow in L/s                                           0.0046  vs     0.0046  PASS   L/s
+  clean sump volume, 1.5 cubed                                3.375  vs      3.375  PASS   m3
+  sump storage in days                                        8.438  vs      8.440  PASS   days
+  trap seal holding pressure, 50 mm                          490.50  vs     491.00  PASS   Pa
+  trap seal holding pressure, 75 mm                          735.75  vs     736.00  PASS   Pa
+  trap seal holding pressure, 100 mm                         981.00  vs     981.00  PASS   Pa
+  75 mm seal against +100 Pa                                  7.357  vs      7.400  PASS   
+  75 mm seal against the +300 Pa test                         2.453  vs      2.500  PASS   
+  soak pit side area as drawn, pi.d.h                         21.99  vs      21.99  PASS   m2
+  shortfall against its own requirement                      -2.267  vs     -2.300  PASS   %
+  soak pit widened to 2.2 m dia                               24.19  vs      24.19  PASS   m2
+  margin after widening                                       7.512  vs      7.500  PASS   %
+  septic tank liquid volume 1.5 x 0.75 x 1.0                  1.125  vs      1.125  PASS   m3
+  septic requirement, 450 detention + 600 sludge             1050.0  vs     1050.0  PASS   L
+  septic margin                                               7.143  vs      7.100  PASS   %
+  septic L/B ratio                                            2.000  vs      2.000  PASS   
+        IS 2470 Pt 1 Cl. 6.5 requires 2 to 4
+  headhouse roof catchment                                    27.84  vs      27.84  PASS   m2
+  headhouse roof flow at 50 mm/h                             0.3867  vs     0.3870  PASS   L/s
+  stairwell roof catchment                                    13.60  vs      13.60  PASS   m2
+  engineered cover catchment                                 136.40  vs     136.40  PASS   m2
+  total structure catchment                                  177.23  vs     177.23  PASS   m2
+  total structure flow                                        2.462  vs      2.461  PASS   L/s
+  DN50 rising main velocity at 1.5 L/s                       0.7639  vs     0.7600  PASS   m/s
+
+==============================================================================
+  18  ELECTRICAL AND POWER   (report Part 17)
+==============================================================================
+  connected load, sum of the schedule                         6.256  vs      6.256  PASS   kW
+  connected load in kVA at pf 0.85                            7.360  vs      7.360  PASS   kVA
+  generator utilisation                                       49.07  vs      49.10  PASS   %
+  generator spare                                             7.640  vs      7.640  PASS   kVA
+  essential load                                              1.283  vs      1.283  PASS   kW
+  battery energy delivered over 4 h                           5.132  vs      5.130  PASS   kWh
+  battery rated energy, DoD 0.80 and inverter 0.90            7.128  vs      7.130  PASS   kWh
+  battery capacity at 48 V                                   148.50  vs     149.00  PASS   Ah
+  Case B, 48 h: rated energy                                  85.53  vs      85.56  PASS   kWh
+  Case B capacity                                            1781.9  vs     1783.0  PASS   Ah
+  Case B is larger than Case A by                             12.00  vs      12.00  PASS   
+        a cabinet against a room -- and there is nowhere to put the room
+  generator energy over 96 h at the connected load           600.58  vs     600.60  PASS   kWh
+  fuel at 0.35 L/kWh                                         210.20  vs     210.20  PASS   L
+  largest motor DOL start, ~7 x FLC at pf 0.85                2.675  vs      2.700  PASS   kVA
+        order-of-magnitude check only; the 2.7 kVA is EL1's own figure
+
+==============================================================================
+  19  QUANTITIES AND COST   (report Parts 13.6, 21.2, 21.3)
+==============================================================================
+  T8  mass = unit mass x length                               5.767  vs      5.700  PASS   kg
+  T10  mass = unit mass x length                              63.30  vs      63.30  PASS   kg
+  T12  mass = unit mass x length                            20322.5  vs    20318.3  PASS   kg
+  T16  mass = unit mass x length                            23701.9  vs    23707.1  PASS   kg
+  T20  mass = unit mass x length                            10922.2  vs    10922.8  PASS   kg
+  T25  mass = unit mass x length                            15437.8  vs    15439.4  PASS   kg
+  total reinforcement mass                                  70453.4  vs    70456.7  PASS   kg
+  unit mass check, T16 = 0.006165 d^2                         1.578  vs      1.578  PASS   kg/m
+  element-group total                                       70456.7  vs    70456.7  PASS   kg
+  in-scope concrete volume                                   369.10  vs     369.20  PASS   m3
+  average steel density                                      190.89  vs     191.00  PASS   kg/m3
+  owner's cost heads sum to the printed final             2.993e+07  vs  3.003e+07  KNOWN  INR
+        RECORDED ALREADY: master H.13 R-14 -- the estimate states Rs 3,00,33,306 and its own seven heads sum to Rs 2,99,33,306, exactly Rs 1,00,000 apart.  REPORTED, NOT CORRECTED, on both sides
+  final project cost with the rulings applied             2.979e+07  vs  2.979e+07  PASS   INR
+  difference between the two printed finals               2.424e+05  vs  2.424e+05  PASS   INR
+  the RC1 revised estimate reconciles to the rupee        2.979e+07  vs  2.979e+07  PASS   INR
+        the revised estimate has no R-14 discrepancy
+
+==============================================================================
+  20  REGISTER ARITHMETIC   (report Part 24)
+==============================================================================
+  open items: narrowed + unchanged + new                      18.00  vs      18.00  PASS   
+  register rows: open + closed + moved                        35.00  vs      35.00  PASS   
+  assumptions: closed + open                                  14.00  vs      14.00  PASS   
+  drawings: sum of the discipline counts                      80.00  vs      80.00  PASS   
+  sheet sizes: A1 + A4 + A0                                   80.00  vs      80.00  PASS   
+
+==============================================================================
+  21  CONCRETE MIX DESIGN   (report Part 6.5)
+==============================================================================
+  M35 target mean strength = max(fck+1.65s, fck+X)            43.25  vs      43.25  PASS   N/mm2
+  M30 target mean strength = max(fck+1.65s, fck+X)            38.25  vs      38.25  PASS   N/mm2
+  M35 the fck + X branch does NOT govern                      41.50  vs      41.50  PASS   N/mm2
+  M30 the fck + X branch does NOT govern                      36.50  vs      36.50  PASS   N/mm2
+  M35 water at 100 mm slump, before admixture                197.16  vs     197.20  PASS   L/m3
+  M35 water after a 20 % reduction                           157.73  vs     157.76  PASS   L/m3
+        rounded UP to 158 in the report
+  M30 water at 75 mm slump, before admixture                 191.58  vs     191.58  PASS   L/m3
+  M30 water after an 18 % reduction                          157.10  vs     157.10  PASS   L/m3
+        rounded DOWN to 157 in the report
+  M35 cement = water / (w/c) at 0.40                         395.00  vs     395.00  PASS   kg/m3
+  M35 resulting free w/c at 400 kg/m3                        0.3950  vs     0.3950  PASS   
+  M30 cement = water / (w/c) at 0.44                         356.82  vs     356.82  PASS   kg/m3
+  M30 resulting free w/c at 360 kg/m3                        0.4361  vs     0.4360  PASS   
+  M35 free w/c against the 0.45 cap                           1.000  vs      1.000  PASS   
+        PASS -- 12 % inside the cap
+  M35 cement against the 340 kg/m3 minimum                    1.000  vs      1.000  PASS   
+  M35 cement against the 450 kg/m3 shrinkage maximum          1.000  vs      1.000  PASS   
+  M30 free w/c against the 0.45 cap                           1.000  vs      1.000  PASS   
+  M30 cement against the 320 kg/m3 minimum                    1.000  vs      1.000  PASS   
+  M35 CA fraction, Table 5 corrected for w/c                 0.6410  vs     0.6410  PASS   
+  M35 CA fraction after the 10 % congestion reduction        0.5769  vs     0.5770  PASS   
+  M30 CA fraction, Table 5 corrected for w/c                 0.6328  vs     0.6330  PASS   
+  M35 volume of all-in aggregate closes on 1.000 m3           1.000  vs      1.000  PASS   m3
+  M35 coarse aggregate by absolute volume                    1149.6  vs     1149.6  PASS   kg/m3
+  M35 fine aggregate by absolute volume                      786.37  vs     786.40  PASS   kg/m3
+  M35 fresh density = cement + water + agg + admixture       2497.9  vs     2498.0  PASS   kg/m3
+  M35 mix by mass, fine / cement                              1.966  vs      1.966  PASS   
+  M35 mix by mass, coarse / cement                            2.874  vs      2.874  PASS   
+  M30 volume of all-in aggregate closes on 1.000 m3           1.000  vs      1.000  PASS   m3
+  M30 coarse aggregate by absolute volume                    1287.5  vs     1287.5  PASS   kg/m3
+  M30 fine aggregate by absolute volume                      696.54  vs     696.50  PASS   kg/m3
+  M30 fresh density = cement + water + agg + admixture       2503.9  vs     2504.0  PASS   kg/m3
+  M30 mix by mass, fine / cement                              1.935  vs      1.935  PASS   
+  M30 mix by mass, coarse / cement                            3.576  vs      3.576  PASS   
+  M35 adopted cement equals the take-off assumption          400.00  vs     400.00  PASS   kg/m3
+        the bill's [A] figure, reached independently here
+  M30 adopted cement equals the take-off assumption          360.00  vs     360.00  PASS   kg/m3
+        the bill's [A] figure, reached independently here
+
+==============================================================================
+  22  PROGRAMME AND CRITICAL PATH   (report Part 21.4)
+==============================================================================
+  calendar days from start to finish, inclusive              384.00  vs     384.00  PASS   days
+  Sundays in the 384-day span                                 54.00  vs      54.00  PASS   days
+  six-day-week working days in that span, before holid       330.00  vs     330.00  PASS   days
+  working days after the five date-certain holidays          325.00  vs     326.00  KNOWN  days
+        RECORDED ALREADY: a raw Mon-Sat count of the calendar span gives 325 against the programme's stated 326.  ONE DAY, and it is a property of the programme's own activity calendar rather than of any design value.  REPORTED, NOT CORRECTED -- no date, duration or float moves on it
+  activities = milestones + non-milestone activities         279.00  vs     279.00  PASS   
+  basic cost = sum of the five priced parts               2.422e+07  vs  2.422e+07  PASS   INR
+  part V share of the basic cost                              43.54  vs      43.50  PASS   %
+  part IV share of the basic cost                             26.15  vs      26.10  PASS   %
+  parts IV and V together                                     69.69  vs      69.60  PASS   %
+  the seven cost heads add 23.0 % to the basic cost           23.00  vs      23.00  PASS   %
+  final project cost with the rulings applied, re-deri    2.979e+07  vs  2.979e+07  PASS   INR
+        the report prints Rs 2 97 90 913 -- rounding on the heads
+
+==============================================================================
+  23  EMP SHIELDING PHYSICS   (report Parts 2.8, 18)
+==============================================================================
+  skin depth in steel at 10 kHz                              0.1125  vs     0.1125  PASS   mm
+  skin depth in steel at 1 MHz                               0.0113  vs     0.0112  PASS   mm
+  skin depth in steel at 1 GHz                               0.0004  vs     0.0004  PASS   mm
+  steel thickness giving 80 dB by absorption alone at         1.037  vs      1.040  PASS   mm
+  absorption of a 2 mm steel skin at 10 kHz                  154.36  vs     154.00  PASS   dB
+  plane-wave reflection loss at 10 kHz                        97.36  vs      97.40  PASS   dB
+  honeycomb TE11 cutoff, 6 mm cell                            29.28  vs      29.28  PASS   GHz
+  honeycomb attenuation below cutoff, one cell, 32 L/d       133.33  vs     133.30  PASS   dB
+  hexagonal cell area, 6 mm across flats                      31.18  vs      31.18  PASS   mm2
+  honeycomb cells in one square metre                       32075.0  vs    32075.0  PASS   
+  array correction -10 log10(n)                               45.06  vs      45.10  PASS   dB
+  honeycomb net attenuation with the array counted            88.27  vs      88.30  PASS   dB
+  margin over 80 dB, array counted                            8.272  vs      8.300  PASS   dB
+  honeycomb margin against the project's own stated fi        8.272  vs      53.00  KNOWN  dB
+        RECORDED ALREADY: PR2-F2.  The project states +53 dB, which is the SINGLE-CELL value with no array correction.  Counting the ~32 000 cells of a one-square-metre panel gives +8.3 dB.  The panel still PASSES;  what changes is a procurement requirement -- require a certified curve for the panel AS BUILT -- not a design value.  REPORTED, NOT CORRECTED
+  hatch leaf force at 383 kPa over a 1 400 bore              589.58  vs     589.60  PASS   kN
+  flat-plate moment, w a^2 (3 + nu) / 16 with nu = 0.3        38.71  vs      38.71  PASS   kNm/m
+
+==============================================================================
+  RESULT
+==============================================================================
+  checks executed                 559
+  PASS                            553
+  KNOWN / RECORDED difference     6
+  UNEXPLAINED FAIL                0
+
+  A PASS means the printed number follows from the printed inputs.
+  It is NOT a design check and NOT an analysis.
+
+  DIFFERENCES FOUND -- REPORTED, NEVER CORRECTED
+  --------------------------------------------------------------
+  1. wall shear stress from the seismic base shear
+     section   11  SEISMIC AND WIND   (report Part 7.8)
+     computed  0.0506        printed  0.0630
+     NOT previously recorded -- offered to the master as an observation.  BOTH values are negligible by two orders of magnitude; IS 13920 Cl. 10.4 stays untriggered and no adopted value depends on it
+
+  2. ULS eccentricity Mu/Pu
+     section   12  SENTRY POST MEMBERS   (report Parts 11.2-11.7)
+     computed  0.1586        printed  0.1280
+     NOT previously recorded -- offered to the master.  The footing is governed by MINIMUM STEEL and by starter ANCHORAGE, so no adopted bar or dimension moves on this figure
+
+  3. q_u,max from the printed expression
+     section   12  SENTRY POST MEMBERS   (report Parts 11.2-11.7)
+     computed  186.00        printed  190.00
+     the printed expression evaluates to 186.0 -- same item as above
+
+  4. owner's cost heads sum to the printed final
+     section   19  QUANTITIES AND COST   (report Parts 13.6, 21.2, 21.3)
+     computed  2.993e+07        printed  3.003e+07
+     master H.13 R-14 -- the estimate states Rs 3,00,33,306 and its own seven heads sum to Rs 2,99,33,306, exactly Rs 1,00,000 apart.  REPORTED, NOT CORRECTED, on both sides
+
+  5. working days after the five date-certain holidays
+     section   22  PROGRAMME AND CRITICAL PATH   (report Part 21.4)
+     computed  325.00        printed  326.00
+     a raw Mon-Sat count of the calendar span gives 325 against the programme's stated 326.  ONE DAY, and it is a property of the programme's own activity calendar rather than of any design value.  REPORTED, NOT CORRECTED -- no date, duration or float moves on it
+
+  6. honeycomb margin against the project's own stated figure
+     section   23  EMP SHIELDING PHYSICS   (report Parts 2.8, 18)
+     computed  8.272        printed  53.00
+     PR2-F2.  The project states +53 dB, which is the SINGLE-CELL value with no array correction.  Counting the ~32 000 cells of a one-square-metre panel gives +8.3 dB.  The panel still PASSES;  what changes is a procurement requirement -- require a certified curve for the panel AS BUILT -- not a design value.  REPORTED, NOT CORRECTED
+
+  Master rule M.11 and the project operating guide both forbid editing
+  a recorded value away.  Every difference above is an OBSERVATION
+  offered to the master, not a change, and NONE of them moves a
+  dimension, load, thickness, bar, quantity, rate, date or float.
+
+  Generated 2026-09-14 05:29 by Scripts/report_verify.py
