@@ -771,9 +771,36 @@ purge at the design flow 300 m3/h              = 12.8 min   [R]
 
 ## 2.8 EMP: why concrete and rebar are not a shield
 
-### 2.8.1 What HEMP is, and what it is not
+### 2.8.1 Where the pulse comes from
 
-A high-altitude nuclear detonation produces three distinct electromagnetic components:
+A high-altitude nuclear detonation produces no blast, no thermal pulse and no fallout at the
+ground — the burst is far above the sensible atmosphere. What reaches the ground is an
+electromagnetic field, and the mechanism that makes it is worth stating because it explains the
+shape of the requirement:
+
+```
+prompt gamma rays leave the burst and reach the upper atmosphere
+
+  -> COMPTON SCATTERING off air molecules ejects electrons forward
+     at relativistic speed, leaving a positive space charge behind
+
+  -> the geomagnetic field DEFLECTS those electrons into helical
+     paths, which turns a radial current into a TRANSVERSE one
+
+  -> a transverse current sheet radiates.  The source region is
+     a shell tens of kilometres thick and hundreds of kilometres
+     across, so the ground sees a nearly PLANE WAVE arriving over
+     an enormous footprint at essentially the same instant
+```
+
+**Two consequences follow, and both are structural.** The gamma flux is deposited in a few
+nanoseconds, so the radiated field rises in a few nanoseconds — which puts energy at frequencies
+up to the order of a gigahertz. And because the source is a sheet hundreds of kilometres across,
+**there is no "far side of the building": every face is illuminated, every cable is illuminated,
+and the field does not fall off with distance in any way a designer can use.**
+
+A high-altitude detonation therefore produces three distinct components, separated in time by
+orders of magnitude:
 
 | Component | Time scale | What it couples to |
 |---|---|---|
@@ -786,12 +813,86 @@ A high-altitude nuclear detonation produces three distinct electromagnetic compo
 > protects equipment. That is why the answer is an enclosure and not a room, and why nobody should
 > expect to shelter inside it.
 
-### 2.8.2 The requirement, and the aperture arithmetic that defeats the concrete
+### 2.8.2 The three ways in, and the one that decides the answer
+
+A shielded volume can be entered in exactly three ways, and no others:
+
+| Path | Physics | How it is beaten |
+|---|---|---|
+| **Aperture coupling** | Field leaks through every hole in the shield. A regular array of holes behaves as a **high-pass filter** | Make the holes small relative to a wavelength, or terminate them |
+| **Diffusion through the metal** | Field penetrates the skin itself, attenuated by **skin depth** | Trivially beaten: about **1 mm of steel** is 80 dB at the hardest frequency in the band |
+| **Conducted penetration** | Every cable, pipe, duct and shaft you **deliberately** put through the boundary carries current straight across it | A treatment **at the boundary** for every single one — and there is no other answer |
+
+<!-- FIG: fig_emp_coupling -->
+
+> **Diffusion is never the limit and conducted penetration almost always is.** That single
+> sentence is why an EMP design is a **schedule of points of entry** rather than a statement of a
+> thickness, why the penetration register of Part 18.4 is the longest table in that Part, and why
+> the fibre-optic signal route is described there as the bargain of the whole package: a
+> dielectric that crosses the boundary is not a penetration at all.
+
+### 2.8.3 Why the requirement has the shape it has
 
 ```
-REQUIREMENT   MIL-STD-188-125-1:  80 dB, 10 kHz to 1 GHz    [C]
-              that is FIVE DECADES of frequency
+MIL-STD-188-125-1:   80 dB, 10 kHz to 1 GHz        [C]
 ```
+
+**The lower end is set by E3 and the upper end by E1.** E3 is a seconds-long, quasi-DC
+disturbance that couples into anything long — a buried cable run, a pipeline, a power feeder — so
+the standard has to reach down to where those behave as antennas. E1 rises in nanoseconds, which
+puts useful spectral content up to roughly a gigahertz, and above that there is little left to
+shield against. **The 80 dB is not a physical constant; it is an engineering judgement about how
+much margin a piece of equipment needs between the incident field and its own damage threshold,
+made once, in a standard, so that every installation does not have to make it again.**
+
+> **This project designs to the 80 dB performance requirement and to nothing else.** It holds no
+> incident field strength, no waveform, and no E1/E2/E3 decomposition `[N]` — and **it needs
+> none.** A performance requirement stated in decibels over a band can be met, and verified, from
+> the geometry alone. That is a considerable practical advantage and it is the reason the
+> shielding work in this project could be done at all.
+
+### 2.8.4 A solid shield, and why its panel is never the problem
+
+For a **solid** metallic shield the classical treatment is Schelkunoff's, which separates the
+loss into three physically distinct terms:
+
+```
+SE  =  A  +  R  +  B          decibels
+
+A   ABSORPTION       the field decays exponentially inside the metal
+                     A = 8.686 t / delta        delta = skin depth
+                     delta = 1 / sqrt( pi f mu sigma )
+R   REFLECTION       the impedance mismatch at each metal face
+                     R = 168 - 10 log10( f mu_r / sigma_r )   plane wave
+B   MULTIPLE         a correction, negligible once A > about 15 dB
+    REFLECTION
+```
+
+For low-carbon steel — `σ` = 1.0 × 10⁷ S/m and `μ_r` = 200, both `[A]`:
+
+| Frequency | Skin depth `δ` | Steel thickness giving **80 dB by absorption alone** | `A` for a 2 mm skin |
+|---|---|---|---|
+| **10 kHz** | 0.1125 mm | **1.04 mm** | **154 dB** |
+| 1 MHz | 0.0113 mm | 0.104 mm | 1 544 dB |
+| 1 GHz | 0.00036 mm | 0.0033 mm | 48 814 dB |
+
+Add the plane-wave reflection term — **97 dB at 10 kHz** for the same steel — and a 2 mm skin is
+a quarter of a *thousand* decibels at the worst frequency in the band.
+
+<!-- FIG: fig_shielding_terms -->
+
+> **The numbers are absurd, and that is the finding.** No real enclosure measures 250 dB. **The
+> panel is never what limits a shielded room** — what limits it is the door, the seams, and every
+> conductor that crosses. This is exactly why Part 18.5 treats the **24.8 m of seam** as the risk
+> and the 25.28 m² of panel as an irrelevance, and why the acceptance test is a survey of joints
+> rather than a measurement of steel.
+>
+> **And it is why a mesh is a completely different animal from a skin.** A mesh has no absorption
+> term worth the name; its performance is *entirely* aperture leakage, and aperture leakage gets
+> worse with frequency at a fixed 20 dB per decade. **The two curves cross, and the architecture
+> of this design is a consequence of where they cross.**
+
+### 2.8.5 The aperture arithmetic that defeats the concrete
 
 A conducting screen pierced by a regular array of apertures behaves as a high-pass filter. For
 apertures of pitch `s` the classical single-aperture estimate is
@@ -823,11 +924,28 @@ ways** — itself an EMP requirement, stricter than IS 456 Cl. 26.3.3 needs:
 > long conductors, lives at the bottom of the band where the cage is strongest, and 99.99 dB at
 > 10 kHz is not nothing.
 
+**Three further reasons the cage figure is an upper bound, and every one of them is real:**
+
+1. **The array correction is not applied.** The classical `−10 log₁₀(n)` term for `n` identical
+   apertures in one screen is omitted throughout. For a screen with thousands of openings that is
+   not a small omission — Part 18.4 works it through for the honeycomb panel, where it turns a
+   +53 dB margin into **+8.3 dB**.
+2. **The crossings are tied, not welded** — and **whether they are tied or welded is itself `[N]`
+   in this project.** A shield made of bars in electrical contact only through a wire tie has a
+   contact resistance at every node that no aperture formula knows about, and the contact
+   degrades with corrosion over the life of the structure.
+3. **No absorption is credited to the concrete.** That is conservative and is the right way round,
+   but it means the quoted figures are the mesh alone.
+
+> **A measured cage will therefore be worse than the calculation — possibly much worse.** Which
+> is the third independent reason the Zone 2 enclosure is designed to the full requirement
+> standing alone.
+
 **The second, independent reason** is simply the holes: a 900 mm slab with a **2 800 × 3 160
 stair void** in it — 8.85 m² — is not a shield at any frequency, and neither are two 1 400 mm
 escape shafts.
 
-### 2.8.3 Waveguide below cutoff — the one place geometry works for you
+### 2.8.6 Waveguide below cutoff — the one place geometry works for you
 
 A conducting tube of diameter `d` will not propagate below its TE11 cutoff:
 
@@ -863,7 +981,7 @@ attenuator. This is why a small pipe through a thick wall is not a problem and a
 > The treatment that works is a **bonded conducting hatch at the head**, which *terminates* the
 > shaft instead of trying to attenuate down it.
 
-### 2.8.4 Bonding inductance — where EMP design actually lives
+### 2.8.7 Bonding inductance — where EMP design actually lives
 
 A bond strap is not a resistor; at EMP frequencies it is an inductor, and its impedance rises
 linearly with frequency:
@@ -888,7 +1006,7 @@ X = 2.pi.f.L
 > and **the shield bonds to the structure at ONE place**, because a second bond is a loop and a
 > loop is an antenna.
 
-### 2.8.5 Earthing — and why 5 Ω is the wrong target to chase
+### 2.8.8 Earthing — and why 5 Ω is the wrong target to chase
 
 | Electrode | ρ = 1 000 Ω·m | ρ = 10 000 Ω·m |
 |---|---|---|
@@ -1097,6 +1215,8 @@ reader who does not have it cannot correctly weigh anything in Parts 7 to 11.
 | **EN 1822** | HEPA classification | H14, ≥ 99.995 % at MPPS |
 | **Glasstone & Dolan** | Weapons effects | Unclassified, public — blast and radiation data only |
 | **Biggs**, *Structural Dynamics* | SDOF method | Referenced for the **Phase 3** support-rotation check |
+
+<!-- FIG: fig_code_hierarchy -->
 
 ## 3.3 Codes named by title only
 
@@ -1847,7 +1967,7 @@ the same time.
 >
 > **And the 150 mm bar spacing is an EMP decision, recorded as one.** It is stricter than IS 456
 > needs and it is carried in the master, in the structural CAD package, in eight bar bending
-> schedules and on the drawings. Part 2.8.2 is the arithmetic behind it, and it is the reason the
+> schedules and on the drawings. Part 2.8.5 is the arithmetic behind it, and it is the reason the
 > cage gives 99.99 dB at 10 kHz.
 
 ## 6.3 Development and lap lengths — IS 456 Cl. 26.2.1
@@ -1910,7 +2030,7 @@ strategy, and four rules follow from it:
 > by the staged construction sequence, not by pressure relief. **The only temporary relief
 > permitted is the six construction-stage knock-out plugs**, grouted after backfill (Part 9.3).
 
-## 6.5 Concrete mix design — M35 and M30
+## 6.5 Concrete mix design — M35 and M30 to IS 10262:2019
 
 ### 6.5.1 What this section is, and what it is not
 
@@ -1920,69 +2040,96 @@ M35 are confirmed too — free water/cement ratio **not greater than 0.45**, min
 **340 kg/m³**, from IS 456 Table 5 at very severe exposure.
 
 **The mix proportions are not confirmed anywhere in this project, and nothing below turns them
-into confirmed values.** What follows is a **trial mix design to the IS 10262:2019 method**,
-carried far enough to (a) show that the confirmed durability limits are achievable, (b) produce a
-defensible batch weight for the procurement quantities in Part 21, and (c) state precisely which
-inputs a laboratory has to supply before any of it can be used.
+into confirmed values.** What follows is worked through **the IS 10262:2019 Annex A procedure, in
+its own step order**, so that a reader can check each step against the code rather than against a
+result.
+
+<!-- FIG: fig_mix_steps -->
 
 > **Every mix design is a design against materials you have in your hand.** This one is against
 > materials nobody has yet seen: there is no aggregate source, no grading curve, no specific
 > gravity, no water absorption, no admixture product and no supplier standard deviation anywhere
-> in the project. **Each of those is `[N]`.** The proportions below are therefore a *starting
-> point for trial batching*, which is exactly what IS 10262 calls them, and **QA/QC hold point
-> Q-06 is where they are replaced by real ones.**
+> in the project. **Each of those is `[N]`.** Steps A-1 to A-10 therefore produce a **starting
+> point for trial batching**, which is exactly what the code calls it, and **A-11 is where a
+> laboratory replaces it.** QA/QC hold point `Q-06` is that moment.
 
-### 6.5.2 Target mean strength
+---
 
-IS 10262:2019 Cl. 5.2 takes the **greater** of two expressions, and for these grades the first
-governs:
+### 6.5.2 A-1 · Stipulations for proportioning
 
-```
-f'ck  =  fck + 1.65 s          s from IS 10262 Table 2
-f'ck  =  fck + X               X from IS 10262 Table 1
+| | **M35** | **M30** |
+|---|---|---|
+| (a) Grade designation | **M35** `[C]` | **M30** `[C]` |
+| (b) Type of cement | OPC 43 grade, IS 269 `[C]` | OPC 43 grade, IS 269 `[C]` |
+| (c) Maximum nominal size of aggregate | **20 mm** `[A]` | **20 mm** `[A]` |
+| (d) Minimum cement content | **340 kg/m³** — IS 456 Table 5, very severe `[C]` | **320 kg/m³** — IS 456 Table 5, severe `[C]` |
+| (e) Maximum free water/cement ratio | **0.45** — IS 456 Table 5 `[C]` | **0.45** `[C]` |
+| (f) Workability | **100 mm slump** `[A]` | **75 mm slump** `[A]` |
+| (g) Exposure condition | **Very severe** — permanently below the design water table `[C]` | **Severe** — the burster slab sits inside the engineered cover `[C]` |
+| (h) Method of placing | **Pumped into a congested cage; two single continuous pours** `[C]` | Ordinary RC members `[C]` |
+| (i) Degree of supervision | Good — 16 hold points and 42 ITP items (Part 21.6) `[C]` | Good `[C]` |
+| (j) Type of aggregate | **Crushed angular** (basalt) `[A]` | Crushed angular `[A]` |
+| (k) Maximum cement content | **450 kg/m³** — IS 456 Cl. 8.2.4.2, shrinkage `[C]` | 450 kg/m³ `[C]` |
+| (l) Chemical admixture | **Superplasticiser + integral crystalline waterproofing** `[C]`/`[N]` | Superplasticiser `[A]` |
 
-M35   s = 5.0  X = 6.5
-      35 + 1.65 x 5.0 = 43.25        35 + 6.5 = 41.50
-      TARGET = 43.25 N/mm2                                GOVERNS
+> **Stipulation (h) is the one that earns its place.** The pressure slab carries **T25 at 150
+> centres in both directions in both curtains**, plus T12 four-leg links at 250 over the end
+> 1 500, and it is cast in **one continuous pour of 112 m³**. That is why the M35 slump is 100 mm
+> and not 75: a stiffer mix in that cage is a honeycombing risk on the one element in the project
+> that is 51 % utilised in flexure and **can never be inspected or repaired from the outside.**
 
-M30   s = 5.0  X = 6.5
-      30 + 1.65 x 5.0 = 38.25        30 + 6.5 = 36.50
-      TARGET = 38.25 N/mm2                                GOVERNS
-```
+### 6.5.3 A-2 · Test data for materials
+
+| | Value | Class |
+|---|---|---|
+| Cement used | OPC 43 grade to IS 269 | `[C]` |
+| Specific gravity of cement | **3.15** | `[A]` |
+| Specific gravity of coarse aggregate | **2.84** — basalt | `[A]` |
+| Specific gravity of fine aggregate | **2.65** | `[A]` |
+| Specific gravity of chemical admixture | 1.145 | `[A]` |
+| Water absorption, coarse and fine aggregate | — | **`[N]`** |
+| Free surface moisture, coarse and fine aggregate | — | **`[N]`** |
+| Sieve analysis, coarse aggregate | Conforming to IS 383 for 20 mm graded | `[A]` |
+| Sieve analysis, fine aggregate | **Grading zone II**, IS 383 | `[A]` |
+| **Standard deviation `s`** | **5.0 N/mm²** — IS 10262 Table 2 | `[A]` |
 
 > **`s` = 5.0 is a table value standing in for a measurement.** IS 10262 Table 2 is explicit that
-> the tabulated standard deviation applies **until enough results exist from the actual plant**,
-> at which point the real value replaces it. On this project no plant has been appointed, so the
-> table value is all there is. **If the appointed supplier's `s` is worse than 5.0, the target
-> strength rises and the mix changes.** That is a procurement condition, not a footnote.
+> the tabulated standard deviation applies **only until enough results exist from the actual
+> plant**, at which point the real value replaces it. No plant has been appointed on this project,
+> so the table value is all there is. **If the appointed supplier's `s` is worse than 5.0, the
+> target strength rises and the mix changes.** That is a procurement condition, not a footnote.
 
-### 6.5.3 Water content and the water/cement ratio
+### 6.5.4 A-3 · Target strength for mix proportioning
 
-IS 10262:2019 Table 4 gives the maximum water content for a **50 mm slump** with angular coarse
-aggregate: **186 L/m³ at 20 mm nominal maximum size**. The correction is **+3 % for each 25 mm of
-slump above 50**.
+IS 10262:2019 Cl. 5.2 takes the **greater** of two expressions:
 
 ```
-M35   nominal max aggregate size 20 mm                         [A]
-      target slump 100 mm  -- a 900 slab and 600 walls with
-      BOTH CURTAINS AT 150 CENTRES EACH WAY;  75 cover to the
-      bottom curtain;  and two SINGLE CONTINUOUS POURS         [A]
-      186 x (1 + 0.03 x 50/25)     = 197.2 L/m3
-      superplasticiser, 20 % water reduction                   [A]
-      197.2 x 0.80                 = 157.8  ->  ADOPT 158 L/m3
+f'ck  =  fck + 1.65 s          s   from IS 10262 Table 2
+f'ck  =  fck + X               X   from IS 10262 Table 1
 
-      w/c adopted 0.40  (cap 0.45)                             [A]
-      cement = 158 / 0.40          = 395.0 kg/m3
-      ADOPT 400 kg/m3              -> resulting free w/c 0.395
+M35   s = 5.0   X = 6.5
+      35 + 1.65 x 5.0  = 43.25        35 + 6.5 = 41.50
+      TARGET MEAN STRENGTH = 43.25 N/mm2                 <- GOVERNS
 
-M30   target slump 75 mm                                       [A]
-      186 x (1 + 0.03 x 25/25)     = 191.6 L/m3
-      superplasticiser, 18 % water reduction                   [A]
-      191.6 x 0.82                 = 157.1  ->  ADOPT 157 L/m3
+M30   s = 5.0   X = 6.5
+      30 + 1.65 x 5.0  = 38.25        30 + 6.5 = 36.50
+      TARGET MEAN STRENGTH = 38.25 N/mm2                 <- GOVERNS
+```
 
-      w/c adopted 0.44  (cap 0.45)                             [A]
-      cement = 157 / 0.44          = 356.8 kg/m3
-      ADOPT 360 kg/m3              -> resulting free w/c 0.436
+### 6.5.5 A-4 · Approximate air content
+
+IS 10262:2019 Table 3, entrapped air for 20 mm nominal maximum size aggregate: **1.0 per cent**,
+for both grades. No air-entraining agent is used and none is required — this is not a freeze-thaw
+exposure.
+
+### 6.5.6 A-5 · Selection of water/cement ratio
+
+```
+M35   maximum permitted, IS 456 Table 5, very severe    = 0.45
+      ADOPTED                                           = 0.40     [A]
+
+M30   maximum permitted, IS 456 Table 5, severe         = 0.45
+      ADOPTED                                           = 0.44     [A]
 ```
 
 **Why the M35 goes to 0.40 when the code cap is 0.45.** Three reasons, and none of them is
@@ -1995,92 +2142,196 @@ conservatism for its own sake:
    growing in a dense, low-permeability matrix.** A wetter mix is a worse host for the chemistry
    the tanking depends on.
 3. **The 5 mm cover reduction IS 456 Table 16 permits for M35 and above is deliberately refused**
-   (6.2). Refusing the cover bonus and taking the w/c margin is one consistent position about a
-   structure whose external face can never be inspected again.
+   (Part 6.2). Refusing the cover bonus and taking the w/c margin is **one consistent position**
+   about a structure whose external face can never be inspected again.
 
-**Why the M35 slump is 100 mm.** The pressure slab carries T25 at 150 centres in both directions
-in **both** curtains, plus T12 four-leg links at 250 over the end 1 500, and it is cast in **one
-continuous pour of 112 m³**. A 75 mm slump mix in that cage is a honeycombing risk on the one
-element in the project that is 51 % utilised in flexure and cannot be repaired from the outside.
+### 6.5.7 A-6 · Selection of water content
 
-### 6.5.4 Proportioning by absolute volume
+IS 10262:2019 Table 4 gives the maximum water content for a **50 mm slump** with angular coarse
+aggregate: **186 L/m³ at 20 mm nominal maximum size.** The code's correction is **+3 per cent for
+each 25 mm of slump above 50.**
+
+```
+M35   target slump 100 mm  ->  +3 % x (100-50)/25 = +6 %
+      186 x 1.06                                       = 197.16 L/m3
+      superplasticiser, water reduction 20 %      [A]
+      197.16 x 0.80                                    = 157.73
+      ADOPTED                                          = 158 L/m3
+
+M30   target slump 75 mm   ->  +3 % x (75-50)/25  = +3 %
+      186 x 1.03                                       = 191.58 L/m3
+      superplasticiser, water reduction 18 %      [A]
+      191.58 x 0.82                                    = 157.10
+      ADOPTED                                          = 157 L/m3
+```
+
+> **A 20 per cent water reduction is inside the ordinary range for a polycarbonate-ether
+> superplasticiser and it is still an assumption.** No product is specified anywhere in the
+> project, so the reduction is `[A]` and the trial mix is what confirms it. **If the admixture
+> delivers less, the water rises and the cement rises with it to hold the water/cement ratio** —
+> the ratio is the constraint, not the cement content.
+
+### 6.5.8 A-7 · Calculation of cement content
+
+```
+M35   cement = water / (w/c) = 158 / 0.40             = 395.0 kg/m3
+      ADOPTED                                         = 400 kg/m3
+      resulting free w/c = 158 / 400                  = 0.395
+
+      CHECK  400 >= 340 minimum      IS 456 Table 5     PASS
+             400 <= 450 maximum      IS 456 Cl 8.2.4.2  PASS
+             0.395 <= 0.45 cap       IS 456 Table 5     PASS, 12 % inside
+
+M30   cement = 157 / 0.44                             = 356.8 kg/m3
+      ADOPTED                                         = 360 kg/m3
+      resulting free w/c = 157 / 360                  = 0.436
+
+      CHECK  360 >= 320 minimum                         PASS
+             360 <= 450 maximum                         PASS
+             0.436 <= 0.45 cap                          PASS
+```
+
+### 6.5.9 A-8 · Proportion of volume of coarse aggregate and fine aggregate content
 
 IS 10262:2019 Table 5 gives the volume of coarse aggregate per unit volume of total aggregate for
-**20 mm nominal size with zone II fine aggregate: 0.62 at w/c 0.50**, corrected **+0.01 for each
-0.05 the w/c falls below 0.50**.
+**20 mm nominal maximum size with grading zone II fine aggregate: 0.62 at a water/cement ratio of
+0.50**, corrected **+0.01 for each 0.05 the water/cement ratio falls below 0.50.**
 
 ```
-M35   w/c 0.395  ->  0.62 + 0.01 x (0.50-0.395)/0.05      = 0.641
-      IS 10262 Cl. 5.5.1, reduce 10 % for congested /
-      pumpable concrete -- and this cage is congested     = 0.577
-      fine aggregate fraction                            = 0.423
+M35   w/c 0.395 -> 0.62 + 0.01 x (0.50 - 0.395)/0.05  = 0.641
+      IS 10262 Cl. 5.5.1 -- reduce by 10 % for pumped
+      or congested concrete, AND THIS CAGE IS CONGESTED
+      0.641 x 0.90                                    = 0.577
+      fine aggregate volume fraction  1 - 0.577       = 0.423
 
-M30   w/c 0.436  ->  0.62 + 0.01 x (0.50-0.436)/0.05      = 0.633
-      no congestion reduction -- ordinary RC members      = 0.633
-      fine aggregate fraction                            = 0.367
-
-ASSUMED SPECIFIC GRAVITIES                                        [A]
-      cement 3.15   coarse aggregate 2.84 (basalt)   fine 2.65
-      entrapped air 1.0 % at 20 mm nominal size, IS 10262 Table 3
-      superplasticiser SG 1.145, dosed on cement mass
+M30   w/c 0.436 -> 0.62 + 0.01 x (0.50 - 0.436)/0.05  = 0.633
+      no congestion reduction -- ordinary RC members  = 0.633
+      fine aggregate volume fraction                  = 0.367
 ```
+
+### 6.5.10 A-9 · Mix calculations, by absolute volume
 
 **M35, one cubic metre:**
 
 ```
-volume of cement      400 / (3.15 x 1000)                 = 0.12698 m3
-volume of water       158 / 1000                          = 0.15800
-volume of admixture   4.00 / (1.145 x 1000)   1.0 % [A]   = 0.00349
-volume of entrapped air                                   = 0.01000
-                                                            -------
-volume of all-in aggregate  1 - 0.29847                   = 0.70153
+a)  volume of concrete                                  = 1.00000 m3
+b)  volume of cement     400 / (3.15 x 1000)            = 0.12698
+c)  volume of water      158 / (1.00 x 1000)            = 0.15800
+d)  volume of admixture  4.00 / (1.145 x 1000)
+        dosed at 1.0 % by mass of cement          [A]   = 0.00349
+e)  volume of entrapped air, 1.0 %                      = 0.01000
+                                                          -------
+f)  volume of all-in aggregate  = a - (b+c+d+e)
+                                = 1 - 0.29847           = 0.70153 m3
 
-coarse  0.70153 x 0.577 x 2.84 x 1000                     = 1149.6 kg
-fine    0.70153 x 0.423 x 2.65 x 1000                     =  786.4 kg
+g)  mass of coarse aggregate = f x 0.577 x 2.84 x 1000  = 1149.6 kg
+h)  mass of fine aggregate   = f x 0.423 x 2.65 x 1000  =  786.4 kg
 
-MIX BY MASS   1 : 1.966 : 2.874   at free w/c 0.395
-BATCH  cement 400  .  fine 786.4  .  coarse 1149.6  .  water 158
-       .  admixture 4.00        =  2498 kg/m3 fresh density
+    FRESH DENSITY  400 + 158 + 1149.6 + 786.4 + 4.00    = 2498.0 kg/m3
 ```
 
 **M30, one cubic metre:**
 
 ```
-volume of cement      360 / (3.15 x 1000)                 = 0.11429 m3
-volume of water       157 / 1000                          = 0.15700
-volume of admixture   2.88 / (1.145 x 1000)   0.8 % [A]   = 0.00252
-volume of entrapped air                                   = 0.01000
-                                                            -------
-volume of all-in aggregate  1 - 0.28380                   = 0.71620
+a)  volume of concrete                                  = 1.00000 m3
+b)  volume of cement     360 / (3.15 x 1000)            = 0.11429
+c)  volume of water      157 / (1.00 x 1000)            = 0.15700
+d)  volume of admixture  2.88 / (1.145 x 1000)
+        dosed at 0.8 % by mass of cement          [A]   = 0.00252
+e)  volume of entrapped air, 1.0 %                      = 0.01000
+                                                          -------
+f)  volume of all-in aggregate  = 1 - 0.28380           = 0.71620 m3
 
-coarse  0.71620 x 0.633 x 2.84 x 1000                     = 1287.5 kg
-fine    0.71620 x 0.367 x 2.65 x 1000                     =  696.5 kg
+g)  mass of coarse aggregate = f x 0.633 x 2.84 x 1000  = 1287.5 kg
+h)  mass of fine aggregate   = f x 0.367 x 2.65 x 1000  =  696.5 kg
 
-MIX BY MASS   1 : 1.935 : 3.576   at free w/c 0.436
-BATCH  cement 360  .  fine 696.5  .  coarse 1287.5  .  water 157
-       .  admixture 2.88        =  2504 kg/m3 fresh density
+    FRESH DENSITY  360 + 157 + 1287.5 + 696.5 + 2.88    = 2503.9 kg/m3
 ```
+
+### 6.5.11 A-10 · Mix proportions for trial number 1
+
+| Per cubic metre | **M35** | **M30** |
+|---|---|---|
+| Cement, OPC 43 | **400 kg** | **360 kg** |
+| Water | **158 L** | **157 L** |
+| Fine aggregate, zone II | **786.4 kg** | **696.5 kg** |
+| Coarse aggregate, 20 mm graded | **1 149.6 kg** | **1 287.5 kg** |
+| Chemical admixture | 4.00 kg (1.0 %) | 2.88 kg (0.8 %) |
+| **Free water/cement ratio** | **0.395** | **0.436** |
+| **MIX BY MASS** | **1 : 1.966 : 2.874** | **1 : 1.935 : 3.576** |
+| Fresh density | 2 498 kg/m³ | 2 504 kg/m³ |
 
 <!-- FIG: fig_mix_proportions -->
 
-### 6.5.5 The checks the design has to pass, and does
+**The coarse aggregate as two fractions.** IS 383 graded 20 mm is normally supplied and batched as
+20 mm and 10 mm single sizes. At an assumed **60 : 40** split `[A]`:
+
+| | **M35** | **M30** |
+|---|---|---|
+| 20 mm fraction | 689.8 kg | 772.5 kg |
+| 10 mm fraction | 459.8 kg | 515.0 kg |
+
+**Batching by the bag**, which is how it is actually issued on site:
+
+| | **M35** — 8.0 bags/m³ | **M30** — 7.2 bags/m³ |
+|---|---|---|
+| Cement | 1 bag = **50 kg** | 1 bag = **50 kg** |
+| Fine aggregate | **98.3 kg** | **96.7 kg** |
+| Coarse aggregate | **143.7 kg** | **178.8 kg** |
+| Water | **19.75 L** | **21.81 L** |
+| Admixture | 0.500 kg | 0.400 kg |
+
+### 6.5.12 A-11 · Trial mixes, corrections and the checks that close it
+
+**All the aggregate masses above are on a saturated surface-dry basis.** On site they never are,
+and the correction is the step most often skipped:
+
+```
+WATER ACTUALLY ADDED  =  free water
+                       - free surface moisture carried by the aggregate
+                       + water the aggregate will absorb to reach SSD
+
+AGGREGATE ACTUALLY BATCHED  =  SSD mass, adjusted for the same terms
+```
+
+> **Both correction terms are `[N]` in this project** — no water absorption and no free-moisture
+> figure exists for an aggregate nobody has yet sourced. **The correction is therefore stated as a
+> procedure, not performed**, and it is performed on the day by the batching plant against the
+> day's moisture test. **A mix batched on nominal aggregate moisture is not the mix designed
+> above.**
+
+**The checks the design has to pass, and does:**
 
 | Check | Requirement | M35 | M30 |
 |---|---|---|---|
-| Free water/cement ratio | **≤ 0.45** (IS 456 Table 5, very severe) | **0.395** PASS | **0.436** PASS |
-| Minimum cement content | **≥ 340 kg/m³** M35 · ≥ 320 M30 | **400** PASS | **360** PASS |
-| Maximum cement content | ≤ 450 kg/m³ (IS 456 Cl. 8.2.4.2, shrinkage) | **400** PASS | **360** PASS |
-| Grade against exposure | M35 minimum, very severe | **M35** PASS | M30 for above-ground work |
-| Fresh density | plausible 2 400 – 2 550 kg/m³ | **2 498** | **2 504** |
-| Agreement with the procurement take-off | 400 / 360 kg/m³ assumed in Part 21 | **exact** | **exact** |
+| Free water/cement ratio | ≤ 0.45, IS 456 Table 5 | **0.395 PASS** | **0.436 PASS** |
+| Minimum cement content | ≥ 340 M35 · ≥ 320 M30 | **400 PASS** | **360 PASS** |
+| Maximum cement content | ≤ 450, IS 456 Cl. 8.2.4.2 | **400 PASS** | **360 PASS** |
+| Grade against exposure | M35 minimum, very severe | **M35 PASS** | M30, above ground |
+| Absolute volumes close on 1.000 m³ | exact | **PASS** | **PASS** |
+| Fresh density | plausible 2 400 – 2 550 | **2 498** | **2 504** |
+| Agreement with the procurement take-off | 400 / 360 kg/m³ in Part 21.2 | **exact** | **exact** |
 
 > **The last row is a consistency check, not a confirmation.** The bill's cement quantity is built
 > on an assumed 400 kg/m³ for the M35 and 360 for the M30. This mix design, worked independently
-> from the code tables, lands on the same two figures — which means **the 194.2 t cement and
-> 828.7 t aggregate in Part 21 are internally consistent with a mix that satisfies IS 456**. Both
-> are still assumptions, and both are replaced on the day a laboratory trial is run.
+> from the code tables, lands on the same two figures — which means **the 194.2 t of cement and
+> 828.7 t of aggregate in Part 21.2 are internally consistent with a mix that satisfies
+> IS 456.** Both are still assumptions, and both are replaced on the day a laboratory trial is run.
 
-### 6.5.6 What must be supplied before any of this is used
+**What the trial itself must establish, before the first structural pour:**
+
+1. **Workability as batched and after the transport time**, not workability at the mixer.
+2. **Compressive strength at 7 and 28 days**, against the target mean strengths of A-3 — not
+   against 35 and 30.
+3. **Compatibility of the superplasticiser with the integral crystalline waterproofing
+   admixture.** These are two chemical systems in the same mix, and their interaction affects both
+   the water reduction claimed in A-6 and the permeability the whole tanking strategy depends on.
+   **Both are `[N]`, so the interaction cannot even be guessed at here.**
+4. **The trial at the real placing temperature.** Part 21.4 puts the mat pour in March and the
+   pressure-slab pour in June, in Pune. **A mix trialled at 27 °C and placed at 38 °C is a
+   different mix**, and the one that matters is the one in the shutter.
+
+### 6.5.13 What must be supplied before any of this is used
 
 <!-- FIG: fig_mix_notes -->
 
@@ -2088,21 +2339,10 @@ BATCH  cement 360  .  fine 696.5  .  coarse 1287.5  .  water 157
 |---|---|---|
 | Coarse and fine aggregate source, grading, specific gravity, water absorption | `[N]` | The contractor, at award |
 | Whether the fine aggregate is genuinely grading zone II | `[A]` | Sieve analysis to IS 383 |
-| Superplasticiser product, dosage and water reduction | `[N]` | Vendor, with a compatibility trial against the crystalline admixture |
+| Superplasticiser product, dosage and water reduction | `[N]` | Vendor, with a compatibility trial |
 | Integral crystalline waterproofing admixture, product and dosage | `[N]` — the admixture itself is `[R]` | Vendor, to IS 2645 |
 | Supplier's standard deviation `s` | `[A]` — table value | The plant, after 30 results |
 | Trial mix cubes at 7 and 28 days | `[N]` | The laboratory, **before the first structural pour** |
-
-> **Two trial-mix conditions are specific to this structure and are easy to leave out.**
->
-> **First, the admixture compatibility trial is not optional.** A polycarboxylate superplasticiser
-> and an integral crystalline waterproofing admixture are two chemical systems in the same mix,
-> and their interaction affects both the water reduction claimed above and the permeability the
-> tanking depends on. **Both are `[N]`, so the interaction cannot even be guessed at here.**
->
-> **Second, the trial has to be run at the real placing temperature.** Part 21 puts the mat pour
-> in March and the pressure-slab pour in June, in Pune. A mix trialled in a laboratory at 27 °C
-> and placed at 38 °C is a different mix, and the one that matters is the one in the shutter.
 
 # PART 7 — LOADING
 
@@ -2442,6 +2682,8 @@ footprint, with support symbols at every mat node.
 | Corner joints | Explicit `KFY` per corner, from the corner tributary areas: **6 891 / 8 269 / 7 219 / 8 663 kN/m** |
 | Analysis command | `PERFORM ANALYSIS PRINT STATICS CHECK` — **no P-Delta** |
 
+<!-- FIG: fig_staad_model -->
+
 **Load cases, read verbatim from the file:**
 
 | # | Title | Value |
@@ -2641,7 +2883,7 @@ CRACK       IS 3370 Pt 2, limit 0.2 mm; surface steel 875 < 1340   OK
 > 1. **75 mm cover** against blinding and trimmed rock;
 > 2. **congestion** — two curtains, closed links, waterstops and cast-in frames all in one section;
 > 3. **IS 3370 crack control** under sustained hydrostatic load;
-> 4. **the EMP double curtain at 150 mm** (Part 2.8.2);
+> 4. **the EMP double curtain at 150 mm** (Part 2.8.5);
 > 5. **the 1 168 kN/m axial path** from the roof.
 >
 > Saying so matters: an optimiser who sees 68 % and thins the wall loses four of the five reasons
@@ -3357,6 +3599,8 @@ and no unconfirmed clause is cited.
 **All member design uses the STAAD base shear V<sub>b</sub> = 73.18 kN, not the hand-calculated
 59.3 kN** (Part 7.8.2).
 
+<!-- FIG: fig_sentry_post -->
+
 ### 11.1.1 Seismic member forces — portal method at V<sub>b</sub> = 73.18 kN
 
 ```
@@ -4056,6 +4300,8 @@ HH WALLS    T16 @ 150 EF EW  .  T12 4L @ 250                             59 %
 | **T25** | 3.853 | 654 | 4 006.7 | 15 439.4 | 21.9 % |
 | | | **19 704** | **46 458.9** | **70 456.7** | 100 % |
 
+<!-- FIG: fig_steel_split -->
+
 | Element group | Weight kg | Weight t | % |
 |---|---|---|---|
 | FOUNDATIONS | 14 665.2 | 14.665 | 20.8 % |
@@ -4118,6 +4364,8 @@ HH WALLS    T16 @ 150 EF EW  .  T12 4L @ 250                             59 %
 | Electrical | 1 (`E-001`) |
 | Site selection and geotechnical | 5 (`SG-001`…`SG-202`) |
 | **TOTAL** | **80 DXF · 75 A1 · 4 A4 · 1 A0** |
+
+<!-- FIG: fig_drawing_package -->
 
 **The drawing index is generated from the DXF files themselves**, so it cannot drift from the
 drawings. Filenames are deliberately unchanged — every document in the project cites the current
@@ -4584,7 +4832,127 @@ IS 2470 (Pt 1) check reproduces: **450 L detention + 600 L sludge = 1 050 L requ
 1 125 L provided (+7.1 %)**; L/B = 2.0; B = 750; depth 1.00 m; freeboard 300 → overall 1.30 m.
 **PASS.**
 
-## 16.7 Findings
+## 16.7 The operating procedure — peacetime, warning, attack and recovery
+
+> **The hydraulics do not change between modes. What changes is which routes out of the envelope
+> are allowed to be open**, and therefore where each stream is permitted to go. This section states
+> that once, mode by mode, so that it can go on a drill card instead of being reasoned out during
+> an event.
+
+<!-- FIG: fig_water_modes -->
+
+### 16.7.1 What happens to every stream, in every mode
+
+| Stream | **1 PEACETIME** | **2 PROTECTIVE** | **3 CLOSED** | **4 PURGE** | **5 RECOVERY** |
+|---|---|---|---|---|---|
+| **Seepage** 200 L/day | sump, pumped out | sump, pumped out | **SUMP, PUMPED OUT** | sump, pumped out | sump, pumped out |
+| **Condensate** 200 L/day | sump, pumped out | sump, pumped out | **SUMP, PUMPED OUT** | sump, pumped out | sump, pumped out |
+| **Foul** 450 L/day | septic tank → soak pit | **SEALED CASSETTE** | **SEALED CASSETTE** | **SEALED CASSETTE** | septic tank → soak pit |
+| **Decon effluent** | none produced | TK-01 → **tanker only** | none produced | TK-01 → **tanker only** | TK-01 → **tanker only** |
+| **Stairwell surface water** | SU-02 → soakaway | SU-02 → soakaway | *outside the envelope* | SU-02 → soakaway | SU-02 → soakaway |
+
+### 16.7.2 Mode 1 — PEACETIME
+
+**The only mode in which anything foul leaves the structure by gravity.**
+
+- Lavatory discharges to **ST-01**, the 1 125 L septic tank, and thence to the foul soak pit
+  **SK-01**. Sized for **10 users at 45 lpcd = 450 L/day**, which is the *peacetime* population —
+  shift crews and maintenance — and **not** the nine sheltered occupants.
+- The clean sump **SU-01** runs on its ordinary duty cycle: **one start every 3.4 days, fifteen
+  minutes a start, a duty ratio of 0.31 %.**
+- **Routine, and it is the whole of the maintenance regime that matters:** a **witnessed monthly
+  test** of the standby pump PU-02, of the hand pump PU-03, and of the stairwell standby PU-05.
+  At a 0.31 % duty ratio **a failed standby would never be discovered by use.**
+- De-sludge the septic tank on the IS 2470 interval; the chambers IC-01 and IC-02 exist for it.
+
+### 16.7.3 Mode 2 — PROTECTIVE, and the changeover on warning
+
+**The changeover is a short list, and it is short on purpose.**
+
+1. **Stop using the lavatory's gravity discharge. Switch to sealed-cassette chemical toilets.**
+   Nothing foul is discharged for the duration.
+2. **Confirm every trap is primed.** A dry trap is an open pipe, and the envelope is about to be
+   held at +50 to +100 Pa. The 75 mm deep seals hold **736 Pa** — 7.4 : 1 on the operating
+   overpressure and 2.5 : 1 on the +300 Pa test — but only while there is water in them.
+3. **Confirm the clean sump is at or below its stop level**, so that the store ahead of it is the
+   full 3 375 L.
+4. **Confirm PU-01 and PU-02 are on the essential board and that the changeover works.**
+5. **Decon effluent begins on first use of the airlock**, to TK-01, **tanker only, never to
+   ground, in any mode.**
+
+### 16.7.4 Mode 3 — CLOSED, which is the case the design is really for
+
+> **Nothing leaves the envelope except through the rising main, and the rising main is the one
+> route that cannot be shut.**
+
+- **Groundwater does not stop because the shelter is sealed.** Seepage and condensate keep
+  arriving at **400 L/day** with every blast valve closed.
+- **3 375 L of sump against 400 L/day is eight days of store with no power at all** — four times
+  the 48-hour limit that the soda lime puts on closed mode (Part 15.7). **The drainage is not what
+  ends closed mode.**
+- **The clean sump pump stays on the essential board through the whole of mode 3**, at 10 per cent
+  duty, drawing 0.033 kW of the 1.283 kW essential load (Part 17.3).
+- **If the battery fails, the hand pump PU-03 is the answer**, and it needs no power, no
+  generator and no decision.
+- **Foul: sealed cassettes only.** **Stairwell: outside the envelope, and not a concern until
+  someone has to go out through it.**
+
+**The order to work in if the sump is rising and power is lost:**
+
+```
+1   confirm the duty pump has actually failed -- not the level switch
+2   start the standby, PU-02
+3   if both are dead, HAND PUMP PU-03
+4   record the level and the rate.  400 L/day into 3 375 L is EIGHT DAYS;
+    there is time to diagnose, and the right response to a rising sump is
+    never to open anything
+```
+
+> **The last line is the point of the whole procedure.** Every instinct in ordinary building
+> services says *find a way to let the water out.* Here, **every route out is a route in**, and
+> the store exists precisely so that nobody has to make that trade under pressure.
+
+### 16.7.5 Mode 4 — PURGE, each entry through the airlock
+
+- The airlock purge is **5 air changes of stage 1 = 64 m³ at 300 m³/h = 12.8 minutes**, which sets
+  the manning rate at **four to five persons an hour** (Part 15.4).
+- **Decon effluent from airlock stages 1 and 2 goes to TK-01 on every use.** At 1 000 L the tank
+  is the constraint on how many decon cycles can be run before it must be emptied, and **the
+  emptying route is not defined** — open item.
+- **The airlock floor falls 1:80 to segregated gullies** with a 50 mm upstand at W5 and at Blast
+  Door 1, so that decon effluent cannot run into the clean zone. That upstand is a drainage detail
+  doing a protective job.
+
+### 16.7.6 Mode 5 — RECOVERY, after the all-clear
+
+**The order matters, and it is the reverse of the warning sequence with one addition.**
+
+1. **Do not restore the foul gravity discharge until the ground outside is assessed.** The septic
+   tank vents to atmosphere and the soak pit discharges to ground; both are outside the protective
+   boundary and neither has been under anyone's control.
+2. **Empty TK-01 by tanker before resuming decon operations**, not after.
+3. **Check every trap seal before the envelope is de-pressurised**, not after — a seal lost during
+   closed mode is found more easily while there is still a pressure difference to find it with.
+4. **Test the standby pumps and the hand pump**, because the monthly regime will have lapsed.
+5. **Return the sump to its ordinary duty cycle** and log the volume pumped during the closed
+   period: it is the only direct measurement of seepage this structure will ever produce, and
+   **the 0.5 L/m²/day design allowance has never been verified against anything.**
+
+> **That last item is worth a line on its own.** The design's seepage rate is an allowance for an
+> intact tanked structure, not a measurement. **The volume pumped over a sealed 48-hour period is
+> a free, direct measurement of it**, and nobody will ever be better placed to take it.
+
+### 16.7.7 What the procedure cannot state
+
+| Missing | Consequence |
+|---|---|
+| **The route from bay 6 to TK-01**, which crosses the gas-tight boundary | `[U]` — the decon line of the table above is the one that cannot yet be built |
+| **The emptying route for TK-01** | `[N]` — tanker access, hardstanding and a connection point are all undefined |
+| **Any destination for zone 3**, bays 7 and 8 | `[N]` — the generator, its fuel and the main board all sit in a bay with no recorded drainage |
+| Cassette type, capacity and the number carried | `[N]` — which means the foul provision for a 96-hour occupation is stated as a principle and not as a quantity |
+| SK-03 and SK-04 sizes | `[N]` — both exist on the drawings; neither is sized anywhere |
+
+## 16.8 Findings
 
 | Ref | Finding |
 |---|---|
@@ -4725,9 +5093,26 @@ ADOPTED   route both up the EXISTING SH-2 bore and add NO NEW PENETRATION
 > frequency. Everything in this Part follows from that single fact — including the decision to
 > design the shielded enclosure as if the buried box were not there at all.
 
+## 18.1 Design basis
+
+| Item | Value | Class |
+|---|---|---|
+| **Performance requirement** | **80 dB, 10 kHz – 1 GHz**, MIL-STD-188-125-1 | `[C]` |
+| Verification standard | **IEEE Std 299**, full survey | `[C]` |
+| Incident field strength, waveform, E1/E2/E3 decomposition | **NOT HELD, AND NOT NEEDED** | `[N]` |
+| What is protected | **Equipment, so the shelter can still function afterwards.** Not people | `[C]` |
+| Shield architecture | **Zone 2 designed to the full requirement STANDING ALONE.** No credit taken for the concrete box at any frequency | `[C]` |
+| Reinforcement bar spacing | **150 mm, both curtains, both ways — an EMP requirement**, stricter than IS 456 Cl. 26.3.3 needs | `[C]` |
+| Bond strap | flat, ≤ 100 mm long, width : length ≥ 5 : 1 | `[R]` |
+| Earthing target | ≤ 5 Ω — **a power-safety and lightning number, NOT an EMP one** | `[C]` |
+
+> **A performance requirement in decibels over a band can be met, and verified, from geometry
+> alone.** That is why this package could be designed at all without an incident field strength,
+> and it is the single most useful property of the way MIL-STD-188-125-1 is written.
+
 <!-- FIG: fig_emp_zones -->
 
-## 18.1 The zone model
+## 18.2 The zone model
 
 | Zone | What it is | Performance | Verification |
 |---|---|---|---|
@@ -4743,7 +5128,7 @@ ADOPTED   route both up the EXISTING SH-2 bore and add NO NEW PENETRATION
 > The cage is then **margin, not design** — which is the only defensible way to use a shield you
 > can never survey, buried under two metres of engineered cover.
 
-## 18.2 Why the cage cannot be the boundary, in one chart
+## 18.3 Why the cage cannot be the boundary, in one chart
 
 The shielding effectiveness of a mesh follows `SE = 20 log₁₀(λ / 2s)`, with `s` the half-spacing.
 At the project's 150 mm bar spacing that is a straight line on a log-frequency axis falling at
@@ -4771,7 +5156,7 @@ At the project's 150 mm bar spacing that is a straight line on a log-frequency a
 > nowhere to stand a transmitter. The figures above are a calculation and they stay one, which is
 > the second reason the enclosure in bay 3 is designed to the full requirement standing alone.
 
-## 18.3 What the structural design already does right, none of it labelled EMP
+## 18.4 What the structural design already does right, none of it labelled EMP
 
 1. **The 150 mm bar spacing is a deliberate EMP decision, and it was the right one.** Stricter than
    IS 456 Cl. 26.3.3 needs; recorded in the master, in the structural package, in eight bar
@@ -4784,7 +5169,7 @@ At the project's 150 mm bar spacing that is a straight line on a log-frequency a
 4. **There are no movement joints inside the protective envelope, and the reason is recorded:** *a
    movement joint is a guaranteed blast, gas and EMP discontinuity.*
 
-## 18.4 Every penetration of the boundary
+## 18.5 Every penetration of the boundary
 
 A bore through a conducting wall is a **waveguide below cutoff**: it attenuates everything below
 `f_c = 1.8412 c / (π d)` for the TE11 mode, at roughly `32 L/d` decibels beyond it. A bore through
@@ -4818,7 +5203,7 @@ below.
 > inboard of the valve** answers BV-4 and BV-5. **Nothing answers the stair void, and nothing is
 > invented for it.**
 
-## 18.5 EMP Zone 2 — the enclosure
+## 18.6 EMP Zone 2 — the enclosure
 
 **Every dimension in this section is `[A]`.** The project confirms the enclosure is **required** and
 contains no specification for it.
@@ -4858,7 +5243,99 @@ claim, not a shield.** The enclosure is entirely clear of the Y 2500–3400 circ
 > all**. It is the one place this project can buy perfect performance for almost nothing, and it
 > should take it.
 
-## 18.6 Findings
+### 18.6.1 The panel is not the shield — the seams are
+
+Part 2.8.4 works the arithmetic: for solid low-carbon steel, **about 1 mm gives 80 dB by
+absorption alone at 10 kHz**, the hardest frequency in the band, and the plane-wave reflection
+term adds another 97 dB on top of it. A 2 mm skin is a quarter of a thousand decibels.
+
+> **So no number in this section is about the panel.** The enclosure's measured performance will
+> be decided by its **24.8 metres of seam**, its **shielded door**, and its **four points of
+> entry** — and by nothing else. That is the reason the acceptance test is a survey of joints
+> rather than a measurement of steel, and the reason a 300 mm gap is held on every free face so
+> that a surveyor can physically reach every metre of seam.
+
+## 18.7 The honeycomb waveguide panel, and the margin that is not what it looks like
+
+The enclosure holds powered equipment inside a sealed shelter and must pass air. A ventilation
+opening in a shield is answered by a **honeycomb waveguide panel** — an array of tubes, each one
+below cutoff at every frequency in the band.
+
+<!-- FIG: fig_honeycomb -->
+
+```
+CELL              6 mm across flats                             [A]
+DEPTH             25 mm                                         [A]
+
+TE11 cutoff       f_c = 1.8412 c / (pi d)
+                      = 1.8412 x 2.998e8 / (pi x 0.006)
+                      = 29.28 GHz          -- 29 x the top of the band
+
+Attenuation       A = 32 L / d = 32 x 25 / 6         = 133.3 dB
+below cutoff                                   against 80 required
+
+*** AND THEN THE ARRAY CORRECTION, WHICH THE SINGLE-CELL NUMBER OMITS ***
+
+hexagonal cell area  (sqrt3 / 2) x 6^2              = 31.18 mm2
+cells in one square metre  1e6 / 31.18              = 32 075
+array term          - 10 log10 (32 075)             = - 45.1 dB
+
+NET                 133.3 - 45.1                    = 88.3 dB
+MARGIN OVER 80 dB                                   = + 8.3 dB
+```
+
+> **`PR2-F2` — the margin is +8.3 dB, not +53 dB, and the difference matters.** 133 dB is the
+> attenuation of **one** cell. A panel is tens of thousands of cells in one screen, and the
+> classical `−10 log₁₀(n)` correction for `n` identical apertures applies to it. **The panel still
+> passes** — but eight decibels is a margin a bad gasket eats, where fifty-three is not.
+>
+> **This is recorded, not corrected.** The project's own figure of +53 dB is the single-cell
+> value; it is reproduced in this report and the array term is offered alongside it as an
+> observation. **What it changes is a procurement requirement, not a design value: require a
+> certified attenuation curve for the panel AS BUILT, not for one cell.**
+
+**Two consequences are referred rather than resolved.** A honeycomb panel adds **pressure drop**,
+and the fan duty in Part 15 was built without one — which matters because five of the eight loss
+components are already vendor data. And the panel's **own blast rating is `[N]`**; it is mounted
+**inboard** of the blast device so that the valve takes the pressure and the honeycomb takes the
+radio frequency, but that arrangement is a requirement rather than a tested assembly.
+
+## 18.8 Bonding and earthing — where the design actually lives
+
+**A bond is not a resistor. At EMP frequencies it is an inductor**, and its impedance rises
+linearly with frequency (Part 2.8.7):
+
+| Strap | `L` | `X` at 1 MHz | `X` at 10 MHz | **`X` at 100 MHz** |
+|---|---|---|---|---|
+| 600 mm × 25 × 3 | 512.2 nH | 3.22 Ω | 32.2 Ω | **321.8 Ω** |
+| **100 mm × 50 × 3 — ADOPTED** | **38.9 nH** | 0.24 Ω | 2.45 Ω | **24.5 Ω** |
+
+**The five bonding rules, and they are the ones that get built wrong:**
+
+1. **Every bond ≤ 100 mm long.** A 600 mm strap is 322 Ω at 100 MHz — that is not a bond, it is a
+   resistor with a green sleeve on it.
+2. **Width-to-length at least 5 : 1.**
+3. **Flat strap only** — never a round wire, never a pigtail, never *"loop it round to the nearest
+   stud"*.
+4. **Clean bare metal both ends**, protected after making off.
+5. **The shield bonds to the structure at ONE place.** A second bond is a loop, and a loop is an
+   antenna.
+
+**Earthing, and why ≤ 5 Ω is the wrong target to chase here:**
+
+| Electrode | ρ = 1 000 Ω·m | ρ = 10 000 Ω·m |
+|---|---|---|
+| One 3 m × 16 mm rod | **335 Ω** | 3 349 Ω |
+| Rods needed for 5 Ω, *ignoring interaction* | **67** | 670 |
+| **The structure itself** — 136.4 m², `r_eq` 6.589 m | **38 Ω** | 379 Ω |
+
+> **≤ 5 Ω is a power-safety and lightning requirement from IS 3043 / IEEE 142. It is real and it
+> still applies. It is not an EMP number.** An EMP shield works by being **equipotential**, and
+> equipotential is decided by **bonding inductance**, not by earth resistance. The mat and its
+> cage are already a large concrete-encased electrode — an order of magnitude better than a rod,
+> and free, because it is already built. **Bond to the structure; do not chase rods.**
+
+## 18.9 Findings
 
 | Ref | Finding |
 |---|---|
@@ -4869,7 +5346,7 @@ claim, not a shield.** The enclosure is entirely clear of the Y 2500–3400 circ
 | **EM-F5** | **≤ 5 Ω is not achievable with rods in Deccan basalt** (335 Ω per rod at the *low* resistivity bound) **and is not an EMP requirement in any case.** The structure is already the better electrode |
 | **EM-F6** | **There is no antenna, mast, feeder or communications design anywhere in this project.** §5.7.6 is in the register with nothing to apply it to. **An ops room that cannot transmit is an ops room in name only** — and an antenna is by definition a deliberate conductor from outside to inside, the hardest EMP penetration there is |
 
-## 18.7 Verification, and what must not be claimed
+## 18.10 Verification, and what must not be claimed
 
 **EMP ZONE 2 — SURVEY IT.** Full IEEE Std 299 survey, 10 kHz – 1 GHz, on the completed enclosure
 with every penetration made off and every panel closed. Acceptance **80 dB**. **This is a HOLD
@@ -4879,11 +5356,34 @@ POINT: no equipment is installed before it passes**, because a failed survey mea
 **cannot** be surveyed to IEEE 299 — there is no accessible exterior to put a transmitter on.
 **Any statement that the box gives 80 dB is unsupportable and should not be made.**
 
-**What *can* be checked on site, cheaply, at the only moment it can be fixed:** continuity of the
-cage across every construction joint **before the pour**; continuity of every cast-in frame to the
-cage **before the pour**; **earth resistance, early**; and bond resistance at every strap after
-making off. **None of these prove shielding effectiveness. All of them catch the mistakes that
-destroy it.**
+**The Zone 2 acceptance survey, and what it consists of:**
+
+| | |
+|---|---|
+| Standard | **IEEE Std 299**, full survey |
+| Band | **10 kHz – 1 GHz**, covering the low-frequency magnetic, resonance and plane-wave ranges |
+| Condition | **Enclosure complete, every penetration made off, every panel closed, the door shut and latched** |
+| Coverage | Every **seam**, the **door perimeter**, and **each of the four points of entry** individually |
+| Acceptance | **80 dB** |
+| Status | **HOLD POINT — no equipment is installed before it passes** |
+
+> **The hold point is placed there for a reason that is entirely practical: a failed survey means
+> opening seams.** Doing that on an empty enclosure is a day's work; doing it on one full of
+> installed equipment is a different job altogether.
+
+**What *can* be checked on site, cheaply, at the only moment it can be fixed:**
+
+1. **Continuity of the cage across every construction joint — before the pour.** Once it is cast,
+   a missed strap is permanent and invisible.
+2. **Continuity of every cast-in frame to the cage — before the pour.** Same reason. This covers
+   both blast door frames, the headhouse door frame, every blast valve sleeve and the service
+   entry plate.
+3. **Earth resistance, early** — because in 1 000–10 000 Ω·m basalt the answer decides how the
+   earthing is done, and finding out late is expensive.
+4. **Bond resistance at every strap after making off**, against a stated value.
+
+> **None of these prove shielding effectiveness. All of them catch the mistakes that destroy it**
+> — and every one of them has to happen at a moment that passes and does not come back.
 
 > **Every cage figure in this project is an upper bound.** The classical `−10 log₁₀(n)` array
 > correction is not applied, the crossings are **tied rather than welded** — and whether they are
@@ -4991,6 +5491,8 @@ owner's 50 m envelope (worst corner **42.5 m of 50 m**).
 | **SK-03** | Stairwell soakaway — **footprint reserved** | (41 400, 8 500) | Stairwell sump. **Size recorded nowhere** `[N]` |
 | **SK-04** | Headhouse soakaway — **footprint reserved** | (47 800, 8 500) | Headhouse gully. **Size recorded nowhere, and its pipe cannot be routed** |
 | **IC-01 · IC-02** | Inspection chambers 600 × 450 | (7 500, 9 800) · (40 200, 16 000) | Change of direction; de-sludging |
+
+<!-- FIG: fig_external_works -->
 
 **Everything in one reserve, on the downgradient side, for four stated reasons:**
 
@@ -5514,6 +6016,8 @@ a number the design has already fixed.**
 
 ## 22.3 Environmental aspects and impacts, derived from the project's own quantities
 
+<!-- FIG: fig_env_aspects -->
+
 | Aspect | The quantity the design fixes | Impact | Significance |
 |---|---|---|---|
 | **Excavation and spoil** | **1 338 m³** total, of which **994 m³ rock** | Dust, noise, vibration, spoil handling | **HIGH** |
@@ -5700,6 +6204,8 @@ Three registers, and the distinction between them is the point:
 | **24.3 Open items** | Questions that need **information the project does not contain**. **Eighteen are open.** They are **not inconsistencies** — each is a single position the project holds, with nothing contradicting it |
 | **Appendix D** | **Every decision, conflict and revision behind the two registers above**, kept out of the design narrative and held as traceability |
 
+<!-- FIG: fig_register_status -->
+
 ## 24.2 Assumptions — seven closed, seven open
 
 **CLOSED (7) — every one by judgement, and every one the conservative or immaterial choice:**
@@ -5827,9 +6333,9 @@ value the project prints.
 ## 25.2 The result
 
 ```
-CHECKS EXECUTED                 543
-PASS                            538
-KNOWN / RECORDED difference       5
+CHECKS EXECUTED                 559
+PASS                            553
+KNOWN / RECORDED difference       6
 UNEXPLAINED FAIL                  0
 ```
 
@@ -5855,8 +6361,9 @@ UNEXPLAINED FAIL                  0
 | 20 | Register arithmetic | **The open-item counts, the assumption counts and the drawing counts add up** |
 | 21 | **Concrete mix design** | Both target mean strengths and **which branch of IS 10262 Cl. 5.2 governs**; the water content at each slump and after the admixture reduction; the cement from the water/cement ratio; **the resulting free w/c against the IS 456 cap and the cement against both the minimum and the shrinkage maximum**; the coarse aggregate fraction and its congestion correction; **the absolute-volume closure on 1.000 m³**; both aggregate masses, both fresh densities and both mixes by mass |
 | 22 | **Programme and cost** | The calendar span and the Sundays in it, the six-day working count, the activity total, **the basic cost re-summed from its five priced parts**, the share of each, and **the final project cost re-derived from the seven percentage heads** |
+| 23 | **EMP shielding physics** | Skin depth in steel at three decades and **the thickness that alone gives 80 dB**; the absorption of a 2 mm skin and the plane-wave reflection term; the honeycomb TE11 cutoff, its 32 L/d attenuation, the cell area, **the number of cells in a square metre and the array correction on them**; and the hatch leaf force and flat-plate moment at ν = 0.30 for steel |
 
-## 25.3 The five differences found — reported, never corrected
+## 25.3 The six differences found — reported, never corrected
 
 > **Master rule M.11 and the project operating guide both forbid editing a recorded value away.**
 > Every difference below is an **observation offered to the master**, not a change. **None of them
@@ -5867,10 +6374,11 @@ UNEXPLAINED FAIL                  0
 | **1** | **Underground box wall shear stress** — 525 × 10³ / (600 × 0.8 × 21600) | **0.0506 N/mm²** | 0.063 N/mm² | **Not previously recorded.** Both values are negligible **by two orders of magnitude**; the conclusion *"IS 13920 Cl. 10.4 boundary elements NOT triggered"* is unaffected and **no adopted value depends on it** |
 | **2** | **Sentry footing F1, ULS eccentricity** — M<sub>u</sub>/P<sub>u</sub> = 43.9 / 276.8 | **0.159 m** | 0.128 m | **Not previously recorded.** The footing is governed by **IS 456 Cl. 26.5.2.1 minimum steel** (720 against 136 mm²/m required) and its depth by **starter anchorage**, so **no adopted bar, spacing or dimension moves** |
 | **3** | **Sentry footing F1, q<sub>u,max</sub>** — the printed expression 276.8/2.25 × (1 + 6 × 0.128/1.5) | **186.0 kPa** | 190.0 kPa | Same item as 2. One-way shear at 0.012 and punching at 0.065 against τ<sub>c</sub> = 1.369 are unaffected on either figure |
+| **6** | **The honeycomb waveguide panel's margin** — the single-cell 133.3 dB against the same panel with its ~32 000 cells counted, `−10 log₁₀(n)` | **+8.3 dB** | +53 dB | **The panel still PASSES.** What changes is a procurement requirement — require a certified attenuation curve for the panel **as built**, not for one cell — **not a design value** (Part 18.7) |
 | **5** | **The programme's working-day count** — a raw Mon–Sat count of the 384-day span, less the five date-certain holidays | **325 days** | 326 days | **ONE DAY**, and it is a property of the programme's own activity calendar rather than of any design value. **No date, duration or float moves on it** |
 | **4** | **The project owner's cost summary** — the seven heads against the printed final | **₹ 2 99 33 306** | ₹ 3 00 33 306 | **ALREADY RECORDED — conflict `R-14`**, exactly ₹ 1 00 000 apart, *"reported, not corrected"*. **The verification pass reproduced a known finding**, which is the outcome you want from a check like this. The revised estimate **reconciles to the rupee** and has no such difference |
 
-> **Four observations about that result are worth making.**
+> **Five observations about that result are worth making.**
 >
 > **The two footing items are one item.** An eccentricity and the bearing pressure computed from it
 > are the same arithmetic seen twice, and both land on an element whose steel is set by a code
@@ -5890,6 +6398,13 @@ UNEXPLAINED FAIL                  0
 > to be a property of how a scheduling tool counts a finish milestone than an error — **but the
 > whole point of running the check is that a one-day difference is reported rather than rounded
 > into agreement.**
+>
+> **And the sixth is the only one of the six that changes what somebody has to do.** 133 dB is the
+> attenuation of **one** honeycomb cell; a panel is tens of thousands of cells in one screen, and
+> the classical array correction applies to it. The margin is **+8.3 dB, not +53** — still a pass,
+> but eight decibels is a margin a bad gasket eats, where fifty-three is not. **It changes no
+> design value and no dimension. It changes a procurement clause**, and it is the clearest example
+> in this report of why the checks are run on things that already look settled.
 
 ## 25.4 What this report could not verify, and did not attempt
 

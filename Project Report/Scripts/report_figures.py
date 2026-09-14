@@ -3229,6 +3229,825 @@ def fig_fire_egress():
 
 
 # ===========================================================================
+#  11  EMP SCIENCE, AND THE WATER PROCEDURE
+# ===========================================================================
+
+def fig_emp_coupling():
+    """The three ways a pulse gets in, and the zone architecture that answers."""
+    d = Fig(W, 126 * mm)
+    d.txt(0, 120 * mm, "HOW A PULSE GETS IN  -  THREE PATHS, AND THE ONE THAT "
+          "ACTUALLY MATTERS", 5.4, INK, bold=True)
+    d.para(0, 115.4 * mm, "A shield fails in three ways and only three.  Two "
+           "of them are properties of the metal and are easy;  the third is a "
+           "property of everything you deliberately run through it, and it is "
+           "the one every real installation loses on.", 4.2, MID)
+
+    # ---- the nested zones
+    d.rect(4 * mm, 46 * mm, 96 * mm, 60 * mm, fill=CONC2, c=MID, sw=0.6,
+           dash=[3, 2])
+    d.txt(7 * mm, 101 * mm, "ZONE 0   above grade   0 dB", 4.4, MID,
+          bold=True)
+    d.rect(12 * mm, 52 * mm, 80 * mm, 44 * mm, fill=AIR, c=ACCENT, sw=0.8)
+    d.txt(15 * mm, 91 * mm, "ZONE 1   the buried box", 4.4, ACCENT,
+          bold=True)
+    d.txt(15 * mm, 87 * mm, "the reinforcement cage  -  80 dB below 99.9 kHz",
+          3.9, MID)
+    d.rect(26 * mm, 58 * mm, 52 * mm, 24 * mm, fill=GOLD, c=INK, sw=0.9)
+    d.txt(52 * mm, 74 * mm, "ZONE 2", 5.6, colors.white, "middle", bold=True)
+    d.txt(52 * mm, 69 * mm, "welded steel enclosure, bay 3", 4.0,
+          colors.white, "middle")
+    d.txt(52 * mm, 64.6 * mm, "80 dB, 10 kHz - 1 GHz", 4.2, colors.white,
+          "middle", bold=True)
+    d.txt(52 * mm, 60.4 * mm, "STANDING ALONE", 4.0, colors.white, "middle",
+          bold=True)
+
+    # ---- the three paths
+    d.arrow(104 * mm, 100 * mm, 78 * mm, 92 * mm, RED, 1.0)
+    d.txt(106 * mm, 99 * mm, "1  APERTURE COUPLING", 4.4, RED, bold=True)
+    d.para(106 * mm, 95 * mm, "through every hole: the stair void, the two "
+           "shafts, every bore.  Falls at 20 dB per decade for a mesh, and "
+           "is what the cage arithmetic measures.", 3.9, MID)
+
+    d.arrow(104 * mm, 80 * mm, 80 * mm, 76 * mm, ACCENT, 1.0)
+    d.txt(106 * mm, 79 * mm, "2  DIFFUSION THROUGH THE METAL", 4.4, ACCENT,
+          bold=True)
+    d.para(106 * mm, 75 * mm, "governed by skin depth.  For any solid steel "
+           "skin over about 1 mm this term is hundreds of decibels and is "
+           "NEVER what limits a real enclosure.", 3.9, MID)
+
+    d.arrow(104 * mm, 58 * mm, 80 * mm, 64 * mm, GOLD, 1.2)
+    d.txt(106 * mm, 57 * mm, "3  CONDUCTED PENETRATION", 4.4, GOLD,
+          bold=True)
+    d.para(106 * mm, 53 * mm, "every cable, pipe, duct and shaft you "
+           "deliberately put through the boundary.  THIS IS THE ONE THAT "
+           "DECIDES THE ANSWER, and it is why the design is a schedule of "
+           "points of entry rather than a thickness.", 3.9, MID)
+
+    d.line(0, 42 * mm, W, 42 * mm, RULE, 0.5)
+    y = d.note(0, 37 * mm, "THE ZONE 2 ENCLOSURE IS DESIGNED TO THE FULL "
+               "80 dB STANDING ALONE.  NO ATTENUATION FROM THE CONCRETE BOX "
+               "IS CREDITED AT ANY FREQUENCY.",
+               "That is the whole package in one line, and it is the only "
+               "defensible way to use a shield you can never survey.  The "
+               "cage is then MARGIN, not design:  it earns its keep at the "
+               "bottom of the band, where E3 lives and where 99.99 dB at "
+               "10 kHz is not nothing.", hc=ACCENT)
+    y = d.note(0, y - 5.4 * mm, "AND EMP PROTECTION IS NOT A PERSONNEL "
+               "MEASURE.",
+               "The occupants are protected from blast, CBRN and fallout by "
+               "the box.  The enclosure exists so that the shelter can still "
+               "FUNCTION afterwards  -  it protects equipment.  That is why "
+               "the answer is a cabinet-sized room inside a room, and why "
+               "nobody should expect to shelter in it.")
+    return d
+
+
+def fig_shielding_terms():
+    """Why a solid skin is never the limit, and a mesh always is."""
+    d = Fig(W, 112 * mm)
+    d.txt(0, 106 * mm, "ABSORPTION IN STEEL AGAINST APERTURE LEAKAGE IN A "
+          "MESH  -  THE TWO CURVES THAT DECIDE THE ARCHITECTURE", 5.4, INK,
+          bold=True)
+    a = Axes(d, 22 * mm, 38 * mm, 122 * mm, 56 * mm, (1e4, 1e9), (-10, 260),
+             xlog=True)
+    a.grid(xs=(1e4, 1e5, 1e6, 1e7, 1e8, 1e9), ys=(0, 80, 160, 240))
+    a.xticks([1e4, 1e5, 1e6, 1e7, 1e8, 1e9],
+             ["10 kHz", "100 kHz", "1 MHz", "10 MHz", "100 MHz", "1 GHz"])
+    a.yticks([0, 80, 160, 240])
+    a.xlabel("frequency")
+    a.ylabel("shielding effectiveness  dB")
+
+    sig, mur = 1.0e7, 200.0
+    mu = mur * 4 * math.pi * 1e-7
+    pts = []
+    f = 1e4
+    while f <= 1e9 + 1:
+        delta = 1.0 / math.sqrt(math.pi * f * mu * sig)
+        pts.append((f, min(8.686 * 0.002 / delta, 255)))
+        f *= 1.15
+    a.curve(pts, ACCENT, 1.3)
+    d.txt(a.X(3.5e4), a.Y(196), "ABSORPTION, 2 mm SOLID STEEL SKIN", 4.4,
+          ACCENT, bold=True)
+    d.txt(a.X(3.5e4), a.Y(182), "A = 8.686 t / delta   -   off the top of "
+          "the chart above 30 kHz", 4.0, MID)
+
+    pts = []
+    f = 1e4
+    while f <= 1e9 + 1:
+        lam = 2.99792458e8 / f
+        pts.append((f, max(20 * math.log10(lam / 0.300), -10)))
+        f *= 1.15
+    a.curve(pts, RED, 1.3)
+    d.txt(a.X(2.2e6), a.Y(52), "APERTURE LEAKAGE, 150 mm MESH", 4.4, RED,
+          bold=True)
+    d.txt(a.X(2.2e6), a.Y(40), "SE = 20 log10( lambda / 2s )", 4.0, MID)
+
+    a.curve([(1e4, 80), (1e9, 80)], GREEN, 1.0, dash=[3, 2])
+    d.txt(a.X(2e4), a.Y(88), "REQUIREMENT  80 dB", 4.4, GREEN, bold=True)
+
+    d.txt(0, 30 * mm, "SKIN DEPTH IN LOW-CARBON STEEL, AND THE THICKNESS "
+          "THAT ALONE GIVES 80 dB", 4.6, INK, bold=True)
+    cols = (0, 34 * mm, 74 * mm, 120 * mm)
+    for i, h in enumerate(("frequency", "skin depth delta", "80 dB needs",
+                           "absorption of a 2 mm skin")):
+        d.txt(cols[i], 25.6 * mm, h, 3.9, FAINT)
+    for k, f in enumerate((1e4, 1e6, 1e9)):
+        delta = 1.0 / math.sqrt(math.pi * f * mu * sig)
+        yy = 21.4 * mm - k * 4.2 * mm
+        d.txt(cols[0], yy, {1e4: "10 kHz", 1e6: "1 MHz",
+                            1e9: "1 GHz"}[f], 4.1, INK, bold=True)
+        d.txt(cols[1], yy, "%.4f mm" % (delta * 1000), 4.1, MID)
+        d.txt(cols[2], yy, "%.4f mm of steel" % (80 * delta / 8.686 * 1000),
+              4.1, ACCENT, bold=True)
+        d.txt(cols[3], yy, "%.0f dB" % (8.686 * 0.002 / delta), 4.1, MID)
+    d.para(0, 6.4 * mm, "sigma = 1.0e7 S/m and mu_r = 200 are assumed [A].  "
+           "ONE MILLIMETRE OF STEEL GIVES 80 dB BY ABSORPTION ALONE AT "
+           "10 kHz, the hardest frequency in the band  -  so the measured "
+           "performance of a welded enclosure is decided ENTIRELY by its "
+           "seams, its door and its penetrations, and never by its panel.",
+           4.0, MID)
+    return d
+
+
+def fig_honeycomb():
+    """The honeycomb waveguide panel, and the array correction on it."""
+    d = Fig(W, 110 * mm)
+    d.txt(0, 104 * mm, "THE HONEYCOMB WAVEGUIDE PANEL  -  TENS OF THOUSANDS "
+          "OF PARALLEL TUBES, EACH BELOW CUTOFF", 5.4, INK, bold=True)
+
+    # ---- hex cells drawn to scale, 1 : 0.6
+    cx0, cy0 = 12 * mm, 60 * mm
+    r = 3.6 * mm
+    for row in range(5):
+        for col in range(6):
+            x = cx0 + col * r * 1.732 + (r * 0.866 if row % 2 else 0)
+            y = cy0 + row * r * 1.5
+            pts = []
+            for k in range(6):
+                ang = math.radians(60 * k + 30)
+                pts += [x + r * math.cos(ang), y + r * math.sin(ang)]
+            d.poly(pts, fill=CONC2, c=INK, sw=0.45)
+    d.dimh(cx0 - r * 0.866, cx0 + r * 0.866, cy0 - r - 9.0, "6 mm cell",
+           4.2, RED)
+    d.txt(4 * mm, 92 * mm, "PLAN ON THE PANEL", 4.6, INK, bold=True)
+
+    # ---- section through one cell
+    v = V(0.7, 86 * mm, 66 * mm)
+    d.txt(70 * mm, 92 * mm, "SECTION THROUGH ONE CELL", 4.6, INK, bold=True)
+    d.rect(v.x(0), v.y(0), v.d(25), v.d(6), fill=colors.white, c=INK, sw=0.9)
+    d.hatch(v.x(0), v.y(6), v.d(25), v.d(2.5), 45, 3.0, FAINT, 0.3)
+    d.hatch(v.x(0), v.y(-2.5), v.d(25), v.d(2.5), 45, 3.0, FAINT, 0.3)
+    d.rect(v.x(0), v.y(6), v.d(25), v.d(2.5), fill=None, c=INK, sw=0.5)
+    d.rect(v.x(0), v.y(-2.5), v.d(25), v.d(2.5), fill=None, c=INK, sw=0.5)
+    d.dimh(v.x(0), v.x(25), v.y(-7.5), "depth L = 25 mm", 4.2, INK)
+    d.dimv(v.y(0), v.y(6), v.x(-6.0), "d = 6", 4.2)
+    d.arrow(v.x(-16), v.y(3), v.x(-1), v.y(3), RED, 1.0)
+    d.txt(v.x(-16), v.y(11), "incident", 4.0, RED)
+    d.arrow(v.x(27), v.y(3), v.x(34), v.y(3), FAINT, 0.7)
+    d.txt(v.x(27), v.y(11), "evanescent", 4.0, FAINT)
+
+    d.txt(0, 50 * mm, "THE ARITHMETIC", 4.8, INK, bold=True)
+    rows = [("TE11 cutoff of one 6 mm cell", "f_c = 1.8412 c / (pi d)",
+             "29.28 GHz", "29 x the top of the band", GREEN),
+            ("attenuation below cutoff, one cell", "A = 32 L / d",
+             "133.3 dB", "against 80 dB required", GREEN),
+            ("hexagonal cell area", "(sqrt3 / 2) x 6^2", "31.18 mm2", "",
+             MID),
+            ("cells in one square metre", "1e6 / 31.18", "32 075", "", MID),
+            ("ARRAY CORRECTION", "- 10 log10 (n)", "- 45.1 dB",
+             "n apertures in one screen", RED),
+            ("NET, WITH THE ARRAY COUNTED", "133.3 - 45.1", "88.3 dB",
+             "MARGIN + 8.3 dB, NOT + 53", RED)]
+    for i, (lab, expr, val, note, col) in enumerate(rows):
+        yy = 44 * mm - i * 5.2 * mm
+        d.txt(0, yy, lab, 4.1, col, bold=(col is not MID))
+        d.txt(58 * mm, yy, expr, 4.0, MID, font=F_MON)
+        d.txt(108 * mm, yy, val, 4.2, col, "end", bold=(col is not MID))
+        d.txt(112 * mm, yy, note, 3.9, MID)
+        d.line(0, yy - 2.0, W, yy - 2.0, RULE, 0.18)
+
+    y = d.note(0, 10.4 * mm, "THE SINGLE-CELL NUMBER IS AN UPPER BOUND, AND "
+               "THE ARRAY CORRECTION IS WHY VENDOR TEST DATA IS NOT "
+               "OPTIONAL.",
+               "A panel still passes at 88 dB, but a margin of 8 dB is a "
+               "margin a bad gasket eats.  Mount the panel INBOARD of the "
+               "blast device  -  the valve takes the pressure, the honeycomb "
+               "takes the radio frequency  -  and require a certified "
+               "attenuation curve for the panel as built, not for one cell.",
+               hc=RED)
+    d.para(0, y - 4.6 * mm, "Two consequences are referred rather than "
+           "resolved:  a honeycomb panel adds pressure drop, and the fan "
+           "duty was built without one;  and the panel's own blast rating "
+           "is [N].", 4.0, MID)
+    return d
+
+
+def fig_water_modes():
+    """What happens to every drop, in each of the five operating modes."""
+    d = Fig(W, 118 * mm)
+    d.txt(0, 112 * mm, "WATER, SEWAGE AND DRAINAGE  -  WHAT HAPPENS TO EVERY "
+          "STREAM IN EACH OPERATING MODE", 5.4, INK, bold=True)
+    d.para(0, 107.4 * mm, "The hydraulics do not change between modes.  What "
+           "changes is which routes out of the envelope are allowed to be "
+           "open, and therefore where each stream is permitted to go.", 4.2,
+           MID)
+
+    modes = [("1  PEACETIME", "unfiltered running", CONC2, MID),
+             ("2  PROTECTIVE", "filtered, +50 Pa", PLANT, ACCENT),
+             ("3  CLOSED", "sealed, 48 h", WARN, RED),
+             ("4  PURGE", "airlock in use", WARN, GREEN),
+             ("5  RECOVERY", "post all-clear", PLANT, ACCENT)]
+    streams = [
+        ("SEEPAGE\n200 L/day", GREEN,
+         ["sump, pumped", "sump, pumped", "SUMP, PUMPED", "sump, pumped",
+          "sump, pumped"]),
+        ("CONDENSATE\n200 L/day", GREEN,
+         ["sump, pumped", "sump, pumped", "SUMP, PUMPED", "sump, pumped",
+          "sump, pumped"]),
+        ("FOUL\n450 L/day", GOLD,
+         ["septic, soak pit", "septic, soak pit", "CASSETTE, SEALED",
+          "CASSETTE, SEALED", "septic, soak pit"]),
+        ("DECON\non use", RED,
+         ["none produced", "TK-01, tanker", "none produced", "TK-01, tanker",
+          "TK-01, tanker"]),
+        ("STAIRWELL\n0.10 L/s", MID,
+         ["SU-02, soakaway", "SU-02, soakaway", "outside the envelope",
+          "SU-02, soakaway", "SU-02, soakaway"]),
+    ]
+    x0, colw = 34 * mm, 28 * mm
+    ytop = 96 * mm
+    for j, (mn, sub, fill, col) in enumerate(modes):
+        x = x0 + j * colw
+        d.rect(x, ytop, colw - 1.2 * mm, 9 * mm, fill=fill, c=col, sw=0.5)
+        d.txt(x + (colw - 1.2 * mm) / 2.0, ytop + 5.4 * mm, mn, 4.2, col,
+              "middle", bold=True)
+        d.txt(x + (colw - 1.2 * mm) / 2.0, ytop + 1.8 * mm, sub, 3.6, MID,
+              "middle")
+    for i, (nm, scol, cells) in enumerate(streams):
+        yy = ytop - 4 * mm - i * 11 * mm
+        for k, ln in enumerate(nm.split("\n")):
+            d.txt(0, yy - 3.0 * mm - k * 3.6 * mm, ln, 4.1,
+                  scol, bold=(k == 0))
+        for j, txt in enumerate(cells):
+            x = x0 + j * colw
+            hot = txt.isupper()
+            d.rect(x, yy - 8.6 * mm, colw - 1.2 * mm, 8 * mm,
+                   fill=WARN if hot else AIR, c=RULE, sw=0.3)
+            d.txt(x + (colw - 1.2 * mm) / 2.0, yy - 5.2 * mm, txt, 3.7,
+                  RED if hot else MID, "middle", bold=hot)
+    d.line(0, ytop - 4 * mm - 5 * 11 * mm + 1.4 * mm, W,
+           ytop - 4 * mm - 5 * 11 * mm + 1.4 * mm, RULE, 0.5)
+
+    y = d.note(0, 34 * mm, "IN CLOSED MODE NOTHING LEAVES THE ENVELOPE "
+               "EXCEPT THROUGH THE RISING MAIN, AND THE RISING MAIN IS THE "
+               "ONE ROUTE THAT CANNOT BE SHUT.",
+               "Groundwater does not stop because the shelter is sealed.  "
+               "Seepage and condensate keep arriving at 400 L/day while "
+               "every blast valve is closed, so the clean sump pump stays on "
+               "the essential board through the whole of mode 3 and the hand "
+               "pump PU-03 is what covers it if the battery fails.", hc=RED)
+    y = d.note(0, y - 5.0 * mm, "AND THE FOUL STREAM STOPS ENTIRELY, BY "
+               "DESIGN.",
+               "In protective occupation the lavatory uses SEALED-CASSETTE "
+               "CHEMICAL TOILETS and nothing is discharged at all.  The "
+               "septic tank and the soak pit are PEACETIME plant  -  which "
+               "is why they are sized for 10 users at 45 lpcd and not for "
+               "nine occupants for 96 hours.")
+    d.para(0, y - 5.0 * mm, "THE DECON STREAM IS TANKER-ONLY IN EVERY MODE "
+           "AND NEVER REACHES GROUND.  It is the most contaminated water "
+           "this structure will ever hold, its 1 000 L tank is drawn across "
+           "the gas-tight boundary from the airlock that produces it, and "
+           "NEITHER THE ROUTE TO THE TANK NOR THE ROUTE OUT OF IT IS "
+           "DEFINED  -  open item, and the one line of this table that "
+           "cannot yet be built.", 4.0, RED, bold=True)
+    return d
+
+
+# ===========================================================================
+#  12  THE PARTS THAT HAD NO FIGURE
+# ===========================================================================
+
+def fig_code_hierarchy():
+    """Which code governs what, and the precedence when two disagree."""
+    d = Fig(W, 124 * mm)
+    d.txt(0, 118 * mm, "THE CODE FRAMEWORK  -  WHAT EACH STANDARD IS USED "
+          "FOR, AND WHAT HAPPENS WHEN TWO DISAGREE", 5.4, INK, bold=True)
+
+    groups = [("STRENGTH AND DETAILING", ACCENT,
+               ["IS 456:2000  -  all reinforced concrete",
+                "IS 13920:2016  -  ductile detailing, sentry post",
+                "IS 3370 Pts 1, 2  -  crack width, surface steel",
+                "IS 1786:2008  -  Fe500D reinforcement",
+                "SP 16 · SP 34 · BS 8666  -  aids and detailing"]),
+              ("LOADING", GOLD,
+               ["IS 875 Pts 1, 2, 3, 5  -  dead, imposed, wind",
+                "IS 1893 Pt 1:2016  -  seismic",
+                "IS 4991:1968  -  BLAST RULES AND DYNAMIC STRENGTHS ONLY"]),
+              ("GROUND", GREEN,
+               ["IS 1904 · IS 2950 · IS 12070  -  bearing, rafts, rock",
+                "IS 1498 · IS 2720 Pts IV-XL  -  classification, testing"]),
+              ("MATERIALS AND MIX", VIOLET,
+               ["IS 10262:2019  -  mix proportioning",
+                "IS 269 · IS 383 · IS 2645  -  cement, aggregate, admixture"]),
+              ("SERVICES AND PROTECTION", RED,
+               ["IS 2470 Pts 1, 2  -  septic tank, soak pit",
+                "MIL-STD-188-125-1 · IEEE Std 299  -  EMP",
+                "EN 1822 · FEMA 453  -  HEPA, shelter ventilation",
+                "NBC 2016 Pt 4 · IS 13416  -  fire and escape"])]
+    y = 108 * mm
+    for name, col, items in groups:
+        d.rect(0, y - len(items) * 4.4 * mm - 1.4 * mm, 3.0,
+               len(items) * 4.4 * mm + 4.0 * mm, fill=col, c=col, sw=0)
+        d.txt(5 * mm, y, name, 4.6, col, bold=True)
+        for i, it in enumerate(items):
+            d.txt(9 * mm, y - 4.6 * mm - i * 4.4 * mm, it, 4.0, MID)
+        y -= (len(items) + 1) * 4.4 * mm + 3.4 * mm
+
+    d.line(0, 47 * mm, W, 47 * mm, RULE, 0.5)
+    d.txt(0, 42.6 * mm, "THE GOVERNING CAVEAT, STATED BEFORE ANYTHING ELSE",
+          4.8, RED, bold=True)
+    d.para(0, 38.0 * mm, "IS 4991 Cl. 1.1 EXCLUDES NUCLEAR EXPLOSIONS from "
+           "its scope, and this is a nuclear design basis threat.  IS 4991 "
+           "is used for its LOADING RULES and its DYNAMIC MATERIAL "
+           "STRENGTHS only, and that limitation is quoted in every "
+           "deliverable rather than buried in a reference list.", 4.1, MID)
+
+    d.txt(0, 26.0 * mm, "AND WHEN TWO DOCUMENTS DISAGREE, THE PRECEDENCE IS "
+          "FIXED", 4.8, INK, bold=True)
+    for i, t in enumerate([
+            "1   a drawing beats an older document",
+            "2   arithmetic beats a transcription",
+            "3   the native file beats a picture of it",
+            "4   a value reproduced from independent lines beats a lone "
+            "outlier",
+            "5   where nothing in the project can decide it, IT STAYS OPEN"]):
+        d.txt(4 * mm, 21.4 * mm - i * 4.4 * mm, t, 4.1,
+              RED if i == 4 else MID, bold=(i == 4))
+    return d
+
+
+def fig_staad_model():
+    """What the analysis model is, and what it cannot be asked."""
+    d = Fig(W, 112 * mm)
+    d.txt(0, 106 * mm, "THE UNDERGROUND BOX MODEL  -  WHAT IT IS, WHAT IT "
+          "CARRIES, AND THE ONE QUESTION IT CANNOT ANSWER", 5.4, INK,
+          bold=True)
+
+    v = V(215, 8 * mm, 58 * mm)
+    d.rect(v.x(0), v.y(0), v.d(22000), v.d(6200), fill=None, c=INK, sw=0.8)
+    for k in range(1, 23):
+        d.line(v.x(k * 1000), v.y(0), v.x(k * 1000), v.y(6200), RULE, 0.25)
+    for k in range(1, 7):
+        d.line(v.x(0), v.y(k * 900), v.x(22000), v.y(k * 900), RULE, 0.25)
+    for x0, x1 in GEOM["w8"]:
+        d.rect(v.x(x0), v.y(600), v.d(x1 - x0), v.d(5000), fill=CONC2, c=MID,
+               sw=0.3)
+    for x0, x1 in (GEOM["w5"], GEOM["w6"], GEOM["w7"]):
+        d.rect(v.x(x0), v.y(600), v.d(x1 - x0), v.d(5000), fill=CONC, c=INK,
+               sw=0.4)
+    for k in range(0, 23, 2):
+        for j in range(0, 8, 2):
+            x, y = v.x(k * 1000), v.y(j * 900)
+            d.poly([x, y, x - 1.4, y - 2.4, x + 1.4, y - 2.4], fill=GREEN,
+                   c=GREEN, sw=0.2)
+    d.txt(v.x(11000), v.y(6900), "1 138 PLATES  ·  ELASTIC MAT SPRINGS ON "
+          "EVERY NODE  ·  FOUR THICKNESS GROUPS", 4.2, INK, "middle",
+          bold=True)
+    d.txt(v.x(11000), v.y(-1400), "green symbols mark the vertical soil "
+          "springs;  grid shown diagrammatically", 3.8, MID, "middle")
+
+    d.txt(0, 46 * mm, "ELEVEN PRIMARY LOAD CASES, AND THE FIVE COMBINATIONS "
+          "BUILT FROM THEM", 4.8, INK, bold=True)
+    cases = [("1", "DL1 self weight", "auto"), ("2", "DL2 earth cover",
+              "40.65 kPa"), ("3", "DL3 services and finishes", "2.0 kPa"),
+             ("4", "LL1 internal floor", "5.0 kPa"),
+             ("5", "DL4 staircase on the shaft walls", "2.947 kPa"),
+             ("6", "EP1 earth + water on the external walls",
+              "33.9 to 83.2 kPa"),
+             ("7", "HY1 hydrostatic uplift on the mat", "46.11 kPa"),
+             ("8", "BL1 blast on the roof", "383 kPa"),
+             ("9", "BL2 blast on the external walls", "383 kPa"),
+             ("10", "LL2 construction surcharge", "20.0 kPa"),
+             ("11", "BL3 BLAST IN THE STAIR SHAFT ON W6 AND W7",
+              "383 kPa")]
+    for i, (n, nm, val) in enumerate(cases):
+        col = 0 if i < 6 else 88 * mm
+        yy = 41 * mm - (i % 6) * 4.4 * mm
+        hot = n == "11"
+        d.txt(col, yy, n, 4.0, RED if hot else MID, bold=True)
+        d.txt(col + 6 * mm, yy, nm, 4.0, RED if hot else MID, bold=hot)
+        d.txt(col + 80 * mm, yy, val, 4.0, INK, "end")
+    d.txt(0, 12.8 * mm, "COMB 103  =  1.0 (DL + SIDL + SOIL + UPLIFT + "
+          "BLAST)  -  GOVERNS EVERY ELEMENT", 4.4, RED, bold=True)
+
+    y = d.note(0, 7.4 * mm, "SPRING SUPPORTS TAKE TENSION, SO THE MAT NEVER "
+               "LIFTS IN THIS MODEL, IN ANY LOAD CASE.",
+               "Flotation cannot be demonstrated OR refuted by it.  The "
+               "check in Part 9.3.5 is a hand calculation on real dimensions "
+               "and real weights.  Anyone who says the analysis shows no "
+               "uplift has misunderstood their own model.", hc=RED)
+    return d
+
+
+def fig_sentry_post():
+    """The sentry post frame -- section, grid and members."""
+    d = Fig(W, 132 * mm)
+    d.txt(0, 126 * mm, "THE SENTRY POST  -  A TWO-STOREY RC FRAME ON ITS OWN "
+          "FOOTINGS, DELIBERATELY NOT BLAST DESIGNED   1 : 90", 5.4, INK,
+          bold=True)
+
+    v = V(90, 26 * mm, 44 * mm)
+    # ground and rock
+    d.rect(v.x(-1200), v.y(-2600), v.d(7000), v.d(2600), fill=ROCK, c=None,
+           sw=0)
+    d.hatch(v.x(-1200), v.y(-2600), v.d(7000), v.d(2600), 45, 4.4,
+            colors.Color(0.66, 0.68, 0.66), 0.2)
+    d.line(v.x(-1200), v.y(0), v.x(5800), v.y(0), INK, 0.7)
+    # footings
+    for cx in (175, 3825):
+        d.rect(v.x(cx - 750), v.y(-2600), v.d(1500), v.d(600), fill=CONC,
+               c=INK, sw=0.8)
+    d.txt(v.x(2000), v.y(-2300), "F1  1500 x 1500 x 600  ON IN-SITU BASALT",
+          4.2, INK, "middle", bold=True)
+    d.level(v.x(-1150), v.y(-2000), "(-)2.000", 4.2, ACCENT, side=1)
+    # columns
+    for cx in (175, 3825):
+        d.rect(v.x(cx - 175), v.y(-2000), v.d(350), v.d(2450), fill=CONC2,
+               c=INK, sw=0.5)
+        d.rect(v.x(cx - 175), v.y(450), v.d(350), v.d(6250), fill=CONC,
+               c=INK, sw=0.8)
+    # plinth, floors, roof, parapet
+    d.rect(v.x(0), v.y(50), v.d(4000), v.d(400), fill=CONC2, c=INK, sw=0.5)
+    d.txt(v.x(4300), v.y(150), "PB 250 x 400", 4.0, MID)
+    for lev, lab, th in ((3650, "+3.650  first floor", 150),
+                         (6700, "+6.700  roof", 150)):
+        d.rect(v.x(0), v.y(lev), v.d(4000), v.d(th), fill=CONC, c=INK,
+               sw=0.7)
+        d.rect(v.x(0), v.y(lev - 450), v.d(4000), v.d(450), fill=None, c=MID,
+               sw=0.35, dash=[2, 1.5])
+        d.level(v.x(4100), v.y(lev), lab, 4.2, ACCENT, side=1)
+    d.rect(v.x(0), v.y(6850), v.d(4000), v.d(300), fill=CONC, c=INK, sw=0.7)
+    d.level(v.x(4100), v.y(7000), "+7.000  parapet", 4.2, ACCENT, side=1)
+    d.level(v.x(4100), v.y(450), "+0.450  ground floor", 4.2, ACCENT, side=1)
+    # infill
+    d.rect(v.x(350), v.y(450), v.d(3300), v.d(2600), fill=RUB, c=MID, sw=0.4)
+    d.hatch(v.x(350), v.y(450), v.d(3300), v.d(2600), 45, 3.4, FAINT, 0.25)
+    d.txt(v.x(2000), v.y(1600), "190 BRICK MASONRY", 4.2, INK, "middle",
+          bold=True)
+    d.txt(v.x(2000), v.y(1150), "in the 200 structural zone", 3.9, MID,
+          "middle")
+    d.rect(v.x(350), v.y(3800), v.d(3300), v.d(1200), fill=WARN, c=RED,
+           sw=0.4)
+    d.txt(v.x(2000), v.y(4300), "ARMOURED VISION PANELS, 1 200 WIDE", 4.0,
+           RED, "middle", bold=True)
+    d.dimh(v.x(0), v.x(4000), v.y(-3050), "4 000 external", 4.3, INK)
+    d.dimv(v.y(450), v.y(3650), v.x(-700), "3 200", 4.2)
+    d.dimv(v.y(3650), v.y(6700), v.x(-700), "3 050", 4.2)
+
+    d.txt(92 * mm, 118 * mm, "MEMBERS", 4.8, INK, bold=True)
+    for i, (m, sz, st) in enumerate((
+            ("Columns C1", "350 x 350, 4 No.", "8-T16, T10 hoops @ 85"),
+            ("Beams B1", "250 x 450, span 3 650", "4-T16 / 2-T16"),
+            ("Beams B2", "250 x 450, span 4 650", "3-T20 / 2-T20   89 %"),
+            ("Slab S1", "150 two-way, both floors", "T8 @ 150 B/W"),
+            ("Plinth PB", "250 x 400 at +0.450", "3-T12 + 3-T12"),
+            ("Footing F1", "1500 x 1500 x 600", "T12 @ 150 B/W"),
+            ("Lintel L1", "190 x 150, 11 openings", "2-T10 / 2-T8"))):
+        yy = 112 * mm - i * 6.4 * mm
+        d.txt(92 * mm, yy, m, 4.2, INK, bold=True)
+        d.txt(92 * mm, yy - 3.0 * mm, sz, 3.9, MID)
+        d.txt(W, yy, st, 3.9, ACCENT, "end")
+
+    y = d.note(0, 22 * mm, "IT IS NOT BLAST DESIGNED, AND THAT IS A RECORDED "
+               "DECISION.",
+               "The reflected pressure on the 4.0 x 6.7 m face is "
+               "p_r x A = 1 366 kPa x 26.8 m2 = 36 600 kN, about 3 730 "
+               "tonnes.  Hardening would need roughly 700 mm of reinforced "
+               "concrete on all four above-ground faces, which is not "
+               "justified for a peacetime observation post.  The post is "
+               "declared expendable and the shelter's protection does not "
+               "depend on it in any way.", hc=RED)
+    d.para(0, y - 4.6 * mm, "Seismic governs over wind 2.4 : 1  -  73.18 kN "
+           "against 29.9 kN  -  and every member is designed to the model's "
+           "base shear, not to the lighter hand-calculated one.", 4.0, MID)
+    return d
+
+
+def fig_steel_split():
+    """Where the seventy tonnes of reinforcement actually goes."""
+    d = Fig(W, 100 * mm)
+    d.txt(0, 94 * mm, "SEVENTY TONNES OF REINFORCEMENT  -  BY BAR SIZE, AND "
+          "BY WHERE IT GOES", 5.4, INK, bold=True)
+
+    bars = [("T25", 15439.4, 21.9, VIOLET), ("T20", 10922.8, 15.5, BLUE),
+            ("T16", 23707.1, 33.6, ACCENT), ("T12", 20318.3, 28.8, GREEN),
+            ("T10", 63.3, 0.1, MID), ("T8", 5.7, 0.0, MID)]
+    tot = 70456.7
+    d.txt(0, 86 * mm, "BY BAR SIZE", 4.8, INK, bold=True)
+    x0, xw = 26 * mm, 82 * mm
+    for i, (nm, kg, pc, col) in enumerate(bars):
+        yy = 80 * mm - i * 5.6 * mm
+        d.txt(0, yy, nm, 4.3, INK, bold=True)
+        d.rect(x0, yy - 1.2, xw * kg / tot, 4.4, fill=col, c=MID, sw=0.3)
+        d.txt(112 * mm, yy, "%.1f kg" % kg, 4.1, INK, "end")
+        d.txt(W, yy, "%.1f %%" % pc, 4.1, MID, "end")
+    d.line(0, 46 * mm, W, 46 * mm, RULE, 0.4)
+    d.txt(0, 41.6 * mm, "TOTAL", 4.4, INK, bold=True)
+    d.txt(112 * mm, 41.6 * mm, "70 456.7 kg", 4.4, ACCENT, "end", bold=True)
+    d.txt(W, 41.6 * mm, "19 704 bars", 4.1, MID, "end")
+
+    grp = [("WALLS", 24725.6, 35.1, ACCENT), ("ROOF SLAB", 20490.5, 29.1,
+            VIOLET), ("FOUNDATIONS", 14665.2, 20.8, GREEN),
+           ("HEADHOUSE", 8364.2, 11.9, BLUE),
+           ("ENTRY STAIRWELL", 1632.8, 2.3, GOLD),
+           ("BEAMS AND STAIR", 578.4, 0.8, MID)]
+    d.txt(0, 34 * mm, "BY ELEMENT GROUP", 4.8, INK, bold=True)
+    acc = 0.0
+    for nm, kg, pc, col in grp:
+        wdt = xw * 1.7 * kg / tot
+        d.rect(acc, 26 * mm, wdt, 7 * mm, fill=col, c=MID, sw=0.3)
+        if pc > 5:
+            d.txt(acc + wdt / 2.0, 29 * mm, "%.1f %%" % pc, 4.2,
+                  colors.white, "middle", bold=True)
+        acc += wdt
+    d.keyrow(0, 21 * mm, [(g[3], g[0]) for g in grp[:3]], 4.0, 46 * mm)
+    d.keyrow(0, 16.4 * mm, [(g[3], g[0]) for g in grp[3:]], 4.0, 46 * mm)
+
+    d.para(0, 9.0 * mm, "AVERAGE STEEL DENSITY IS ABOUT 191 kg/m3.  For a "
+           "blast-hardened buried box whose bar spacing is set by a 150 mm "
+           "EMP requirement rather than by strength, and whose sections are "
+           "900 roof, 600 walls and 600 mat, that is a plausible figure  -  "
+           "and it is a sanity check, not a design check.", 4.1, MID)
+    d.para(0, 0.6 * mm, "Sentry post excluded:  no sentry post bar, quantity "
+           "or weight appears in the structural CAD schedules.  Its 1.97 t "
+           "is carried separately in the bill.", 4.0, FAINT)
+    return d
+
+
+def fig_drawing_package():
+    """Eighty sheets, by discipline, and which of them are generated."""
+    d = Fig(W, 96 * mm)
+    d.txt(0, 90 * mm, "THE DRAWING PACKAGE  -  EIGHTY DXF, AND THE TWO SETS "
+          "THAT MUST NEVER BE CONFUSED", 5.4, INK, bold=True)
+    rows = [("Architectural / general  -  Rev F", 11, SOIL, "SOURCE"),
+            ("Architectural  -  finishes", 3, CONC2, "generated"),
+            ("Structural  -  reinforcement", 30, ACCENT, "generated"),
+            ("Drainage", 13, WATER, "generated"),
+            ("HVAC", 8, PLANT, "generated"),
+            ("EMP protection", 6, GOLD, "generated"),
+            ("Site selection and geotechnical", 5, RUB, "generated"),
+            ("Fire and life safety", 2, WARN, "generated"),
+            ("Site and concealment", 1, TURF, "generated"),
+            ("Electrical", 1, CONC, "generated")]
+    x0, xw = 74 * mm, 66 * mm
+    for i, (nm, n, col, kind) in enumerate(rows):
+        yy = 82 * mm - i * 5.6 * mm
+        d.txt(0, yy, nm, 4.1, INK)
+        d.rect(x0, yy - 1.2, xw * n / 30.0, 4.4, fill=col, c=MID, sw=0.3)
+        d.txt(144 * mm, yy, str(n), 4.2, INK, "end", bold=True)
+        d.txt(150 * mm, yy, kind, 3.9, RED if kind == "SOURCE" else MID,
+              bold=(kind == "SOURCE"))
+    d.line(0, 25 * mm, W, 25 * mm, RULE, 0.5)
+    d.txt(0, 20.6 * mm, "TOTAL", 4.4, INK, bold=True)
+    d.txt(144 * mm, 20.6 * mm, "80", 4.6, ACCENT, "end", bold=True)
+    d.txt(150 * mm, 20.6 * mm, "75 A1 · 4 A4 · 1 A0", 4.0, MID)
+
+    y = d.note(0, 14.6 * mm, "THE TEN Rev F ARCHITECTURAL FILES ARE SOURCE.  "
+               "EVERYTHING ELSE IS A BUILD ARTEFACT.",
+               "Source may be edited directly;  a build artefact is "
+               "regenerated from its script and must never be hand-edited, "
+               "because the next regeneration would silently discard the "
+               "edit.  The index itself is generated from the DXF, so it "
+               "cannot drift from the drawings  -  but a package that does "
+               "not register its own prefix with the tool is invisible to "
+               "it, and stays invisible for as long as nobody looks.")
+    return d
+
+
+def fig_external_works():
+    """The drainage reserve, and why everything is in it."""
+    d = Fig(W, 116 * mm)
+    d.txt(0, 110 * mm, "THE DRAINAGE RESERVE  -  EVERYTHING DOWNGRADIENT, IN "
+          "ONE PLACE, FOR FOUR STATED REASONS   1 : 420", 5.4, INK,
+          bold=True)
+    v = V(420, 8 * mm, 50 * mm)
+    ex, ey, eX, eY = GEOM["exc"]
+    d.rect(v.x(ex), v.y(ey), v.d(eX - ex), v.d(eY - ey), fill=SOIL, c=FAINT,
+           sw=0.4, dash=[2, 2])
+    d.rect(v.x(0), v.y(0), v.d(22000), v.d(6200), fill=CONC, c=INK, sw=0.7)
+    d.txt(v.x(11000), v.y(3100) - 1.0, "THE BURIED BOX", 4.2, INK, "middle",
+          bold=True)
+    sx, sy, sX, sY = GEOM["sentry"]
+    d.rect(v.x(sx), v.y(sy), v.d(sX - sx), v.d(sY - sy), fill=CONC2, c=MID,
+           sw=0.5)
+    d.txt(v.x((sx + sX) / 2), v.y(3100) - 1.0, "SENTRY", 4.0, MID, "middle")
+    rx, ry, rX, rY = GEOM["reserve"]
+    d.rect(v.x(rx), v.y(ry), v.d(rX - rx), v.d(rY - ry), fill=None, c=GREEN,
+           sw=0.8, dash=[3, 2])
+    d.txt(v.x((rx + rX) / 2), v.y(rY + 900), "THE RESERVE  -  18 000 x "
+          "11 000, DOWNGRADIENT", 4.2, GREEN, "middle", bold=True)
+    items = [("ST-01", 36750, 16000, "septic tank"),
+             ("SK-01", 44000, 16000, "foul soak pit"),
+             ("SK-02", 35000, 8500, "storm soakaway"),
+             ("SK-03", 41400, 8500, "stairwell"),
+             ("SK-04", 47800, 8500, "headhouse"),
+             ("IC-02", 40200, 16000, "chamber")]
+    for tag, x, y, nm in items:
+        d.circ(v.x(x), v.y(y), 2.4, fill=WATER, c=GREEN, sw=0.6)
+        d.txt(v.x(x), v.y(y + 1100), tag, 3.9, GREEN, "middle", bold=True)
+        d.txt(v.x(x), v.y(y - 1900), nm, 3.5, MID, "middle")
+    d.arrow(v.x(24000), v.y(-2600), v.x(50000), v.y(-2600), BLUE, 0.8)
+    d.txt(v.x(37000), v.y(-4200), "GROUND FALLS EAST", 4.0, BLUE, "middle",
+          bold=True)
+    d.north(v.x(52000), v.y(14000), 5.0)
+    d.scalebar(8 * mm, 34 * mm, v, 10000, "10 m   1 : 420")
+
+    d.txt(0, 27.0 * mm, "WHY EVERYTHING IS IN ONE RESERVE, DOWNGRADIENT",
+          4.8, INK, bold=True)
+    for i, t in enumerate([
+            "1   nothing recharges the ground upslope of a box that is "
+            "flotation-critical at FoS 0.33 in the mat-only stage  -  and "
+            "whose side backfill is MORE permeable than the basalt around it",
+            "2   one percolation-test location, one keep-clear zone, one "
+            "reserved fallback",
+            "3   one trench  -  and where rockhead is 0.9 to 1.5 m, the cost "
+            "IS the trench",
+            "4   concealment  -  four cover slabs and a 2 m septic vent, "
+            "grouped 11 to 22 m away, MARK THE DRAINAGE FIELD, NOT THE "
+            "SHELTER"]):
+        d.para(4 * mm, 22.4 * mm - i * 4.2 * mm, t, 4.0, MID)
+    d.para(0, 4.4 * mm, "The layout is anchored to confirmed geometry only, "
+           "and every offset is relative  -  so if the perimeter fence turns "
+           "out to be closer than the reserve's east edge, THE WHOLE RESERVE "
+           "TRANSLATES AND NOT ONE OFFSET CHANGES.", 4.0, ACCENT, bold=True)
+    return d
+
+
+def fig_env_aspects():
+    """Environmental aspects, each against the quantity that causes it."""
+    d = Fig(W, 112 * mm)
+    d.txt(0, 106 * mm, "ENVIRONMENTAL ASPECTS  -  EACH ONE AGAINST THE "
+          "QUANTITY THIS DESIGN HAS ALREADY FIXED", 5.4, INK, bold=True)
+    rows = [("Excavation and spoil", "1 338 m3, of which 994 m3 rock",
+             "HIGH", RED),
+            ("Rock breaking", "hydraulic breaker, NO BLASTING, ~20 days",
+             "HIGH", RED),
+            ("Dewatering", "continuous, excavation to backfill", "HIGH",
+             RED),
+            ("Excavation across a monsoon", "559.7 mm onto an open 6.8 m cut",
+             "HIGH", RED),
+            ("Decon effluent", "1 000 L, TANKER ONLY, never to ground",
+             "HIGH", RED),
+            ("Spent CBRN filters", "HEPA H14 + ASZM-TEDA carbon, interval [N]",
+             "HIGH", RED),
+            ("Concrete", "388.7 m3 + 20.95 m3;  194.2 t cement", "MEDIUM",
+             GOLD),
+            ("Curing water", "14 days on 1 058 m2 of formed face", "MEDIUM",
+             GOLD),
+            ("Black cotton spoil", "84 to 126 m3, destination [N]", "MEDIUM",
+             GOLD),
+            ("Foul effluent, peacetime", "450 L/day to septic and soak pit",
+             "MEDIUM", GOLD),
+            ("Fuel", "250 L day tank, 275 L bund at 110 %", "MEDIUM", GOLD),
+            ("Generator", "15 kVA, 2 600 m3/h combustion and cooling air",
+             "MEDIUM", GOLD),
+            ("Spoil RE-USE on site", "1 113.937 m3 re-used, 92.82 m3 turf",
+             "BENEFICIAL", GREEN),
+            ("Site restoration", "site's own turf re-laid, berms 1.5:1",
+             "BENEFICIAL", GREEN)]
+    for i, (nm, q, sig, col) in enumerate(rows):
+        yy = 98 * mm - i * 5.2 * mm
+        d.rect(0, yy - 1.2, 2.6, 4.4, fill=col, c=col, sw=0)
+        d.txt(5 * mm, yy, nm, 4.1, INK, bold=True)
+        d.txt(60 * mm, yy, q, 4.0, MID)
+        d.txt(W, yy, sig, 4.0, col, "end", bold=True)
+        d.line(0, yy - 2.6, W, yy - 2.6, RULE, 0.18)
+
+    y = d.note(0, 20.0 * mm, "NO ENVIRONMENTAL MANAGEMENT PLAN, ASSESSMENT, "
+               "CONSENT OR CLEARANCE EXISTS IN THIS PROJECT.",
+               "This Part does not report one;  it DERIVES one from "
+               "quantities the project does confirm, so that the works have "
+               "an environmental position instead of no position at all.  "
+               "Where a consent, a limit value or a monitoring standard "
+               "would be needed, it says which one and leaves it [N]  -  a "
+               "fabricated consent condition would be worse than an admitted "
+               "gap, because it would read as though somebody had asked.",
+               hc=RED)
+    d.para(0, y - 4.6 * mm, "THE NULLAH IS THE RECEPTOR THAT MATTERS, AND "
+           "THE PROJECT CANNOT SAY HOW FAR AWAY IT IS.  The plot falls east "
+           "toward it and the drainage reserve is deliberately downgradient. "
+           " Whether that reserve is 40 m or 400 m from the nullah is not "
+           "recorded, and the answer changes the plan.", 4.0, ACCENT,
+           bold=True)
+    return d
+
+
+def fig_register_status():
+    """The open register, counted so that it can be checked by reading."""
+    d = Fig(W, 96 * mm)
+    d.txt(0, 90 * mm, "THE OPEN REGISTER  -  EIGHTEEN OPEN ITEMS AND SEVEN "
+          "ASSUMPTIONS, CLASSIFIED SO THE COUNT CAN BE CHECKED", 5.4, INK,
+          bold=True)
+
+    groups = [("THE FOUR A REVIEWER SHOULD SEE FIRST", 4, RED),
+              ("open, narrowed by a ruling", 9, GOLD),
+              ("open, annotated but NOT narrowed", 2, ACCENT),
+              ("open, untouched", 6, MID),
+              ("open, new", 1, VIOLET)]
+    x0, xw = 74 * mm, 70 * mm
+    d.txt(0, 82 * mm, "OPEN ITEMS", 4.8, INK, bold=True)
+    for i, (nm, n, col) in enumerate(groups):
+        yy = 76 * mm - i * 5.8 * mm
+        d.txt(0, yy, nm, 4.1, col, bold=(i == 0))
+        d.rect(x0, yy - 1.2, xw * n / 9.0, 4.4, fill=col, c=MID, sw=0.3)
+        d.txt(W, yy, str(n), 4.3, col, "end", bold=True)
+    d.line(0, 45 * mm, W, 45 * mm, RULE, 0.4)
+    d.txt(0, 40.6 * mm, "9 + 2 + 6 + 1", 4.1, MID)
+    d.txt(W, 40.6 * mm, "18", 4.8, RED, "end", bold=True)
+    d.txt(0, 35.0 * mm, "of which the four to read first", 4.1, RED,
+          bold=True)
+    d.para(6 * mm, 30.6 * mm, "an investigation that reached about 1.5 m "
+           "against a formation at (-)6.800  ·  two 1 400 mm holes in the "
+           "protective boundary whose bonding is undesigned  ·  a CBRN "
+           "shelter that cannot state which way a release drifts  ·  a "
+           "sealed box with a 4 kW heat surplus and an unmodelled rejection "
+           "path", 4.0, MID)
+
+    d.txt(0, 19.0 * mm, "ASSUMPTIONS", 4.8, INK, bold=True)
+    for i, (nm, n, col) in enumerate((("closed by judgement", 7, GREEN),
+                                      ("STILL OPEN", 7, RED))):
+        yy = 13.4 * mm - i * 5.4 * mm
+        d.txt(0, yy, nm, 4.1, col, bold=(i == 1))
+        d.rect(x0, yy - 1.2, xw * n / 9.0, 4.4, fill=col, c=MID, sw=0.3)
+        d.txt(W, yy, str(n), 4.3, col, "end", bold=True)
+    d.para(0, 2.4 * mm, "EVERY ONE OF THE SEVEN THAT REMAIN IS A PHYSICAL "
+           "TEST ON THIS PLOT  -  a borehole, a piezometer, a plate load "
+           "test, a percolation test, a packer test.  Not one of them is an "
+           "argument anybody can win at a desk.", 4.0, RED, bold=True)
+    return d
+
+
+def fig_mix_steps():
+    """The IS 10262 procedure, both grades, step by step."""
+    d = Fig(W, 122 * mm)
+    d.txt(0, 116 * mm, "THE IS 10262 PROCEDURE, STEP BY STEP  -  AND WHERE "
+          "EACH GRADE COMES OUT", 5.4, INK, bold=True)
+    rows = [("A-1", "Stipulations for proportioning", "M35 · 20 mm · 100 mm "
+             "slump", "M30 · 20 mm · 75 mm slump"),
+            ("A-2", "Test data for materials", "SG 3.15 / 2.84 / 2.65  [A]",
+             "SG 3.15 / 2.84 / 2.65  [A]"),
+            ("A-3", "Target mean strength", "43.25 N/mm2", "38.25 N/mm2"),
+            ("A-4", "Approximate air content, Table 3", "1.0 %", "1.0 %"),
+            ("A-5", "Selection of w/c, against the IS 456 cap",
+             "0.40   cap 0.45", "0.44   cap 0.45"),
+            ("A-6", "Water content, Table 4 + slump + admixture",
+             "158 L/m3", "157 L/m3"),
+            ("A-7", "Cement content, and the minimum check",
+             "400 kg/m3   min 340", "360 kg/m3   min 320"),
+            ("A-8", "Coarse aggregate volume, Table 5",
+             "0.577 after congestion", "0.633"),
+            ("A-9", "Mix calculations by absolute volume",
+             "CA 1 149.6 · FA 786.4", "CA 1 287.5 · FA 696.5"),
+            ("A-10", "MIX PROPORTIONS FOR TRIAL 1",
+             "1 : 1.966 : 2.874   w/c 0.395",
+             "1 : 1.935 : 3.576   w/c 0.436"),
+            ("A-11", "Trial mixes, moisture correction, cubes",
+             "REQUIRED  -  hold point Q-06", "REQUIRED  -  hold point Q-06")]
+    d.txt(0, 107 * mm, "step", 3.9, FAINT)
+    d.txt(14 * mm, 107 * mm, "IS 10262:2019", 3.9, FAINT)
+    d.txt(84 * mm, 107 * mm, "M35   shelter, stairs, headhouse", 3.9, ACCENT,
+          bold=True)
+    d.txt(132 * mm, 107 * mm, "M30   sentry post, burster", 3.9, ACCENT,
+          bold=True)
+    d.line(0, 104.6 * mm, W, 104.6 * mm, RULE, 0.5)
+    for i, (st, nm, a, b) in enumerate(rows):
+        yy = 99 * mm - i * 6.2 * mm
+        hot = st in ("A-3", "A-10")
+        d.txt(0, yy, st, 4.1, RED if hot else MID, bold=True)
+        d.txt(14 * mm, yy, nm, 4.1, INK, bold=hot)
+        d.txt(84 * mm, yy, a, 4.0, RED if hot else MID, bold=hot)
+        d.txt(132 * mm, yy, b, 4.0, RED if hot else MID, bold=hot)
+        d.line(0, yy - 2.4, W, yy - 2.4, RULE, 0.18)
+
+    y = d.note(0, 25.0 * mm, "EVERY INPUT MARKED [A] IS ASSUMED BY THIS "
+               "REPORT, AND NO MIX IS CONFIRMED ANYWHERE IN THE PROJECT.",
+               "Every mix design is a design against materials you have in "
+               "your hand.  This one is against materials nobody has yet "
+               "seen:  there is no aggregate source, no grading curve, no "
+               "specific gravity, no water absorption, no admixture product "
+               "and no supplier standard deviation in the project.  Each is "
+               "[N].  What A-1 to A-10 produce is a STARTING POINT FOR TRIAL "
+               "BATCHING, which is exactly what the code calls it.",
+               hc=RED)
+    d.para(0, y - 4.6 * mm, "It lands independently on the same 400 and 360 "
+           "kg/m3 the bill's procurement take-off already assumes.  That is "
+           "a CONSISTENCY CHECK, NOT A CONFIRMATION:  both remain [A], and "
+           "both are replaced the day a laboratory trial is run.", 4.0,
+           ACCENT, bold=True)
+    return d
+
+
+# ===========================================================================
 #  CAPTION REGISTER  --  the report's <!-- FIG: name --> directive looks the
 #  caption up here, and the renderer numbers the figures in document order.
 # ===========================================================================
@@ -3354,6 +4173,43 @@ CAPTIONS = {
     "fig_cost_split":
         "The cost estimate - five packages of basic cost, and the additions "
         "on top of them.",
+    "fig_code_hierarchy":
+        "The code framework - what each standard is used for, and the "
+        "precedence applied when two disagree.",
+    "fig_staad_model":
+        "The underground box model - what it is, what it carries, and the "
+        "one question it cannot answer.",
+    "fig_sentry_post":
+        "The sentry post - a two-storey RC frame on its own footings, "
+        "deliberately not blast designed.",
+    "fig_steel_split":
+        "Seventy tonnes of reinforcement, by bar size and by element group.",
+    "fig_drawing_package":
+        "The drawing package - eighty DXF by discipline, and the two sets "
+        "that must never be confused.",
+    "fig_external_works":
+        "The drainage reserve, and why everything is in it and downgradient.",
+    "fig_env_aspects":
+        "Environmental aspects, each against the quantity this design has "
+        "already fixed.",
+    "fig_register_status":
+        "The open register - eighteen open items and seven assumptions, "
+        "classified so the count can be checked by reading.",
+    "fig_mix_steps":
+        "The IS 10262 procedure step by step, and where each grade comes "
+        "out.",
+    "fig_emp_coupling":
+        "How a pulse gets in - the three coupling paths, and the zone "
+        "architecture that answers them.",
+    "fig_shielding_terms":
+        "Absorption in a solid steel skin against aperture leakage in a "
+        "150 mm mesh - the two curves that decide the architecture.",
+    "fig_honeycomb":
+        "The honeycomb waveguide panel, and the array correction that turns "
+        "a 53 dB margin into an 8 dB one.",
+    "fig_water_modes":
+        "Water, sewage and drainage - what happens to every stream in each "
+        "of the five operating modes.",
     "fig_boq_split":
         "The bill of quantities - ten sections, and the quantity that "
         "defines each one.",

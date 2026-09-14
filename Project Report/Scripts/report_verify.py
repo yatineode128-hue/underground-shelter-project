@@ -1164,6 +1164,58 @@ chk("final project cost with the rulings applied, re-derived",
     sum(_parts) * (1 + sum(_heads)), 29790912.0, 0.0001, "INR",
     "the report prints Rs 2 97 90 913 -- rounding on the heads")
 
+sect("23  EMP SHIELDING PHYSICS   (report Parts 2.8, 18)")
+
+MU0 = 4 * math.pi * 1e-7
+SIG_STEEL, MUR_STEEL = 1.0e7, 200.0          # both [A]
+
+
+def _skin(f):
+    return 1.0 / math.sqrt(math.pi * f * MUR_STEEL * MU0 * SIG_STEEL)
+
+
+chk("skin depth in steel at 10 kHz", _skin(1e4) * 1000, 0.1125, 0.005, "mm")
+chk("skin depth in steel at 1 MHz", _skin(1e6) * 1000, 0.01125, 0.005, "mm")
+chk("skin depth in steel at 1 GHz", _skin(1e9) * 1000, 0.000356, 0.005, "mm")
+chk("steel thickness giving 80 dB by absorption alone at 10 kHz",
+    80.0 * _skin(1e4) / 8.686 * 1000, 1.04, 0.01, "mm")
+chk("absorption of a 2 mm steel skin at 10 kHz",
+    8.686 * 0.002 / _skin(1e4), 154.0, 0.005, "dB")
+chk("plane-wave reflection loss at 10 kHz",
+    168 - 10 * math.log10(1e4 * MUR_STEEL / (SIG_STEEL / 5.8e7)), 97.4,
+    0.005, "dB")
+
+# --- the honeycomb waveguide panel
+chk("honeycomb TE11 cutoff, 6 mm cell",
+    1.8412 * 2.99792458e8 / (math.pi * 0.006) / 1e9, 29.28, 0.005, "GHz")
+chk("honeycomb attenuation below cutoff, one cell, 32 L/d",
+    32.0 * 25.0 / 6.0, 133.3, 0.005, "dB")
+chk("hexagonal cell area, 6 mm across flats",
+    math.sqrt(3) / 2 * 36.0, 31.18, 0.005, "mm2")
+_ncell = 1e6 / (math.sqrt(3) / 2 * 36.0)
+chk("honeycomb cells in one square metre", _ncell, 32075.0, 0.005)
+chk("array correction -10 log10(n)", 10 * math.log10(_ncell), 45.1, 0.005,
+    "dB")
+chk("honeycomb net attenuation with the array counted",
+    32.0 * 25.0 / 6.0 - 10 * math.log10(_ncell), 88.3, 0.005, "dB")
+chk("margin over 80 dB, array counted", 
+    32.0 * 25.0 / 6.0 - 10 * math.log10(_ncell) - 80.0, 8.3, 0.01, "dB")
+chk("honeycomb margin against the project's own stated figure",
+    32.0 * 25.0 / 6.0 - 10 * math.log10(_ncell) - 80.0, 53.0, 0.01, "dB",
+    known="PR2-F2.  The project states +53 dB, which is the SINGLE-CELL "
+          "value with no array correction.  Counting the ~32 000 cells of "
+          "a one-square-metre panel gives +8.3 dB.  The panel still "
+          "PASSES;  what changes is a procurement requirement -- require a "
+          "certified curve for the panel AS BUILT -- not a design value. "
+          " REPORTED, NOT CORRECTED")
+
+# --- the escape shaft head hatch, and the Poisson's ratio that belongs to steel
+chk("hatch leaf force at 383 kPa over a 1 400 bore",
+    383.0 * math.pi * 0.700 ** 2, 589.6, 0.005, "kN")
+chk("flat-plate moment, w a^2 (3 + nu) / 16 with nu = 0.30 for STEEL",
+    383.0 * 0.700 ** 2 * 3.30 / 16.0, 38.71, 0.005, "kNm/m")
+
+
 # ====================================================================== out
 out()
 out("=" * 78)

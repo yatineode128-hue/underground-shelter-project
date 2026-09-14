@@ -6,7 +6,7 @@ Status: **FOR REVIEW — NOT FOR CONSTRUCTION.**
 
 ## What this package is
 
-`MASTER_PROJECT_REPORT.pdf` — **137 pages, 25 parts, 4 appendices and 44 drawn figures.** The
+`MASTER_PROJECT_REPORT.pdf` — **151 pages, 25 parts, 4 appendices and 57 drawn figures.** The
 project stated once, in the order an engineer would need it to reproduce the design: the physics
 first, then the site and the ground, then the loads, then the calculations, then the openings, then
 what is drawn, then the services, then how it is built — and then what is still open.
@@ -33,7 +33,7 @@ are out of the narrative; every engineering *reason* is kept, because a reason i
 and a revision number is not. The history is preserved in full in **Appendix D**, and the master's
 Part H remains the ledger.
 
-**Figures.** Forty-four, drawn by `Scripts/report_figures.py` from `GEOM` / `LEV` / `COVER`
+**Figures.** Fifty-seven, drawn by `Scripts/report_figures.py` from `GEOM` / `LEV` / `COVER`
 constants in **project coordinates** — so a dimension changed there changes every figure that uses
 it. Nothing is traced and no figure can drift from the geometry it is drawn from.
 
@@ -47,9 +47,9 @@ it. Nothing is traced and no figure can drift from the geometry it is drawn from
 | Part | What |
 |---|---|
 | **4** | The full soil report — 11 trial pits, 6 soil samples, 6 rock cores, the meteorological record, and the site figures |
-| **6.5** | **Concrete mix design, M35 and M30**, to the IS 10262 method, as trial mixes |
+| **6.5** | **Concrete mix design, M35 and M30**, worked through the **IS 10262:2019 Annex A procedure step by step**, A-1 to A-11, as trial mixes |
 | **12** | **Openings, blast doors, escape hatches and closures** — every hole through the protective boundary |
-| **15–19** | HVAC and CBRN · water, sewage and drainage · electrical · EMP · fire, each a part in its own right |
+| **15–19** | HVAC and CBRN · water, sewage and drainage **with an operating procedure for peacetime, warning, closed mode and recovery** · electrical · **EMP protection, science and design** · fire, each a part in its own right |
 | **21** | **Works management** — the bill, the cost estimate, the programme and the critical path, procurement, quality, resources and risk |
 | **22** | **The environmental management plan** — derived from the project's own quantities, with every statutory gap named |
 
@@ -69,7 +69,7 @@ Project Report/
 ## Rebuild
 
 ```
-python3 "Project Report/Scripts/report_verify.py"     # 543 checks
+python3 "Project Report/Scripts/report_verify.py"     # 559 checks
 python3 "Project Report/Scripts/report_render.py"     # rebuild the PDF
 ```
 
@@ -93,12 +93,12 @@ cannot draw is substituted and **reported**, never silently dropped.
 
 ## The two gates
 
-**Numbers.** `report_verify.py` recomputes **543** of the figures the report reproduces, from their
+**Numbers.** `report_verify.py` recomputes **559** of the figures the report reproduces, from their
 own inputs, with the formulas written out again rather than copied.
 
 ```
-PASS                            538
-KNOWN / RECORDED difference       5
+PASS                            553
+KNOWN / RECORDED difference       6
 UNEXPLAINED FAIL                  0
 ```
 
@@ -115,7 +115,7 @@ follows it. **The gate is zero, and it is met.**
 python3 -c "import report_figures as R; print(len(R.check_all()))"   # 0
 ```
 
-## The five differences — none corrected
+## The six differences — none corrected
 
 Master rule M.11 forbids editing a recorded value away.
 
@@ -124,12 +124,16 @@ Master rule M.11 forbids editing a recorded value away.
 | **`PR1-F1`** | master `A.7.8`, box wall shear stress | **0.0506 N/mm²** | 0.063 N/mm² |
 | **`PR1-F2`** | master `B.8.7`, footing F1 ULS e<sub>u</sub> and q<sub>u,max</sub> | **0.159 m**, **186.0 kPa** | 0.128 m, 190.0 kPa |
 | **`PR2-F1`** | the programme's working-day count | **325 days** | 326 days |
+| **`PR2-F2`** | the honeycomb panel's margin, with the array counted | **+8.3 dB** | +53 dB |
 
 `PR1-F1` and `PR1-F2` are figures quoted to show that something is negligible or non-governing,
 and **nothing downstream is sensitive to either** — which is why both survived every previous
 pass. `PR2-F1` is a single day and is far more likely a property of a scheduling tool's activity
-calendar than an error; **no date, duration or float moves on it.** All three are offered to the
-project owner as ruling items, not asserted as errors.
+calendar than an error; **no date, duration or float moves on it.** `PR2-F2` is the only one of
+the four that changes what somebody has to do: 133 dB is the attenuation of **one** honeycomb cell,
+a panel is tens of thousands of them in one screen, and the array correction takes the margin from
++53 dB to +8.3 dB. **The panel still passes; what changes is a procurement clause, not a design
+value.** All four are offered to the project owner as ruling items, not asserted as errors.
 
 A fourth difference — the owner's cost summary, ₹ 1 00 000 — is **already recorded as `R-14`**
 (master H.13). Reproducing a known finding independently is the outcome a check like this is for.

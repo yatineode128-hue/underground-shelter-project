@@ -158,12 +158,14 @@ overruns the inner border by 42 units. **No design value changed, nothing re-siz
 converted, no `.std` touched, STAAD.Pro not run, main staircase untouched.** **Package still 80
 drawings, 74 PASS.**
 Updated 13 Sep 2026 for the **master project report PR2** (master Part **H.37**) —
-`Project Report/MASTER_PROJECT_REPORT.pdf`, **137 pages, 25 parts, 4 appendices and 44 drawn
+`Project Report/MASTER_PROJECT_REPORT.pdf`, **151 pages, 25 parts, 4 appendices and 57 drawn
 figures**, the project stated once and in full **as a single as-built design**: the engineering
 science, the calculations with every substitution, the clause-level citations, the full soil
-report, the M35 and M30 mix designs, every opening through the protective boundary, the five
-services parts, works management with the bill, the cost and the critical path, and an
-environmental management plan derived from the project's own quantities.
+report, the M35 and M30 mix designs worked through the IS 10262 Annex A procedure step by step,
+every opening through the protective boundary, the five services parts — including the EMP
+protection science and design, and a water, sewage and drainage operating procedure for peacetime,
+warning, closed mode and recovery — works management with the bill, the cost and the critical path,
+and an environmental management plan derived from the project's own quantities.
 
 **It is a document, not a design change: no value, tag, quantity, rate, date or float moved, no
 `.std` was touched, STAAD.Pro was not run, no drawing was edited, no generator was re-run, no
@@ -175,13 +177,16 @@ master's Part H, and no revision is overwritten.** The figures are generated fro
 geometry in project coordinates and are **NOT the issued drawings and NOT reconstructions of the
 seven absent S-series sheets.**
 
-Its **543-check verification pass** (538 PASS, 5 differences, 0 unexplained) holds **`PR1-F1`**
+Its **559-check verification pass** (553 PASS, 6 differences, 0 unexplained) holds **`PR1-F1`**
 (the `A.7.8` wall shear stress reads 0.063 where its own expression gives 0.0506; both negligible)
 and **`PR1-F2`** (the `B.8.7` footing ULS eccentricity and bearing pressure; the element is
-governed by minimum steel and by anchorage), and adds **`PR2-F1`** — a raw six-day count of the
-programme's 384-day span less five holidays gives **325** working days against the stated **326**,
-**one day, on which no date, duration or float depends.** **All three RECORDED AND NOT
-CORRECTED.** `CONSOLIDATED_PROJECT_REPORT.md` remains stale on the open-item and assumption counts
+governed by minimum steel and by anchorage), and adds two. **`PR2-F1`** — a raw six-day count of
+the programme's 384-day span less five holidays gives **325** working days against the stated
+**326**, one day, on which no date, duration or float depends. **`PR2-F2`** — the honeycomb
+waveguide panel's stated **+53 dB** margin is the SINGLE-CELL value; counting the ~32 000 cells of
+a one-square-metre panel gives **+8.3 dB**. **The panel still passes, and what changes is a
+procurement requirement — a certified curve for the panel as built — not a design value.** **All
+four RECORDED AND NOT CORRECTED.** `CONSOLIDATED_PROJECT_REPORT.md` remains stale on the open-item and assumption counts
 (`PR1-F3`) and is **not edited either.**
 
 ---

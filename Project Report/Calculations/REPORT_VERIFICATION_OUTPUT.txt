@@ -675,11 +675,32 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
         the report prints Rs 2 97 90 913 -- rounding on the heads
 
 ==============================================================================
+  23  EMP SHIELDING PHYSICS   (report Parts 2.8, 18)
+==============================================================================
+  skin depth in steel at 10 kHz                              0.1125  vs     0.1125  PASS   mm
+  skin depth in steel at 1 MHz                               0.0113  vs     0.0112  PASS   mm
+  skin depth in steel at 1 GHz                               0.0004  vs     0.0004  PASS   mm
+  steel thickness giving 80 dB by absorption alone at         1.037  vs      1.040  PASS   mm
+  absorption of a 2 mm steel skin at 10 kHz                  154.36  vs     154.00  PASS   dB
+  plane-wave reflection loss at 10 kHz                        97.36  vs      97.40  PASS   dB
+  honeycomb TE11 cutoff, 6 mm cell                            29.28  vs      29.28  PASS   GHz
+  honeycomb attenuation below cutoff, one cell, 32 L/d       133.33  vs     133.30  PASS   dB
+  hexagonal cell area, 6 mm across flats                      31.18  vs      31.18  PASS   mm2
+  honeycomb cells in one square metre                       32075.0  vs    32075.0  PASS   
+  array correction -10 log10(n)                               45.06  vs      45.10  PASS   dB
+  honeycomb net attenuation with the array counted            88.27  vs      88.30  PASS   dB
+  margin over 80 dB, array counted                            8.272  vs      8.300  PASS   dB
+  honeycomb margin against the project's own stated fi        8.272  vs      53.00  KNOWN  dB
+        RECORDED ALREADY: PR2-F2.  The project states +53 dB, which is the SINGLE-CELL value with no array correction.  Counting the ~32 000 cells of a one-square-metre panel gives +8.3 dB.  The panel still PASSES;  what changes is a procurement requirement -- require a certified curve for the panel AS BUILT -- not a design value.  REPORTED, NOT CORRECTED
+  hatch leaf force at 383 kPa over a 1 400 bore              589.58  vs     589.60  PASS   kN
+  flat-plate moment, w a^2 (3 + nu) / 16 with nu = 0.3        38.71  vs      38.71  PASS   kNm/m
+
+==============================================================================
   RESULT
 ==============================================================================
-  checks executed                 543
-  PASS                            538
-  KNOWN / RECORDED difference     5
+  checks executed                 559
+  PASS                            553
+  KNOWN / RECORDED difference     6
   UNEXPLAINED FAIL                0
 
   A PASS means the printed number follows from the printed inputs.
@@ -712,9 +733,14 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
      computed  325.00        printed  326.00
      a raw Mon-Sat count of the calendar span gives 325 against the programme's stated 326.  ONE DAY, and it is a property of the programme's own activity calendar rather than of any design value.  REPORTED, NOT CORRECTED -- no date, duration or float moves on it
 
+  6. honeycomb margin against the project's own stated figure
+     section   23  EMP SHIELDING PHYSICS   (report Parts 2.8, 18)
+     computed  8.272        printed  53.00
+     PR2-F2.  The project states +53 dB, which is the SINGLE-CELL value with no array correction.  Counting the ~32 000 cells of a one-square-metre panel gives +8.3 dB.  The panel still PASSES;  what changes is a procurement requirement -- require a certified curve for the panel AS BUILT -- not a design value.  REPORTED, NOT CORRECTED
+
   Master rule M.11 and the project operating guide both forbid editing
   a recorded value away.  Every difference above is an OBSERVATION
   offered to the master, not a change, and NONE of them moves a
   dimension, load, thickness, bar, quantity, rate, date or float.
 
-  Generated 2026-09-14 04:18 by Scripts/report_verify.py
+  Generated 2026-09-14 05:29 by Scripts/report_verify.py
