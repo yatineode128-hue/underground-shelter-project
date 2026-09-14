@@ -1,11 +1,13 @@
 <!-- MASTER PROJECT REPORT -- source.  Rendered to PDF by Scripts/report_render.py.
      Underground CBRN-hardened blast-resistant protective structure + sentry post, Pune.
-     Project Report package, revision PR1, 13 September 2026.
+     Project Report package, revision PR2, 13 September 2026.
      AUTHORITY: master/MASTER_PROJECT_STATE.md.  Where this file and the master
      disagree, the master governs.  Edit this file and re-run the renderer;
      never edit the PDF. -->
 <!-- COVER -->
 <!-- TOC -->
+
+<!-- LOF -->
 
 # PART 1 — THE PROJECT AND THIS DOCUMENT
 
@@ -21,9 +23,18 @@ It is written to stand on its own. Everything needed to follow an element from a
 load to a bar mark on a drawing is in here, with the clause of the Indian Standard that permits
 each step named beside it.
 
-**It is a statement of the design, not a history of it.** The revision history is summarised in
-Appendix D and held in full in the master; this report gives the current position and says how it
-was reached only where the reasoning is part of the design.
+**It is a statement of the design as it stands, not a history of how it got there.** The design
+went through revisions, and every one of them is recorded in the master. None of them is narrated
+here. Where a decision is load-bearing — where an engineer reading the drawing would otherwise ask
+*why is this wall 400 and not 200* — the reason is given as a reason, in the present tense, as
+part of the design. Where it is only project history, it is left in the master, and **Appendix D**
+carries it in full — the conflicts, the rulings and the revision list — so that nothing is lost by
+keeping it out of the design.
+
+**The figures are drawn for this report.** Forty-four of them, generated from the confirmed
+geometry rather than traced, at reading scale. They are **not** the issued drawings: they carry no
+title block, no revision box and no bar mark, and they must never be used for setting out or
+fabrication. The issued package is the 80 DXF sheets of Part 14.
 
 ## 1.2 Authority, and what governs what
 
@@ -32,7 +43,7 @@ was reached only where the reasoning is part of the design.
 | `master/MASTER_PROJECT_STATE.md` | **The single source of truth.** Parts A, B, F and L are the authoritative current design. **Where this report and the master disagree, the master governs** |
 | `master/QUICK_STATE.md` | Orientation digest only. **Not an authority** |
 | **This report** | The project stated once, in full, for reading — design basis, science, calculations, services, works management, open items |
-| Discipline packages | `Structural CAD/` · `Drainage/` · `HVAC/` · `Electrical/` · `EMP Protection/` · `Fire and Life Safety/` · `Schedule of Finishes/` · `Site Selection and Geotechnical/` · `Site and Concealment/` · `WORKS MANAGEMENT/` · `Owner Rulings RC4/` · `DRAWING QAQC/` |
+| Discipline packages | `Structural CAD/` · `Drainage/` · `HVAC/` · `Electrical/` · `EMP Protection/` · `Fire and Life Safety/` · `Schedule of Finishes/` · `Site Selection and Geotechnical/` · `Site and Concealment/` · `WORKS MANAGEMENT/` · `DRAWING QAQC/` |
 | Drawings | 80 DXF. The ten Rev F architectural files are **source**, not build artefacts; the discipline sheets are generated and must be regenerated, never hand-edited |
 
 > **This report changes no design value.** No dimension, level, load, thickness, bar, quantity,
@@ -54,9 +65,9 @@ mistake this document set exists to prevent.
 | **`[U]` UNRESOLVED** | Two or more conflicting values and insufficient evidence to choose | **Do not guess** |
 | **`[N]` NOT AVAILABLE** | The information does not exist in any project material | **Do not invent** |
 
-**The register is not decoration.** Seven assumptions remain open (Part 18.2) and **every one of
+**The register is not decoration.** Seven assumptions remain open (Part 24.2) and **every one of
 them is a physical test on this plot** — a borehole, a piezometer, a plate load test, a
-percolation test, a packer test. Eighteen open items remain (Part 18.3), and **four of them are
+percolation test, a packer test. Eighteen open items remain (Part 24.3), and **four of them are
 the ones a reviewer should look at first**: an investigation that reached about 1.5 m against a
 formation at (−)6.800; two 1 400 mm holes in the protective boundary whose bonding is still
 undesigned; a CBRN shelter that cannot state which way a release drifts; and a sealed box with a
@@ -72,8 +83,8 @@ undesigned; a CBRN shelter that cannot state which way a release drifts; and a s
 | Academic context | B.E. Civil Engineering, final semester, three-presentation capstone | `[C]` |
 | Objective | Protect **9 occupants for 96 h** against a nuclear air-blast design basis threat, with CBRN, EMP and fallout hardening | `[C]` |
 | Architectural revision | **Rev F** — the ten uploaded DXF files | `[C]` |
-| Design report revision | **Rev D** — older than the drawings; the largest historical reconciliation issue, now closed (Part 18.4) | `[C]` |
-| Structural revision | **Phase 2 Rev A**, incorporating **Modification M1** | `[C]` |
+| Design report revision | **Rev D** — older than the drawings, and where the two disagree **the drawings govern** (Part 3.4) | `[C]` |
+| Structural revision | **Phase 2 Rev A + M1** — the master's own designation | `[C]` |
 | Presentation status | P1 delivered. **P2 (AutoCAD + STAAD + manual calculations) is the active deliverable.** P3 not yet scoped | `[C]` |
 | Software | STAAD.Pro (Bentley), AutoCAD/DXF, plus a purpose-built dependency-free Python DXF toolchain | `[C]` |
 
@@ -93,17 +104,19 @@ undesigned; a CBRN shelter that cannot state which way a release drifts; and a s
 > **Everything above the blast doors — the stair shaft, the headhouse, the entry stairwell — is
 > OUTSIDE it.** That is deliberate. The stair shaft is open to atmosphere through the roof void,
 > and the design accepts that it fills with blast pressure rather than pretending it does not.
-> That single admission is what produced **Finding F1** and **Modification M1** (Part 9.2), and
-> it is the reason W6 and W7 are 400 mm thick instead of 200.
+> That single admission is the reason walls W6 and W7 are **400 mm thick** and the reason both
+> blast doors are rated for the full incident overpressure (Part 9.2). A design that assumed the
+> shaft stayed at atmospheric pressure would have made them 200 mm, and would have been wrong on
+> the face that matters most.
 
 **Gas-tight envelope = Bays 1 to 6 only** — **67.80 m² floor, 216.96 m³** (stated on the issued
 sheet as 67.8 / 217.0) `[C]`. Bay 7 (stair shaft) and Bay 8 (generator) are **outside** it; Bay 8
 is the "grey zone".
 
-> **The project holds TWO protective boundaries and they do not coincide.** The gas-tight
-> boundary is bays 1–6. The **EMP boundary is bays 1–8** — ruled by the project owner at RC4,
-> because otherwise the 15 kVA generator, its control panel and every cable in bay 8 would be
-> unprotected against the pulse. **Only one of the two has ever been drawn.** Part 14.4.
+> **The design holds TWO protective boundaries and they do not coincide.** The gas-tight boundary
+> is bays 1–6. The **EMP boundary is bays 1–8**, because otherwise the 15 kVA generator, its
+> control panel and every cable in bay 8 would stand unprotected against the pulse. **Only the
+> gas-tight one has ever been drawn.** Part 18.
 
 ### 1.5.2 Access and egress
 
@@ -115,7 +128,9 @@ is the "grey zone".
 
 **R1, the main stair, is the only route that does not require climbing a shaft, and the only one
 usable by an injured or unconscious person.** ESC 1 and ESC 2 are **6.250 m** and **6.800 m**
-vertical climbs (Part 14.5).
+vertical climbs (Part 19).
+
+<!-- FIG: fig_entry_route -->
 
 ## 1.6 The mission, in numbers
 
@@ -150,10 +165,10 @@ several of them exist because something once went wrong.
    be reported as one.
 6. **No drawing shows an arrangement that differs from a calculation.** If the steel changes, the
    drawing changes in the same turn.
-7. **Every significant change gets a revision identifier** and is recorded; **no revision is
-   overwritten without preserving it.**
-8. **A new drawing package registers itself with the QA tool.** Twelve sheets were invisible to
-   the drawing index for four revisions because this was not done (Part 13.3).
+7. **Every significant change is recorded, and no record is overwritten without preserving it.**
+   This report is the current statement of the design; the master is the ledger behind it.
+8. **A new drawing package registers itself with the QA tool.** A package that does not is
+   invisible to the drawing index, and stays invisible for as long as nobody looks (Part 14.3).
 9. **A change that stops at "reinforcement" and never reaches "drawings" is not finished.**
 
 ### 1.7.1 Frozen geometry
@@ -168,23 +183,36 @@ several of them exist because something once went wrong.
 | Part | Contents |
 |---|---|
 | **1** | The project, the authority, the evidence classes, the rules |
-| **2** | **The engineering science behind the design** — blast physics, structural dynamics, radiation attenuation, buoyancy, earth pressure, filtration, EMP coupling, seismic response |
+| **2** | **The engineering science behind the design** — blast physics, structural dynamics, radiation attenuation, buoyancy, earth pressure, filtration, EMP coupling, seismic response, fire and the thermal problem |
 | **3** | Codes and standards, clause by clause |
-| **4** | Site selection and geotechnics |
+| **4** | **Site selection, the soil report and geotechnics** — the plot, the investigation, the ground parameters, the water |
 | **5** | Geometry and configuration — the complete dimensional register |
-| **6** | Materials, durability, cover, development and lap lengths |
+| **6** | **Materials, concrete mix design and detailing rules** — M35 and M30 proportioned, cover, development and lap lengths |
 | **7** | Loading — every load derived and every combination stated |
 | **8** | Analysis models — what they are, what they prove, what they cannot |
 | **9–11** | **Structural design calculations**, element by element: the box; the stairs, headhouse and appurtenances; the sentry post |
-| **12** | Reinforcement register and quantities |
-| **13** | Drawings and drawing quality |
-| **14** | Services — HVAC and CBRN, drainage, electrical, EMP, fire |
-| **15** | Site layout, external works, finishes and concealment |
-| **16** | Works management — bill, cost, programme, procurement, QA/QC, risk |
-| **17** | **What this design does not demonstrate** |
-| **18** | Assumptions, open items and owner rulings |
-| **19** | The verification performed for this report |
-| **A–D** | Notation · IS clause index · reproducing the project · revision history |
+| **12** | **Openings, blast doors, escape hatches and closures** — every hole through the protective boundary |
+| **13** | Reinforcement register and quantities |
+| **14** | Drawings and drawing quality |
+| **15** | **HVAC, CBRN filtration and the sealed atmosphere** |
+| **16** | **Water, sewage and drainage** |
+| **17** | **Electrical and power** |
+| **18** | **EMP protection** |
+| **19** | **Fire and life safety** |
+| **20** | Site layout, external works, finishes and concealment |
+| **21** | **Works management** — the bill, the cost estimate, the programme and the critical path, procurement, resources, QA/QC and risk |
+| **22** | **The environmental management plan** |
+| **23** | **What this design does not demonstrate** |
+| **24** | Assumptions, open items and rulings |
+| **25** | The verification performed for this report |
+| **A–D** | Notation · IS clause index · reproducing the project · **traceability: decisions, conflicts and revision history** |
+
+> **Why the services get five parts and not one.** A protective structure is not a building with
+> services added to it. The filter train sets the overpressure, the overpressure sets the leak
+> direction, the leak direction sets which openings matter, and the openings are what the EMP and
+> the blast design are both fighting. Each of Parts 15 to 19 is a discipline in its own right with
+> its own findings, and collapsing them into one section hides exactly the couplings that make
+> this building difficult.
 
 # PART 2 — THE ENGINEERING SCIENCE BEHIND THE DESIGN
 
@@ -223,8 +251,11 @@ DYNAMIC PRESSURE     q      the kinetic pressure of the air actually moving
 ```
 
 **They are different loads with different physics, and the design uses both.** The roof and walls
-of the buried box are loaded by `p_so`; the drag term `q` is what the older Rev D calculation used
-for the bermed headhouse walls before this project raised them to the full envelope (Part 7.5).
+of the buried box are loaded by `p_so`. The drag term `q` is what a bermed wall standing in the
+flow would take, and it is the reason the headhouse walls have to be argued about rather than
+assumed — Part 7.5.
+
+<!-- FIG: fig_blast_wave -->
 
 ### 2.1.2 Reflection, and why the reflected pressure is not simply doubled
 
@@ -260,14 +291,14 @@ t_d = 0.13 to 1.33 s        the design basis positive phase duration  [C]
 
 > **The yield behind those numbers is deliberately not stated.** `p_so` = 344.7 kPa and
 > `t_d` = 0.13–1.33 s **are** the design inputs, and every load case in this project uses them.
-> The weapon yield that would produce them is **`[N]`** and was **ruled to stay unstated rather
-> than invented** — owner ruling 6, RC4 (Part 18.4). Nothing in the design requires it. The one
-> thing it would change is the prompt-radiation cover depth, and that is said openly in 2.4.
+> The weapon yield that would produce them is **`[N]`**, and it **stays unstated rather than
+> invented**. Nothing in the design requires it. The one thing it would change is the
+> prompt-radiation cover depth, and that is said openly in 2.4.
 >
-> **The negative phase is also not designed for as a separate load case**, and that is recorded in
-> Part 17. Where it matters it has been allowed for physically rather than numerically: the
-> escape-shaft head hatches take **quarter-turn dogs so the leaf resists uplift as well as
-> downward pressure**, because the negative phase and the rebound both lift it (Part 10.5).
+> **The negative phase is not designed for as a separate load case**, and that is recorded in
+> Part 23. Where it matters it is allowed for physically rather than numerically: the escape-shaft
+> head hatches take **quarter-turn dogs so the leaf resists uplift as well as downward pressure**,
+> because the negative phase and the rebound both lift it (Part 12).
 
 ### 2.1.4 Why a buried roof takes the full overpressure
 
@@ -295,11 +326,12 @@ table, and the governing case is therefore the saturated one:
 > designed for the same 383 kPa a bare roof would take. Every metre of that cover was bought for
 > something else — radiation attenuation — and 2.5 names the price.
 >
-> The same logic was applied to the headhouse walls, which stand behind ~2.5 m of berm. The
-> earlier calculation credited the berm and used the drag pressure, 113 kPa. **Since `K_a` for a
-> dry berm cannot be verified, this project designs those walls for the full 383 kPa envelope**
-> (conflict C10, Part 7.5). The cost of that decision is one link cage; the utilisation goes from
-> 17 % to 59 %.
+> The same logic governs the headhouse walls, which stand behind about 2.5 m of berm. Crediting
+> the berm and using the drag pressure would give 113 kPa. **Since `K_a` for a dry berm cannot be
+> verified on this site, those walls are designed for the full 383 kPa envelope** (Part 7.5). The
+> cost of that decision is one link cage; the utilisation goes from 17 % to 59 %.
+
+<!-- FIG: fig_lateral -->
 
 ## 2.2 From a pressure history to a design load: structural dynamics
 
@@ -344,6 +376,8 @@ t_d / T = 130 ms / 13.4 ms  to  1330 ms / 13.4 ms       = 10 to 100
 > ends** (`βL` = 4.730, `βL`² = 22.373). Using the fixed-fixed value is consistent with
 > the plastic mechanism adopted for strength in 2.2.4.
 
+<!-- FIG: fig_regimes -->
+
 ### 2.2.3 The dynamic load factor, and the ductility it is bought with
 
 For a perfectly elastic SDOF system under a **step load**, the classical result is a dynamic
@@ -381,11 +415,13 @@ DESIGN BLAST PRESSURE = 344.7 x 1.111                             = 383 kPa
 > **Second, the shear detailing.** Shear failure is brittle, and a brittle failure mode makes a
 > ductility claim meaningless. Every blast-governed element in this project carries designed
 > shear links even where nominal steel would satisfy IS 456, and the mat's link grid was added
-> for exactly this reason (conflict C6, Part 9.3).
+> for exactly this reason, and not because IS 456 asked for it (Part 9.3).
 >
 > **What is NOT demonstrated** is the support rotation that `μ` = 5 implies — θ ≤ 2° corresponds
 > to δ ≤ 87 mm = span/57 and requires a **non-linear SDOF check** (IS 4991 Fig. 6, or Biggs).
-> **That is Phase 3 work and it is not claimed here.** See Part 17.
+> **That is Phase 3 work and it is not claimed here.** See Part 23.
+
+<!-- FIG: fig_dlf -->
 
 ### 2.2.4 Why the plastic hinge mechanism, and why `wL²/16`
 
@@ -431,7 +467,8 @@ BOND  the clause permits +25 % (Ld 40phi -> 32phi).  NOT TAKEN.
 > aggregate-interlock dependent, and the rate sensitivity of that mechanism is not the same as
 > that of the compression block. The consequence is real and visible: the mat's one-way shear
 > check, run at the static `τ_c` for the first time in this project, is what produced the
-> requirement for a **T12 link grid at 250 × 250 throughout the mat** (conflict C6).
+> requirement for a **T12 link grid at 250 × 250 throughout the mat**, at twice the shear
+> requirement, where nominal steel would otherwise have been accepted.
 >
 > **The 25 % bond bonus is available and is refused.** Every development and lap length in this
 > project is the static value. A 25 % shorter anchorage is not worth the argument at a
@@ -465,7 +502,7 @@ advance.
 
 **Transient soil–structure interaction** — participating mass, interface pressure ratios, the
 phasing between the ground shock arriving at the roof and at the walls — is **not demonstrated**
-and is listed in Part 17 as such. A static analysis with an SDOF-derived load factor gives the
+and is listed in Part 23 as such. A static analysis with an SDOF-derived load factor gives the
 correct *demand*; it is not a transient interaction analysis and is never presented as one.
 
 ## 2.4 Nuclear radiation, and what 2.0 m of cover actually buys
@@ -530,8 +567,8 @@ anything. It is there to **break up a penetrating item** so that its energy is d
 500 mm of crushed basalt rubble below it rather than delivered to the roof as a point load.
 
 > **It breaks up a penetrating item; it does not defeat one.** **No direct hit is designed for**,
-> and that is now an explicit owner ruling (ruling 5, RC4): *the design stands as it is.* If a
-> direct hit ever becomes a requirement, both the cover depth and the burster design change.
+> and that is a stated position rather than an oversight. If a direct hit ever becomes a
+> requirement, both the cover depth and the burster design change.
 
 ## 2.5 Groundwater, buoyancy and the compensated foundation
 
@@ -568,9 +605,11 @@ is placed, the box is a light, closed vessel in a wet hole:
 | 3 — box complete, no backfill | 7 528 kN | 6 175 kN | **1.22 MARGINAL** |
 | 4 — backfilled and covered | 12 453 kN | 6 175 kN | **2.02 OK** |
 
-*(The absolute figures are at the pre-M1 21.600 m box; both uplift and resistance scale with
-length, so every factor of safety is unchanged. The hand check uses the current 136.40 m² /
-6 289 kN — Part 9.3.)*
+*(The stage figures above are tabulated on a 21.600 m box length. Both uplift and resistance
+scale linearly with length, so every factor of safety in the table is unchanged at the built
+22.000 m; the governing hand check in Part 9.3 uses the built 136.40 m² and 6 289 kN.)*
+
+<!-- FIG: fig_flotation -->
 
 > **Flotation, not bearing and not settlement, is the governing foundation problem** — and it
 > governs during construction, not in service. That is why the mitigation in Part 9.3 is a
@@ -654,7 +693,7 @@ three-stage airlock work: at every door, air moves from cleaner to dirtier and n
 
 > **A consequence that is easy to miss: every water trap inside the envelope is a pressure
 > boundary.** A seal shallower than the overpressure blows through and the shelter vents to the
-> drain. Part 14.2 shows the sizing — 75 mm deep seals hold **736 Pa**, which is **7.4 : 1**
+> drain. Part 16.3 shows the sizing — 75 mm deep seals hold **736 Pa**, which is **7.4 : 1**
 > against the operating pressure and **2.5 : 1** against the test. **And an unused gully
 > evaporates dry**, after which it leaks air in both directions; priming is therefore a written
 > maintenance task, not a nicety.
@@ -675,7 +714,7 @@ three-stage airlock work: at every door, air moves from cleaner to dirtier and n
 > statement than "99.995 % of dust".
 
 **Carbon beds self-heat.** Adsorption is exothermic and a loaded bed is a genuine fire hazard in a
-protected ventilation system — which is why the filter bay appears in Part 14.5's fire-load
+protected ventilation system — which is why the filter bay appears in Part 19.2's fire-load
 schedule rather than being treated as inert plant.
 
 ### 2.7.3 Blast valves: protecting the filters from the shock
@@ -710,9 +749,10 @@ SODA LIME (CO2 scrubbing)   40 kg store                = 48 h [C]
 > **the other 48 h require filtration.**
 >
 > **And the scrubber is therefore not optional.** Without it the envelope reaches 1.0 % CO₂ in
-> 9.9 hours against a 96-hour design occupancy. That ratio is the whole argument. Owner ruling 25
-> (RC7) sized the recirculation loop at **75 m³/h** — chosen at the worst cell of the efficiency /
-> target matrix because designing to it costs almost nothing (Part 14.3).
+> 9.9 hours against a 96-hour design occupancy. That ratio is the whole argument. The
+> recirculation loop is sized at **75 m³/h** — the worst cell of the efficiency-against-target
+> matrix, taken deliberately because designing to the worst cell costs almost nothing here
+> (Part 15).
 
 ### 2.7.5 The decon airlock, and the manning constraint hiding in it
 
@@ -896,7 +936,8 @@ choice of `R` = 3.0 is the conservative one:
 > `R` = 5.0 would require a special moment-resisting frame with separated infill, which this
 > project does not claim. The consequence is quantified: `R` = 5.0 would give `A_h` = 0.060
 > against 0.100, so the design base shear of **73.18 kN is about 1.67 × what a separated SMRF
-> would need.** Owner ruling 21 (RC6) keeps `R` = 3.0 on exactly that basis.
+> would need.** `R` = 3.0 is kept on exactly that basis: it is paid for once, in steel, and it
+> removes an argument about infill separation that this frame could not win.
 
 ## 2.10 Fire in a volume that cannot be ventilated
 
@@ -913,14 +954,15 @@ In **Mode 3 CLOSED** the shelter has **zero** air exchange, and opening a valve 
 breaks the protection the closed mode exists to provide.
 
 > **So the strategy is not the usual one. It is: prevent, detect early, extinguish while it is
-> small — and if it cannot be extinguished, LEAVE, because you cannot wait it out.** Part 14.5
-> sets out the routes and the decision rule, and records the five findings a fire plan in this
+> small — and if it cannot be extinguished, LEAVE, because you cannot wait it out.** Part 19
+> sets out the routes and the decision rule, and records the findings a fire plan in this
 > situation is obliged to raise.
 
 ## 2.11 The thermal problem of a sealed box
 
 Nine people, lighting, plant and a dehumidifier in a sealed 332.8 m³ volume put heat in and have
-nowhere to put it. The 96-hour balance was computed under owner ruling 10 (RC4):
+nowhere to put it. The 96-hour balance is bounded three ways, because no single bound is honest
+on its own:
 
 ```
 electrical load dissipated INSIDE the envelope        = 5.733 kW
@@ -953,38 +995,38 @@ COOLING DUTY TO HOLD 30 degC
    ADOPT 4 kW (1.14 TR) as the closed-mode cooling duty [R]
 ```
 
-Ruling 17 (RC5) then directed that the heat be rejected **to the ventilation air in open mode
-only, adding no new penetration** — and the arithmetic of that ruling is the finding:
+The rejection path adopted is **the ventilation air in open mode only, adding no new
+penetration** — and the arithmetic of that path is itself the finding:
 
 ```
 ventilation 300 m3/h  ->  0.1005 kW/K  ->  63.3 K needed to reject 6.363 kW
 at a realistic 5 K difference, 300 m3/h ->  0.50 kW  =  7.9 % of the gain
 ```
 
-> **`RC5-F1` — 300 m³/h is a CONTAMINANT rate, not a heat-rejection rate**, and it is about an
+> **300 m³/h is a CONTAMINANT rate, not a heat-rejection rate**, and it is about an
 > order of magnitude short. The second train is standby, not simultaneous, so 600 m³/h is not a
 > case the design contemplates. **And in Pune it can be worse than nothing**: whenever ambient
 > exceeds the internal temperature, ventilating *adds* sensible heat. **No ambient design
 > temperature exists anywhere in this project `[N]`**, so the number of hours cannot be stated —
 > only the direction.
 >
-> **The ruling is therefore recorded as an acceptance of the ≈ 39 °C condition, not a solution to
-> it.** The structure and the surrounding rock carry essentially the whole load in both modes.
-> `RC4-V1` is narrowed, not closed: from *"no rejection path exists"* to **"the rejection path is
-> the ground through the structure, and it has not been modelled."** A transient soil–structure
-> **thermal** model is the missing piece — the sibling of the transient soil–structure
-> **interaction** already deferred to Phase 3.
+> **The design therefore accepts the ≈ 39 °C condition rather than claiming to solve it.** The
+> structure and the surrounding rock carry essentially the whole load in both modes, and the open
+> item is stated in exactly those terms: *the rejection path is the ground through the structure,
+> and it has not been modelled.* A transient soil–structure **thermal** model is the missing
+> piece — the sibling of the transient soil–structure **interaction** already deferred to
+> Phase 3 (`RC4-V1`, Part 24).
 
 ## 2.12 What the science section does not supply
 
 | Not supplied | Why, and where it is recorded |
 |---|---|
-| Weapon yield | `[N]`, and **ruled to stay unstated** — the overpressure and duration are the design inputs. Ruling 6, RC4 |
-| Negative-phase and rebound load case | Not designed as a separate case; handled physically at the hatches. Part 17 |
-| Support rotation / non-linear SDOF | **Phase 3.** Part 17 |
-| Shock propagation down the entry shaft, and the resulting door loading | Needs CFD or a shock tube. **Vendor / specialist.** Part 17 |
-| Transient soil–structure interaction | Not demonstrated. Part 17 |
-| Transient soil–structure **thermal** model | `RC4-V1`, open |
+| Weapon yield | `[N]`, and **it stays unstated** — the overpressure and duration are the design inputs |
+| Negative-phase and rebound load case | Not designed as a separate case; handled physically at the hatches. Part 23 |
+| Support rotation / non-linear SDOF | **Phase 3.** Part 23 |
+| Shock propagation down the entry shaft, and the resulting door loading | Needs CFD or a shock tube. **Vendor / specialist.** Part 23 |
+| Transient soil–structure interaction | Not demonstrated. Part 23 |
+| Transient soil–structure **thermal** model | `RC4-V1`, open (Part 24) |
 | Ambient design temperature | `[N]` — nowhere in the project |
 | Incident EMP field, waveform, E1/E2/E3 decomposition | `[N]`. The EMP work is designed to the **80 dB performance requirement**, which needs none of them |
 | Concrete permittivity / conductivity; whether rebar crossings are tied or welded | `[N]` — and the second materially changes 2.8.2 |
@@ -1034,8 +1076,12 @@ reader who does not have it cannot correctly weigh anything in Parts 7 to 11.
 | **IS 2470 (Part 1):1985** | Septic tank | Cl. 6.2 (24 h detention), 6.3 (30 L/person/yr sludge), 6.5 (L:B 2–4), 6.6 (min width 750, min depth 1.0 m), 6.9 (vent); Table 1 (≤ 10 users: 1.5 × 0.75 × 1.0) |
 | **IS 2470 (Part 2):1985** | Soak pit / dispersion | Cl. 4 (**percolation test — mandatory**), Cl. 5 (dispersion trench) |
 | **IS 4991:1968** | **Blast loading rules and dynamic material strengths ONLY** | **Cl. 1.1 (EXCLUDES NUCLEAR — quoted in every deliverable)**; Cl. 6.2.1 (reflected pressure, recessing); Cl. 7.2 + Table 3 (buried roof / walls, K<sub>a</sub>); Cl. 7.4 (drag on bermed faces); Cl. 10.3.1 (dynamic f<sub>ck</sub>, f<sub>y</sub>); **Cl. 10.3.1.1 (no dynamic increase on shear; +25 % bond)**; Cl. 10.3.3 (DLF = μ/(μ−0.5)); Cl. 11.1 (no wind / EQ with blast); Cl. 11.2 (no live load on the roof at blast); Fig. 6 (SDOF — **Phase 3**) |
-| **IS 1077** | Common burnt clay bricks | Sentry post masonry infill, 190 × 90 × 90 modular, SP-B1 |
-| **IS 732:2019** | Electrical wiring installations | EL1 |
+| **IS 1077** | Common burnt clay bricks | Sentry post masonry infill, 190 × 90 × 90 modular |
+| **IS 10262:2019** | Concrete mix proportioning | Cl. 5.2 + Tables 1, 2 (target mean strength); Table 3 (entrapped air); Table 4 (water content, nominal maximum aggregate size); Table 5 (coarse aggregate volume, grading zone); Cl. 5.5.1 (congested / pumpable reduction); Cl. 5.6 (absolute-volume proportioning) — **Part 6.5** |
+| **IS 383:2016** | Aggregates for concrete | Grading zone II fine aggregate, 20 mm nominal maximum coarse aggregate |
+| **IS 269:2015** | Ordinary Portland cement | 43 grade, the procurement basis of Part 21 |
+| **IS 2645:2003** | Integral waterproofing admixtures | The integral crystalline admixture, and the quality-plan hold point on it |
+| **IS 732:2019** | Electrical wiring installations | Part 17 |
 | **IS 3043:2018 / IEEE 142** | Earthing | ≤ 5 Ω target — **a power-safety and lightning number, not an EMP one** |
 | **IS 694:2010 · IS 1554 (Pt 1):1988** | Cables | Final circuits; sub-mains and generator cabling |
 | **IS 13416** | Construction-phase fire safety | In the register for exactly that |
@@ -1064,22 +1110,32 @@ no bend deduction and say so).
 
 ## 3.4 The hierarchy used to resolve a conflict
 
-Ten conflicts were closed in this project and a further set of rulings settled everything that
-could be settled on the evidence. The precedence that produced those rulings is stated here
-because it is itself part of the design record:
+Where two project documents disagree, the design does not average them and does not pick the more
+convenient one. It applies a fixed precedence, and that precedence is part of the design record
+because it is what makes the resolutions reviewable:
 
-1. **A drawing beats an older document.** Precedent **C1**: the drawings are Rev F, the design
-   report is Rev D; where they disagree, the drawing governs.
-2. **Arithmetic beats a transcription.** Precedent **C18**: (−)8.000 − (−)7.600 = 0.400, so the
-   sump base is 400 thick and the "300" in a sheet note is a transcription error.
-3. **The `.std` file beats a screenshot of it.** Part D of the master was written from nineteen
-   screen captures; six `.std` files are now in the workspace, and the files are primary.
-4. **A value reproduced from independent lines beats a lone outlier.** Precedent **C21**: nine
-   statements of 300 m³/h against one of 250, with 250 failing the sheet's own FEMA criterion.
+1. **A drawing beats an older document.** The drawings are Rev F and the design report is Rev D;
+   where they disagree, the drawing governs. This is the rule that settles the largest class of
+   disagreement in the project, and it is applied without exception.
+2. **Arithmetic beats a transcription.** (−)8.000 − (−)7.600 = 0.400, so the sump base is 400
+   thick and a sheet note reading "300" is a transcription error, not a second opinion.
+3. **The native file beats a picture of it.** A `.std` file is primary; a screen capture of the
+   same model is secondary and may be stale.
+4. **A value reproduced from independent lines beats a lone outlier.** Nine statements of
+   300 m³/h against one of 250 — with 250 failing the sheet's own FEMA criterion — is not a
+   genuine conflict.
 5. **Where nothing in the project can decide it, it stays open.** No amount of choosing between
-   recorded values supplies a datum, a test result or a client decision.
+   recorded values supplies a datum, a test result or a client decision. This rule is why the
+   register in Part 24 is as long as it is, and the register being long is the point.
 
-# PART 4 — SITE SELECTION AND GEOTECHNICS
+# PART 4 — SITE SELECTION, THE SOIL REPORT AND GEOTECHNICS
+
+> **Read 4.2.2 before anything else in this Part.** Everything that follows — the parameters, the
+> bearing checks, the water, the rockhead quantity — rests on a sub-soil investigation that
+> reached about **1.5 m** below a structure that founds at **(−)6.800**. That gap is not a
+> criticism of the investigation, which was competent and is internally consistent. It is a
+> statement of what this design is standing on, and it is why the confirmatory investigation sits
+> on the critical path of the construction programme rather than being a preliminary.
 
 ## 4.1 The site, and what is and is not known about it
 
@@ -1091,12 +1147,22 @@ because it is itself part of the design record:
 | Plot boundary and area | **NOT DIMENSIONED ANYWHERE.** No scale bar, grid, boundary dimension or coordinate appears on any supplied site image | `[N]` — master gap **D3** |
 | Site benchmark | **NONE.** Nothing ties any supplied level to the project datum | `[N]` |
 | Project datum | **finished grade = 0.000**, local | `[C]` |
-| Site orientation | **+X = EAST, +Y = NORTH** | `[A]` — fixed for the first time at SG2 |
+| Site orientation | **+X = EAST, +Y = NORTH** | `[A]` — a project convention, not a survey |
 
-> **"No site plan" is not closed and cannot be closed by imagery.** Until a boundary, a dimension,
-> a benchmark and a coordinate exist, the berm, the hardstanding, the access, the five external
-> drainage runs, the concealment layout and the cut-and-fill cannot be drawn. What the site
-> package added is that the **setting** is now recorded, which it was not.
+> **"No site plan" cannot be closed by imagery.** Until a boundary, a dimension, a benchmark and
+> a coordinate exist, the berm, the hardstanding, the access, the five external drainage runs, the
+> concealment layout and the cut-and-fill cannot be drawn. The **setting** is recorded; the
+> **survey** is not, and no drawing in this report or in the issued package pretends otherwise.
+
+> **THERE IS NO PHOTOGRAPH, SATELLITE IMAGE, CONTOUR SHEET OR SURVEY DRAWING OF THIS PLOT IN THE
+> PROJECT.** The site figures in this Part are therefore **schematic**: they are drawn from the
+> project's own coordinate system and from the relationships the record does state — which block
+> is west, which training area is south, which fence is east — and they carry no dimension that
+> the project does not hold. **A figure that looks like a site plan is not a site plan.** The one
+> that would be is drawn after the topographic survey, and that survey is activity `A1070` in the
+> programme.
+
+<!-- FIG: fig_site_setting -->
 
 ### 4.1.1 The selection, and what it got right
 
@@ -1128,6 +1194,8 @@ down as such:
 | **Ground slope** | The plot is on the edge of a slope falling east. **No cut-and-fill item exists in the bill** because no site plan exists |
 | **"Near perimeter fence"** | It is also a **concealment** weakness, and the distance has never been dimensioned — `SG2-V2`, `CAM-V2` |
 
+<!-- FIG: fig_site_plan -->
+
 ## 4.2 The sub-soil investigation, and the one fact that governs it
 
 | # | Document | What it is | Class |
@@ -1150,7 +1218,7 @@ shows how much variation "uniform over a wide area" permits: across three locati
 metres apart, rockhead moved from **0.9 m to 1.5 m** and the surface stratum changed from a 1.0 m
 high-plasticity clay to a 0.2 m clayey-sand murrum.
 
-### 4.2.2 `SG-F2` — the governing finding
+### 4.2.2 The governing fact: the investigation reached 1.5 m, the structure founds at 6.8 m
 
 | | Level |
 |---|---|
@@ -1169,7 +1237,7 @@ high-plasticity clay to a 0.2 m clayey-sand murrum.
 >
 > Nothing the report says about rockhead continuity, groundwater, jointing, red-bole seams or
 > modulus of subgrade reaction can be read as covering the founding horizon of the shelter.
-> **`SG-V2`, and it is the item a reviewer should look at first.**
+> **This is open item `SG-V2`, and it is the one a reviewer should look at first.**
 
 ### 4.2.3 The report is internally consistent, and that was checked before it was used
 
@@ -1179,8 +1247,135 @@ high-plasticity clay to a 0.2 m clayey-sand murrum.
 | Rock, step 1 | `UCS = max load / specimen area` | **6 of 6 rows reproduce** |
 | Rock, step 2 | `SBC = UCS / 25`, rounded — the factor the report applies but never prints | **6 of 6 rows reproduce** |
 
-**`SG-F1`. The SEMT report is internally consistent and is usable.** That is worth establishing
-before anything is built on it.
+**The report is internally consistent and is usable.** That is worth establishing before
+anything is built on it, and it is not an assumption: every one of the eighteen rows above was
+recomputed from the report's own printed inputs, and every one reproduces.
+
+### 4.2.4 The trial pits and the strata, in full
+
+Eleven pits at three locations, excavated in open trench by JCB. The report's own words for the
+method are *"Excavation in open trench / trial pit by JCB was carried out and 11 trial pits were
+made."* `[C]`
+
+| Location | Pits | Depth | Stratum | IS 1498 | SBC kg/cm² | **SBC kPa** |
+|---|---|---|---|---|---|---|
+| **G Building** | TP-1 to TP-4 | GL – 1.0 m | High plasticity **CLAY** | `CH` | 0.27 | **26.5** |
+| | | 1.0 – 1.2 m | Murrum | `GM` | 4.27 | **418.7** |
+| | | 1.2 – 1.5 m | **Broken rock** | — | 10.00 | **980.7** |
+| | | **below 1.5 m** | **Basalt** | — | 20.00 | **1 961.3** |
+| **H Building** | TP-5 to TP-8 | GL – 0.18 m | High plasticity **CLAY** | `CH` | 0.25 | **24.5** |
+| | | 0.18 – 0.7 m | Murrum | `GM` | 4.66 | **457.0** |
+| | | 0.7 – 0.9 m | **Broken rock** | — | 10.00 | **980.7** |
+| | | **below 0.9 m** | **Basalt** | — | 21.00 | **2 059.4** |
+| **Mess Building** | TP-9 to TP-11 | GL – 0.2 m | Murrum | `SC` | 2.07 | **203.0** |
+| | | 0.2 – 0.5 m | Murrum | `GP` | 5.18 | **508.0** |
+| | | 0.5 – 1.0 m | **Broken rock** | — | 10.00 | **980.7** |
+| | | **below 1.0 m** | **Basalt** | — | 21.00 | **2 059.4** |
+
+All rows `[C]`, read off the report. The broken-rock value is the report's own citation of
+**IS 12070:1987 Table 2** for broken bedrock, and its footnote is worth quoting because it
+describes the horizon the box is cut through for five metres:
+
+> *"The disintegrated broken basalt rock which is existing below murrum layer is having lot of
+> cracks, fissures, voids and discontinuities. This layer is sandwiched between top murrum soil
+> and basalt rock below."*
+
+<!-- FIG: fig_trial_pit_logs -->
+
+### 4.2.5 Appendix A and B — the soil samples
+
+Six samples, classified and tested to **IS 2720** Parts IV, VIII, X, XIII and XL. The `1 − sin φ`
+column is not in the report; it is computed here to test the project's own K₀ against measurement.
+
+| Sample | Pit | Depth m | IS 1498 | LL % | PL % | PI % | FSI % | OMC % | MDD g/cc | c kg/cm² | φ° | **1 − sin φ** | q<sub>ult</sub> kg/cm² | **SBC kPa** |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 44/15 | TP-1 | GL–1.0 | **`CH`** | 61 | 29 | 32 | **60** | 10 | 1.76 | 0.13 | — | — | 0.670 | **26.5** |
+| 45/15 | TP-1 | 1.0–1.2 | `GM` | — | — | — | — | 9 | 1.93 | 0.00 | 33 | **0.4554** | 10.680 | **418.7** |
+| 61/15 | TP-8 | GL–0.18 | **`CH`** | 63 | 30 | 33 | **65** | 12 | 1.78 | 0.12 | — | — | 0.617 | **24.5** |
+| 62/15 | TP-8 | 0.18–0.7 | `GM` | — | — | — | — | 8 | 1.90 | 0.00 | 34 | **0.4408** | 11.650 | **457.0** |
+| 64/15 | TP-9 | GL–0.2 | `SC` | 30 | 15 | 15 | — | 10 | 1.88 | 0.01 | 27 | **0.5460** | 5.170 | **203.0** |
+| 65/15 | TP-9 | 0.2–0.5 | `GP` | — | — | — | — | 8 | 1.91 | 0.00 | 35 | **0.4264** | 12.950 | **508.0** |
+
+The report's own three notes on Appendix B are load-bearing and are reproduced verbatim:
+
+> *(1) The soil sample is compacted to its maximum dry density and optimum moisture content.*
+> *(2) The recommended bearing capacity is calculated with factor of safety = 2.5 in submerged
+> condition of soil.* *(3) For SBC calculation the following values are assumed: (a) Width of
+> foundation (B) = 1200 mm. (b) Depth of foundation (d) = 1500 mm.*
+
+**Note (3) matters more than it looks.** Every SBC in the table is for a **1.2 m wide footing at
+1.5 m depth**. The mat of this structure is **6.2 m wide at 6.7 m depth**. The table's numbers are
+not transferable to it as they stand, and the design does not transfer them — it uses the **rock**
+values, at the horizon the mat actually bears on, and it declares the presumptive value it uses as
+presumptive.
+
+**Note (2) settles which rock column applies.** The report itself works *in submerged condition*.
+So does this design.
+
+### 4.2.6 Appendix C — the rock cores
+
+Tested to **IS 1121 (Part I)**; bearing to **IS 12070 Cl. 6**. The `P/A` and `UCS / 25` columns are
+computed here; all six rows reproduce, which establishes that the bearing factor the report
+applies but never prints is **25**.
+
+| Condition | Location | Max load kg | Area cm² | `P/A` | Printed UCS | `UCS/25` | Printed SBC kg/cm² | **SBC kPa** |
+|---|---|---|---|---|---|---|---|---|
+| UNSOAKED | G Building, TP-1 | 42 356 | 52.06 | 813.6 | 814 | 32.56 | 33 | 3 236.2 |
+| UNSOAKED | H Building, TP-8 | 21 924 | 29.15 | 752.1 | 752 | 30.08 | 30 | 2 942.0 |
+| UNSOAKED | Mess, TP-9 | 57 573 | 63.96 | 900.1 | 900 | 36.00 | 36 | 3 530.4 |
+| **SOAKED** | G Building, TP-1 | 24 563 | 48.30 | 508.6 | 509 | 20.36 | 20 | **1 961.3** |
+| **SOAKED** | H Building, TP-8 | 14 133 | 27.56 | 512.8 | 513 | 20.52 | 21 | **2 059.4** |
+| **SOAKED** | Mess, TP-9 | 27 033 | 51.12 | 528.8 | 529 | 21.16 | 21 | **2 059.4** |
+
+| | |
+|---|---|
+| **Which column applies to this structure** | the **SOAKED** one |
+| Why | the design water table is (−)2.000 and the formation is (−)6.800, so the founding horizon is **4.8 m below the water table, permanently submerged** |
+| Soaked band | **1 961 – 2 059 kPa** |
+| Unsoaked band | 2 942 – 3 530 kPa |
+| The presumptive value this design uses, IS 1904:1986 Table 1 | **3 240 kPa** `[A]` — inside the *unsoaked* band, **65 % above** the *soaked* one |
+
+> **Soaking costs this rock about 43 per cent of its unconfined strength**, and that is exactly
+> the sort of fact a presumptive table cannot tell you. It changes nothing in this design, because
+> nothing in this design is close to governing on bearing — but it is the reason the soaked column
+> is the one quoted throughout Part 9, and the reason the presumptive 3 240 is labelled `[A]`
+> every time it appears rather than being quietly promoted.
+
+<!-- FIG: fig_bearing_chart -->
+
+### 4.2.7 The meteorological record
+
+Monthly rows are `[C]`, read off the first-phase presentation, each slide captioned *"last 10
+years avg"*. **No station, period of record or source is named on any of them.** The year row is
+summed here.
+
+| | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec | **YEAR** |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Wind km/h | 1.4 | 2.1 | 2.5 | 3.6 | 6.2 | 6.6 | 5.7 | 5.2 | 3.3 | 1.6 | 1.4 | 1.2 | **3.4** |
+| **Rain mm** | 0.1 | 3.0 | 5.5 | 3.9 | 19.0 | **137.8** | **166.2** | **120.8** | **134.9** | **139.8** | 22.7 | 5.9 | **759.6** |
+| Max °C | 29.8 | 32.4 | 35.5 | **38.3** | 37.8 | 32.1 | 28.5 | 28.2 | 29.7 | 31.6 | 30.9 | 29.6 | **38.3** |
+| Avg °C | 20.7 | 23.2 | 26.0 | 29.3 | **30.6** | 27.6 | 25.4 | 24.8 | 25.4 | 25.6 | 23.1 | 21.7 | **25.3** |
+| Min °C | **11.6** | 13.7 | 16.7 | 20.2 | 23.1 | 23.1 | 22.3 | 21.6 | 21.1 | 19.7 | 15.2 | 13.5 | **11.6** |
+
+<!-- FIG: fig_met_chart -->
+
+| Quantity | Presentation record | Soil report | Status |
+|---|---|---|---|
+| **Annual rainfall** | **759.6 mm** | **500–600 mm**, para 9 | **`[U]` CONFLICT, +27 % to +52 %.** Open, and not resolved by preferring one source over the other |
+| Temperature | monthly means; max 38.3, min 11.6 | absolute extremes 40/12 summer, 26/4 winter | **Not a conflict** — different statistics, and mutually consistent |
+| Wind | monthly means 1.2–6.6 km/h | — | **Not a conflict.** The wind design in Part 7.8 uses `V_b` = **39 m/s**, a 3-second gust at a 50-year return. **A monthly mean must never be used to reduce it** |
+| Seismic | Zone III, IS 1893:2016 | Zone III, IS 1893 of 1984 | **Corroborated.** `Z` = 0.16 reproduces exactly |
+
+> **Almost nothing in this design comes from those tables, and that is worth saying plainly.** The
+> only rainfall figure the design uses is the **50 mm/h** intensity on the drainage sheet, and a
+> monthly total cannot produce a short-duration intensity. The soak-pit sizing needs a percolation
+> test, not a rainfall record. Where the record *does* bite is the **programme**: the excavation
+> stands open across a monsoon, and 700-odd millimetres of it falls in four months.
+>
+> **And October is the figure to go back and check.** At **139.8 mm** it is 1.04 times September
+> and above August, in a month when the south-west monsoon has withdrawn from interior
+> Maharashtra. It is **not corrected here** — correcting a datum whose source is unknown would be
+> inventing evidence, not removing an error.
 
 ## 4.3 Ground parameters — the design set
 
@@ -1267,9 +1462,9 @@ Three reasons the observation does not reach the design question:
 
 ## 4.5 Black cotton soil — confirmed, and it reaches two elements
 
-**New, and recorded nowhere in this project before the site package: the surface soil is BLACK
-COTTON, CH, free swell index 60–65 % — the top band of the IS 1498 scale.** `[C]`, by measurement,
-from SEMT/67/15 Appendix A.
+**The surface soil is BLACK COTTON, CH, free swell index 60–65 % — the top band of the IS 1498
+scale.** `[C]`, by measurement, from SEMT/67/15 Appendix A. It is a measured property of the
+ground, not an inference, and it reaches two elements of this design.
 
 **Nothing structural founds in it.** The mat is at (−)6.700 and footing F1 at (−)2.000, both in
 basalt — and Part 11.6's insistence that F1 bears *"on in-situ rock, never on backfill"* is now
@@ -1277,23 +1472,25 @@ backed by a measurement rather than by instinct. **Two elements are exposed anyw
 
 | Element | Exposure | Status |
 |---|---|---|
-| **The covered entry stairwell's stepped raft** | Its top founds at about (−)0.300, **inside the 0.18–1.0 m CH horizon**. This is **heave**, not bearing — and the stairwell is expendable against *blast*, which heave is not | **RULED — strip and replace.** Ruling 12, RC4: strip the CH horizon to 1.000 m below existing ground over 4.410 × 4.000 m, replace with granular fill at **FSI ≤ 20 %** (IS 2720 Pt XL) in 200 mm layers to **≥ 95 % MDD**, extending **1.000 m beyond every raft edge**. **BOQ item added: 8 m³, rate `[A]`** |
-| **The 300 mm turf concealment layer** | Re-laid *from the site's own stockpile* over the 150 mm granular filter. If the site's own topsoil is this CH clay it **cracks in the dry season** — a concealment defect — and the wet/dry cycles **pump fines into the filter, which is the one thing the filter exists to stop** | **LEFT OPEN by owner ruling 16 (RC4).** `SG-V7`. The load is unaffected: 300 at 18 kN/m³ = 5.40 kPa is right for a black cotton soil |
+| **The covered entry stairwell's stepped raft** | Its top founds at about (−)0.300, **inside the 0.18–1.0 m CH horizon**. This is **heave**, not bearing — and the stairwell is expendable against *blast*, which heave is not | **STRIP AND REPLACE.** Strip the CH horizon to 1.000 m below existing ground over 4.410 × 4.000 m and replace with granular fill at **FSI ≤ 20 %** (IS 2720 Pt XL) in 200 mm layers to **≥ 95 % MDD**, extending **1.000 m beyond every raft edge**. **8 m³ in the bill; rate `[A]`** |
+| **The 300 mm turf concealment layer** | Re-laid *from the site's own stockpile* over the 150 mm granular filter. If the site's own topsoil is this CH clay it **cracks in the dry season** — a concealment defect — and the wet/dry cycles **pump fines into the filter, which is the one thing the filter exists to stop** | **OPEN — `SG-V7`.** The load is unaffected: 300 at 18 kN/m³ = 5.40 kPa is the right figure for a black cotton soil either way |
 
-> **The two collide, and the collision is recorded rather than resolved.** The strip-and-replace
-> ruling produces a stockpile of **exactly the material `SG-V7` warns against re-laying** — and
-> the excavation-face ruling below produces 76–118 m³ more of it.
+> **The two collide, and the collision is recorded rather than designed away.** Strip-and-replace
+> produces a stockpile of **exactly the material `SG-V7` warns against re-laying** — and the
+> excavation face below produces 76 to 118 m³ more of it. Somebody has to decide what happens to
+> that spoil, and Part 22 is where the decision belongs.
 
-## 4.6 The excavation face — ruling 22 (RC6)
+## 4.6 The excavation face
 
-The project had measured **1.000 m working space and vertical unbenched faces for the full
+The measured basis is **1.000 m working space and vertical unbenched faces for the full
 6.800 m**. In basalt that is reasonable. But rockhead is at 0.9–1.5 m with a CH horizon at FSI
 60–65 % on top of it:
 
 > So the face is about **1.0–1.5 m of soil — including very-high-swelling clay — standing
-> vertically on 5.3–5.9 m of rock, with the rock excavation undercutting it.** Under the
-> flotation acceptance (Part 18.4) it also stands open **across a monsoon.** That soil cap is the
-> one part of this excavation that has no business being vertical.
+> vertically on 5.3–5.9 m of rock, with the rock excavation undercutting it.** It also stands open
+> **across a monsoon**, because the flotation sequence in Part 9.3 requires the box to be complete
+> before the hole can be backfilled. **That soil cap is the one part of this excavation that has
+> no business being vertical.**
 
 ```
 ADOPTED   batter 1 : 1 MINIMUM over the soil cap, grade to rockhead, all four
@@ -1311,9 +1508,11 @@ ADOPTED   batter 1 : 1 MINIMUM over the soil cap, grade to rockhead, all four
 > **1 : 1 is a MINIMUM, not the answer.** A batter in FSI 60–65 % clay, undercut and wetted across
 > a monsoon, may need to be considerably flatter. `IS 3764` is named **by title only**.
 > **The angle and its seasonal variation are the geotechnical engineer's, and the quantity moves
-> with the angle** `[A]`. **`WM-V9` closes as a measurement basis** — the project now states a
-> face treatment instead of an unexamined vertical — **but the slope-stability assessment it
-> always asked for is still outstanding.**
+> with the angle** `[A]`. The design states a face treatment rather than an unexamined vertical,
+> which is what makes the excavation measurable — **but the slope-stability assessment behind the
+> angle is still outstanding, and no quantity in the bill is safe from it.**
+
+<!-- FIG: fig_excavation -->
 
 ## 4.7 Rockhead, and what it costs
 
@@ -1335,12 +1534,12 @@ ADOPTED   batter 1 : 1 MINIMUM over the soil cap, grade to rockhead, all four
 | (−)1.750 ← BOQ `E-02b` | 5.050 m | 993.84 | −49.16 |
 | (−)2.000 | 4.800 m | 944.64 | −98.36 |
 
-**Overrun at the report's shallow rockhead: +118.1 m³ (+11.3 %), ≈ 2 extra days** at the
+**Overrun at the report's shallow rockhead: +118.1 m³ (+11.3 %), about 2 extra days** at the
 programme's 60 m³/day output. **Total excavation does not change** — soil falls by the same volume
-as rock rises — so the money at stake is the **rate difference** over about 118 m³, not a rock rate
-over 118 m³. **No BOQ quantity is changed**; the owner's own bill governs and its risk register
-already carries the item, saying *"roughly one extra day"*. **What this adds is the number: it is
-about two.**
+as rock rises — so what is at stake is the **rate difference** over about 118 m³, not a rock rate
+over 118 m³. **The bill is not re-quantified on this**: the bill measures to (−)1.750, the risk is
+declared, and the risk register carries it. What this Part supplies is the number, and the number
+is about two days rather than the one the register assumes.
 
 One consequence is favourable and is recorded because it is free: the sliding argument rests on
 the box being *"socketed ~4.8 m into basalt"*. On the report's band the socket is **5.3 m to
@@ -1358,10 +1557,11 @@ LEVELS      = metres relative to finished site grade 0.000, negative downwards
 UNITS       = millimetres in all DXF geometry; metres in all level annotation
 ```
 
-> **Site orientation `+X = EAST, +Y = NORTH` was fixed for the first time at SG2** and is `[A]`.
-> Every drawing and every calculation in this project uses this system. **The STAAD underground
-> model does not**: it is built on mid-surface geometry with its origin at the **underside of the
-> mat**, so `project level = model Y − 6.700`. Part 8.2.
+> **Site orientation `+X = EAST, +Y = NORTH` is a project convention, `[A]`, not a survey.** No
+> benchmark, bearing or coordinate ties it to anything on the ground. Every drawing and every
+> calculation in this project uses it. **The STAAD underground model does not**: it is built on
+> mid-surface geometry with its origin at the **underside of the mat**, so
+> `project level = model Y − 6.700`. Part 8.2.
 
 ## 5.2 Level schedule
 
@@ -1388,25 +1588,29 @@ UNITS       = millimetres in all DXF geometry; metres in all level annotation
 
 ## 5.3 The main box
 
-| Item | Value | Was | Class |
-|---|---|---|---|
-| **External length** | **22 000 mm** | 21 600 (pre-M1) | `[C]` |
-| External width | 6 200 mm | unchanged | `[C]` |
-| **Internal length** | **20 800 mm** | 20 400 | `[C]` |
-| Internal width (clear span of the roof) | **5 000 mm** | unchanged — **do not widen** | `[C]` |
-| Perimeter wall thickness | 600 mm | unchanged | `[C]` |
-| Roof (pressure) slab | 900 mm | unchanged | `[C]` |
-| Mat foundation | 600 mm | unchanged | `[C]` |
-| Blinding / PCC | 100 mm M15 | unchanged | `[C]` |
-| Internal clear height | 3 200 mm | unchanged | `[C]` |
-| Engineered cover over roof | 2 000 mm layered | reduced from 4 000 in an earlier revision | `[C]` |
+| Item | Value | Class |
+|---|---|---|
+| **External length** | **22 000 mm** | `[C]` |
+| External width | **6 200 mm** | `[C]` |
+| **Internal length** | **20 800 mm** | `[C]` |
+| Internal width — **the clear span of the roof** | **5 000 mm** — *do not widen* | `[C]` |
+| Perimeter wall thickness | 600 mm | `[C]` |
+| Roof (pressure) slab | 900 mm | `[C]` |
+| Mat foundation | 600 mm | `[C]` |
+| Blinding / PCC | 100 mm M15 | `[C]` |
+| Internal clear height | 3 200 mm | `[C]` |
+| Engineered cover over roof | **2 000 mm**, six layers | `[C]` |
 
-> **Why lengthening the box is structurally free, and widening it is not.** The roof aspect ratio
-> is 20.8 / 5.0 = 4.2, and IS 456 Table 26 is tabulated only to l<sub>y</sub>/l<sub>x</sub> = 2.0,
-> so **two-way action cannot be claimed**. The roof therefore spans one-way across the 5 m width,
-> and its moment depends on that width alone. **Adding length adds no roof moment; widening
-> 5.0 → 6.0 m would increase it by 44 %.** That single fact is the structural basis of
-> Modification M1.
+<!-- FIG: fig_underground_plan -->
+
+> **Why length is structurally free here and width is not.** The roof aspect ratio is
+> 20.8 / 5.0 = 4.2, and IS 456 Table 26 is tabulated only to l<sub>y</sub>/l<sub>x</sub> = 2.0, so
+> **two-way action cannot be claimed**. The roof therefore spans one-way across the 5 m width and
+> its moment depends on that width alone. **Adding length adds no roof moment at all; widening
+> 5.0 → 6.0 m would add 44 %.** Every accommodation problem in this box is therefore solved along
+> its length, and the 5 000 mm clear span is the one internal dimension that must not be touched.
+
+<!-- FIG: fig_long_section -->
 
 ## 5.4 Bay schedule, and internal walls
 
@@ -1418,20 +1622,23 @@ UNITS       = millimetres in all DXF geometry; metres in all level annotation
 | 4 | 9130 – 10930 | 1800 | Berthing, 3 × 3-tier bunks, 9 berths |
 | 5 | 11040 – 12600 | **1560** | CBRN plant: **2 × 300 m³/h** filter trains, CO₂/O₂, dehumidifier, **clean sump** |
 | 6 | 12800 – 14800 | 2000 | Decon airlock, 3 stages (2000×2000, 2000×1500, 2000×1500) |
-| 7 | **15200 – 18000** | **2800** | **Stair shaft** (shifted +200 by M1) |
+| 7 | **15200 – 18000** | **2800** | **Stair shaft** |
 | 8 | **18400 – 21400** | **3000** | Generator 15 kVA (grey zone), **ESC 2** at X 19 900 |
 
 | Mark | X range (mm) | Thickness | Notes |
 |---|---|---|---|
 | W8 partitions ×4 | 3500–3610, 5410–5520, 9020–9130, 10930–11040 | 110 | Each with a **permanent 900 mm gap at Y 2500–3400** |
 | W5 | 12600 – 12800 | 200 | Bay 5/6, **fire and gas-tight only**, no pressure differential |
-| **W6** | **14800 – 15200** | **400** | Bay 6/7 — **M1, was 200. Protective boundary.** Blast Door 1 opening Y 600–1800 |
-| **W7** | **18000 – 18400** | **400** | Bay 7/8 — **M1, was 200. Protective boundary.** Blast Door 2 opening Y 600–1800 |
+| **W6** | **14800 – 15200** | **400** | Bay 6/7 — **the protective boundary.** Blast Door 1 opening Y 600–1800 |
+| **W7** | **18000 – 18400** | **400** | Bay 7/8 — **the protective boundary.** Blast Door 2 opening Y 600–1800 |
 
-> **Modification M1 is not a uniform shift, and it must never be applied as one.** Nothing west of
-> X 14 800 moves. W6 and W7 thicken **about their own faces**. The shaft moves +200; Bay 8 and the
-> east end move +400; the headhouse and the covered stairwell move +200 **as whole structures**.
-> **Re-derive per element, never translate wholesale.**
+> **W6 and W7 are 400 mm because the stair shaft equalises to the full incident overpressure.**
+> They are not internal partitions with a door in them; they are the last two pieces of the
+> protective envelope, and each carries a 1 200 × 2 100 opening in it. Every other internal wall
+> in this box is 110 mm or 200 mm, and the difference between 200 and 400 here is the difference
+> between a wall designed for a pressure difference and a wall designed for a blast. Part 9.2.
+
+<!-- FIG: fig_cross_section -->
 
 ## 5.5 Stair shaft, roof void and cantilever pad
 
@@ -1453,7 +1660,7 @@ MAIN STAIR  24R @ 170.8333, tread 280, 3 flights x 8R, rise 4100, headroom 2533
 
 | | ESC 1 | ESC 2 |
 |---|---|---|
-| Centre | (2050, 2050) | **(19900, 2050)** — shifted +400 by M1 |
+| Centre | (2050, 2050) | **(19900, 2050)** |
 | Clear opening | 1 400 mm dia | 1 400 mm dia |
 | Collar | 250 mm RC, OD 1 900 | 250 mm RC, OD 1 900 |
 | Clearance, opening edge to wall face | 750 mm all round | 800 / 800 mm |
@@ -1463,8 +1670,8 @@ MAIN STAIR  24R @ 170.8333, tread 280, 3 flights x 8R, rise 4100, headroom 2533
 
 > **THE 750 mm CLEARANCE RULE.** Opening edge to structural wall face ≥ 750 mm = 250 collar +
 > ~400 trimmer band + 100 tolerance. **A bay must therefore be at least 1 400 + 2 × 750 = 2 900 mm
-> wide to hold an escape shaft.** That rule drove the Rev C lengthening, and **it is why
-> Modification M1 could not take the 400 mm it needed out of Bay 8.**
+> wide to hold an escape shaft.** It is the reason bay 1 is 2 900 and bay 8 is 3 000, and it is the
+> reason neither of them can be shortened to buy space anywhere else in the box.
 
 ## 5.7 Headhouse
 
@@ -1484,7 +1691,7 @@ Berm graded against all four walls to +0.900 at 1.5 : 1
 | HW1 south | in X | 4 000 | Box south perimeter wall — **direct** |
 | HW2 north | in X | 4 000 | Box north perimeter wall — **direct** |
 | **HW3 west** | in Y | 5 000 | **Bay 6, mid-slab. NO wall below** — a line load on the pressure slab, checked at **26 %** two-way / **41 %** on the one-way bound (Part 10.4) |
-| HW4 east | in Y | 5 000 | **Wall W7 (18000–18400). M1 made these align exactly** |
+| HW4 east | in Y | 5 000 | **Wall W7 (18000–18400) — they align exactly** |
 
 ## 5.8 Covered entry stairwell
 
@@ -1503,11 +1710,13 @@ Stepped RC raft 300 thk on compacted fill; MOVEMENT JOINT where it meets the hea
 Berm 1.5:1 against the walls to +0.900, toe at grade over 1350
 ```
 
-> **The roof stays 250 mm over the platform — conflict C16, ruled and closed.** The clause used to
-> read *"over the platform it becomes the 500 headhouse roof"*, which **no other part of the
-> project supported**: the structural design designs a 250 roof, the load register loads one, the
-> reinforcement register registers one, and **the headhouse footprint Y 200–6000 does not reach the
-> platform at Y 6000–7500 at all.** One clause was the only place in the project saying 500.
+> **The raking roof stays 250 mm over the platform.** It does not thicken to the 500 mm headhouse
+> roof there, and the reason is geometric rather than structural: **the headhouse footprint
+> Y 200–6000 does not reach the platform at Y 6000–7500 at all.** The structural design designs a
+> 250 roof, the load register loads one and the reinforcement register registers one, which is
+> the whole of the position.
+
+<!-- FIG: fig_stair_section -->
 
 ## 5.9 Sentry post
 
@@ -1521,52 +1730,52 @@ Beams B2               250 x 450, spanning 1-2 (4650 c/c), on grids A and B
 Slab S1                150 thk two-way, 3650 x 4650 c/c, both floors
 Plinth beam PB         250 x 400 at +0.450
 Footings F1            1500 x 1500 x 600, 4 No., on in-situ basalt at (-)2.000
-Ground storey infill   190 BRICK MASONRY in the 200 structural zone  (SP-B1)
+Ground storey infill   190 BRICK MASONRY in the 200 structural zone
 First storey infill    armoured vision panels, 1200 wide
 Spiral stair           external, 1000 R, 250 dia central pole
 Door D1                900
 Storey heights         ground 3200 (+0.450 -> +3.650), first 3050 (+3.650 -> +6.700)
 Siting                 >= 10 m clear of the shelter excavation
-Site position          X 32000 - 36000,  Y 600 - 5600     [A]  -- RC4, EAST ruling
+Site position          X 32000 - 36000,  Y 600 - 5600     [A]  -- see 5.9.2
 ```
 
-### 5.9.1 SP-B1 — the walls are brick masonry, not RC ballistic panels
+### 5.9.1 The ground-storey infill is brick masonry, and what that costs
 
-The Rev F drawings call the ground-storey infill *"200 RC ballistic panels"*. By instruction that
-became **190 mm one-brick modular brickwork to IS 1077, laid in CM 1:6, built inside the unchanged
-200 mm structural zone**, with the residual 10 mm taken up at the internal face in the plaster.
+The ground-storey infill is **190 mm one-brick modular brickwork to IS 1077, laid in CM 1:6,
+inside a 200 mm structural zone**, with the residual 10 mm taken up at the internal face in the
+plaster. **190 and not 230** because 230 conventional brickwork would project 30 mm past the
+column faces and change the 4 000 × 5 000 external envelope. Quantity: **12.20 m³ over 64.19 m² of
+face**, about **6 400 bricks**.
 
-**190 and not 230** because 230 conventional brickwork would project 30 mm past the column faces
-and change the confirmed 4 000 × 5 000 external envelope. **Every other value in the block above
-is unchanged.** Quantity: **12.20 m³ / 64.19 m² face**, ≈ 6 400 bricks.
+Four consequences follow, and each is designed for or recorded rather than left implicit:
 
-Four consequences were recorded rather than buried:
-
-1. **Lintels became necessary.** The RC panels needed none. Designed at SP-B2 — Part 11.7.
-2. **A wall tie detail became necessary.** None existed. Designed at SP-B2.
-3. **The seismic weight falls.** Brick at ≈ 20 kN/m³ over 0.190 × 2.600 gives **≈ 9.88 kN/m**
-   against the modelled **13.000 kN/m**, so `W` falls, `V_b` falls, and **every member designed to
-   73.18 kN is over-designed.** *That is a direction, not a verification* — `WM-V6`, **left open by
-   owner ruling 19 (RC5): wait for STAAD.** The modelled 13.000 kN/m is retained because it is
-   conservative.
-4. **The ballistic function is lost.** Brick masonry does not give the protection the Rev F panels
-   were named for. **RULED — ruling 7 (RC4): ballistic protection is NOT required. Brick stands.**
+1. **Masonry over an opening needs a lintel.** A reinforced panel would not have. Designed —
+   Part 11.7.
+2. **Masonry infill in a frame needs a tie detail.** Designed — Part 11.7.
+3. **The seismic weight falls.** Brick at about 20 kN/m³ over 0.190 × 2.600 gives roughly
+   **9.88 kN/m** against the **13.000 kN/m** carried in the analysis model, so `W` falls, `V_b`
+   falls, and **every member designed to 73.18 kN base shear is over-designed.** That is a
+   direction, not a verification: the model is not re-run to claim the margin, and the
+   conservative 13.000 kN/m is what the design is held to. Open item `WM-V6`.
+4. **The infill is not ballistic protection, and it is not claimed to be.** Masonry does not give
+   what a reinforced panel would. **Ballistic protection is not a requirement of this post**, and
+   that is a stated position rather than an oversight — Part 11.1 explains why the whole post is
+   deliberately not hardened.
 
 ### 5.9.2 The sentry post's position — one assumed position instead of two, and it still fails the rule as written
 
-> **Ruling 8 (RC4): the EAST position is adopted.** The elevation's own note sets **X 32 000 –
-> 36 000** — 4 000 wide, which is the post's actual external dimension. *(An earlier record of
-> X 31 700 – 36 300 is 4 600 wide and matches nothing; the drawing is the primary source and is
-> corrected.)* **An elevation cannot give a Y**, so **Y 600 – 5600, centred on the box
-> longitudinal centreline Y 3100**, is set by the ruling.
+> **The post sits EAST of the box, at X 32 000 – 36 000.** The elevation's own note sets that
+> range — 4 000 wide, which is the post's actual external dimension. **An elevation cannot give a
+> Y**, so **Y 600 – 5600, centred on the box longitudinal centreline at Y 3100**, is a project
+> convention.
 >
-> **`RC4-F3` — and it fails the rule as that rule is written.** *"≥ 10 m clear of the shelter
+> **And it fails its own clearance rule as that rule is written.** *"≥ 10 m clear of the shelter
 > EXCAVATION"*: X 32 000 is **10.00 m** clear of the **box face** at X 22 000, but the
-> **excavation** face with its 1 000 mm working space is at X 23 000 — giving **9.00 m**. The
-> drawing's note cites the excavation rule while applying the box face. Satisfying it as written
-> moves the post to X 33 000 – 37 000, which passes every check. **BOTH readings are recorded and
-> NEITHER is adopted over the other: the EAST position is a drawing convention, not a survey
-> coordinate, and `U4` STAYS `[ASSUMED]`.**
+> **excavation** face with its 1 000 mm working space is at X 23 000 — giving **9.00 m**. The note
+> cites the excavation while applying the box face. Satisfying it as written moves the post to
+> X 33 000 – 37 000, which passes every check. **Both readings are recorded and neither is adopted
+> over the other**, because the east position is a drawing convention rather than a survey
+> coordinate: `U4` stays `[ASSUMED]` and is closed by the topographic survey, not by argument.
 >
 > **And it costs the post its stated function.** One of the site package's five reasons for
 > +X = east was *"the sentry post covers the approach from the north"*. With the post 10 m beyond
@@ -1581,17 +1790,22 @@ Four consequences were recorded rather than buried:
 | **Blast Door 2** | **W7**, X 18000–18400 (400 thk), opening Y 600–1800 — stair shaft → Bay 8 | **1200 × 2100** | **(−)6.100** | **≥ 7 bar** | `[C]` · vendor |
 | Inner security door | **HW2**, headhouse north wall, X 14450–15350 | 900 × 2100 | (−)2.000 | **NOT blast rated** | `[C]` |
 | Entry door | Entry stairwell headwall, X 9250–9500, **opens outward** | 1000 × 2100 | 0.000 | **NOT blast rated** — outside the boundary, expendable | `[C]` |
-| **D-05, the W5 gas-tight door** | **W5**, X 12600–12800 | — | (−)6.100 | — | **RULED — ruling 9 (RC4): design it now.** W5 was designated *fire and gas-tight* with **no door anywhere in the project**, and escape route R1 has to cross it |
+| **D-05, the W5 gas-tight door** | **W5**, X 12600–12800 | — | (−)6.100 | gas-tight, **not blast rated** | W5 is a *fire and gas-tight* separation with **no pressure differential across it**, and escape route R1 crosses it. **The door is required and is to be designed** — Part 12.4 |
 | W8 partition gaps ×4 | 3500–3610, 5410–5520, 9020–9130, 10930–11040 | **permanent 900 gap, Y 2500–3400** | (−)6.100 | **no doors, by design** | `[C]` |
 | **ESC 1 / ESC 2 heads** | Bays 1 and 8, through the **pressure slab** | 1 400 dia bore | +0.150 / +0.700 | **1.54 m² hole in the protective boundary each** | See Part 10.5 |
 
-> **Both blast doors ARE the protective boundary.** They sit in the same plane as W6/W7, and
-> Finding F1 is why those walls are 400 thick: the shaft equalises to full `p_so`, so the doors and
-> the walls beside them take the same **383 kPa**. Each frame is a **cast-in steel frame anchored
-> into and welded to the cage**, which is both the blast fixing and the only EMP continuity the
-> opening has.
+> **Both blast doors ARE the protective boundary.** They sit in the same plane as W6 and W7. The
+> stair shaft beyond them equalises to the full incident overpressure, so the doors and the walls
+> beside them take the same **383 kPa** — which is why those walls are 400 mm. Each frame is a
+> **cast-in steel frame anchored into and welded to the reinforcement cage**, which is both the
+> blast fixing and the only EMP continuity the opening has.
 
-# PART 6 — MATERIALS, DURABILITY AND DETAILING RULES
+**This table is the dimensional register only. Part 12 is where every one of these openings is
+designed** — the loads on the leaves, the hatch that closes a 1.54 m² hole in the pressure slab,
+the trimmers around each void, and the four things a closure in a protective boundary has to do at
+the same time.
+
+# PART 6 — MATERIALS, CONCRETE MIX DESIGN AND DETAILING RULES
 
 ## 6.1 Concrete and reinforcement
 
@@ -1605,7 +1819,7 @@ Four consequences were recorded rather than buried:
 | Burster slab (in the cover) | M30, 200 thk | — | |
 | Reinforcement | **Fe500D to IS 1786:2008** | Fe500 | |
 | E<sub>c</sub> = 5000√f<sub>ck</sub> | **29 580 N/mm²** | **27 386 N/mm²** | IS 456 Cl. 6.2.3.1 |
-| Poisson's ratio | 0.20 | 0.20 | `[A]` — standard; **closed by ruling 23 (RC6)** |
+| Poisson's ratio | 0.20 | 0.20 | `[A]` — the standard value for concrete, adopted as such |
 | Unit weight, reinforced concrete | 25 kN/m³ | 25 kN/m³ | IS 875 (Pt 1) Table 1 |
 | γ<sub>m</sub> concrete / steel | 1.5 / 1.15 | same | IS 456 Cl. 36.4.2 |
 
@@ -1696,6 +1910,200 @@ strategy, and four rules follow from it:
 > by the staged construction sequence, not by pressure relief. **The only temporary relief
 > permitted is the six construction-stage knock-out plugs**, grouted after backfill (Part 9.3).
 
+## 6.5 Concrete mix design — M35 and M30
+
+### 6.5.1 What this section is, and what it is not
+
+The grades are confirmed: **M35** for the shelter, the stairs and the headhouse; **M30** for the
+sentry post and the burster slab; **M15** for the blinding. The durability limits that go with the
+M35 are confirmed too — free water/cement ratio **not greater than 0.45**, minimum cement content
+**340 kg/m³**, from IS 456 Table 5 at very severe exposure.
+
+**The mix proportions are not confirmed anywhere in this project, and nothing below turns them
+into confirmed values.** What follows is a **trial mix design to the IS 10262:2019 method**,
+carried far enough to (a) show that the confirmed durability limits are achievable, (b) produce a
+defensible batch weight for the procurement quantities in Part 21, and (c) state precisely which
+inputs a laboratory has to supply before any of it can be used.
+
+> **Every mix design is a design against materials you have in your hand.** This one is against
+> materials nobody has yet seen: there is no aggregate source, no grading curve, no specific
+> gravity, no water absorption, no admixture product and no supplier standard deviation anywhere
+> in the project. **Each of those is `[N]`.** The proportions below are therefore a *starting
+> point for trial batching*, which is exactly what IS 10262 calls them, and **QA/QC hold point
+> Q-06 is where they are replaced by real ones.**
+
+### 6.5.2 Target mean strength
+
+IS 10262:2019 Cl. 5.2 takes the **greater** of two expressions, and for these grades the first
+governs:
+
+```
+f'ck  =  fck + 1.65 s          s from IS 10262 Table 2
+f'ck  =  fck + X               X from IS 10262 Table 1
+
+M35   s = 5.0  X = 6.5
+      35 + 1.65 x 5.0 = 43.25        35 + 6.5 = 41.50
+      TARGET = 43.25 N/mm2                                GOVERNS
+
+M30   s = 5.0  X = 6.5
+      30 + 1.65 x 5.0 = 38.25        30 + 6.5 = 36.50
+      TARGET = 38.25 N/mm2                                GOVERNS
+```
+
+> **`s` = 5.0 is a table value standing in for a measurement.** IS 10262 Table 2 is explicit that
+> the tabulated standard deviation applies **until enough results exist from the actual plant**,
+> at which point the real value replaces it. On this project no plant has been appointed, so the
+> table value is all there is. **If the appointed supplier's `s` is worse than 5.0, the target
+> strength rises and the mix changes.** That is a procurement condition, not a footnote.
+
+### 6.5.3 Water content and the water/cement ratio
+
+IS 10262:2019 Table 4 gives the maximum water content for a **50 mm slump** with angular coarse
+aggregate: **186 L/m³ at 20 mm nominal maximum size**. The correction is **+3 % for each 25 mm of
+slump above 50**.
+
+```
+M35   nominal max aggregate size 20 mm                         [A]
+      target slump 100 mm  -- a 900 slab and 600 walls with
+      BOTH CURTAINS AT 150 CENTRES EACH WAY;  75 cover to the
+      bottom curtain;  and two SINGLE CONTINUOUS POURS         [A]
+      186 x (1 + 0.03 x 50/25)     = 197.2 L/m3
+      superplasticiser, 20 % water reduction                   [A]
+      197.2 x 0.80                 = 157.8  ->  ADOPT 158 L/m3
+
+      w/c adopted 0.40  (cap 0.45)                             [A]
+      cement = 158 / 0.40          = 395.0 kg/m3
+      ADOPT 400 kg/m3              -> resulting free w/c 0.395
+
+M30   target slump 75 mm                                       [A]
+      186 x (1 + 0.03 x 25/25)     = 191.6 L/m3
+      superplasticiser, 18 % water reduction                   [A]
+      191.6 x 0.82                 = 157.1  ->  ADOPT 157 L/m3
+
+      w/c adopted 0.44  (cap 0.45)                             [A]
+      cement = 157 / 0.44          = 356.8 kg/m3
+      ADOPT 360 kg/m3              -> resulting free w/c 0.436
+```
+
+**Why the M35 goes to 0.40 when the code cap is 0.45.** Three reasons, and none of them is
+conservatism for its own sake:
+
+1. **The structure is permanently below the design water table.** Very severe exposure with a
+   permanent head on the outside face is the case IS 456 Table 5 sets 0.45 for, not a case with
+   margin to spare.
+2. **The waterproofing is an integral crystalline admixture, and crystalline systems work by
+   growing in a dense, low-permeability matrix.** A wetter mix is a worse host for the chemistry
+   the tanking depends on.
+3. **The 5 mm cover reduction IS 456 Table 16 permits for M35 and above is deliberately refused**
+   (6.2). Refusing the cover bonus and taking the w/c margin is one consistent position about a
+   structure whose external face can never be inspected again.
+
+**Why the M35 slump is 100 mm.** The pressure slab carries T25 at 150 centres in both directions
+in **both** curtains, plus T12 four-leg links at 250 over the end 1 500, and it is cast in **one
+continuous pour of 112 m³**. A 75 mm slump mix in that cage is a honeycombing risk on the one
+element in the project that is 51 % utilised in flexure and cannot be repaired from the outside.
+
+### 6.5.4 Proportioning by absolute volume
+
+IS 10262:2019 Table 5 gives the volume of coarse aggregate per unit volume of total aggregate for
+**20 mm nominal size with zone II fine aggregate: 0.62 at w/c 0.50**, corrected **+0.01 for each
+0.05 the w/c falls below 0.50**.
+
+```
+M35   w/c 0.395  ->  0.62 + 0.01 x (0.50-0.395)/0.05      = 0.641
+      IS 10262 Cl. 5.5.1, reduce 10 % for congested /
+      pumpable concrete -- and this cage is congested     = 0.577
+      fine aggregate fraction                            = 0.423
+
+M30   w/c 0.436  ->  0.62 + 0.01 x (0.50-0.436)/0.05      = 0.633
+      no congestion reduction -- ordinary RC members      = 0.633
+      fine aggregate fraction                            = 0.367
+
+ASSUMED SPECIFIC GRAVITIES                                        [A]
+      cement 3.15   coarse aggregate 2.84 (basalt)   fine 2.65
+      entrapped air 1.0 % at 20 mm nominal size, IS 10262 Table 3
+      superplasticiser SG 1.145, dosed on cement mass
+```
+
+**M35, one cubic metre:**
+
+```
+volume of cement      400 / (3.15 x 1000)                 = 0.12698 m3
+volume of water       158 / 1000                          = 0.15800
+volume of admixture   4.00 / (1.145 x 1000)   1.0 % [A]   = 0.00349
+volume of entrapped air                                   = 0.01000
+                                                            -------
+volume of all-in aggregate  1 - 0.29847                   = 0.70153
+
+coarse  0.70153 x 0.577 x 2.84 x 1000                     = 1149.6 kg
+fine    0.70153 x 0.423 x 2.65 x 1000                     =  786.4 kg
+
+MIX BY MASS   1 : 1.966 : 2.874   at free w/c 0.395
+BATCH  cement 400  .  fine 786.4  .  coarse 1149.6  .  water 158
+       .  admixture 4.00        =  2498 kg/m3 fresh density
+```
+
+**M30, one cubic metre:**
+
+```
+volume of cement      360 / (3.15 x 1000)                 = 0.11429 m3
+volume of water       157 / 1000                          = 0.15700
+volume of admixture   2.88 / (1.145 x 1000)   0.8 % [A]   = 0.00252
+volume of entrapped air                                   = 0.01000
+                                                            -------
+volume of all-in aggregate  1 - 0.28380                   = 0.71620
+
+coarse  0.71620 x 0.633 x 2.84 x 1000                     = 1287.5 kg
+fine    0.71620 x 0.367 x 2.65 x 1000                     =  696.5 kg
+
+MIX BY MASS   1 : 1.935 : 3.576   at free w/c 0.436
+BATCH  cement 360  .  fine 696.5  .  coarse 1287.5  .  water 157
+       .  admixture 2.88        =  2504 kg/m3 fresh density
+```
+
+<!-- FIG: fig_mix_proportions -->
+
+### 6.5.5 The checks the design has to pass, and does
+
+| Check | Requirement | M35 | M30 |
+|---|---|---|---|
+| Free water/cement ratio | **≤ 0.45** (IS 456 Table 5, very severe) | **0.395** PASS | **0.436** PASS |
+| Minimum cement content | **≥ 340 kg/m³** M35 · ≥ 320 M30 | **400** PASS | **360** PASS |
+| Maximum cement content | ≤ 450 kg/m³ (IS 456 Cl. 8.2.4.2, shrinkage) | **400** PASS | **360** PASS |
+| Grade against exposure | M35 minimum, very severe | **M35** PASS | M30 for above-ground work |
+| Fresh density | plausible 2 400 – 2 550 kg/m³ | **2 498** | **2 504** |
+| Agreement with the procurement take-off | 400 / 360 kg/m³ assumed in Part 21 | **exact** | **exact** |
+
+> **The last row is a consistency check, not a confirmation.** The bill's cement quantity is built
+> on an assumed 400 kg/m³ for the M35 and 360 for the M30. This mix design, worked independently
+> from the code tables, lands on the same two figures — which means **the 194.2 t cement and
+> 828.7 t aggregate in Part 21 are internally consistent with a mix that satisfies IS 456**. Both
+> are still assumptions, and both are replaced on the day a laboratory trial is run.
+
+### 6.5.6 What must be supplied before any of this is used
+
+<!-- FIG: fig_mix_notes -->
+
+| Input | Status | Who supplies it |
+|---|---|---|
+| Coarse and fine aggregate source, grading, specific gravity, water absorption | `[N]` | The contractor, at award |
+| Whether the fine aggregate is genuinely grading zone II | `[A]` | Sieve analysis to IS 383 |
+| Superplasticiser product, dosage and water reduction | `[N]` | Vendor, with a compatibility trial against the crystalline admixture |
+| Integral crystalline waterproofing admixture, product and dosage | `[N]` — the admixture itself is `[R]` | Vendor, to IS 2645 |
+| Supplier's standard deviation `s` | `[A]` — table value | The plant, after 30 results |
+| Trial mix cubes at 7 and 28 days | `[N]` | The laboratory, **before the first structural pour** |
+
+> **Two trial-mix conditions are specific to this structure and are easy to leave out.**
+>
+> **First, the admixture compatibility trial is not optional.** A polycarboxylate superplasticiser
+> and an integral crystalline waterproofing admixture are two chemical systems in the same mix,
+> and their interaction affects both the water reduction claimed above and the permeability the
+> tanking depends on. **Both are `[N]`, so the interaction cannot even be guessed at here.**
+>
+> **Second, the trial has to be run at the real placing temperature.** Part 21 puts the mat pour
+> in March and the pressure-slab pour in June, in Pune. A mix trialled in a laboratory at 27 °C
+> and placed at 38 °C is a different mix, and the one that matters is the one in the shutter.
+
 # PART 7 — LOADING
 
 ## 7.1 Blast
@@ -1755,21 +2163,22 @@ Dynamic material strengths, BLAST CASE ONLY   IS 4991 Cl. 10.3.1
 | **Declared allowance, held** | — | | **+1.50** | |
 | **TOTAL — DESIGN VALUE** | **2 000** | | **40.65** | |
 
-> **Conflict C17, ruled and closed.** The six layers sum to **39.15 kPa**; the table has always
-> stated **40.65**, and the two never agreed. **40.65 is held as the design value** and the table
-> now shows why: it is the layer sum **plus a declared allowance of 1.50 kPa**. That is the only
-> choice that costs nothing and changes nothing — 40.65 is the number in the roof total, in the
-> final register and in **`DL2` in every underground `.std` file**, it is the **larger** of the
-> two, and adopting 39.15 instead would lighten the blast combination by 1.50 kPa and require a
-> re-analysis that cannot be run here. **The allowance is not fabricated evidence: it is the
-> difference the project has always carried, now stated instead of hidden.**
+> **The design value is 40.65 kPa, and the table shows exactly where it comes from.** The six
+> layers sum to **39.15 kPa**. The design carries **40.65**, which is the layer sum **plus a
+> declared allowance of 1.50 kPa** for the tolerance on six compacted layers laid over a 136 m²
+> roof. The allowance is stated rather than absorbed, because a 1.5 kPa difference between a
+> layer table and a load case is exactly the sort of thing that later reads as an error. **40.65
+> is the number in the roof total, in the quantity register and in `DL2` in every underground
+> `.std` file**, and it is the larger of the two.
 
-### 7.3.1 BS1 — the burster slab is laid to falls
+<!-- FIG: fig_cover -->
 
-By instruction the 200 mm burster slab is **no longer laid flat**. It is laid to a **1:50
-crossfall, crowned on the box longitudinal centreline (Y = 3100) and falling each way to the box
-edges** — that is, **parallel to the finished grade**, which is already recorded as *crowned,
-falling 1:50 away*. Over the 3 100 mm half-width the slab drops **62 mm** from crown to box edge.
+### 7.3.1 The burster slab is laid to falls
+
+The 200 mm burster slab is **not laid flat**. It is laid to a **1:50 crossfall, crowned on the box
+longitudinal centreline (Y = 3100) and falling each way to the box edges** — that is, **parallel
+to the finished grade**, which is itself crowned and falls 1:50 away. Over the 3 100 mm half-width
+the slab drops **62 mm** from crown to box edge.
 
 **Why.** The granular filter sits directly on the burster slab, and the drainage basis already
 states that water infiltrating the topsoil is *"intercepted by the granular filter and dispersed
@@ -1777,10 +2186,10 @@ at the berm toe"*. **On a flat slab it cannot be** — it ponds on the slab and 
 construction joints. The crossfall gives the filter layer the gradient that claim depends on.
 **No pipe is introduced anywhere in the cover.**
 
-**Thicknesses and load — unchanged.** The fall is taken up entirely in the **compacted engineered
-fill** below the rubble, which is **750 nominal at the crown thinning to 688 at the box edge**.
-Every other layer keeps its nominal thickness. **The cover therefore weighs exactly what it weighs
-today at the crown, and less toward the edges: the cover load does not increase anywhere.**
+**Thicknesses and load.** The fall is taken up entirely in the **compacted engineered fill**
+below the rubble, which is **750 nominal at the crown thinning to 688 at the box edge**. Every
+other layer keeps its nominal thickness, so the cover weighs 40.65 kPa at the crown and less
+toward the edges. **The fall costs nothing in load, and nothing in the bill.**
 
 ## 7.4 Total roof load — combination 103
 
@@ -1807,15 +2216,16 @@ BLAST GOVERNS 448.15 / 127.7 = 3.51 : 1
 | Element | Load | Basis |
 |---|---|---|
 | Roof (flush horizontal at the berm crest) | **396.5 kPa** = 383 blast + 12.5 self + 1.0 SIDL | IS 4991 Cl. 7.2 |
-| **Walls — CURRENT** | **383 kPa, acting EITHER FACE** | **Conflict C10** |
-| Walls — earlier basis (superseded) | 113 kPa = C<sub>d</sub>·q = 0.4 × 282 | IS 4991 Cl. 7.4 |
+| **Walls** | **383 kPa, acting EITHER FACE** | IS 4991 Cl. 7.2 — the buried-element rule, applied to a bermed one |
+| *The alternative that is not taken* | *113 kPa = C<sub>d</sub>·q = 0.4 × 282* | *IS 4991 Cl. 7.4, drag on a bermed face* |
 
-> **Conflict C10 and why the upgrade was taken.** The walls sit behind ~2.5 m of berm and **earth
-> transmits pressure.** `K_a` for dry compacted fill is an assumption that cannot be verified, so
-> the walls are designed for **the full 383 kPa upper bound.** **Cost of the upgrade: one link
-> cage, T12 4-leg @ 250. Utilisation rises 17 % → 59 %.** That is what removing an unverifiable
-> assumption from the critical path is worth, and it is cheap. Owner ruling 23 (RC6) confirms the
-> choice and closes assumption `A6`.
+> **Why the upper bound and not the drag value.** The walls sit behind about 2.5 m of berm, and
+> **earth transmits pressure.** Taking the drag value credits the berm with a transmission factor
+> that cannot be verified on this site, and 2.5 m of dry compacted fill is not the same material
+> as the saturated ground the buried box sits in. So the walls are designed for **the full
+> 383 kPa**. **The cost of that decision is one link cage, T12 4-leg at 250; the utilisation rises
+> from 17 % to 59 %.** Removing an unverifiable assumption from the design of a protective
+> structure for the price of a link cage is a trade worth making every time.
 >
 > **And the pressure acts from inside too.** The inner security door is not blast rated and the
 > entry stairwell is expected to be lost, so **the headhouse fills and the walls are pushed
@@ -1846,19 +2256,18 @@ BLAST GOVERNS 448.15 / 127.7 = 3.51 : 1
 | Peak two-way intensity, DL roof | 9.581 kN/m | 5.25 × 1.825 |
 | Peak two-way intensity, LL floor | 5.475 kN/m | 3.00 × 1.825 |
 | Peak two-way intensity, LL roof | 2.737 kN/m | 1.50 × 1.825 |
-| Infill on the first-floor beams | **13.000 kN/m** | 0.200 × 2.600 × 25 — **retained after SP-B1 because brick is lighter (≈ 9.88) and the modelled value is therefore conservative** |
+| Infill on the first-floor beams | **13.000 kN/m** | 0.200 × 2.600 × 25 — **held, because the brick infill actually built is lighter (≈ 9.88 kN/m) and the modelled value is therefore conservative** |
 | Roof projection + parapet | 4.162 kN/m | `[C]` as drawn — **half re-derived, see below** |
 | — parapet term, 0.300 × 0.150 × 25 | **1.125 kN/m** | **`[C]`, reproduces exactly** |
 | — roof projection term | **3.037 kN/m** | **`[N]` — the projection dimension is recorded nowhere** |
 | w<sub>u</sub> floor = 1.5(4.75 + 3.00) | **11.625 kPa** | **governs the slab** |
 | w<sub>u</sub> roof = 1.5(5.25 + 1.50) | 10.125 kPa | |
 
-> **`U8-F1` — the parapet confirmation is necessary but not sufficient.** Ruling 15 (RC4)
-> confirmed the parapet at 300 × 150, and 0.300 × 0.150 × 25 = **1.125 kN/m** reproduces exactly.
-> The residual **3.037 kN/m** is the roof projection, and **the projection dimension is recorded
-> nowhere in this project.** Back-solving gives 810 mm (slab alone) or 578 mm (slab + finish);
-> **neither is round, neither is drawn, neither is adopted. 4.162 continues to be used as given —
-> no member force changes.**
+> **Half of that line can be reproduced and half cannot.** The parapet is 300 × 150, and
+> 0.300 × 0.150 × 25 = **1.125 kN/m** reproduces exactly. The residual **3.037 kN/m** is the roof
+> projection, and **the projection dimension is recorded nowhere in this project.** Back-solving
+> gives 810 mm (slab alone) or 578 mm (slab plus finish); **neither is round, neither is drawn and
+> neither is adopted. 4.162 kN/m is used as given, and no member force changes** — `U8-F1`.
 
 **Load path to the beams — IS 456 Cl. 24.5, 45° yield lines:**
 
@@ -1870,9 +2279,10 @@ LONG  beams B2 (4650 long) -> TRAPEZOID
      1 - 1/(3 x 1.2740^2) = 0.79463  ->  0.7946 adopted
 ```
 
-> The trapezoid factor **is exact**; using the same factor for both bending moment and fixed-end
-> moment is the simplification, and it is worth **≈ 2 %** on B2's support moment, inside its 89 %
-> utilisation. **Closed by owner ruling 24 (RC6), accepted on the margin** — assumption `A12`.
+> The trapezoid factor **is exact**; using the same factor for both the bending moment and the
+> fixed-end moment is the simplification, and it is worth about **2 %** on B2's support moment,
+> inside its 89 % utilisation. **Accepted on that margin, and declared as assumption `A12`
+> rather than absorbed.**
 
 ## 7.8 Seismic and wind
 
@@ -1916,7 +2326,8 @@ HAND-CALCULATED seismic weight
    Fx = 18.295 kN per column x 4                                        = 73.18 kN
 ```
 
-> **Conflict C9 — and it is now fully explained rather than merely adopted.** The model prints its
+> **The hand check and the model differ by 139.1 kN, and the difference is fully explained.**
+> The model prints its
 > own seismic-weight summary: roof 331.46 + floor 400.34 = **W = 731.80 kN**, and
 > V<sub>b</sub> = 0.100 × 731.80 = 73.18 kN returns A<sub>h</sub> = **0.1000 exactly.** Rebuilding
 > both storey weights from the model's own load blocks reproduces 331.46 and 400.34 to the
@@ -1942,8 +2353,9 @@ F  = Cf 1.3 x Ae (4.0 x 6.7 = 26.8 m2) x pd                      = 29.9 kN
 SEISMIC 73.18 kN   vs   WIND 29.9 kN   ->   SEISMIC GOVERNS 2.4 : 1
 ```
 
-> `k1` = 1.08 assumes a 100-year design life `[A]`. **Closed by owner ruling 23 (RC6), accepted:**
-> a 100-year life on a load path that seismic already beats 2.4 : 1 costs nothing.
+> `k1` = 1.08 assumes a **100-year design life** `[A]`. That is a deliberate choice rather than a
+> default: a 100-year life on a load path that seismic already beats 2.4 : 1 costs nothing at all,
+> and a protective installation is not a 50-year building.
 
 ## 7.9 Load combinations
 
@@ -1999,7 +2411,7 @@ SEISMIC 73.18 kN   vs   WIND 29.9 kN   ->   SEISMIC GOVERNS 2.4 : 1
 
 | Model | File in `current/staad/` | Role | Status |
 |---|---|---|---|
-| **Underground box — reference** | `Underground_Structure_WITH_LOADS_worked_example (4).STD` | The reconciled Phase 2 Rev A + M1 plate model. **Every box value in Part 9 is checked against it** | `[C]` |
+| **Underground box — reference** | `Underground_Structure_WITH_LOADS_worked_example (4).STD` | The Phase 2 Rev A plate model of the box as designed. **Every box value in Part 9 is checked against it** | `[C]` |
 | **Sentry post** | `Sentry_Post_Framed_Seismic.std` | Two-storey RC frame, seismic | `[C]` |
 | **Entry stairwell** | `Entry_Stairwell.std` | Covered approach stairwell, **static only, not blast rated** | `[C]` |
 | Underground box — COARSE | `Underground_Shelter_Mesh_Coarse.std` | Mesh study — **324 joints, 336 plates** | `[C]` |
@@ -2027,7 +2439,7 @@ footprint, with support symbols at every mat node.
 |---|---|
 | Shell elements | **1 138**, in four thickness groups: mat 600 / roof 900 / perimeter 600 / internal 200–400 |
 | Supports | `ELASTIC MAT DIRECT Y SUBGRADE 100000` — vertical springs on every mat node, generated from k<sub>s</sub> |
-| Corner joints | Explicit `KFY` restated per corner from the post-M1 tributary areas: **6 891 / 8 269 / 7 219 / 8 663 kN/m** |
+| Corner joints | Explicit `KFY` per corner, from the corner tributary areas: **6 891 / 8 269 / 7 219 / 8 663 kN/m** |
 | Analysis command | `PERFORM ANALYSIS PRINT STATICS CHECK` — **no P-Delta** |
 
 **Load cases, read verbatim from the file:**
@@ -2046,10 +2458,11 @@ footprint, with support symbols at every mat node.
 | 10 | `LL2 CONSTRUCTION SURCHARGE` | 20.0 kPa |
 | **11** | **`BL3 BLAST IN THE STAIR SHAFT ON W6 AND W7 383 KN/M2`** | **383 kPa, acting out of the shaft on both faces** |
 
-> **Load case 11 is Modification M1, expressed as a load.** The model previously applied blast to
-> the **external** walls only. `BL3` is the demand Finding F1 identified — the stair shaft
-> equalises to full `p_so` and therefore loads W6 and W7 from inside — and it is included in
-> combination 103. **M1 exists to carry this case.**
+> **Load case 11 is the whole argument of Part 9.2, expressed as a load.** A model that applies
+> blast only to the **external** walls has an internally consistent but wrong picture of this
+> structure: the stair shaft is open to atmosphere through the roof void, so it equalises to the
+> full incident overpressure and loads W6 and W7 **from inside**. `BL3` is that demand, it is in
+> combination 103, and **the 400 mm thickness of those two walls exists to carry it.**
 
 ### 8.3.1 The modelling warning that must not be lost
 
@@ -2100,14 +2513,15 @@ distribution from its load resultants gives Q<sub>roof</sub> = 55.57 kN and Q<su
 distribution at the model's total of 73.18 kN, which gives the LARGER ground-storey column moment.
 Conservative, and recorded.**
 
-## 8.5 Mesh sensitivity — MS1
+## 8.5 Mesh sensitivity
 
-Three mesh-density variants of the reconciled M1 model were built: **COARSE** (~1.9 × the
-reference element size), **MEDIUM** (an unmodified copy of the reference mesh) and **FINE** (an
-exact h/2 refinement).
+A plate model's answer depends on its mesh, and a design that quotes plate moments without
+demonstrating mesh independence has not finished its argument. Three mesh-density variants of the
+box model exist: **COARSE** (about 1.9 × the reference element size), **MEDIUM** (an unmodified
+copy of the reference mesh) and **FINE** (an exact h/2 refinement).
 
-Geometry — including every M1 value — thicknesses, materials, supports and soil springs, loads,
-load cases and combinations are **identical in all three**; only the plate mesh density differs.
+Geometry, thicknesses, materials, supports and soil springs, loads, load cases and combinations
+are **identical in all three**; only the plate mesh density differs.
 The opening boundaries and the footprint are pixel-identical across all three: **net roof area
 104.048 m² and hole area 15.792 m² match exactly.** Corner spring `KFY` values and the `EP1`
 earth-plus-water row pressures were **re-derived per mesh from the same physical formulas the
@@ -2122,21 +2536,22 @@ EP1 p = 15.4071 x depth - 10.8198  kN/m2,   depth = 6.700 - Y
 — **not re-guessed.**
 
 > **The convergence conclusion is OUTSTANDING.** The three models are built and validated;
-> **STAAD.Pro is not available, so no result exists for any of them.** Saying the mesh converges
-> would be inventing the study's conclusion.
+> **STAAD.Pro is not available in this environment, so no result exists for any of them.** Saying
+> the mesh converges would be inventing the study's own conclusion, and the study exists precisely
+> so that the conclusion does not have to be assumed.
 
-## 8.6 MS2 — the input-file corrections, and why they matter
+## 8.6 The input files, and the class of defect that only appears when a model is opened
 
-The project owner ran the COARSE model in STAAD.Pro — **the first time any model in this project
-had been opened in STAAD** — and it reported errors. All four box models were then re-read line by
-line.
+The first time any of these models was opened in STAAD.Pro it reported errors. All four box models
+were then re-read line by line, and what came out is worth stating in full, because none of it is
+visible in a drawing, a summary or a screen capture.
 
 | # | Defect | Fix |
 |---|---|---|
-| **MS2-1** | **Three `LOAD 6` south-wall lines were 80 columns against the file's own `INPUT WIDTH 79`.** STAAD reads 79 columns and discards the rest, so it read **−77.6 / −57.3 / −37.0** where the file says **−77.64 / −57.36 / −37.07**. The north wall (79 columns) was read correctly, so **`LOAD 6` no longer balanced** — 4 848.4 kN in +Z against 4 843.6 kN in −Z, an out-of-balance of **4.8 kN on a case that is self-equilibrating by construction**, and the file asks for exactly the statics check that reports it | Split on the STAAD `-` continuation character. **Every data line in all four box models is now ≤ 79 columns** |
-| **MS2-2** | `LOAD 10` was defined **after** `LOAD 11` in all four models, so the primary case numbers ran 1…9, 11, 10 | Reordered. **Physically neutral** — combinations reference cases by number and 101–105 are byte-identical before and after |
-| **MS2-3** | Corner spring `KFY` at joint 1 was **27 562** where the model's own formula gives **27 562.5** and the study documentation gives **27 563**, while the sibling half-value was rounded **up** | **27 563.** A 0.5 kN/m difference on one spring; the point is that the file now agrees with its own documentation |
-| **MS2-4** | A load title and one `JOB CLIENT` line also exceeded 79 columns (titles only, no numeric consequence) | Shortened |
+| **1** | **Three `LOAD 6` south-wall lines were 80 columns against the file's own `INPUT WIDTH 79`.** STAAD reads 79 columns and discards the rest, so it read **−77.6 / −57.3 / −37.0** where the file says **−77.64 / −57.36 / −37.07**. The north wall (79 columns) was read correctly, so **`LOAD 6` no longer balanced** — 4 848.4 kN in +Z against 4 843.6 kN in −Z, an out-of-balance of **4.8 kN on a case that is self-equilibrating by construction**, and the file asks for exactly the statics check that reports it | Split on the STAAD `-` continuation character. **Every data line in all four box models is now ≤ 79 columns** |
+| **2** | `LOAD 10` was defined **after** `LOAD 11` in all four models, so the primary case numbers ran 1…9, 11, 10 | Reordered. **Physically neutral** — combinations reference cases by number and 101–105 are byte-identical before and after |
+| **3** | Corner spring `KFY` at joint 1 was **27 562** where the model's own formula gives **27 562.5** and the study documentation gives **27 563**, while the sibling half-value was rounded **up** | **27 563.** A 0.5 kN/m difference on one spring; the point is that the file now agrees with its own documentation |
+| **4** | A load title and one `JOB CLIENT` line also exceeded 79 columns (titles only, no numeric consequence) | Shortened |
 
 **Verified after the edits, on all four box models:** the 336 / 1 138 / 4 552-plate topology is
 unchanged and clean — every element resolves to defined joints, no repeated node, no degenerate or
@@ -2146,19 +2561,21 @@ reads them at 79 columns, COARSE, MEDIUM and FINE now produce identical panel-by
 resultants for all eleven load cases** — mat, roof, each of the four external walls, W6 and W7 —
 **which they did not before.**
 
-> **MS2 changed no analysis model.** No geometry, thickness, material, support stiffness, load
-> magnitude, load case number or combination factor moved. **It is a lesson about input files, and
-> it is the kind of defect that only shows up when someone actually opens the model.**
+> **Not one of those corrections changed an analysis model.** No geometry, thickness, material,
+> support stiffness, load magnitude, load case number or combination factor moved. **What they
+> changed is whether the file says what its author believed it said** — and a 79-column input
+> truncation that silently turns −77.64 into −77.6 on three lines out of several hundred is
+> exactly the class of defect no amount of reading a summary will ever find.
 
 ## 8.7 What must be obtained before the STAAD work can be extended
 
 1. **A STAAD.Pro run.** Everything below waits on it.
 2. The underground model's **post-processing output** — plate M<sub>x</sub>/M<sub>y</sub>, support
    reactions, deflections.
-3. The **mesh convergence table**, which is the conclusion MS1 exists to produce.
+3. The **mesh convergence table**, which is the conclusion the mesh study exists to produce.
 4. **Both k<sub>s</sub> bounds run** — the upper-bound model exists and has never been executed.
-5. The **sentry post re-run after SP-B1** (`WM-V6`) — confirmation, not risk: brick is lighter than
-   the modelled infill, so every member is over-designed.
+5. The **sentry post re-run at the built brick infill** (`WM-V6`) — confirmation, not risk:
+   brick is lighter than the modelled infill, so every member is already over-designed.
 
 # PART 9 — STRUCTURAL DESIGN CALCULATIONS: THE UNDERGROUND BOX
 
@@ -2230,9 +2647,11 @@ CRACK       IS 3370 Pt 2, limit 0.2 mm; surface steel 875 < 1340   OK
 > Saying so matters: an optimiser who sees 68 % and thins the wall loses four of the five reasons
 > it is that thick.
 
-## 9.2 Walls W6 / W7 — 400 thk — Modification M1 — 69 %
+<!-- FIG: fig_wall_section -->
 
-### 9.2.1 Finding F1 — why these two walls are different
+## 9.2 Walls W6 and W7 — 400 thk — 69 %
+
+### 9.2.1 Why these two walls are not like the other internal walls
 
 ```
 FINDING F1  The stair shaft is open to atmosphere through the 2800 x 3160 roof
@@ -2248,9 +2667,11 @@ FINDING F1  The stair shaft is open to atmosphere through the 2800 x 3160 roof
             separating a PRESSURISED shaft from Bay 6 / Bay 8 at AMBIENT.
 ```
 
-> **That is the whole of Modification M1 in one paragraph.** The protective boundary was not
-> continuous: two 200 mm walls were standing where 7-bar doors stand. **The design does not
-> pretend the shaft stays at ambient; it accepts that it fills and carries the consequence.**
+> **That paragraph is why W6 and W7 are 400 mm and every other internal wall is 110 or 200.**
+> They are not partitions: they are the last two panels of the protective boundary, standing in
+> the same plane as two 7-bar doors and separating a **pressurised** shaft from bays at ambient.
+> **The design does not pretend the shaft stays at ambient. It accepts that the shaft fills, and
+> carries the consequence in the thickness.**
 
 ### 9.2.2 Why 200 mm is impossible — not a detailing problem
 
@@ -2267,14 +2688,15 @@ FINDING F1  The stair shaft is open to atmosphere through the 2800 x 3160 roof
 ```
 
 > **The section is over its singly-reinforced capacity before any steel is chosen.** This is the
-> one place in the project where the answer was not "add bars" but "change the geometry" — and it
-> is why M1 is a **modification**, not a detailing revision.
+> one place in this structure where the answer is not "add bars" but "change the geometry", and it
+> is worth being explicit about that: no detailing, no grade change and no two-way idealisation
+> rescues a 200 mm wall here.
 >
-> **And the 400 mm could not be found anywhere convenient.** It could not come out of Bay 8,
-> because the 750 mm escape-shaft clearance rule (Part 5.6) fixes Bay 8's minimum width at
-> 2 900 mm. It could not come out of the shaft, because 2 800 = 2 × 1 200 flights + 200 well
-> exactly. **So the box got 400 mm longer**, which the one-way roof makes structurally free
-> (Part 5.3).
+> **And the 400 mm cannot be found anywhere convenient.** It cannot come out of Bay 8, because the
+> 750 mm escape-shaft clearance rule (Part 5.6) fixes Bay 8's minimum width at 2 900 mm. It cannot
+> come out of the shaft, because 2 800 = 2 × 1 200 flights + 200 well, exactly. **So the box is
+> 400 mm longer than the accommodation alone would need** — which the one-way roof makes
+> structurally free, and which is the reason Part 5.3 spends a paragraph on the aspect ratio.
 
 ### 9.2.3 Design of the 400 mm wall
 
@@ -2307,6 +2729,8 @@ ADOPTED     4-T20 TOP + 4-T20 BOTTOM, T12 4-leg links @ 150
 FRAME       Cast-in steel frame anchored into and WELDED to the cage (EMP).
             Door: proprietary, >= 7 bar, rebound-rated, gas-tight   [vendor]
 ```
+
+<!-- FIG: fig_w6_and_door -->
 
 ## 9.3 Mat foundation — 600 thk — 84 %, the most heavily worked element
 
@@ -2352,10 +2776,10 @@ THICKNESS STUDY
 > T16 @ 150 EF EW.** It is also why Part 4.2.2's unlogged 5.3 m matters so much: **the case that
 > sizes the mat is a case nobody has looked for at the founding horizon.**
 
-### 9.3.3 One-way shear — conflict C6, and the link grid it produced
+### 9.3.3 One-way shear, and the link grid it produces
 
 ```
-ONE-WAY SHEAR -- NOT CHECKED IN THE PHASE 1 REPORT (CONFLICT C6)
+ONE-WAY SHEAR
             V at d from the soft-band edge
               = 404.9 (1.500 - 0.517)                             = 398.0 kN/m
             tau_v 0.770 | tau_c 0.375 (pt 0.259 %) | tau_c,max 3.70   OK
@@ -2367,6 +2791,8 @@ ADOPTED     T12 CLOSED LINKS ON A 250 x 250 GRID THROUGHOUT
             supplied Asv/sv = (4 x 113.1) / 250 = 1.810 = 2.0 x required
             -- and the grid DOUBLES AS THE SPACER SYSTEM between the two curtains
 ```
+
+<!-- FIG: fig_mat_section -->
 
 ### 9.3.4 The checks that do not apply, declared rather than ignored
 
@@ -2392,13 +2818,14 @@ ADOPTED     T12 CLOSED LINKS ON A 250 x 250 GRID THROUGHOUT
             Uplift acts on the REAL UNDERSIDE, not on the plate model's
             mid-surface area.
 
-*** THE ABSOLUTE FIGURES ABOVE ARE AT THE PRE-M1 21.600 BOX ***
+*** THE STAGE TABLE ABOVE IS TABULATED ON A 21.600 m BOX LENGTH ***
             21.600 x 6.200 = 133.92 m2  ->  46.11 x 133.92 = 6175 kN (table)
-            22.000 x 6.200 = 136.40 m2  ->  46.11 x 136.40 = 6289 kN (CURRENT)
+            22.000 x 6.200 = 136.40 m2  ->  46.11 x 136.40 = 6289 kN (BUILT)
             Both uplift and resistance scale with length (x 22.0/21.6),
-            so EVERY FoS IS UNCHANGED:  0.325 / 0.778 / 1.219 / 2.017,
+            so EVERY FACTOR OF SAFETY IS UNCHANGED:
+                        0.325 / 0.778 / 1.219 / 2.017,
             and COMB 102 stays 0.9 x 12684 / (1.5 x 6289)            = 1.21
-            THE HAND CHECK USES 136.40 m2 / 6289 kN.
+            THE GOVERNING HAND CHECK USES 136.40 m2 / 6289 kN.
 ```
 
 **Mandatory mitigation — a design output, not a contractor's problem:**
@@ -2415,21 +2842,22 @@ ADOPTED     T12 CLOSED LINKS ON A 250 x 250 GRID THROUGHOUT
 > burster slab is not cast until 21-08-27. **The gap spans the whole 2027 monsoon with the box at
 > stage 3 — FoS 1.22 at the design water table and 0.86 flooded to grade.**
 >
-> **Owner ruling 1 (RC4): the residual flotation risk is ACCEPTED IN WRITING. No date moves.**
-> **B.3 mitigations 2, 3 and 4 stay mandatory.** This is a departure from mitigation 1, recorded
-> as one — which is the only honest way to carry it.
+> **The residual flotation risk is ACCEPTED IN WRITING, and no date moves.** Mitigations 2, 3
+> and 4 stay mandatory. This is a **declared departure from mitigation 1**, carried as a departure
+> rather than quietly dropped — which is the only honest way to hold it, and it is why the
+> monsoon groundwater monitoring sits on the critical path of the programme (Part 21.4).
 
 ## 9.4 Pressure (roof) slab — 900 thk — THE GOVERNING ELEMENT — 51 %
 
-### 9.4.1 One-way, and why that is the licence for M1
+### 9.4.1 One-way, and what that buys
 
 ```
 ONE-WAY ARGUMENT   Aspect ratio 20.8 / 5.0                        = 4.2
                    IS 456 Table 26 is tabulated only to ly/lx = 2.0,
                    so TWO-WAY ACTION CANNOT BE CLAIMED.
                    -> Mp depends on Ln of the 5 m WIDTH only.
-                   -> LENGTHENING THE BOX IS STRUCTURALLY FREE  (basis of M1)
-                      Widening 5.0 -> 6.0 m would raise the roof moment 44 %.
+                   -> LENGTH IS STRUCTURALLY FREE;  widening 5.0 -> 6.0 m
+                      would raise the roof moment 44 %.
 ```
 
 ### 9.4.2 Natural period — the calculation that puts this in the quasi-static regime
@@ -2513,11 +2941,11 @@ ADOPTED  5 No. T25 EACH SIDE, EACH FACE, EACH DIRECTION (2454 mm2)
 ```
 
 > **Circular is the right shape: hoop action, and no re-entrant stress concentration.** This
-> detail is what SETS the 750 mm clearance rule (Part 5.6) — 250 collar + ~400 trimmer band +
-> 100 tolerance — and that rule then propagates all the way back into the bay widths and into what
-> Modification M1 was allowed to do.
+> detail is what SETS the 750 mm clearance rule (Part 5.6) — 250 collar + about 400 of trimmer
+> band + 100 tolerance — and that rule propagates all the way back into the bay widths, because a
+> bay narrower than 2 900 mm cannot hold an escape shaft at all.
 
-### 9.5.2 The 2 800 × 3 160 stair void — Finding F2
+### 9.5.2 The 2 800 × 3 160 stair void, and the cantilever it leaves
 
 ```
 The void leaves an 1840 mm CANTILEVER of 900 slab, 2800 wide, at 448.15 kPa.
@@ -2539,11 +2967,14 @@ ADOPTED  T12 4-LEG LINKS @ 250 THROUGHOUT THE PAD            (NEW requirement)
    plus  1100 mm guarding to the free edge          (NBC 2016 Pt 4)
 ```
 
-> **Finding F2: the cantilever root moment exceeds the midspan moment of the element it hangs
-> off.** The flexural steel already provided happens to cover it at 56 % — but **the shear did
-> not**, and the links through the pad are a new requirement that the Phase 1 report did not
-> carry. **A 1.84 m cantilever of 900 mm slab at 448 kPa is not a detail; it is a structural
-> element, and it is now designed as one.**
+> **The cantilever root moment exceeds the midspan moment of the element it hangs off.** 758.6
+> against 700.2 kNm/m. The flexural steel already in the slab covers it at 56 %, so the bars do
+> not change — but **the shear does not pass on concrete alone**, and the four-leg links through
+> the pad are a requirement that comes from this check and from nowhere else. **A 1.84 m
+> cantilever of 900 mm slab at 448 kPa is not a detail; it is a structural element, and it is
+> designed as one.**
+
+<!-- FIG: fig_roof_openings -->
 
 # PART 10 — STAIRS, HEADHOUSE AND APPURTENANCES
 
@@ -2743,10 +3174,14 @@ DETAILING
 > reinforcement changed, because the one-way value was the one adopted and nothing depended on the
 > yield-line number** — but the error is recorded rather than quietly fixed.
 >
-> **And the shear is new.** τ<sub>v</sub> = 1.514 against τ<sub>c</sub> = 0.502 is a factor of
-> three. The Phase 1 report did not check it. **This is conflict C2, and the links are mandatory.**
+> **And the shear governs the detailing.** τ<sub>v</sub> = 1.514 against τ<sub>c</sub> = 0.502
+> is a factor of three, so the four-leg links through the end bands are **mandatory**, not
+> nominal. A blast-loaded flat slab that passes in flexure and fails in shear has no ductility to
+> claim, and the ductility is what the whole dynamic load factor rests on (Part 2.2.3).
 
-## 10.4 Headhouse walls HW1–HW4 — 400 thk — conflict C10 — 59 %
+<!-- FIG: fig_roof_section -->
+
+## 10.4 Headhouse walls HW1–HW4 — 400 thk — 59 %
 
 ```
                               CASE A (report)        CASE B (ADOPTED)
@@ -2823,24 +3258,26 @@ ADOPTED  No slab change needed.  DETAILED AS A LINE LOAD, NOT AS A SUPPORT.
          beneath HW3, lapped 1250 (50 phi) into the main mesh.
 ```
 
-> **`b_eff` = 2.5 m is an assumption, and it is closed on the margin.** Owner ruling 24 (RC6)
-> accepts it: the strip is at 26 % on the correct two-way distribution and 41 % on the conservative
-> one-way bound, so **more than half the capacity is spare and `b_eff` would have to be badly wrong
-> to matter** — assumption `A11`.
+> **`b_eff` = 2.5 m is an assumption, and it is accepted on the margin.** The strip is at 26 % on
+> the correct two-way distribution and 41 % on the conservative one-way bound, so **more than half
+> the capacity is spare and `b_eff` would have to be badly wrong to matter.** Declared as
+> assumption `A11` rather than absorbed into the calculation.
 
-## 10.5 Escape shaft head hatches — `RC5-F2`, the finding nobody had asked for
+## 10.5 Escape shaft head hatches
 
 > **The protective boundary is defined as the blast doors plus the perimeter walls, the mat and
 > THE PRESSURE SLAB. ESC 1 and ESC 2 are 1 400 mm dia bores straight through the pressure slab.**
 > They begin in bay 1 — **inside the gas-tight envelope** — and in bay 8, and they finish at grade.
 >
-> **Each shaft head is therefore a 1.54 m² hole in the protective boundary, and the only thing that
-> can close it is a hatch that did not exist.** The EMP penetration register had listed both as
-> FAIL and prescribed a bonded conducting hatch — **but it prescribed it for EMP. Nothing anywhere
-> in this project stated what the head has to resist STRUCTURALLY.**
+> **Each shaft head is therefore a 1.54 m² hole in the protective boundary, and the only thing
+> that can close it is a hatch.** The EMP penetration register requires a *bonded conducting*
+> hatch at each head — but that is an electromagnetic requirement, and it says nothing about what
+> the head has to resist structurally.
 >
-> The design was silent, so owner ruling 18 (RC5) took the only defensible reading: **the head is
-> part of the boundary and takes the full 383 kPa design blast.**
+> **The head is part of the protective boundary and takes the full 383 kPa design blast.** There
+> is no other defensible reading: a closure in the same plane as the pressure slab, over a bore
+> that runs straight into the gas-tight envelope, cannot be designed to anything less than the
+> slab around it.
 
 ```
 total force on the leaf    383 x pi x 0.700^2                = 589.6 kN
@@ -2865,18 +3302,17 @@ still a mechanically assisted item.**
 flat-plate demand above is exact and is **the brief**), the counterbalance mechanism, and every
 EMP figure.
 
-> **And the consequence of splitting it the way the ruling splits it, stated plainly.** The EMP
-> treatment for this opening is a **bonded conducting** hatch. Bonding is not a finish applied
-> later — it is continuity between the leaf, the seating ring and the collar reinforcement, and it
-> has to be designed **into** the weldment and the seat. **Ruling the structure and the bonding
-> into different packages is exactly how these two shaft heads came to be undesigned for four
-> revisions.** `EM-V6` stays open for its EMP half.
+> **The structural hatch and its EMP bonding are one item, and they must be procured as one.**
+> Bonding is not a finish applied afterwards — it is electrical continuity between the leaf, the
+> seating ring and the collar reinforcement, and it has to be designed **into** the weldment and
+> the seat. **An opening whose structure and whose bonding sit in different packages is an opening
+> that ends up with neither.** `EM-V6` stays open for the EMP half, and Part 12 is where both
+> halves are stated together.
 
 ## 10.6 The escape shaft ladders
 
-> **Owner ruling 2 (RC4): ladder only; fall-arrest deferred.** Before it, the project held **no
-> position at all** on how either shaft was climbed — no ladder, no rung, no fall-arrest anywhere
-> in any document, against a **6.250 m** climb out of Bay 1 and a **6.800 m** climb out of Bay 8.
+A **6.250 m** climb out of Bay 1 and a **6.800 m** climb out of Bay 8 need a designed way up, and
+the shafts get one.
 
 **One ladder type serves both shafts:**
 
@@ -2894,10 +3330,10 @@ grab rails 1100 above the head
 `IS 3696 (Part 2)` and `NBC 2016 Part 4` are named **by title only** — neither is in the workspace
 and no unconfirmed clause is cited.
 
-> **`FS-V7` DOES NOT CLOSE. IT CHANGES** — and three things are still missing, and the ruling
-> knows it:
+> **The ladder is designed; the climb is not solved.** Three things are still missing, and they
+> are stated rather than detailed away:
 >
-> - **no fall-arrest** — deferred by the ruling;
+> - **no fall-arrest** — deferred, and it is a client decision rather than a detailing one;
 > - **no rest platform** — a 1 400 mm bore cannot take one without blocking the escape;
 > - **the injured-person question** — **a vertical ladder cannot pass a stretcher**, and whether a
 >   casualty is expected to use a shaft at all is a client question.
@@ -3225,11 +3661,11 @@ ANCHORAGE  Column starters T16: Ld,compression = 37 x 16               = 592 mm
     it to 350. ***
 ```
 
-## 11.7 Lintel L1 and the wall ties — SP-B2
+## 11.7 Lintel L1 and the wall ties
 
-SP-B1 made the sentry post walls masonry but left **no lintel design and no tie detail**, so the
-walls as recorded **could not be built.** Both are now designed. **This adds nothing to the frame
-and changes no frame member.**
+Masonry infill in a frame needs two things a reinforced panel would not: a lintel over every
+opening, and a tie detail to the columns. Both are designed here, and **neither adds anything to
+the frame nor changes any frame member.**
 
 ```
 LINTEL L1 -- ONE TYPE OVER EVERY OPENING IN THE SENTRY POST
@@ -3249,13 +3685,13 @@ The 1200 opening governs;  one type covers all.
 Effective span = min(clear + d, c/c bearings) = min(1315, 1400)
                                       IS 456 Cl. 22.2           = 1.315 m
 
-*** THE OPENING HEIGHTS ARE NOT STATED ON ANY DRAWING -- WM-V3, still open.
+*** THE OPENING HEIGHTS ARE NOT STATED ON ANY DRAWING -- WM-V3, open.
     L1 is deliberately designed to the bound that does not depend on the
     height at all: masonry standing JUST BELOW the 60 deg arching height,
        0.866 x 1.315                                            = 1.139 m
     which is the HEAVIEST case any opening height can produce.
     Above it, arching relieves the lintel;  below it, there is less
-    masonry.  THE DESIGN THEREFORE HOLDS WHATEVER WM-V3 IS RULED TO BE. ***
+    masonry.  THE DESIGN THEREFORE HOLDS WHATEVER THE HEIGHTS PROVE TO BE. ***
 
 w = 0.190 x 20 x 1.139                                          = 4.33 kN/m
 M = 0.935 kNm ;  V = 2.85 kN
@@ -3280,14 +3716,243 @@ joint packed** — because the analysis takes **R = 3.0**, the infill is **not**
 frame **and must not be.** Separating it would be the R = 5.0 special moment frame case, which
 this project does not claim.
 
-> **What SP-B2 does NOT change.** No frame member, no footing, no slab, no storey height, no
-> envelope. **Infill on the first-floor beams stays at 13.000 kN/m**: brick gives ≈ 9.88 kN/m,
-> which is lighter, so the modelled value stays conservative. **`WM-V6` is still open** — the
-> structural discipline must re-run the seismic check, and nothing here is a substitute for that.
+> **The infill load is not reduced to match the brick.** It stays at **13.000 kN/m** on the
+> first-floor beams, where brick gives about 9.88. The lighter value would need a re-run of the
+> seismic model before it could be used, and until that re-run exists the heavier value is what
+> the members are designed to. `WM-V6` is open, and it is open as a **confirmation** rather than a
+> risk: every member is over-designed in the direction the correction would move.
 
-# PART 12 — REINFORCEMENT REGISTER AND QUANTITIES
+# PART 12 — OPENINGS, BLAST DOORS, ESCAPE HATCHES AND CLOSURES
 
-## 12.1 Underground box
+> **A protective envelope is only as good as its weakest closure, and every closure in this
+> structure is a hole somebody had to put there on purpose.** The doors are the way in, the shafts
+> are the way out, the void is where the staircase has to go, and the valves are how the air
+> arrives. None of them is a defect. What each one is, is a place where four separate design
+> problems — blast, gas-tightness, electromagnetic continuity and human use — have to be solved by
+> the same piece of steel at the same time.
+
+## 12.1 The register
+
+<!-- FIG: fig_openings_register -->
+
+| Mark | Where | Leaf / bore | Level | What it has to do | Class |
+|---|---|---|---|---|---|
+| **Blast Door 1** | **W6**, 400 thk, opening Y 600–1800 — stair shaft → bay 6 | **1 200 × 2 100** | **(−)6.100** | **≥ 7 bar, gas-tight, rebound-rated** | `[C]` geometry · **leaf is vendor data** |
+| **Blast Door 2** | **W7**, 400 thk, opening Y 600–1800 — stair shaft → bay 8 | **1 200 × 2 100** | **(−)6.100** | **≥ 7 bar** | `[C]` · vendor |
+| **D-05** | **W5**, the fire and gas-tight wall | to be designed | (−)6.100 | Gas-tight, fire-rated; **not blast rated — no pressure differential across W5** | **Required** |
+| **ESC 1 head** | Bay 1, through the pressure slab | 1 400 dia bore | **+0.150** | **383 kPa down AND up**, gas-tight, bonded, openable by one person | See 12.5 |
+| **ESC 2 head** | Bay 8, through the pressure slab | 1 400 dia bore | **+0.700** | as ESC 1; **6.800 m climb** | See 12.5 |
+| **Stair void** | Pressure slab, bay 7 | **2 800 × 3 160** | (−)2.000 | **Not a closure at all — it is the route in** | `[C]` |
+| Inner security door | HW2, headhouse north wall | 900 × 2 100 | (−)2.000 | Security only. **NOT blast rated** | `[C]` |
+| Entry door | Entry stairwell headwall, **opens OUTWARD** | 1 000 × 2 100 | 0.000 | Weather and security. **NOT blast rated — expendable** | `[C]` |
+| W8 gaps ×4 | Internal partitions, 110 thk | 900 × 2 100 gap | (−)6.100 | **Permanently open, by design** | `[C]` |
+| BV-1 … BV-5 | W1 bay 1 ×2 · W6 ×1 · east wall bay 8 ×2 | DN100 ×3, **DN350 ×2** | various | **Close in < 2 ms and hold 1.3 s, unattended** | `[C]` |
+| Service entry plate | North wall, X 11398–12198 | 800 wide | — | **The shield itself** — solid, welded, bonded 360° | `[C]` |
+
+**Six of those are inside the protective boundary and five are outside it**, and the line between
+them is not where a reader expects: it runs through **Blast Door 1**, not through the entry door at
+grade.
+
+## 12.2 The four duties a closure in the boundary discharges at once
+
+<!-- FIG: fig_blast_door -->
+
+1. **Take the load IN.** The stair shaft beyond the doors is open to atmosphere through the roof
+   void and **fills to the full incident overpressure in 0.094 s** against a positive phase of
+   0.13–1.33 s (Part 9.2.1). So the leaf sees the same **383 kPa** as the 400 mm wall it sits in.
+   **That is why W6 and W7 are 400 and not 200**, and why both doors are rated to the full
+   envelope rather than to a pressure difference.
+2. **Take the load OUT.** The **negative phase and the structural rebound both pull the leaf away
+   from its frame.** A door detailed only for inward pressure comes off in the second half of the
+   event, which is the half nobody photographs. Every closure in this boundary — both doors and
+   both hatches — resists uplift as well as pressure, and the hatches do it with **four
+   quarter-turn dogs** for exactly that reason.
+3. **Stay gas-tight.** Each closure is part of an envelope tested at **+300 Pa**, and the
+   overpressure cascade of Part 15.4 only works if every one of them seals. **The seal seats on
+   the cast-in frame, never on the concrete** — concrete is not a sealing face and does not become
+   one.
+4. **Carry the reinforcement cage across.** Each frame is a **cast-in steel frame anchored into
+   and welded to the cage**, which makes the opening the only point of electromagnetic continuity
+   the boundary has there. A bolted frame breaks it. **The rule is applied even to the
+   non-blast-rated headhouse door**, because a shield that is continuous except in one place is
+   not continuous.
+
+## 12.3 Blast doors 1 and 2 — the opening, and what the structure does around it
+
+The doors themselves are **proprietary vendor items and are not designed here** `[N]`. What the
+project fixes is the opening, the level, the frame, the rating — and the reinforcement that keeps
+the wall working with a 1 200 × 2 100 hole in it.
+
+```
+WALL W6 / W7                        400 thk, T20 @ 150 EF EW
+OPENING                             1200 x 2100, Y 600 - 1800
+
+JAMBS   interrupted steel  2094 x 1.2          = 2513 mm2/face
+                                    -> 1256 each jamb
+ADOPTED 4 No. T20 EACH JAMB EACH FACE (1257 mm2),
+        anchored Ld = 800 beyond the opening
+
+HEADER  400 x 1100 over 1200 clear
+        w = 383 x 2.1/2                        = 402 kN/m
+        M = w L^2 / 12                         = 48.2 kNm
+        V = 241 kN ;  tau = 0.578 N/mm2
+ADOPTED 4-T20 TOP + 4-T20 BOTTOM, T12 4-leg links @ 150
+
+FRAME   cast-in steel frame, anchored into and WELDED to the cage
+LEAF    proprietary, >= 7 bar, rebound-rated, gas-tight        [vendor]
+```
+
+> **The frames are on the critical path from day one.** They must be welded into the W6 and W7
+> cages **before those walls are poured**, which puts a vendor lead time onto the programme's first
+> procurement activity and leaves it with **19 days of float** — the tightest float on any
+> long-lead item in the project (Part 21.5).
+
+## 12.4 D-05 — the door in W5, and why a wall with no door in it is not a separation
+
+W5 is a 200 mm wall between bay 5 (the CBRN plant) and bay 6 (the decon airlock), designated
+**fire and gas-tight**, with **no pressure differential across it**. It is not a blast element.
+
+**It needs a door, and the door is a requirement of this design rather than an option**, for two
+reasons that are independent of each other:
+
+1. **Escape route R1 crosses it.** Every occupant leaving by the primary route passes from the
+   clean zone through bay 6 to Blast Door 1. A separation the escape route cannot pass is not a
+   separation; it is an obstruction.
+2. **The compartment it protects contains the activated-carbon filter trains.** Carbon beds
+   self-heat, and a filter fire is a known hazard in protected ventilation. **A fire separation
+   with an unfilled opening in it separates nothing** — and what it fails to separate is the most
+   likely fire in the shelter from the people it exists to protect.
+
+**What the door has to be:** gas-tight to the +300 Pa envelope standard, fire-rated, and **not
+blast rated**, because there is no blast pressure difference across W5. **Its frame is still cast
+in and welded to the cage**, for the electromagnetic reason in 12.2.
+
+## 12.5 The escape shaft heads — a 1.54 m² hole in the pressure slab, twice
+
+<!-- FIG: fig_esc_head -->
+
+Each shaft is a **1 400 mm clear bore straight through the 900 mm pressure slab**, in a 250 mm RC
+collar of 1 900 mm outside diameter, with its head at **+0.150** (ESC 1) or **+0.700** (ESC 2).
+The pressure slab *is* the protective boundary, so **each head is a 1.54 m² hole in it.**
+
+### 12.5.1 The structural brief, and why the obvious answer fails
+
+```
+total force on the leaf    383 x pi x 0.700^2                = 589.6 kN
+M = w a^2 (3 + nu) / 16,  nu = 0.30 for a STEEL leaf         =  38.71 kNm/m
+V at the seating = w a / 2                                   = 134.1 kN/m
+
+a flat Fe250 plate,  t = sqrt(6M / sigma)  at sigma = 250    =  30.5 mm
+                                                    say        32 mm
+mass of a 1600 dia x 32 leaf                                 = 505 kg
+```
+
+> **505 kilograms is the answer, and it is the wrong answer.** Half a tonne cannot be lifted by a
+> person escaping up a 6.8 m ladder in the dark, which is the only circumstance in which anyone
+> will ever open it. **The flat-plate calculation is not the design — it is the brief**, and it is
+> exact. What it proves is that the leaf has to be a ribbed weldment.
+
+### 12.5.2 What is adopted
+
+**A ribbed steel weldment** — **1 600 dia, 12 mm face, 8 radial ribs 150 × 10, a 150 × 12
+perimeter ring** — on a **steel seating ring cast into the 250 mm collar**, bearing 150 mm all
+round, with:
+
+- **four quarter-turn dogs**, so the leaf resists **uplift** as well as downward pressure — the
+  negative phase and the rebound both lift it;
+- **counterbalance or spring assistance**, so it is **openable from inside by one person without a
+  key and without a tool**;
+- **bonded conducting construction**, with electrical continuity from the leaf through the seating
+  ring to the collar reinforcement.
+
+**Indicative leaf mass ≈ 322 kg** — still a mechanically assisted item, which makes the
+counterbalance part of the escape route rather than an accessory to it.
+
+**Not designed and not invented `[N]`:** the rib proportioning, which is an orthotropic plate
+problem; the counterbalance mechanism; and every electromagnetic figure for the assembly.
+
+> **The structural hatch and its bonding are ONE item and must be procured as one.** Bonding is not
+> a finish applied afterwards — it is continuity designed into the weldment and the seat. **An
+> opening whose structure sits in one package and whose bonding sits in another is an opening that
+> ends up with neither.**
+
+### 12.5.3 The trimming around the bore
+
+```
+Interrupted slab steel = 3272 x 1.400           = 4581 mm2/face/direction
+Trimmers each side     = 4581 / 2               = 2291 mm2
+
+ADOPTED  5 No. T25 EACH SIDE, EACH FACE, EACH DIRECTION (2454 mm2),
+         anchored Ld = 1000 beyond the opening
+         Collar 250 RC;  T16 @ 150 hoops in 3 layers + T16 @ 150 radials
+         Slab thickened 900 -> 1200 over a 600 mm annulus
+```
+
+> **Circular is the right shape** — hoop action, and no re-entrant corner to concentrate stress.
+> And this detail is what **sets the 750 mm clearance rule**: 250 collar + about 400 of trimmer
+> band + 100 tolerance. A bay narrower than **1 400 + 2 × 750 = 2 900 mm** cannot hold an escape
+> shaft at all, which is why bay 1 is 2 900 and bay 8 is 3 000, and why neither can be shortened
+> to buy space elsewhere in the box.
+
+## 12.6 The stair void — the opening that is not a closure
+
+**2 800 × 3 160 through the 900 mm pressure slab.** It is not a hole that a hatch closes; it is the
+route in, and it stays open for the life of the structure.
+
+Structurally it is designed in Part 9.5.2: the **1 840 mm cantilever of 900 mm slab** it leaves has
+a root moment of **758.6 kNm/m**, which exceeds the midspan moment of the slab it hangs off, and it
+carries **T12 four-leg links at 250 throughout the pad**, a thickened free edge, diagonal trimmers
+at both re-entrant corners and 1 100 mm guarding.
+
+**Electromagnetically it is the finding of Part 18.**
+
+> **It never reaches 80 dB anywhere in the band, and above 47.4 MHz it is simply open.** And it
+> does not open into soil — **it opens into the headhouse, which is at +0.900 with no earth
+> cover**, and from there to grade through a stairwell that is declared expendable. The entry route
+> is an open electromagnetic path from grade to bay 7, and Blast Door 1 is the only thing across
+> it — **whose radio-frequency performance is vendor data the project does not hold.**
+>
+> **This is not a criticism of the architecture.** A shelter needs a staircase and the void is
+> where a staircase has to go. It is a statement that **the blast boundary and the electromagnetic
+> boundary are not the same surface, and only one of them has ever been drawn.**
+
+## 12.7 The re-entrant corner, which is the detail most often got wrong
+
+<!-- FIG: fig_opening_corner -->
+
+Wherever the tension face of a member **turns outward** — at the top of the entry flight, at the
+corners of the stair void, at every haunch — the resultant of the bend in the main bars pushes
+**out of the concrete**, not into it. A bar bent round such a corner is a bar trying to burst the
+cover off.
+
+> **Main bars shall not be bent round an opening corner.** Each layer is continued **straight**,
+> **crossed**, and anchored `L_d` into the **opposite** face, with a U-bar across the corner. Where
+> the corner **closes** — the foot of the flight — the bend resultant is directed **into** the
+> concrete and bars may turn normally. **The two look identical on a drawing and are opposite in
+> behaviour**, which is why SP 34 Cl. 5.5 exists and why it is cited here rather than assumed.
+
+## 12.8 What the project does not hold about any of these
+
+| Item | Status |
+|---|---|
+| Blast door leaf, hinge, seal, latching, rebound capacity | `[N]` — vendor |
+| Blast door radio-frequency performance | `[N]` — and Part 18 needs it |
+| Blast valve make, closing mechanism, tested performance | `[N]` — vendor |
+| D-05 leaf and frame | To be designed |
+| Escape hatch rib proportioning and counterbalance | `[N]` |
+| Escape hatch bonding detail | `[N]` — `EM-V6` |
+| **Any treatment for the stair void** | **`[N]` — none exists or is proposed anywhere** |
+| Service entry plate size | `[N]` |
+| A penetration schedule for the ventilation and CBRN ducts | **Does not exist** |
+
+> **Every line in that table is a hole in the protective boundary whose closure is somebody else's
+> drawing.** The project fixes the opening, the level, the frame, the load and the duty — and
+> stops. **Stopping there and saying so is the design position**; filling those rows in from a
+> catalogue would be the failure.
+
+# PART 13 — REINFORCEMENT REGISTER AND QUANTITIES
+
+## 13.1 Underground box
 
 | Element | Size | Cover | d (mm) | Main reinforcement | Links | A<sub>st</sub> prov | x<sub>u</sub>/d | Util. |
 |---|---|---|---|---|---|---|---|---|
@@ -3296,8 +3961,8 @@ this project does not claim.
 | **W3** west end | 600 | 75/50/40 | 517 | T16 @ 150 EF EW | T12 closed @ 200 | 1340/face | 0.089 | 68 % |
 | **W4** east end | 600 | 75/50/40 | 517 | T16 @ 150 EF EW | T12 closed @ 200 | 1340/face | 0.089 | 68 % |
 | **W5** Bay 5/6 | 200 | 40 | 154 | T12 @ 150 EF EW | — | 754/face | — | nominal |
-| **W6** Bay 6/7 (M1) | **400** | 50/40 | 342 | **T20 @ 150 EF EW** | **T12 4L @ 200** | 2094/face | 0.211 | 69 % |
-| **W7** Bay 7/8 (M1) | **400** | 50/40 | 342 | T20 @ 150 EF EW | T12 4L @ 200 | 2094/face | 0.211 | 69 % |
+| **W6** Bay 6/7 | **400** | 50/40 | 342 | **T20 @ 150 EF EW** | **T12 4L @ 200** | 2094/face | 0.211 | 69 % |
+| **W7** Bay 7/8 | **400** | 50/40 | 342 | T20 @ 150 EF EW | T12 4L @ 200 | 2094/face | 0.211 | 69 % |
 | **W8** partitions ×4 | 110 | 25 | — | A252 mesh both faces | — | 252 | — | non-structural |
 | **MAT** | 600 | 75/50 | 517 | **T16 @ 150 EF EW** | **T12 @ 250 × 250 grid** | 1340/face | 0.089 | **84 %** |
 | **ROOF** midspan | 900 | 75 | 812.5 | **T25 @ 150 EF EW** | T12 4L @ 250 end 1500 / 2L @ 300 mid | 3272/face | 0.139 | 51 % |
@@ -3321,7 +3986,7 @@ this project does not claim.
 | Band beneath headhouse wall HW3 | **4-T25 extra top and bottom in a 1200 band**, lapped 1250 |
 | Construction joints (~6 m) | Reinforcement **fully continuous**; two waterstops + welded Cu / galvanised EMP strap |
 
-## 12.2 Stairs
+## 13.2 Stairs
 
 | Element | Size | Cover | d | Main | Distribution | Top steel |
 |---|---|---|---|---|---|---|
@@ -3337,7 +4002,7 @@ this project does not claim.
 | Stepped raft | 300 | 50 | 244 | T12 @ 200 EF EW | — | on compacted fill |
 | **Opening-corner U-bar** (top of entry flight) | — | — | — | **T16 @ 200 U-bar**, bars CROSSED and anchored L<sub>d</sub> 640 into the opposite face | | **SP 34 Cl. 5.5** |
 
-## 12.3 Headhouse
+## 13.3 Headhouse
 
 | Element | Size | Cover | d | Main | Links |
 |---|---|---|---|---|---|
@@ -3347,7 +4012,7 @@ this project does not claim.
 | Door head edge band | 400 × 800 | 40 | 742 | **4-T20 top + 4-T20 bottom** | T12 4L @ 150, over the opening + 600 each side |
 | Wall–roof haunch | 300 × 300 | — | — | diagonal T16 @ 150 | — |
 
-## 12.4 Sentry post
+## 13.4 Sentry post
 
 | Element | Size | Cover | d | Reinforcement |
 |---|---|---|---|---|
@@ -3365,7 +4030,7 @@ this project does not claim.
 | **Lintel L1** ×11 | 190 × 150 | 30 | — | **2-T10 bottom + 2-T8 top, T6 2-leg links @ 150**, bearing 200 each end |
 | Wall ties | — | — | — | 6 mm MS at every 5th course (≈ 450), 200 into the bed joint, 10 mm dowel |
 
-## 12.5 The six that matter
+## 13.5 The six that matter
 
 ```
 ROOF        T25 @ 150 EF EW  .  T12 4L @ 250 end 1500 / 2L @ 300 mid     51 %
@@ -3376,7 +4041,7 @@ HH ROOF     T20 @ 150 EF EW  .  T12 4L @ 175 / 250                       90 %
 HH WALLS    T16 @ 150 EF EW  .  T12 4L @ 250                             59 %
 ```
 
-## 12.6 Quantities — package SC1
+## 13.6 Quantities — package SC1
 
 > **Sentry post excluded** — no sentry post bar, quantity or weight appears in the structural CAD
 > schedules.
@@ -3428,9 +4093,9 @@ HH WALLS    T16 @ 150 EF EW  .  T12 4L @ 250                             59 %
 `[N]`); and the ventilation / CBRN duct penetrations (no penetration schedule exists).
 **All three are NOT DETERMINABLE from the information the project holds, and none is fabricated.**
 
-# PART 13 — DRAWINGS AND DRAWING QUALITY
+# PART 14 — DRAWINGS AND DRAWING QUALITY
 
-## 13.1 Two distinct DXF sets — do not confuse them
+## 14.1 Two distinct DXF sets — do not confuse them
 
 | Set | Origin | Revision | Purpose |
 |---|---|---|---|
@@ -3438,7 +4103,7 @@ HH WALLS    T16 @ 150 EF EW  .  T12 4L @ 250                             59 %
 | **Output set** (S-01 … S-08) | Generated in this project | **Phase 2 Rev A** | Structural drawings with reinforcement. **Generated — edit the script, never the DXF** |
 | Discipline sets | Generated in this project | per package | Structural CAD, drainage, HVAC, finishes, fire, concealment, EMP, electrical, site |
 
-## 13.2 The package as it stands: 80 DXF, 74 PASS
+## 14.2 The package as it stands: 80 DXF, 74 PASS
 
 | Discipline | Sheets |
 |---|---|
@@ -3458,10 +4123,11 @@ HH WALLS    T16 @ 150 EF EW  .  T12 4L @ 250                             59 %
 drawings. Filenames are deliberately unchanged — every document in the project cites the current
 filenames — so the drawing number lives in the title block and the index carries both.
 
-## 13.3 Drawing QA/QC — QA1 and QA2
+## 14.3 Drawing quality assurance
 
-**QA1 (9 September 2026)** inspected and corrected 65 DXF **in place**, at the same filename and
-folder. Scope: drafting, annotation, sheet composition and title blocks only.
+The drawing package is held to a stated drafting standard, and the whole package is scanned
+against it by a tool rather than by eye. The scan covers drafting, annotation, sheet composition
+and title blocks only — **it makes no engineering judgement and changes no engineering value.**
 
 | Measure | Before | After |
 |---|---|---|
@@ -3476,20 +4142,19 @@ folder. Scope: drafting, annotation, sheet composition and title blocks only.
 | Panel / table body text below print size (1.4 mm on A1) | most of the package | **0** — floor is now 2.0 mm |
 | Generated packages rebuilding clean | 54/54 | **54/54, 0 errors** |
 
-> **No engineering value was changed anywhere by the QA pass.** No dimension, level, bar mark, bar
-> size, spacing, load, material grade, thickness or room size was touched, and the frozen staircase
-> geometry was not touched.
+> **No engineering value is changed anywhere by a quality pass.** No dimension, level, bar mark,
+> bar size, spacing, load, material grade, thickness or room size, and never the frozen staircase.
+> A drafting tool that can change an engineering value is a drafting tool nobody should run.
 
-**QA2 (11 September 2026)** re-scanned the whole package at **80 DXF, 74 PASS**, after **twelve
-sheets added by the EMP, electrical and site packages were found to be invisible to the index
-tool**.
+**The package currently scans at 80 DXF, 74 PASS.**
 
-> **That is a process failure with a process fix, and it is recorded as a working rule.** A new
-> drawing package **must register itself with the QA tool** — add its `DXF/` prefix to `DISCIPLINE`
-> in `qa_report_data.py` and its name to `ORDER` in `make_index.py`, then re-run both. **Twelve
-> sheets were invisible to the index for four revisions because this was not done.**
+> **And one rule of this project exists because it was once broken.** A new drawing package
+> **must register itself with the QA tool** — add its `DXF/` prefix to `DISCIPLINE` in
+> `qa_report_data.py` and its name to `ORDER` in `make_index.py`, then re-run both. **Twelve
+> sheets can sit in the repository, correct and complete, and be invisible to the index for as
+> long as nobody thinks to look.** A generated index is only as honest as its own inclusion list.
 
-## 13.4 Sheet standard
+## 14.4 Sheet standard
 
 ```
 SHEET SIZE     A1, 841 x 594 mm, DRAWN IN PAPER MILLIMETRES, PLOT 1:1
@@ -3514,15 +4179,15 @@ VALIDATION     SECTION/ENDSEC balanced, EOF present, no undeclared layer,
 `LEVELS`, `NOTES`, `TABLE`, `SERVICES`, `BLAST` (red), and `0`. **Dashed lines are drawn as
 explicit segments, not by linetype**, for maximum compatibility.
 
-## 13.5 Two rulings about the drawings that are worth reading
+## 14.5 Two drafting decisions that are worth reading
 
-> **QA-1 — the front elevation cannot be plotted at 1:50 on A1, and A0 is the only answer.** The
+> **The front elevation cannot be plotted at 1:50 on A1, and A0 is the only answer.** The
 > drawing is 880 mm wide at 1:50 against an A1 printable width of 821 mm. **The scale is a
 > measurement statement and must not be changed to fit the paper**, and splitting the sentry post
 > onto its own sheet would break a continuous 44 m elevation, which is the whole point of the
 > drawing. **A0 keeps both the scale and the drawing intact.**
 >
-> **QA-2 — six sheets do not fill their paper, and that is accepted as drawn.** Six sheets share
+> **Six sheets do not fill their paper, and that is accepted as drawn.** Six sheets share
 > an empty strip. **Every one of them is correct, complete and legible; emptiness is not an
 > error.** Re-scaling would make the stated scale a layout variable instead of a measurement
 > statement — 1:20 is the right scale for a 400 mm wall section regardless of how much paper it
@@ -3530,12 +4195,13 @@ explicit segments, not by linetype**, for maximum compatibility.
 > **for zero engineering benefit.** And reflowing the blocks **moves** the void, it does not remove
 > it.
 
-## 13.6 What cannot be regenerated, and is not invented
+## 14.6 What cannot be regenerated, and is not invented
 
-> **Seven of the eight S-series structural sheets are ABSENT and CANNOT be regenerated.** The
-> Part E.4 toolchain — `proj.py`, `dxflib.py` and the eight sheet generators — is **not in the
+> **Seven of the eight S-series structural sheets are ABSENT and CANNOT be regenerated.** Their
+> generator toolchain — `proj.py`, `dxflib.py` and the eight sheet generators — is **not in the
 > workspace**. `S-01` … `S-05`, `S-07` and `S-08` therefore cannot be rebuilt, and **they are not
-> fabricated.** **`S-06` is present and is already at M1.**
+> fabricated, and nothing in this report is a substitute for them.** **`S-06` is present and is
+> current.**
 >
 > **Also not in this workspace and not invented:** the Phase 1 Rev D report, `SK02_Underground_Plan.png`,
 > and the nineteen STAAD screen captures.
@@ -3544,14 +4210,14 @@ explicit segments, not by linetype**, for maximum compatibility.
 > would carry B1 4-T16 / 2-T16, B2 3-T20 / 2-T20, C1 8-T16 with T10 confining hoops @ 85, and F1
 > 1500² × 600 with T12 @ 150 B/W. **Everything it needs is in Part 11; the sheet does not exist.**
 
-## 13.7 The two most recent drawing changes
+## 14.7 The drainage items on the architectural sheets, and the question drawing them raised
 
-**DR-A1 and DR-A2** put the drainage items onto the Rev F architectural sheets — the sump pit on
-the side section, the septic tank and soak pit on the front elevation beyond a break, and then at
-DR-A2 the sump pit's **cover** at (−)6.100 and a **1:200 key plan** carrying the sump, the septic
-tank and the soak pit at true project X **and** Y. **No design value changed in either.**
+The drainage items are carried on the Rev F architectural sheets: the sump pit on the side
+section, the septic tank and soak pit on the front elevation beyond a break, the sump pit's
+**cover** at (−)6.100, and a **1:200 key plan** carrying the sump, the septic tank and the soak
+pit at true project X **and** Y.
 
-> **And DR-A2 found something the drawing could not avoid asking.** The mat is genuinely
+> **Drawing them asked a question the text had never had to answer.** The mat is genuinely
 > interrupted over the clean sump — the reinforcement register trims a **1 500 × 1 500 opening**
 > with 4-T20 each face each side, the bar schedule calls it an opening, and the bill measures the
 > mat gross by its 1.35 m³. **A 1 500 × 1 500 hole through the floor is what the project records,
@@ -3562,17 +4228,26 @@ tank and the soak pit at true project X **and** Y. **No design value changed in 
 > whatever closes it has to pass water. **A cover is not optional here — and the project contains
 > no cover: no type, no depth, no duty, no fixing, no lifting arrangement, in any schedule,
 > drawing or document.** The cover is drawn as one diagrammatic line, tagged `[A]`, with its
-> specification tagged `[N]`, and **`DR-A2-V1` was opened for it.** Nothing was converted.
+> specification tagged `[N]`, and it is carried as open item `DR-A2-V1`. **Nothing is invented to
+> fill the gap, and the drawing does not pretend to specify what the project does not hold.**
+>
+> **This is what drawing something does that writing about it does not.** Two `[C]` facts — a
+> 1 500 opening and a 1 560 mm room — sat in two different schedules for four revisions and never
+> met. They met on a sheet.
 
-# PART 14 — SERVICES, CBRN, EMP AND LIFE SAFETY
+# PART 15 — HVAC, CBRN FILTRATION AND THE SEALED ATMOSPHERE
 
-## 14.1 HVAC and CBRN filtration
+> **This is the discipline that makes the structure habitable, and it is the one whose failures
+> are silent.** A wall that is too thin is visible in a calculation. A carbon bed that is spent is
+> visible in nothing at all unless somebody fitted a gauge across it, and the first symptom is a
+> casualty. Everything in this Part follows from that: the instrumentation is not an accessory,
+> the hand crank is not a nicety, and the consumable that runs out first is the number that
+> belongs on the drill card.
 
-### 14.1.1 The basis, and the eleven figures that reproduce
+## 15.1 The basis, and the eleven figures that reproduce
 
-The ventilation basis existed on the issued services sheet before the HVAC package started. **That
-package re-derived every figure from first principles rather than carrying them forward**, and all
-eleven reproduce:
+The ventilation basis is stated on the issued services sheet. **Every figure on it has been
+re-derived from first principles rather than carried forward**, and all eleven reproduce:
 
 | Stated | Reproduced from | Result |
 |---|---|---|
@@ -3588,9 +4263,10 @@ eleven reproduce:
 | Survival / working rates | 5 × 9 = 45, 15 × 9 = 135 m³/h | **reproduces** |
 | O₂ store **15 m³** | 2 × 50 L at 150 bar | **80 h** at 4.5 m³/day |
 
-**Every figure reproduces. The sheet is internally consistent.**
+**Every figure reproduces. The sheet is internally consistent**, and that is worth establishing
+before anything is sized against it.
 
-### 14.1.2 Design basis
+## 15.2 Design basis
 
 | Parameter | Value | Class |
 |---|---|---|
@@ -3606,7 +4282,9 @@ eleven reproduce:
 | Airlock purge | 64 m³, **12.8 min**, **4–5 persons/hour** | `[R]` |
 | Ductwork + plenum loss | **161 Pa** | `[R]` |
 | **Total fan duty** | **VENDOR DATA REQUIRED** — 5 of 8 components | `[N]` |
-| **Cooling load** | See Part 2.11 and `RC4-V1` | — |
+| **Cooling load** | 4 kW adopted; see Part 2.11 and `RC4-V1` | `[R]` |
+
+<!-- FIG: fig_hvac_schematic -->
 
 **Room-by-room distribution — developed in this project.** The nine occupants are not in two
 places at once: they work in the ops room and sleep in the berthing bay. A single fixed split
@@ -3633,7 +4311,63 @@ two volume control dampers**:
 > through the three decon stages and out at BV-3, **which is what makes the confirmed cascade
 > work.** The cascade maps exactly onto the three airlock stages.
 
-### 14.1.3 Findings
+## 15.3 The filter train, stage by stage
+
+Seven stages, in the order the air meets them. **Two identical trains, each able to carry the
+whole 300 m³/h duty on its own — true N+1, not 2 × 150.**
+
+| # | Stage | Specification | What it is for |
+|---|---|---|---|
+| 1 | **Weather louvre** | sand and debris trap | Keeps rain, dust and debris out of the shaft, and out of every stage behind it |
+| 2 | **Blast valve** | **< 2 ms close, holds 1.3 s** | Not a damper, and not crew-operated: **it has to work with nobody watching.** The closing time is shorter than the rise time of the front |
+| 3 | **Pre-filter** | G4 / F7 | Protects the HEPA from coarse dust and multiplies its life |
+| 4 | **HEPA** | **EN 1822 H14, ≥ 99.995 % at MPPS** | Particulate — biological agent, radioactive dust, fallout |
+| 5 | **Carbon** | ASZM-TEDA, 300 000 mg·min/m³ | Chemical agent vapour. **The one stage with a finite, consumable life** |
+| 6 | **Fan** | electric drive **plus hand crank** | The hand crank is the reason ventilation survives a power failure |
+| 7 | **Plenum** | **+50 to +100 Pa** | Sets the overpressure, and therefore the direction of every leak in the envelope |
+
+<!-- FIG: fig_filter_train -->
+
+> **A differential-pressure gauge across every stage and a flow meter on the train are
+> requirements, not options.** They are the only way to know a filter is spent, and they are what
+> turns a vendor's dirty-filter pressure drop from a data-sheet number into a maintenance trigger
+> that someone acts on.
+>
+> **Stage 5 is the only stage that is consumed.** Its change-out interval needs a challenge
+> concentration and vendor breakthrough data, and **neither exists in this project** `[N]`. The
+> interval is therefore not stated here, and nothing is invented for it — but the **consequence**
+> is stated: every hour of peacetime running in mode 1 spends carbon life that can only be
+> replaced in closed mode.
+
+## 15.4 The overpressure cascade
+
+The envelope is held above atmosphere so that every leak runs **outwards**. The cascade is
+confirmed at **0 → +10 → +20 → +35 → +50 Pa**, and it maps exactly onto the three stages of the
+decon airlock — a reconstruction `[R]`, since the issued sheet states the cascade and the stages
+separately and never puts them side by side.
+
+<!-- FIG: fig_cascade -->
+
+| Zone | Pressure | What holds it |
+|---|---|---|
+| Stair shaft, bay 7 | **0 Pa**, atmospheric | Outside the gas-tight envelope |
+| Airlock stage 1, dirty end | **+10 Pa** | Transfer from stage 2 |
+| Airlock stage 2 | **+20 Pa** | Transfer from stage 3 |
+| Airlock stage 3, clean end | **+35 Pa** | Transfer from the clean zone |
+| **Clean zone, bays 1–5** | **+50 Pa** | The plenum, at +50 to +100 Pa |
+
+> **The cascade is what makes the airlock an airlock rather than a lobby.** Air moves from clean
+> to dirty at every step, so a person carrying contamination into stage 1 is walking against the
+> flow the whole way in. It works only if the whole 300 m³/h leaves through the airlock, which is
+> why **nothing is supplied to bay 6** and why the exhaust is BV-3 in W6 rather than a duct back
+> to the plant room.
+>
+> **And it is what sets the manning rate.** Five air changes of stage 1 is 64 m³, which at
+> 300 m³/h is **12.8 minutes** — so **four to five people an hour** is the maximum rate at which
+> anyone enters this shelter through a working decon procedure. That is an operational number, not
+> a ventilation one, and it belongs on the drill card next to the soda lime.
+
+## 15.5 Findings
 
 | Ref | Finding |
 |---|---|
@@ -3645,7 +4379,7 @@ two volume control dampers**:
 | **HV-D4** | **No noise criterion exists anywhere in the project.** Terminal selection cannot be closed, and **a berthing space for nine is exactly where a noisy diffuser is felt** |
 | **HV-D6** | **Fan static pressure — 5 of 8 loss components are vendor data.** The derivable part is 161 Pa. **Quoting a total without the vendor figures would be a fabricated number.** The fan must be selected on the **dirty** figure, and the hand crank sized on the same duty |
 
-### 14.1.4 Operating modes
+## 15.6 Operating modes
 
 | Mode | Condition |
 |---|---|
@@ -3655,20 +4389,87 @@ two volume control dampers**:
 | 4 PURGE | Airlock purge cycle |
 | 5 GENERATOR RUNNING | **BV-4 and BV-5 open.** Bay 8 only — does **not** touch the gas-tight envelope. **Independent of modes 1–4** |
 
-> **Modes 3 and 5 contradicted each other, and the contradiction was worth a factor of twelve.**
-> Mode 3 shuts all five valves; Mode 5 needs two of them open. **RULED — RC2: the valves shut at
-> the shock and hold 1.3 s, then BV-4 and BV-5 are REOPENED for generator operation.** Bay 8 is
-> outside the gas-tight envelope, so the clean zone is unaffected, which is exactly what the Mode 5
-> note always said. **The battery is therefore a 4 h cabinet (149 Ah) and not a 48 h room
-> (1 783 Ah, 2.4 tonnes, 4.8 m² of floor) — and there is nowhere to put the latter.**
+> **Mode 3 and mode 5 have to be read together, and the reading is worth a factor of twelve.**
+> Mode 3 shuts all five blast valves at the shock. Mode 5 needs two of them — BV-4 and BV-5 — open
+> for the generator. **The design position is: all five shut at the shock and hold 1.3 s, and
+> BV-4 and BV-5 are then REOPENED for generator operation.** Bay 8 is outside the gas-tight
+> envelope, behind blast door 2 and W7, so the clean zone is unaffected — which is what the mode 5
+> note says in its own terms.
 >
-> **One consequence, recorded not resolved:** reopening BV-4 and BV-5 leaves **two DN350 bores open
-> through the post-attack period** — the two that fail both EMP criteria (Part 2.8.3). That
-> **sharpens** the EMP boundary question without deciding it.
+> **The whole electrical battery sizing turns on it.** If the generator cannot run in closed mode,
+> the battery has to carry the essential load for the full 48 hours: **1 783 Ah, about 2.4 tonnes,
+> 4.8 m² of floor** — and there is nowhere in this shelter to put that. If it can, the battery is
+> a **4-hour cabinet, 149 Ah, 204 kg, 0.40 m²**, which fits in bay 5 beside the plant. Part 17
+> designs the 4-hour cabinet.
+>
+> **And the consequence is recorded rather than resolved.** Reopening BV-4 and BV-5 leaves **two
+> DN350 bores open through the post-attack period** — the two bores that fail both EMP criteria
+> (Part 18.4). It sharpens the question of whether bay 8 is inside the EMP boundary at all,
+> without deciding it.
 
-## 14.2 Drainage
+## 15.7 Mode 3 is limited by the soda lime, and that is the number to remember
 
-**Concept — a tanked box, not a drained one** (Part 6.4). Collected flow:
+```
+CO2 UNSCRUBBED   9 people x 0.020 m3/h            = 0.18 m3/h
+                 0.04 % -> 1.0 % over 184.96 m3   = 9.9 h
+SODA LIME        40 kg store at 20 kg/day         = 48 h    <- GOVERNS
+OXYGEN           2 x 50 L at 150 bar = 15 m3
+                 at 4.5 m3/day                    = 80 h
+```
+
+> **Closed mode covers 48 of the 96 hours of endurance. The other 48 require filtration**, which
+> means the shelter is *expected* to come off closed mode and run the trains while the outside is
+> still hostile. That is a design position with an operational consequence, and it is the reason
+> the carbon bed's service life matters as much as the blast rating of the doors.
+>
+> **Nine point nine hours is the number that makes the scrubber non-optional.** Against a 96-hour
+> design occupancy, an unscrubbed envelope is not a shelter.
+
+## 15.8 What the HVAC design cannot close
+
+| Item | Why | Class |
+|---|---|---|
+| Total fan static pressure | Five of the eight loss components — louvre, blast valve, pre-filter, HEPA, carbon — are **vendor data**, and in a CBRN train they dominate the build-up. The derivable part is **161 Pa** | `[N]` |
+| Carbon bed change-out interval | Needs a challenge concentration and vendor breakthrough data | `[N]` |
+| Dehumidifier duty | DH-1 is confirmed to exist; **no latent load and no target relative humidity exist anywhere in the project** | `[N]` |
+| Ambient design temperature | Nowhere in the project, which is why Part 2.11 can state a direction and not a number of hours | `[N]` |
+| Noise criterion | Nowhere in the project. Terminal selection cannot be closed, and a berthing space for nine is exactly where a noisy diffuser is felt | `[N]` |
+| Generator heat rejection into bay 8 | Not stated | `[N]` |
+
+> **Quoting a total fan duty without the vendor figures would be a fabricated number**, and a fan
+> selected on a fabricated duty is a fan that does not hold the cascade when the filters load up.
+> What the procurement must specify instead is stated exactly: **the clean *and* dirty pressure
+> drop of every stage; the fan selected on the dirty figure; the hand crank sized on the same
+> duty; and the plenum held at +50 to +100 Pa across the whole range.**
+
+# PART 16 — WATER, SEWAGE AND DRAINAGE
+
+> **Water inside a sealed box is a protective problem before it is a plumbing problem.** Every
+> route out is a route in: a drain that leaves the envelope is a blast path, a gas path and an EMP
+> path, and a trap that loses its seal at +100 Pa is an open pipe. That is why the box is
+> **tanked, not drained**, why there is exactly **one** services penetration, and why the sump has
+> three lines of defence of which only two need electricity.
+
+## 16.1 The four rules that follow from tanking the box
+
+The structure is a **tanked box, not a drained one** (Part 6.4). Four rules follow, and the whole
+of this Part is their consequence:
+
+1. **Nothing penetrates the roof.** No rainwater outlet, no vent stack, no soil stack through the
+   2 000 mm cover — that would breach both the radiation mass and the roof membrane. **There is no
+   downpipe on the buried roof and none is added.**
+2. **One services envelope crossing.** The service entry plate. The sump rising main uses it; **no
+   second drainage penetration is created.**
+3. **Three streams, never combined.** Clean (seepage and condensate) → storm soakaway. Foul
+   (peacetime) → septic tank → soak pit. Decon effluent → 1 000 L tank → **tanker only**.
+4. **Drainage is not in the safety path.** No drainage failure may block egress, breach the
+   envelope, or flood an entrance.
+
+## 16.2 The daily water balance
+
+<!-- FIG: fig_water_balance -->
+
+Collected flow inside the envelope:
 
 ```
 structural seepage                        200 L/day   [C]
@@ -3688,9 +4489,15 @@ mat underside          22.0 x 6.2                         = 136.40 m2
 ```
 
 > **It is the external envelope standing below the design water table — not the internal wetted
-> area.** Recording this matters: **if the water table is confirmed higher than (−)2.000, the
-> wetted area, the seepage and the sump duty all move together**, and the relationship is now
-> explicit.
+> area.** Stating it matters, because **if the water table is confirmed higher than (−)2.000 the
+> wetted area, the seepage and the sump duty all move together**, and the relationship has to be
+> explicit for anyone re-running it after the piezometer is read.
+>
+> **400 L/day into a 3 375 L sump is eight days of store with no power at all.** That is longer
+> than the 48-hour closed-mode limit by a factor of four, and it is the number that makes the
+> drainage design defensible rather than merely present.
+
+## 16.3 Internal drainage — sized by bore and velocity, not by flow
 
 | Item | Adopted | Class |
 |---|---|---|
@@ -3715,20 +4522,74 @@ mat underside          22.0 x 6.2                         = 136.40 m2
 | **75 mm (adopted)** | **736 Pa** | **7.4 : 1** | **2.5 : 1** |
 | 100 mm | 981 Pa | 9.8 : 1 | 3.3 : 1 |
 
-**Sewage.** In protective mode the shelter is sealed and uses **sealed-cassette chemical toilets —
-nothing is discharged.** The septic tank serves **peacetime use only**: design population 10,
+## 16.4 The clean sump
+
+<!-- FIG: fig_sump_detail -->
+
+The clean sump is **1 500 × 1 500 × 1 500 internal = 3.375 m³**, invert (−)7.600, base slab
+(−)8.000, walls 300 and base 400, **cast monolithic with the mat in the same continuous pour**.
+T16 at 150 each face each way, with 4-T20 trimmers each face and side. The membrane is **dressed
+around the pit**, not cut and re-lapped at it.
+
+> **It is a pit in the mat, and therefore a penetration of the tanking.** A construction joint
+> here would be a joint permanently below the water table on the one element that cannot be
+> inspected or repaired from outside, which is why it is cast in the same pour as the mat and why
+> the membrane is dressed around rather than through it.
+
+| Level above invert | What happens |
+|---|---|
+| +300 | **Stop** — the duty pump cuts out |
+| +900 | **Start** — the duty pump cuts in |
+| +1 200 | **High alarm** |
+
+**Three lines of defence, and only two need electricity:** PU-01 duty and PU-02 standby at
+1.5 L/s, auto-alternating, and **hand pump PU-03**, which is independent of power and of the
+battery. Both filter fans keep their hand crank for the same reason.
+
+> **The duty ratio is 0.31 %** — one start every 3.4 days, 15 minutes per start. Cycling that
+> light is good for the pumps and bad for confidence: **at that duty a failed standby would never
+> be discovered by use.** A witnessed monthly test of the standby path *and* of the hand pump is
+> therefore a maintenance requirement of this design, not an operator's discretion.
+
+## 16.5 The three hydraulic zones
+
+<!-- FIG: fig_drainage_schematic -->
+
+| Zone | Extent | Destination | Status |
+|---|---|---|---|
+| **Z1 CLEAN** | bays 1–5, **inside** the gas-tight envelope | clean sump SU-01 in bay 5, then the storm soakaway | **COMPLETE** `[C]` |
+| **Z2 DECON** | bay 6 — inside the envelope but **dirty** | 1 000 L tank TK-01, **drawn in bay 8, across the gas-tight boundary** | **ROUTE UNDEFINED** `[U]` |
+| **Z3 GREY** | bays 7 and 8, **outside** the gas-tight envelope | **none recorded anywhere** | **NO DESTINATION** `[N]` |
+
+> **Zone 3 is not a small omission.** Bay 8 holds the generator, its fuel system and the main LV
+> board, and bay 7 is the stair shaft down which anything entering the shelter drips. Neither has
+> a recorded drainage destination. **It is carried as a gap rather than solved here, because
+> choosing a destination for a grey zone outside the envelope is a protective decision about what
+> may cross the boundary, not a plumbing one.**
+>
+> **And zone 2 is worse in kind if not in size.** The effluent from the decon airlock is the most
+> contaminated water this structure will ever hold, and the tank it goes to is drawn on the far
+> side of the protective boundary from the airlock that produces it. **The route is not defined,
+> and neither is the emptying route.**
+
+## 16.6 Sewage and foul drainage
+
+<!-- FIG: fig_septic_soakpit -->
+
+**In protective mode the shelter is sealed and uses sealed-cassette chemical toilets — nothing is
+discharged at all.** The septic tank serves **peacetime use only**: design population 10,
 45 lpcd = **450 L/day**, tank **1.5 × 0.75 × 1.0 m** liquid to IS 2470 (Pt 1) Table 1, two
 compartments, baffle at ⅔ L, inlet and outlet tees, 50 mm cowled vent ≥ 2 m above grade. Every
 IS 2470 (Pt 1) check reproduces: **450 L detention + 600 L sludge = 1 050 L required against
 1 125 L provided (+7.1 %)**; L/B = 2.0; B = 750; depth 1.00 m; freeboard 300 → overall 1.30 m.
 **PASS.**
 
-**Findings.**
+## 16.7 Findings
 
 | Ref | Finding |
 |---|---|
-| **DR-C2, ruled and closed** | **The soak pit was 2.3 % short on its own stated requirement** — π × 2.0 × 3.5 = **21.99 m²** printed as "22.0 OK" against "22.5 required". **Arithmetic, not judgement. RULED: SK-01 is WIDENED, 2.0 → 2.200 m diameter, depth UNCHANGED at 3.500 m → 24.19 m², +7.5 %.** Widened rather than deepened because **deepening drives the pit further below the design water table, where it cannot soak at all.** The mandatory percolation test still governs the final size |
-| **DR-C1, ruled and closed** | **A superseded catchment.** The 0.10 L/s for stairwell surface water is the **Rev E open-cut** figure — 7.2 m² of open pit at 50 mm/h. At Rev F the approach is covered, the door is at grade, and the sheet's own note states the catchment with the door shut is **zero**. **RULED: Rev F governs, and 0.10 L/s is RETAINED as a declared conservatism** — removing it changes no pump, pipe or pit (the stairwell pump is 20 × it) and **deleting a superseded number would hide the history.** Both figures are shown and labelled |
+| **Soak pit size** | π × 2.0 × 3.5 = **21.99 m²** against 22.5 m² required is **2.3 % short** — arithmetic, not judgement. **SK-01 is therefore 2.200 m diameter, depth unchanged at 3.500 m → 24.19 m², +7.5 %.** Widened rather than deepened, because **deepening drives the pit below the design water table, where it cannot soak at all.** The mandatory percolation test still governs the final size, and may move it by far more than 7.5 % |
+| **Stairwell catchment** | The 0.10 L/s for stairwell surface water is an **open-cut** figure — 7.2 m² of open pit at 50 mm/h — and the approach is now covered with the door at grade, so the catchment with the door shut is **zero**. **0.10 L/s is retained as a declared conservatism**: it changes no pump, pipe or pit, since the stairwell pump is twenty times it, and a door-open driving-rain case is exactly the case a covered stairwell still has to survive |
 | **DR-F1** | The clean sump cycles **once every 3.4 days**, 15 min per start, **0.31 % duty ratio**. Cycling is fine — but **at that duty a failed standby would never be discovered by use.** A witnessed monthly test of the standby path and the hand pump is required |
 | **DR-F2** | A drained screed reduces the **finished** clear height from the structural 3 200 to between **3 122** (far corner) and **3 175** (sump edge). **A client-facing number must say which one it is** |
 | **DR-F4** | **A drained floor cannot be built inside the 1.0 kPa mat allowance.** At 24 kN/m³ that buys 42 mm of screed; the adopted grading averages **52 mm = 1.24 kPa**, an excess of **0.24 kPa = 25 kN** over the 104 m² floor — 1.2 % of the mat's own weight, 0.4 % of the uplift, and **acting in the FAVOURABLE direction for flotation.** Referred to the structural engineer, not assumed |
@@ -3736,12 +4597,17 @@ IS 2470 (Pt 1) check reproduces: **450 L detention + 600 L sludge = 1 050 L requ
 | **BW-01** | **Builder's work, requested and not accepted.** The one buried drain inside the envelope needs a 300 wide recess in the top of the mat, 150 deep rising to 216, **leaving 384 of the 600 mat locally on the line of the peak transverse sagging moment.** Structural engineer to accept or refuse; a fallback with no buried drain at all is drawn |
 | **DR-D1** | Rainfall intensity **50 mm/h** is the only intensity in the project. **No return period, duration or IDF source** |
 
-## 14.3 Electrical and power
+# PART 17 — ELECTRICAL AND POWER
 
 > **A basic package, on purpose. It stops at board level**: sources, a load schedule, three
 > boards, the essential / battery system, one single-line diagram. **No circuit schedule, no cable
 > sizing, no luminaire or socket layout, no protection study** — that is a **declared scope
-> boundary**, not a gap.
+> boundary**, not a gap. Stating where a package stops is a design act; leaving a reader to
+> discover the edge by looking for something that is not there is not.
+
+<!-- FIG: fig_single_line -->
+
+## 17.1 The load schedule
 
 | Tag | Load | Board | kW | Class |
 |---|---|---|---|---|
@@ -3774,12 +4640,20 @@ Largest motor, the filter fan 0.379 kW;  DOL start      ~  2.7 kVA
 > band for a diesel set** — high enough to avoid wet-stacking, low enough to carry growth. **There
 > is no starting problem and the project's own figure needs no change.**
 
-**Three boards, one cable entry:** `DB-M` main LV in Bay 8 (outside the gas-tight envelope, mains
+## 17.2 Three boards, and one cable entry
+
+**Every conductor crossing the protective envelope uses the service entry plate** — the project's
+single services penetration — with a **pulse-current injection suppressor on power** and **fibre
+for signal**, as Part 18 requires. **This package creates no new penetration.**
+
+`DB-M` main LV in Bay 8 (outside the gas-tight envelope, mains
 + generator with changeover); `DB-E` essential in Bay 5 (inside the envelope, fed from DB-M and
 from the battery inverter on loss of both sources); `DB-Z2` inside the shielded enclosure in Bay 3,
 fed from DB-E **through the PCI on the Zone 2 boundary**.
 
-**The essential system** — emergency lighting 0.100 + reduced general lighting 0.150 + fire
+## 17.3 The essential system, and the battery that carries it
+
+Emergency lighting 0.100 + reduced general lighting 0.150 + fire
 detection 0.100 + EMP Zone 2 at 50 % 0.750 + clean sump pump intermittent 0.033 + CO₂ scrubber
 recirculation fan 0.100 + instruments 0.050 = **1.283 kW**, carried for **4 h** on **149 Ah at
 48 V** (depth of discharge 0.80, inverter efficiency 0.90).
@@ -3791,7 +4665,7 @@ recirculation fan 0.100 + instruments 0.050 = **1.283 kW**, carried for **4 h** 
 > fans, and the hand pump. These are the real last line, the project already has them, and no
 > electrical design should be allowed to obscure them.**
 
-**The CO₂ scrubber, recovered from the project's own arithmetic** (owner ruling 25, RC7):
+## 17.4 The CO₂ scrubber loop, checked rather than assumed
 
 ```
 Q = production / (eta x C_target)
@@ -3814,7 +4688,10 @@ the **soda lime charge** (17.28 m³ of CO₂ is the duty — converting it to a 
 absorption capacity); the single-pass efficiency; and **where in Bay 5 the absorber stands**, the
 tightest bay at 1 560 clear where the filter trains already leave 110 mm at the sides.
 
-**The generator day tank** (owner ruling 20, RC5):
+## 17.5 The generator day tank
+
+The fuel is sized from the generator's own duty, and then the design problem turns out to be the
+two small pipes rather than the tank:
 
 ```
 600.6 kWh over 96 h  x  0.35 L/kWh [A]                        = 210.2 L
@@ -3832,15 +4709,25 @@ ADOPTED   route both up the EXISTING SH-2 bore and add NO NEW PENETRATION
              DN25 metallic gooseneck vent, both bonded to the shaft earth.
 ```
 
-> **Use what already crosses.** That instinct — never make a new hole in a protective boundary if
-> an existing one can be shared — appears twice in the rulings, here and on the heat rejection.
-> **It still needs an HVAC and EMP fit check: two DN25 lines sharing a 600 × 600 bore with two
-> DN350 blast valves is a fit that has not been checked `[A]`.** Fuel type unconfirmed, the
-> 0.35 L/kWh rate still `[A]`, no vendor set, no fuel polishing, no tank fire suppression.
+> **Use what already crosses.** Never make a new hole in a protective boundary if an existing one
+> can be shared — the same instinct that keeps the heat rejection on the ventilation air rather
+> than on a new duct.
+>
+> **And the fit has not been checked.** Two DN25 lines sharing a 600 × 600 bore with two DN350
+> blast valves is an arrangement that needs an HVAC and EMP fit check before it is drawn `[A]`.
+> Fuel type unconfirmed, the 0.35 L/kWh rate `[A]`, no vendor set, no fuel polishing and no tank
+> fire suppression — all `[N]`, all stated.
 
-## 14.4 EMP protection
+# PART 18 — EMP PROTECTION
 
-### 14.4.1 The zone model — adopted by the project owner
+> **EMP is the one hazard in this project that does not care how thick the concrete is.** A
+> reinforcement cage is a mesh, a mesh is a low-pass filter, and a low-pass filter has a corner
+> frequency. Everything in this Part follows from that single fact — including the decision to
+> design the shielded enclosure as if the buried box were not there at all.
+
+<!-- FIG: fig_emp_zones -->
+
+## 18.1 The zone model
 
 | Zone | What it is | Performance | Verification |
 |---|---|---|---|
@@ -3856,7 +4743,35 @@ ADOPTED   route both up the EXISTING SH-2 bore and add NO NEW PENETRATION
 > The cage is then **margin, not design** — which is the only defensible way to use a shield you
 > can never survey, buried under two metres of engineered cover.
 
-### 14.4.2 What the design already does right — and none of it had been written down as EMP
+## 18.2 Why the cage cannot be the boundary, in one chart
+
+The shielding effectiveness of a mesh follows `SE = 20 log₁₀(λ / 2s)`, with `s` the half-spacing.
+At the project's 150 mm bar spacing that is a straight line on a log-frequency axis falling at
+**20 dB per decade**, and the requirement it is measured against is flat at 80 dB.
+
+<!-- FIG: fig_emp_se -->
+
+| Frequency | Wavelength | SE dB | Against 80 dB |
+|---|---|---|---|
+| **10 kHz** | 29 979 m | **99.99** | **+19.99 PASS** |
+| 30 kHz | 9 993 m | 90.45 | +10.45 PASS |
+| **99.93 kHz** | 3 000 m | **80.00** | **the crossing** |
+| 100 kHz | 2 998 m | 79.99 | −0.01 FAIL |
+| 1 MHz | 299.8 m | 59.99 | −20.01 FAIL |
+| 10 MHz | 29.98 m | 39.99 | −40.01 FAIL |
+| 100 MHz | 2.998 m | 19.99 | −60.01 FAIL |
+| **999.31 MHz** | 300.2 mm | **0.00** | the cutoff — half-spacing = half-wavelength |
+| 1 GHz | 299.8 mm | 0.00 | −80.00 FAIL |
+
+> **The cage meets 80 dB over one decade of the five the standard asks for.** That is not a defect
+> in this cage; it is a property of every cage. Closing the grid until it reached 1 GHz would need
+> a spacing of about **0.15 mm** — a sheet, not a reinforcement cage.
+>
+> **And it cannot be surveyed.** The exterior is under two metres of engineered cover, so there is
+> nowhere to stand a transmitter. The figures above are a calculation and they stay one, which is
+> the second reason the enclosure in bay 3 is designed to the full requirement standing alone.
+
+## 18.3 What the structural design already does right, none of it labelled EMP
 
 1. **The 150 mm bar spacing is a deliberate EMP decision, and it was the right one.** Stricter than
    IS 456 Cl. 26.3.3 needs; recorded in the master, in the structural package, in eight bar
@@ -3869,7 +4784,41 @@ ADOPTED   route both up the EXISTING SH-2 bore and add NO NEW PENETRATION
 4. **There are no movement joints inside the protective envelope, and the reason is recorded:** *a
    movement joint is a guaranteed blast, gas and EMP discontinuity.*
 
-### 14.4.3 EMP Zone 2 — the enclosure
+## 18.4 Every penetration of the boundary
+
+A bore through a conducting wall is a **waveguide below cutoff**: it attenuates everything below
+`f_c = 1.8412 c / (π d)` for the TE11 mode, at roughly `32 L/d` decibels beyond it. A bore through
+a *concrete* wall is not a waveguide at all, and the difference decides five of the ten rows
+below.
+
+<!-- FIG: fig_penetrations -->
+
+| Tag | What and where | Bore | Depth | Bounded by | Cutoff MHz | WBC dB | Verdict |
+|---|---|---|---|---|---|---|---|
+| BV-1 / BV-2 | blast valve, W1, bay 1 | 100 ⌀ | 600 | steel | 1 757 | 192 | **PASS** |
+| BV-3 | blast valve, W6 at (14998, 4900) | 100 ⌀ | 400 | steel | 1 757 | 128 | **PASS** |
+| **BV-4 / BV-5** | blast valve, east wall, bay 8 | **350 ⌀** | 600 | steel | 502 | 55 | **FAIL** |
+| **SEP** | service entry plate, north wall | 800 wide | 600 | steel | 187 | 20 | **FAIL** |
+| PD-05 | rising main through the plate | 50 ⌀ | 600 | steel | 3 514 | 384 | **PASS** |
+| **ESC 1** | escape shaft, bay 1 | 1 400 ⌀ | 3 050 | **concrete** | 126 | — | **FAIL** |
+| **ESC 2** | escape shaft, bay 8 | 1 400 ⌀ | 3 600 | **concrete** | 126 | — | **FAIL** |
+| **VOID** | stair void through the roof | 3 160 wide | 900 | **concrete** | 47 | — | **FAIL** |
+
+> **A concrete bore is not a waveguide.** The waveguide-below-cutoff formula needs conducting
+> walls. For the two escape shafts and the stair void the cutoff column above is what the bore
+> *would* give if it were metallic; the real figure is the plain aperture value, about **41 dB**
+> and **34 dB** at 1 MHz respectively. **Lining the shaft does not fix it either** — a liner that
+> is not bonded top and bottom is a floating conductor, and one that is bonded only at the head is
+> a quarter-wave antenna at some frequency in the band.
+>
+> **The treatments that work are stated, including for the two that have none.** A **bonded
+> conducting hatch** answers each escape shaft, and Part 12 designs the structural half of it. The
+> service entry plate is treated as **the shield itself** — solid, welded, bonded 360° to its
+> cast-in frame, with each sleeve through it treated one at a time. A **honeycomb waveguide panel
+> inboard of the valve** answers BV-4 and BV-5. **Nothing answers the stair void, and nothing is
+> invented for it.**
+
+## 18.5 EMP Zone 2 — the enclosure
 
 **Every dimension in this section is `[A]`.** The project confirms the enclosure is **required** and
 contains no specification for it.
@@ -3909,18 +4858,18 @@ claim, not a shield.** The enclosure is entirely clear of the Y 2500–3400 circ
 > all**. It is the one place this project can buy perfect performance for almost nothing, and it
 > should take it.
 
-### 14.4.4 Findings
+## 18.6 Findings
 
 | Ref | Finding |
 |---|---|
 | **EM-F1** | **The stair void is a 2 800 × 3 160 (8.85 m²) aperture that never reaches 80 dB anywhere in the band and is simply open above 47.4 MHz.** It does not open into soil — **it opens into the headhouse, which is at +0.900 with no earth cover**, and thence to grade through a stairwell that is declared expendable. **The entry route is an open electromagnetic path from grade to Bay 7**, and Blast Door 1 is the only thing across it — **its RF performance is vendor data the project does not have.** *This is not a criticism of the architecture: a shelter needs a staircase, and the void is where a staircase has to go. It is a statement that the blast boundary and the EMP boundary are not the same surface, and the project has only ever drawn one of them* |
 | **EM-F2** | **The cage meets 80 dB over one decade of the five required and gives 0.00 dB at 1 GHz.** A genuine low-frequency measure; **must not be described as a MIL-STD boundary** |
 | **EM-F3** | **"EMP Zone 2" had been named since Rev F with no Zone 1 and no Zone 0 ever defined, and no specification for the enclosure itself.** Four revisions, no shield |
-| **EM-F4** | **BV-4 and BV-5 (DN350) are the only penetrations failing both criteria** — cutoff 502 MHz, 54.8 dB. **RULED (ruling 3, RC4): bay 8 IS inside the EMP boundary, so the honeycomb panels move from conditional to REQUIRED** — and because the generator may run in closed mode, **the panels must work with the valves open** |
+| **EM-F4** | **BV-4 and BV-5 (DN350) are the only blast valves failing both criteria** — cutoff 502 MHz, 54.8 dB. **Bay 8 is inside the EMP boundary**, so the honeycomb waveguide panels inboard of them are **required, not conditional** — and because the generator runs in closed mode, **the panels have to work with the valves open** |
 | **EM-F5** | **≤ 5 Ω is not achievable with rods in Deccan basalt** (335 Ω per rod at the *low* resistivity bound) **and is not an EMP requirement in any case.** The structure is already the better electrode |
 | **EM-F6** | **There is no antenna, mast, feeder or communications design anywhere in this project.** §5.7.6 is in the register with nothing to apply it to. **An ops room that cannot transmit is an ops room in name only** — and an antenna is by definition a deliberate conductor from outside to inside, the hardest EMP penetration there is |
 
-### 14.4.5 Verification, and what must not be claimed
+## 18.7 Verification, and what must not be claimed
 
 **EMP ZONE 2 — SURVEY IT.** Full IEEE Std 299 survey, 10 kHz – 1 GHz, on the completed enclosure
 with every penetration made off and every panel closed. Acceptance **80 dB**. **This is a HOLD
@@ -3941,11 +4890,13 @@ destroy it.**
 > tied or welded is itself `[N]` — and no concrete absorption is credited. **A measured cage will
 > be worse than the calculation.**
 
-## 14.5 Fire and life safety
+# PART 19 — FIRE AND LIFE SAFETY
 
 **The governing fact is Part 2.10: this is a sealed shelter and it cannot be ventilated of smoke.**
 
-### 14.5.1 What the design already does well
+<!-- FIG: fig_fire_egress -->
+
+## 19.1 What the design already does well
 
 1. **The largest fire load is already compartmented away from the occupants.** The generator is in
    **Bay 8**, behind **Blast Door 2** in the 400 mm wall W7, and Bay 8 is separated from the
@@ -3960,7 +4911,7 @@ destroy it.**
 4. **Travel distances are short** — the longest travel to a route is about **14.6 m**, and ESC 1 is
    1.5 m away in that same bay.
 
-### 14.5.2 Where the fire load is
+## 19.2 Where the fire load is
 
 | Bay | Load | Comment |
 |---|---|---|
@@ -3971,7 +4922,7 @@ destroy it.**
 | 4 | Berthing, 9 berths | Bedding and personal effects |
 | all | **Cabling** | Cable type, route, containment and fire-stopping **are not specified anywhere** `[N]` |
 
-### 14.5.3 The evacuation plan
+## 19.3 The evacuation plan
 
 | Route | Path | Emerges at |
 |---|---|---|
@@ -4003,16 +4954,16 @@ route.** **Roll call: 9** — the occupancy is a confirmed figure, so the count 
 **There is no fire team. With 9 occupants, everyone is the fire team.** No fire duty, warden role
 or drill frequency is defined anywhere in the project `[N]`.
 
-### 14.5.4 The findings a fire plan here is obliged to raise
+## 19.4 The findings a fire plan here is obliged to raise
 
 | Ref | Finding |
 |---|---|
-| **FS-1** | **W5 was designated "fire and gas-tight" and no door existed in it anywhere in the project.** A fire separation with an unfilled opening in it is not a fire separation — and the compartment it protects contains the **activated-carbon filter trains**, while escape route R1 has to cross it. **RULED (ruling 9, RC4): design it now. FS-1 CLOSES** |
+| **FS-1** | **W5 is designated "fire and gas-tight", and a fire separation with an unfilled opening in it is not a fire separation.** The compartment it protects contains the **activated-carbon filter trains**, and escape route R1 has to cross it. **The door D-05 is a requirement of this design and is to be designed** — Part 12.4 |
 | **FS-2** | **Bays 1 to 6 are ONE smoke compartment, 20.8 m long.** The four W8 partitions are 110 mm, non-structural, with **permanent 900 mm gaps and no doors scheduled.** Smoke starting in Bay 1 reaches Bay 6 unobstructed. *Not a criticism of the partitions — they were never fire barriers* — but it means **the only real fire barriers in the shelter are Blast Doors 1 and 2, and W5 once it has its door** |
 | **FS-3** | **ESC 2 is in the same bay as the generator.** Both facts are confirmed and neither is wrong alone. **The coupling had never been stated: the most likely fire in the shelter denies one of its three escape routes** — which is exactly why the decision rule routes a Bay 8 fire away from ESC 2 |
 | **FS-4** | **A fire during the closed mode cannot be ventilated at all**, and clearing smoke means opening a blast valve, **which breaks the protection the closed mode exists to provide.** **No rule exists anywhere in the project for which hazard takes precedence.** That belongs to the client, **and it should be made before it is needed rather than during** |
-| **FS-5** | **Every active fire measure followed the missing electrical design.** The electrical blocker is now gone — a detection and alarm panel and maintained emergency lighting exist on the essential board, on the battery. **What remains is fire engineering** — head layout, zoning, detector type, any suppression — **and none of it is invented here** |
-| **FS-6 / FS-V7** | **The six-metre unequipped climb out of each escape shaft.** Raised **by the drawings, not by the text**: the written plan had all three numbers and never put them in the same picture; the escape-plan drawing's vertical profile put them side by side and the gap was immediate. **RULED — a ladder is now designed (Part 10.6), and it still has no fall-arrest, no rest platform, and no answer on the injured person** |
+| **FS-5** | **Every active fire measure depends on the electrical design.** A detection and alarm panel and maintained emergency lighting are on the essential board, on the battery, so the power path exists. **What remains is fire engineering** — head layout, zoning, detector type, any suppression — **and none of it is invented here** |
+| **FS-6** | **The six-metre unequipped climb out of each escape shaft.** A ladder is designed (Part 10.6), and it still has **no fall-arrest, no rest platform, and no answer on the injured person.** The three numbers — 6.250 m, 6.800 m, and a 1 400 mm bore — were each recorded separately long before anyone put them in the same picture; **it was the escape-plan drawing's vertical profile that made the gap obvious**, which is an argument for drawing things |
 
 **What the plan cannot say, and does not invent:** extinguisher type, number and siting; fire
 ratings of doors and finishes; cable type, containment and fire-stopping; generator fuel type and
@@ -4024,9 +4975,9 @@ NBC 2016 Part 4 and IS 13416 are not in the register, and their numbers are not 
 > Using it against a fire trades the shelter's endurance for its fire response, **and that is the
 > commander's call.**
 
-# PART 15 — SITE LAYOUT, FINISHES AND CONCEALMENT
+# PART 20 — SITE LAYOUT, FINISHES AND CONCEALMENT
 
-## 15.1 External works — the reserve, and why everything is in it
+## 20.1 External works — the reserve, and why everything is in it
 
 An **external works reserve of 18.0 × 10.5 m at X 33 000 – 51 000, Y 6 500 – 17 500** —
 **10.0 m clear of the main excavation's east face**, **downgradient**, and entirely inside the
@@ -4036,7 +4987,7 @@ owner's 50 m envelope (worst corner **42.5 m of 50 m**).
 |---|---|---|---|
 | **ST-01** | Septic tank 1.5 × 0.75 | (36 750, 16 000) | 10 users, 450 L/day |
 | **SK-01** | **Foul soak pit** 2.2 dia | **(44 000, 16 000)** | Septic tank effluent — the furthest downgradient of everything |
-| **SK-02** | Storm soakaway 2.2 dia | (35 000, 8 500) | Clean sump + entry channel. **Moved 300 mm north by RC4** to give 2.10 m to the sentry post against IS 2470's 2.0 m |
+| **SK-02** | Storm soakaway 2.2 dia | (35 000, 8 500) | Clean sump + entry channel. Set **2.10 m** from the sentry post against IS 2470's 2.0 m minimum |
 | **SK-03** | Stairwell soakaway — **footprint reserved** | (41 400, 8 500) | Stairwell sump. **Size recorded nowhere** `[N]` |
 | **SK-04** | Headhouse soakaway — **footprint reserved** | (47 800, 8 500) | Headhouse gully. **Size recorded nowhere, and its pipe cannot be routed** |
 | **IC-01 · IC-02** | Inspection chambers 600 × 450 | (7 500, 9 800) · (40 200, 16 000) | Change of direction; de-sludging |
@@ -4057,21 +5008,21 @@ owner's 50 m envelope (worst corner **42.5 m of 50 m**).
 > post, so it survives the sentry position being resolved differently; and **every offset is
 > relative**, so if the perimeter fence turns out to be closer than the reserve's east edge, **the
 > whole reserve translates and not one offset changes.** That is why the fence distance —
-> `SG2-V2` — could be closed: **the layout is immune to the answer.**
+> `SG2-V2` — does not block it: **the layout is immune to the answer.**
 
 **The IS 2470 offsets — complete for the first time:**
 
 ```
 foul soak pit to the SEPTIC TANK    >= 5 m      5.40 m    DEMONSTRATED
 soak pit to any BUILDING            >= 2 m     10.97 m    DEMONSTRATED, 5.5x over
-foul soak pit to any WELL           >= 15 m       --      OWNER RULING (RC7)
+foul soak pit to any WELL           >= 15 m       --      NOT DEMONSTRABLE
 ```
 
-> **The caveat, and it matters.** The well clearance is an **owner ruling, not a survey result.**
-> It is recorded as `[C] owner ruling` and **not** as `[C] surveyed`, and the distinction is
-> deliberate: **if a well is later found within 15 m, the foul soak pit moves.** Foul effluent near
-> a water source is the one clearance nobody should carry on an assumption, which is why it stayed
-> open until the owner could answer it from knowledge of the plot.
+> **The caveat, and it matters.** The 15 m well clearance rests on a statement that there is no
+> well within reach, **not on a survey.** It is recorded as such and **not** as `[C] surveyed`,
+> and the distinction is deliberate: **if a well is later found within 15 m, the foul soak pit
+> moves.** Foul effluent near a water source is the one clearance nobody should carry on an
+> assumption, and the topographic survey is what converts it from a statement into a fact.
 
 **28 of 28 clearance checks pass**, and the five pipe runs are fixed except one:
 
@@ -4083,9 +5034,9 @@ foul soak pit to any WELL           >= 15 m       --      OWNER RULING (RC7)
 | Stairwell sump → stairwell soakaway, DN50 rising main | **29.60 m** | FIXED |
 | Headhouse gully → headhouse soakaway, DN100 at 1:80 | **`[U]`** | **CANNOT BE ROUTED** |
 
-### 15.1.1 `SG2-F1` — the soak pit's problem is DEPTH, not arithmetic
+### 20.1.1 `SG2-F1` — the soak pit's problem is DEPTH, not arithmetic
 
-The soak pit was widened rather than deepened when it was found 2.3 % short (Part 14.2). **The
+The soak pit was widened rather than deepened when it was found 2.3 % short (Part 16.7). **The
 reason that choice was forced, rather than merely preferred, is the finding:**
 
 > **21–43 % of the pit's required side area is above the design water table, and its only
@@ -4093,12 +5044,12 @@ reason that choice was forced, rather than merely preferred, is the finding:**
 > it cannot soak at all.** So the fallback **dispersion field is reserved** rather than the pit
 > being re-sized again — and **the mandatory percolation test governs the final size and form.**
 
-### 15.1.2 Two more findings that the layout could not resolve
+### 20.1.2 Two more findings that the layout could not resolve
 
 | Ref | Finding |
 |---|---|
 | **`SG2-F3`** | **The septic tank is sized for a building that no pipe connects to it.** It is sized for *"sentry-post shift crews + shelter maintenance"*, the drainage package **excludes the sentry post from scope**, and **there is no pipe from the sentry post to the tank anywhere in the project.** The layout positions the tank and leaves the connection to the drainage engineer; it does not prejudge it |
-| **`SG2-F4` → closed** | **The fresh-air intake had no plan position.** The equipment schedule gave the generator shaft an X range and gave the intake only *"west of the box"* — **no X, no Y, no coordinate. The fresh-air intake of a CBRN shelter is not a minor fitting.** **RULED (ruling 14, RC4): SH-1 centred (−2 400, 3 100), RECOVERED from the project's own recorded 12.3 m to the entry, to within 28 mm.** SH-2's head level is **+1.500**, the same gooseneck head |
+| **`SG2-F4`** | **The fresh-air intake's plan position.** The equipment schedule gave the generator shaft an X range and gave the intake only *"west of the box"* — **no X, no Y, no coordinate. The fresh-air intake of a CBRN shelter is not a minor fitting.** **RULED (ruling 14, RC4): SH-1 centred (−2 400, 3 100), RECOVERED from the project's own recorded 12.3 m to the entry, to within 28 mm.** SH-2's head level is **+1.500**, the same gooseneck head |
 
 > **And the intake / exhaust separation was settled by geometry, not by meteorology.** SH-1 and
 > SH-2 are **25.30 m apart at opposite ends of a 22 m box** — robust whatever the wind does, which
@@ -4110,7 +5061,7 @@ reason that choice was forced, rather than merely preferred, is the finding:**
 > Closing both halves of that question on one argument is exactly the move the open-item register
 > exists to prevent.
 
-## 15.2 Finishes
+## 20.2 Finishes
 
 > **No finish specification exists anywhere in this project.** The master, the Rev F drawings, the
 > services sheet and the structural package fix concrete grade, cover, waterproofing, crack control
@@ -4143,7 +5094,7 @@ waterproofing, wet-area status and falls. Two entries carry findings rather than
 **`FN-U1` / `D-05`** — the finishes schedule recorded the missing W5 door as a data gap; **the fire
 plan made it a defect**, and it has since been ruled: *design it now.*
 
-## 15.3 Concealment
+## 20.3 Concealment
 
 > **The shelter is concealed. The installation is not.**
 
@@ -4171,7 +5122,7 @@ plan made it a defect**, and it has since been ruled: *design it now.*
 | **Sentry post** | **+7.000** parapet | **The tallest thing on the site by 4.5 m** |
 | Covered entry stairwell | **+2.450** head | Outside the boundary, **declared expendable** |
 | Fresh-air shaft SH-1 | **+1.500** gooseneck | 600 × 600, west of the box |
-| Generator air shaft SH-2 | **+1.500** gooseneck | 600 × 600, east of the box — **level ruled by RC4; the signature is now complete for the first time** |
+| Generator air shaft SH-2 | **+1.500** gooseneck | 600 × 600, east of the box |
 | **Headhouse** | **+0.900** roof top | 4 800 × 5 800, **no earth cover. The largest above-ground mass** |
 | Escape shaft ESC 2 | **+0.700** head | 1 400 dia clear, 1 900 OD collar |
 | Escape shaft ESC 1 | **+0.150** head | as ESC 2 |
@@ -4199,97 +5150,514 @@ works.** The berm should **read as ground, not as an engineered line.**
 > concealment **layout** be drawn: there is no site plan, so nothing's position on the ground is
 > known except relative to the box.
 
-# PART 16 — WORKS MANAGEMENT
+# PART 21 — WORKS MANAGEMENT
 
-## 16.1 What exists
+> **A design that cannot be built to its own programme is not finished.** This Part is where the
+> structure stops being a set of calculations and becomes a sequence of days, quantities, rates,
+> inspections and decisions. Two things in it are worth reading even by someone who skips the
+> rest: **the critical path runs through the ground, not through the structure**, and **seventy
+> per cent of the basic cost is protective content and reinforcement, not concrete.**
+
+## 21.1 What the works management package consists of
 
 | Deliverable | Contents |
 |---|---|
-| Works management handout | **44 pages, 25 sections**, covering the whole project |
-| Master programme, MSPDI XML | Microsoft Project's own published schema, plus CSV for any other tool |
-| Programme PDF | **7 A3 sheets** — basis and milestone register, summary Gantt, 5 sheets of detailed Gantt with the critical path |
-| WBS | **279 activities, 18 milestones, 404 logic links**, 3-level, 14 level-1 packages |
+| Master programme | **MSPDI XML** — Microsoft Project's own published schema — plus CSV for any other tool, plus a **7-sheet A3 programme PDF** with the critical path marked |
+| Work breakdown structure | **279 activities, 18 milestones, 404 logic links**, three levels, **14 level-1 packages** |
 | Bill of quantities | **90 items in 10 sections**, whole project |
+| Cost estimate | Priced take-off, five priced parts, seven cost heads |
 | Resource plan | **33 resources, 426 assignments** |
-| Procurement plan | 16 packages, all tied to programme activities; long-lead register |
-| QA/QC plan | **42 ITP items, 16 hold points that are activities in the programme** |
+| Procurement plan | **16 packages**, every one tied to a programme activity, with a long-lead register |
+| QA/QC plan | **42 ITP items and 16 hold points, each hold point an activity in its own right** |
 | Safety and risk register | 15 hazard classes, **25 risks** |
-| Codes and references | **78 references** |
-| Quantity derivation | ~800 lines of working with the source of every input |
+| Quantity derivation | About 800 lines of working, with the source of every input named |
 | Consistency audit | **65 executed checks, 65 pass** |
 
-## 16.2 The programme
+## 21.2 The bill of quantities
+
+<!-- FIG: fig_boq_split -->
+
+| § | Section | Items | The quantity that defines it |
+|---|---|---|---|
+| **A** | Site preparation and earthworks | 9 | **1 338 m³** of excavation, of which **994 m³ is rock** |
+| **B** | Main shelter — concrete | 14 | **388.7 m³**, all M35 except 17.3 m³ of M15 blinding |
+| **C** | Reinforcement — all works | 13 | **77.33 t ordered**, including 5 % wastage |
+| **D** | Formwork and falsework | 7 | **1 058 m²**, including 3.2 m high falsework to the pressure slab |
+| **E** | Engineered cover and overburden | 8 | **205.8 m³** in six layers over 136.4 m² |
+| **F** | Waterproofing | 6 | **532 m²** of continuous tanking |
+| **G** | Sentry post — concrete and frame | 8 | **20.95 m³ M30**, 1.97 t of reinforcement |
+| **H** | Sentry post — brick masonry and finishes | 8 | **12.20 m³**, about **6 400** modular bricks to IS 1077 |
+| **I** | Electrical and EMP installation | 7 | **every line is `[N]`** — no electrical design package exists to measure |
+| **J** | Principal materials | 3 | **194.2 t cement**, **828.7 t aggregate** |
+
+### 21.2.1 The concrete take-off, element by element
+
+| Item | Element | m³ | Class |
+|---|---|---|---|
+| `C-01` | Mat 600, M35 | 81.8 | `[C]` |
+| `C-02` | Pressure slab 900, **net of openings**, M35 | 112.0 | `[C]` |
+| `C-03` | Perimeter walls 600, M35 | 103.7 | `[C]` |
+| `C-04` | Walls W6 / W7 400, M35 | 12.8 | `[C]` |
+| `C-05` | Wall W5 200, M35 | 3.20 | `[C]` |
+| `C-06` | Headhouse walls 400 + roof 500, M35 | 32.7 | `[C]` |
+| `C-07` | Main staircase, waist and landings, M35 | 3.00 | `[C]` |
+| `C-08` | Entry stairwell — walls, roof, raft, flight, landings, M35 | 19.9 | `[C]` |
+| `C-09` | Blinding M15 100 thk under the mat | 14.2 | `[D]` |
+| `C-10` | Blinding M15 100 thk — sump pit, footings F1, stairwell raft | 3.05 | `[D]` |
+| `C-11` | Sump pit SU-01 walls 300 and base 400 below the mat soffit, M35 | 3.71 | `[D]` |
+| `C-12` | Escape shaft collars, 250 RC, OD 1900, M35 | 6.29 | `[D]` |
+| `C-13` | Local thickenings of the pressure slab 900 → 1200 at openings, M35 | 3.33 | `[D]` |
+| `C-14` | Internal partitions W8, 4 No., 110 thk, non-structural | 6.21 | `[D]` |
+
+> **Six of the eight structural lines reproduce exactly from the stated geometry.** 22.000 ×
+> 6.200 × 0.600 = 81.84 for the mat; the roof net of its void and two shafts is 112.03; the
+> perimeter walls are 103.68; W6 and W7 are 12.80; W5 is 3.20; the headhouse is 32.74. **The main
+> staircase and the entry stairwell are composite figures built element by element and are
+> accepted as they stand rather than re-derived.**
+
+### 21.2.2 The two items that are gaps, not omissions
+
+**Section I carries seven electrical and EMP lines with no quantity against any of them**, because
+no electrical design package exists to measure. They are in the bill so that a tenderer sees them
+and prices the risk, and they carry no quantity so that nobody mistakes an allowance for a
+measurement. **Pricing them would be inventing them.**
+
+The same applies to the specialist items throughout: **the blast doors, the blast valves, the
+filter trains, the generator and its fuel system, the EMP Zone 2 enclosure, the escape-shaft
+hatches and ladders, and all concealment beyond the turf layer.** Each reads *"to be verified from
+final measurement"*, each is a vendor or specialist item, and **none is priced by guessing.**
+
+## 21.3 The cost estimate
+
+<!-- FIG: fig_cost_split -->
+
+| Part | Package | Cost ₹ | Share |
+|---|---|---|---|
+| **I** | Survey, site clearance and excavation | **1 912 726** | 7.9 % |
+| **II** | Substructure and foundation works | **1 283 471** | 5.3 % |
+| **III** | Superstructure and structural RCC | **4 145 877** | 17.1 % |
+| **IV** | Reinforcement steel and shielding | **6 333 152** | 26.1 % |
+| **V** | CBRN, EMP, closures and ancillary services | **10 545 028** | **43.5 %** |
+| | **TOTAL BASIC COST** | **24 220 254** | 100 % |
+
+| Cost head | Basis | ₹ |
+|---|---|---|
+| Contingencies | 3.0 % | 726 608 |
+| Water and electricity provisions | 1.0 % | 242 203 |
+| **Specialist CBRN / EMP and engineering consultant** | 6.0 % | 1 453 215 |
+| Site supervision and quality assurance | 2.0 % | 484 405 |
+| Statutory clearances and liaisoning | 1.0 % | 242 203 |
+| Contractor's overhead and profit | 10.0 % | 2 422 025 |
+| **FINAL PROJECT COST** | **+ 23.0 %** | **₹ 29 790 913** |
+
+> **Parts IV and V together are 69.6 % of the basic cost.** This is not a concrete structure with
+> protective features added; it is a protective installation that happens to be made of concrete.
+> Any value-engineering exercise that starts with the concrete is looking in the wrong place, and
+> any programme risk that threatens the specialist packages threatens two-thirds of the money.
+>
+> **The total is a LOWER BOUND, and it says so.** Every unpriced item above is missing *upward*.
+>
+> **And the rates are not verified against any published schedule of rates.** No Delhi Schedule of
+> Rates or state schedule reference exists anywhere in the project, the CBRN and EMP items are
+> budgetary allowances, and several have no vendor quotation behind them at all. **The estimate is
+> a budget, not a tender sum, and treating it as the latter would be a category error.**
+
+### 21.3.1 The owner's summary, and a difference that is reproduced rather than corrected
+
+The project owner's own cost summary reaches **₹ 30 033 306** from a basic cost of
+**₹ 24 336 022**. Applying the same seven percentages to that basic cost gives
+**₹ 29 933 306** — the heads sum **₹ 1 00 000** short of the total the summary states.
+
+> **That difference is a recorded conflict in the project, and this report reproduces it rather
+> than correcting it.** Nothing downstream is sensitive to ₹ 100 000 on a ₹ 30 million budget, and
+> **editing a recorded value away is how a discrepancy stops being visible without stopping being
+> true.** The ruling-applied column reconciles exactly, which is how the difference was located in
+> the first place.
+
+## 21.4 The programme and the critical path
+
+<!-- FIG: fig_gantt -->
 
 | | |
 |---|---|
-| Start | **Monday 2 November 2026** — carried from the owner's own R0 schedule `[A]` |
+| Start | **Monday 2 November 2026** `[A]`, carried from the owner's own schedule |
 | Finish | **Saturday 20 November 2027** |
-| Duration | **326 working days** (384 calendar days) against R0's 224 |
-| Calendar | **Six-day week, Mon–Sat**, Sunday non-working, plus five date-certain national holidays. **Festival holidays are NOT fabricated** — a 10-day contingency activity absorbs them |
-| **Critical path** | **75 activities at total float 0**: possession → site investigation and **monsoon groundwater monitoring** → excavation support design → rock excavation → formation → tanking → mat → walls → pressure slab (**14-day cure + 14-day props, IS 456 Table 11**) → roof membrane → the six-layer cover including the burster slab → external works → snagging → contingency → handover |
+| Duration | **326 working days**, **384 calendar days** |
+| Calendar | **Six-day week, Mon–Sat**, Sunday non-working, plus five date-certain national holidays |
+| Activities | **279**, of which **18 are milestones** |
+| **Critical** | **75 activities at total float zero** |
 
-> **The site investigation is on the critical path, and so is the groundwater monitoring.** That is
-> the correct answer to Part 4.4: the design's most important unknown is programmed as work, not as
-> a hope. **And the monitoring window, 12 November to 4 December, is not in the monsoon** — which
-> is what `SG-V3` says and what makes it worth saying.
+**Festival holidays are not in the calendar, and they are not fabricated either.** Their dates
+move year to year, so inventing them would put false precision into a programme. A **ten-working-day
+contingency activity** immediately before handover absorbs them — and that contingency is itself
+**on the critical path**, which is the honest way to carry it.
 
-## 16.3 Cost
+### 21.4.1 Where the critical path actually runs
 
-Three versions are published side by side, deliberately: the project's own estimate, the project
-owner's own estimate, and the owner's estimate with the rulings applied.
+<!-- FIG: fig_critical_path -->
 
-| Cost head | Basis | Owner's package | With rulings applied |
+```
+possession and survey
+   -> CONFIRMATORY SITE INVESTIGATION            12 d
+   -> MONSOON GROUNDWATER MONITORING             20 d
+   -> issue confirmed geotechnical parameters     5 d
+   -> excavation support and slope design        10 d
+   -> excavation: soil 4 d, rock 20 d, sump 3 d
+   -> trim, inspect for red-bole, HOLD POINT
+   -> blinding, tanking, HOLD POINT
+   -> mat steel both curtains, HOLD POINT, ONE POUR
+   -> walls in two lifts, HOLD POINT each
+   -> falsework, T25 both curtains, trimmers, HOLD POINT
+   -> PRESSURE SLAB: ONE POUR 112 m3, 14 d CURE, 14 d PROPS
+   -> roof membrane, HOLD POINT
+   -> the six cover layers including the burster slab
+   -> berms, regrading, access, concealment
+   -> snagging, 10 d contingency, handover
+```
+
+> **The design's most important unknown is programmed as work, not as a hope.** The twenty days of
+> monsoon groundwater monitoring have **zero float**, while the pressure slab — the governing
+> structural element of the whole project — has **26 days**. That is the correct answer to Part
+> 4.4: the design groundwater table at (−)2.000 is an assumption, every uplift number depends on
+> it, and the flotation factor of safety is **1.22 before the cover goes on**. If the monitoring
+> returns a higher table, the answer arrives **before a single cubic metre of concrete is placed.**
+>
+> **And the monitoring window is not in the monsoon.** 12 November to 4 December is post-monsoon
+> in Pune. The activity is on the critical path and is the right activity; **its window is open
+> item `SG-V3`, and scheduling it is not the same as scheduling it usefully.**
+
+### 21.4.2 The eighteen milestones
+
+| Ref | Milestone | Date | Float |
 |---|---|---|---|
-| Total basic cost | subtotal of packages | ₹ 24 336 022 | ₹ 24 220 254 |
-| Contingencies | 3.0 % | 730 081 | 726 608 |
-| Water and electricity provisions | 1.0 % | 243 360 | 242 203 |
-| **Specialist CBRN / EMP and engineering consultant** | 6.0 % | 1 460 161 | 1 453 215 |
-| Site supervision and quality assurance | 2.0 % | 486 720 | 484 405 |
-| Statutory clearances and liaison | 1.0 % | 243 360 | 242 203 |
-| Contractor's overhead and profit | 10.0 % | 2 433 602 | 2 422 025 |
-| **FINAL PROJECT COST** | | **₹ 30 033 306** | **₹ 29 790 913** |
+| **M-01** | Site possession and commencement | 07-11-26 | **CRITICAL** |
+| M-02 | Mobilisation complete | 26-11-26 | 8 d |
+| M-03 | All long-lead protective items ordered | 23-02-27 | 230 d |
+| **M-04** | **Excavation complete, formation approved** | 06-02-27 | **CRITICAL** |
+| M-05 | Mat foundation cast | 15-03-27 | 213 d |
+| M-06 | Perimeter and protective walls complete | 05-05-27 | 170 d |
+| M-07 | **Pressure slab cast** — the key structural milestone | 28-06-27 | 26 d |
+| M-08 | Buried envelope watertight — tanking complete | 05-08-27 | 91 d |
+| **M-09** | **Overburden complete — the structure is buried** | 10-09-27 | **CRITICAL** |
+| M-10 | Sentry post frame complete | 20-04-27 | 182 d |
+| M-11 | Sentry post brick masonry complete | 28-04-27 | 175 d |
+| M-12 | Sentry post complete | 11-06-27 | 109 d |
+| M-13 | CBRN plant installed | 26-08-27 | 23 d |
+| M-14 | Drainage installed | 16-09-27 | 13 d |
+| M-15 | Electrical installation complete | 02-09-27 | 22 d |
+| M-16 | Internal finishes complete | 18-09-27 | 53 d |
+| **M-17** | **External works and concealment complete** | 18-10-27 | **CRITICAL** |
+| **M-18** | **PRACTICAL COMPLETION AND HANDOVER** | 20-11-27 | **CRITICAL** |
 
-> **The total is a LOWER BOUND, and it says so.** Several items in the bill read *"to be verified
-> from final measurement"* with no rate, because the project does not hold what they need:
-> **the blast doors, the blast valves, the filter trains, the generator and its fuel system, the
-> EMP Zone 2 enclosure, the escape-shaft hatches and ladders, and all concealment beyond the turf.**
-> **Every one of those is a specialist or vendor item, and none of them is priced by guessing.**
+### 21.4.3 The six places the programme can actually be lost
 
-## 16.4 The rules the works management package holds itself to
+1. **The twenty days of monsoon groundwater monitoring**, for the reason above.
+2. **Rock excavation — 994 m³ by hydraulic breaker, no blasting permitted.** Twenty days at
+   60 m³/day, and Part 4.7 shows the quantity carries a declared overrun band of **+118 m³, about
+   two extra days**, if rockhead is at the shallow end of the measured range.
+3. **The two single continuous pours.** 81.8 m³ of mat and sump in one pour; **112 m³ of pressure
+   slab in one pour.** Neither has a construction joint to fall back on, and a cold joint in the
+   pressure slab of a protective structure is not a defect that can be accepted on paper.
+4. **The 14-day cure and the 14-day prop period after it.** Three weeks that IS 456 Table 11 does
+   not allow to be compressed, on the element with the least float in the structural chain.
+5. **The roof membrane hold point.** Once the cover is on, the membrane cannot be inspected again
+   for the life of the structure. It is the last chance, and it is 45 minutes of work whose
+   consequence is permanent.
+6. **The ten days of festival and weather contingency**, which are already spent in the programme
+   as issued.
 
-- **The project owner's own bill, estimate and schedule GOVERN.** The project's versions are
-  published alongside, never in place of them.
-- **Nothing is retyped.** The owner's documents are reproduced, not transcribed.
-- **No quantity, rate, date or float is changed by any discipline package.** Every services and
-  rulings revision in this project states that it changed none, and each states it separately so
-  the claim can be checked.
-- **One design change was instructed and is recorded as one** — the sentry post masonry (Part
-  5.9.1). One bill item was added by a ruling — the 8 m³ strip-and-replace under the stairwell raft
-  (Part 4.5), **at a rate tagged `[A]` rather than invented.**
+## 21.5 Procurement, and the dependency that starts on day one
 
-## 16.5 Risks that are design outputs, not contractor problems
+**Sixteen packages**, each tied to a programme activity and each required *before* the activity
+that installs it. The governing fact of the whole procurement is one sentence:
+
+> **The blast door cast-in frames must be welded into the W6 and W7 reinforcement cages before
+> those walls are poured.** That single dependency puts a vendor lead time onto the critical-path
+> chain from day one, and it is why the blast door enquiry is the **first** procurement activity
+> in the programme.
+
+| Ref | Package | Order by | Required on site | Float |
+|---|---|---|---|---|
+| **`P-01`** | **Blast doors 1 and 2** | **05-12-26** | **frames** at the W6/W7 cages; leaves later | **19 d** |
+| `P-02` | CBRN filter trains AHU-1 and AHU-2 | 11-12-26 | mechanical installation | 115 d |
+| `P-03` | Blast valves, 5 No., and sleeves | 11-12-26 | **sleeves cast in** / valves later | 131 d |
+| `P-04` | EMP Zone 2 shielded enclosure | 17-12-26 | electrical and EMP works | 148 d |
+| `P-05` | Generator, 15 kVA | 29-01-27 | mechanical installation | 195 d |
+| `P-06` | Armoured vision panels, 8 No. | 22-02-27 | sentry post first storey | 173 d |
+| `P-07` | Submersible pumps and drainage plant | 11-01-27 | drainage installation | 214 d |
+
+> **Nineteen days of float on the item with the longest lead time and the earliest hard
+> dependency.** That is the number to watch. Everything else in the procurement has three to seven
+> months of slack; the blast door frames have three weeks.
+
+## 21.6 Quality: sixteen hold points, placed where an error becomes permanent
+
+A **hold point** in this programme is an activity in its own right: it takes time, it requires the
+Engineer's attendance, and work does not proceed past it. **Nine of the sixteen sit on the
+critical path**, which means each one is a day the contractor cannot buy back.
+
+| Ref | What is inspected | Why there |
+|---|---|---|
+| `H-01` | **Formation, before anything covers it** | The last sight of the founding horizon. Red-bole and vesicular seams are found here or not at all |
+| `H-02` | Horizontal tanking, before the blinding protection goes on | A membrane under a mat cannot be reached again |
+| `H-03` | Mat reinforcement, cover and cast-in items | 75 mm cover to the bottom curtain, and every sleeve, earth pit and EMP strap |
+| `H-04` · `H-05` | Wall reinforcement, frames and cover — lifts 1 and 2 | **Including the blast door frames welded to the cage** |
+| `H-06` | **Pressure slab pre-pour** | The governing element, one continuous pour, T25 at 150 in both curtains |
+| `H-07` · `H-08` | Headhouse walls and roof | The highest utilisation in the project, at 90 % |
+| **`H-09`** | **Vertical tanking before backfilling — the last chance to see it** | The external face of a buried box is visible exactly once |
+| `H-10` | **Roof membrane integrity test before covering** | Two metres of cover go on top of it and stay there |
+| `H-11` … `H-16` | Sentry post founding stratum, footings, first floor, roof, and masonry at both storeys | Including the masonry before it is plastered |
+
+**Forty-two inspection and test plan items** sit behind those hold points, under four inspection
+types: `HOLD` — work stops until released; `WITNESS` — the Engineer is invited and work may
+proceed if attendance is waived; `TEST` — a measurement against a stated acceptance criterion;
+`SURVEILLANCE` — ongoing observation.
+
+> **Three tests in this project can only be done once, and two of them are pass/fail on the whole
+> installation.** The **gas-tightness and overpressure test at +300 Pa**; the **IEEE Std 299
+> shielding survey on EMP Zone 2**, which is itself a hold point before any equipment is
+> installed; and the **percolation test** that governs the final soak-pit size. A failed
+> shielding survey means opening seams on a completed enclosure.
+>
+> **And the concrete mix is a hold point too.** Item `Q-06` covers the trial mix to IS 10262 and
+> the integral waterproofing admixture to IS 2645 — the point at which the trial proportions of
+> Part 6.5 are replaced by real ones, **before the first structural pour** rather than after it.
+
+## 21.7 Resources
+
+**Thirty-three resources across 426 assignments.** The shape of the histogram is worth one
+observation rather than a table: the peak is not at the concrete, it is at the **reinforcement**.
+Seventy-seven tonnes of cut-and-bend steel at 150 mm spacing in both curtains of every element is
+a bar-fixing job with a concrete job attached to it, and **the programme durations for the steel —
+12 days for walls W1–W4, 12 days for the pressure slab curtains, 8 days for the trimmers and
+collars — are the ones a contractor will challenge first and should not.**
+
+**Average steel density is about 191 kg/m³.** For a blast-hardened buried box whose bar spacing is
+set by an **EMP** requirement rather than by strength, and whose sections are thick, that is a
+plausible figure — and it is a sanity check, not a design check.
+
+## 21.8 Risk: the five that are design outputs, not contractor problems
+
+The register carries **25 risks in 15 hazard classes**. Five of them are not the contractor's to
+manage, because they are consequences of the design and are answered inside this report:
 
 | Risk | Where it is answered |
 |---|---|
-| **Flotation during construction** | Part 9.3.5 — four mandatory mitigations, one of them **formally departed from in writing** |
-| **Rock excavation quantity exceeds the estimate** | Part 4.7 — **+118 m³, about 2 extra days**, against a register entry that said "roughly one" |
-| **The excavation face across a monsoon** | Part 4.6 — batter the soil cap; **the slope-stability assessment is still outstanding** |
-| **Site investigation findings** | Part 4.2.2 — **5.3 m of unlogged ground under the whole structure** |
-| **Specialist lead times** | The long-lead register: blast doors, blast valves, filter trains, the EMP enclosure |
+| **`R-01` Groundwater higher than the assumed (−)2.000** | Part 4.4 and Part 9.3.5. Water is nearly two-thirds of the 15.41 kPa/m lateral gradient. **The monitoring is on the critical path** |
+| **`R-02` Red-bole or vesicular seams under the mat** | Part 9.3.2. A single seam produces the differential-support case that **sizes the mat at 84 %**. Over-excavate and replace in M15 |
+| **`R-03` Rock quantity exceeds the estimate** | Part 4.7 — **+118 m³, about two extra days**, against a register entry that assumes one |
+| **`R-12` The 112 m³ pour cannot be completed without a cold joint** | Part 21.4.3. Plant standby, a second supply route and a written pour plan — **not a decision to be taken at 2 a.m. on the day** |
+| **`R-18` The excavation stands open across a monsoon** | Part 4.6 and Part 9.3.5 — the batter, and the **formally declared departure** from the dewatering mitigation |
 
-# PART 17 — WHAT THIS DESIGN DOES NOT DEMONSTRATE
+> **Two risks in the register are about this design's own record rather than about the works.**
+> `R-08`, that no electrical design package exists below board level, and `R-11`, that no site plan
+> or ground model exists — which is why the berm volume, the access route, the hardstanding,
+> several drainage runs and the soakaway positions cannot be drawn. **Both are carried as risks
+> because the alternative is to carry them as silence.**
+
+## 21.9 The rules this project holds its own works management to
+
+- **The project owner's own bill, estimate and schedule GOVERN.** This report's versions are
+  published alongside them, never in place of them.
+- **Nothing is retyped.** Source documents are reproduced, not transcribed, so a transcription
+  error cannot enter through the back door.
+- **No quantity, rate, date or float is changed by a discipline package.** Every services revision
+  in this project states that it changed none, and each states it separately **so that the claim
+  can be checked rather than believed.**
+- **A design change is recorded as a design change.** The sentry post masonry is one (Part 5.9.1).
+  The 8 m³ strip-and-replace under the stairwell raft is a bill item added by a design decision
+  (Part 4.5), **at a rate tagged `[A]` rather than invented.**
+
+# PART 22 — THE ENVIRONMENTAL MANAGEMENT PLAN
+
+> **A note on the abbreviation, because this project uses it for something else.** Everywhere else
+> in this report **EMP means electromagnetic pulse** (Part 18). This Part is the **environmental
+> management plan**, and it is called by its full name throughout to keep the two apart.
+
+## 22.1 What this Part is, and what it is not
+
+> **NO ENVIRONMENTAL MANAGEMENT PLAN EXISTS IN THIS PROJECT.** There is no environmental impact
+> assessment, no consent, no clearance, no monitoring schedule and no statutory correspondence
+> anywhere in the project record. **This Part does not report one; it derives one**, from
+> quantities and methods the project *does* confirm, so that the works have an environmental
+> position instead of no position at all.
+>
+> **Everything derived here is tagged, and nothing statutory is invented.** Where a clearance,
+> a consent, a limit value or a monitoring standard would be needed, this Part says which one and
+> leaves it `[N]`. **A fabricated consent condition would be worse than an admitted gap**, because
+> it would read as though somebody had asked.
+
+The plan is built on the quantities in Part 21 and the methods in Parts 4 and 9, because those are
+the only environmental facts this project actually holds. **Every impact below is a consequence of
+a number the design has already fixed.**
+
+## 22.2 The site's environmental setting, as far as it is known
+
+| | | Class |
+|---|---|---|
+| Installation | CTW / College of Military Engineering campus, Pune | `[C]` |
+| Setting | Undeveloped plot, **CBRN Live Training Area to the south**, perimeter track and **nullah line to the east** | `[C]` |
+| Plot boundary, area, levels | **NOT DIMENSIONED ANYWHERE** | `[N]` |
+| Surface water | A **nullah line east of the plot** — the plot falls east toward it | `[C]` as a relationship, `[N]` as a distance |
+| Groundwater | Design table (−)2.000, assumed; **not encountered in pits about 1.5 m deep** | `[A]` |
+| Surface soil | **Black cotton, CH, free swell index 60–65 %** | `[C]` |
+| Rainfall | **759.6 mm/yr** from the presentation record against **500–600 mm** in the soil report — an open conflict | `[U]` |
+| Monsoon | **June to September**, 559.7 mm of the annual total in four months | `[C]` |
+| Ecology, trees, habitat, protected species | **Nothing recorded anywhere in the project** | `[N]` |
+| Nearest receptor — dwelling, ward, school, water supply | **Nothing recorded** | `[N]` |
+
+> **The nullah is the receptor that matters, and the project cannot say how far away it is.** The
+> plot falls east toward it, the drainage reserve is deliberately placed downgradient, and a soak
+> pit discharging foul effluent sits at the far end of that reserve. **Whether the reserve is
+> 40 m or 400 m from the nullah is not recorded, and the answer changes the plan.** Closing it
+> needs the topographic survey — programme activity `A1070`.
+
+## 22.3 Environmental aspects and impacts, derived from the project's own quantities
+
+| Aspect | The quantity the design fixes | Impact | Significance |
+|---|---|---|---|
+| **Excavation and spoil** | **1 338 m³** total, of which **994 m³ rock** | Dust, noise, vibration, spoil handling | **HIGH** |
+| **Spoil re-use** | **1 113.937 m³ re-used on site**; **92.82 m³** of turf stripped and stockpiled | Avoided haulage, avoided borrow | **BENEFICIAL** |
+| **Rock breaking** | Hydraulic breaker, **no blasting**, ~20 working days | **Noise and ground vibration** | **HIGH** |
+| **Concrete** | **388.7 m³** structural + 20.95 sentry; **194.2 t cement** | Embodied carbon, batching water, washout | **MEDIUM** |
+| **Curing water** | 14 days continuous on **1 058 m² of formed face** and 136 m² of slab | Site water demand in a water-stressed district | **MEDIUM** |
+| **Dewatering** | Continuous from excavation to backfill, across a monsoon | Discharge quality, silt, drawdown | **HIGH** |
+| **Excavation across a monsoon** | 559.7 mm of rain onto an open 6.8 m cut | **Silt-laden runoff to the nullah** | **HIGH** |
+| **Black cotton spoil** | Strip-and-replace 8 m³ + **76–118 m³** from the batter | A stockpile of very-high-swelling clay with no stated destination | **MEDIUM** |
+| **Foul effluent, peacetime** | **450 L/day** to septic tank and soak pit | Groundwater quality | **MEDIUM** |
+| **Decon effluent** | 1 000 L tank, **tanker only, never to ground** | **Contaminated liquid waste, off site** | **HIGH** |
+| **Fuel** | 250 L nominal day tank, **275 L bund at 110 %** | Spill to ground | **MEDIUM** |
+| **Generator emissions and noise** | 15 kVA, **2 600 m³/h** combustion and cooling air | Air quality, noise | **MEDIUM** |
+| **Spent CBRN filters** | HEPA H14 and ASZM-TEDA carbon, **change-out interval `[N]`** | **Hazardous waste over the life of the structure** | **HIGH** |
+| **Site restoration** | Turf re-laid from the site's own stockpile; berms graded 1.5:1 | Landscape, concealment | **BENEFICIAL** |
+
+## 22.4 The controls, tied to the activity that needs them
+
+### 22.4.1 Excavation, dust and spoil
+
+- **No blasting.** Rock is removed by hydraulic breaker — already the method in the programme, and
+  the single largest environmental decision in the works. It removes the blast-vibration,
+  fly-rock and airblast questions entirely, at a cost of about 20 working days.
+- **Damp down the rock face and the haul route** during breaking. No water quantity is stated; the
+  curing demand already drives the site water supply and dust suppression adds to it `[A]`.
+- **Batter the soil cap 1:1 minimum** (Part 4.6). This is a slope-stability measure first and an
+  erosion measure second, and it does both.
+- **All surplus is re-used on site as engineered fill and crushed rubble.** No off-site spoil
+  disposal is programmed, and **no new spoil heap is permitted** — a mound is a permanent
+  signature that outlasts the works, which is a concealment requirement and an environmental one
+  at the same time.
+- **The black cotton spoil is the exception, and it has no stated destination.** The
+  strip-and-replace and the batter together produce 84–126 m³ of very-high-swelling clay that
+  **must not** go back under any structure and **should not** be re-laid as the concealment
+  topsoil (`SG-V7`). **Its destination is `[N]` and is a decision for the works, not a detail.**
+
+### 22.4.2 Water, silt and dewatering
+
+- **Silt control at the point of discharge is the single most important control on this site**,
+  because the plot falls east toward a nullah and the excavation is open across a monsoon.
+  Settlement before discharge is required; **the pond size, the discharge standard and the
+  consent are all `[N]`.**
+- **Dewatering runs continuously from the start of excavation until backfill and cover are
+  complete** — a structural requirement first (Part 9.3.5), with an environmental consequence
+  attached to it. **The programme departs from it in writing**, which means the *hydraulic*
+  risk and the *discharge* risk are both live across the 2027 monsoon.
+- **No dewatering discharge quality standard exists in the project** `[N]`. What can be stated is
+  the source: groundwater from basalt at 6.8 m, plus surface water from an open cut in black
+  cotton clay. **The second is the silt problem; the first is not.**
+- **Three streams stay separate** (Part 16.1). Clean to the storm soakaway; foul to the septic
+  tank and soak pit; **decon effluent to a tanker and off site, never to ground, under any
+  circumstances.**
+- **The percolation test is an environmental control as well as a hydraulic one.** A soak pit in
+  basalt that does not percolate is a foul discharge looking for a path, and the path in fractured
+  basalt is the joint system.
+
+### 22.4.3 Noise and vibration
+
+- **The dominant source is the hydraulic breaker**, over about 20 working days, on an operational
+  military installation whose working hours are already constrained (`R-25`).
+- **No noise limit, no receptor distance and no permitted-hours condition exists anywhere in this
+  project** `[N]`. What the design can state is the source, the duration and the direction: the
+  works sit next to a **CBRN Live Training Area**, which is itself a noise source, and the
+  nearest sensitive receptor is unrecorded.
+- **Ground vibration from breaking is the control that protects the works as well as the
+  neighbours** — the same fractured basalt that transmits vibration is the founding horizon of the
+  structure, and the trial-pit record already describes the broken-rock layer as *"having lot of
+  cracks, fissures, voids and discontinuities."*
+
+### 22.4.4 Materials, waste and carbon
+
+- **194.2 t of cement is the largest single embodied-carbon item in the works**, and Part 6.5
+  fixes 400 kg/m³ for the M35 for durability reasons that are not negotiable — **very severe
+  exposure permanently below the water table.** A blended cement would reduce the carbon and is
+  compatible with the durability case in principle; **no blended cement is specified in this
+  project, and IS 269 OPC 43 is what the bill procures** `[C]`.
+- **Formwork is 1 058 m² and is not a single-use item.** Re-use rates are `[A]`.
+- **Reinforcement is ordered at 77.33 t including 5 % wastage** — the wastage is declared, which
+  is the first step to reducing it.
+- **Concrete washout is a controlled waste, not a ground discharge.** No washout facility is in
+  the bill `[N]`.
+
+### 22.4.5 The operational-phase item nobody has costed
+
+> **Spent CBRN filters are hazardous waste, they are produced for the whole life of the structure,
+> and this project holds no change-out interval, no disposal route and no cost for them.**
+>
+> A HEPA H14 that has been in service in a protected ventilation train is contaminated with
+> whatever it removed, and an ASZM-TEDA carbon bed is contaminated with whatever it adsorbed. The
+> change-out interval needs a challenge concentration and vendor breakthrough data, **both `[N]`**
+> (Part 15.8). The disposal route needs a licensed facility and a transport chain, **`[N]`**.
+>
+> **This is stated here because it is the one environmental liability of this design that outlives
+> the works by decades**, and because a structure whose ventilation is its reason for existing
+> cannot be handed over without an answer to what happens to its filters.
+
+## 22.5 Monitoring
+
+| What | When | Against what | Status |
+|---|---|---|---|
+| **Groundwater level** | Standpipe piezometer, **through a full monsoon** | The design assumption (−)2.000 | **Programmed** — but the window is post-monsoon (`SG-V3`) |
+| Dewatering discharge — silt | Continuous during discharge | **No standard exists** | `[N]` |
+| Dust at the boundary | During rock breaking | **No standard, no boundary** | `[N]` |
+| Noise at the nearest receptor | During rock breaking | **No limit, no receptor recorded** | `[N]` |
+| Ground vibration | During rock breaking | **No limit recorded** | `[N]` |
+| Backfill compaction | 95 % MDD, IS 2720 Part 28 | **Confirmed, and it is in the programme** | `[C]` |
+| Percolation, before the soak pits are built | Once | **IS 2470 Part 2 Cl. 4 — mandatory** | `[C]`, and it governs |
+| Concrete: trial mix, cubes, slump, cover | Continuous | IS 456, IS 10262 — hold point `Q-06` | `[C]` |
+
+> **Two of these are in the programme and are real; five have no standard to measure against.**
+> That is the honest state of environmental monitoring on this project, and the fix is a single
+> document — a consent or a clearance condition — that does not exist.
+
+## 22.6 What the environmental management plan cannot supply
+
+| Missing | Why it matters |
+|---|---|
+| **Environmental clearance / consent to establish and operate** | Whether one is required at all for defence works on an operational installation is a statutory question this project does not answer `[N]` |
+| Baseline air, noise, water and ecology survey | There is no baseline to compare any monitoring against |
+| Plot boundary, levels, receptor distances, the distance to the nullah | Every offset in this Part is a relationship, not a dimension |
+| Tree survey and vegetation record | 92.82 m³ of turf is stripped; **what else is on the plot is unrecorded** |
+| Discharge standards for dewatering, washout and foul effluent | Nothing can be measured against nothing |
+| Spent-filter disposal route and cost | The operational liability above |
+| Construction environmental management plan as a contract document | This Part is a design-stage derivation and **is not a substitute for one** |
+
+> **Read this Part as a statement of position, not as a compliance document.** It says what the
+> works will do to the ground, the water, the air and the neighbours, in terms of quantities the
+> design has already fixed — and it says, item by item, where a consent authority would have to
+> supply the number that turns a control into a compliance obligation.
+
+# PART 23 — WHAT THIS DESIGN DOES NOT DEMONSTRATE
 
 > **This part must be reproduced in every future revision. It is the boundary of the design's
 > validity.**
 
-## 17.1 What IS demonstrated
+## 23.1 What IS demonstrated
 
 **Demonstrated to IS 456**, with IS 13920 for the sentry post frame: ultimate flexural capacity;
 diagonal-tension shear; minimum and maximum steel; bar spacing; cover; development and anchorage;
 deflection; crack-width provisions; biaxial column interaction; punching and one-way shear in the
 footing; and ductile detailing to IS 13920.
 
-## 17.2 What is NOT demonstrated, and NOT claimed
+## 23.2 What is NOT demonstrated, and NOT claimed
 
 1. **Support rotation and ductility ratio for the blast case.** θ ≤ 2° corresponds to δ ≤ 87 mm =
    span/57 and requires a **non-linear SDOF check** (IS 4991 Fig. 6 / Biggs) or explicit non-linear
@@ -4320,19 +5688,19 @@ footing; and ductile detailing to IS 13920.
 > its loading rules and dynamic material strengths only, as a documented conservative
 > extrapolation. **Every structural capacity is computed to IS 456.**
 
-# PART 18 — ASSUMPTIONS, OPEN ITEMS AND RULINGS
+# PART 24 — ASSUMPTIONS AND OPEN ITEMS
 
-## 18.1 How to read this part
+## 24.1 How to read this part
 
 Three registers, and the distinction between them is the point:
 
 | Register | What it holds |
 |---|---|
-| **18.2 Assumptions** | Values the design uses that have **no test and no client confirmation**. Seven are closed; **the seven that remain are exactly the site investigation** |
-| **18.3 Open items** | Questions that need **information the project does not contain**. **Eighteen are open.** They are **not inconsistencies** — each is a single position the project holds, with nothing contradicting it |
-| **18.4 Rulings** | **Thirty-two items ruled by the project owner across RC4 to RC9**, item by item, plus the two earlier RC2 rulings and the conflicts closed on the evidence |
+| **24.2 Assumptions** | Values the design uses that have **no test and no client confirmation**. Seven are closed; **the seven that remain are exactly the site investigation** |
+| **24.3 Open items** | Questions that need **information the project does not contain**. **Eighteen are open.** They are **not inconsistencies** — each is a single position the project holds, with nothing contradicting it |
+| **Appendix D** | **Every decision, conflict and revision behind the two registers above**, kept out of the design narrative and held as traceability |
 
-## 18.2 Assumptions — seven closed, seven open
+## 24.2 Assumptions — seven closed, seven open
 
 **CLOSED (7) — every one by judgement, and every one the conservative or immaterial choice:**
 
@@ -4368,9 +5736,9 @@ A8   structural seepage 0.5 L/m2/day        packer permeability tests
 > **A4 deserves one extra line.** The upper-bound model **now exists** and is verified by diff
 > against the reference model. **It is still `[ASSUMED]` at both bounds, and neither has been run.**
 
-## 18.3 Open items — eighteen
+## 24.3 Open items — eighteen
 
-### 18.3.1 The four a reviewer should look at first
+### 24.3.1 The four a reviewer should look at first
 
 | Ref | Item |
 |---|---|
@@ -4379,7 +5747,7 @@ A8   structural seepage 0.5 L/m2/day        packer permeability tests
 | **`SG2-V4`** | **A CBRN shelter that cannot state which way a release drifts.** The intake/exhaust half is closed on geometry; **the plume half stays open, and must** |
 | **`RC4-V1`** | **A sealed box with a 4 kW heat surplus and an unmodelled rejection path** (Part 2.11) |
 
-### 18.3.2 Open, narrowed by a ruling (9)
+### 24.3.2 Open, narrowed by a ruling (9)
 
 | Ref | Where it stands now |
 |---|---|
@@ -4393,7 +5761,7 @@ A8   structural seepage 0.5 L/m2/day        packer permeability tests
 | **`SG2-V4`** | **Intake/exhaust closed** at 25.30 m separation; **PLUME half open** |
 | **`RC4-V1`** | **Narrowed** from *"no rejection path exists"* to *"the rejection path is the ground through the structure, and it has not been modelled"* |
 
-### 18.3.3 Open, annotated but NOT narrowed (2) — and this pair is instructive
+### 24.3.3 Open, annotated but NOT narrowed (2) — and this pair is instructive
 
 | Ref | The problem |
 |---|---|
@@ -4405,7 +5773,7 @@ A8   structural seepage 0.5 L/m2/day        packer permeability tests
 > evidence.** They corroborate each other and neither corroborates anything. **What breaks the loop
 > is an operational equipment list — a client input, not a calculation.**
 
-### 18.3.4 Open, untouched (6)
+### 24.3.4 Open, untouched (6)
 
 | Ref | Item |
 |---|---|
@@ -4416,13 +5784,13 @@ A8   structural seepage 0.5 L/m2/day        packer permeability tests
 | **`SG-V2`** | **Depth of investigation** — the governing item |
 | **`SG-V7`** | **The concealment turf may be an expansive clay.** If the site's own topsoil is the CH horizon, it cracks in the dry season and pumps fines into the granular filter, **which is the one thing the filter exists to stop.** The load is unaffected |
 
-### 18.3.5 Open, new (1)
+### 24.3.5 Open, new (1)
 
 | Ref | Item |
 |---|---|
-| **`DR-A2-V1`** | **The clean sump has no cover, and Bay 5 cannot be crossed without one** (Part 13.7). Needs the cover itself: type, depth, **imposed load duty**, frame and rebate, fixing, and how it is lifted to withdraw the pumps |
+| **`DR-A2-V1`** | **The clean sump has no cover, and Bay 5 cannot be crossed without one** (Part 14.7). Needs the cover itself: type, depth, **imposed load duty**, frame and rebate, fixing, and how it is lifted to withdraw the pumps |
 
-### 18.3.6 A declared scope boundary — not a gap
+### 24.3.6 A declared scope boundary — not a gap
 
 | Ref | What does not exist | Where it was declared |
 |---|---|---|
@@ -4431,69 +5799,9 @@ A8   structural seepage 0.5 L/m2/day        packer permeability tests
 > **This row was moved out of the open-item register on purpose**, so that a **declared decision is
 > never counted as an outstanding problem** — which is what was happening.
 
-## 18.4 Rulings and conflicts
+# PART 25 — VERIFICATION PERFORMED FOR THIS REPORT
 
-### 18.4.1 The conflicts closed on the evidence
-
-| # | Conflict | Resolution |
-|---|---|---|
-| **C1** | Drawings Rev F, report Rev D — the report describes a dog-leg open ramp; Rev F is a covered entry stairwell | **DXF governs.** The precedent for everything after it |
-| **C2** | The report designs the headhouse roof for 3.0 m span + 1.0 m cover; Rev F is 4.0 m + no cover | **Recomputed.** T20 @ 150 survives at 90 %; **shear links new and mandatory** |
-| **C3** | The report calls the stair-shaft walls 600 thk; the Rev F plan shows 200 | **DXF governs** → triggers **Finding F1** → **Modification M1** |
-| **C4** | Blast door leaf: plan 1200, section 900 | **1200 × 2100 adopted** — agrees with the report's own 1 564 kN leaf force |
-| **C5** | Plan dimension "7300 covered stairwell external" against 6 800 in the plotted geometry | **6 800 adopted** |
-| **C6** | The report checks the mat in flexure only | **One-way shear checked → the T12 @ 250 × 250 link grid** |
-| **C7 / C9** | The report uses W = 505 kN for the sentry post; the hand check gives 592.7 kN; STAAD gives 731.80 kN | **The STAAD value governs**, and Part 7.8.2 explains the gap to the kilonewton |
-| **C8** | The report adopts a sentry post height of 6 850 mm; the elevation shows roof +6.700, parapet +7.000 | **Drawn levels adopted**; h = 6.250 m from the base at +0.450 |
-| **C10** | The report designs the headhouse walls for 113 kPa drag only | **Raised to the full 383 kPa envelope** (Part 7.5) |
-| **C11–C15** | Five defects in the entry stairwell and underground `.std` files — wrong concrete grade, missing roof imposed load, missing waterproofing load, wrong fill unit weight and berm level, and **four mat corner joints with no vertical restraint** | **All five resolved**, each by bringing the file to the master rather than the master to the file |
-| **C16** | The roof/platform junction — one clause said the stairwell roof becomes the 500 headhouse roof over the platform | **RULED AT 250.** It was the only place in the project saying 500 (Part 5.8) |
-| **C17** | Cover build-up: 40.65 stated, 39.15 summed | **RULED. 40.65 held, and the table made self-consistent** (Part 7.3) |
-| **C18** | Sump pit base: the register says 400, a sheet note says 300 | **RULED AT 400.** (−)8.000 − (−)7.600 = 0.400 is arithmetic |
-| **C19** | Soak pit 21.99 m² against its own stated 22.50 required | **RULED. Widened to 2.200 m dia → 24.19 m², +7.5 %** |
-| **C20** | A superseded Rev E catchment on an issued sheet | **RULED. Rev F governs; the figure is retained as a declared conservatism and both are labelled** |
-| **C21** | Filter duty: the master said 2 × 250 m³/h, the sheet said 300 in nine places | **RULED AT 300 m³/h, and the master was corrected.** 250 fails the sheet's own FEMA criterion, so it was **not the cautious option but a demonstrably inadequate one** |
-| **ERR-1** | A yield-line coefficient computed with the simply-supported constant instead of the fixed-four-edges one — 324.4 against 162.2 | **Corrected, and recorded as an error rather than quietly fixed.** No reinforcement changed, because the one-way value was the one adopted (Part 10.3) |
-
-### 18.4.2 The owner's rulings, revision by revision
-
-| Revision | Rulings | Net effect on the open register |
-|---|---|---|
-| **RC2** (11 Sep) | 2 — the three-zone EMP model **adopted**; the generator **may** run in closed mode | **Neither changed a number** |
-| **RC4** (11 Sep) | 16, item by item — **13 actioned, 3 deliberately left open** | 33 → **25** |
-| **RC5** (12 Sep) | 4 — heat rejection, the hatches, the day tank, and one left open — plus `A13` closed on the evidence | 25, **three narrowed, none closed** |
-| **RC6** (12 Sep) | The excavation face, and **six assumptions closed** | K.2 **14 → 7** |
-| **RC7** (12 Sep) | 4 — the scrubber duty, the mains, four source defects, the well | 25 → **19** |
-| **RC8** (12 Sep) | 3 — the fence, the EM/EL circularity named, one reclassified | 19 → **17** |
-| **RC9** (12 Sep) | **None. It corrected a count** | 17, verifiable by reading |
-| **DR-A2** (12 Sep) | **None. It drew two things and found one** | 17 → **18** |
-
-> **Three of those deserve to be read as a set, because they are about the project's own
-> discipline rather than about the design.**
->
-> **`RC9` corrected a count this project got wrong.** Revisions RC4 to RC8 ruled faithfully and
-> recorded every ruling — **but thirteen rows of the register itself were never annotated**, so a
-> reader counting the table got 34 while the narratives claimed 21, then 15, then 13. **All three
-> counts were wrong**, and the first was wrong arithmetically on its own terms. The fix was **not
-> to restate the number but to make the register countable**: every row is now classified, and the
-> totals can be verified by reading rather than by trusting a sentence.
->
-> **`RC10` found the same failure mode one level down.** RC4 to RC9 ruled on thirty-two items and
-> **did not touch the discipline packages**, so six artefacts still say something the master has
-> settled — the EMP penetration register still calls the honeycomb panels conditional, the HVAC
-> schedule still locates the intake as *"west of the box"*, the escape-route schedule still records
-> two climbs with no means of climbing them. **Nothing was silently edited**: all six are build
-> artefacts regenerated from their packages' scripts, and applying the register is a
-> package-by-package job with a regeneration check that **has not been done.**
->
-> **The lesson is one this project already wrote down: *a change that stops at "reinforcement" and
-> never reaches "drawings" is not finished.* RC4 to RC9 stopped at the master.** The failure mode
-> appeared twice in two days — once inside the master, once between the master and its packages —
-> **and both times the fix was to make the thing countable rather than to trust a narrative.**
-
-# PART 19 — VERIFICATION PERFORMED FOR THIS REPORT
-
-## 19.1 What was checked, and how
+## 25.1 What was checked, and how
 
 This report reproduces several hundred numbers from the project record. **Every one of them was
 independently recomputed from its own inputs before it was printed here**, by a script that is
@@ -4516,12 +5824,12 @@ value the project prints.
 > true. What it does catch is the class of defect this project has already been bitten by twice: a
 > number that no longer agrees with its own derivation.
 
-## 19.2 The result
+## 25.2 The result
 
 ```
-CHECKS EXECUTED                 498
-PASS                            494
-KNOWN / RECORDED difference       4
+CHECKS EXECUTED                 543
+PASS                            538
+KNOWN / RECORDED difference       5
 UNEXPLAINED FAIL                  0
 ```
 
@@ -4545,8 +5853,10 @@ UNEXPLAINED FAIL                  0
 | 18 | Electrical | The connected load and its kVA, generator utilisation and spare, the essential load, **both battery cases and the factor of twelve between them**, and the fuel quantity |
 | 19 | Quantities and cost | Every bar mass from its unit mass and length, both totals, the concrete take-off, the steel density, **and both cost summaries head by head** |
 | 20 | Register arithmetic | **The open-item counts, the assumption counts and the drawing counts add up** |
+| 21 | **Concrete mix design** | Both target mean strengths and **which branch of IS 10262 Cl. 5.2 governs**; the water content at each slump and after the admixture reduction; the cement from the water/cement ratio; **the resulting free w/c against the IS 456 cap and the cement against both the minimum and the shrinkage maximum**; the coarse aggregate fraction and its congestion correction; **the absolute-volume closure on 1.000 m³**; both aggregate masses, both fresh densities and both mixes by mass |
+| 22 | **Programme and cost** | The calendar span and the Sundays in it, the six-day working count, the activity total, **the basic cost re-summed from its five priced parts**, the share of each, and **the final project cost re-derived from the seven percentage heads** |
 
-## 19.3 The four differences found — reported, never corrected
+## 25.3 The five differences found — reported, never corrected
 
 > **Master rule M.11 and the project operating guide both forbid editing a recorded value away.**
 > Every difference below is an **observation offered to the master**, not a change. **None of them
@@ -4557,9 +5867,10 @@ UNEXPLAINED FAIL                  0
 | **1** | **Underground box wall shear stress** — 525 × 10³ / (600 × 0.8 × 21600) | **0.0506 N/mm²** | 0.063 N/mm² | **Not previously recorded.** Both values are negligible **by two orders of magnitude**; the conclusion *"IS 13920 Cl. 10.4 boundary elements NOT triggered"* is unaffected and **no adopted value depends on it** |
 | **2** | **Sentry footing F1, ULS eccentricity** — M<sub>u</sub>/P<sub>u</sub> = 43.9 / 276.8 | **0.159 m** | 0.128 m | **Not previously recorded.** The footing is governed by **IS 456 Cl. 26.5.2.1 minimum steel** (720 against 136 mm²/m required) and its depth by **starter anchorage**, so **no adopted bar, spacing or dimension moves** |
 | **3** | **Sentry footing F1, q<sub>u,max</sub>** — the printed expression 276.8/2.25 × (1 + 6 × 0.128/1.5) | **186.0 kPa** | 190.0 kPa | Same item as 2. One-way shear at 0.012 and punching at 0.065 against τ<sub>c</sub> = 1.369 are unaffected on either figure |
+| **5** | **The programme's working-day count** — a raw Mon–Sat count of the 384-day span, less the five date-certain holidays | **325 days** | 326 days | **ONE DAY**, and it is a property of the programme's own activity calendar rather than of any design value. **No date, duration or float moves on it** |
 | **4** | **The project owner's cost summary** — the seven heads against the printed final | **₹ 2 99 33 306** | ₹ 3 00 33 306 | **ALREADY RECORDED — conflict `R-14`**, exactly ₹ 1 00 000 apart, *"reported, not corrected"*. **The verification pass reproduced a known finding**, which is the outcome you want from a check like this. The revised estimate **reconciles to the rupee** and has no such difference |
 
-> **Three observations about that result are worth making.**
+> **Four observations about that result are worth making.**
 >
 > **The two footing items are one item.** An eccentricity and the bearing pressure computed from it
 > are the same arithmetic seen twice, and both land on an element whose steel is set by a code
@@ -4572,8 +5883,15 @@ UNEXPLAINED FAIL                  0
 > **And the fourth was already in the register.** Reproducing a recorded finding independently is
 > the best evidence that the check is working — and reproducing it **from the owner's own published
 > numbers** is what makes it safe to leave alone.
+>
+> **The fifth is a single day, and it is worth keeping for exactly that reason.** A programme that
+> states 384 calendar days, a six-day week and five holidays should close on 325 working days, and
+> it states 326. Nothing in this design depends on it, no float changes, and it is far more likely
+> to be a property of how a scheduling tool counts a finish milestone than an error — **but the
+> whole point of running the check is that a one-day difference is reported rather than rounded
+> into agreement.**
 
-## 19.4 What this report could not verify, and did not attempt
+## 25.4 What this report could not verify, and did not attempt
 
 | Not verified | Why |
 |---|---|
@@ -4582,19 +5900,22 @@ UNEXPLAINED FAIL                  0
 | **Every `[ASSUMED]` value** | An assumption is not an arithmetic error. **k<sub>s</sub>, the design water table, the safe bearing capacity, K₀, the soak-pit absorption rate, the seepage rate and the rockhead band are all tests, not sums** |
 | **Vendor performance** | Blast doors, blast valves, filter trains, the shielded door, the PCI, the honeycomb, the escape hatches |
 | **Anything tagged `[N]`** | There is nothing to check. **The projection dimension, the ambient design temperature, the opening heights, the pipe materials, the entry plate's level and size, the sump cover, the fan's five vendor loss components** |
-| **The drawings themselves** | Checked by the drawing QA tool, not by this report — Part 13.3 |
+| **The drawings themselves** | Checked by the drawing QA tool, not by this report — Part 14.3 |
 
-## 19.5 Consistency checks made against the project record
+## 25.5 Consistency checks made against the project record
 
 Beyond the arithmetic, the following were checked by reading:
 
-1. **Every reinforcement arrangement in Part 12 matches the calculation in Parts 9 to 11.** No bar
+1. **Every reinforcement arrangement in Part 13 matches the calculation in Parts 9 to 11.** No bar
    size, spacing or count appears in the register that does not appear in a calculation.
 2. **Every evidence tag is carried unchanged.** No `[ASSUMED]`, `[UNRESOLVED]` or `[NOT AVAILABLE]`
    item is converted, downgraded or deleted anywhere in this report.
-3. **The open-item and assumption counts in Part 18 agree with their own tables** — 9 + 2 + 6 + 1 =
+3. **The open-item and assumption counts in Part 24 agree with their own tables** — 9 + 2 + 6 + 1 =
    18 open, 18 + 16 + 1 = 35 rows, 7 + 7 = 14 assumptions.
-4. **The drawing counts in Part 13 sum to 80**, and the sheet sizes 75 A1 + 4 A4 + 1 A0 sum to 80.
+3a. **Every one of the forty-four figures is bounds-checked**, and every one carries a caption in
+   the register that numbers it. The gate is **zero primitives outside a frame** and **zero
+   strings past the text measure**, and it is enforced by code rather than by eye — Appendix C.
+4. **The drawing counts in Part 14 sum to 80**, and the sheet sizes 75 A1 + 4 A4 + 1 A0 sum to 80.
 5. **The frozen staircase geometry is reproduced exactly** — 24 risers, 170.8333 mm, 280 mm tread,
    3 flights × 8, total rise 4 100 mm — **and nothing in this report changes any of it.**
 6. **Every code clause cited here appears in the project's own register.** No clause was added, and
@@ -4687,7 +6008,7 @@ Beyond the arithmetic, the following were checked by reading:
 | IS 1904 Table 1 | Presumptive bearing capacity | Parts 4.3, 11.6 |
 | IS 12070 Cl. 6, Table 2 | Settlement on rock; broken bedrock | Parts 4.3, 9.3 |
 | IS 1498, IS 2720 Pts IV, VIII, X, XIII, XL, 28 | Soil classification and testing | Parts 4.2, 4.5 |
-| IS 2470 (Pt 1) Cl. 6.2–6.9, Table 1 | Septic tank | Part 14.2 |
+| IS 2470 (Pt 1) Cl. 6.2–6.9, Table 1 | Septic tank | Part 16.6 |
 | IS 2470 (Pt 2) Cl. 4, 5 | **Percolation test — mandatory**; dispersion | Parts 14.2, 15.1, 18.2 |
 | **IS 4991 Cl. 1.1** | **EXCLUDES NUCLEAR — quoted in every deliverable** | Parts 3.1, 17.2 |
 | IS 4991 Cl. 6.2.1 | Reflected pressure, recessing of blast valves | Parts 2.7.3, 14.1.4 |
@@ -4702,14 +6023,14 @@ Beyond the arithmetic, the following were checked by reading:
 | NBC 2016 Part 4 | Stair geometry, 1 100 guarding, means of escape | Parts 9.5.2, 10.1, 14.5 |
 | UFC 3-340-02 §4-27, §4-30 | Opening trimmers; **direct shear** | Part 9.4.4 |
 | MIL-STD-188-125-1 §5.4–§5.7.6 | EMP — access, WBC, PCI, fibre, RF | Parts 2.8, 14.4 |
-| IEEE Std 299 | Shielding effectiveness survey — **HOLD POINT** | Part 14.4.5 |
+| IEEE Std 299 | Shielding effectiveness survey — **HOLD POINT** | Part 18.7 |
 | IEEE 142 / IS 3043 | Earthing, ≤ 5 Ω | Parts 2.8.5, 14.3 |
-| FEMA 453 | 0.25 cfm/ft² ventilation rate | Part 14.1 |
+| FEMA 453 | 0.25 cfm/ft² ventilation rate | Part 15.1 |
 | EN 1822 | HEPA H14 at MPPS | Part 2.7.2 |
 | IS 1077 | Sentry post brick masonry | Parts 5.9.1, 11.7 |
-| IS 732, IS 694, IS 1554 (Pt 1) | Electrical installation and cables | Part 14.3 |
-| IS 13416 | Construction-phase fire safety | Part 14.5 |
-| BS 8666 | Bar shape codes | Part 12.6 |
+| IS 732, IS 694, IS 1554 (Pt 1) | Electrical installation and cables | Part 17 |
+| IS 13416 | Construction-phase fire safety | Part 19 |
+| BS 8666 | Bar shape codes | Part 13.6 |
 
 # APPENDIX C — REPRODUCING THIS REPORT AND THE PROJECT
 
@@ -4719,6 +6040,7 @@ Beyond the arithmetic, the following were checked by reading:
 Project Report/
    Documentation/MASTER_PROJECT_REPORT.md      the report SOURCE -- edit this
    Scripts/report_render.py                    Markdown -> PDF typesetter
+   Scripts/report_figures.py                   the 44 drawn figures
    Scripts/report_verify.py                    independent recomputation
    Calculations/REPORT_VERIFICATION_OUTPUT.txt its output
    MASTER_PROJECT_REPORT.pdf                   the deliverable
@@ -4728,8 +6050,29 @@ Project Report/
 ```
 
 **Never edit the PDF.** Edit the Markdown and re-run the renderer. The renderer adds no content of
-its own beyond the cover, the running head and foot, and the automatically paginated contents
-list.
+its own beyond the cover, the running head and foot, the automatically paginated contents list and
+the list of figures.
+
+**The figures are code, not images.** `report_figures.py` draws all forty-four from the `GEOM`,
+`LEV` and `COVER` constants at the top of the file, in **project coordinates** — so changing a
+dimension there changes every figure that uses it, and no figure can drift from the geometry it is
+drawn from. Three directives place them in the source:
+
+```
+<!-- FIG: fig_name -->   a numbered, captioned figure, in document order
+<!-- LOF -->             the list of figures
+<!-- PAGEBREAK -->       a forced page break
+```
+
+**Every figure is bounds-checked before it is published.** `report_figures.check_all()` walks each
+drawing and reports any line, rectangle, circle, polygon or **string** that falls outside its own
+frame or runs past the text measure — because reportlab does not clip, so anything drawn outside a
+figure silently bleeds onto whatever follows it. **The gate is zero.**
+
+> **The figures are NOT the issued drawings.** They carry no title block, no revision box and no
+> bar mark, they are drawn at reading scale rather than at a plotting scale, and they must never be
+> used for setting out or for fabrication. They are also **not** reconstructions of the seven
+> absent S-series sheets (Part 14.6). The issued package is the 80 DXF of Part 14.
 
 ## C.2 The project
 
@@ -4738,7 +6081,7 @@ list.
 | A discipline drawing package | `cd "<Package>/Scripts" && python3 <prefix>_build_all.py`. **Edit the generator, never the DXF** |
 | The drawing index and QA report | Re-run `qa_report_data.py` then `make_index.py`. **A new package must first register its `DXF/` prefix in `DISCIPLINE` and its name in `ORDER`** |
 | The works management package | `wm_build_all.py` regenerates everything from `wm_data.py` + `wm_content.py` |
-| The S-series structural sheets | **Not possible.** The toolchain is not in the workspace (Part 13.6) and **must not be fabricated** |
+| The S-series structural sheets | **Not possible.** The toolchain is not in the workspace (Part 14.6) and **must not be fabricated** |
 | Any STAAD result | **Not possible.** STAAD.Pro is not available in this environment |
 
 **The ten Rev F architectural DXFs are source, not build artefacts, and may be edited directly.**
@@ -4750,10 +6093,16 @@ Every discipline package in this project has verified that it **regenerates byte
 That property is worth not breaking casually — it is what makes it possible to apply a change to a
 generator and be certain that nothing else moved.
 
-# APPENDIX D — REVISION HISTORY IN BRIEF
+# APPENDIX D — TRACEABILITY: DECISIONS, CONFLICTS AND REVISION HISTORY
 
-> The full record, with the reasoning for every change, is in the master's Part H. This is an index
-> to it.
+> **Parts 1 to 25 state the design as it stands, in the present tense, without narrating how it
+> got there.** This appendix is where the history lives, so that nothing is lost by keeping it out
+> of the design.
+>
+> **The full record, with the reasoning behind every change, is in the master's Part H.** This is
+> an index to it, and where the two differ the master governs.
+
+## D.1 Revision history in brief
 
 | Rev | Date | What it did |
 |---|---|---|
@@ -4784,11 +6133,71 @@ generator and be certain that nothing else moved.
 | **RC9** | 12 Sep 2026 | **A count this project got wrong, corrected — and made countable** |
 | **RC10** | 12 Sep 2026 | **What the rulings left stale in the packages** — six artefacts, register raised, **not yet applied** |
 | **DR-A2** | 12 Sep 2026 | The sump pit head and a key plan; **`DR-A2-V1` opened** |
-| **PR1** | **13 Sep 2026** | **This report.** No design value changed; 498 checks executed; four differences reported and none corrected |
+| **PR1** | 13 Sep 2026 | The master project report, first issue — 19 parts. No design value changed; 498 checks executed; four differences reported and none corrected |
+| **PR2** | **13 Sep 2026** | **This report.** Re-voiced as a single as-built statement of the design; **25 parts and 44 drawn figures**; the soil report, the M35 and M30 mix designs, the openings and closures, the five services parts, the works management expansion and the environmental management plan added. **No design value changed** |
 
+## D.2 The conflicts and the rulings that closed them
+
+### D.2.1 The conflicts closed on the evidence
+
+| # | Conflict | Resolution |
+|---|---|---|
+| **C1** | Drawings Rev F, report Rev D — the report describes a dog-leg open ramp; Rev F is a covered entry stairwell | **DXF governs.** The precedent for everything after it |
+| **C2** | The report designs the headhouse roof for 3.0 m span + 1.0 m cover; Rev F is 4.0 m + no cover | **Recomputed.** T20 @ 150 survives at 90 %; **shear links new and mandatory** |
+| **C3** | The report calls the stair-shaft walls 600 thk; the Rev F plan shows 200 | **DXF governs** → triggers **Finding F1** → **Modification M1** |
+| **C4** | Blast door leaf: plan 1200, section 900 | **1200 × 2100 adopted** — agrees with the report's own 1 564 kN leaf force |
+| **C5** | Plan dimension "7300 covered stairwell external" against 6 800 in the plotted geometry | **6 800 adopted** |
+| **C6** | The report checks the mat in flexure only | **One-way shear checked → the T12 @ 250 × 250 link grid** |
+| **C7 / C9** | The report uses W = 505 kN for the sentry post; the hand check gives 592.7 kN; STAAD gives 731.80 kN | **The STAAD value governs**, and Part 7.8.2 explains the gap to the kilonewton |
+| **C8** | The report adopts a sentry post height of 6 850 mm; the elevation shows roof +6.700, parapet +7.000 | **Drawn levels adopted**; h = 6.250 m from the base at +0.450 |
+| **C10** | The report designs the headhouse walls for 113 kPa drag only | **Raised to the full 383 kPa envelope** (Part 7.5) |
+| **C11–C15** | Five defects in the entry stairwell and underground `.std` files — wrong concrete grade, missing roof imposed load, missing waterproofing load, wrong fill unit weight and berm level, and **four mat corner joints with no vertical restraint** | **All five resolved**, each by bringing the file to the master rather than the master to the file |
+| **C16** | The roof/platform junction — one clause said the stairwell roof becomes the 500 headhouse roof over the platform | **RULED AT 250.** It was the only place in the project saying 500 (Part 5.8) |
+| **C17** | Cover build-up: 40.65 stated, 39.15 summed | **RULED. 40.65 held, and the table made self-consistent** (Part 7.3) |
+| **C18** | Sump pit base: the register says 400, a sheet note says 300 | **RULED AT 400.** (−)8.000 − (−)7.600 = 0.400 is arithmetic |
+| **C19** | Soak pit 21.99 m² against its own stated 22.50 required | **RULED. Widened to 2.200 m dia → 24.19 m², +7.5 %** |
+| **C20** | A superseded Rev E catchment on an issued sheet | **RULED. Rev F governs; the figure is retained as a declared conservatism and both are labelled** |
+| **C21** | Filter duty: the master said 2 × 250 m³/h, the sheet said 300 in nine places | **RULED AT 300 m³/h, and the master was corrected.** 250 fails the sheet's own FEMA criterion, so it was **not the cautious option but a demonstrably inadequate one** |
+| **ERR-1** | A yield-line coefficient computed with the simply-supported constant instead of the fixed-four-edges one — 324.4 against 162.2 | **Corrected, and recorded as an error rather than quietly fixed.** No reinforcement changed, because the one-way value was the one adopted (Part 10.3) |
+
+### D.2.2 The owner's rulings, revision by revision
+
+| Revision | Rulings | Net effect on the open register |
+|---|---|---|
+| **RC2** (11 Sep) | 2 — the three-zone EMP model **adopted**; the generator **may** run in closed mode | **Neither changed a number** |
+| **RC4** (11 Sep) | 16, item by item — **13 actioned, 3 deliberately left open** | 33 → **25** |
+| **RC5** (12 Sep) | 4 — heat rejection, the hatches, the day tank, and one left open — plus `A13` closed on the evidence | 25, **three narrowed, none closed** |
+| **RC6** (12 Sep) | The excavation face, and **six assumptions closed** | K.2 **14 → 7** |
+| **RC7** (12 Sep) | 4 — the scrubber duty, the mains, four source defects, the well | 25 → **19** |
+| **RC8** (12 Sep) | 3 — the fence, the EM/EL circularity named, one reclassified | 19 → **17** |
+| **RC9** (12 Sep) | **None. It corrected a count** | 17, verifiable by reading |
+| **DR-A2** (12 Sep) | **None. It drew two things and found one** | 17 → **18** |
+
+> **Three of those deserve to be read as a set, because they are about the project's own
+> discipline rather than about the design.**
+>
+> **`RC9` corrected a count this project got wrong.** Revisions RC4 to RC8 ruled faithfully and
+> recorded every ruling — **but thirteen rows of the register itself were never annotated**, so a
+> reader counting the table got 34 while the narratives claimed 21, then 15, then 13. **All three
+> counts were wrong**, and the first was wrong arithmetically on its own terms. The fix was **not
+> to restate the number but to make the register countable**: every row is now classified, and the
+> totals can be verified by reading rather than by trusting a sentence.
+>
+> **`RC10` found the same failure mode one level down.** RC4 to RC9 ruled on thirty-two items and
+> **did not touch the discipline packages**, so six artefacts still say something the master has
+> settled — the EMP penetration register still calls the honeycomb panels conditional, the HVAC
+> schedule still locates the intake as *"west of the box"*, the escape-route schedule still records
+> two climbs with no means of climbing them. **Nothing was silently edited**: all six are build
+> artefacts regenerated from their packages' scripts, and applying the register is a
+> package-by-package job with a regeneration check that **has not been done.**
+>
+> **The lesson is one this project already wrote down: *a change that stops at "reinforcement" and
+> never reaches "drawings" is not finished.* RC4 to RC9 stopped at the master.** The failure mode
+> appeared twice in two days — once inside the master, once between the master and its packages —
+> **and both times the fix was to make the thing countable rather than to trust a narrative.**
 ---
 
-*Master project report, revision PR1 · 13 September 2026 · FOR REVIEW — NOT FOR CONSTRUCTION.*
+*Master project report, revision PR2 · 13 September 2026 · FOR REVIEW — NOT FOR CONSTRUCTION.*
 *Authority: `master/MASTER_PROJECT_STATE.md`. Where this report and the master disagree, the
 master governs. No design value, evidence tag, quantity, rate, date or float is changed by this
 report, no `.std` file was touched, STAAD.Pro was not run, and the main staircase is unchanged —

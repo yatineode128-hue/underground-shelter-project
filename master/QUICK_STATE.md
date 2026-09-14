@@ -157,17 +157,32 @@ re-stacked. **`DR-A2-F4` is recorded and NOT fixed:** `A-301`'s `3500 EFFECTIVE`
 overruns the inner border by 42 units. **No design value changed, nothing re-sized, no tag
 converted, no `.std` touched, STAAD.Pro not run, main staircase untouched.** **Package still 80
 drawings, 74 PASS.**
-Updated 13 Sep 2026 for the **master project report PR1** (master Part **H.36**) —
-`Project Report/MASTER_PROJECT_REPORT.pdf`, **89 pages**, the project stated once and in full with
-the engineering science behind the design, the calculations with every substitution, and the
-clause-level citations. **It is a document, not a design change: no value, tag, quantity, rate,
-date or float moved, no `.std` was touched, STAAD.Pro was not run and the main staircase is
-untouched.** Its **498-check verification pass** (494 PASS, 4 differences, 0 unexplained) raised
-**two new findings — `PR1-F1`** (the `A.7.8` wall shear stress reads 0.063 where its own
-expression gives 0.0506; both negligible) **and `PR1-F2`** (the `B.8.7` footing ULS eccentricity
-and bearing pressure; the element is governed by minimum steel and by anchorage) — **both
-RECORDED AND NOT CORRECTED.** It also records that `CONSOLIDATED_PROJECT_REPORT.md` is now stale
-on the open-item and assumption counts (`PR1-F3`), which is **not edited either.**
+Updated 13 Sep 2026 for the **master project report PR2** (master Part **H.37**) —
+`Project Report/MASTER_PROJECT_REPORT.pdf`, **137 pages, 25 parts, 4 appendices and 44 drawn
+figures**, the project stated once and in full **as a single as-built design**: the engineering
+science, the calculations with every substitution, the clause-level citations, the full soil
+report, the M35 and M30 mix designs, every opening through the protective boundary, the five
+services parts, works management with the bill, the cost and the critical path, and an
+environmental management plan derived from the project's own quantities.
+
+**It is a document, not a design change: no value, tag, quantity, rate, date or float moved, no
+`.std` was touched, STAAD.Pro was not run, no drawing was edited, no generator was re-run, no
+absent drawing was fabricated and the main staircase is untouched.**
+
+PR2 re-voices the report so that revision identifiers are out of the design narrative while every
+engineering reason is kept; **the full history is preserved in the report's Appendix D and in the
+master's Part H, and no revision is overwritten.** The figures are generated from the confirmed
+geometry in project coordinates and are **NOT the issued drawings and NOT reconstructions of the
+seven absent S-series sheets.**
+
+Its **543-check verification pass** (538 PASS, 5 differences, 0 unexplained) holds **`PR1-F1`**
+(the `A.7.8` wall shear stress reads 0.063 where its own expression gives 0.0506; both negligible)
+and **`PR1-F2`** (the `B.8.7` footing ULS eccentricity and bearing pressure; the element is
+governed by minimum steel and by anchorage), and adds **`PR2-F1`** — a raw six-day count of the
+programme's 384-day span less five holidays gives **325** working days against the stated **326**,
+**one day, on which no date, duration or float depends.** **All three RECORDED AND NOT
+CORRECTED.** `CONSOLIDATED_PROJECT_REPORT.md` remains stale on the open-item and assumption counts
+(`PR1-F3`) and is **not edited either.**
 
 ---
 

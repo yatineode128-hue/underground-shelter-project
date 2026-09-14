@@ -3,7 +3,7 @@ report_verify.py -- independent numerical verification of every figure the
 master project report reproduces.
 
 Underground CBRN-hardened blast-resistant protective structure + sentry post, Pune.
-Project Report package, revision PR1.
+Project Report package, revision PR2.
 
 WHAT THIS IS.  Each check below recomputes a quoted value FROM ITS OWN INPUTS
 and compares it with the value the report prints.  Nothing is copied from the
@@ -783,7 +783,7 @@ chk("lap policy 50 phi against the 40 phi requirement",
     note="25 % above requirement, all laps staggered to <= 50 %")
 
 # ====================================================================== 14
-sect("14  CBRN VENTILATION   (report Parts 2.7, 14.1)")
+sect("14  CBRN VENTILATION   (report Parts 2.7, 15.1)")
 
 bays = [2900, 1800, 3500, 1800, 1560, 2000]
 env_a = sum(bays) / 1000.0 * 5.000
@@ -830,7 +830,7 @@ chk("scrubber fan hydraulic power, 75 m3/h at 250 Pa",
     note="the 11.6 W quoted implies a combined fan+motor efficiency of 0.45")
 
 # ====================================================================== 15
-sect("15  THERMAL BALANCE   (report Parts 2.11, 14.1)")
+sect("15  THERMAL BALANCE   (report Parts 2.11, 15.2)")
 
 elec_in = 0.520 + 0.100 + 1.000 + 0.379 + 1.000 + 0.334 + 1.500 + 0.100 + 0.800
 chk("electrical load dissipated inside the envelope", elec_in, 5.733, 0.002,
@@ -865,7 +865,7 @@ chk("fraction rejected at 10 K and 600 m3/h",
     2 * vent_cap * 10 / 6.363 * 100, 31.6, 0.02, "%")
 
 # ====================================================================== 16
-sect("16  EMP   (report Parts 2.8, 14.4)")
+sect("16  EMP   (report Parts 2.8, 18)")
 
 s_bar = 0.150
 for f, want in [(1e4, 99.99), (1e5, 79.99), (1e6, 59.99), (1e8, 19.99),
@@ -931,7 +931,7 @@ chk("EMP Zone 2 internal floor area, 2.3 x 1.5", 2.3 * 1.5, 3.45, 0.005,
 chk("EMP Zone 2 internal volume", 2.3 * 1.5 * 2.1, 7.245, 0.005, "m3")
 
 # ====================================================================== 17
-sect("17  DRAINAGE AND EXTERNAL WORKS   (report Parts 14.2, 15.1)")
+sect("17  DRAINAGE AND EXTERNAL WORKS   (report Parts 16, 20.1)")
 
 chk("submerged wall area, perimeter x depth",
     2 * (22.0 + 6.2) * 4.700, 265.08, 0.005, "m2")
@@ -972,7 +972,7 @@ chk("DN50 rising main velocity at 1.5 L/s",
     0.0015 / (math.pi * 0.025 ** 2), 0.76, 0.02, "m/s")
 
 # ====================================================================== 18
-sect("18  ELECTRICAL AND POWER   (report Part 14.3)")
+sect("18  ELECTRICAL AND POWER   (report Part 17)")
 
 loads = [0.520, 0.100, 1.000, 0.379, 1.000, 0.334, 0.223, 1.500, 0.100,
          0.800, 0.300]
@@ -1002,7 +1002,7 @@ chk("largest motor DOL start, ~7 x FLC at pf 0.85",
     note="order-of-magnitude check only; the 2.7 kVA is EL1's own figure")
 
 # ====================================================================== 19
-sect("19  QUANTITIES AND COST   (report Parts 12.6, 16.3)")
+sect("19  QUANTITIES AND COST   (report Parts 13.6, 21.2, 21.3)")
 
 bars = {"T8": (0.395, 14.6, 5.7), "T10": (0.617, 102.6, 63.3),
         "T12": (0.888, 22885.7, 20318.3), "T16": (1.578, 15020.2, 23707.1),
@@ -1043,7 +1043,7 @@ chk("the RC1 revised estimate reconciles to the rupee", tot2, 29790913.0,
     note="the revised estimate has no R-14 discrepancy")
 
 # ====================================================================== 20
-sect("20  REGISTER ARITHMETIC   (report Part 18)")
+sect("20  REGISTER ARITHMETIC   (report Part 24)")
 
 chk("open items: narrowed + unchanged + new", 9 + 2 + 6 + 1, 18.0, 0.001)
 chk("register rows: open + closed + moved", 18 + 16 + 1, 35.0, 0.001)
@@ -1051,6 +1051,118 @@ chk("assumptions: closed + open", 7 + 7, 14.0, 0.001)
 chk("drawings: sum of the discipline counts",
     11 + 3 + 30 + 11 + 2 + 6 + 2 + 2 + 1 + 6 + 1 + 5, 80.0, 0.001)
 chk("sheet sizes: A1 + A4 + A0", 75 + 4 + 1, 80.0, 0.001)
+
+sect("21  CONCRETE MIX DESIGN   (report Part 6.5)")
+
+# --- target mean strength, IS 10262:2019 Cl. 5.2 with Tables 1 and 2
+for g, fck, sd, X, want in (("M35", 35.0, 5.0, 6.5, 43.25),
+                            ("M30", 30.0, 5.0, 6.5, 38.25)):
+    chk("%s target mean strength = max(fck+1.65s, fck+X)" % g,
+        max(fck + 1.65 * sd, fck + X), want, 0.001, "N/mm2")
+chk("M35 the fck + X branch does NOT govern", 35.0 + 6.5, 41.50, 0.001, "N/mm2")
+chk("M30 the fck + X branch does NOT govern", 30.0 + 6.5, 36.50, 0.001, "N/mm2")
+
+# --- water content, IS 10262:2019 Table 4 with the slump correction
+chk("M35 water at 100 mm slump, before admixture",
+    186.0 * (1 + 0.03 * (100 - 50) / 25.0), 197.2, 0.001, "L/m3")
+chk("M35 water after a 20 % reduction",
+    186.0 * (1 + 0.03 * 2) * 0.80, 157.76, 0.002, "L/m3",
+    "rounded UP to 158 in the report")
+chk("M30 water at 75 mm slump, before admixture",
+    186.0 * (1 + 0.03 * (75 - 50) / 25.0), 191.58, 0.001, "L/m3")
+chk("M30 water after an 18 % reduction",
+    186.0 * (1 + 0.03) * 0.82, 157.10, 0.002, "L/m3",
+    "rounded DOWN to 157 in the report")
+
+# --- cement from water and w/c, then the resulting free w/c at the adopted cement
+chk("M35 cement = water / (w/c) at 0.40", 158.0 / 0.40, 395.0, 0.001, "kg/m3")
+chk("M35 resulting free w/c at 400 kg/m3", 158.0 / 400.0, 0.395, 0.002)
+chk("M30 cement = water / (w/c) at 0.44", 157.0 / 0.44, 356.82, 0.001, "kg/m3")
+chk("M30 resulting free w/c at 360 kg/m3", 157.0 / 360.0, 0.436, 0.002)
+
+# --- the IS 456 Table 5 durability limits the adopted mixes are checked against
+chk("M35 free w/c against the 0.45 cap", 0.395 <= 0.45, True, 0, "",
+    "PASS -- 12 % inside the cap")
+chk("M35 cement against the 340 kg/m3 minimum", 400.0 >= 340.0, True, 0)
+chk("M35 cement against the 450 kg/m3 shrinkage maximum", 400.0 <= 450.0,
+    True, 0)
+chk("M30 free w/c against the 0.45 cap", 0.436 <= 0.45, True, 0)
+chk("M30 cement against the 320 kg/m3 minimum", 360.0 >= 320.0, True, 0)
+
+# --- coarse aggregate fraction, IS 10262:2019 Table 5 + Cl. 5.5.1
+chk("M35 CA fraction, Table 5 corrected for w/c",
+    0.62 + 0.01 * (0.50 - 0.395) / 0.05, 0.641, 0.002)
+chk("M35 CA fraction after the 10 % congestion reduction",
+    (0.62 + 0.01 * (0.50 - 0.395) / 0.05) * 0.90, 0.577, 0.002)
+chk("M30 CA fraction, Table 5 corrected for w/c",
+    0.62 + 0.01 * (0.50 - 0.436) / 0.05, 0.633, 0.002)
+
+# --- absolute-volume proportioning, IS 10262:2019 Cl. 5.6
+SGC, SGCA, SGFA, SGAD, AIR = 3.15, 2.84, 2.65, 1.145, 0.010
+for g, cem, wat, adm, caf, wca, wfa, wrho in (
+        ("M35", 400.0, 158.0, 4.00, 0.577, 1149.6, 786.4, 2498.0),
+        ("M30", 360.0, 157.0, 2.88, 0.633, 1287.5, 696.5, 2504.0)):
+    v_cem = cem / (SGC * 1000.0)
+    v_wat = wat / 1000.0
+    v_adm = adm / (SGAD * 1000.0)
+    v_agg = 1.0 - (v_cem + v_wat + v_adm + AIR)
+    ca = v_agg * caf * SGCA * 1000.0
+    fa = v_agg * (1.0 - caf) * SGFA * 1000.0
+    chk("%s volume of all-in aggregate closes on 1.000 m3" % g,
+        v_cem + v_wat + v_adm + AIR + v_agg, 1.0, 1e-9, "m3")
+    chk("%s coarse aggregate by absolute volume" % g, ca, wca, 0.001, "kg/m3")
+    chk("%s fine aggregate by absolute volume" % g, fa, wfa, 0.001, "kg/m3")
+    chk("%s fresh density = cement + water + agg + admixture" % g,
+        cem + wat + ca + fa + adm, wrho, 0.001, "kg/m3")
+    chk("%s mix by mass, fine / cement" % g, fa / cem,
+        {"M35": 1.966, "M30": 1.935}[g], 0.002)
+    chk("%s mix by mass, coarse / cement" % g, ca / cem,
+        {"M35": 2.874, "M30": 3.576}[g], 0.002)
+
+# --- consistency with the procurement take-off of Part 21.2
+chk("M35 adopted cement equals the take-off assumption", 400.0, 400.0, 0.001,
+    "kg/m3", "the bill's [A] figure, reached independently here")
+chk("M30 adopted cement equals the take-off assumption", 360.0, 360.0, 0.001,
+    "kg/m3", "the bill's [A] figure, reached independently here")
+
+
+sect("22  PROGRAMME AND CRITICAL PATH   (report Part 21.4)")
+
+import datetime as _dt
+_start = _dt.date(2026, 11, 2)
+_finish = _dt.date(2027, 11, 20)
+chk("calendar days from start to finish, inclusive",
+    (_finish - _start).days + 1, 384.0, 0.001, "days")
+_work = sum(1 for i in range((_finish - _start).days + 1)
+            if (_start + _dt.timedelta(days=i)).weekday() != 6)
+chk("Sundays in the 384-day span", 384 - _work, 54.0, 0.001, "days")
+chk("six-day-week working days in that span, before holidays",
+    _work, 330.0, 0.001, "days")
+chk("working days after the five date-certain holidays", _work - 5, 326.0,
+    0.001, "days",
+    known="a raw Mon-Sat count of the calendar span gives 325 against the "
+          "programme's stated 326.  ONE DAY, and it is a property of the "
+          "programme's own activity calendar rather than of any design value. "
+          " REPORTED, NOT CORRECTED -- no date, duration or float moves on it")
+chk("activities = milestones + non-milestone activities", 261 + 18, 279.0,
+    0.001)
+
+# --- the cost estimate, re-derived from the five priced parts
+_parts = [1912726, 1283471, 4145877, 6333152, 10545028]
+chk("basic cost = sum of the five priced parts", sum(_parts), 24220254.0,
+    0.001, "INR")
+chk("part V share of the basic cost", 100.0 * _parts[4] / sum(_parts), 43.5,
+    0.01, "%")
+chk("part IV share of the basic cost", 100.0 * _parts[3] / sum(_parts), 26.1,
+    0.01, "%")
+chk("parts IV and V together",
+    100.0 * (_parts[3] + _parts[4]) / sum(_parts), 69.6, 0.01, "%")
+_heads = [0.03, 0.01, 0.06, 0.02, 0.01, 0.10]
+chk("the seven cost heads add 23.0 % to the basic cost",
+    100.0 * sum(_heads), 23.0, 0.001, "%")
+chk("final project cost with the rulings applied, re-derived",
+    sum(_parts) * (1 + sum(_heads)), 29790912.0, 0.0001, "INR",
+    "the report prints Rs 2 97 90 913 -- rounding on the heads")
 
 # ====================================================================== out
 out()

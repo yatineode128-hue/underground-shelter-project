@@ -433,7 +433,7 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
         25 % above requirement, all laps staggered to <= 50 %
 
 ==============================================================================
-  14  CBRN VENTILATION   (report Parts 2.7, 14.1)
+  14  CBRN VENTILATION   (report Parts 2.7, 15.1)
 ==============================================================================
   gas-tight envelope floor area                               67.80  vs      67.80  PASS   m2
   gas-tight envelope volume                                  216.96  vs     216.96  PASS   m3
@@ -471,7 +471,7 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
         the 11.6 W quoted implies a combined fan+motor efficiency of 0.45
 
 ==============================================================================
-  15  THERMAL BALANCE   (report Parts 2.11, 14.1)
+  15  THERMAL BALANCE   (report Parts 2.11, 15.2)
 ==============================================================================
   electrical load dissipated inside the envelope              5.733  vs      5.733  PASS   kW
   occupant sensible, 9 x 70 W                                0.6300  vs     0.6300  PASS   kW
@@ -493,7 +493,7 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
   fraction rejected at 10 K and 600 m3/h                      31.59  vs      31.60  PASS   %
 
 ==============================================================================
-  16  EMP   (report Parts 2.8, 14.4)
+  16  EMP   (report Parts 2.8, 18)
 ==============================================================================
   cage SE at 1e+04 Hz                                         99.99  vs      99.99  PASS   dB
   cage SE at 1e+05 Hz                                         79.99  vs      79.99  PASS   dB
@@ -533,7 +533,7 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
   EMP Zone 2 internal volume                                  7.245  vs      7.245  PASS   m3
 
 ==============================================================================
-  17  DRAINAGE AND EXTERNAL WORKS   (report Parts 14.2, 15.1)
+  17  DRAINAGE AND EXTERNAL WORKS   (report Parts 16, 20.1)
 ==============================================================================
   submerged wall area, perimeter x depth                     265.08  vs     265.08  PASS   m2
   wetted external envelope below the GWT                     401.48  vs     401.48  PASS   m2
@@ -565,7 +565,7 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
   DN50 rising main velocity at 1.5 L/s                       0.7639  vs     0.7600  PASS   m/s
 
 ==============================================================================
-  18  ELECTRICAL AND POWER   (report Part 14.3)
+  18  ELECTRICAL AND POWER   (report Part 17)
 ==============================================================================
   connected load, sum of the schedule                         6.256  vs      6.256  PASS   kW
   connected load in kVA at pf 0.85                            7.360  vs      7.360  PASS   kVA
@@ -585,7 +585,7 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
         order-of-magnitude check only; the 2.7 kVA is EL1's own figure
 
 ==============================================================================
-  19  QUANTITIES AND COST   (report Parts 12.6, 16.3)
+  19  QUANTITIES AND COST   (report Parts 13.6, 21.2, 21.3)
 ==============================================================================
   T8  mass = unit mass x length                               5.767  vs      5.700  PASS   kg
   T10  mass = unit mass x length                              63.30  vs      63.30  PASS   kg
@@ -606,7 +606,7 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
         the revised estimate has no R-14 discrepancy
 
 ==============================================================================
-  20  REGISTER ARITHMETIC   (report Part 18)
+  20  REGISTER ARITHMETIC   (report Part 24)
 ==============================================================================
   open items: narrowed + unchanged + new                      18.00  vs      18.00  PASS   
   register rows: open + closed + moved                        35.00  vs      35.00  PASS   
@@ -615,11 +615,71 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
   sheet sizes: A1 + A4 + A0                                   80.00  vs      80.00  PASS   
 
 ==============================================================================
+  21  CONCRETE MIX DESIGN   (report Part 6.5)
+==============================================================================
+  M35 target mean strength = max(fck+1.65s, fck+X)            43.25  vs      43.25  PASS   N/mm2
+  M30 target mean strength = max(fck+1.65s, fck+X)            38.25  vs      38.25  PASS   N/mm2
+  M35 the fck + X branch does NOT govern                      41.50  vs      41.50  PASS   N/mm2
+  M30 the fck + X branch does NOT govern                      36.50  vs      36.50  PASS   N/mm2
+  M35 water at 100 mm slump, before admixture                197.16  vs     197.20  PASS   L/m3
+  M35 water after a 20 % reduction                           157.73  vs     157.76  PASS   L/m3
+        rounded UP to 158 in the report
+  M30 water at 75 mm slump, before admixture                 191.58  vs     191.58  PASS   L/m3
+  M30 water after an 18 % reduction                          157.10  vs     157.10  PASS   L/m3
+        rounded DOWN to 157 in the report
+  M35 cement = water / (w/c) at 0.40                         395.00  vs     395.00  PASS   kg/m3
+  M35 resulting free w/c at 400 kg/m3                        0.3950  vs     0.3950  PASS   
+  M30 cement = water / (w/c) at 0.44                         356.82  vs     356.82  PASS   kg/m3
+  M30 resulting free w/c at 360 kg/m3                        0.4361  vs     0.4360  PASS   
+  M35 free w/c against the 0.45 cap                           1.000  vs      1.000  PASS   
+        PASS -- 12 % inside the cap
+  M35 cement against the 340 kg/m3 minimum                    1.000  vs      1.000  PASS   
+  M35 cement against the 450 kg/m3 shrinkage maximum          1.000  vs      1.000  PASS   
+  M30 free w/c against the 0.45 cap                           1.000  vs      1.000  PASS   
+  M30 cement against the 320 kg/m3 minimum                    1.000  vs      1.000  PASS   
+  M35 CA fraction, Table 5 corrected for w/c                 0.6410  vs     0.6410  PASS   
+  M35 CA fraction after the 10 % congestion reduction        0.5769  vs     0.5770  PASS   
+  M30 CA fraction, Table 5 corrected for w/c                 0.6328  vs     0.6330  PASS   
+  M35 volume of all-in aggregate closes on 1.000 m3           1.000  vs      1.000  PASS   m3
+  M35 coarse aggregate by absolute volume                    1149.6  vs     1149.6  PASS   kg/m3
+  M35 fine aggregate by absolute volume                      786.37  vs     786.40  PASS   kg/m3
+  M35 fresh density = cement + water + agg + admixture       2497.9  vs     2498.0  PASS   kg/m3
+  M35 mix by mass, fine / cement                              1.966  vs      1.966  PASS   
+  M35 mix by mass, coarse / cement                            2.874  vs      2.874  PASS   
+  M30 volume of all-in aggregate closes on 1.000 m3           1.000  vs      1.000  PASS   m3
+  M30 coarse aggregate by absolute volume                    1287.5  vs     1287.5  PASS   kg/m3
+  M30 fine aggregate by absolute volume                      696.54  vs     696.50  PASS   kg/m3
+  M30 fresh density = cement + water + agg + admixture       2503.9  vs     2504.0  PASS   kg/m3
+  M30 mix by mass, fine / cement                              1.935  vs      1.935  PASS   
+  M30 mix by mass, coarse / cement                            3.576  vs      3.576  PASS   
+  M35 adopted cement equals the take-off assumption          400.00  vs     400.00  PASS   kg/m3
+        the bill's [A] figure, reached independently here
+  M30 adopted cement equals the take-off assumption          360.00  vs     360.00  PASS   kg/m3
+        the bill's [A] figure, reached independently here
+
+==============================================================================
+  22  PROGRAMME AND CRITICAL PATH   (report Part 21.4)
+==============================================================================
+  calendar days from start to finish, inclusive              384.00  vs     384.00  PASS   days
+  Sundays in the 384-day span                                 54.00  vs      54.00  PASS   days
+  six-day-week working days in that span, before holid       330.00  vs     330.00  PASS   days
+  working days after the five date-certain holidays          325.00  vs     326.00  KNOWN  days
+        RECORDED ALREADY: a raw Mon-Sat count of the calendar span gives 325 against the programme's stated 326.  ONE DAY, and it is a property of the programme's own activity calendar rather than of any design value.  REPORTED, NOT CORRECTED -- no date, duration or float moves on it
+  activities = milestones + non-milestone activities         279.00  vs     279.00  PASS   
+  basic cost = sum of the five priced parts               2.422e+07  vs  2.422e+07  PASS   INR
+  part V share of the basic cost                              43.54  vs      43.50  PASS   %
+  part IV share of the basic cost                             26.15  vs      26.10  PASS   %
+  parts IV and V together                                     69.69  vs      69.60  PASS   %
+  the seven cost heads add 23.0 % to the basic cost           23.00  vs      23.00  PASS   %
+  final project cost with the rulings applied, re-deri    2.979e+07  vs  2.979e+07  PASS   INR
+        the report prints Rs 2 97 90 913 -- rounding on the heads
+
+==============================================================================
   RESULT
 ==============================================================================
-  checks executed                 498
-  PASS                            494
-  KNOWN / RECORDED difference     4
+  checks executed                 543
+  PASS                            538
+  KNOWN / RECORDED difference     5
   UNEXPLAINED FAIL                0
 
   A PASS means the printed number follows from the printed inputs.
@@ -643,13 +703,18 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
      the printed expression evaluates to 186.0 -- same item as above
 
   4. owner's cost heads sum to the printed final
-     section   19  QUANTITIES AND COST   (report Parts 12.6, 16.3)
+     section   19  QUANTITIES AND COST   (report Parts 13.6, 21.2, 21.3)
      computed  2.993e+07        printed  3.003e+07
      master H.13 R-14 -- the estimate states Rs 3,00,33,306 and its own seven heads sum to Rs 2,99,33,306, exactly Rs 1,00,000 apart.  REPORTED, NOT CORRECTED, on both sides
+
+  5. working days after the five date-certain holidays
+     section   22  PROGRAMME AND CRITICAL PATH   (report Part 21.4)
+     computed  325.00        printed  326.00
+     a raw Mon-Sat count of the calendar span gives 325 against the programme's stated 326.  ONE DAY, and it is a property of the programme's own activity calendar rather than of any design value.  REPORTED, NOT CORRECTED -- no date, duration or float moves on it
 
   Master rule M.11 and the project operating guide both forbid editing
   a recorded value away.  Every difference above is an OBSERVATION
   offered to the master, not a change, and NONE of them moves a
   dimension, load, thickness, bar, quantity, rate, date or float.
 
-  Generated 2026-09-13 18:53 by Scripts/report_verify.py
+  Generated 2026-09-14 04:18 by Scripts/report_verify.py

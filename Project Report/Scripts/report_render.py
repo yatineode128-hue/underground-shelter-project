@@ -3,7 +3,7 @@ report_render.py -- renders Documentation/MASTER_PROJECT_REPORT.md to
 Project Report/MASTER_PROJECT_REPORT.pdf.
 
 Underground CBRN-hardened blast-resistant protective structure + sentry post, Pune.
-Project Report package, revision PR1.
+Project Report package, revision PR2.
 
 The report SOURCE is the Markdown file.  This script is only the typesetter:
 it adds no content, no number and no heading of its own beyond the cover page,
@@ -81,7 +81,7 @@ CODEBG = colors.Color(0.972, 0.972, 0.965)
 ACCENT = colors.Color(0.14, 0.28, 0.46)
 BAND = colors.Color(0.977, 0.980, 0.986)
 
-DOCREF = "UG-CBRN-PUNE / MASTER PROJECT REPORT / PR1"
+DOCREF = "UG-CBRN-PUNE / MASTER PROJECT REPORT / PR2"
 
 # ------------------------------------------------------------------- fonts
 FONTDIR = "/usr/share/fonts/truetype/freefont"
@@ -600,8 +600,6 @@ class Report(BaseDocTemplate):
             num, cap, key = fig
             clean = sanitize(re.sub(r"[*`]", "", cap))
             self.canv.bookmarkPage(key)
-            self.canv.addOutlineEntry("Figure %d  %s" % (num, clean[:70]),
-                                      key, 2, 1)
             self.notify("FIGEntry",
                         (0, "Figure %d   %s" % (num, clean), self.page, key))
             return
@@ -725,11 +723,11 @@ META = {
     "subject": "Design basis, engineering science, calculations, drawings, "
                "services and works management",
     "shorttitle": "MASTER PROJECT REPORT \u00b7 FRONT MATTER",
-    "footer": "Master project report · revision PR1 · "
+    "footer": "Master project report · revision PR2 · "
               "FOR REVIEW — NOT FOR CONSTRUCTION",
     "cover_rows": [
         ["Item", "State"],
-        ["Report revision", "**PR1** · 13 September 2026"],
+        ["Report revision", "**PR2** · 13 September 2026"],
         ["Architectural revision", "**Rev F**"],
         ["Structural revision", "**Phase 2 Rev A + M1**"],
         ["Design report revision (historical)", "Rev D"],
@@ -743,12 +741,17 @@ META = {
     "cover_notes": [
         "This report states the project once, in the order an engineer would "
         "need it to reproduce the design: the science first, then the site, "
-        "then the loads, then the calculations, then what is drawn, then what "
-        "is still open.",
-        "**It is a statement of the design, not a history of it.** Every value "
-        "carries the evidence class the master gives it. Where the project "
-        "does not hold a number, this report says so in the same sentence "
-        "rather than filling it in.",
+        "then the loads, then the calculations, then the openings, then what "
+        "is drawn, then the services, then how it is built — and then what is "
+        "still open.",
+        "**It is a statement of the design as it stands, not a history of how "
+        "it got there.** Every value carries the evidence class the master "
+        "gives it. Where the project does not hold a number, this report says "
+        "so in the same sentence rather than filling it in.",
+        "**Twenty-five parts, four appendices and forty-four drawn figures.** "
+        "The figures are generated from the confirmed geometry in project "
+        "coordinates. They are **not** the issued drawings and must never be "
+        "used for setting out or fabrication.",
         "**Where this report and the master disagree, the master governs.**",
     ],
 }
