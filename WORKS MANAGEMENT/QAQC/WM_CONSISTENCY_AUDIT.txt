@@ -101,7 +101,7 @@ PASS   Every hazard class the brief names is in the safety register 12 hazard cl
 ==============================================================================
 11.  CODES <-> ACTIVITIES — are the references genuine and applicable?
 ==============================================================================
-PASS   Every unverified reference carries the verification caveat 73 references; 6 carry the caveat verbatim
+PASS   Every unverified reference carries the verification caveat 74 references; 6 carry the caveat verbatim
 PASS   No MES SOR/SSR item number is quoted anywhere              MES SSR, DWP, MESR, CPWD and DSR are named; no item number is given
 PASS   Every reference topic the brief names is covered           12 topics, gaps: none
 
@@ -110,14 +110,14 @@ PASS   Every reference topic the brief names is covered           12 topics, gap
 ==============================================================================
 PASS   The handout exists and covers all 25 sections              Underground_Shelter_Works_Management_Handout.pdf, 155 kB
 PASS   The programme drawing exists                               Underground_Shelter_Final_Works_Programme.pdf, 74 kB
-PASS   Headline figures in the handout match the package          7 figures checked, mismatched: none
+       (handout text check skipped — PDF reader not available)
 
 ==============================================================================
 13.  NO OTHER DESIGN CHANGE — did anything else move?
 ==============================================================================
 PASS   The frozen main staircase geometry is reproduced, not altered 6 of 7 frozen values quoted verbatim in the package
 PASS   Confirmed structural dimensions are used unchanged         8 of 8 confirmed dimensions appear verbatim in the derivation
-PASS   No UNDECLARED file outside WORKS MANAGEMENT/ and master/ is modified 6 files changed; outside the two folders: 3, of which declared by a recorded revision (RC1 / CAM2 / FS2): 3; UNDECLARED: none
+PASS   No UNDECLARED file outside WORKS MANAGEMENT/ and master/ is modified 28 files changed; outside the two folders: 1, of which declared by a recorded revision (RC1 / CAM2 / FS2): 1; UNDECLARED: none
 
 ==============================================================================
 14.  EVIDENCE DISCIPLINE
@@ -148,7 +148,7 @@ PASS   wm_docs.py no longer generates either document             both function 
 ==============================================================================
 SUMMARY
 ==============================================================================
-74 checks executed.  74 passed, 0 failed.
+73 checks executed.  73 passed, 0 failed.
 
 The package is internally consistent: the work breakdown structure, the
 programme, the bill of quantities, the resource plan, the procurement

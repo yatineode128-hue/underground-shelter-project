@@ -1402,13 +1402,29 @@ CODES = [
     ("Measurement", "IS 1200 (Part 13):1994",
      "Methods of measurement — whitewashing, colour washing, distempering and "
      "painting of buildings", "Painting.", "[C] / edition to confirm"),
+    # --- the schedule the bill is actually priced from (WM4, 15 Sep 2026) ----
+    ("Government", "Maharashtra PWD State Schedule of Rates 2022-23 (SSR "
+     "2022-23)",
+     "Government of Maharashtra, Public Works Department, State Schedule of "
+     "Rates for the year 2022-23, approved by Government Circular RADASU-"
+     "2022/PR.KR.12/NIYOJAN-3 dated 25.07.2022, effective 25.07.2022.  624 "
+     "pages.  Supplied by the project owner.",
+     "THE RATE SOURCE FOR THE PRICED BILL (revision WM4).  Item numbers ARE "
+     "quoted, each with the SSR page it was read from — see "
+     "Cost/WM4_SSR_RATE_LIBRARY.csv.  Also governs the recapitulation heads, "
+     "the excavation depth increases, the floor-lift increases and the "
+     "cement-consumption rule used where the schedule stops publishing a "
+     "grade.", "[C] — read from the supplied PDF and verified item by item"),
     ("Government", "MES Standard Schedule of Rates (SSR), Part I — Rates and "
      "Part II — Specifications",
      "The Military Engineer Services schedule governing measurement, "
      "specification and rates for Service works.",
-     "Measurement conventions, specification clauses and rates for every item "
-     "of this BOQ. NO ITEM NUMBER IS QUOTED because none could be verified "
-     "from the material available.", "[N] — " + MES_CAVEAT),
+     "Measurement conventions and specification clauses.  NO ITEM NUMBER IS "
+     "QUOTED because none could be verified from the material available.  "
+     "SUPERSEDED AS THE RATE SOURCE by Maharashtra SSR 2022-23 (WM4, "
+     "15 Sep 2026), which the owner supplied and which can be cited item by "
+     "item.  The MES SSR entry is kept because the MEASUREMENT and "
+     "SPECIFICATION role is unchanged.", "[N] — " + MES_CAVEAT),
     ("Government", "Defence Works Procedure (DWP)",
      "The procedure governing the sanction, execution and acceptance of "
      "defence works.",
@@ -1428,9 +1444,11 @@ CODES = [
      "Quality control, measurement books and inspection procedure.",
      "[C] document exists / [N] clause numbers — " + MES_CAVEAT),
     ("Government", "Delhi Schedule of Rates (DSR)",
-     "CPWD schedule of rates used as a comparator where an MES SSR item is "
-     "not available.",
-     "Rate comparison only. NO ITEM NUMBER IS QUOTED.",
+     "CPWD schedule of rates, formerly listed as the comparator where an "
+     "MES SSR item was not available.",
+     "Rate comparison only. NO ITEM NUMBER IS QUOTED.  NOT USED: WM4 prices "
+     "the bill from Maharashtra SSR 2022-23, which is the schedule that "
+     "applies at Pune, and no DSR rate appears anywhere in this package.",
      "[N] — " + MES_CAVEAT),
 ]
 

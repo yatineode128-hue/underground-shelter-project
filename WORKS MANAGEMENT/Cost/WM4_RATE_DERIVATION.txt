@@ -1,0 +1,253 @@
+==============================================================================
+WM4 — RATE DERIVATION
+Underground CBRN-hardened protective structure + sentry post, Pune
+Works Management package revision WM4, 15 September 2026
+==============================================================================
+
+SOURCE OF EVERY RATE
+  Government of Maharashtra, Public Works Department — STATE SCHEDULE OF RATES 2022-23, approved by Government Circular RADASU-2022/PR.KR.12/NIYOJAN-3 dated 25 July 2022, effective 25 July 2022.  Supplied by the project owner as "SSR 22-23 MH (1).pdf", 624 pages.
+
+WHAT A 'COMPLETED RATE' ALREADY CONTAINS, on the SSR's own authority
+  General Notes, Section A:
+    'For labour amenities and all other overhead charges, 10 % provision
+     is considered in Rate Abstract.  In addition, 10 % provision for
+     Contractor's Profit is also considered separately.'
+    'Labour Cess at 1 % has been considered separately in Rate Abstracts.'
+    'Material Rates are exclusive of GST.  Rates for completed items are
+     also exclusive of GST.  While preparing the estimates, separate
+     provision for GST shall be made in recapitulation sheet.'
+
+  So the on-cost already inside every completed rate is
+    (1 + 0.10) x (1 + 0.10) x (1 + 0.01) = 1.2221
+  and overhead, profit and labour cess MUST NOT be added again in the
+  recapitulation.  The owner's RC1 estimate adds 10 % contractor's
+  overhead and profit on top of its own rates; against SSR rates that
+  would be a double count.  WM4 does not make it.
+
+  Every SSR concrete item reads 'including STEEL CENTERING, FORMWORK,
+  cover blocks ... (EXCLUDING reinforcement and structural steel)'.
+  So formwork is inside the concrete rate and reinforcement is not.
+
+------------------------------------------------------------------------------
+1.  HIGHER CONCRETE GRADE THAN THE SSR PUBLISHES
+------------------------------------------------------------------------------
+The SSR publishes R.C.C. pardi (wall) and staircase waist slab only to
+M-25.  The shelter box is M-35.  The SSR's own instruction, General
+Notes Section B:
+
+    'If higher Concrete grade is required for any specific work, the
+     rate analysis of the same shall be derived by adding difference in
+     standard cement consumption in relevant SSR item's rate and shall
+     be got approved from the Superintending Engineer, PWD of concerned
+     circle.'
+
+Standard cement consumption, SSR 'Consumption of Material' (bags/m3):
+    M15   6.00 bags
+    M20   7.00 bags
+    M25   7.50 bags
+    M30   8.00 bags
+    M35   8.25 bags
+    M40   8.50 bags
+
+Cement at the SSR general rate Rs 6000 / M.T. = Rs 6.00 / kg; bag = 50 kg.
+
+    uplift = d_bags x 50 kg x Rs 6.00/kg x 1.2221
+
+THE FORMULA IS VERIFIED AGAINST THE SSR'S OWN PUBLISHED STEPS.
+Where the SSR does publish consecutive grades, the difference it prints
+must equal what this formula computes:
+
+    step        formula   SSR prints (four item families)
+    M20 -> M25   183.32    183 (25.11->25.13), 184 (25.13 fnd), 183, 183
+    M25 -> M30   183.32    184 (25.15), 183 (25.35), 183, 183
+    M30 -> M35    91.66     91 (25.17), 92 (25.37), 92, 92
+
+The formula reproduces the schedule to within the rupee it rounds to.
+That is the check that makes the derived rates usable.
+
+------------------------------------------------------------------------------
+2.  DEPTH AND FLOOR-LIFT INCREASES
+------------------------------------------------------------------------------
+SSR General Notes Section B, for BUILDING works:
+    no increase
+    3.0 m to 4.50 m depth add 20 %
+    4.5 m to 6.0 m depth add 30 %
+    Depth beyond 6.0 m — extra percent to be decided by the concerned Superintending Engineer
+
+    Floor lift: ground 0 %, first 1 %, second 2 %, third 3 %, fourth 4 %
+
+THE SHELTER EXCAVATION GOES TO (-)6.800, WHICH IS PAST THE SSR's LAST
+DEFINED BAND.  The schedule hands that decision to the Superintending
+Engineer and this package does not take it: the 6.0-6.8 m band and the
+sump pit below it are priced at the 4.5-6.0 m band's +30 % as a DECLARED
+LOWER BOUND, tagged [A], and raised as open item WM4-V1.
+
+Depth model, reproducing the WM1 quantities exactly:
+    plan area = 1338.24 m3 / 6.800 m = 196.80 m2
+    mean rockhead (-)1.750  [master / SG1]
+    E-02.1      295.20 m3 @ Rs    207.00 = Rs     61106.40
+    E-02.2       49.20 m3 @ Rs    258.00 = Rs     12693.60
+    E-02.3      246.00 m3 @ Rs   1307.00 = Rs    321522.00
+    E-02.4      295.20 m3 @ Rs   1568.40 = Rs    462991.68
+    E-02.5      295.20 m3 @ Rs   1699.10 = Rs    501574.32
+    E-02.6      157.44 m3 @ Rs   1699.10 = Rs    267506.30
+    check: soil 295.20 + 49.20 = 344.40 against WM1 E-02a 344.4  OK
+    check: rock 246.00 + 295.20 + 295.20 + 157.44 = 993.84 against
+           WM1 E-02b 993.84  OK
+
+ROCK IS BROKEN, NOT BLASTED.  WM_CONSTRUCTION_METHODOLOGY.md: 'Rock is
+removed by HYDRAULIC BREAKER, not by blasting ... controlled blasting
+would require a vibration regime the project has not specified', and
+risk S-02 says the same.  So SSR 21.20 (chiselling, wedging, line
+drilling) governs and the three blasting items 21.17 / 21.18 / 21.19 —
+Rs 869, Rs 1 033 and Rs 1 322 — DO NOT APPLY TO THIS PROJECT.
+
+------------------------------------------------------------------------------
+3.  EVERY DERIVED RATE, WITH ITS ARITHMETIC
+------------------------------------------------------------------------------
+
+  PARDI_M35 = Rs 16024.97
+      SSR 26.19 R.C.C. pardi M-25 = 15750. Highest grade published for this
+      item is M-25; the box is M-35. General Notes Section B: derive by adding
+      the difference in standard cement consumption. (8.25 - 7.50) bags x 50
+      kg x Rs 6.00/kg x 1.2221 on-cost = 274.97. 15750 + 274.97 = 16024.97 /m3
+
+  PARDI_M30 = Rs 15933.32
+      SSR 26.19 R.C.C. pardi M-25 = 15750. Sentry post parapet is M-30. (8.00
+      - 7.50) bags x 50 kg x Rs 6.00/kg x 1.2221 = 183.32. 15750 + 183.32 =
+      15933.32 /m3
+
+  WAIST_M35 = Rs 12518.97
+      SSR 26.26 R.C.C. waist slab and steps of staircases M-25 = 12244.
+      Highest grade published for this item is M-25; the main staircase is
+      M-35. (8.25 - 7.50) bags x 50 kg x Rs 6.00/kg x 1.2221 = 274.97. 12244 +
+      274.97 = 12518.97 /m3
+
+  ROCK_0_3 = Rs 1307.00
+      SSR 21.20 hard rock by chiselling / wedging / line drilling, mechanical
+      = 1307. Depth below 3.0 m: no increase
+
+  ROCK_3_45 = Rs 1568.40
+      SSR 21.20 = 1307 x 1.20. Section B: '3.0 m to 4.50 m depth add 20 %'
+
+  ROCK_45_6 = Rs 1699.10
+      SSR 21.20 = 1307 x 1.30. Section B: '4.5 m to 6.0 m depth add 30 %'
+
+  ROCK_6_PLUS = Rs 1699.10
+      SSR 21.20 = 1307 x 1.30. [A] Section B stops at 6.0 m: 'Depth beyond 6.0
+      m - extra percent to be decided by concerned Superintending Engineer'.
+      NO PERCENTAGE IS INVENTED HERE. The 4.5-6.0 m band's 30 % is carried on
+      as a DECLARED LOWER BOUND so the line is not left blank; the true figure
+      can only be higher. Open item WM4-V1
+
+  M30_SLAB_FF = Rs 14441.99
+      SSR 25.74 = 14299 x 1.01. Section B floor lift: 'First floor 1 %'
+
+  M30_BEAM_FF = Rs 12761.35
+      SSR 25.54 = 12635 x 1.01. Section B floor lift: 'First floor 1 %'
+
+  PARDI_M30_FF = Rs 16092.65
+      Derived M-30 pardi 15933.32 x 1.01 (first floor lift 1 %)
+
+  BRICK_FF = Rs 8073.94
+      SSR 27.05 = 7994 x 1.01 (first floor lift 1 %)
+
+  MEMBRANE_PROT = Rs 1068.00
+      SSR 51.114 membrane 678 + SSR 51.115 20 mm protective screed 390 = 1068
+      /m2. WP-06 is specified as external-grade membrane PLUS protection
+
+------------------------------------------------------------------------------
+4.  WHAT IS INCLUDED IN ANOTHER RATE AND MUST NOT BE PAID TWICE
+------------------------------------------------------------------------------
+
+  E-02         Bulk excavation, main shelter, 0.000 to (-)6.800, all strata
+      Measured at E-02.1 to E-02.6. Plan area 196.80 m2 = 1338.24 / 6.800
+
+  E-02a          of which excavation in soil / weathered overburden
+      Memorandum. Priced at E-02.1 and E-02.2
+
+  E-02b          of which excavation in rock (Deccan basalt)
+      Memorandum. Priced at E-02.3 to E-02.6
+
+  E-08         Surplus excavated material — re-use on site as engineered fi
+      INCLUDED. Every SSR excavation item already carries removal to 50 m
+      beyond the building area and stacking as directed. Lead beyond 50 m is
+      payable under SSR Statement C-1 transportation charges and CANNOT be
+      quantified — no site plan and no spoil destination exists (Drainage D3)
+
+  R-ORD        Reinforcement ORDER quantity, all works, incl. 5 % wastage
+      PROCUREMENT MEMORANDUM, NOT A PAYABLE ITEM. SSR 26.33 is paid on the
+      weight fixed in position — 73.647 t, the sum of the twelve lines above.
+      77.33 / 1.05 = 73.648, so the two figures agree exactly. Wastage is
+      inside the SSR rate and must not be paid a second time
+
+  F-01         Formwork, shelter and entry structures, contact area
+      INCLUDED IN EVERY CONCRETE RATE ABOVE. SSR items 24.04, 25.15, 25.17,
+      25.35, 25.54, 25.74, 25.76, 26.19 and 26.26 each read 'including STEEL
+      CENTERING, FORMWORK, cover blocks'. Paying F-01 separately would pay for
+      the same formwork twice. The quantity stands as a measured control
+      figure
+
+  F-02         Falsework to the pressure slab soffit, 3.200 m height, props
+      INCLUDED, as F-01. The 14-day prop period remains a PROGRAMME driver
+      even though it is not a separately payable item
+
+  B-rubble-cr    CREDIT if the rubble is won on site and crushed, as the qu
+      MEMORANDUM, NOT DEDUCTED. 994 m3 of basalt comes out of E-02b against
+      51.4 m3 needed. The SSR labour component of 21.38 is Rs 432 against the
+      completed Rs 1 382, so winning it on site is worth about 51.445 x (1382
+      - 432) = Rs 48 873, and removes 51 m3 of import AND 51 m3 of cart-away.
+      Left in the bill at the full SSR rate because the crushing plant is not
+      in the project record
+
+  W-05         WP-02 protection screed 100 over the roof membrane (also cov
+      THE SAME WORK AS B-screed, measured in m2 instead of m3. Paid once, at
+      B-screed. 102.889 x 0.100 = 10.289 m3
+
+  SP-03        Modular burnt clay bricks class 10 to IS 1077, delivered
+      INCLUDED in SP-01 / SP-02 — SSR 27.05 is a composite supply-and-lay
+      rate. SSR general material rate for II class brick is Rs 8.50 each, so
+      this quantity carries about Rs 54 425 of material INSIDE the masonry
+      rate
+
+  SP-04        Cement for masonry mortar CM 1:6
+      INCLUDED in SP-01 / SP-02. SSR general rate Rs 6 000 / M.T. = Rs 300 /
+      bag
+
+  SP-05        Sand for masonry mortar, to IS 2116
+      INCLUDED in SP-01 / SP-02. SSR general rate, crushed sand, Rs 1 200 / m3
+
+  M-01         Cement, OPC 43 grade to IS 269, all works
+      PROCUREMENT MEMORANDUM, NOT A PAYABLE ITEM — cement is inside every
+      composite rate above. At the SSR general rate of Rs 6 000 / M.T. this
+      volume carries Rs 1 165 014 of cement INSIDE those rates
+
+  M-02         Coarse and fine aggregate to IS 383, all concrete
+      PROCUREMENT MEMORANDUM. Inside the composite rates. SSR general rates:
+      20 mm aggregate Rs 1 050 / m3, crushed sand Rs 1 200 / m3
+
+  M-03         Water for concrete, mortar and curing — site supply
+      PROCUREMENT MEMORANDUM. Curing and watering are inside every SSR item.
+      SSR general rate for water is Rs 213 / 1 000 litre
+
+------------------------------------------------------------------------------
+5.  REINFORCEMENT — NET AGAINST ORDER WEIGHT
+------------------------------------------------------------------------------
+  sum of the twelve scheduled diameters      = 73.647 t
+  WM1 order quantity including 5 %% wastage   = 77.330 t
+  77.330 / 1.05                              = 73.648 t
+  SSR 26.33 is paid on the weight FIXED IN POSITION, so the net figure
+  is the payable one and the wastage is inside the rate.
+
+==============================================================================
+TOTALS
+  priced at published SSR items                 Rs    13,823,328.00
+  priced on a stated assumption [A]             Rs     1,459,949.78
+  TOTAL OF ITEMS                                Rs    15,283,277.78
+  after the SSR recapitulation heads            Rs    15,588,943.34
+  after the owner's provision heads             Rs    17,575,769.45
+  GST at 18 % [A]                              Rs     3,163,638.50
+  ESTIMATED COST, CIVIL WORKS                   Rs    20,739,407.95
+
+  NOT PRICED, and therefore NOT in that figure: 25 bill lines.
+==============================================================================

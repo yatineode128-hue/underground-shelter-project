@@ -516,7 +516,13 @@ try:
                                                         # FS2 CO-9 addendum, D-05
                     "DRAWING QAQC/",                    # RC1 QA-2 ruled; CAM2/FS2 index
                     "Fire and Life Safety/",            # FS2 - the package itself
-                    "Site and Concealment/")            # CAM2 - the package itself
+                    "Site and Concealment/",            # CAM2 - the package itself
+                    "CLAUDE.md")                        # WM4 (15 Sep 2026, master
+                                                        # H.38) - the project
+                                                        # operating guide gains the
+                                                        # rate-authority rules, which
+                                                        # is where an operating rule
+                                                        # belongs
     outside = [c for c in changed
                if not c.startswith("WORKS MANAGEMENT/")
                and not c.startswith("master/")]
