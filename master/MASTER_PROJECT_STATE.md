@@ -6,12 +6,13 @@
 **Compiled:** 2 September 2026
 **Compiled from:** Phase 1 Design Report Rev D (126 KB, 2000 lines), ten Rev F architectural DXF files, nineteen STAAD.Pro screen captures, and the full Phase 2 structural design work.
 **Covers:** Phase 1 (architectural + basis of design, complete) and Phase 2 (structural design + drawings, substantially complete).
-**Discipline packages:** Structural CAD **SC1** · Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** · Works Management **WM1** (7 Sep 2026, Part H.10) + **WM2** (10 Sep 2026, Part H.13 — the owner's own BOQ, cost estimate and master construction schedule R0).
+**Discipline packages:** Structural CAD **SC1** · Drainage **DR1** · HVAC **HV1** · Schedule of Finishes **FN1** · Works Management **WM1** (7 Sep 2026, Part H.10) + **WM2** (10 Sep 2026, Part H.13 — the owner's own BOQ, cost estimate and master construction schedule R0) + **WM4** (15 Sep 2026, Part **H.38** — **the bill priced from the Maharashtra PWD State Schedule of Rates 2022-23**, which the owner supplied).
 **Drawing QA/QC:** **QA1** (9 Sep 2026, Part H.11) — all 65 DXF sanitised in place; **QA2** (11 Sep 2026, Part **H.25**) — the whole package re-scanned at **80 DXF, 74 PASS**, after the twelve sheets EM1 / EL1 / SG1 / SG2 added were found to be invisible to the index tool.
 **Latest design changes:** **BS1** (burster slab laid to a 1:50 crossfall) and **SP-B2** (sentry post lintel L1 + wall ties) — 10 Sep 2026, Part H.12.
 **Fire:** **FS1** (10 Sep 2026, Part H.17) — a fire safety and evacuation plan; there was none before.
 **Concealment:** **CAM1** (10 Sep 2026, Part H.16) — a short camouflage and concealment policy; it did not exist before.
 **Owner's package revised:** **WM3** (10 Sep 2026, Part H.15) — the RC1 rulings applied to the owner's own BOQ, estimate and schedule, published alongside the originals.
+**Rates:** **WM4** (15 Sep 2026, Part **H.38**) — **the project's first bill priced from a published schedule of rates.** Maharashtra PWD **SSR 2022-23**, 624 pages, supplied by the owner. **No quantity moved**; WM1's measure is used as measured. **Total of items ₹ 15,283,278**, estimated cost **₹ 20,739,408** — **CIVIL WORKS ONLY and a declared lower bound**: the blast doors, hatches, valves, NBC trains, EMP enclosure, generator, sump pumps, commissioning and waterstops **have no SSR item** and are excluded, not estimated. The owner's own rates come out **31.6 % below schedule** on the 21 lines that can be compared. Seven new open items `WM4-V1…V7`.
 **Inconsistency register:** **RC1** (10 Sep 2026, Part H.14) — **every conflict that could be decided on the evidence has been ruled**; six items that need information the project does not contain remain open in K.1b.
 **EMP:** **EM1** (10 Sep 2026, Part H.19) — the project's first EMP design. **Electrical:** **EL1** (11 Sep 2026, Part H.20) — the project's first electrical design, deliberately basic. **Rulings:** **RC2** (11 Sep 2026, Part H.21).
 **Site and ground:** **SG1** (11 Sep 2026, Part **H.22**) — **the project's first site selection and geotechnical section.** Two owner-supplied documents recorded, checked against each other and against this master. **It resolves nothing: not one `K.2` assumption is closed.** Its governing finding — **the sub-soil investigation reached about 1.5 m; the structure founds at (−)6.800** — and the first written **provenance of the design GWT (−)2.000**. Ten new open items `SG-V1…V10`.
@@ -2411,7 +2412,7 @@ selections, and the W5 gas-tight door D-05.
 | Item | Why |
 |---|---|
 | A native `.mpp` file | **Microsoft Project's `.mpp` is an undocumented binary (OLE2) format writable only by Microsoft Project itself.** Verified here against MPXJ 16.7.0 — `org.mpxj.writer.FileFormat` offers JSON, MPX, MSPDI, Planner, PMXML, XER and SDEF, and no MPP writer exists. The master programme is issued as **MSPDI**, Microsoft's own published XML schema for Project; *File → Open* then *File → Save As → Project (\*.mpp)* produces the binary in one step with nothing lost. **Not imitated, not renamed, not faked.** |
-| Rates in the BOQ | Rates come from the **MES SSR**. No item number could be verified from the material available, and inventing one would put false authority on a document an executing engineer might rely on. Every such entry carries *"To be verified against the applicable MES SOR/SSR/specification edition."* |
+| Rates in the BOQ | **AS WM1 STOOD, and the reason it stood that way:** rates come from the **MES SSR**; no item number could be verified from the material available, and inventing one would put false authority on a document an executing engineer might rely on. **SUPERSEDED BY WM4, 15 September 2026 (H.38): the owner supplied the Maharashtra PWD State Schedule of Rates 2022-23 and the bill is now priced from it, item number by item number, each with the SSR page it was read from.** The MES SSR caveat still applies to MEASUREMENT and SPECIFICATION references, which is a different role, and to the lines WM4 leaves NOT PRICED because no schedule item exists for them. |
 | Any change to A.7.8, B.8 or F.4 for the sentry post | The seismic re-check that SP-B1 implies is a **structural** matter. Direction noted (conservative), verification referred. |
 | Resolution of any master conflict | M.5 and M.6 forbid silently choosing |
 | Any STAAD work | **STAAD.Pro is not available and no analysis was run.** Reading a `.std` file is not running an analysis |
@@ -5094,6 +5095,158 @@ no deletion looks like: `[C]` 94 → 124, `[R]` 22 → 25, `[A]` 55 → 72, `[U]
 
 ---
 
+## H.38 The bill priced from the Maharashtra SSR 2022-23 — revision WM4 — 15 September 2026
+
+The project owner supplied **`SSR 22-23 MH (1).pdf`** — the Government of Maharashtra,
+Public Works Department **State Schedule of Rates for 2022-23**, approved by Government
+Circular RADASU-2022/PR.KR.12/NIYOJAN-3 dated 25 July 2022, effective from that date,
+624 pages. **WM4 prices the Works Management bill from it.**
+
+This closes a gap the project has carried since WM1. Part G's "not implemented" table
+said it in as many words: *"Rates come from the MES SSR. No item number could be verified
+from the material available, and inventing one would put false authority on a document an
+executing engineer might rely on."* An item number can now be verified for every civil
+line in the bill, so the bill is priced. **That line in Part G has been amended to say so.**
+
+### H.38.1 What changed, and what did not
+
+**NOT ONE QUANTITY MOVED.** WM1's 90 measured items are used exactly as measured. Where a
+WM1 line had to be split to reach two different SSR items — the excavation by depth band,
+the headhouse walls against its roof, the sentry beams across two levels, the painting
+into internal and external — **the parts sum back to the WM1 figure exactly**, and the
+audit checks each one. No design value, load, thickness, bar, level, date or float
+changed. No `.std` file was opened and no analysis was run. **The main staircase is
+untouched** — 24 risers, 170.8333 mm riser, 280 mm tread, 3 flights × 8, 4 100 mm rise.
+
+### H.38.2 The result
+
+| | Lines | Amount |
+|---|---:|---:|
+| Priced at a **published SSR item** | 53 | ₹ 13,823,328 |
+| Priced on a **stated assumption** `[A]` | 21 | ₹ 1,459,950 |
+| **Included** in another rate — measured, not payable twice | 15 | — |
+| **NOT PRICED** — no specification, or no SSR item | 25 | — |
+| **TOTAL OF ITEMS** | **114** | **₹ 15,283,278** |
+| **ESTIMATED COST**, after the SSR and owner recapitulation heads and GST at 18 % `[A]` | | **₹ 20,739,408** |
+
+**That figure is the CIVIL works only, and it is a declared lower bound.** The blast
+doors, exit hatches, blast valves, NBC collective protection trains, EMP Zone 2
+enclosure, standby generator, sump pumps and commissioning **have no SSR item**, and none
+is invented. Neither do the waterstops, the spiral stair, the flooring, window W1, the
+berm or the camouflage — each for a reason recorded on its own line.
+
+### H.38.3 Four things the schedule itself settled
+
+| | |
+|---|---|
+| **Overheads and profit are already in the rate** | SSR General Notes: *"For labour amenities and all other overhead charges, **10 % provision is considered in Rate Abstract**. In addition, **10 % provision for Contractor's Profit** is also considered separately"*, plus 1 % labour cess. The owner's own estimate adds 10 % OH&P **on top** of its rates; against SSR rates that is a double count, and WM4's recapitulation does not make it. The three heads are listed explicitly as **NOT ADDED**, with the clause |
+| **Formwork is already in the concrete rate** | Every SSR concrete item reads *"including **steel centering, formwork**, cover blocks ... **(excluding reinforcement and structural steel)**"*. So `F-01` (1 057.743 m²) and `F-02` (104 m²) stay as measured control figures at **nil**, and reinforcement is billed separately at SSR **26.33**. The same logic retires the sentry masonry's bricks, cement and sand (inside 27.05), the cement and aggregate procurement volumes, and **`W-05`, which is the same protection screed as `B-screed` measured in m² instead of m³** — 102.889 × 0.100 = 10.289 |
+| **A grade the schedule does not publish is derived by the schedule's own rule** | SSR pardi (wall) and staircase waist slab stop at M-25; the box is M-35. General Notes Section B: *"derived by **adding difference in standard cement consumption** in relevant SSR item's rate"*. Standard consumption M25 7.50 / M30 8.00 / M35 8.25 bags per m³, cement ₹6 000/M.T. **The formula was checked against the SSR's own published inter-grade steps in four item families before it was used** — it gives 183.32 where the SSR prints 183/184, and 91.66 where it prints 91/92. So the M-35 wall rate is ₹15,750 + ₹275 = **₹16,024.97/m³** |
+| **Excavation below 3.0 m attracts a depth increase** | *"3.0 m to 4.50 m depth add 20 %; 4.5 m to 6.0 m depth add 30 %; depth beyond 6.0 m — extra percent to be decided by concerned Superintending Engineer."* The shelter goes to (−)6.800, so the bulk excavation is billed in **six depth bands** reproducing the WM1 quantities exactly: soil 295.20 + 49.20 = 344.40 against E-02a's 344.4; rock 246.00 + 295.20 + 295.20 + 157.44 = 993.84 against E-02b's 993.84 |
+
+### H.38.4 The rock is broken, not blasted — and that decides the rate
+
+`WM_CONSTRUCTION_METHODOLOGY.md` and risk `S-02` both say it: *"Rock is removed by
+HYDRAULIC BREAKER, not by blasting ... controlled blasting would require a vibration
+regime the project has not specified."* So **SSR 21.20** — hard rock by chiselling,
+wedging and line drilling, ₹1 307 — governs, and the schedule's three blasting items
+**21.17, 21.18 and 21.19** at ₹869, ₹1 033 and ₹1 322 **do not apply to this project at
+all**. The project's own written methodology, not the estimator, picked the item.
+
+### H.38.5 The owner's rates against the schedule
+
+H.15 recorded of the owner's priced bill: *"No cost was re-estimated, no rate was checked
+against a market or a schedule of rates."* WM4 is that check. **Nothing in their bill is
+edited** — their quantities and their rates are reproduced as supplied, with the SSR rate
+beside them.
+
+Of 37 lines, **21** have an SSR item that can stand against them:
+
+| | Amount |
+|---|---:|
+| Owner's rates, comparable lines | ₹ 10,986,464 |
+| SSR 2022-23, the same lines | ₹ 14,454,895 |
+| **Difference** | **₹ 3,468,431  (+31.6 %)** |
+
+The gap is concentrated in three lines and each has a reason. **R.C.C. wall casting** is
+the largest: the owner prices every grade at one blended ₹8 640/m³, which is close to the
+SSR's **raft** rate and is being applied to **walls**, where the SSR charges ₹16 025
+because wall formwork is what the item is dear for. **Rock excavation** is second: ₹850
+blends murum and basalt and carries no depth increase. **Reinforcement** is third:
+₹78 000/t against ₹89 703/t.
+
+**A rate below schedule is a commercial position, not an error.** What did not exist
+before was the comparison.
+
+### H.38.6 Two RC4 items that were NOT PRICED now have a rate
+
+`RC4-01` and `RC4-02`, the strip-and-replace of the expansive CH horizon under the entry
+stairwell raft (8 m³ each), were recorded by the RC4 ruling as **"[A] NOT PRICED"**
+because no rate existed. One exists now: SSR **21.02** at ₹207/m³ and **21.37** at
+₹599/m³. **The ruling is untouched and the `[R]` quantity tag stays** — only the rate
+column is filled. This is not the closure of an open item; it is the supply of a
+schedule rate for a quantity the ruling already fixed.
+
+### H.38.7 Seven new open items — `WM4-V1` to `WM4-V7`
+
+None is closed here and none is guessed.
+
+| Ref | What it is | What WM4 did |
+|---|---|---|
+| **`WM4-V1`** | Excavation below 6.0 m depth — the SSR sets no percentage | Priced at +30 % as a DECLARED LOWER BOUND, tagged [A].  Every extra 10 percentage points is about Rs 21 800 on these two lines. |
+| **`WM4-V2`** | Brick class — SSR grading against IS 1077 | Priced at 27.05, second class in CM 1:6 in superstructure, which is the only published superstructure wall item and matches the specified mortar. |
+| **`WM4-V3`** | Lintel SP-06 measures a superseded section | WM4 prices the quantity AS MEASURED and does not re-measure it.  The difference is 0.51 against 0.4845 m3, about 5 %, or Rs 322. |
+| **`WM4-V4`** | No district cost index or circle variation applied | State rates are used exactly as published.  No index, uplift or discount is applied anywhere. |
+| **`WM4-V5`** | GST rate is not fixed by the schedule | 18 % is used, tagged [A], as a single parameter cell in the workbook so another rate can be tested by changing one number. |
+| **`WM4-V6`** | Tanking specification substituted | Priced at 51.114 because the MATERIAL matches — a five-layer polymeric membrane on a 90 micron HMHDPE core.  The shahabad alternative is carried in the workbook at Rs 1 286 / Rs 1 338 so the swap can be costed: it would add about Rs 400 000. |
+| **`WM4-V7`** | The protective plant is outside the schedule entirely | Listed in bill section L at nil.  The owner's own bill prices them from vendor figures at about Rs 1.05 crore; those figures are NOT SSR rates and WM4 does not adopt them. |
+
+`WM4-V1` is the one with money on it: 157.44 m³ of rock between (−)6.000 and (−)6.800
+plus the 9.477 m³ sump pit below it sit past the SSR's last defined band, priced at the
+4.5–6.0 m band's +30 % as a **declared lower bound**. Each further 10 percentage points
+is about ₹21 800.
+
+### H.38.8 What was verified, and how
+
+* **18 automated consistency checks, 18 pass** — `WORKS MANAGEMENT/QAQC/WM4_SSR_VERIFICATION.txt`.
+  They prove every split line sums back to its WM1 quantity, that the reinforcement net
+  weight is exactly the WM1 order quantity ÷ 1.05 (73.647 against 73.648 t), that no line
+  carries both a rate and an "included" marker, and that the main staircase quantity is
+  unchanged.
+* **Every rate re-read from the PDF a second time** against the raw text of its page.
+  30 of 33 matched automatically; three were checked by hand and **two were corrected**
+  (21.40 from a mis-read 7 695 to **1 454**; 39.50 from 5 716 to **5 700**). Neither
+  correction touches a priced line.
+* **All 203 workbook formulas evaluated** and shown to reproduce the bill —
+  `Scripts/wm4_verify_xlsx.py`. LibreOffice cannot open a file in this environment, so
+  the formulas were evaluated directly in Python rather than by recalculation, and the
+  workbook carries `fullCalcOnLoad` so Excel computes them on open.
+
+### H.38.9 What WM4 did NOT do
+
+**No design value, load, thickness, bar, level, evidence tag, BOQ quantity, date or float
+changed.** No drawing, model or `.std` file was touched and **no analysis was run** —
+this is a rating exercise, and editing or reading a file is not running an analysis. **No
+open item was closed, narrowed or reclassified**; seven were added. **No `[A]` or `[N]`
+tag was upgraded.** **No rate was invented** — 25 lines are NOT PRICED and stay
+that way. **No district cost index was applied** (`WM4-V4`). **The owner's bill and
+`USER_SOURCE/` are untouched.** **WM1, WM2 and WM3 are preserved unaltered** under M.11.
+**The main staircase is untouched.**
+
+### H.38.10 Files
+
+| File | What it is |
+|---|---|
+| `WORKS MANAGEMENT/Cost/WM4_Underground_Shelter_BOQ_Cost_Estimate_SSR_2022-23.xlsx` | **The workbook** — 11 sheets, every amount a live formula |
+| `WORKS MANAGEMENT/Cost/WM4_BOQ_AND_COST_ESTIMATE_SSR.md` | The narrative |
+| `WORKS MANAGEMENT/Cost/WM4_BOQ_PRICED_SSR_2022-23.csv` | The priced bill, 114 lines |
+| `WORKS MANAGEMENT/Cost/WM4_SSR_RATE_LIBRARY.csv` | Every SSR item used, in the schedule's own wording, with its printed page |
+| `WORKS MANAGEMENT/Cost/WM4_COST_SUMMARY.csv` · `WM4_OWNER_BILL_VS_SSR.csv` · `WM4_OPEN_ITEMS.csv` · `WM4_RATE_DERIVATION.txt` | Recapitulation · the owner's bill re-rated · the seven open items · every derived rate's arithmetic |
+| `WORKS MANAGEMENT/QAQC/WM4_SSR_VERIFICATION.txt` | The 18 checks and the rate-extraction audit |
+| `WORKS MANAGEMENT/Scripts/wm4_ssr_library.py` · `wm4_bill.py` · `wm4_owner_compare.py` · `wm4_build.py` · `wm4_doc.py` · `wm4_verify_xlsx.py` | The generators.  `wm_build_all.py` now runs the last two as steps 8 and 9 |
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -5186,8 +5339,10 @@ no deletion looks like: `[C]` 94 → 124, `[R]` 22 → 25, `[A]` 55 → 72, `[U]
 
 | Folder / file | Contents |
 |---|---|
+| `SSR 22-23 MH (1).pdf` | **PDF, 624 pages, 8.3 MB — USER-SUPPLIED INPUT, 15 Sep 2026.** Government of Maharashtra PWD **State Schedule of Rates 2022-23**, approved by Circular RADASU-2022/PR.KR.12/NIYOJAN-3 dt. 25.07.2022, effective 25.07.2022. **The rate source for the priced bill (WM4, H.38).** Untouched; the rates read out of it are in `WORKS MANAGEMENT/Cost/WM4_SSR_RATE_LIBRARY.csv` with the SSR page for each |
+| `WORKS MANAGEMENT/Cost/WM4_*` | **The SSR-priced bill (WM4, H.38)** — the workbook, the narrative, the priced bill, the rate library, the recapitulation, the owner's bill re-rated, the open items and every derived rate's arithmetic |
 | `WORKS MANAGEMENT/USER_SOURCE/` | **The owner's four files, unaltered** — `Underground_CBRN_Ops_Room_BOQ_Estimate.xlsx` (BOQ, rates and the cost build-up to **₹3,00,33,306**) · `BOQ_and_Works_Management_CBRN_Ops_Room.pdf` (8-page report, WBS overview, milestones) · **`UG_CBRN_HDRND_OPS_ROOM_MCS_R0.mpp`** (master construction schedule R0) · its Level-5 micro print · `README.md` |
-| `WORKS MANAGEMENT/Cost/` | **The project's cost document** — `USER_BOQ_AND_COST_ESTIMATE.md` plus `USER_BOQ_TAKEOFF.csv`, `USER_BOQ_PRICED.csv`, `USER_COST_SUMMARY.csv`, read out of the owner's workbook cell by cell. **WM1 had no rate and no cost anywhere in it** |
+| `WORKS MANAGEMENT/Cost/` | **Three cost documents, side by side.** *(1)* The owner's, as supplied — `USER_BOQ_AND_COST_ESTIMATE.md` plus `USER_BOQ_TAKEOFF.csv`, `USER_BOQ_PRICED.csv`, `USER_COST_SUMMARY.csv`, read out of their workbook cell by cell. *(2)* The owner's with the RC1 rulings applied — `REVISED_BOQ_*_RC1`. *(3)* **WM4, the project's own bill priced from Maharashtra SSR 2022-23** — `WM4_Underground_Shelter_BOQ_Cost_Estimate_SSR_2022-23.xlsx` and its CSVs. **WM1 had no rate and no cost anywhere in it; WM4 is where the rates are** |
 | `WORKS MANAGEMENT/Programme/USER_MASTER_CONSTRUCTION_SCHEDULE_R0.md` / `.csv` | **The programme of record** — all **130 activities**, ids 1–130 with no gaps, durations, dates and logic, decoded from the owner's own MS Project print. **224 working days, 02-11-2026 to 26-07-2027** |
 | `WORKS MANAGEMENT/Documentation/WM_RECONCILIATION_REGISTER.md` | **R-1 to R-14 — fourteen conflicts against this master, ALL OPEN.** Nothing reconciled in either direction |
 | `WORKS MANAGEMENT/QAQC/WM2_SOURCE_AUDIT.txt` | The owner's own arithmetic re-added. Rebar, the five part subtotals and every percentage cost head **tie up to the rupee**; the concrete total is out by **10.00 m³** and the final cost by **₹1,00,000** — R-13 and R-14, **reported not corrected** |

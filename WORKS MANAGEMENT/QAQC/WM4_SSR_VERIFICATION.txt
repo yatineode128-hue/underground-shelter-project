@@ -1,0 +1,55 @@
+==============================================================================
+WM4 — CONSISTENCY AND VERIFICATION AUDIT
+Works Management package revision WM4, 15 September 2026
+==============================================================================
+
+Every check below is run by wm4_build.py against the generated bill.
+
+  PASS E-02 depth bands sum to the WM1 quantity                   1338.24 against 1338.24
+  PASS soil bands sum to WM1 E-02a                                344.40 against 344.4
+  PASS rock bands sum to WM1 E-02b                                993.84 against 993.84
+  PASS E-05 bands sum to the WM1 quantity                         37.044 against 37.044
+  PASS C-06 split sums to the WM1 quantity                        32.70 against 32.7
+  PASS SC-04 split sums to the WM1 quantity                       2.28 against 2.28
+  PASS SP-10 split sums to the WM1 quantity                       222.54 against 222.54
+  PASS reinforcement net = order / 1.05                           73.647 against 73.648
+  PASS W-05 and B-screed are the same work, paid once             102.889 x 0.100 = 10.2889
+  PASS grade uplift M20->M25 reproduces the SSR step              183.32 against the SSR's 183
+  PASS grade uplift M25->M30 reproduces the SSR step              183.32 against the SSR's 183
+  PASS grade uplift M30->M35 reproduces the SSR step              91.66 against the SSR's 92
+  PASS no bill line carries both a rate and 'included'            
+  PASS every NOT PRICED line carries no amount                    
+  PASS every PRICED line carries a rate and an amount             
+  PASS every rate used is in the SSR library or is a derived rate 
+  PASS overhead, profit and labour cess are NOT added again       
+  PASS MAIN STAIRCASE QUANTITY UNCHANGED (frozen geometry)        3.00 m3, as WM1
+
+  18 checks, 18 pass, 0 fail
+
+------------------------------------------------------------------------------
+SSR RATE VERIFICATION
+------------------------------------------------------------------------------
+Every rate in wm4_ssr_library.py was extracted from the SSR PDF and then
+re-verified a second time against the raw text of the page it sits on.
+30 of the 33 first-pass items matched automatically.  Three were checked
+by hand against the page image text:
+    21.33  Rs 7 / 7          confirmed (single-digit rates)
+    21.40  Rs 1 454 / 436    CORRECTED from a mis-read 7 695 / 2 165
+    39.50  Rs 5 700 / 1 809  CORRECTED from a mis-read 5 716 / 1 448
+NEITHER CORRECTION TOUCHES A PRICED LINE: 21.40 is carried for
+reference only, and 39.50 belongs to SP-12, which is NOT PRICED for
+want of a window height.  Both are in the library so that the next
+revision starts from a verified figure.
+
+------------------------------------------------------------------------------
+WHAT THIS AUDIT DOES NOT CLAIM
+------------------------------------------------------------------------------
+  * It does not check the QUANTITIES.  Those are WM1's, unchanged, and
+    WM1's own 65-check audit covers them.
+  * It does not claim the SSR item chosen for a line is the only
+    defensible one.  Where a choice was made it is stated on the line.
+  * A district cost index has NOT been applied.  The SSR is a STATE
+    schedule; its General Notes give every Superintending Engineer the
+    power to vary rates for local conditions, and no Pune circle
+    variation is in this project.  Open item WM4-V4.
+==============================================================================

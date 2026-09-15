@@ -1,4 +1,5 @@
-<!-- Works Management package, revision WM1. -->
+<!-- Works Management package: WM1 (7 Sep 2026) + WM2 and WM3 (10 Sep 2026)
+     + WM4, the SSR 2022-23 priced bill (15 Sep 2026). -->
 
 # WORKS MANAGEMENT
 ## Underground CBRN-hardened blast-resistant protective structure and sentry post — Pune, Maharashtra
@@ -263,3 +264,74 @@ the same tool the original came from.
 
 Regenerate with `Scripts/wm3_revised_owner_package.py`. It reads `USER_SOURCE/` and
 derives every figure — nothing is retyped.
+
+---
+
+# REVISION WM4 — 15 September 2026 — the bill priced from the Maharashtra SSR 2022-23
+
+**WM1 carried no rate anywhere in it, on purpose.** The master says why: *"Rates come
+from the MES SSR. No item number could be verified from the material available, and
+inventing one would put false authority on a document an executing engineer might rely
+on."* The project owner has now supplied the schedule — **`SSR 22-23 MH (1).pdf`**, the
+Government of Maharashtra PWD **State Schedule of Rates 2022-23**, 624 pages, effective
+25 July 2022. Every item number can now be verified, so the bill can be priced.
+
+**WM4 changes no design value and no quantity.** It fills the rate column, and nothing
+else. The main staircase is untouched.
+
+## What WM4 adds
+
+| File | Contents |
+|---|---|
+| `Cost/WM4_Underground_Shelter_BOQ_Cost_Estimate_SSR_2022-23.xlsx` | **The workbook** — 11 sheets, every amount a live formula |
+| `Cost/WM4_BOQ_AND_COST_ESTIMATE_SSR.md` | The narrative: what the schedule settled, what it does not contain, what is still open |
+| `Cost/WM4_BOQ_PRICED_SSR_2022-23.csv` | The priced bill, **114 lines** |
+| `Cost/WM4_SSR_RATE_LIBRARY.csv` | Every SSR item used, in the schedule's own wording, with its printed page |
+| `Cost/WM4_COST_SUMMARY.csv` | The recapitulation |
+| `Cost/WM4_OWNER_BILL_VS_SSR.csv` | The owner's own bill re-rated, line by line |
+| `Cost/WM4_OPEN_ITEMS.csv` · `WM4_RATE_DERIVATION.txt` | The seven open questions, and every derived rate's arithmetic |
+| `QAQC/WM4_SSR_VERIFICATION.txt` | 18 consistency checks, and the rate-extraction audit |
+
+| | Lines | Amount |
+|---|---:|---:|
+| Priced at a published SSR item | 53 | ₹ 13,823,328 |
+| Priced on a stated assumption `[A]` | 21 | ₹ 1,459,950 |
+| Included in another rate — not payable twice | 15 | — |
+| **NOT PRICED** — no specification, or no SSR item | 25 | — |
+| **TOTAL OF ITEMS** | **114** | **₹ 15,283,278** |
+| **ESTIMATED COST after recapitulation and GST** | | **₹ 20,739,408** |
+
+## The four things the schedule settled
+
+1. **Overheads and profit are already inside every completed rate** — 10 % + 10 %, plus
+   1 % labour cess, on the SSR's own words. The owner's estimate adds 10 % on top of its
+   own rates; against SSR rates that would be a double count, and WM4 does not make it.
+2. **Formwork is already inside every concrete rate.** So `F-01` (1 057.743 m²) and
+   `F-02` (104 m²) stay as measured control figures at nil. So do the sentry post's
+   bricks, cement and sand, the cement and aggregate procurement volumes, and `W-05`,
+   which is the same protection screed as `B-screed` measured in m² instead of m³.
+3. **A grade the schedule does not publish is derived by the schedule's own rule** —
+   the cement-consumption difference. The formula was checked against the SSR's own
+   published inter-grade steps in four item families before being used.
+4. **Excavation below 3.0 m attracts the SSR's depth increases** — +20 % and +30 %. The
+   bulk excavation is billed in six depth bands that sum back to the WM1 quantities
+   exactly. And the rock is **broken, not blasted**, so SSR 21.20 governs and the three
+   blasting items do not apply to this project at all.
+
+## What WM4 does NOT do
+
+- **No rate is invented.** 25 lines are NOT PRICED because the project has no
+  specification for them, or the SSR has no item for them. The blast doors, exit hatches,
+  blast valves, NBC trains, EMP enclosure, generator, sump pumps and commissioning are
+  **not in the total**. Neither are the waterstops, the spiral stair, the flooring, the
+  window, the berm or the camouflage.
+- **No assumption is resolved.** Every `[A]` and `[N]` tag WM1 carried is carried forward.
+- **No quantity is re-measured.** Where a WM1 line is split to reach two different SSR
+  items, the parts sum back to the WM1 figure exactly, and the audit proves it.
+- **No district cost index is applied.** The SSR is a state schedule — **WM4-V4**.
+- **The owner's bill is not edited.** It is reproduced as supplied, with the SSR rate
+  beside it.
+- **Nothing is analysed.** This is a rating exercise; no `.std` file was opened.
+
+Regenerate with `Scripts/wm4_build.py` (rates in `wm4_ssr_library.py`, mapping in
+`wm4_bill.py`), then `Scripts/wm4_verify_xlsx.py` to re-check every workbook formula.

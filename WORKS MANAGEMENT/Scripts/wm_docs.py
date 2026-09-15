@@ -1549,6 +1549,34 @@ confirmed before either is relied on.
 | `WM-V11` | Wall tie detail between the sentry post masonry and the columns | ~~No detail exists in the project~~ — **6 mm MS ties at every fifth course, SP-B2, master A.4.8** | **CLOSED by SP-B2**, 10 Sep 2026 |
 | `WM-V12` | Opening heights for the W8 partition doors (900 gap confirmed, head height not stated) | 2100 assumed, consistent with every other door in the project | **CLOSED by RC1**, 10 Sep 2026, master K.1c — **2100**, the project's own convention |
 
+
+## Part 1a — Items revision WM4 raised, 15 September 2026
+
+Pricing the bill from the Maharashtra PWD **State Schedule of Rates 2022-23** raised
+seven questions that the schedule, the project record, or both, leave open. **None is
+closed here and none is guessed.** The full entries, including what would close each
+one, are in `Cost/WM4_OPEN_ITEMS.csv`.
+
+| Ref | Item | What WM4 did | Status |
+|---|---|---|---|
+| `WM4-V1` | Excavation below 6.0 m depth — the SSR sets no percentage | Priced at +30 % as a DECLARED LOWER BOUND, tagged [A].  Every extra 10 percentage points is about Rs 21 800 on these two lines. | **OPEN** — A determination by the Superintending Engineer, PWD, Pune circle |
+| `WM4-V2` | Brick class — SSR grading against IS 1077 | Priced at 27.05, second class in CM 1:6 in superstructure, which is the only published superstructure wall item and matches the specified mortar. | **OPEN** — Confirmation that 27.05 is the correct billing item for class 10 bricks |
+| `WM4-V3` | Lintel SP-06 measures a superseded section | WM4 prices the quantity AS MEASURED and does not re-measure it.  The difference is 0.51 against 0.4845 m3, about 5 %, or Rs 322. | **OPEN** — A re-measure, which belongs to the package that owns the quantity, not to a rating exercise |
+| `WM4-V4` | No district cost index or circle variation applied | State rates are used exactly as published.  No index, uplift or discount is applied anywhere. | **OPEN** — The Pune circle's current variation order, if one exists |
+| `WM4-V5` | GST rate is not fixed by the schedule | 18 % is used, tagged [A], as a single parameter cell in the workbook so another rate can be tested by changing one number. | **OPEN** — The applicable works-contract GST rate for this employer |
+| `WM4-V6` | Tanking specification substituted | Priced at 51.114 because the MATERIAL matches — a five-layer polymeric membrane on a 90 micron HMHDPE core.  The shahabad alternative is carried in the workbook at Rs 1 286 / Rs 1 338 so the swap can be costed: it would add about Rs 400 000. | **OPEN** — A decision on which specification is being bought |
+| `WM4-V7` | The protective plant is outside the schedule entirely | Listed in bill section L at nil.  The owner's own bill prices them from vendor figures at about Rs 1.05 crore; those figures are NOT SSR rates and WM4 does not adopt them. | **OPEN** — Vendor quotations, and the Superintending Engineer's approval of the resulting non-schedule rates |
+
+`WM4-V1` is the one that moves money: 157.44 m3 of rock between (-)6.000 and (-)6.800
+plus the 9.477 m3 sump pit below it sit past the last depth band the SSR defines, and
+the schedule hands that percentage to the Superintending Engineer. Every further 10
+percentage points is about Rs 21 800 on the two lines.
+
+`WM4-V7` carries the most money and is not a rate question at all: the blast doors,
+exit hatches, blast valves, NBC trains, EMP enclosure, generator, sump pumps and
+commissioning have **no SSR item**. They are excluded from the SSR-based total, not
+estimated into it.
+
 ## Part 2 — Programme assumptions
 
 | Ref | Assumption |

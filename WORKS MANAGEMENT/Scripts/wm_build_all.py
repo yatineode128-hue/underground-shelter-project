@@ -34,6 +34,9 @@ STEPS = [
     ("Works Management handout", "wm_handout_pdf.py", None),
     ("Final consistency audit", "wm_audit.py",
      os.path.join(ROOT, "QAQC", "WM_CONSISTENCY_AUDIT.txt")),
+    # --- revision WM4: the bill priced from Maharashtra SSR 2022-23 ---------
+    ("WM4 SSR-priced bill, workbook and registers", "wm4_build.py", None),
+    ("WM4 workbook formula verification", "wm4_verify_xlsx.py", None),
 ]
 
 

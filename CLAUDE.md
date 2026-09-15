@@ -22,6 +22,22 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   Ask. Do not convert one into a confirmed fact, and do not delete or downgrade a tag.
 - Label anything you produce with the same classes.
 
+## Rates
+
+- **`SSR 22-23 MH (1).pdf` in the project root is the rate authority.** Maharashtra PWD
+  State Schedule of Rates 2022-23, 624 pages, supplied by the owner. Every rate in the
+  package is a published SSR item, or is derived from one **by a method the SSR itself
+  prescribes** with the arithmetic recorded. **Never invent a rate.** If the schedule has
+  no item, say so and leave the line NOT PRICED — the SSR's own instruction is that such
+  rates are approved by the Superintending Engineer.
+- **An SSR "completed rate" already contains 10 % overheads, 10 % contractor's profit,
+  1 % labour cess, and — for concrete — its formwork and centering.** Never add any of
+  them again. Reinforcement is the exception: it is explicitly excluded from the concrete
+  rates and is billed at SSR 26.33.
+- The rate library is `WORKS MANAGEMENT/Scripts/wm4_ssr_library.py`, the mapping is
+  `wm4_bill.py`, and every output regenerates with `wm4_build.py`. **Read those before
+  changing any rate**, and re-run `wm4_verify_xlsx.py` afterwards.
+
 ## Current state
 
 - Structural revision: **Phase 2 Rev A + M1**. Architectural Rev F. Report Rev D.
@@ -31,8 +47,12 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revisions: **MS2** (STAAD input files, H.26) · **QA2** (drawing package re-scan,
-  H.25) · **RC3** (project-wide reconciliation, H.27), all 11 Sep 2026.
+- Latest revision: **WM4** (15 Sep 2026, master **H.38**) — **the Works Management bill priced
+  from the Maharashtra PWD State Schedule of Rates 2022-23**, the 624-page `SSR 22-23 MH (1).pdf`
+  the owner supplied. **No quantity moved.** Seven new open items **WM4-V1…V7**.
+  Before it: **PR2** (master project report, H.37, 13 Sep) · **DR-A2** (H.35) · **RC10** (H.34)
+  and the RC4…RC9 ruling series (H.28–H.33), 11–12 Sep · **MS2** (STAAD input files, H.26) ·
+  **QA2** (drawing package re-scan, H.25) · **RC3** (project-wide reconciliation, H.27), 11 Sep 2026.
 
 ## Frozen — do not touch
 

@@ -1,0 +1,17 @@
+Block,Head,Basis,Rate,Amount (Rs),Source / note
+A,"Total of items — SSR 2022-23 completed rates, excl. GST",sum of the priced bill,,15283277.78,this bill
+A,Insurance of project / work facility,1.00 % — work value above Rs 25.00 lakh,0.01,152832.78,SSR General Notes Section B (i) A
+A,Labour insurance,1.00 % — work value above Rs 25.00 lakh,0.01,152832.78,SSR General Notes Section B (i) B
+A,Material testing charges,"SSR chapter 18, Testing Charges and Frequency of Test",,,NOT QUANTIFIED — the test schedule is priced per test and the frequencies depend on delivered lot sizes
+A,"SUB-TOTAL — SSR recapitulation, before GST",,,15588943.34,
+B,Contingencies,3 % of the item total,0.03,458498.33,"Project owner's own provision structure, carried from their RC1 estimate.  NOT part of the schedule of rates"
+B,Water and electricity provisions,1 % of the item total,0.01,152832.78,"Project owner's own provision structure, carried from their RC1 estimate.  NOT part of the schedule of rates"
+B,Specialist CBRN / EMP and engineering consultant,6 % of the item total,0.06,916996.67,"Project owner's own provision structure, carried from their RC1 estimate.  NOT part of the schedule of rates"
+B,Site supervision and quality assurance,2 % of the item total,0.02,305665.56,"Project owner's own provision structure, carried from their RC1 estimate.  NOT part of the schedule of rates"
+B,Statutory clearances and liaisoning,1 % of the item total,0.01,152832.78,"Project owner's own provision structure, carried from their RC1 estimate.  NOT part of the schedule of rates"
+B,SUB-TOTAL — before GST,,,17575769.45,
+C,GST on works contract,18 % [A],0.18,3163638.5,SSR requires a separate provision in the recapitulation sheet but does NOT fix the rate — tagged [A]
+C,ESTIMATED COST — civil works priced from SSR 2022-23,,,20739407.95,EXCLUDES every NOT PRICED item — see the exclusions register
+D,Contractor's overhead — NOT ADDED,10 %,,,"ALREADY INSIDE EVERY SSR COMPLETED RATE.  General Notes: 'For labour amenities and all other overhead charges, 10 % provision is considered in Rate Abstract'"
+D,Contractor's profit — NOT ADDED,10 %,,,"ALREADY INSIDE EVERY SSR COMPLETED RATE.  General Notes: 'In addition, 10 % provision for Contractor's Profit is also considered separately'"
+D,Labour cess — NOT ADDED,1 %,,,"ALREADY INSIDE EVERY SSR COMPLETED RATE.  General Notes, Govt. Circular SSR-1090/CR-6453/PLN-3 dt. 14.07.1993: 'Labour Cess at 1 % has been considered separately in Rate Abstracts'"
