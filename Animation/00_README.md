@@ -29,6 +29,33 @@ black on its own.
 If the machine is slow, press `Q` before recording and pin a fixed render scale — an even
 70 % records better than an adaptive scale that steps mid-shot.
 
+## Rendering it to MP4
+
+```
+Animation/Scripts/an1_record_all.sh              # 1280x720, 30 fps
+Animation/Scripts/an1_record_all.sh 1920 1080 30 # 1080p
+```
+
+Writes `Output/AN1_UNDERGROUND_CBRN_OPS_ROOM.mp4` (H.264, silent). Needs
+Playwright and an ffmpeg built with libx264 — `pip install imageio-ffmpeg`
+supplies one.
+
+**The video is a build artefact and is not tracked in git** — it is regenerable
+from the committed sources, and at 60–100 MB it would bloat every clone.
+
+It is rendered **frame by frame, deterministically**: frame *i* is
+`stateAt(i / fps)`, not a wall-clock screen capture, so the output plays at a
+true 30 fps no matter how slowly the machine produced it, and is identical on
+every run. **One worker, not several** — with no GPU a single headless Chromium
+already drives SwiftShader at ~350 % CPU and saturates four cores; four workers
+measured *slower* than one. Budget roughly 95 minutes for 720p30 on a CPU-only
+box, minutes on a machine with a real GPU.
+
+> **Prefer the HTML at the presentation.** The MP4 is a fixed 6:22 recording;
+> the page lets you pause on the load path, jump back to EMP Zone 2 when an
+> examiner asks, and fills any projector without re-rendering. Keep the MP4 as
+> the fallback for a machine you do not control.
+
 ## Rebuilding it
 
 ```

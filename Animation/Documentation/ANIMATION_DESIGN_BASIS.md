@@ -266,6 +266,26 @@ the load path or Zone 2 again.
 capture with OBS Studio, the Windows Game Bar (`Win`+`G`), or QuickTime on macOS. Record at
 1920 × 1080 or better. Let it run the full 6 min 22 s; it fades to black on its own.
 
+**Or render it to MP4 directly**, which is better than screen capture and needs no operator:
+
+```
+Animation/Scripts/an1_record_all.sh              # 1280x720, 30 fps, silent
+Animation/Scripts/an1_record_all.sh 1920 1080 30 # 1080p
+```
+
+Frame *i* is `stateAt(i / fps)` — the recorder sets the animation's clock, renders once,
+captures, advances. It is **not** a wall-clock capture, so the file plays at a true 30 fps
+however slowly it was produced, and is byte-stable across runs. Frames are piped straight into
+ffmpeg, so nothing but the output lands on disk.
+
+**One worker, not several.** With no GPU the page renders on SwiftShader and a single headless
+Chromium already runs at about **350 % CPU** — it saturates four cores by itself. Measured here:
+**one worker 1.99 fps; four workers, load average 13–16 and a lower total rate.** Budget about
+**95 minutes for 720p30** on a CPU-only box; minutes on a machine with a real GPU.
+
+The rendered video is a **build artefact and is not tracked in git** — regenerable from the
+committed sources, and at 60–100 MB it would bloat every clone.
+
 **Presenting.** Run it live rather than from a recording if the machine allows — pausing on the
 load path or Zone 2 to answer a question is worth more than a fixed film.
 
