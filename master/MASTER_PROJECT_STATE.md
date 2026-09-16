@@ -5669,6 +5669,152 @@ text-sizing bug in the shared library fixed and verified not to regress the othe
 
 ---
 
+## H.42 A2 services presentation sheets — revision MEP1 — 16 September 2026
+
+> **Two more A2 sheets in the `ARCH001…ARCH005` series, the first of them for SERVICES rather
+> than structure: `MEP010` SHEET 10 (HVAC and EMP zone layout plans) and `MEP011` SHEET 11
+> (septic tank, soak pit and sump pit — plans, sectional elevations and schedules).**
+> **NO DESIGN VALUE MOVED, NO ANALYSIS WAS RUN, AND STAAD.Pro WAS NOT OPENED.** MEP1 is a
+> drawing package: it re-presents values the project already holds, in the owner's A2 frame.
+
+### H.42.1 What was asked, and how the request was split
+
+The instruction asked for A2 sheets *"with a similar layout as uploaded files… the same feel
+and clarity"* (`Project1.pdf`, the five-sheet Revit A2 architectural set), carrying the HVAC
+layout with the blast valves and the sump pit, an EMP zone layout with its schedules, and
+cross-sectional elevations of the septic tank, soak pit and sump pit with schedules and
+reinforcement — **dark colours only, mostly black; no design-basis panel; no calculation
+tables; and nothing on the face about revisions, phases or open items.** Two clarifications
+were given while the work was in progress and both are implemented as given:
+
+1. *"Indicate the location of septic and sump pit in the layout scaled away from it towards
+   opposite side of sentry post properly."* → the **key plan, view 7 of MEP011**, 1 : 500, at
+   true project X and Y.
+2. *"Make sheet 11 in which you can show plan and elevation of septic tank soak pit and sump
+   pit… let sheet 10 only have hvac and EMP."* → the external works layout was **moved off
+   SHEET 10 entirely**; SHEET 10 is HVAC and EMP, and each of the three structures on SHEET 11
+   is drawn **twice — once in plan and once as a cross-sectional elevation.**
+
+### H.42.2 What was produced — all under `Presentation Sheets/`
+
+| Sheet | Drawing No. | Views |
+|---|---|---|
+| **SHEET 10** | **`MEP010`** | 1 HVAC services layout plan, underground level (−)6.100, 1 : 100 · 2 EMP zone layout plan, same level, 1 : 100 · 3 EMP Zone 2 enclosure, plan and section, 1 : 30 · 4 protective ventilation schematic, filter train and cascade |
+| **SHEET 11** | **`MEP011`** | 1 sump pit SU-01 reinforcement plan 1 : 35 · 2 sump pit SU-01 sectional elevation A-A 1 : 35 · 3 septic tank ST-01 plan 1 : 30 · 4 septic tank ST-01 sectional elevation 1 : 30 · 5 soak pit SK-01 plan 1 : 50 · 6 soak pit SK-01 sectional elevation 1 : 50 · 7 key plan, external works location, 1 : 500 |
+
+Schedules on MEP010: HVAC equipment · blast valve and gas-tight damper · EMP zone · envelope
+penetration register · EMP Zone 2 point-of-entry. On MEP011: sump, pump and tank · structural
+element · **bar-mark schedule for SU-01** · external drainage structure · external pipe.
+
+New files: `Scripts/mep_data.py` (the single value source for both sheets),
+`Scripts/s10_hvac_emp_layout.py`, `Scripts/s11_drainage_structures.py`, two `DXF/` and two
+`PDF/`. **`a2_lib.py`, `sheet_data.py`, `sentry_data.py` and the four STR sheets are NOT
+touched** — the two services layer tables are added to each new document at build time rather
+than to `a2_lib.LAYERS`, precisely so that STR006…STR009 cannot move.
+
+### H.42.3 Provenance — nothing on either sheet is invented
+
+* **HVAC** — `HVAC/Scripts/hv_data.py`: the five blast valves at their parsed S-06 positions,
+  the two NBC trains, the plenum, the generator air shaft, the ducts, terminals, dampers and
+  the filter train.
+* **EMP** — `EMP Protection/Scripts/em_proj.py`: the three-zone model (adopted at RC2), the
+  Zone 2 enclosure, the envelope penetration register, the bonding rule and the PoE set.
+* **Drainage** — `Drainage/Scripts/dr_data.py` and `mep_proj.py`: SU-01, the pumps and their
+  control levels, ST-01, SK-01…SK-04, IC-01/IC-02 and the external pipe runs.
+* **Geometry and levels** — Parts A.3, A.4, A.5, A.6 through `mep_proj`.
+* **Reinforcement** — Part **F.1** and `Structural CAD/Scripts/rebar_data.py`. The four sump
+  marks **F10, F11, F12 and F13** are read straight out of the register, so a mark cannot be
+  tagged on a view without a schedule row.
+* **The site layout** — Part **H.23** (SG2's positioned external works) and **H.35** (the
+  A-301 key plan), transcribed, not re-derived.
+
+### H.42.4 Six things the project does not hold, and what the sheets do instead
+
+**No `[UNRESOLVED]`, `[ASSUMED]` or `[NOT AVAILABLE]` item was converted, and nothing was
+guessed to fill a gap.** Because the instruction was that the sheets must not carry open-item
+text, each gap is handled by **not drawing** the thing the project does not have, and is
+recorded here instead:
+
+| Ref | The gap | What MEP010 / MEP011 do |
+|---|---|---|
+| **`MEP1-F1`** | **SH-1, the fresh-air shaft, has no plan position** (`SG2-F4`). | Drawn as a **direction arrow only** at the west wall, with the note *"FA-1 ENTERS FROM THE SH-1 FRESH-AIR SHAFT, WEST OF THE BOX"*. **No coordinate is drawn for it.** |
+| **`MEP1-F2`** | **ST-01, the SK cover slabs and the inspection chambers have NO reinforcement anywhere in this project.** | **No bar is drawn in them and none is scheduled.** The structural element schedule reads *"TO THE STR ENGINEER'S DETAIL"* and title-block note 8 says so on the face. Only SU-01, which Part F.1 does schedule, is detailed. |
+| **`MEP1-F3`** | **ST-01 has no recorded level** (`H.24`). | View 4 is drawn **relative to local finished grade** and carries **no absolute level at all**. |
+| **`MEP1-F4`** | **SK-03 and SK-04 have a reserved footprint and no recorded size** (`H.23`). | Drawn **dashed as reserved footprints** on the key plan; the size column reads `-`. |
+| **`MEP1-F5`** | **FA-2 / FA-3 and PD-06 / PD-11 / PD-13 have lengths but no fixed route.** | FA-2 / FA-3 are drawn with a single dog-leg on MEP010 and labelled with the confirmed 11.2 m. **PD-06, PD-11 and PD-13 are NOT drawn on MEP011's key plan at all** — only `PD-16`, whose two ends the project fixes (X 37500 → 42900 on Y 16000 = the 5400 IS 2470 offset). They appear in the pipe schedule with their scheduled lengths. |
+| **`MEP1-F6`** | **The SU-01 cover is `[ASSUMED]` and unspecified** (`DR-A2-V1`). | Drawn as **one diagrammatic line** at (−)6.100 across the 1500 opening, tagged `SU-01 COVER`, implying no thickness — exactly as A-202 draws it. Nothing is scheduled for it. |
+
+### H.42.5 `MEP1-F7` — the key plan depends on which sentry-post assumption holds
+
+The request was that the septic tank and the soak pits read as standing **away from the
+shelter, on the opposite side from the sentry post**. **On the key plan they do** — the
+external works reserve is at `Y 6500 – 17500` and ST-01 / SK-01 sit on `Y 16000`, **10 400
+north of the sentry post's north face** — **but only because the key plan uses the EAST
+sentry-post position, `X 32000 – 36000, Y 600 – 5600`**, the one RC4 ruled and DR-A2 drew on
+the A-301 key plan (`H.35`).
+
+**`U4` is still open and `DR-A1-F1` still stands:** SG2's own clearance run assumed the post
+**north**, at `X 9000 – 13000, Y 15250 – 20250`. **If that placement turns out to be the real
+one, the post and the external works are on the SAME side and this key plan's geometry is
+wrong** — not the dimensions, which are transcribed, but the relationship the sheet is being
+asked to show. **Recorded, not resolved. Neither placement is a survey and MEP1 does not rule
+between them.**
+
+### H.42.6 The colour and legibility rules the instruction set, and how they were met
+
+*"Do not use light colours… use dark colours only… mostly black"* and *"neat without any
+overwriting"* are both **measured, not asserted**:
+
+* **Four ACI colours only — 7 black, 8 dark grey, 1 dark red, 5 dark blue** — on both sheets,
+  including the thirteen services layers MEP010 adds and the six MEP011 adds. `qa_overlap.py`'s
+  non-dark-layer census reports **0** on both.
+* **0 text overlaps, 0 near-touches at 2 %, 0 text below the 1.70 mm floor, 0 text outside the
+  inner frame** on both sheets, measured with the same `ezdxf.bbox` call the project auditor
+  `dxfqa.py` uses. Every table is sized with the font metrics `ezdxf` places it with.
+* **No design-basis panel, no calculation table, and no revision, phase or open-item text
+  appears anywhere on either sheet.** `mep_data.IDENTITY` carries the same four
+  site-description lines SR1A left on STR006 / STR007 and **no revision line**.
+
+### H.42.7 Registration with the QA tools — the H.25 rule, obeyed
+
+`Presentation Sheets/DXF/` was already in `qa_report_data.DISCIPLINE`, but it maps to
+*"STRUCTURAL - A2 presentation sheets"*, which these two sheets are not. A **filename-prefix
+entry** `("Presentation Sheets/DXF/MEP", "MEP - A2 presentation sheets")` was inserted **ahead**
+of it — the lookup takes the first match — and the same label added to `make_index.ORDER`;
+`MEP010` and `MEP011` were added to `TITLE_OVERRIDE` because the Revit-style title block stacks
+the title over four or five lines and there is no single text to read. **Both tools re-run:
+`DRAWING_INDEX.md` and `qa_index.json` now carry 86 drawings, 80 PASS — up from 84 / 78 — and
+MEP010 and MEP011 both report PASS.** The four STR rows are byte-identical.
+
+### H.42.8 Verified after the change, and how
+
+* `qa_overlap.py` on both sheets: **0 / 0 / 0 / 0** — overlaps, near-touches, sub-floor text,
+  text outside the frame — and **0 non-dark layers**.
+* `qa_report_data.py` + `make_index.py` re-run: **86 drawings, 80 PASS**; **MEP010 383 texts,
+  MEP011 342 texts**, both **A2**, both **PASS**.
+* Both PDFs measured with `pdfinfo`: **1683.78 × 1190.55 pt — the same page box as
+  `Project1.pdf` itself**, so they plot 1 : 1 on the owner's own sheet.
+* **`git status` confirms STR006, STR007, STR008 and STR009 — DXF, PDF and their generators —
+  are UNCHANGED**, as are `a2_lib.py`, `sheet_data.py` and `sentry_data.py`. The only edited
+  files outside the new ones are `qa_report_data.py` and `make_index.py` (registration, five
+  added lines) and the two regenerated QA outputs.
+* **Main staircase: UNTOUCHED.** 24 risers at 170.8333, tread 280, 3 flights × 8, total rise
+  4100, well 200, waist 200, headroom 2533. It is **not drawn on either sheet**, no file MEP1
+  adds reads or writes `sc_proj.STAIR`, and `STR007`, which does detail it, is byte-identical.
+
+### H.42.9 What MEP1 did NOT do
+
+**No design value, load, duty, thickness, level, bar, spacing, quantity, rate, date or float
+changed.** SU-01, ST-01, SK-01 and the Zone 2 enclosure were **not re-sized**. No `.std` file
+was touched and **STAAD.Pro was not run** — nothing here is an analysis. **No evidence tag was
+converted, downgraded or deleted**, and no `[U]` or `[N]` item was drawn as though it were
+confirmed. The HVAC, EMP Protection and Drainage packages are **not modified** — MEP1 reads
+their data modules and writes nothing back to them. **K.1b is not edited and no count is
+restated**; MEP1's findings are `MEP1-F1` … `MEP1-F7` above, and they are findings, not new
+information gaps — every gap they name is already recorded in Part K or in an earlier Part H.
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)

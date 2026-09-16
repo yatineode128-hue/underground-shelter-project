@@ -3,7 +3,7 @@
 Generated from the DXF files themselves by `DRAWING QAQC/Scripts/qa_report_data.py`
 and `make_index.py`, so it cannot drift from the drawings.
 
-**84 DXF · 75 A1 · 4 A4 · 4 A2 · 1 A0.**  Drafting QA/QC baseline **QA1** (9 September 2026, master H.11), re-scanned at **QA2** (11 September 2026, master H.25).  The FIRE AND LIFE SAFETY and SITE AND CONCEALMENT sheets were added at **FS2 / CAM2**, and the EMP PROTECTION, ELECTRICAL and SITE SELECTION AND GEOTECHNICAL sheets at **EM1 / EL1 / SG1 / SG2**, all after the QA1 pass and all drawn to the same standard.
+**86 DXF · 75 A1 · 6 A2 · 4 A4 · 1 A0.**  Drafting QA/QC baseline **QA1** (9 September 2026, master H.11), re-scanned at **QA2** (11 September 2026, master H.25).  The FIRE AND LIFE SAFETY and SITE AND CONCEALMENT sheets were added at **FS2 / CAM2**, and the EMP PROTECTION, ELECTRICAL and SITE SELECTION AND GEOTECHNICAL sheets at **EM1 / EL1 / SG1 / SG2**, all after the QA1 pass and all drawn to the same standard.
 
 > **Filenames are deliberately unchanged.** Master Parts E.2 and I.1 and every
 > document in this project cite the current filenames, and the QA/QC brief requires
@@ -143,6 +143,20 @@ and `make_index.py`, so it cannot drift from the drawings.
 - `STR007` — `Presentation Sheets/DXF/STR007_Structural_Reinforcement_Detailing_Shear_Wall_and_Main_Staircase.dxf`
 - `STR008` — `Presentation Sheets/DXF/STR008_Structural_Reinforcement_Detailing_Sentry_Post_Beams_and_Column.dxf`
 - `STR009` — `Presentation Sheets/DXF/STR009_Structural_Reinforcement_Detailing_Sentry_Post_Footing_and_Slab.dxf`
+
+</details>
+
+## MEP - A2 presentation sheets  (2)
+
+| Drawing No. | Title | Scale | Size | Texts | Final QA |
+|---|---|---|---|---|---|
+| **MEP010** | HVAC AND EMP ZONE LAYOUT PLANS - UNDERGROUND LEVEL | - | A2 | 383 | PASS |
+| **MEP011** | SEPTIC TANK, SOAK PIT AND SUMP PIT - PLANS, SECTIONS AND SCHEDULES | - | A2 | 342 | PASS |
+
+<details><summary>filenames</summary>
+
+- `MEP010` — `Presentation Sheets/DXF/MEP010_HVAC_and_EMP_Zone_Layout_Plans.dxf`
+- `MEP011` — `Presentation Sheets/DXF/MEP011_Septic_Tank_Soak_Pit_and_Sump_Pit_Plans_Sections_and_Schedules.dxf`
 
 </details>
 
@@ -310,7 +324,7 @@ and `make_index.py`, so it cannot drift from the drawings.
 
 ---
 
-**Package QA result — 84 drawings, 78 PASS, 6 REVIEW REQUIRED, 12 residual items in total.**
+**Package QA result — 86 drawings, 80 PASS, 6 REVIEW REQUIRED, 12 residual items in total.**
 
 Every REVIEW item is a single annotation still crossing a dimension or a wall line
 in a dense zone of a section or plan. Each one is named individually in

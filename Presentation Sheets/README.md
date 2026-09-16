@@ -1,8 +1,9 @@
-# Presentation Sheets — A2 structural series, revisions SR1 through SR2A
+# Presentation Sheets — A2 series, revisions SR1 through MEP1
 
-Four A2 structural reinforcement sheets drawn in the layout and title block of the
-supplied Revit A2 architectural set (`ARCH001 … ARCH005`, `Project1.pdf`), so that they
-read as the next four sheets of that same series.
+**Six A2 sheets** drawn in the layout and title block of the supplied Revit A2 architectural
+set (`ARCH001 … ARCH005`, `Project1.pdf`), so that they read as the next six sheets of that
+same series: **four structural** (SHEET 06 … SHEET 09, revisions SR1 / SR1A / SR2 / SR2A) and
+**two services** (SHEET 10 and SHEET 11, revision MEP1).
 
 **SR1 — the underground structure**
 
@@ -41,6 +42,44 @@ read as the next four sheets of that same series.
 |---|---|---|---|
 | **SHEET 08** | **STR008** | STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST — BEAMS & COLUMN | 1 first-floor framing plan 1:50 · 2 beam B1 longitudinal section 1:40 · 3 beam B2 longitudinal section 1:40 · 4 sections a-a/b-b (B1), c-c/d-d (B2), 3-3 (C1 confining zone), 4-4 (C1 general) 1:10 · 5 column C1 vertical section, full height, 1:25 |
 | **SHEET 09** | **STR009** | STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST — FOOTING & SLAB | 1 slab S1 bottom reinforcement plan 1:40 · 2 slab S1 top reinforcement plan (400 edge bands + 700 × 700 corner torsion mats) 1:40 · 3 slab S1 longitudinal section 2-2 1:25 · 4 isolated footing F1 reinforcement plan 1:20 · 5 isolated footing F1 section 1-1 1:20 |
+
+**MEP1 — the services sheets.  No design value moved and no analysis was run.**
+
+| Sheet | Drawing No. | Title | Views |
+|---|---|---|---|
+| **SHEET 10** | **MEP010** | HVAC & EMP ZONE LAYOUT PLANS — UNDERGROUND LEVEL | 1 HVAC services layout plan (−)6.100 1:100 · 2 EMP zone layout plan (−)6.100 1:100 · 3 EMP Zone 2 enclosure, plan and section, 1:30 · 4 protective ventilation schematic, filter train and cascade |
+| **SHEET 11** | **MEP011** | SEPTIC TANK, SOAK PIT & SUMP PIT — PLANS, SECTIONS & SCHEDULES | 1 sump pit SU-01 reinforcement plan 1:35 · 2 sump pit SU-01 sectional elevation A-A 1:35 · 3 septic tank ST-01 plan 1:30 · 4 septic tank ST-01 sectional elevation 1:30 · 5 soak pit SK-01 plan 1:50 · 6 soak pit SK-01 sectional elevation 1:50 · 7 key plan, external works location, 1:500 |
+
+Each of the three drainage structures is drawn **twice — once in plan and once as a
+cross-sectional elevation** — and the key plan puts all three at true project X and Y, with
+the septic tank and the soak pits **east of the shelter and 10 400 north of the sentry post**.
+
+> **By instruction these two sheets carry no design-basis panel, no calculation table, and no
+> revision, phase or open-item text.** The gaps the project genuinely has are therefore
+> recorded in master **H.42.4 / H.42.5** as `MEP1-F1` … `MEP1-F7`, not on the drawing. Two of
+> them govern how the sheets may be read:
+>
+> * **`MEP1-F2` — ST-01, the soak-pit cover slabs and the inspection chambers have NO
+>   reinforcement anywhere in this project.** No bar is drawn in them and none is scheduled;
+>   the element schedule and title-block note 8 call them to the structural engineer's detail.
+>   **The only reinforcement detailed on SHEET 11 is SU-01**, whose marks `F10`, `F11`, `F12`
+>   and `F13` are read straight out of `rebar_data.py`.
+> * **`MEP1-F7` — SHEET 11's key plan uses the RC4 EAST sentry-post placement**
+>   (X 32000–36000, Y 600–5600), the one DR-A2 drew. `U4` is still open and SG2's northern
+>   placement would put the post and the external works on the *same* side.
+>
+> Three more things the project does not hold are handled by **not drawing them**: `SH-1`, the
+> fresh-air shaft, has no plan position and is shown as a **direction arrow only**; `SK-03` and
+> `SK-04` have a reserved footprint and no size, and are drawn **dashed**; `ST-01` has no
+> recorded level, so its section is drawn to local finished grade and carries **no level at
+> all**. `PD-06`, `PD-11` and `PD-13` have scheduled lengths but no fixed route, so they are
+> **not drawn on the key plan** — only `PD-16`, whose two ends the project fixes.
+
+`mep_data.py` is the single value source for both sheets. It imports `hv_data`, `em_proj`,
+`dr_data`, `mep_proj` and `rebar_data` and **writes nothing back to them**; `a2_lib.py`,
+`sheet_data.py`, `sentry_data.py` and STR006 … STR009 are **not touched** by MEP1 — the
+nineteen services layers the two sheets need are added to each document at build time rather
+than to the shared `a2_lib.LAYERS` table, precisely so the structural sheets cannot move.
 
 ## Sheet standard
 
@@ -144,9 +183,11 @@ python3 s06_roof_mat.py               # -> DXF/STR006_...dxf
 python3 s07_wall_stair.py             # -> DXF/STR007_...dxf
 python3 s08_sentry_beam_col.py        # -> DXF/STR008_...dxf
 python3 s09_sentry_footing_slab.py    # -> DXF/STR009_...dxf
-python3 qa_overlap.py ../DXF/STR00*.dxf     # drafting QA, exits non-zero on a defect
-python3 render_a2.py  ../DXF/STR00*.dxf     # visual QA PNG
-python3 render_pdf.py ../DXF/STR00*.dxf     # true-size A2 vector PDF, 1:1
+python3 s10_hvac_emp_layout.py        # -> DXF/MEP010_...dxf
+python3 s11_drainage_structures.py    # -> DXF/MEP011_...dxf
+python3 qa_overlap.py ../DXF/*.dxf          # drafting QA, exits non-zero on a defect
+python3 render_a2.py  ../DXF/*.dxf          # visual QA PNG
+python3 render_pdf.py ../DXF/*.dxf          # true-size A2 vector PDF, 1:1
 ```
 
 Each generator writes its own DXF; they take no arguments and the save path is at the
@@ -165,7 +206,7 @@ blocks as well, so a dimension value colliding with a label is caught.
 
 Tables and view titles are **measured, not guessed**: every cell and every title is sized
 with the same font metrics `ezdxf` places it with, and shrunk until it fits its column.
-That is why all four sheets pass the drafting QA with **zero text overlaps**.
+That is why all six sheets pass the drafting QA with **zero text overlaps**.
 
 **`SR2-F2`, open:** `qa_overlap.py` reports that **STR007's two note panels are set at
 1.49 mm**, below the 1.70 mm `MIN_TXT_H` this package declares in `a2_lib.py` — 53 lines.
@@ -184,8 +225,13 @@ Done, per `CLAUDE.md`:
   and there is no single text to read.
 * `DRAWING QAQC/Scripts/make_index.py` — `STRUCTURAL - A2 presentation sheets` added to
   `ORDER` (done at SR1; unchanged by SR2).
-* Both re-run. `DRAWING_INDEX.md` and `qa_index.json` now carry **84 drawings, 78 PASS**;
-  **STR006, STR007, STR008 and STR009 all report PASS**.
+* **MEP1:** `Presentation Sheets/DXF/` maps to *"STRUCTURAL - A2 presentation sheets"*, which
+  MEP010 / MEP011 are not, so a **filename-prefix** entry `("Presentation Sheets/DXF/MEP",
+  "MEP - A2 presentation sheets")` was inserted **ahead** of it — the lookup takes the first
+  match — and the same label added to `make_index.ORDER`. Both drawing numbers added to
+  `TITLE_OVERRIDE`.
+* All re-run. `DRAWING_INDEX.md` and `qa_index.json` now carry **86 drawings, 80 PASS**;
+  **STR006 … STR009 and MEP010 / MEP011 all report PASS**.
 
 ### `SR2-F2` — CLOSED at SR1A
 

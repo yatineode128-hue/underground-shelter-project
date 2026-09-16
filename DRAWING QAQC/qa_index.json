@@ -390,6 +390,32 @@
   "geom_in_panel": 0
  },
  {
+  "file": "Presentation Sheets/DXF/MEP010_HVAC_and_EMP_Zone_Layout_Plans.dxf",
+  "base": "MEP010_HVAC_and_EMP_Zone_Layout_Plans.dxf",
+  "number": "MEP010",
+  "discipline": "MEP - A2 presentation sheets",
+  "title": "HVAC AND EMP ZONE LAYOUT PLANS - UNDERGROUND LEVEL",
+  "scale": "-",
+  "size": "A2",
+  "texts": 383,
+  "overlap": 0,
+  "over_geom": 0,
+  "geom_in_panel": 0
+ },
+ {
+  "file": "Presentation Sheets/DXF/MEP011_Septic_Tank_Soak_Pit_and_Sump_Pit_Plans_Sections_and_Schedules.dxf",
+  "base": "MEP011_Septic_Tank_Soak_Pit_and_Sump_Pit_Plans_Sections_and_Schedules.dxf",
+  "number": "MEP011",
+  "discipline": "MEP - A2 presentation sheets",
+  "title": "SEPTIC TANK, SOAK PIT AND SUMP PIT - PLANS, SECTIONS AND SCHEDULES",
+  "scale": "-",
+  "size": "A2",
+  "texts": 342,
+  "overlap": 0,
+  "over_geom": 0,
+  "geom_in_panel": 0
+ },
+ {
   "file": "Presentation Sheets/DXF/STR006_Structural_Reinforcement_Detailing_Roof_Slab_and_Mat_Foundation.dxf",
   "base": "STR006_Structural_Reinforcement_Detailing_Roof_Slab_and_Mat_Foundation.dxf",
   "number": "STR006",

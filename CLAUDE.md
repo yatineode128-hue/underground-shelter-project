@@ -47,7 +47,22 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own
+- Latest revision: **MEP1** (16 Sep 2026, master **H.42**) — **two A2 SERVICES presentation
+  sheets in the same `ARCH001…ARCH005` frame, `MEP010` (SHEET 10, HVAC + EMP zone layout plans)
+  and `MEP011` (SHEET 11, septic tank, soak pit and sump pit in plan and cross-sectional
+  elevation).** **No design value moved, no analysis was run.** Values are read from
+  `hv_data.py`, `em_proj.py`, `dr_data.py`, `mep_proj.py` and `rebar_data.py` through the new
+  `Presentation Sheets/Scripts/mep_data.py`; nothing is written back to those packages and
+  **`a2_lib.py`, `sheet_data.py`, `sentry_data.py` and STR006…STR009 are untouched** (the
+  services layers are added per-document, not to `a2_lib.LAYERS`). By instruction the sheets
+  carry **no design-basis panel, no calculation table and no revision, phase or open-item
+  text**; the gaps are therefore recorded in the master only, as **`MEP1-F1` … `MEP1-F7`**.
+  **Read `MEP1-F2` before adding any bar to SHEET 11** — ST-01, the soak-pit cover slabs and
+  the inspection chambers have **no reinforcement anywhere in this project**, so none is drawn
+  or scheduled; only SU-01 (marks F10–F13) is detailed. **Read `MEP1-F7` before quoting
+  SHEET 11's key plan** — it uses the **RC4 east** sentry-post placement, and `U4` is open.
+  New QA discipline **`MEP - A2 presentation sheets`**; index now **86 drawings, 80 PASS**.
+  Before it: **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own
   copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire
   revision line (`STRUCTURAL - PHASE 2 REV A + M1`) deleted from the header — asked directly
   which reading was meant (drop just `REV A`, or the whole line), and the whole line was the

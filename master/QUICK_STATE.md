@@ -200,6 +200,24 @@ procurement requirement — a certified curve for the panel as built — not a d
 four RECORDED AND NOT CORRECTED.** `CONSOLIDATED_PROJECT_REPORT.md` remains stale on the open-item and assumption counts
 (`PR1-F3`) and is **not edited either.**
 
+Updated **16 Sep 2026** for the **A2 presentation-sheet series** (master Parts **H.39 – H.42**),
+which this digest had not carried at all. Six A2 sheets now sit in the frame and title block of
+the owner's Revit set `ARCH001…ARCH005`, numbered on from it: **`STR006` SHEET 06** roof slab +
+mat and **`STR007` SHEET 07** 600 shear wall + main staircase (**SR1**, H.39, amended **SR1A**,
+H.41); **`STR008` SHEET 08** sentry-post beams + column and **`STR009` SHEET 09** footing + slab
+(**SR2**, H.40, amended **SR2A**); and now **`MEP010` SHEET 10** HVAC + EMP zone layout plans and
+**`MEP011` SHEET 11** septic tank, soak pit and sump pit in plan and cross-sectional elevation
+(**MEP1**, H.42). **None of them moved a design value and none ran an analysis** — they
+re-present what the project already holds. MEP1 reads `hv_data.py`, `em_proj.py`, `dr_data.py`,
+`mep_proj.py` and `rebar_data.py` and writes nothing back; the only reinforcement detailed on
+SHEET 11 is **SU-01**, whose marks F10–F13 exist in the register, because **ST-01, the soak-pit
+cover slabs and the inspection chambers have no bar anywhere in this project** (`MEP1-F2`).
+**`MEP1-F7` is the one to read before quoting SHEET 11's key plan:** it shows the septic tank and
+the soak pits standing 10 400 north of the sentry post **on the RC4 east placement**; `U4` is
+still open and SG2's northern placement would put them on the same side. `DRAWING_INDEX.md` now
+reads **86 drawings, 80 PASS**. Still open from the series: **`SR2-F1`**, the B2 roof-joint
+contradiction that keeps the sentry roof frame undrawn, and `SR2-V1…V6`.
+
 ---
 
 ## Identity and revisions

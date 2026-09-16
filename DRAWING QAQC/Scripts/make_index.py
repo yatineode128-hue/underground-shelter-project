@@ -10,6 +10,7 @@ OUT = os.path.join(HERE, "..", "DRAWING_INDEX.md")
 
 ORDER = ["ARCHITECTURAL / GENERAL - Rev F", "ARCHITECTURAL - finishes",
          "STRUCTURAL - reinforcement", "STRUCTURAL - A2 presentation sheets",
+         "MEP - A2 presentation sheets",
          "DRAINAGE", "DRAINAGE - handout",
          "HVAC", "HVAC - handout", "FIRE AND LIFE SAFETY",
          "SITE AND CONCEALMENT", "EMP PROTECTION", "ELECTRICAL",

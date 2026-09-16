@@ -15,6 +15,9 @@ from declash import SOLID as HARD_LAYERS      # noqa: E402
 
 DISCIPLINE = [
     ("Structural CAD/DXF/", "STRUCTURAL - reinforcement"),
+    # MEP010 / MEP011 share the folder and the frame with STR006...STR009 but
+    # are services sheets, so they are matched by filename prefix FIRST
+    ("Presentation Sheets/DXF/MEP", "MEP - A2 presentation sheets"),
     ("Presentation Sheets/DXF/", "STRUCTURAL - A2 presentation sheets"),
     ("Drainage/DXF/",       "DRAINAGE"),
     ("Drainage/Handout/",   "DRAINAGE - handout"),
@@ -70,6 +73,8 @@ TITLE_OVERRIDE = {
     "STR007": "STRUCTURAL REINFORCEMENT DETAILING - 600 SHEAR WALL AND MAIN STAIRCASE",
     "STR008": "STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST - BEAMS AND COLUMN",
     "STR009": "STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST - FOOTING AND SLAB",
+    "MEP010": "HVAC AND EMP ZONE LAYOUT PLANS - UNDERGROUND LEVEL",
+    "MEP011": "SEPTIC TANK, SOAK PIT AND SUMP PIT - PLANS, SECTIONS AND SCHEDULES",
 }
 
 
