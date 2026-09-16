@@ -379,34 +379,32 @@ s.panel(LX, 126.0, LW, "WALL AND STAIR - CONSTRUCTION REQUIREMENTS", D.PANEL_07,
 s.panel(MX, 78.0, MW, "MAIN STAIRCASE - THE GEOMETRY IS FROZEN", D.FROZEN_07,
         lead=3.2, max_h=42.0)
 
-y = 383.0
-y = s.table(RX, y, RW, D.WALL_SCHEDULE_ROWS,
-            title="WALL SCHEDULE",
-            header=["WALL", "THK", "LENGTH", "COVER", "d", "MAIN BARS", "LINKS"],
-            rh=4.0, align=["L", "C", "C", "C", "C", "L", "L"])
-
-y = s.table(RX, y - 6.0, RW, D.wall_marks(),
-            title="BAR MARK SCHEDULE - 600 PERIMETER SHEAR WALLS",
-            header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
-            rh=3.9, align=["C", "C", "C", "L", "C", "C"])
-
-y = s.table(RX, y - 6.0, RW, D.STAIR_SCHEDULE,
-            title="MAIN STAIRCASE - ELEMENT SCHEDULE",
-            header=["ELEMENT", "THK", "d", "MAIN", "DISTRIB.", "TOP STEEL"],
-            rh=4.0, align=["L", "C", "C", "L", "L", "L"])
-
-y = s.table(RX, y - 6.0, RW, D.stair_marks(),
-            title="BAR MARK SCHEDULE - MAIN STAIRCASE",
-            header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
-            rh=3.9, align=["C", "C", "C", "L", "C", "C"])
-
-y = s.table(RX, y - 6.0, RW, D.NBC_CHECK,
-            title="MAIN STAIRCASE - NBC 2016 PART 4 GEOMETRY CHECK",
-            header=["ITEM", "PROVIDED", "LIMIT", "VERDICT"],
-            rh=3.9, align=["L", "L", "L", "L"])
-
-y = s.panel(RX, y - 6.0, RW, "DESIGN BASIS - THIS SHEET", D.BASIS_07,
-            lead=3.05, max_h=y - 6.0 - 36.0)
+# SR1A, by instruction: the DESIGN BASIS panel that used to close this column
+# is DELETED (master H.41).  D.BASIS_07 is kept, unaltered, in sheet_data.py
+# for the record, but is no longer printed on this sheet.  The five schedules
+# now fill the whole column: table_stack() solves for the row height that ends
+# the stack exactly on the frame, so the freed space is not left empty.
+y = s.table_stack(RX, 383.0, 35.5, RW, [
+    dict(rows=D.WALL_SCHEDULE_ROWS, title="WALL SCHEDULE",
+         header=["WALL", "THK", "LENGTH", "COVER", "d", "MAIN BARS", "LINKS"],
+         align=["L", "C", "C", "C", "C", "L", "L"],
+         pad=2.4),  # 7 columns in 122 mm; the default 2.8 forces < MIN_TXT_H
+    dict(rows=D.wall_marks(),
+         title="BAR MARK SCHEDULE - 600 PERIMETER SHEAR WALLS",
+         header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
+         align=["C", "C", "C", "L", "C", "C"]),
+    dict(rows=D.STAIR_SCHEDULE, title="MAIN STAIRCASE - ELEMENT SCHEDULE",
+         header=["ELEMENT", "THK", "d", "MAIN", "DISTRIB.", "TOP STEEL"],
+         align=["L", "C", "C", "L", "L", "L"]),
+    dict(rows=D.stair_marks(), title="BAR MARK SCHEDULE - MAIN STAIRCASE",
+         header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
+         align=["C", "C", "C", "L", "C", "C"]),
+    dict(rows=D.NBC_CHECK,
+         title="MAIN STAIRCASE - NBC 2016 PART 4 GEOMETRY CHECK",
+         header=["ITEM", "PROVIDED", "LIMIT", "VERDICT"],
+         align=["L", "L", "L", "L"]),
+], gap=9.0, rh_max=7.6)
+assert y > 35.0, f"the schedule stack overflows the frame: bottom at {y:.1f}"
 
 if __name__ == "__main__":
     out = os.path.join(ROOT, "Presentation Sheets", "DXF",

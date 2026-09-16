@@ -88,14 +88,17 @@ from rebar_data import cut_length, HOOK                      # noqa: E402
 import sheet_data as _SD                                     # noqa: E402
 
 # ------------------------------------------------------------------- identity
-# SR2A, by instruction: "REV A" is deleted from the header of STR008 / STR009.
-# sheet_data.IDENTITY still reads "STRUCTURAL - PHASE 2 REV A + M1" and is NOT
-# changed -- STR006 and STR007 are released sheets and keep the line they were
-# issued with.  The two lists are therefore allowed to differ, and this is the
-# only difference.
-IDENTITY = [ln.replace("PHASE 2 REV A + M1", "PHASE 2 + M1")
-            for ln in _SD.IDENTITY]
-assert IDENTITY != _SD.IDENTITY, "the REV A line moved -- re-check the header"
+# SR2A, by instruction: STR008 / STR009's identity block carries its OWN
+# revision line, "STRUCTURAL - PHASE 2 + M1", independent of whatever
+# sheet_data.IDENTITY does with its own -- that decoupling matters now that
+# SR1A (master H.41) has DELETED sheet_data's revision line entirely for
+# STR006 / STR007.  The four site-description lines are still shared, so a
+# future edit to the project name or site cannot drift between the two sheet
+# pairs; the assertion below is what enforces that sharing.
+assert len(_SD.IDENTITY) == 4, (
+    "sheet_data.IDENTITY no longer has exactly four site-description lines -- "
+    "re-check this derivation before trusting it")
+IDENTITY = list(_SD.IDENTITY) + ["STRUCTURAL - PHASE 2 + M1"]
 
 FCK = 30.0                       # M30 -- master F.4 / B.8.4 (Mu,lim 0.133 x 30)
 FY = 500.0                       # Fe500 / Fe500D

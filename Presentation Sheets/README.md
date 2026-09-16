@@ -1,4 +1,4 @@
-# Presentation Sheets — A2 structural series, revisions SR1 and SR2
+# Presentation Sheets — A2 structural series, revisions SR1 through SR2A
 
 Four A2 structural reinforcement sheets drawn in the layout and title block of the
 supplied Revit A2 architectural set (`ARCH001 … ARCH005`, `Project1.pdf`), so that they
@@ -11,6 +11,18 @@ read as the next four sheets of that same series.
 | **SHEET 06** | **STR006** | STRUCTURAL REINFORCEMENT DETAILING — ROOF SLAB & MAT FOUNDATION | 1 roof slab reinforcement plan 1:100 · 2 roof slab longitudinal section A-A 1:100 · 3 mat foundation reinforcement plan 1:100 · 4 mat foundation longitudinal section B-B 1:100 |
 | **SHEET 07** | **STR007** | STRUCTURAL REINFORCEMENT DETAILING — 600 SHEAR WALL & MAIN STAIRCASE | 1 600 shear wall vertical section 1:30 · 2 600 shear wall part plan / horizontal section 1:25 · 3 main staircase reinforcement plan 1:40 · 4 main staircase longitudinal section C-C 1:40 |
 
+> **SR1A, by instruction, on the owner's own copies of these two sheets.** The
+> *DESIGN BASIS* panel is **deleted from both**, and **the whole revision line**
+> (`STRUCTURAL - PHASE 2 REV A + M1`) is **deleted from the header** — asked directly which
+> reading was meant (drop just `REV A`, or the whole line) and the whole line was the answer,
+> so `sheet_data.IDENTITY` now carries only the four site-description lines and no revision
+> text at all. **No view, scale, dimension, bar or count changed.** The freed column fills
+> with `table_stack()`, same as SR2A below. Fixing this exposed and fixed **a real bug** in
+> `a2_lib.A2Sheet.table()`: its row-height shrink loop could quantise one 0.05 mm step below
+> `MIN_TXT_H` when the starting height wasn't grid-aligned — a `pad` parameter and a post-loop
+> floor clamp fix it, verified **not** to change STR008 / STR009 (byte-identical rebuild,
+> diffed with timestamps stripped). **This also CLOSES `SR2-F2`** — see below. Master **H.41**.
+
 **SR2 — the sentry post.  This is the project's IS 13920:2016 sheet pair.**
 
 > **SR2A, same day, by instruction.** STR008 and STR009 were re-issued with the
@@ -21,7 +33,9 @@ read as the next four sheets of that same series.
 > ends the stack exactly on the frame — so the sheets have no void and the tables are
 > noticeably more legible. The decisions and open items **still exist**; their authority is
 > now master **H.40.4** and **H.40.5**, and title-block note 7 (STR008) / note 9 (STR009)
-> points there. `sheet_data.IDENTITY` is untouched — **STR006 and STR007 keep `REV A`.**
+> points there. **`sheet_data.IDENTITY` and `sentry_data.IDENTITY` are now independent lists**
+> (SR1A gave STR006 / STR007 no revision line at all; STR008 / STR009 keep `STRUCTURAL -
+> PHASE 2 + M1`), sharing only their four site-description lines, enforced by an assertion.
 
 | Sheet | Drawing No. | Title | Views |
 |---|---|---|---|
@@ -172,6 +186,16 @@ Done, per `CLAUDE.md`:
   `ORDER` (done at SR1; unchanged by SR2).
 * Both re-run. `DRAWING_INDEX.md` and `qa_index.json` now carry **84 drawings, 78 PASS**;
   **STR006, STR007, STR008 and STR009 all report PASS**.
+
+### `SR2-F2` — CLOSED at SR1A
+
+Recorded at SR2A: `qa_overlap.py` found STR007's two note panels rendering at **1.49 mm**,
+below the package's own 1.70 mm floor, and it was **deliberately left unfixed** because STR007
+was outside that instruction's scope. STR007 is directly in scope at SR1A. The offending panel
+is deleted outright, and the `WALL SCHEDULE` table that shares its column — the one table on
+the whole four-sheet set that was genuinely too wide for its column — is verified fitting at
+**exactly 1.70 mm with 2.1 mm of real margin** (`pad=2.4`, see H.41.2). **There is no longer
+any sub-floor text anywhere in this package.**
 
 **Known cosmetic gap:** the index's `Scale` column shows `-` for all four sheets. `scale_of()`
 looks for the scale value inside the same text as the word "SCALE"; this series follows

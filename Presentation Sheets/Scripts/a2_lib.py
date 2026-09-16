@@ -416,7 +416,7 @@ class A2Sheet:
 
     # ----------------------------------------------------------------- tables
     def table(self, x, y_top, total_w, rows, title=None, header=None,
-              rh=4.0, hh=None, body_h=None, head_h=None, align=None):
+              rh=4.0, hh=None, body_h=None, head_h=None, align=None, pad=2.8):
         """Draw a ruled table that is GUARANTEED to fit `total_w`.
 
         Column widths are not guessed: every cell is measured with the same
@@ -424,6 +424,12 @@ class A2Sheet:
         widest row fits, and the remaining width is shared out in proportion to
         what each column actually needs.  A row that is a bare string is a
         full-width sub-heading band.  Returns the y of the bottom rule.
+
+        `pad` is the per-cell clearance either side of the text, in mm.  The
+        default (2.8) is unchanged from every earlier revision; a narrower
+        table with many columns and long cell text can pass a smaller value
+        (e.g. 2.2) to buy back width WITHOUT shrinking the text past
+        `MIN_TXT_H` -- narrower breathing room, not smaller print.
         """
         body_h = body_h or TXT["tbl_body"]
         head_h = head_h or TXT["tbl_head"]
@@ -439,7 +445,7 @@ class A2Sheet:
                 w = max([tw(str(r[j]), bh) for r in data if j < len(r)] or [0.0])
                 if header:
                     w = max(w, tw(str(header[j]), hd))
-                out.append(w + 2.8)
+                out.append(w + pad)
             return out
 
         while True:
@@ -449,6 +455,12 @@ class A2Sheet:
                 break
             body_h = round(body_h - 0.05, 2)
             head_h = max(MIN_TXT_H, round(head_h - 0.05, 2))
+        # `body_h` descends in fixed 0.05 mm steps from whatever height the
+        # caller started at, which is not always aligned to MIN_TXT_H's own
+        # grid -- so the step that first satisfies "body_h <= MIN_TXT_H" can
+        # land slightly BELOW it (e.g. 1.69 instead of 1.70).  Clamp back up:
+        # nothing this floor was ever meant to allow may print smaller than it.
+        body_h = max(body_h, MIN_TXT_H)
         n = needs(body_h, head_h)
         colw = [v * total_w / sum(n) for v in n]
 
@@ -520,7 +532,7 @@ class A2Sheet:
                            header=sp.get("header"), rh=rh,
                            body_h=sp.get("body_h", body_h),
                            head_h=sp.get("head_h", body_h + 0.2),
-                           align=sp.get("align"))
+                           align=sp.get("align"), pad=sp.get("pad", 2.8))
             if i < len(specs) - 1:
                 y -= gap
         return y

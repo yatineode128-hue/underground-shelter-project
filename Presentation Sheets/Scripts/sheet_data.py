@@ -20,12 +20,14 @@ import sc_proj as P
 import rebar_data as RD
 
 # ------------------------------------------------------------------- identity
+# SR1A, by instruction: the "STRUCTURAL - PHASE 2 REV A + M1" revision line is
+# DELETED from the identity block -- not edited, removed entirely.  The four
+# site-description lines are unchanged.  See master Part H.41.
 IDENTITY = [
     "UNDERGROUND CBRN-HARDENED",
     "BLAST-RESISTANT PROTECTIVE",
     "STRUCTURE + SENTRY POST",
     "PUNE, MAHARASHTRA",
-    "STRUCTURAL - PHASE 2 REV A + M1",
 ]
 
 # --------------------------------------------------------------- box geometry
@@ -95,7 +97,7 @@ NOTES_06 = [
     "STRICTER THAN IS 456 Cl. 26.3.3.",
     "DESIGN IS TO IS 456:2000 WITH IS 4991:1968 BLAST ACTIONS AND IS 3370 (Pt 2) "
     "CRACK CONTROL; SEISMIC TO IS 1893 (Pt 1):2016. IS 13920:2016 IS CHECKED: "
-    "Cl. 10.4 BOUNDARY ELEMENTS ARE NOT TRIGGERED - SEE THE DESIGN BASIS PANEL.",
+    "Cl. 10.4 BOUNDARY ELEMENTS ARE NOT TRIGGERED - SEE MASTER PART A.7.8.",
     "CONTRACTOR TO CHECK AND VERIFY THE DRG BEFORE EXECUTION.",
 ]
 
