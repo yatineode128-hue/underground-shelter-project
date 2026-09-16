@@ -3,7 +3,7 @@
 Generated from the DXF files themselves by `DRAWING QAQC/Scripts/qa_report_data.py`
 and `make_index.py`, so it cannot drift from the drawings.
 
-**82 DXF · 75 A1 · 4 A4 · 2 A2 · 1 A0.**  Drafting QA/QC baseline **QA1** (9 September 2026, master H.11), re-scanned at **QA2** (11 September 2026, master H.25).  The FIRE AND LIFE SAFETY and SITE AND CONCEALMENT sheets were added at **FS2 / CAM2**, and the EMP PROTECTION, ELECTRICAL and SITE SELECTION AND GEOTECHNICAL sheets at **EM1 / EL1 / SG1 / SG2**, all after the QA1 pass and all drawn to the same standard.
+**84 DXF · 75 A1 · 4 A4 · 4 A2 · 1 A0.**  Drafting QA/QC baseline **QA1** (9 September 2026, master H.11), re-scanned at **QA2** (11 September 2026, master H.25).  The FIRE AND LIFE SAFETY and SITE AND CONCEALMENT sheets were added at **FS2 / CAM2**, and the EMP PROTECTION, ELECTRICAL and SITE SELECTION AND GEOTECHNICAL sheets at **EM1 / EL1 / SG1 / SG2**, all after the QA1 pass and all drawn to the same standard.
 
 > **Filenames are deliberately unchanged.** Master Parts E.2 and I.1 and every
 > document in this project cite the current filenames, and the QA/QC brief requires
@@ -128,17 +128,21 @@ and `make_index.py`, so it cannot drift from the drawings.
 
 </details>
 
-## STRUCTURAL - A2 presentation sheets  (2)
+## STRUCTURAL - A2 presentation sheets  (4)
 
 | Drawing No. | Title | Scale | Size | Texts | Final QA |
 |---|---|---|---|---|---|
-| **STR006** | STRUCTURAL REINFORCEMENT DETAILING - ROOF SLAB AND MAT FOUNDATION | - | A2 | 450 | PASS |
-| **STR007** | STRUCTURAL REINFORCEMENT DETAILING - 600 SHEAR WALL AND MAIN STAIRCASE | - | A2 | 419 | PASS |
+| **STR006** | STRUCTURAL REINFORCEMENT DETAILING - ROOF SLAB AND MAT FOUNDATION | - | A2 | 416 | PASS |
+| **STR007** | STRUCTURAL REINFORCEMENT DETAILING - 600 SHEAR WALL AND MAIN STAIRCASE | - | A2 | 364 | PASS |
+| **STR008** | STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST - BEAMS AND COLUMN | - | A2 | 374 | PASS |
+| **STR009** | STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST - FOOTING AND SLAB | - | A2 | 259 | PASS |
 
 <details><summary>filenames</summary>
 
 - `STR006` — `Presentation Sheets/DXF/STR006_Structural_Reinforcement_Detailing_Roof_Slab_and_Mat_Foundation.dxf`
 - `STR007` — `Presentation Sheets/DXF/STR007_Structural_Reinforcement_Detailing_Shear_Wall_and_Main_Staircase.dxf`
+- `STR008` — `Presentation Sheets/DXF/STR008_Structural_Reinforcement_Detailing_Sentry_Post_Beams_and_Column.dxf`
+- `STR009` — `Presentation Sheets/DXF/STR009_Structural_Reinforcement_Detailing_Sentry_Post_Footing_and_Slab.dxf`
 
 </details>
 
@@ -306,7 +310,7 @@ and `make_index.py`, so it cannot drift from the drawings.
 
 ---
 
-**Package QA result — 82 drawings, 76 PASS, 6 REVIEW REQUIRED, 12 residual items in total.**
+**Package QA result — 84 drawings, 78 PASS, 6 REVIEW REQUIRED, 12 residual items in total.**
 
 Every REVIEW item is a single annotation still crossing a dimension or a wall line
 in a dense zone of a section or plan. Each one is named individually in

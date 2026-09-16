@@ -397,7 +397,7 @@
   "title": "STRUCTURAL REINFORCEMENT DETAILING - ROOF SLAB AND MAT FOUNDATION",
   "scale": "-",
   "size": "A2",
-  "texts": 450,
+  "texts": 416,
   "overlap": 0,
   "over_geom": 0,
   "geom_in_panel": 0
@@ -410,7 +410,33 @@
   "title": "STRUCTURAL REINFORCEMENT DETAILING - 600 SHEAR WALL AND MAIN STAIRCASE",
   "scale": "-",
   "size": "A2",
-  "texts": 419,
+  "texts": 364,
+  "overlap": 0,
+  "over_geom": 0,
+  "geom_in_panel": 0
+ },
+ {
+  "file": "Presentation Sheets/DXF/STR008_Structural_Reinforcement_Detailing_Sentry_Post_Beams_and_Column.dxf",
+  "base": "STR008_Structural_Reinforcement_Detailing_Sentry_Post_Beams_and_Column.dxf",
+  "number": "STR008",
+  "discipline": "STRUCTURAL - A2 presentation sheets",
+  "title": "STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST - BEAMS AND COLUMN",
+  "scale": "-",
+  "size": "A2",
+  "texts": 374,
+  "overlap": 0,
+  "over_geom": 0,
+  "geom_in_panel": 0
+ },
+ {
+  "file": "Presentation Sheets/DXF/STR009_Structural_Reinforcement_Detailing_Sentry_Post_Footing_and_Slab.dxf",
+  "base": "STR009_Structural_Reinforcement_Detailing_Sentry_Post_Footing_and_Slab.dxf",
+  "number": "STR009",
+  "discipline": "STRUCTURAL - A2 presentation sheets",
+  "title": "STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST - FOOTING AND SLAB",
+  "scale": "-",
+  "size": "A2",
+  "texts": 259,
   "overlap": 0,
   "over_geom": 0,
   "geom_in_panel": 0

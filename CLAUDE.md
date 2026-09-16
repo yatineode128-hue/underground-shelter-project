@@ -47,7 +47,32 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **SR1** (16 Sep 2026, master **H.39**) — **two A2 structural reinforcement
+- Latest revision: **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own
+  copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire
+  revision line (`STRUCTURAL - PHASE 2 REV A + M1`) deleted from the header — asked directly
+  which reading was meant (drop just `REV A`, or the whole line), and the whole line was the
+  answer. **`sheet_data.IDENTITY` now has FOUR lines and no revision text at all.**
+  `sentry_data.IDENTITY` (STR008 / STR009) is **decoupled** from it and keeps its own
+  `STRUCTURAL - PHASE 2 + M1` line unchanged — **STR008 / STR009 are byte-identical to before
+  this revision** (diffed with timestamps stripped). The freed column on STR006 / STR007 is
+  filled with `table_stack()`, same as SR2A. **A real bug was found and fixed in `a2_lib.py`**:
+  `table()`'s row-height shrink loop could quantise one 0.05 mm step below `MIN_TXT_H` when the
+  starting height wasn't grid-aligned; fixed with a post-loop clamp, verified not to change
+  STR008/STR009. **This CLOSES `SR2-F2`** (STR007's note panels were rendering below the 1.70 mm
+  floor; that panel is now deleted and the table sharing its column fits with real margin).
+  Before it: **SR2** (16 Sep 2026, master **H.40**) — **two A2 sentry-post reinforcement
+  presentation sheets, `STR008` (SHEET 08, beams B1/B2 + column C1) and `STR009` (SHEET 09,
+  isolated footing F1 + slab S1)**, in the same Revit A2 frame and title block. **No design
+  value moved and no analysis was run.** The sentry post is excluded from `rebar_data.py`, so
+  its bar-mark register is the separate `Presentation Sheets/Scripts/sentry_data.py` — keep it
+  that way. Finding **`SR2-F1` is UNRESOLVED and blocks the roof beams**: master B.8.6 checks
+  the roof joint with B2 = 2-T20 while F.4 schedules 3-T20 at supports, and 3-T20 there fails
+  IS 13920 Cl. 7.2.1. **STR008 therefore details the FIRST-FLOOR frame only.** Six more open
+  items `SR2-V1…V6`. Amended the same day as `SR2A` (master H.40.8): the design-basis
+  and declared-decisions panels were DELETED from both sheets and `REV A` removed from their
+  header. The decisions and open items live in the master ONLY — the drawing no longer states
+  them, so the master must carry them forward.
+  Before it: **SR1** (16 Sep 2026, master **H.39**) — **two A2 structural reinforcement
   presentation sheets, `STR006` (SHEET 06, roof slab + mat) and `STR007` (SHEET 07, 600 shear
   wall + main staircase)**, in the frame and title block of the owner's Revit A2 set.
   **No design value moved.** Finding `SR1-F1` — IS 13920 Cl. 10.4 is not triggered for the box.

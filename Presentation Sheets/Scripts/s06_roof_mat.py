@@ -361,24 +361,24 @@ s.panel(PX0, 70.0, PW,
         D.PANEL_06, lead=3.05, max_h=34.0)
 
 # ======================================================  right column, schedules
-y = 383.0
-y = s.table(RCOL, y, RCOL_W, D.ELEMENT_ROWS_06,
-            title="ROOF SLAB AND MAT - ELEMENT SCHEDULE",
-            header=["ELEMENT", "THK", "COVER", "d", "MAIN REINFORCEMENT", "LINKS"],
-            rh=4.2, align=["L", "C", "C", "C", "L", "L"])
-
-y = s.table(RCOL, y - 6.0, RCOL_W, D.roof_marks(),
-            title="BAR MARK SCHEDULE - ROOF (PRESSURE) SLAB 900",
-            header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
-            rh=3.9, align=["C", "C", "C", "L", "C", "C"])
-
-y = s.table(RCOL, y - 6.0, RCOL_W, D.mat_marks(),
-            title="BAR MARK SCHEDULE - MAT FOUNDATION 600 AND SUMP PIT",
-            header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
-            rh=3.9, align=["C", "C", "C", "L", "C", "C"])
-
-y = s.panel(RCOL, y - 6.0, RCOL_W, "DESIGN BASIS - THIS SHEET", D.BASIS_06,
-            lead=3.05, max_h=y - 6.0 - 36.0)
+# SR1A, by instruction: the DESIGN BASIS panel that used to close this column
+# is DELETED (master H.41).  D.BASIS_06 is kept, unaltered, in sheet_data.py
+# for the record, but is no longer printed on this sheet.  The three schedules
+# now fill the whole column: table_stack() solves for the row height that ends
+# the stack exactly on the frame, so the freed space is not left empty.
+y = s.table_stack(RCOL, 383.0, 35.5, RCOL_W, [
+    dict(rows=D.ELEMENT_ROWS_06, title="ROOF SLAB AND MAT - ELEMENT SCHEDULE",
+         header=["ELEMENT", "THK", "COVER", "d", "MAIN REINFORCEMENT", "LINKS"],
+         align=["L", "C", "C", "C", "L", "L"]),
+    dict(rows=D.roof_marks(), title="BAR MARK SCHEDULE - ROOF (PRESSURE) SLAB 900",
+         header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
+         align=["C", "C", "C", "L", "C", "C"]),
+    dict(rows=D.mat_marks(),
+         title="BAR MARK SCHEDULE - MAT FOUNDATION 600 AND SUMP PIT",
+         header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
+         align=["C", "C", "C", "L", "C", "C"]),
+], gap=9.0, rh_max=7.6)
+assert y > 35.0, f"the schedule stack overflows the frame: bottom at {y:.1f}"
 
 if __name__ == "__main__":
     out = os.path.join(ROOT, "Presentation Sheets", "DXF",
