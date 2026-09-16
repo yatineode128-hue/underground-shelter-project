@@ -15,6 +15,7 @@ from declash import SOLID as HARD_LAYERS      # noqa: E402
 
 DISCIPLINE = [
     ("Structural CAD/DXF/", "STRUCTURAL - reinforcement"),
+    ("Presentation Sheets/DXF/", "STRUCTURAL - A2 presentation sheets"),
     ("Drainage/DXF/",       "DRAINAGE"),
     ("Drainage/Handout/",   "DRAINAGE - handout"),
     ("HVAC/DXF/",           "HVAC"),
@@ -38,7 +39,12 @@ def sheet_size(doc, scale=1.0):
     b = ezdxf.bbox.extents(doc.modelspace(), fast=True)
     w = (b.extmax.x - b.extmin.x) / scale
     h = (b.extmax.y - b.extmin.y) / scale
-    for nm, (sw, sh) in (("A1", (841, 594)), ("A0", (1189, 841)), ("A4", (297, 210))):
+    # The A2 presentation series (ARCH001.. / STR006..) follows the Revit sheet
+    # frame: the border is INSET from the page edge at 27, 19.1 -> 567, 400.9, so
+    # the drawn extents are 540 x 381.8, not the 594 x 420 page.
+    for nm, (sw, sh) in (("A1", (841, 594)), ("A0", (1189, 841)),
+                         ("A2", (594, 420)), ("A2", (540, 381.8)),
+                         ("A4", (297, 210))):
         if abs(w - sw) < 3 and abs(h - sh) < 3:
             return nm
     return f"{w:.0f} x {h:.0f}"
@@ -58,6 +64,10 @@ def scale_of(doc):
 TITLE_OVERRIDE = {
     # S-06 carries its title in its own title block, not in a top strip
     "S-06": "UNDERGROUND PLAN - SERVICES AND DRAINAGE",
+    # the A2 presentation sheets carry their title in the Revit-style title
+    # block, stacked over five lines, so there is no single text to read
+    "STR006": "STRUCTURAL REINFORCEMENT DETAILING - ROOF SLAB AND MAT FOUNDATION",
+    "STR007": "STRUCTURAL REINFORCEMENT DETAILING - 600 SHEAR WALL AND MAIN STAIRCASE",
 }
 
 

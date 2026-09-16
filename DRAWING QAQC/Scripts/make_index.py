@@ -9,7 +9,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "DRAWING_INDEX.md")
 
 ORDER = ["ARCHITECTURAL / GENERAL - Rev F", "ARCHITECTURAL - finishes",
-         "STRUCTURAL - reinforcement", "DRAINAGE", "DRAINAGE - handout",
+         "STRUCTURAL - reinforcement", "STRUCTURAL - A2 presentation sheets",
+         "DRAINAGE", "DRAINAGE - handout",
          "HVAC", "HVAC - handout", "FIRE AND LIFE SAFETY",
          "SITE AND CONCEALMENT", "EMP PROTECTION", "ELECTRICAL",
          "SITE SELECTION AND GEOTECHNICAL"]
