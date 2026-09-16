@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Underground CBRN Operations Room</title>
+<meta name="description" content="Continuous 3D engineering animation of an underground CBRN-hardened blast-resistant protective structure, Pune.">
+<style>
+  :root{
+    --ink:#e8e6e1; --dim:#9a978f; --faint:#6d6a64;
+    --chrome:#14161a; --chrome2:#1d2026; --line:#2e323a;
+    --accent:#c79a4e; --cool:#7fb3c4;
+    --ff:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --fm:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:#0b0c0e;color:var(--ink);font-family:var(--ff);overflow:hidden}
+  #c{position:fixed;inset:0;width:100%;height:100%;display:block;background:#0b0c0e}
+
+  /* ---- annotation layer : small, anchored, never a caption ---- */
+  #notes{position:fixed;inset:0;pointer-events:none;z-index:5}
+  .note{
+    position:absolute;top:0;left:0;will-change:transform,opacity;opacity:0;visibility:hidden;
+    transition:opacity .28s linear;
+    padding:7px 11px 8px 13px;max-width:min(330px,42vw);
+    background:rgba(10,12,15,.62);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+    border-left:2px solid var(--accent);border-radius:2px;
+    box-shadow:0 2px 14px rgba(0,0,0,.42);
+    transform-origin:0 0;
+  }
+  .note b{display:block;font-size:11.5px;font-weight:650;letter-spacing:.085em;
+          text-transform:uppercase;line-height:1.32;color:#f2f0ec}
+  .note i{display:block;font-style:normal;font-size:11px;letter-spacing:.012em;
+          line-height:1.45;color:var(--dim);margin-top:3px}
+  .note .lead{position:absolute;left:-26px;top:12px;width:24px;height:1px;background:var(--accent);opacity:.65}
+
+  /* ---- the standing caveat ---- */
+  #caveat{position:fixed;left:24px;bottom:104px;z-index:6;opacity:0;transition:opacity .4s linear;
+    font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);
+    border-left:2px solid var(--faint);padding-left:9px;max-width:330px;line-height:1.5;pointer-events:none}
+
+  /* ---- transport ---- */
+  #ui{position:fixed;left:0;right:0;bottom:0;z-index:10;
+    background:linear-gradient(to top,rgba(8,9,11,.94),rgba(8,9,11,.80) 62%,transparent);
+    padding:30px 22px 15px;transition:opacity .3s,transform .3s}
+  body.bare #ui{opacity:0;transform:translateY(14px);pointer-events:none}
+  body.bare #caveat{left:24px;bottom:28px}
+  #track{height:22px;display:flex;align-items:center;cursor:pointer;touch-action:none}
+  #rail{position:relative;height:3px;width:100%;background:#32363e;border-radius:2px;overflow:hidden}
+  #bar{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent)}
+  #row{display:flex;align-items:center;gap:14px;margin-top:8px;flex-wrap:wrap}
+  button{font:inherit;color:var(--ink);background:var(--chrome2);border:1px solid var(--line);
+    border-radius:3px;padding:5px 10px;cursor:pointer;font-size:11px;letter-spacing:.05em}
+  button:hover{background:#262a31;border-color:#3d424c}
+  #play{min-width:40px;font-size:12px}
+  #tc{font-family:var(--fm);font-size:11px;color:var(--dim);letter-spacing:.04em;min-width:96px}
+  #beatwrap{flex:1 1 220px;min-width:0}
+  #beat{font-size:11.5px;font-weight:650;letter-spacing:.1em;text-transform:uppercase}
+  #beatsub{font-size:10.5px;color:var(--faint);letter-spacing:.02em;margin-top:1px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #chapters{display:flex;gap:5px;overflow-x:auto;margin-top:9px;padding-bottom:3px;scrollbar-width:thin}
+  #chapters button{white-space:nowrap;font-size:10px;padding:4px 8px;color:var(--dim);background:#15181d}
+  #chapters button:hover{color:var(--ink)}
+  #keys{font-size:10px;color:var(--faint);letter-spacing:.05em;margin-top:8px}
+  #keys kbd{font-family:var(--fm);background:#1b1e23;border:1px solid var(--line);
+    border-radius:2px;padding:1px 4px;color:var(--dim)}
+
+  /* ---- opening plate ---- */
+  #gate{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:0;background:#0b0c0e;
+    text-align:center;padding:24px;transition:opacity .9s ease,visibility .9s}
+  #gate.gone{opacity:0;visibility:hidden;pointer-events:none}
+  #gate .eyebrow{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--faint)}
+  #gate h1{font-size:clamp(20px,4.0vw,37px);font-weight:600;letter-spacing:.055em;
+    text-transform:uppercase;margin:16px 0 0;line-height:1.28;max-width:15ch}
+  #gate .sub{margin-top:14px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+  #gate .tag{margin-top:30px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  #gate .meta{margin-top:26px;font-family:var(--fm);font-size:10.5px;color:var(--faint);line-height:1.8}
+  #gate .cta{margin-top:34px;padding:12px 30px;font-size:11.5px;letter-spacing:.24em;
+    text-transform:uppercase;border-color:#4a505c;background:#1a1d23}
+  #gate .cta:hover{background:#242830;border-color:var(--accent);color:#fff}
+  #gate .note2{margin-top:20px;font-size:10px;color:var(--faint);letter-spacing:.06em;max-width:52ch;line-height:1.7}
+  #err{display:none;position:fixed;inset:0;z-index:60;background:#0b0c0e;color:var(--ink);
+    padding:40px;font-size:14px;line-height:1.7}
+  @media (max-width:700px){
+    #keys{display:none} .note{max-width:58vw} #caveat{max-width:58vw;left:16px}
+  }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="notes"></div>
+<div id="caveat">__CAVEAT__</div>
+
+<div id="ui">
+  <div id="track"><div id="rail"><div id="bar"></div></div></div>
+  <div id="row">
+    <button id="play" title="Play / pause (Space)">▶</button>
+    <span id="tc">0:00 / 0:00</span>
+    <div id="beatwrap"><div id="beat">&nbsp;</div><div id="beatsub">&nbsp;</div></div>
+    <button id="qual" title="Render quality — auto, or pin a fixed scale (Q)">Auto 100%</button>
+    <button id="snd" title="Sound on / off (M)">♪</button>
+    <button id="hide" title="Hide the interface for recording (H)">Hide UI</button>
+  </div>
+  <div id="chapters"></div>
+  <div id="keys">
+    <kbd>Space</kbd> play · <kbd>←</kbd><kbd>→</kbd> 5 s · <kbd>0</kbd> restart ·
+    <kbd>F</kbd> full screen · <kbd>H</kbd> hide interface · <kbd>M</kbd> sound · <kbd>Q</kbd> quality
+  </div>
+</div>
+
+<div id="gate">
+  <div class="eyebrow">College of Military Engineering · Pune</div>
+  <h1>Underground CBRN-Hardened Operations Room</h1>
+  <div class="sub">Blast-resistant protective structure with sentry post</div>
+  <div class="tag">Nine people. Ninety-six hours. Two metres of earth.</div>
+  <div class="meta">
+    383 kPa design blast pressure · roof and walls<br>
+    22.0 × 6.2 m external · 8 bays · roof 900, mat 600, walls 600<br>
+    <span id="derived"></span>
+  </div>
+  <button class="cta">Begin</button>
+  <div class="note2">One continuous camera journey, __DURATION__.
+    Every dimension, load and system value is taken from the project's own master
+    record. Press <b>H</b> to hide the interface before recording.</div>
+</div>
+
+<div id="err"><b>WebGL 2 is not available in this browser.</b><br><br>
+  This animation is rendered live in the browser and needs WebGL 2. Try a current
+  version of Chrome, Edge, Firefox or Safari, and make sure hardware acceleration
+  is enabled.</div>
+
+<script>
+__SOURCES__
+start();
+</script>
+</body>
+</html>

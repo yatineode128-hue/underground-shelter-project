@@ -5669,6 +5669,116 @@ text-sizing bug in the shared library fixed and verified not to regress the othe
 
 ---
 
+## H.42 AN1 — the continuous 3D engineering animation, 16 September 2026
+
+**The project's FIRST animation.** One continuous 3D camera journey through the whole facility,
+**6 min 22 s**, 21 beats, rendered live in the browser from the project's own dimensions.
+Delivered as the new package `Animation/` with its own design basis.
+
+**NO DESIGN VALUE MOVED. NO ANALYSIS WAS RUN. NO EVIDENCE TAG WAS CONVERTED.** Nothing in
+Parts A, B, D, E, F or L changes. **The main staircase is untouched** — AN1 reads 24 R @
+170.8333 / 280, 3 flights × 8, rise 4100 straight out of a transcription of A.4.4 and draws it.
+
+### H.42.1 What it is
+
+A single self-contained HTML file, `Animation/Output/AN1_UNDERGROUND_CBRN_OPS_ROOM.html`,
+with **zero external dependencies** — no CDN, no font download, no network at run time. It is
+a hand-written WebGL 2 renderer, not an imported engine, because the only property that matters
+on the day is that it plays from a USB stick in a hall with no internet. Blender, a renderer
+and a GPU were all unavailable in the build environment, so a pre-rendered film was never an
+option; a real-time page is in any case the better instrument, because the presenter can pause
+on the load path or Zone 2 and answer a question without leaving the model.
+
+The geometry is built procedurally from `Animation/Source/00_data.js`, which is a transcription
+of master Parts A and B with **every value carrying its own evidence tag in the source**. No
+dimension is written twice and none is invented.
+
+### H.42.2 The journey
+
+SITE · SENTRY POST · **56 STEPS** · BLAST · BLAST WAVE · STAND-OFF · CUTAWAY · ENGINEERED COVER ·
+**LOAD PATH** · PROTECTED VOLUME · INTERIOR · OCCUPANTS · **CBRN AIRFLOW** · CLOSED MODE ·
+ESSENTIAL POWER · SANITATION · EMP · **EMP ZONE 2** · INTEGRATION · RETURN · SITE, AFTER.
+
+**There is no cut anywhere in it.** Camera position and target come from one track, resampled
+at 30 Hz from the keyframes and smoothed 26 times, which gives continuous velocity with no
+overshoot and no stop-start at the keys. The only override is the soldier-follow during the
+walk, cross-faded in over 4.5 s and out over 5.5 s.
+
+**The cutaway is one section, opened once and closed once**, at **Y = 0.620** — the inner face
+of the 600 south perimeter wall. That cut removes the ground and that one wall and leaves
+everything else standing, so bays, north wall, roof slab and mat all read in true section
+exactly as `A-203 SECTION XX` draws them, and the camera then flies *inside the same section*
+instead of needing a second model.
+
+### H.42.3 What it refuses to do
+
+* **No fabricated analysis.** D.3.5 records the underground model's results as
+  `[NOT AVAILABLE — DO NOT INVENT]`, so there is **no stress contour, no displacement, no
+  utilisation, no safety factor and no failure mode anywhere**. The load path shows *where* the
+  load goes and never *how much arrives*.
+* **No forensic failure of the sentry post.** It is dimmed and lost in the blast environment
+  and labelled **EXPENDABLE OUTER ELEMENT**. No cracking, no rebar, no collapse mechanic.
+* **No vulnerability information.** `EM-F1`'s stair-void aperture, `EM-V3`'s two DN350 bores,
+  `RC5-F2`'s unclosed pressure-slab penetrations and every other open weakness in this record
+  are **not drawn and not named**.
+* **No invented plant.** Every duct, valve, filter, tank, board and enclosure drawn is in the
+  bay schedule or a package schedule.
+* **No unsupported claim.** The flier's own caveat — *IS 4991:1968 excludes nuclear explosions;
+  used for its loading rules only* — stands on screen for the whole blast sequence.
+* **`DR-A2-V1` is respected rather than papered over**: the mat's 1500 × 1500 sump opening has
+  no specified cover, so `SU-01` is drawn **open**. No lid was invented.
+* **`U4` / `RC4-F3` are stated, not smoothed over**: the annotation reads
+  *"10.00 m to the box face — 9.00 m to the excavation"*. The flattering reading is not adopted
+  on its own.
+
+### H.42.4 Findings
+
+| Ref | Finding |
+|---|---|
+| **AN1-F1** | **The owner's Revit set and master A.4.3 disagree on two levels.** `ARCH002` / `ARCH003` print **ENTRY ROOF TOP 3400** and **GROUND FLOOR LEVEL 440**; A.4.3 records the entry stairwell roof at head **+2.450** and the sentry post GF FFL **+0.450**. Per `CLAUDE.md` the master governs and AN1 follows it. **Neither is resolved and no tag is converted.** New open item `AN1-V8` |
+| **AN1-F2** | **"Cassette" means two different things in this project and they were nearly conflated.** Report 9.1 uses it for the **HEPA / carbon filter cassette**; the sanitation cassette is the separate, separately-confirmed **SN-03 SEALED-CASSETTE CHEMICAL TOILET** (`Drainage/Schedules/SANITARY_FIXTURE_SCHEDULE.md`, `[C]` from S-06). Both are drawn; only SN-03 is labelled as sanitation |
+| **AN1-F3** | **Nothing in this project documents a walk of 56 steps** — it is the presenter's requirement. Rather than assume a pace and invent a distance, **both endpoints were fixed to real features** (D1 on the post's east face, A.4.8; the 1000 × 2100 entry door at grade at X 9250, A.4.7) and the **pace was DERIVED**: 36.687 m / 56 = **0.655 m**, an ordinary walking pace. Only the route between the endpoints is `[V]` |
+| **AN1-F4** | **The project holds no wind-direction data** — `SG2-V4`'s plume half is open for exactly that reason — so the blast azimuth is `[V]`. It is chosen as the only family of azimuths that puts the sentry post **upwind** of the shelter, which is what the stand-off argument requires. Verified numerically in the running page: front coordinate of the post **−29.50** against the box **−8.66** |
+| **AN1-F5** | **No STAAD result exists for the underground model**, so the load path is conceptual by construction, not by choice |
+
+### H.42.5 Open items — `AN1-V1` … `AN1-V8`
+
+`AN1-V1` the walked route is undetermined by the project · `AN1-V2` blast front travel is
+**slowed for legibility** and says so on screen; no velocity, arrival time or decay is implied ·
+`AN1-V3` occupant tasking and posture are specified nowhere · `AN1-V4` the EMP Zone 2 enclosure
+is drawn at EM1's `[A]` 2400 × 1600 × 2200, which `EM-V2` records as an allowance ·
+`AN1-V5` interior finishes and lighting are `[V]`; `Schedule of Finishes/` is **not** modelled,
+`W-04` included · `AN1-V6` the soundscape is synthesised and illustrative · `AN1-V7` **AN1 is
+not registered with the drawing QA tool because it produces no DXF sheet**; if a future revision
+adds drawing sheets, H.25's rule applies and `qa_report_data.py` / `make_index.py` must be
+updated · **`AN1-V8` NEW, from `AN1-F1`** — two levels differ between the owner's Revit model
+and A.4.3, and an owner ruling is needed on which is intended.
+
+**`K.1b` is unaffected: AN1 closes nothing and opens nothing in it.** The eight `AN1-V` items
+are animation-scope items and are carried here and in the package's own design basis.
+
+### H.42.6 What was verified, and how
+
+Run in headless Chromium (Playwright) against the built file, with frames captured across all
+21 beats and inspected.
+
+* WebGL 2 context acquired — **PASS**. Console and page errors across a full traverse — **NONE**.
+* Duration and beat count read back **from the running page**: **382 s, 21 beats**.
+  20 meshes, 39 annotations constructed.
+* Walk length and derived pace read back from the running page: **36.687 m / 0.655 m**.
+* **Blast ordering checked numerically**: FC_SENTRY **−29.50** < FC_BOX **−8.66**, so the front
+  crosses the sentry post before the shelter. **PASS.**
+* Camera continuity: speed sampled mid-journey at **1.003 and 0.604 m/s** — continuous, no jump.
+* **Main staircase constants re-read from `PROJ.stair` in the running page: 24 R @ 170.8333 /
+  280, 3 flights × 8, rise 4100, headroom 2533 — UNCHANGED.**
+
+**Could not be made consistent:** `AN1-F1`'s two Revit/master level discrepancies (needs an
+owner ruling, carried as `AN1-V8`); `AN1-F7`'s sentry position, where both readings are shown
+rather than one adopted; the load path, which cannot be quantified because no result exists;
+and the blast front's speed, which is not physical and says so.
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)

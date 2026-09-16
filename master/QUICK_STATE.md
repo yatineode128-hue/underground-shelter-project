@@ -200,6 +200,27 @@ procurement requirement — a certified curve for the panel as built — not a d
 four RECORDED AND NOT CORRECTED.** `CONSOLIDATED_PROJECT_REPORT.md` remains stale on the open-item and assumption counts
 (`PR1-F3`) and is **not edited either.**
 
+Updated **16 Sep 2026** for **SR1 / SR2 / SR2A / SR1A** (master **H.39 - H.41**), the four A2
+reinforcement presentation sheets and their two panel-deletion amendments, and for **AN1**
+(master **H.42**) — **the project's FIRST animation.** One continuous 3D camera journey through
+the whole facility, **6 min 22 s**, 21 beats, rendered live in the browser from the project's own
+dimensions, as the new package `Animation/`. A single self-contained HTML file with **zero
+external dependencies**, so it plays from a USB stick with no internet. **No design value moved,
+no analysis was run, no tag converted, and the main staircase is untouched.** It draws the load
+path **conceptually only** — `D.3.5` records the underground model's results as
+`[NOT AVAILABLE — DO NOT INVENT]`, so there is no contour, displacement, utilisation or failure
+mode anywhere in it — and it names no vulnerability: `EM-F1`, `EM-V3` and `RC5-F2` are **not
+drawn and not named.** Findings: **`AN1-F1`** the owner's Revit set prints **ENTRY ROOF TOP 3400**
+and **GROUND FLOOR LEVEL 440** where `A.4.3` records **+2.450** and **+0.450** — the master
+governs, neither is resolved, new item **`AN1-V8`** · **`AN1-F2`** *"cassette"* means two
+different things here, the **HEPA/carbon filter cassette** and the separately-confirmed
+**SN-03 sealed-cassette chemical toilet**, and they were nearly conflated · **`AN1-F3`** nothing
+documents a walk of 56 steps, so both endpoints were fixed to real features and the **pace
+DERIVED at 0.655 m** from the 36.687 m route · **`AN1-F4`** the project holds no wind-direction
+data (`SG2-V4`), so the blast azimuth is `[V]`, chosen as the only one that puts the post
+**upwind** of the shelter. **Eight new animation-scope items `AN1-V1…V8`. `K.1b` is unaffected —
+AN1 closes nothing and opens nothing in it.**
+
 ---
 
 ## Identity and revisions
