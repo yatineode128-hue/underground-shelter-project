@@ -5777,12 +5777,21 @@ Run in headless Chromium (Playwright) against the built file, with frames captur
 * Walk length and derived pace read back from the running page: **36.687 m / 0.655 m**.
 * **Blast ordering checked numerically**: FC_SENTRY **−29.50** < FC_BOX **−8.66**, so the front
   crosses the sentry post before the shelter. **PASS.**
-* Camera continuity: speed sampled mid-journey at **1.003 and 0.604 m/s** — continuous, no jump.
+* Timeline swept at 4 Hz — **1 529 samples of every state value: all finite, no degenerate
+  look-at anywhere.**
+* **Camera continuity: speed sampled at 30 Hz across the WHOLE film — peak 6.87 m/s**, with no
+  beat above 6.9. **This measurement found a real defect.** The soldier-follow camera took its
+  heading from the current path segment, which changes in one step at every waypoint; sitting
+  4.2 m behind and 1.5 m to the side of it, the camera **teleported several metres at each
+  corner — 138.37 m/s at t = 43.1 s.** That is a cut, and a cut is the one thing this animation
+  may not contain. The heading now comes from a ±1.5 m window of the route and is carried as a
+  vector rather than an angle, which also removes the `atan2` wrap. **None of it was visible in
+  a still frame.**
 * **MAIN STAIRCASE — all eight constants read back out of the RUNNING page and compared field
   by field with A.4.4: 8 / 8 MATCH. UNCHANGED.** 24 R · 170.8333 · 280 · 3 flights · 8 per
   flight · rise 4100 · headroom 2533 · width 1200. Landings read back too: L1 −4.7333,
   L2 −3.3667, arrival −6.100, well 200.
-* Scene size **111 784 triangles**. The harness renders on **SwiftShader — pure-CPU software
+* Scene size **90 010 triangles**. The harness renders on **SwiftShader — pure-CPU software
   rasterisation with no GPU** — at 0.6–2.7 s a frame, which is a property of the harness and
   not of the animation. **No claim is made about the frame rate on the presenter's machine,
   because it was not measured on one**; instead the page measures its own frame time and drops

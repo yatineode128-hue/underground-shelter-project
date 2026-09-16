@@ -304,13 +304,23 @@ Run in headless Chromium (Playwright) against the built file, with frames captur
 | WebGL 2 context acquired | **PASS** |
 | Console and page errors across a full traverse | **NONE** |
 | Duration and beat count read back from the running page | **382 s, 21 beats** |
-| Meshes constructed / annotations constructed | **20 / 39** |
-| Scene size | **111 784 triangles** |
+| Meshes / annotations constructed | **20 / 39** |
+| Scene size | **90 010 triangles** |
 | Walk length / derived pace read back from the running page | **36.687 m / 0.655 m** |
 | **Blast ordering** — front coordinate of the sentry post vs the box | **−29.50 < −8.66 → the post is crossed first. PASS** |
-| Camera continuity — speed sampled mid-journey | **1.003 and 0.604 m/s, continuous, no jump** |
+| Timeline swept at 4 Hz — 1 529 samples of every state value | **all finite; no degenerate look-at anywhere** |
+| **Camera continuity — speed sampled at 30 Hz across the whole film** | **peak 6.87 m/s.** Per beat: site 6.8 · sentry 4.7 · 56 steps 3.0 · blast 3.0 · wave 5.3 · stand-off 6.9 · cutaway 2.8 · cover 1.5 · load path 2.3 · volume 2.3 · interior 2.2 · occupants 0.7 · airflow 1.5 · closed 0.1 · power 1.3 · sanitation 6.7 · EMP 2.9 · Zone 2 1.9 · integration 0.8 · return 3.7 · after 5.1 |
 | **Main staircase — all eight constants read back out of the RUNNING page and compared field by field with master A.4.4** | **8 / 8 MATCH — UNCHANGED.** 24 R · 170.8333 · 280 · 3 flights · 8 per flight · rise 4100 · headroom 2533 · width 1200. Landings also read back: L1 −4.7333, L2 −3.3667, arrival −6.100, well 200 |
-| Frames rendered and inspected across all 21 beats | yes, over four passes |
+| Frames rendered and inspected across all 21 beats | yes, over five passes |
+
+> **One real defect was found by measuring rather than by looking, and fixed.** The
+> soldier-follow camera took its heading from the current path segment, which changes in one
+> step at every waypoint; sitting 4.2 m behind and 1.5 m to the side of that heading, the camera
+> **teleported several metres at each corner — a peak of 138.37 m/s at t = 43.1 s.** That is a
+> cut, and a cut is the one thing this animation may not contain. The heading is now taken from
+> a ±1.5 m window of the route and carried as a vector rather than an angle, which also removes
+> the `atan2` wrap. **Peak speed after the fix: 6.87 m/s.** Four of the five inspection passes
+> existed to catch exactly this class of problem; none of it was visible in a still frame.
 
 > **On the frame rate in this harness.** The test runs in headless Chromium on
 > **SwiftShader — pure-CPU software rasterisation with no GPU at all** — where a frame costs

@@ -29,6 +29,22 @@ const WALK = (function(){
 PROJ.narrative.walkLen = Math.round(WALK.len*1000);
 PROJ.narrative.pace    = Math.round(WALK.pace*1000);
 
+/* The heading must be taken from a WINDOW of the route, not from the current
+   segment. Segment direction changes in one step at every waypoint, and the
+   follow camera sits 4.2 m behind and 1.5 m to the side of it, so a corner
+   used to teleport the camera several metres between frames - a cut, and the
+   one thing this animation may not contain. Measured before the fix: a peak
+   camera speed of 138 m/s at t = 43.1 s. Sampling ahead and behind turns each
+   corner into a three-metre arc, and taking the heading as a VECTOR rather
+   than an angle also removes the atan2 wrap. */
+const HEAD_WIN = 1.5;                                   // metres each side
+function headingAt(d){
+  const a = walkAt(Math.min(d + HEAD_WIN, WALK.len)).p;
+  const b = walkAt(Math.max(d - HEAD_WIN, 0)).p;
+  const v = V3.c(a[0]-b[0], a[1]-b[1], 0);
+  return V3.len(v) < 1e-5 ? V3.c(1,0,0) : V3.norm(v);
+}
+
 /* position and heading at a distance d along the route */
 function walkAt(d){
   d = clamp(d, 0, WALK.len);
@@ -136,7 +152,7 @@ const CAM = [
   [231, [   9.50,  2.95, -4.55],[ 11.6, 2.92,-4.90]],
   /* CBRN AIRFLOW — west to the intake down the axis, then follow the air   */
   [237, [   6.0,   2.92, -4.00],[  1.6, 2.90,-4.20]],
-  [243, [   2.6,   2.92, -4.30],[  5.6, 2.70,-4.70]],
+  [243, [   2.25,  2.90, -4.28],[  5.8, 2.75,-4.72]],
   [250, [   8.0,   2.92, -4.45],[ 11.2, 2.70,-4.85]],
   [257, [  10.5,   2.92, -4.50],[ 12.2, 2.40,-4.90]],
   /* CLOSED MODE — bay 5 is 1560 clear and the trains leave 110 mm a side,
@@ -218,11 +234,12 @@ function walkState(t){
   const step  = Math.min(Math.floor(stepF)+ (raw>0?1:0), PROJ.narrative.steps);
   const d     = clamp(stepF,0,PROJ.narrative.steps) * WALK.pace;
   const w     = walkAt(d);
+  const h     = headingAt(d);
   /* the swing phase that puts a foot down on every whole step */
   const ph    = (stepF - Math.floor(stepF)) * Math.PI * 2;
   const moving = t > WALK_T0-1.2 && t < WALK_T1+0.35;
-  return { p:w.p, yaw:w.yaw, step, stepF, swing: moving ? ph : 0, moving,
-           done: t >= WALK_T1 };
+  return { p:w.p, yaw:Math.atan2(h[1],h[0]), dir:h, step, stepF,
+           swing: moving ? ph : 0, moving, done: t >= WALK_T1 };
 }
 
 /* ---- the whole animation state at time t ------------------------------- */
@@ -244,7 +261,7 @@ function stateAt(t){
   const blend = smoothstep(36.0, 40.5, t) * (1 - smoothstep(80.0, 85.5, t));
   if(blend > 0.001){
     const back = 4.2, side = 1.5, up = 1.95;
-    const fx = Math.cos(wk.yaw), fy = Math.sin(wk.yaw);
+    const fx = wk.dir[0], fy = wk.dir[1];
     const follow = V3.c(wk.p[0] - fx*back - fy*side,
                         wk.p[1] - fy*back + fx*side,
                         wk.p[2] + up + Math.sin(wk.stepF*Math.PI)*0.012);

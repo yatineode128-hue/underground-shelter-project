@@ -249,8 +249,11 @@ function airflowParticles(pts, path, t, headU, density, contaminated){
     /* colour ramp t: 0 = contaminated outside air, 1 = filtered */
     const filtered = phase > 0.62 ? 1 : 0;
     const ramp = filtered ? 1.0 : (contaminated ? 0.0 : 0.45);
+    /* seen from a corridor a metre away, not from across a hall: additive
+       blending saturates fast, so these are small and faint. The air must
+       read as a stream of markers, not as a light source. */
     pts.add(p[0]+j, p[1]+k, p[2]+(hash(i*7.9)-0.5)*0.22,
-            52 + hash(i*3.3)*30, 0.85, ramp, 1);
+            22 + hash(i*3.3)*14, 0.20, ramp, 1);
   }
 }
 
@@ -267,6 +270,6 @@ function empField(pts, t, originXY, radius){
     const y = originXY[1] + Math.sin(ph)*Math.sin(th)*rr;
     const z = Math.max(groundZ(x,y), Math.cos(ph)*rr*0.55 + 3.0);
     if(x<SITE.x0-20||x>SITE.x1+20||y<SITE.y0-20||y>SITE.y1+20) continue;
-    pts.add(x, y, z, 26 + hash(i*8.8)*22, 0.50, 0.5 + hash(i*2.2)*0.5, 1);
+    pts.add(x, y, z, 22 + hash(i*8.8)*18, 0.30, 0.5 + hash(i*2.2)*0.5, 1);
   }
 }

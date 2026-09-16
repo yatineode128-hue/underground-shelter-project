@@ -272,7 +272,7 @@ function frame(now){
   if(s.airOn > 0.02){
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
     PTS.air.reset();
-    airflowParticles(PTS.air, AIRPATH, T, s.airHead, 300, s.contaminated);
+    airflowParticles(PTS.air, AIRPATH, T, s.airHead, 210, s.contaminated);
     PTS.air.flush();
     gl.uniform3f(PROG_PT.u.uCa, 0.72, 0.50, 0.30);   // contaminated outside air
     gl.uniform3f(PROG_PT.u.uCb, 0.40, 0.78, 0.82);   // filtered, into the envelope
