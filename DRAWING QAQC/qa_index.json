@@ -390,6 +390,32 @@
   "geom_in_panel": 0
  },
  {
+  "file": "Presentation Sheets/DXF/STR006_Structural_Reinforcement_Detailing_Roof_Slab_and_Mat_Foundation.dxf",
+  "base": "STR006_Structural_Reinforcement_Detailing_Roof_Slab_and_Mat_Foundation.dxf",
+  "number": "STR006",
+  "discipline": "STRUCTURAL - A2 presentation sheets",
+  "title": "STRUCTURAL REINFORCEMENT DETAILING - ROOF SLAB AND MAT FOUNDATION",
+  "scale": "-",
+  "size": "A2",
+  "texts": 450,
+  "overlap": 0,
+  "over_geom": 0,
+  "geom_in_panel": 0
+ },
+ {
+  "file": "Presentation Sheets/DXF/STR007_Structural_Reinforcement_Detailing_Shear_Wall_and_Main_Staircase.dxf",
+  "base": "STR007_Structural_Reinforcement_Detailing_Shear_Wall_and_Main_Staircase.dxf",
+  "number": "STR007",
+  "discipline": "STRUCTURAL - A2 presentation sheets",
+  "title": "STRUCTURAL REINFORCEMENT DETAILING - 600 SHEAR WALL AND MAIN STAIRCASE",
+  "scale": "-",
+  "size": "A2",
+  "texts": 419,
+  "overlap": 0,
+  "over_geom": 0,
+  "geom_in_panel": 0
+ },
+ {
   "file": "Schedule of Finishes/DXF/A-601_Finish_Legend_Notes_and_Typical_Details.dxf",
   "base": "A-601_Finish_Legend_Notes_and_Typical_Details.dxf",
   "number": "A-601",

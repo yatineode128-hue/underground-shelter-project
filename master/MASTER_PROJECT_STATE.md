@@ -19,6 +19,7 @@
 **Drainage on the architectural sheets:** **DR-A1** (11 Sep 2026, Part **H.24**) — `SU-01` drawn on `A-202`, `ST-01` and `SK-01` drawn on `A-301` beyond a break. **No design value changed.** It raises **`DR-A1-V1`**: the project holds **two different assumed sentry-post positions**, and the elevation's would stand inside `SG2`'s external works reserve. · **DR-A2** (12 Sep 2026, Part **H.35**) — **`SU-01`'s cover** drawn on `A-202` at (−)6.100, and a **1:200 key plan** on `A-301` putting `SU-01`, `ST-01` and `SK-01` at true project X **and Y**. **No design value changed.** It raises **`DR-A2-V1`**: **the project records a 1500 × 1500 opening through the mat and nothing that closes it**, in a bay 1560 wide.
 **Site layout:** **SG2** (11 Sep 2026, Part **H.23**) — **the project's first site layout plan.** On a coordinate and a 50 m envelope the owner supplied, master `H.9`'s *"not determinable"* external works positions, **four of five pipe lengths** and **two of three IS 2470 offsets** are **determined**. Site orientation fixed: **+X = EAST**. Principal finding **`SG2-F1` — the soak pit's problem is DEPTH, not arithmetic**: 21–43 % of its required area is above the design water table and its only permeable horizon is 0.2–0.5 m thick, so the fallback dispersion field is reserved rather than the pit re-sized. **`SG-V9` closed · `SG-V3` ruled · `SG-V5` amended · five new items `SG2-V1…V5` · master gap D3 PARTIALLY closed.**
 **Master project report:** **PR2** (13 September 2026, Part **H.37**) — `Project Report/MASTER_PROJECT_REPORT.pdf`, **151 pages, 25 parts, 4 appendices and 57 drawn figures**, the project stated once and in full as a single as-built design, with the engineering science, the calculations, the citations, the soil report, the M35 and M30 mix designs, the openings and closures, the five services parts, works management and an environmental management plan. **It changes no design value**; its 559-check verification pass holds the two PR1 findings **`PR1-F1`** and **`PR1-F2`** and adds two, **`PR2-F1`** and **`PR2-F2`**, all **recorded and NOT corrected**. PR1 (89 pages, 19 parts) is at Part **H.36**.
+**A2 presentation sheets:** **SR1** (16 Sep 2026, Part **H.39**) — **two A2 structural reinforcement sheets, `STR006` SHEET 06 (roof slab + mat foundation) and `STR007` SHEET 07 (600 shear wall + main staircase)**, drawn in the frame and title block of the owner's Revit A2 architectural set `ARCH001…ARCH005` so they read as the next two sheets of it. Every bar mark is read from `rebar_data.py`; **no design value, level, thickness, bar or spacing changed** and **the main staircase is untouched**. Finding **`SR1-F1`**: the request asked for IS 13920 detailing; **IS 13920 Cl. 10.4 was checked for the box and is NOT triggered** (τ = 0.063 N/mm²), the box is IS 456 + IS 4991 + IS 3370, and the project's IS 13920 detailing is the **sentry post frame**, which is not on these sheets. Both sheets **PASS** the drafting QA with **zero text overlaps**.
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and the sentry post beam / column / footing sheet **S-09** (Part E.3.3).
 
 ---
@@ -5244,6 +5245,151 @@ that way. **No district cost index was applied** (`WM4-V4`). **The owner's bill 
 | `WORKS MANAGEMENT/Cost/WM4_COST_SUMMARY.csv` · `WM4_OWNER_BILL_VS_SSR.csv` · `WM4_OPEN_ITEMS.csv` · `WM4_RATE_DERIVATION.txt` | Recapitulation · the owner's bill re-rated · the seven open items · every derived rate's arithmetic |
 | `WORKS MANAGEMENT/QAQC/WM4_SSR_VERIFICATION.txt` | The 18 checks and the rate-extraction audit |
 | `WORKS MANAGEMENT/Scripts/wm4_ssr_library.py` · `wm4_bill.py` · `wm4_owner_compare.py` · `wm4_build.py` · `wm4_doc.py` · `wm4_verify_xlsx.py` | The generators.  `wm_build_all.py` now runs the last two as steps 8 and 9 |
+
+---
+
+## H.39 A2 structural reinforcement presentation sheets — revision SR1 — 16 September 2026
+
+The owner supplied a five-sheet **Revit A2 architectural set** (`ARCH001 … ARCH005`,
+`Project1.pdf`) and asked for **two more sheets in the same series, numbered SHEET 06 and
+SHEET 07**, carrying the structural reinforcement detailing of the underground structure.
+
+**NOTHING IN PARTS A, B, D, E, F OR L CHANGES.** No dimension, level, thickness, load,
+capacity, bar size, spacing or bar mark moved. No `.std` file was opened and no analysis
+was run. **The main staircase is untouched** — 24 risers, 170.8333 mm riser, 280 mm tread,
+3 flights × 8, 4 100 mm total rise, well 200, waist 200, headroom 2533. SR1 is a **drawing
+production revision only**.
+
+### H.39.1 What was produced — all under `Presentation Sheets/`
+
+| Sheet | Drawing No. | Title | Views |
+|---|---|---|---|
+| **SHEET 06** | **STR006** | STRUCTURAL REINFORCEMENT DETAILING — ROOF SLAB & MAT FOUNDATION | V1 roof slab reinforcement plan 1:100 · V2 roof slab longitudinal section A-A 1:100 (cut Y 2050) · V3 mat foundation reinforcement plan 1:100 · V4 mat foundation longitudinal section B-B 1:100 (cut Y 2050) |
+| **SHEET 07** | **STR007** | STRUCTURAL REINFORCEMENT DETAILING — 600 SHEAR WALL & MAIN STAIRCASE | V1 600 shear wall vertical section 1:30 · V2 600 shear wall part plan / horizontal section 1:25 · V3 main staircase reinforcement plan 1:40 · V4 main staircase longitudinal section C-C 1:40 (cut on flight A at X 15900) |
+
+Tables carried: roof slab and mat element schedule · bar-mark schedule, roof slab 900
+(23 marks) · bar-mark schedule, mat foundation 600 and sump pit (13 marks) · wall schedule
+(W1–W4 detailed, W5 / W6 / W7 / W8 scheduled and cross-referenced) · bar-mark schedule,
+600 perimeter shear walls (6 marks) · main staircase element schedule · bar-mark schedule,
+main staircase (6 marks) · NBC 2016 Part 4 stair geometry check · design-basis and
+construction-requirement panels on both sheets.
+
+### H.39.2 The sheet standard — reverse-engineered, not estimated
+
+Every frame constant was extracted from the **vector content** of the supplied Revit PDF,
+so STR006 / STR007 sit on the same frame as ARCH001…ARCH005:
+
+```
+A2 landscape 594 x 420, drawn in PAPER MILLIMETRES, plotted 1:1
+outer border 27.0, 19.1 -> 567.0, 400.9      inner frame 38.8, 30.9 -> 555.2, 389.1
+title-block divider x = 464.3 ; panels x 467.0 .. 552.4, four stacked boxes
+    A 314.5..386.4 (rule 332.7, "NOTES")   B 193.4..311.8 (notes)
+    C 130.3..190.6 (title)                 D 33.6..128.2 (rules 40.9 54.6 61.8 69.1 76.4 83.6 96.9)
+```
+
+**Declared deviation SR1-X1.** Part E.3.1 fixes AutoCAD R12 ASCII for the S-01…S-08
+output set. **Those sheets are not touched.** STR006 / STR007 are written at **AC1024**
+so they carry native `DIMENSION`, `HATCH` and `ELLIPSE` entities — the same deviation the
+`Structural CAD` R-series already declares as its X1.
+
+**Colour, by instruction: dark only, mostly black.** Four ACI colours are used and no
+others — **7 black** (all line work, text, dimensions, tables, title block), **8 dark
+grey** (hatch, soil, work beyond), **1 dark red** (main reinforcement and trimmers),
+**5 dark blue** (links and distribution). Verified: the colour set of every layer actually
+used on both sheets is exactly `{1, 5, 7, 8}`.
+
+### H.39.3 Provenance of every value drawn
+
+* Geometry, levels, thicknesses, loads and capacities — **Parts A.3, A.4, A.5, A.6,
+  A.7.3, A.7.8, B.1, B.3, B.4, B.4.1, B.5, F.1, F.2**, read through
+  `Structural CAD/Scripts/sc_proj.py`.
+* **Every bar mark is read from `Structural CAD/Scripts/rebar_data.py`.** Both bar-mark
+  schedules are generated from it and the tags on the views quote nothing else, so a mark
+  cannot appear on a view without a schedule entry. Marks used: `S01A…S16` (roof),
+  `F01…F13` (mat and sump), `W01…W06` (600 walls), `ST01…ST06` (main staircase).
+* Nothing is invented, and no `[UNRESOLVED]`, `[ASSUMED]` or `[NOT AVAILABLE]` item was
+  resolved. STR006's design-basis panel names **A2** (design GWT), **A4** (k<sub>s</sub>
+  at both bounds), **M1** (no STAAD result exists for any underground model) and **P3**
+  (blast capacity not demonstrated) on the face of the drawing.
+
+### H.39.4 SR1-F1 — the IS 13920 request, answered honestly on the drawing
+
+**The request asked for the roof slab and mat to be detailed *"as per IS 13920"*. They are
+not, and they should not be — so the sheets say what governs instead of implying a code
+that does not.** Both title blocks carry note 6 / 7 and both design-basis panels repeat it:
+
+* the box is designed to **IS 456:2000** with **IS 4991:1968** blast actions and
+  **IS 3370 (Pt 2)** crack control; seismic to **IS 1893 (Pt 1):2016**;
+* **IS 13920:2016 has been checked for the box and does not govern** — A.7.8 gives
+  A<sub>h</sub> 0.075, V<sub>b</sub> 1050 kN, 525 kN per long wall, τ = **0.063 N/mm²**, so
+  **Cl. 10.4 boundary elements are NOT triggered**, and no ductile-detailing clause changes
+  any bar on either sheet;
+* **the IS 13920 ductile detailing in this project is carried by the sentry post frame**
+  (B.8, F.4) — B1 / B2, C1 with T10 confining hoops at 85, SCWB to Cl. 7.2.1 — **and that
+  frame is not on these two sheets.** A future sheet **STR008** would carry it.
+
+No bar was changed to chase the request, and no IS 13920 clause number was put on a bar it
+does not govern. **`SR1-F1` is a finding, not an open item: nothing is outstanding.**
+
+### H.39.5 Verification actually performed
+
+| Check | Result |
+|---|---|
+| DXF structure — `ezdxf.readfile`, entity census, layer declaration | Both files open; **no undeclared layer** on either |
+| Geometry inside the sheet | Both extents exactly `27.0, 19.1 → 567.0, 400.9` — the drawn frame. **Nothing outside the border** |
+| Colour policy | Layer colours actually used = `{1, 5, 7, 8}` on both sheets. **No light colour anywhere** |
+| Drafting QA — `DRAWING QAQC/Scripts/dxfqa.py` | **0 text overlaps on STR006, 0 on STR007.** One `outside_inner` item on each: the rotated date stamp outside the frame, which is where ARCH001…ARCH005 put theirs |
+| Clash QA — `modelqa.py`, `panelclash.py` | 0 text-over-hard-geometry, 0 geometry-inside-panel on both |
+| Project drawing index | Re-run. 82 drawings, **STR006 PASS, STR007 PASS** |
+| True-size plot | Both export to a **594 × 420 mm** vector PDF at 1:1 |
+| Bar-mark cross-check | Every mark tagged on a view exists in `rebar_data.MARKS` — both schedules are generated from it |
+| Main staircase | **Unchanged.** 24R at 170.8333 / 280, 3 × 8, rise 4100, well 200, waist 200, headroom 2533, landings (−)4.7333 / (−)3.3667, arrival (−)6.100 = the mat surface |
+
+**STAAD.Pro was not run, and no analysis was performed.** This revision drew two sheets.
+
+### H.39.6 Registration with the QA tools — the H.25 rule, obeyed
+
+`CLAUDE.md` requires a new drawing package to register itself. Done:
+
+* `qa_report_data.py` — `("Presentation Sheets/DXF/", "STRUCTURAL - A2 presentation
+  sheets")` added to `DISCIPLINE`; **`A2` added to `sheet_size()`**, including the
+  540 × 381.8 inset Revit sheet frame this series uses; `STR006` / `STR007` added to
+  `TITLE_OVERRIDE`, because the Revit title block stacks the title over five lines and
+  there is no single text for `title_of()` to read.
+* `make_index.py` — `STRUCTURAL - A2 presentation sheets` added to `ORDER`.
+* Both re-run; `DRAWING_INDEX.md` and `qa_index.json` regenerated.
+
+**One cosmetic gap, recorded not hidden:** the index's `Scale` column reads `-` for both
+sheets. `scale_of()` only finds a scale when the value sits in the same text as the word
+"SCALE"; this series follows the Revit title block, which puts the label `Scale` and the
+value `1 : 100` / `As indicated` in two separate cells. The title block is correct; the
+index reader cannot see it. `scale_of()` was **not** changed, because it is shared with
+the other 80 drawings.
+
+### H.39.7 Not implemented, and why
+
+| | |
+|---|---|
+| **W5, W6 / W7 and W8 drawn** | The request was for **the 600 shear wall only**. W5 200, W6 / W7 400 and the W8 partitions are **scheduled** on STR007 so the sheet cannot be misread, and cross-referenced to `R-202`. They are not drawn |
+| **Sentry post frame (the IS 13920 element)** | Out of the requested scope. Would be a new sheet **STR008** — B1 4-T16 / 2-T16, B2 3-T20 / 2-T20, C1 8-T16 with T10 confining hoops at 85, F1 1500² × 600 with T12 @ 150 B/W |
+| **S-01 … S-08 regenerated** | `proj.py`, `dxflib.py` and `d01_wall.py`…`d08_sentryslab.py` are still absent. Those sheets **cannot** be regenerated and were not touched |
+| **Pressure-relief plug positions** | Master B.3 requires 6 No. in the mat but records no positions. STR006 states the requirement in its construction-requirements panel and **draws no plug**, rather than inventing six locations |
+
+### H.39.8 Files
+
+| File | What it is |
+|---|---|
+| `Presentation Sheets/DXF/STR006_Structural_Reinforcement_Detailing_Roof_Slab_and_Mat_Foundation.dxf` | **SHEET 06** |
+| `Presentation Sheets/DXF/STR007_Structural_Reinforcement_Detailing_Shear_Wall_and_Main_Staircase.dxf` | **SHEET 07** |
+| `Presentation Sheets/Scripts/a2_lib.py` | The A2 sheet library — frame, Revit-style title block, measured tables and panels, dimensions, rebar aids |
+| `Presentation Sheets/Scripts/sheet_data.py` | Every value the two sheets print, in one place, read from `sc_proj` and `rebar_data` |
+| `Presentation Sheets/Scripts/s06_roof_mat.py` · `s07_wall_stair.py` | One generator per sheet |
+| `Presentation Sheets/Scripts/render_a2.py` · `render_pdf.py` | Visual-QA PNG · true-size A2 vector PDF at 1:1 |
+| `Presentation Sheets/README.md` | The package note, including the code-basis statement |
+
+> **A future Claude editing either sheet should edit the generator and re-run it, not edit
+> the DXF.** The DXF is a build artefact. `sheet_data.py` is the only place a printed value
+> lives, and `rebar_data.py` is still the only place a bar mark lives.
 
 ---
 

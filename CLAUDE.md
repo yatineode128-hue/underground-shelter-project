@@ -47,7 +47,11 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **WM4** (15 Sep 2026, master **H.38**) — **the Works Management bill priced
+- Latest revision: **SR1** (16 Sep 2026, master **H.39**) — **two A2 structural reinforcement
+  presentation sheets, `STR006` (SHEET 06, roof slab + mat) and `STR007` (SHEET 07, 600 shear
+  wall + main staircase)**, in the frame and title block of the owner's Revit A2 set.
+  **No design value moved.** Finding `SR1-F1` — IS 13920 Cl. 10.4 is not triggered for the box.
+  Before it: **WM4** (15 Sep 2026, master **H.38**) — **the Works Management bill priced
   from the Maharashtra PWD State Schedule of Rates 2022-23**, the 624-page `SSR 22-23 MH (1).pdf`
   the owner supplied. **No quantity moved.** Seven new open items **WM4-V1…V7**.
   Before it: **PR2** (master project report, H.37, 13 Sep) · **DR-A2** (H.35) · **RC10** (H.34)
