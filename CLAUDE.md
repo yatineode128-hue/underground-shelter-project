@@ -47,7 +47,17 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **SR1** (16 Sep 2026, master **H.39**) — **two A2 structural reinforcement
+- Latest revision: **SR2** (16 Sep 2026, master **H.40**) — **two A2 sentry-post reinforcement
+  presentation sheets, `STR008` (SHEET 08, beams B1/B2 + column C1) and `STR009` (SHEET 09,
+  isolated footing F1 + slab S1)**, in the same Revit A2 frame and title block. **No design
+  value moved and no analysis was run.** The sentry post is excluded from `rebar_data.py`, so
+  its bar-mark register is the separate `Presentation Sheets/Scripts/sentry_data.py` — keep it
+  that way. Finding **`SR2-F1` is UNRESOLVED and blocks the roof beams**: master B.8.6 checks
+  the roof joint with B2 = 2-T20 while F.4 schedules 3-T20 at supports, and 3-T20 there fails
+  IS 13920 Cl. 7.2.1. **STR008 therefore details the FIRST-FLOOR frame only.** Six more open
+  items `SR2-V1…V6`, plus `SR2-F2` (a legibility finding on the existing STR007, recorded and
+  deliberately not fixed).
+  Before it: **SR1** (16 Sep 2026, master **H.39**) — **two A2 structural reinforcement
   presentation sheets, `STR006` (SHEET 06, roof slab + mat) and `STR007` (SHEET 07, 600 shear
   wall + main staircase)**, in the frame and title block of the owner's Revit A2 set.
   **No design value moved.** Finding `SR1-F1` — IS 13920 Cl. 10.4 is not triggered for the box.
