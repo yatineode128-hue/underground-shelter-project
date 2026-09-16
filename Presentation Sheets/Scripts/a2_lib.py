@@ -492,6 +492,39 @@ class A2Sheet:
             y -= rh
         return y
 
+    def table_stack(self, x, y_top, y_bot, w, specs, gap=8.0, rh_max=8.0,
+                    body_max=3.2):
+        """Draw a stack of tables that fills `y_top` .. `y_bot` EXACTLY.
+
+        Added at SR2A, when the two note panels were deleted from STR008 and
+        STR009 and the schedules became the whole right-hand column.  The row
+        height is solved for, not guessed: it is whatever makes the stack end on
+        `y_bot`, capped at `rh_max` so a short stack cannot turn into a poster.
+        Any height the cap leaves over is shared out between the tables as gap.
+        Body text grows with the row and is then shrunk by `table()` until it
+        fits its column, so a wider row can never push text out of a cell.
+        """
+        n = sum(len(sp["rows"]) + (1 if sp.get("header") else 0) for sp in specs)
+        th = sum(fit_h([sp["title"]], w - 3.0, TXT["tbl_title"]) + 2.6
+                 for sp in specs if sp.get("title"))
+        ngap = max(len(specs) - 1, 0)
+        span = y_top - y_bot
+        rh = (span - th - gap * ngap) / max(n, 1)
+        if rh > rh_max:
+            rh = rh_max
+            gap = (span - th - n * rh) / ngap if ngap else 0.0
+        body_h = min(body_max, max(TXT["tbl_body"], rh * 0.40))
+        y = y_top
+        for i, sp in enumerate(specs):
+            y = self.table(x, y, w, sp["rows"], title=sp.get("title"),
+                           header=sp.get("header"), rh=rh,
+                           body_h=sp.get("body_h", body_h),
+                           head_h=sp.get("head_h", body_h + 0.2),
+                           align=sp.get("align"))
+            if i < len(specs) - 1:
+                y -= gap
+        return y
+
     def panel(self, x, y_top, w, heading, lines, lead=3.1, h=None, box=True,
               max_h=None):
         """A boxed note panel.  Returns the y of the bottom edge."""

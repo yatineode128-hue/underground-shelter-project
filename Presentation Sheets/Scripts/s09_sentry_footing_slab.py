@@ -270,8 +270,7 @@ s.text("8-T16 SC01 THROUGH", FP(FL / 2, FL / 2 - 500), SM, "S-TEXT", "C")
 s.dim_h(FP(0, 0), FP(FL, 0), 58.0, SC_FTG)
 s.dim_v(FP(0, 0), FP(0, FL), 52.0, SC_FTG)
 s.view_title(44.0, V4_TTL, "4", "ISOLATED FOOTING F1 - REINFORCEMENT PLAN",
-             "1 : 20   T12 @ 150 BOTH WAYS BOTTOM (754 mm2/m),  COVER 50,"
-             "  4 No.", 160.0)
+             "1 : 20   T12 @ 150 B/W BOTTOM,  COVER 50,  4 No.", 160.0)
 
 # =====================================================================  VIEW 5
 # ISOLATED FOOTING F1 - SECTION 1-1, 1 : 20
@@ -302,35 +301,30 @@ s.tag(FS(-470, BOT), "SF01", FS(B0, BOT))
 s.dim_h(FS(FL / 2 + H, S.FTG_T), FS(FL, S.FTG_T), 101.0, SC_FTG, "A2-DIM-S")
 s.dim_v(FS(FL, 0), FS(FL, S.FTG_T), FS(FL, 0)[0] + 22.0, SC_FTG, "A2-DIM-S")
 s.view_title(164.0, V4_TTL, "5", "ISOLATED FOOTING F1 - SECTION 1-1",
-             "1 : 20   600 DEPTH SET BY STARTER ANCHORAGE, NOT BY BENDING "
-             "OR SHEAR", 272.0)
+             "1 : 20   DEPTH SET BY STARTER ANCHORAGE", 272.0)
 
 # =====================================================================  TABLES
-y = 383.0
-y = s.table(RCOL, y, RCOL_W, S.FOOTING_SCHEDULE, title="FOOTING SCHEDULE",
-            header=["MARK", "No.", "SIZE", "FOUNDING", "TOP", "COVER", "d",
-                    "REINFORCEMENT"],
-            rh=4.0, align=["C", "C", "C", "C", "C", "C", "C", "C"])
-y = s.table(RCOL, y - 5.0, RCOL_W, S.SLAB_SCHEDULE,
-            title="SLAB S1 - ELEMENT SCHEDULE",
-            header=["ELEMENT", "THK", "COVER", "d x / d y", "REINFORCEMENT",
-                    "BASIS"],
-            rh=4.0, align=["L", "C", "C", "C", "C", "L"])
-y = s.table(RCOL, y - 5.0, RCOL_W, S.rows("FOOTING F1", "SLAB S1"),
-            title="BAR MARK SCHEDULE - FOOTING F1 AND SLAB S1",
-            header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
-            rh=4.0, align=["C", "C", "C", "L", "C", "C"])
-y = s.table(RCOL, y - 5.0, RCOL_W, S.ANNEXD_CHECK,
-            title="IS 456 ANNEX D - TWO-WAY SLAB DETAILING",
-            header=["CLAUSE", "REQUIREMENT", "AS DETAILED"],
-            rh=3.8, align=["L", "L", "L"])
-
-y = s.panel(RCOL, y - 5.0, RCOL_W,
-            "DECLARED DETAILING DECISIONS AND OPEN ITEMS", S.DECISIONS_09,
-            lead=2.55, h=1.85)
-y = s.panel(RCOL, y - 4.0, RCOL_W, "DESIGN BASIS - THIS SHEET", S.BASIS_09,
-            lead=2.55, h=1.85)
-assert y > 35.0, f"panels overflow the frame: bottom at {y:.1f}"
+# SR2A: the two note panels are deleted, so the schedules ARE the right-hand
+# column.  This sheet has only 29 table rows to fill 348 mm, so the row height
+# hits its cap and the remainder is shared out as gap between the four tables.
+y = s.table_stack(RCOL, 383.0, 35.5, RCOL_W, [
+    dict(rows=S.FOOTING_SCHEDULE, title="FOOTING SCHEDULE",
+         header=["MARK", "No.", "SIZE", "FOUNDING", "TOP", "COVER", "d",
+                 "REINFORCEMENT"],
+         align=["C", "C", "C", "C", "C", "C", "C", "C"]),
+    dict(rows=S.SLAB_SCHEDULE, title="SLAB S1 - ELEMENT SCHEDULE",
+         header=["ELEMENT", "THK", "COVER", "d x / d y", "REINFORCEMENT",
+                 "BASIS"],
+         align=["L", "C", "C", "C", "C", "L"]),
+    dict(rows=S.rows("FOOTING F1", "SLAB S1"),
+         title="BAR MARK SCHEDULE - FOOTING F1 AND SLAB S1",
+         header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
+         align=["C", "C", "C", "L", "C", "C"]),
+    dict(rows=S.ANNEXD_CHECK, title="IS 456 ANNEX D - TWO-WAY SLAB DETAILING",
+         header=["CLAUSE", "REQUIREMENT", "AS DETAILED"],
+         align=["L", "L", "L"]),
+], gap=9.0, rh_max=7.6)
+assert y > 35.0, f"the schedule stack overflows the frame: bottom at {y:.1f}"
 
 
 if __name__ == "__main__":

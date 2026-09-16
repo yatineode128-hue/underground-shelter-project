@@ -85,7 +85,17 @@ sys.path.insert(0, os.path.join(ROOT, "Structural CAD", "Scripts"))
 
 import rc_calc as RC                                        # noqa: E402
 from rebar_data import cut_length, HOOK                      # noqa: E402
-from sheet_data import IDENTITY                              # noqa: E402
+import sheet_data as _SD                                     # noqa: E402
+
+# ------------------------------------------------------------------- identity
+# SR2A, by instruction: "REV A" is deleted from the header of STR008 / STR009.
+# sheet_data.IDENTITY still reads "STRUCTURAL - PHASE 2 REV A + M1" and is NOT
+# changed -- STR006 and STR007 are released sheets and keep the line they were
+# issued with.  The two lists are therefore allowed to differ, and this is the
+# only difference.
+IDENTITY = [ln.replace("PHASE 2 REV A + M1", "PHASE 2 + M1")
+            for ln in _SD.IDENTITY]
+assert IDENTITY != _SD.IDENTITY, "the REV A line moved -- re-check the header"
 
 FCK = 30.0                       # M30 -- master F.4 / B.8.4 (Mu,lim 0.133 x 30)
 FY = 500.0                       # Fe500 / Fe500D
@@ -363,11 +373,13 @@ NOTES_08 = _N_COMMON + [
     "BOTTOM STEEL, Cl. 6.3.3 / 6.3.4 SET THE HOOPS (tau_c TAKEN AS ZERO IN THE "
     "HINGE REGIONS), Cl. 6.3.5.1 SETS 100 c/c OVER 2d = 810, AND Cl. 8.1 / 8.2 "
     "SET THE COLUMN CONFINING STEEL.",
-    "TOP STEEL IS DETAILED CONTINUOUS OVER THE FULL SPAN. THE MASTER GIVES "
-    "'TOP AT SUPPORTS' AND NO CURTAILMENT POINT - SEE THE DECLARED DETAILING "
-    "DECISIONS PANEL.",
-    "THIS SHEET DETAILS THE FIRST-FLOOR FRAME. THE ROOF FRAME IS NOT DETAILED "
-    "HERE - SEE OPEN ITEM SR2-F1.",
+    "THE TAGS (D1), (D2) AND (D3) ON THIS SHEET ARE DECLARED DETAILING "
+    "DECISIONS, AND EVERY 'SR2-' REFERENCE IS AN OPEN ITEM. BOTH ARE RECORDED "
+    "IN MASTER PART H.40.4 AND H.40.5. D1: TOP STEEL IS DETAILED CONTINUOUS "
+    "OVER THE FULL SPAN BECAUSE THE MASTER GIVES 'TOP AT SUPPORTS' AND NO "
+    "CURTAILMENT POINT.",
+    "THIS SHEET DETAILS THE FIRST-FLOOR FRAME ONLY. THE ROOF FRAME IS NOT "
+    "DETAILED - SEE FINDING SR2-F1 IN MASTER PART H.40.5.",
     _N_NOTBLAST,
     _N_CHECK,
 ]
@@ -382,8 +394,23 @@ NOTES_09 = _N_COMMON + [
     "26 IS VALID ONLY BECAUSE THE CORNER TORSION MATS ARE PROVIDED. THE MATS "
     "ARE A HOLD POINT FOR REINFORCEMENT INSPECTION.",
     _N_13920,
+    "THE TAGS (D3) AND (D4) IN THE BAR MARK SCHEDULE ARE DECLARED DETAILING "
+    "DECISIONS, RECORDED IN MASTER PART H.40.4. THE OPEN ITEMS THAT AFFECT "
+    "THIS SHEET - SR2-V4 THE FOOTING TOP LEVEL, SR2-V5 NO BLINDING UNDER F1, "
+    "SR2-V6 CONFINING STEEL INTO THE FOOTING - ARE IN MASTER PART H.40.5.",
     _N_CHECK,
 ]
+
+# =============================================================================
+# SR2A -- DECISIONS_08 / DECISIONS_09 / BASIS_08 / BASIS_09 ARE NO LONGER
+# PRINTED.  The two note panels they fed were deleted from both sheets by
+# instruction.  The lists are kept here, unaltered, so the record stays with the
+# data (rule M.11), but THE AUTHORITY IS NOW master H.40.4 (the four declared
+# detailing decisions) and master H.40.5 (findings SR2-F1, SR2-F2 and open items
+# SR2-V1 to SR2-V6).  A reader of the sheets alone will not see them, so the
+# open items must be carried into the next revision by the master, not by the
+# drawing.
+# =============================================================================
 
 # ================================================================= SHEET 08
 BEAM_SCHEDULE = [

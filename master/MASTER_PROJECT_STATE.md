@@ -20,7 +20,7 @@
 **Site layout:** **SG2** (11 Sep 2026, Part **H.23**) — **the project's first site layout plan.** On a coordinate and a 50 m envelope the owner supplied, master `H.9`'s *"not determinable"* external works positions, **four of five pipe lengths** and **two of three IS 2470 offsets** are **determined**. Site orientation fixed: **+X = EAST**. Principal finding **`SG2-F1` — the soak pit's problem is DEPTH, not arithmetic**: 21–43 % of its required area is above the design water table and its only permeable horizon is 0.2–0.5 m thick, so the fallback dispersion field is reserved rather than the pit re-sized. **`SG-V9` closed · `SG-V3` ruled · `SG-V5` amended · five new items `SG2-V1…V5` · master gap D3 PARTIALLY closed.**
 **Master project report:** **PR2** (13 September 2026, Part **H.37**) — `Project Report/MASTER_PROJECT_REPORT.pdf`, **151 pages, 25 parts, 4 appendices and 57 drawn figures**, the project stated once and in full as a single as-built design, with the engineering science, the calculations, the citations, the soil report, the M35 and M30 mix designs, the openings and closures, the five services parts, works management and an environmental management plan. **It changes no design value**; its 559-check verification pass holds the two PR1 findings **`PR1-F1`** and **`PR1-F2`** and adds two, **`PR2-F1`** and **`PR2-F2`**, all **recorded and NOT corrected**. PR1 (89 pages, 19 parts) is at Part **H.36**.
 **A2 presentation sheets:** **SR1** (16 Sep 2026, Part **H.39**) — **two A2 structural reinforcement sheets, `STR006` SHEET 06 (roof slab + mat foundation) and `STR007` SHEET 07 (600 shear wall + main staircase)**, drawn in the frame and title block of the owner's Revit A2 architectural set `ARCH001…ARCH005` so they read as the next two sheets of it. Every bar mark is read from `rebar_data.py`; **no design value, level, thickness, bar or spacing changed** and **the main staircase is untouched**. Finding **`SR1-F1`**: the request asked for IS 13920 detailing; **IS 13920 Cl. 10.4 was checked for the box and is NOT triggered** (τ = 0.063 N/mm²), the box is IS 456 + IS 4991 + IS 3370, and the project's IS 13920 detailing is the **sentry post frame**, which is not on these sheets. Both sheets **PASS** the drafting QA with **zero text overlaps**.
-**A2 sentry-post sheets:** **SR2** (16 Sep 2026, Part **H.40**) — **two more A2 sheets in the same series, `STR008` SHEET 08 (sentry post beams B1 / B2 and column C1) and `STR009` SHEET 09 (isolated footing F1 and slab S1)**. **This is the project's IS 13920:2016 sheet pair** — the box is not a ductile-detailing element (Cl. 10.4 checked, not triggered) and the sentry post frame is, so STR008 carries a 14-clause IS 13920 compliance table. **No design value moved and no analysis was run.** Because the sentry post is EXCLUDED from `rebar_data.py`, SR2 builds a separate register `sentry_data.py` to the same rule. Principal finding **`SR2-F1` — the master contradicts itself on B2's top steel at the ROOF joint**: B.8.6 checks that joint with **2-T20** and passes it marginally, F.4 schedules **3-T20 at supports** without distinguishing level, and 3-T20 there makes IS 13920 Cl. 7.2.1 **FAIL** (1.4 ΣM<sub>b</sub> 195.7 > ΣM<sub>c</sub> 101). **Both cannot be true, so SHEET 08 details the FIRST-FLOOR frame only** and the roof frame is left undrawn until it is ruled on. Six further open items `SR2-V1…V6`, plus `SR2-F2` — a legibility finding on the existing sheet STR007, **recorded and NOT acted on**. Both new sheets **PASS** the drafting QA.
+**A2 sentry-post sheets:** **SR2** (16 Sep 2026, Part **H.40**) — **two more A2 sheets in the same series, `STR008` SHEET 08 (sentry post beams B1 / B2 and column C1) and `STR009` SHEET 09 (isolated footing F1 and slab S1)**. **This is the project's IS 13920:2016 sheet pair** — the box is not a ductile-detailing element (Cl. 10.4 checked, not triggered) and the sentry post frame is, so STR008 carries a 14-clause IS 13920 compliance table. **No design value moved and no analysis was run.** Because the sentry post is EXCLUDED from `rebar_data.py`, SR2 builds a separate register `sentry_data.py` to the same rule. Principal finding **`SR2-F1` — the master contradicts itself on B2's top steel at the ROOF joint**: B.8.6 checks that joint with **2-T20** and passes it marginally, F.4 schedules **3-T20 at supports** without distinguishing level, and 3-T20 there makes IS 13920 Cl. 7.2.1 **FAIL** (1.4 ΣM<sub>b</sub> 195.7 > ΣM<sub>c</sub> 101). **Both cannot be true, so SHEET 08 details the FIRST-FLOOR frame only** and the roof frame is left undrawn until it is ruled on. Six further open items `SR2-V1…V6`, plus `SR2-F2` — a legibility finding on the existing sheet STR007, **recorded and NOT acted on**. Both new sheets **PASS** the drafting QA. **Amended the same day as `SR2A` (Part H.40.8), by instruction: the design-basis and declared-decisions panels DELETED from both sheets and `REV A` removed from their header — no view, scale, dimension, bar or count changed, and the schedules were grown to fill the freed column. The open items are unchanged and now live in the master only.**
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and a ruling on **`SR2-F1`** before the sentry post roof beams can be detailed.
 
 ---
@@ -5527,6 +5527,53 @@ cannot see it. Not changed, because `scale_of()` is shared with the other 80 dra
 > value lives, and it is the only place a **sentry-post** bar mark lives —
 > `rebar_data.py` still excludes the sentry post and must stay that way unless the
 > exclusion is lifted by instruction.
+
+### H.40.8 SR2A — the two note panels and the "REV A" header token deleted, 16 September 2026
+
+**By instruction, the same day.** STR008 and STR009 were re-issued with three deletions and
+nothing else. **No view, scale, dimension, level, bar, spacing, cut length or bar count
+changed on either sheet**, and the drawings themselves are byte-for-byte the same geometry.
+
+| Deleted | Was | Now |
+|---|---|---|
+| **DESIGN BASIS — THIS SHEET** panel | 36 lines (STR008) / 42 lines (STR009) of design narrative in the right-hand column | **gone from the sheets.** The text is `BASIS_08` / `BASIS_09` in `sentry_data.py`, kept unaltered under M.11 but **no longer printed**. The authority for the design basis is Part **B.8** |
+| **DECLARED DETAILING DECISIONS AND OPEN ITEMS** panel | 19 lines (STR008) / 15 lines (STR009) | **gone from the sheets.** The authority is now **H.40.4** (decisions D1–D4) and **H.40.5** (findings `SR2-F1`, `SR2-F2` and open items `SR2-V1`…`SR2-V6`) |
+| **"REV A"** in the title-block identity block | `STRUCTURAL - PHASE 2 REV A + M1` | `STRUCTURAL - PHASE 2 + M1` |
+
+**Three consequences were handled, not left dangling:**
+
+1. **The sheets still carry `(D1)`, `(D2)`, `(D3)`, `(D4)` and `SR2-` tags**, and the panel
+   that explained them is gone. **Title-block note 7 on STR008 and note 9 on STR009 now say
+   what those tags are and point at master H.40.4 / H.40.5.** A reader of the sheet alone
+   can still find them.
+2. **Deleting the panels left 144 mm (STR008) and 193 mm (STR009) of empty right-hand
+   column.** The schedules now fill it: a new `a2_lib.A2Sheet.table_stack()` **solves for
+   the row height that ends the stack exactly on the frame**, capped at 7.6 mm so a short
+   stack cannot turn into a poster, sharing any surplus out as gap between tables. Body
+   text grows with the row and is then shrunk by `table()` until it fits its column. The
+   schedules are markedly more legible than at SR2 — this is the one visible gain.
+3. **`sheet_data.IDENTITY` is NOT changed.** STR006 and STR007 are released sheets and keep
+   the identity line they were issued with. `sentry_data.IDENTITY` derives its own copy with
+   the `REV A` token removed and **asserts that the substitution actually happened**, so a
+   future edit to `sheet_data` cannot silently put `REV A` back on these two sheets. The two
+   lists are therefore allowed to differ, and that is the only difference between them.
+
+**Not renumbered.** The sheets remain stamped **SR2**; SR2A is the name of this amendment in
+the record, not a new margin stamp, so that nothing on the sheet reads like the `REV A` the
+instruction removed. **If a distinct revision letter is wanted on the sheet, say so and it
+becomes a one-line change.**
+
+**Re-verified after the change.** `dxfqa` via `qa_report_data.py`: **STR008 and STR009 both
+PASS** — 0 text overlaps, 0 text outside the inner border, 0 geometry in the title block.
+`qa_overlap.py`: **0 / 0 / 0 / 0** on both, including the MTEXT inside rendered `DIMENSION`
+blocks. It caught one real defect introduced by the change — with the schedule stack now
+reaching the bottom of the frame, STR009's view-5 scale note overran x 272 into the table
+column; the note was shortened. `DRAWING_INDEX.md` re-run: **84 drawings, 78 PASS**.
+
+**The open items are unchanged and none is resolved.** `SR2-F1` still blocks the sentry-post
+roof beams. Removing the panel removed the *statement* of the open items from the drawing,
+**not the open items** — they now live only in H.40.5, so **the master, not the drawing, is
+what must carry them into the next revision.**
 
 ---
 

@@ -13,6 +13,16 @@ read as the next four sheets of that same series.
 
 **SR2 — the sentry post.  This is the project's IS 13920:2016 sheet pair.**
 
+> **SR2A, same day, by instruction.** STR008 and STR009 were re-issued with the
+> *DESIGN BASIS* and *DECLARED DETAILING DECISIONS AND OPEN ITEMS* panels **deleted**, and
+> **`REV A` removed** from the title-block identity line (`STRUCTURAL - PHASE 2 + M1`).
+> **No view, scale, dimension, bar or count changed.** The schedules now fill the whole
+> right-hand column via `a2_lib.A2Sheet.table_stack()`, which solves for the row height that
+> ends the stack exactly on the frame — so the sheets have no void and the tables are
+> noticeably more legible. The decisions and open items **still exist**; their authority is
+> now master **H.40.4** and **H.40.5**, and title-block note 7 (STR008) / note 9 (STR009)
+> points there. `sheet_data.IDENTITY` is untouched — **STR006 and STR007 keep `REV A`.**
+
 | Sheet | Drawing No. | Title | Views |
 |---|---|---|---|
 | **SHEET 08** | **STR008** | STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST — BEAMS & COLUMN | 1 first-floor framing plan 1:50 · 2 beam B1 longitudinal section 1:40 · 3 beam B2 longitudinal section 1:40 · 4 sections a-a/b-b (B1), c-c/d-d (B2), 3-3 (C1 confining zone), 4-4 (C1 general) 1:10 · 5 column C1 vertical section, full height, 1:25 |
@@ -96,6 +106,8 @@ detailed continuous (F.4 gives no curtailment point) · **D2** exterior-joint an
 90° leg of L<sub>d</sub> − 300 = 425 for T16 and 625 for T20 · **D3** column verticals
 splice-free, one 8 724 mm bar inside the 12 000 stock length, so no lap is invented ·
 **D4** slab bottom steel, 50 % full length and the remainder cut at 0.25 L.
+**Since SR2A these are recorded in the master only** — the sheets carry the `(D1)…(D4)`
+tags and a title-block note that points at master H.40.4, not the panel.
 
 **`SR2-F1` is open and it blocks work.** Master B.8.6 evaluates the **roof** joint with
 **B2 = 2-T20** (1.4 ΣM<sub>b</sub> = 138.5 ≤ ΣM<sub>c</sub> 101, "marginal"); master F.4

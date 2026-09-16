@@ -379,33 +379,28 @@ s.view_title(KX0, V5_TTL, "5", "COLUMN C1",
              "1 : 25   VERTICAL SECTION, FULL HEIGHT", KX1)
 
 # =====================================================================  TABLES
-y = 383.0
-y = s.table(RCOL, y, RCOL_W, S.BEAM_SCHEDULE,
-            title="BEAM SCHEDULE - SENTRY POST FRAME",
-            header=["BEAM", "SIZE", "SPAN c/c", "CLEAR", "COVER", "d",
-                    "TOP AT SUPP.", "BOTTOM", "HOOPS"],
-            rh=4.0, align=["L", "C", "C", "C", "C", "C", "C", "C", "C"])
-y = s.table(RCOL, y - 5.0, RCOL_W, S.COLUMN_SCHEDULE,
-            title="COLUMN SCHEDULE",
-            header=["COL", "SIZE", "LEVELS", "COVER", "VERTICALS", "p",
-                    "CONFINING (Cl. 8.1)", "GENERAL TIES"],
-            rh=4.0, align=["C", "C", "C", "C", "C", "C", "C", "C"])
-y = s.table(RCOL, y - 5.0, RCOL_W, S.rows("BEAM B1", "BEAM B2", "COLUMN C1"),
-            title="BAR MARK SCHEDULE - BEAMS B1 / B2 AND COLUMN C1",
-            header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
-            rh=3.7, align=["C", "C", "C", "L", "C", "C"])
-y = s.table(RCOL, y - 5.0, RCOL_W, S.IS13920_CHECK,
-            title="IS 13920:2016 COMPLIANCE - SENTRY POST FRAME",
-            header=["CLAUSE", "REQUIREMENT", "PROVIDED", "VERDICT"],
-            rh=3.5, align=["L", "L", "L", "C"])
-
-# ------------------------------------------------------------------- panels
-y = s.panel(RCOL, y - 5.0, RCOL_W,
-            "DECLARED DETAILING DECISIONS AND OPEN ITEMS", S.DECISIONS_08,
-            lead=2.38, h=1.72)
-y = s.panel(RCOL, y - 4.0, RCOL_W, "DESIGN BASIS - THIS SHEET", S.BASIS_08,
-            lead=2.38, h=1.72)
-assert y > 35.0, f"panels overflow the frame: bottom at {y:.1f}"
+# SR2A: the two note panels are deleted, so the schedules ARE the right-hand
+# column.  table_stack() solves for the row height that ends the stack exactly
+# on the frame, so nothing is left hanging in white space.
+y = s.table_stack(RCOL, 383.0, 35.5, RCOL_W, [
+    dict(rows=S.BEAM_SCHEDULE, title="BEAM SCHEDULE - SENTRY POST FRAME",
+         header=["BEAM", "SIZE", "SPAN c/c", "CLEAR", "COVER", "d",
+                 "TOP AT SUPP.", "BOTTOM", "HOOPS"],
+         align=["L", "C", "C", "C", "C", "C", "C", "C", "C"]),
+    dict(rows=S.COLUMN_SCHEDULE, title="COLUMN SCHEDULE",
+         header=["COL", "SIZE", "LEVELS", "COVER", "VERTICALS", "p",
+                 "CONFINING (Cl. 8.1)", "GENERAL TIES"],
+         align=["C", "C", "C", "C", "C", "C", "C", "C"]),
+    dict(rows=S.rows("BEAM B1", "BEAM B2", "COLUMN C1"),
+         title="BAR MARK SCHEDULE - BEAMS B1 / B2 AND COLUMN C1",
+         header=["MARK", "BAR", "SPACING", "LOCATION", "CUT mm", "No."],
+         align=["C", "C", "C", "L", "C", "C"]),
+    dict(rows=S.IS13920_CHECK,
+         title="IS 13920:2016 COMPLIANCE - SENTRY POST FRAME",
+         header=["CLAUSE", "REQUIREMENT", "PROVIDED", "VERDICT"],
+         align=["L", "L", "L", "C"]),
+], gap=9.0, rh_max=7.6)
+assert y > 35.0, f"the schedule stack overflows the frame: bottom at {y:.1f}"
 
 
 if __name__ == "__main__":

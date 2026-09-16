@@ -56,7 +56,11 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   the roof joint with B2 = 2-T20 while F.4 schedules 3-T20 at supports, and 3-T20 there fails
   IS 13920 Cl. 7.2.1. **STR008 therefore details the FIRST-FLOOR frame only.** Six more open
   items `SR2-V1…V6`, plus `SR2-F2` (a legibility finding on the existing STR007, recorded and
-  deliberately not fixed).
+  deliberately not fixed). **Amended the same day as `SR2A` (master H.40.8): the design-basis
+  and declared-decisions panels were DELETED from both sheets and `REV A` removed from their
+  header. No view, scale, dimension, bar or count changed.** The decisions and open items now
+  live in the master ONLY — **the drawing no longer states them, so the master must carry them
+  forward.** `sheet_data.IDENTITY` is untouched; STR006 / STR007 keep `REV A`.
   Before it: **SR1** (16 Sep 2026, master **H.39**) — **two A2 structural reinforcement
   presentation sheets, `STR006` (SHEET 06, roof slab + mat) and `STR007` (SHEET 07, 600 shear
   wall + main staircase)**, in the frame and title block of the owner's Revit A2 set.
