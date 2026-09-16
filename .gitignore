@@ -3,3 +3,10 @@ __pycache__/
 
 # Works Management build artefacts
 WORKS MANAGEMENT/Scripts/__pycache__/
+
+# AN1 animation: the rendered video is a BUILD ARTEFACT, regenerable from the
+# committed sources with Animation/Scripts/an1_record_all.sh. At ~60-100 MB it
+# would bloat every future clone, and GitHub warns above 50 MB, so it is not
+# tracked. The HTML in Animation/Output/ IS tracked -- it is 133 kB of text.
+Animation/Output/*.mp4
+Animation/Output/*.webm

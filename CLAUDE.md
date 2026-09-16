@@ -47,7 +47,29 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own
+- Latest revision: **AN1** (16 Sep 2026, master **H.42**) — **the project's FIRST animation**, the
+  new package `Animation/`: one continuous 3D camera journey through the whole facility,
+  **6 min 22 s**, 21 beats, rendered live in the browser from the project's own dimensions.
+  **A single self-contained HTML file with ZERO external dependencies** — it plays from a USB
+  stick in a hall with no internet. **No design value moved, no analysis was run, no tag
+  converted, the main staircase untouched.** The load path is **conceptual only** because `D.3.5`
+  records the underground model's results as `[NOT AVAILABLE — DO NOT INVENT]`: there is no
+  contour, displacement, utilisation or failure mode in it anywhere. It names **no
+  vulnerability** — `EM-F1`, `EM-V3` and `RC5-F2` are not drawn and not named. Rebuild with
+  `python3 Animation/Scripts/an1_build.py`; `Animation/Output/` is a **build artefact, never
+  edit it by hand**. Findings **`AN1-F1`** the owner's Revit set prints `ENTRY ROOF TOP 3400`
+  and `GROUND FLOOR LEVEL 440` where `A.4.3` records **+2.450** and **+0.450** — the master
+  governs, neither resolved, new item `AN1-V8` · **`AN1-F2`** *"cassette"* means two different
+  things in this project (the HEPA/carbon **filter** cassette and the **SN-03 sealed-cassette
+  chemical toilet**) and they were nearly conflated · **`AN1-F3`** nothing documents a walk of
+  56 steps, so both endpoints were fixed to real features and the pace **derived** at 0.655 m ·
+  **`AN1-F4`** the project holds no wind-direction data, so the blast azimuth is `[V]`, chosen
+  as the only one that puts the sentry post **upwind** of the shelter · **`AN1-F8`** bay 5 does
+  not demonstrably hold everything `A.3` puts in it — 1560 × 5000 less the 1500 × 1500 sump and
+  a clear 900 door line caps each filter train at about **1100 mm long**, and **no train length
+  is stated anywhere**; nothing ruled, nothing changed. Ten open items `AN1-V1…V10`;
+  **`K.1b` is unaffected.**
+  Before it: **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own
   copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire
   revision line (`STRUCTURAL - PHASE 2 REV A + M1`) deleted from the header — asked directly
   which reading was meant (drop just `REV A`, or the whole line), and the whole line was the

@@ -1,0 +1,2789 @@
+<title>Underground CBRN Operations Room</title>
+<meta name="description" content="Continuous 3D engineering animation of an underground CBRN-hardened blast-resistant protective structure, Pune.">
+<style>
+  :root{
+    --ink:#e8e6e1; --dim:#9a978f; --faint:#6d6a64;
+    --chrome:#14161a; --chrome2:#1d2026; --line:#2e323a;
+    --accent:#c79a4e; --cool:#7fb3c4;
+    --ff:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --fm:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:#0b0c0e;color:var(--ink);font-family:var(--ff);overflow:hidden}
+  #c{position:fixed;inset:0;width:100%;height:100%;display:block;background:#0b0c0e}
+
+  /* ---- annotation layer : small, anchored, never a caption ---- */
+  #notes{position:fixed;inset:0;pointer-events:none;z-index:5}
+  .note{
+    position:absolute;top:0;left:0;will-change:transform,opacity;opacity:0;visibility:hidden;
+    transition:opacity .28s linear;
+    padding:7px 11px 8px 13px;max-width:min(330px,42vw);
+    background:rgba(10,12,15,.62);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+    border-left:2px solid var(--accent);border-radius:2px;
+    box-shadow:0 2px 14px rgba(0,0,0,.42);
+    transform-origin:0 0;
+  }
+  .note b{display:block;font-size:11.5px;font-weight:650;letter-spacing:.085em;
+          text-transform:uppercase;line-height:1.32;color:#f2f0ec}
+  .note i{display:block;font-style:normal;font-size:11px;letter-spacing:.012em;
+          line-height:1.45;color:var(--dim);margin-top:3px}
+  .note .lead{position:absolute;left:-26px;top:12px;width:24px;height:1px;background:var(--accent);opacity:.65}
+
+  /* ---- the standing caveat ---- */
+  #caveat{position:fixed;left:24px;bottom:104px;z-index:6;opacity:0;transition:opacity .4s linear;
+    font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);
+    border-left:2px solid var(--faint);padding-left:9px;max-width:330px;line-height:1.5;pointer-events:none}
+
+  /* ---- transport ---- */
+  #ui{position:fixed;left:0;right:0;bottom:0;z-index:10;
+    background:linear-gradient(to top,rgba(8,9,11,.94),rgba(8,9,11,.80) 62%,transparent);
+    padding:30px 22px calc(15px + env(safe-area-inset-bottom, 0px));transition:opacity .3s,transform .3s}
+  body.bare #ui{opacity:0;transform:translateY(14px);pointer-events:none}
+  body.bare #caveat{left:24px;bottom:28px}
+  #track{height:22px;display:flex;align-items:center;cursor:pointer;touch-action:none}
+  #rail{position:relative;height:3px;width:100%;background:#32363e;border-radius:2px;overflow:hidden}
+  #bar{position:absolute;inset:0 auto 0 0;width:0;background:var(--accent)}
+  #row{display:flex;align-items:center;gap:14px;margin-top:8px;flex-wrap:wrap}
+  button{font:inherit;color:var(--ink);background:var(--chrome2);border:1px solid var(--line);
+    border-radius:3px;padding:5px 10px;cursor:pointer;font-size:11px;letter-spacing:.05em}
+  button:hover{background:#262a31;border-color:#3d424c}
+  #play{min-width:40px;font-size:12px}
+  #tc{font-family:var(--fm);font-size:11px;color:var(--dim);letter-spacing:.04em;min-width:96px}
+  #beatwrap{flex:1 1 220px;min-width:0}
+  #beat{font-size:11.5px;font-weight:650;letter-spacing:.1em;text-transform:uppercase}
+  #beatsub{font-size:10.5px;color:var(--faint);letter-spacing:.02em;margin-top:1px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #chapters{display:flex;gap:5px;overflow-x:auto;margin-top:9px;padding-bottom:3px;scrollbar-width:thin}
+  #chapters button{white-space:nowrap;font-size:10px;padding:4px 8px;color:var(--dim);background:#15181d}
+  #chapters button:hover{color:var(--ink)}
+  #keys{font-size:10px;color:var(--faint);letter-spacing:.05em;margin-top:8px}
+  #keys kbd{font-family:var(--fm);background:#1b1e23;border:1px solid var(--line);
+    border-radius:2px;padding:1px 4px;color:var(--dim)}
+
+  /* ---- opening plate ---- */
+  #gate{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:0;background:#0b0c0e;
+    text-align:center;padding:24px;transition:opacity .9s ease,visibility .9s}
+  #gate.gone{opacity:0;visibility:hidden;pointer-events:none}
+  #gate .eyebrow{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--faint)}
+  #gate h1{font-size:clamp(20px,4.0vw,37px);font-weight:600;letter-spacing:.055em;
+    text-transform:uppercase;margin:16px 0 0;line-height:1.28;max-width:15ch}
+  #gate .sub{margin-top:14px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+  #gate .tag{margin-top:30px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+  #gate .meta{margin-top:26px;font-family:var(--fm);font-size:10.5px;color:var(--faint);line-height:1.8}
+  #gate .cta{margin-top:34px;padding:12px 30px;font-size:11.5px;letter-spacing:.24em;
+    text-transform:uppercase;border-color:#4a505c;background:#1a1d23}
+  #gate .cta:hover{background:#242830;border-color:var(--accent);color:#fff}
+  #gate .note2{margin-top:20px;font-size:10px;color:var(--faint);letter-spacing:.06em;max-width:52ch;line-height:1.7}
+  #err{display:none;position:fixed;inset:0;z-index:60;background:#0b0c0e;color:var(--ink);
+    padding:40px;font-size:14px;line-height:1.7}
+  @media (max-width:700px){
+    #keys{display:none} .note{max-width:58vw} #caveat{max-width:58vw;left:16px}
+  }
+</style>
+
+<canvas id="c"></canvas>
+<div id="notes"></div>
+<div id="caveat">IS 4991:1968 excludes nuclear explosions - used for its loading rules only</div>
+
+<div id="ui">
+  <div id="track"><div id="rail"><div id="bar"></div></div></div>
+  <div id="row">
+    <button id="play" title="Play / pause (Space)">▶</button>
+    <span id="tc">0:00 / 0:00</span>
+    <div id="beatwrap"><div id="beat">&nbsp;</div><div id="beatsub">&nbsp;</div></div>
+    <button id="qual" title="Render quality — auto, or pin a fixed scale (Q)">Auto 100%</button>
+    <button id="snd" title="Sound on / off (M)">♪</button>
+    <button id="hide" title="Hide the interface for recording (H)">Hide UI</button>
+  </div>
+  <div id="chapters"></div>
+  <div id="keys">
+    <kbd>Space</kbd> play · <kbd>←</kbd><kbd>→</kbd> 5 s · <kbd>0</kbd> restart ·
+    <kbd>F</kbd> full screen · <kbd>H</kbd> hide interface · <kbd>M</kbd> sound · <kbd>Q</kbd> quality
+  </div>
+</div>
+
+<div id="gate">
+  <div class="eyebrow">College of Military Engineering · Pune</div>
+  <h1>Underground CBRN-Hardened Operations Room</h1>
+  <div class="sub">Blast-resistant protective structure with sentry post</div>
+  <div class="tag">Nine people. Ninety-six hours. Two metres of earth.</div>
+  <div class="meta">
+    383 kPa design blast pressure · roof and walls<br>
+    22.0 × 6.2 m external · 8 bays · roof 900, mat 600, walls 600<br>
+    <span id="derived"></span>
+  </div>
+  <button class="cta">Begin</button>
+  <div class="note2">One continuous camera journey, 6 min 22 s.
+    Every dimension, load and system value is taken from the project's own master
+    record. Press <b>H</b> to hide the interface before recording.</div>
+</div>
+
+<div id="err"><b>WebGL 2 is not available in this browser.</b><br><br>
+  This animation is rendered live in the browser and needs WebGL 2. Try a current
+  version of Chrome, Edge, Firefox or Safari, and make sure hardware acceleration
+  is enabled.</div>
+
+<script>
+/* ==== 00_data.js ==== */
+/* ===========================================================================
+   AN1 — PROJECT DATA MODULE
+   Underground CBRN-hardened blast-resistant protective structure + sentry post
+   Pune, Maharashtra.
+
+   EVERY value below is transcribed from an authoritative project source.
+   Evidence tags follow the master's own legend:
+       C = CONFIRMED   R = RECONSTRUCTED   A = ASSUMED
+       U = UNRESOLVED  N = NOT AVAILABLE   D = DERIVED by a named package
+       V = VISUAL-ONLY, this animation's own narrative choice, carries no
+           engineering weight and is declared as such in the design basis.
+
+   SOURCE OF TRUTH: master/MASTER_PROJECT_STATE.md Parts A, B, F, L.
+   Nothing here may be changed without changing the master first.
+
+   COORDINATE SYSTEM — master A.4.1, used verbatim so every number below can
+   be checked against the drawings without conversion:
+       ORIGIN = south-west EXTERNAL corner of the underground box, at grade
+       X = east   (along the length, 0 .. 22000)
+       Y = north  (across the width, 0 .. 6200)
+       Z = level, metres relative to finished grade 0.000, negative downwards
+   Geometry is authored in MILLIMETRES and divided by 1000 at build time,
+   exactly as the DXF toolchain does.
+   =========================================================================== */
+
+const MM = 0.001;                      // millimetres -> scene metres
+
+const PROJ = {
+
+  identity: {
+    title:      'UNDERGROUND CBRN-HARDENED OPERATIONS ROOM',           // C
+    subtitle:   'Blast-resistant protective structure with sentry post', // C
+    location:   'Pune, Maharashtra',                                    // C
+    tagline:    'NINE PEOPLE. NINETY-SIX HOURS. TWO METRES OF EARTH.',  // C - project flier
+    objective:  'Protect 9 occupants for 96 h against a nuclear air-blast ' +
+                'design basis threat with CBRN, EMP and fallout hardening', // C - master A.1
+    archRev:    'Rev F',            // C
+    strRev:     'Phase 2 Rev A + M1' // C
+  },
+
+  /* ---- A.4.2 MAIN BOX -------------------------------------------------- */
+  box: {
+    lenExt:     22000,   // C  master A.4.2 (was 21600 pre-M1)
+    widExt:      6200,   // C
+    lenInt:     20800,   // C
+    widInt:      5000,   // C  clear span of the roof - do not widen
+    wallPerim:    600,   // C
+    roofSlab:     900,   // C  the pressure slab, governing element (B.4)
+    mat:          600,   // C
+    pcc:          100,   // C  M15 blinding
+    clearHt:     3200,   // C
+    cover:       2000    // C  engineered cover over roof, layered
+  },
+
+  /* ---- A.4.3 LEVEL SCHEDULE (metres) ----------------------------------- */
+  lvl: {
+    grade:        0.000,   // C  finished site level, crowned, falls 1:50 away
+    roofTop:     -2.000,   // C  top of pressure slab = headhouse floor level
+    roofSoffit:  -2.900,   // C
+    floor:       -6.100,   // C  internal floor / top of mat
+    matUnder:    -6.700,   // C
+    formation:   -6.800,   // C  underside of PCC
+    gwt:         -2.000,   // A  design groundwater table (monsoon) - THE most
+                           //    important number the site investigation must confirm
+    rockheadHi:  -1.500,   // A  master A.6; SG1 measured 0.9-1.5 m at three locations
+    rockheadLo:  -2.000,   // A
+    stairL1:     -4.7333,  // C  8 risers up from floor
+    stairL2:     -3.3667,  // C  16 risers up from floor
+    hhSoffit:     0.400,   // C
+    hhRoofTop:    0.900,   // C  no earth cover; berm graded to this level
+    entryRoofHd:  2.450,   // C  master A.4.3  (Revit set prints 3400 - see AN1-F2)
+    sentryGF:     0.450,   // C  = base of the STAAD model
+    sentryFF:     3.650,   // C
+    sentryRoof:   6.700,   // C
+    sentryPar:    7.000,   // C
+    sumpInvert:  -7.600    // C
+  },
+
+  /* ---- A.3 BAY SCHEDULE (post-M1) -------------------------------------- */
+  /* name strings are the project flier's own bay legend                     */
+  bays: [
+    { n:1, x0:  600, x1: 3500, w:2900, name:'STORES',      // C
+      use:'Emergency stores, 1000 L potable tank, ESC 1' },
+    { n:2, x0: 3610, x1: 5410, w:1800, name:'WC / MED',    // C
+      use:'Lavatory (1800x2000) + medical (1800x3000)' },
+    { n:3, x0: 5520, x1: 9020, w:3500, name:'OPS ROOM',    // C
+      use:'Ops room & hazard plotting; EMP Zone 2 enclosure' },
+    { n:4, x0: 9130, x1:10930, w:1800, name:'BERTHING',    // C
+      use:'3 x 3-tier bunks, 9 berths' },
+    { n:5, x0:11040, x1:12600, w:1560, name:'CBRN PLANT',  // C
+      use:'2 x 300 m3/h filter trains, CO2/O2, dehumidifier, sump' },
+    { n:6, x0:12800, x1:14800, w:2000, name:'DECON',       // C
+      use:'Decon airlock, 3 stages (2000x2000, 2000x1500, 2000x1500)' },
+    { n:7, x0:15200, x1:18000, w:2800, name:'STAIR',       // C  shifted +200 by M1
+      use:'Stair shaft' },
+    { n:8, x0:18400, x1:21400, w:3000, name:'GENERATOR',   // C  grey zone
+      use:'Generator 15 kVA, ESC 2 at X 19900' }
+  ],
+
+  /* ---- A.3 INTERNAL WALLS ---------------------------------------------- */
+  walls: [
+    { mark:'W8', x0: 3500, x1: 3610, t:110 },  // C  door gap Y 2500-3400
+    { mark:'W8', x0: 5410, x1: 5520, t:110 },  // C
+    { mark:'W8', x0: 9020, x1: 9130, t:110 },  // C
+    { mark:'W8', x0:10930, x1:11040, t:110 },  // C
+    { mark:'W5', x0:12600, x1:12800, t:200 },  // C  fire + gas-tight only
+    { mark:'W6', x0:14800, x1:15200, t:400 },  // C  MOD M1, was 200. PROTECTIVE BOUNDARY
+    { mark:'W7', x0:18000, x1:18400, t:400 }   // C  MOD M1, was 200. PROTECTIVE BOUNDARY
+  ],
+  doorGap: { y0:2500, y1:3400 },               // C  900 door gap in each W8
+
+  /* ---- A.2 / A.4.9 PROTECTIVE BOUNDARY --------------------------------- */
+  blastDoors: [
+    { mark:'BLAST DOOR 1', wallX:14800, t:400, y0:600, y1:1800,   // C  W6
+      w:1200, h:2100, rating:'7 bar', into:'Bay 6' },
+    { mark:'BLAST DOOR 2', wallX:18000, t:400, y0:600, y1:1800,   // C  W7
+      w:1200, h:2100, rating:'7 bar', into:'Bay 8' }
+  ],
+
+  /* ---- A.4.5 ESCAPE SHAFTS --------------------------------------------- */
+  escShafts: [
+    { mark:'ESC 1', cx: 2050, cy:2050, dia:1400, collar:250, od:1900 }, // C
+    { mark:'ESC 2', cx:19900, cy:2050, dia:1400, collar:250, od:1900 }  // C  +400 by M1
+  ],
+
+  /* ---- A.4.4 STAIR SHAFT, VOID AND PAD (post-M1) ------------------------ */
+  stair: {
+    shaft:   { x0:15200, x1:18000, y0: 600, y1:5600 },   // C  2800 x 5000
+    voidS:   { x0:15200, x1:18000, y0: 600, y1:3760 },   // C  2800 x 3160 in the slab
+    pad:     { x0:15200, x1:18000, y0:3760, y1:5600 },   // C  cantilever pad 1840
+    flightA: { x0:15300, x1:16500 },                     // C  flights 1 and 3, 1200 wide
+    well:    { x0:16500, x1:16700 },                     // C  200
+    flightB: { x0:16700, x1:17900 },                     // C  flight 2, 1200 wide
+    L1:      { z:-4.7333, y0:3760, y1:4960 },            // C
+    L2:      { z:-3.3667, y0: 600, y1:1800 },            // C
+    arrival: { z:-6.100,  y0: 600, y1:1800 },            // C  = the mat surface
+    /* FROZEN - CLAUDE.md. Never change without an explicit new instruction. */
+    risers: 24, riser: 170.8333, tread: 280,             // C
+    flights: 3, perFlight: 8, totalRise: 4100, headroom: 2533, width: 1200 // C
+  },
+
+  /* ---- A.4.6 HEADHOUSE (shifted +200 by M1) ----------------------------- */
+  headhouse: {
+    ext: { x0:13600, x1:18400, y0: 200, y1:6000 },  // C  4800 x 5800
+    int: { x0:14000, x1:18000, y0: 600, y1:5600 },  // C  4000 x 5000
+    wall: 400, roof: 500,                            // C
+    innerDoor: { x0:14450, x1:15350, w:900, h:2100, wall:'HW2 north' }, // C not blast rated
+    bermSlope: 1.5                                   // C  1.5:1 to +0.900
+  },
+
+  /* ---- A.4.7 COVERED ENTRY STAIRWELL (Rev F, +200 by M1) ---------------- */
+  entry: {
+    ext: { x0: 9250, x1:16050, y0:5750, y1:7750 },  // C  6800 x 2000
+    int: { x0: 9500, x1:15800, y0:6000, y1:7500 },  // C  6300 x 1500
+    wall: 250, roof: 250,                            // C  RC1 ruling C16: stays 250 over the platform
+    topLanding: { x0: 9500, x1:11000, z:0.000, t:250 },        // C
+    flight:     { x0:11000, x1:14300, risers:12, rise:166.6667, going:300, waist:250 }, // C
+    platform:   { x0:14300, x1:15800, z:-2.000, t:250 },       // C  1500 x 1500
+    door: { x0:9250, x1:9500, w:1000, h:2100 },      // C  at grade in the headwall, opens outward
+    soffitOverFlight: 2200                            // C
+  },
+
+  /* ---- A.4.8 SENTRY POST ------------------------------------------------ */
+  sentry: {
+    site: { x0:32000, x1:36000, y0:600, y1:5600 },  // A  U4 - EAST position adopted by RC4.
+                                                    //    A drawing convention, not a survey coordinate.
+    ext: { l:4000, w:5000 }, int: { l:3600, w:4600 },// C
+    gridA: 175, gridB: 3825, grid1: 175, grid2: 4825,// C  local to the post
+    colGridX: 3650, colGridY: 4650,                  // C  c/c
+    col: 350,                                        // C  C1 350 x 350, 4 No., both storeys
+    beam: { b:250, d:450 },                          // C  B1 and B2
+    slab: 150,                                       // C  S1 two-way
+    plinth: { b:250, d:400, z:0.450 },               // C
+    ftg: { l:1500, w:1500, d:600, z:-2.000 },        // C  F1 on in-situ basalt
+    infillGF: 200,                                   // C  RC ballistic panels
+    visionPanel: 1200,                               // C  first storey armoured vision panels
+    spiral: { r:1000, pole:250 },                    // C  external
+    door: 900,                                       // C  D1
+    standoffRule: '>= 10 m clear of the shelter excavation', // C
+    standoffToBoxFace: 10.00,   // C  X 32000 less box face X 22000
+    standoffToExcav:    9.00,   // C  RC4-F3: excavation face with 1000 working space is at X 23000
+    blastDesigned: false        // C  NOT blast designed - declared expendable
+  },
+
+  /* ---- A.7.1 BLAST ------------------------------------------------------ */
+  blast: {
+    dbt:     'nuclear air-blast',    // C
+    pso:      344.7,                 // C  kPa = 50 psi
+    psoPsi:   50,                    // C
+    tdMin:    0.13, tdMax: 1.33,     // C  positive phase, s
+    pr:       1366,                  // C  reflected pressure, kPa
+    q:        282,                   // C  dynamic pressure, kPa
+    mu:       5,                     // C  ductility ratio, moderate repairable damage
+    dlf:      1.111,                 // C  mu/(mu-0.5) = 5/4.5
+    design:   383,                   // C  344.7 x 1.111, applied to roof AND walls (Ka = 1.0)
+    roofT:    13.4,                  // C  natural period, ms -> td/T 10..100 -> QUASI-STATIC
+    comb103:  448.15,                // C  total roof load, A.7.4
+    lateralAtFloor: 83.2,            // C  earth + water at (-)6.100, kPa
+    lateralGrad: 15.41,              // C  K0.gamma' + gamma_w, kPa/m (9.81 of it is water)
+    uplift:   46.11,                 // C  hydrostatic on mat, kPa; 6289 kN over 136.4 m2
+    sbc:      3240,                  // A  presumptive, IS 1904:1986 Table 1, hard rock
+    falloutPF: 2200,                 // C  against a requirement of ~1000
+    caveat:   'IS 4991:1968 excludes nuclear explosions - used for its loading rules only' // C
+  },
+
+  /* ---- A.7.3 ENGINEERED COVER BUILD-UP, top to bottom ------------------- */
+  /* Six layers, 2000 total, 39.15 kPa + a declared 1.50 allowance = 40.65   */
+  coverLayers: [
+    { t:300, name:'TOPSOIL / TURF',        kpa:5.40,  fn:'Concealment, erosion, sheds rain', col:[0.28,0.31,0.19] },
+    { t:150, name:'GRANULAR FILTER',       kpa:2.85,  fn:'Stops fines clogging',             col:[0.62,0.58,0.48] },
+    { t:200, name:'RC BURSTER SLAB M30',   kpa:5.00,  fn:'Breaks up a penetrating item',     col:[0.60,0.60,0.58] },
+    { t:500, name:'CRUSHED BASALT RUBBLE', kpa:8.50,  fn:'Scatters burster energy',          col:[0.34,0.33,0.33] },
+    { t:750, name:'COMPACTED FILL 95% MDD',kpa:15.00, fn:'Radiation mass',                   col:[0.45,0.37,0.26] },
+    { t:100, name:'PROTECTION SCREED',     kpa:2.40,  fn:'Protects waterproofing',           col:[0.55,0.54,0.52] }
+  ],
+  coverTotal: { t:2000, sum:39.15, allowance:1.50, design:40.65 }, // C  RC1 ruling C17
+  bursterFall: { grade:50, crownY:3100, dropAtEdge:62 },           // C  BS1: 1:50 crossfall
+
+  /* ---- A.5 MATERIALS ---------------------------------------------------- */
+  materials: {
+    concrete: 'M35 (box) / M30 (burster slab) / M15 (blinding)',  // C
+    steel:    'Fe500D',                                            // C
+    codes:    'IS 456:2000 - IS 4991:1968 - IS 13920 - IS 10262:2019', // C
+    fckDyn:   43.75,   // C  1.25 x 35, BLAST CASE ONLY, IS 4991 Cl 10.3.1
+    fyDyn:    625      // C  1.25 x 500
+  },
+
+  /* ---- GEOLOGY, master A.6 + SG1 ---------------------------------------- */
+  geology: {
+    ground:   'Deccan basalt (trap), with red-bole / vesicular seams at flow contacts', // A
+    surface:  'BLACK COTTON, CH, free swell index 60-65%',  // C  SG1, top band of the IS 1498 scale
+    rockhead: '0.9 - 1.5 m measured at three locations',    // C  SG1
+    hazard:   'The hazard is not the basalt - it is the flow contacts', // C
+    gammaBulk: 20, gammaSat: 21, K0: 0.50, phi: 30          // A
+  },
+
+  /* ---- 9.1 HVAC AND CBRN ------------------------------------------------ */
+  cbrn: {
+    envelope:   'Bays 1-6',                    // C  gas-tight
+    envArea:    67.80, envVol: 216.96,         // C  m2 / m3
+    cleanArea:  57.80, cleanVol: 184.96,       // R  envelope less the 10.0 m2 airlock
+    trains:     2, trainDuty: 300,             // C  m3/h each, HEPA H14 + activated carbon
+    trainWidth: 1450,                          // C  in a 1560 clear bay - 110 mm at the sides
+    hepa:       'HEPA H14 (EN 1822, >= 99.995 % at MPPS) + activated carbon', // C
+    femaReq:    264.3,                         // C  FEMA 453, 0.25 cfm/ft2
+    leakage:    32.5,                          // R  0.15 vol/h = 10.8 % of one train
+    ventSurv:   45, ventWork: 135,             // C  5x9 and 15x9 m3/h
+    co2Time:    9.9,                           // C  h to 1.0 % CO2, airlock shut
+    purge:      12.8,                          // C  min for 5 x 64 m3 at 300 m3/h
+    o2store:    15,                            // C  m3 (2 x 50 L at 150 bar) = 80 h
+    overpressLo: 50, overpressHi: 100,         // C  Pa
+    scrubber:   75,                            // C  m3/h CO2 scrubber loop (RC7)
+    closedLimit: 48,                           // C  h - set by the soda lime, not by power
+    valves: [                                  // C  five blast valves
+      { mark:'BV-1', dn:100 }, { mark:'BV-2', dn:100 }, { mark:'BV-3', dn:100 },
+      { mark:'BV-4', dn:350 }, { mark:'BV-5', dn:350 }
+    ],
+    valveNote: 'All five shut at the shock; BV-4/BV-5 REOPEN for GEN-1 (RC2). 48 h' // C
+  },
+
+  /* ---- 17 ELECTRICAL ---------------------------------------------------- */
+  power: {
+    gen: 'GEN-1, 15 kVA, Bay 8',   // C
+    genLoad: 7.360, genPct: 49,    // C  kVA against 15 kVA
+    essential: 1.283,              // C  kW essential load
+    battery: '149 Ah, 48 V',       // C  Case A confirmed by RC2
+    dayTank: 250,                  // C  L nominal, bay 8, fill+vent up the EXISTING SH-2 bore
+    earthing: '5 ohm',             // C
+    duration: 96                   // C  h
+  },
+
+  /* ---- 19 EMP ----------------------------------------------------------- */
+  emp: {
+    /* The three-zone model is DERIVED BY EM1 and ADOPTED by owner ruling RC2. */
+    zones: [
+      { z:'EMP ZONE 0', extent:'Everything above grade', perf:'No attenuation credited' }, // D
+      { z:'EMP ZONE 1', extent:'The buried box - the rebar cage',
+        perf:'A genuine low-frequency measure. NOT a MIL-STD boundary and not to be credited as one' }, // D
+      { z:'EMP ZONE 2', extent:'Welded steel enclosure, Bay 3',
+        perf:'80 dB across the band - the only surface in this project that delivers it' }   // D
+    ],
+    zone2Encl: { l:2400, w:1600, h:2200 },  // A  EM1 designs it at 2400 x 1600 x 2200 external
+    zone2dB: 80,                             // C  the design rule: full 80 dB standing alone
+    zone2Load: 1.50,                         // A  kW allowance, Z-01, sub-board DB-Z2
+    rebarSpacing: 150,                       // C  a deliberate EMP decision, 99.99 dB at the cage's band
+    verifyCode: 'IEEE Std 299'               // C  shielding effectiveness survey
+  },
+
+  /* ---- 16 WATER, SEWAGE, SANITATION ------------------------------------- */
+  sanitation: {
+    mark: 'SN-03',                                        // C
+    fixture: 'SEALED-CASSETTE CHEMICAL TOILET',           // C
+    room: 'U-02 lavatory, Bay 2',                         // C
+    discharge: 'NO DISCHARGE',                            // C
+    rule: 'In protective mode the shelter is sealed and uses sealed-cassette ' +
+          'chemical toilets - nothing is discharged at all',   // C
+    peacetime: 'Septic tank ST-01 -> foul soak pit SK-01, peacetime use ONLY', // C
+    sumpStore: 3375, sumpIn: 400, sumpDays: 8             // C  L store, L/day, days with no power
+  },
+
+  /* ---- OCCUPANCY -------------------------------------------------------- */
+  occupancy: { n: 9, hours: 96, berths: 9, bunks: '3 x 3-tier' }, // C
+
+  /* ---- COST ------------------------------------------------------------- */
+  cost: { estimate: '2.98 cr', protectiveContent: 70 },  // C  project flier, SSR 2022-23
+
+  /* =======================================================================
+     ANIMATION-ONLY NARRATIVE VALUES — class [V].
+     These carry NO engineering weight. They exist so the camera has
+     somewhere to stand and the soldier has somewhere to walk. They are
+     declared in ANIMATION_DESIGN_BASIS.md section 4 and must never be
+     quoted back into the engineering record.
+     ======================================================================= */
+  narrative: {
+    steps: 56,              // V  the presenter's requirement, not a project value
+    /* The pace is DERIVED, not chosen: the walked route is fixed by the two
+       real endpoints (the sentry post door D1 and the entry stairwell door at
+       X 9250) and the ground between them, and the pace is that route's
+       measured length divided by 56. Printed on screen at the 56th step. */
+    pace: null,             // V  derived at build time, mm per footfall
+    walkLen: null,          // V  derived at build time, mm
+    cadence: 0.95,          // V  s per footfall
+    blastAzimuth: 115,      // V  degrees, BEARING TO THE BURST from north, clockwise.
+                            //    East-south-east, so the wave crosses the sentry post
+                            //    BEFORE the shelter - the only ordering the stand-off
+                            //    argument allows. Checked: FC_SENTRY -29.50 < FC_BOX -8.66
+    blastRange: 2400,       // V  m to the burst - far enough that it reads as a distant event
+    siteRadius: 130         // V  m of modelled terrain around the origin
+  }
+};
+
+/* Convenience: bay centre in scene metres */
+function bayCentreX(b){ return (b.x0 + b.x1) * 0.5 * MM; }
+
+
+/* ==== 10_engine.js ==== */
+/* ===========================================================================
+   AN1 — ENGINE
+   A small dependency-free WebGL2 renderer. Written rather than imported so
+   the finished animation is ONE self-contained file that runs from a USB
+   stick in a hall with no internet. Z-up, right-handed, matching the
+   project's own coordinate system (master A.4.1) so that every coordinate in
+   00_data.js goes into the scene unconverted.
+   =========================================================================== */
+
+/* ---- math ------------------------------------------------------------- */
+const V3 = {
+  c:(x,y,z)=>new Float32Array([x,y,z]),
+  add:(a,b)=>V3.c(a[0]+b[0],a[1]+b[1],a[2]+b[2]),
+  sub:(a,b)=>V3.c(a[0]-b[0],a[1]-b[1],a[2]-b[2]),
+  mul:(a,s)=>V3.c(a[0]*s,a[1]*s,a[2]*s),
+  dot:(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2],
+  len:a=>Math.hypot(a[0],a[1],a[2]),
+  norm:a=>{const l=V3.len(a)||1;return V3.c(a[0]/l,a[1]/l,a[2]/l);},
+  cross:(a,b)=>V3.c(a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]),
+  lerp:(a,b,t)=>V3.c(a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t),
+  dist:(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1],a[2]-b[2])
+};
+
+const M4 = {
+  ident:()=>new Float32Array([1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]),
+  mul(a,b){
+    const o=new Float32Array(16);
+    for(let i=0;i<4;i++)for(let j=0;j<4;j++){
+      let s=0; for(let k=0;k<4;k++) s+=a[k*4+j]*b[i*4+k];
+      o[i*4+j]=s;
+    }
+    return o;
+  },
+  persp(fovy,asp,n,f){
+    const t=1/Math.tan(fovy*0.5), o=new Float32Array(16);
+    o[0]=t/asp; o[5]=t; o[10]=(f+n)/(n-f); o[11]=-1; o[14]=2*f*n/(n-f);
+    return o;
+  },
+  /* Z-up look-at */
+  look(eye,tgt,up){
+    const f=V3.norm(V3.sub(tgt,eye));
+    let s=V3.cross(f,up);
+    if(V3.len(s)<1e-6) s=V3.cross(f,V3.c(0,1,0));   // guard: looking straight up/down
+    s=V3.norm(s);
+    const u=V3.cross(s,f), o=new Float32Array(16);
+    o[0]=s[0];o[4]=s[1];o[8]=s[2];
+    o[1]=u[0];o[5]=u[1];o[9]=u[2];
+    o[2]=-f[0];o[6]=-f[1];o[10]=-f[2];
+    o[12]=-V3.dot(s,eye); o[13]=-V3.dot(u,eye); o[14]=V3.dot(f,eye);
+    o[15]=1; return o;
+  },
+  trs(t,rz,s){
+    const c=Math.cos(rz), n=Math.sin(rz), o=M4.ident();
+    o[0]=c*s[0]; o[1]=n*s[0];
+    o[4]=-n*s[1]; o[5]=c*s[1];
+    o[10]=s[2];
+    o[12]=t[0]; o[13]=t[1]; o[14]=t[2];
+    return o;
+  }
+};
+
+/* scalar helpers */
+const clamp=(v,a,b)=>v<a?a:v>b?b:v;
+const lerp =(a,b,t)=>a+(b-a)*t;
+const smoothstep=(e0,e1,x)=>{const t=clamp((x-e0)/(e1-e0||1e-9),0,1);return t*t*(3-2*t);};
+const easeInOut=t=>t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+/* the pacing curve used by every camera move: slow in, slow out, no snap */
+const easeCam=t=>{t=clamp(t,0,1); return t*t*t*(t*(t*6-15)+10);};
+const invLerp=(a,b,v)=>(v-a)/(b-a||1e-9);
+/* deterministic noise so every playback is identical */
+function hash(n){ const s=Math.sin(n)*43758.5453; return s-Math.floor(s); }
+
+/* Catmull-Rom through a point list — the camera never cuts, so every
+   position and target is a point on one of these splines. */
+function catmull(pts,t){
+  const n=pts.length-1, i=clamp(Math.floor(t*n),0,n-1), f=t*n-i;
+  const p0=pts[Math.max(i-1,0)], p1=pts[i], p2=pts[i+1], p3=pts[Math.min(i+2,n)];
+  const f2=f*f, f3=f2*f, o=new Float32Array(3);
+  for(let k=0;k<3;k++){
+    o[k]=0.5*((2*p1[k])+(-p0[k]+p2[k])*f+
+              (2*p0[k]-5*p1[k]+4*p2[k]-p3[k])*f2+
+              (-p0[k]+3*p1[k]-3*p2[k]+p3[k])*f3);
+  }
+  return o;
+}
+
+/* ---- GL --------------------------------------------------------------- */
+let gl=null, canvas=null;
+
+function compile(vs,fs){
+  const p=gl.createProgram();
+  for(const [src,type] of [[vs,gl.VERTEX_SHADER],[fs,gl.FRAGMENT_SHADER]]){
+    const s=gl.createShader(type);
+    gl.shaderSource(s,src); gl.compileShader(s);
+    if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))
+      throw new Error((type===gl.VERTEX_SHADER?'VS: ':'FS: ')+gl.getShaderInfoLog(s));
+    gl.attachShader(p,s);
+  }
+  gl.linkProgram(p);
+  if(!gl.getProgramParameter(p,gl.LINK_STATUS)) throw new Error('link: '+gl.getProgramInfoLog(p));
+  p.u=new Proxy({},{get:(c,k)=>(k in c?c[k]:(c[k]=gl.getUniformLocation(p,k)))});
+  return p;
+}
+
+/* A mesh is positions + normals + a per-vertex material tint and an
+   "ao" term baked at build time. Indexed, one VAO each. */
+class Mesh {
+  constructor(pos,nrm,col,ao,idx){
+    this.count=idx.length;
+    this.vao=gl.createVertexArray();
+    gl.bindVertexArray(this.vao);
+    const buf=(data,loc,size)=>{
+      const b=gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER,b);
+      gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc,size,gl.FLOAT,false,0,0);
+    };
+    buf(new Float32Array(pos),0,3);
+    buf(new Float32Array(nrm),1,3);
+    buf(new Float32Array(col),2,3);
+    buf(new Float32Array(ao),3,1);
+    const ib=gl.createBuffer();
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,ib);
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint32Array(idx),gl.STATIC_DRAW);
+    gl.bindVertexArray(null);
+  }
+  draw(){ gl.bindVertexArray(this.vao); gl.drawElements(gl.TRIANGLES,this.count,gl.UNSIGNED_INT,0); }
+}
+
+/* Geometry accumulator. Everything in the scene is built into one of these,
+   then uploaded once. Groups let the timeline switch whole assemblies on
+   and off (e.g. the cover layers become a section when the camera descends). */
+class Builder {
+  constructor(){ this.pos=[];this.nrm=[];this.col=[];this.ao=[];this.idx=[];this.n=0; }
+  tri(a,b,c,nr,cl,ao){
+    for(const v of [a,b,c]){ this.pos.push(v[0],v[1],v[2]); this.nrm.push(nr[0],nr[1],nr[2]);
+      this.col.push(cl[0],cl[1],cl[2]); this.ao.push(ao); }
+    this.idx.push(this.n,this.n+1,this.n+2); this.n+=3;
+  }
+  /* explicit-normal quad: used where the geometric normal is horizontal
+     (grass blades) and would otherwise read black under a high sun */
+  quadN(a,b,c,d,nr,cl,ao){
+    this.tri(a,b,c,nr,cl,ao); this.tri(a,c,d,nr,cl,ao);
+  }
+  quad(a,b,c,d,cl,ao,flip){
+    let nr=V3.norm(V3.cross(V3.sub(b,a),V3.sub(d,a)));
+    if(flip) nr=V3.mul(nr,-1);
+    this.tri(a,b,c,nr,cl,ao); this.tri(a,c,d,nr,cl,ao);
+  }
+  /* axis-aligned box from two corners, in PROJECT METRES.
+     faces: optional 6-bool [+x,-x,+y,-y,+z,-z] to omit hidden faces      */
+  box(x0,y0,z0,x1,y1,z1,cl,faces){
+    const f=faces||[1,1,1,1,1,1];
+    const P=(x,y,z)=>V3.c(x,y,z);
+    const A=[x0,x1],B=[y0,y1],C=[z0,z1];
+    /* top gets the most light, undersides the least — a cheap, stable AO */
+    if(f[4]) this.quad(P(A[0],B[0],C[1]),P(A[1],B[0],C[1]),P(A[1],B[1],C[1]),P(A[0],B[1],C[1]),cl,1.00);
+    if(f[5]) this.quad(P(A[0],B[1],C[0]),P(A[1],B[1],C[0]),P(A[1],B[0],C[0]),P(A[0],B[0],C[0]),cl,0.45);
+    if(f[0]) this.quad(P(A[1],B[0],C[0]),P(A[1],B[1],C[0]),P(A[1],B[1],C[1]),P(A[1],B[0],C[1]),cl,0.80);
+    if(f[1]) this.quad(P(A[0],B[1],C[0]),P(A[0],B[0],C[0]),P(A[0],B[0],C[1]),P(A[0],B[1],C[1]),cl,0.72);
+    if(f[2]) this.quad(P(A[1],B[1],C[0]),P(A[0],B[1],C[0]),P(A[0],B[1],C[1]),P(A[1],B[1],C[1]),cl,0.86);
+    if(f[3]) this.quad(P(A[0],B[0],C[0]),P(A[1],B[0],C[0]),P(A[1],B[0],C[1]),P(A[0],B[0],C[1]),cl,0.66);
+  }
+  /* box in PROJECT MILLIMETRES with a level pair in metres */
+  mm(x0,y0,x1,y1,z0,z1,cl,faces){
+    this.box(x0*MM,y0*MM,z0,x1*MM,y1*MM,z1,cl,faces);
+  }
+  cyl(cx,cy,z0,z1,r,cl,seg,inner){
+    seg=seg||24;
+    for(let i=0;i<seg;i++){
+      const a0=i/seg*Math.PI*2, a1=(i+1)/seg*Math.PI*2;
+      const p0=V3.c(cx+Math.cos(a0)*r, cy+Math.sin(a0)*r, z0);
+      const p1=V3.c(cx+Math.cos(a1)*r, cy+Math.sin(a1)*r, z0);
+      const p2=V3.c(cx+Math.cos(a1)*r, cy+Math.sin(a1)*r, z1);
+      const p3=V3.c(cx+Math.cos(a0)*r, cy+Math.sin(a0)*r, z1);
+      if(inner) this.quad(p1,p0,p3,p2,cl,0.55); else this.quad(p0,p1,p2,p3,cl,0.78);
+    }
+  }
+  disc(cx,cy,z,r,cl,seg,down){
+    seg=seg||24;
+    const nr=V3.c(0,0,down?-1:1), c=V3.c(cx,cy,z);
+    for(let i=0;i<seg;i++){
+      const a0=i/seg*Math.PI*2, a1=(i+1)/seg*Math.PI*2;
+      const p0=V3.c(cx+Math.cos(a0)*r, cy+Math.sin(a0)*r, z);
+      const p1=V3.c(cx+Math.cos(a1)*r, cy+Math.sin(a1)*r, z);
+      if(down) this.tri(c,p1,p0,nr,cl,0.5); else this.tri(c,p0,p1,nr,cl,0.95);
+    }
+  }
+  build(){ return new Mesh(this.pos,this.nrm,this.col,this.ao,this.idx); }
+  get empty(){ return this.n===0; }
+}
+
+/* ---- shaders ----------------------------------------------------------- */
+/* One surface shader for the whole scene. Two section planes let the
+   camera cut the ground open without swapping models — the engineering
+   cutaway in the brief is a clip, not a different scene.                  */
+const VS_SURF = `#version 300 es
+layout(location=0) in vec3 aPos;
+layout(location=1) in vec3 aNrm;
+layout(location=2) in vec3 aCol;
+layout(location=3) in float aAo;
+uniform mat4 uVP, uM;
+out vec3 vN, vC, vW; out float vAo;
+void main(){
+  vec4 w = uM * vec4(aPos,1.0);
+  vW = w.xyz;
+  vN = mat3(uM) * aNrm;
+  vC = aCol; vAo = aAo;
+  gl_Position = uVP * w;
+}`;
+
+const FS_SURF = `#version 300 es
+precision highp float;
+in vec3 vN, vC, vW; in float vAo;
+uniform vec3 uSun, uEye, uSky, uGnd, uFogCol;
+uniform float uFog, uAlpha, uGhost, uTint;
+uniform vec3 uTintCol;
+/* section planes: xyz = normal, w = d.  Fragment is cut where dot(n,p)+d > 0 */
+uniform vec4 uClipA, uClipB;
+uniform float uClipOn;
+out vec4 frag;
+void main(){
+  if(uClipOn > 0.5){
+    if(dot(uClipA.xyz, vW) + uClipA.w > 0.0) discard;
+    if(dot(uClipB.xyz, vW) + uClipB.w > 0.0) discard;
+  }
+  vec3 N = normalize(vN);
+  float d = max(dot(N, uSun), 0.0);
+  /* hemisphere ambient: sky above, bounced ground below */
+  float h = N.z * 0.5 + 0.5;
+  vec3 amb = mix(uGnd, uSky, h);
+  vec3 V = normalize(uEye - vW);
+  vec3 H = normalize(V + uSun);
+  float spec = pow(max(dot(N,H),0.0), 42.0) * 0.16;
+  /* vC is authored as the surface's INTENDED sRGB appearance in full light,
+     so it is linearised here and gamma-encoded again at the end. A fully
+     lit face then renders at exactly the colour the palette names, which
+     is the only way a restrained palette stays predictable. */
+  vec3 alb = pow(max(vC, 0.0), vec3(2.2));
+  vec3 col = alb * (amb * vAo + d) + spec;
+  col = mix(col, pow(uTintCol, vec3(2.2)), uTint);
+  float dist = length(uEye - vW);
+  /* exp2 fog: the near field stays clean and only the far plot fades, so
+     the horizon is haze rather than the edge of the model */
+  float fd = dist * uFog;
+  col = mix(col, uFogCol, 1.0 - exp(-fd * fd));
+  /* ghosting is how the ground turns semi-transparent for the cutaway */
+  float a = uAlpha;
+  if(uGhost > 0.5){
+    float rim = 1.0 - abs(dot(N, V));
+    col = mix(col, uFogCol * 1.2, 0.30);
+    a *= 0.20 + rim * 0.55;
+  }
+  frag = vec4(pow(max(col, 0.0), vec3(1.0/2.2)), a);
+}`;
+
+/* Points: every particle system in the animation — dust, airflow, EMP,
+   grass tips, the blast front — is one instanced point buffer.           */
+const VS_PT = `#version 300 es
+layout(location=0) in vec3 aPos;
+layout(location=1) in vec4 aData;   // x = size, y = alpha, zw = colour ramp t, kind
+uniform mat4 uVP; uniform vec3 uEye; uniform float uPx;
+out float vA; out float vT; out float vK;
+void main(){
+  vec4 p = uVP * vec4(aPos,1.0);
+  gl_Position = p;
+  float d = max(length(uEye - aPos), 0.6);
+  gl_PointSize = clamp(aData.x * uPx / d, 1.0, 190.0);
+  vA = aData.y; vT = aData.z; vK = aData.w;
+}`;
+
+const FS_PT = `#version 300 es
+precision highp float;
+in float vA; in float vT; in float vK;
+uniform vec3 uCa, uCb;
+out vec4 frag;
+void main(){
+  vec2 q = gl_PointCoord * 2.0 - 1.0;
+  float r = dot(q,q);
+  if(r > 1.0) discard;
+  float soft = 1.0 - r;
+  vec3 c = mix(uCa, uCb, vT);
+  /* kind 1 = hard-edged engineering marker, kind 0 = soft atmospheric */
+  float a = vA * (vK > 0.5 ? smoothstep(0.0, 0.25, soft) : soft * soft);
+  frag = vec4(c, a);
+}`;
+
+/* Full-screen overlay: the flash, the fade, the EMP wash. One triangle. */
+const VS_FULL = `#version 300 es
+const vec2 P[3] = vec2[3](vec2(-1.,-1.), vec2(3.,-1.), vec2(-1.,3.));
+out vec2 vUv;
+void main(){ vec2 p = P[gl_VertexID]; vUv = p * 0.5 + 0.5; gl_Position = vec4(p,0.,1.); }`;
+
+const FS_FULL = `#version 300 es
+precision highp float;
+in vec2 vUv; out vec4 frag;
+uniform vec3 uCol, uCol2; uniform float uA, uVig, uScan, uTime, uGrad;
+void main(){
+  float a = uA;
+  vec2 d = vUv - 0.5;
+  if(uGrad > 0.5){
+    /* sky: a single restrained vertical gradient, no sun disc, no clouds */
+    vec3 sky = mix(uCol2, uCol, pow(clamp(vUv.y,0.0,1.0), 0.75));
+    frag = vec4(sky, 1.0);
+    return;
+  }
+  a *= mix(1.0, 1.0 - dot(d,d) * 1.7, uVig);
+  /* uScan is the EMP wash only — a faint horizontal disturbance, no flicker */
+  if(uScan > 0.001){
+    float s = sin((vUv.y * 320.0) + uTime * 26.0) * 0.5 + 0.5;
+    a += s * uScan * 0.16;
+  }
+  frag = vec4(uCol, clamp(a, 0.0, 1.0));
+}`;
+
+/* A particle system with a CPU-side buffer re-uploaded each frame. Counts
+   here are small (a few thousand) so this is comfortably fast and keeps
+   every effect fully deterministic and scrubbable. */
+class Points {
+  constructor(max){
+    this.max=max; this.n=0;
+    this.pos=new Float32Array(max*3); this.dat=new Float32Array(max*4);
+    this.vao=gl.createVertexArray(); gl.bindVertexArray(this.vao);
+    this.bp=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,this.bp);
+    gl.bufferData(gl.ARRAY_BUFFER,this.pos.byteLength,gl.DYNAMIC_DRAW);
+    gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0,3,gl.FLOAT,false,0,0);
+    this.bd=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,this.bd);
+    gl.bufferData(gl.ARRAY_BUFFER,this.dat.byteLength,gl.DYNAMIC_DRAW);
+    gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1,4,gl.FLOAT,false,0,0);
+    gl.bindVertexArray(null);
+  }
+  reset(){ this.n=0; }
+  add(x,y,z,size,alpha,t,kind){
+    if(this.n>=this.max||alpha<=0.002) return;
+    const i=this.n++;
+    this.pos[i*3]=x; this.pos[i*3+1]=y; this.pos[i*3+2]=z;
+    this.dat[i*4]=size; this.dat[i*4+1]=alpha; this.dat[i*4+2]=t; this.dat[i*4+3]=kind||0;
+  }
+  flush(){
+    if(!this.n) return;
+    gl.bindBuffer(gl.ARRAY_BUFFER,this.bp);
+    gl.bufferSubData(gl.ARRAY_BUFFER,0,this.pos,0,this.n*3);
+    gl.bindBuffer(gl.ARRAY_BUFFER,this.bd);
+    gl.bufferSubData(gl.ARRAY_BUFFER,0,this.dat,0,this.n*4);
+  }
+  draw(){ if(!this.n) return; gl.bindVertexArray(this.vao); gl.drawArrays(gl.POINTS,0,this.n); }
+}
+
+
+/* ==== 20_facility.js ==== */
+/* ===========================================================================
+   AN1 — FACILITY GEOMETRY
+   Every dimension below is read from PROJ (00_data.js), which is itself a
+   transcription of master Parts A and B. No dimension is written twice and
+   none is invented here.
+   =========================================================================== */
+
+const L = PROJ.lvl, BX = PROJ.box;
+
+/* Restrained palette. Concrete reads as concrete, soil as soil, rock as
+   rock — brief section 29. No glowing colours anywhere in the fabric. */
+const MAT = {
+  conc:     [0.780,0.772,0.742],   // M35 fair-faced, formwork marked
+  concDark: [0.620,0.614,0.592],   // soffits and buried faces
+  concWet:  [0.690,0.688,0.668],   // mat and blinding
+  blind:    [0.700,0.686,0.652],   // M15 PCC
+  steel:    [0.452,0.474,0.496],   // plant and frames
+  steelLt:  [0.600,0.615,0.628],
+  door:     [0.500,0.516,0.500],   // blast doors
+  z2:       [0.628,0.608,0.560],   // welded steel EMP enclosure
+  basalt:   [0.336,0.330,0.356],   // Deccan trap
+  redbole:  [0.436,0.306,0.248],   // the flow-contact seam - the named hazard
+  cotton:   [0.286,0.258,0.226],   // black cotton, CH, FSI 60-65 %
+  murrum:   [0.582,0.442,0.296],
+  backfill: [0.540,0.462,0.352],
+  turf:     [0.412,0.462,0.296],
+  turfDry:  [0.556,0.548,0.382],
+  cloth:    [0.402,0.428,0.348],   // generic olive field clothing
+  skin:     [0.612,0.500,0.418],
+  bunk:     [0.540,0.528,0.492],
+  glassZ2:  [0.460,0.520,0.548]
+};
+
+/* --- the excavation: box + 1000 working space each side (WM-V9 / RC6) --- */
+const EXC = { x0:-1.0, x1:23.0, y0:-1.0, y1:7.2 };
+/* --- the modelled ground block that the section cuts through ------------ */
+const SITE = { x0:-34, x1:64, y0:-30, y1:38 };
+/* the wider plot, meshed coarsely, so the ground reaches the fog and the
+   viewer never sees the edge of the model */
+const FAR  = { x0:-420, x1:450, y0:-420, y1:420 };
+
+/* Berm: graded 1.5:1 against the headhouse and the entry stairwell walls,
+   up to +0.900 (master A.4.6, A.4.7). Everywhere else the site is at grade,
+   crowned and falling 1:50 away (A.4.3). */
+function bermH(x,y){
+  const run = L.hhRoofTop * PROJ.headhouse.bermSlope;     // 0.900 x 1.5 = 1.35 m
+  let h = 0;
+  const rects = [
+    [PROJ.headhouse.ext.x0*MM, PROJ.headhouse.ext.y0*MM, PROJ.headhouse.ext.x1*MM, PROJ.headhouse.ext.y1*MM],
+    [PROJ.entry.ext.x0*MM,     PROJ.entry.ext.y0*MM,     PROJ.entry.ext.x1*MM,     PROJ.entry.ext.y1*MM]
+  ];
+  for(const [a,b,c,d] of rects){
+    const dx = Math.max(a-x, 0, x-c), dy = Math.max(b-y, 0, y-d);
+    const dist = Math.hypot(dx,dy);
+    h = Math.max(h, L.hhRoofTop * clamp(1 - dist/run, 0, 1));
+  }
+  return h;
+}
+/* Grade is a FINISHED, PREPARED site level: master A.4.3 records 0.000,
+   "crowned, falls 1:50 away". The near plot therefore stays within a few
+   centimetres of datum and is CLAMPED so it can never sink below the top of
+   the strata cap at STRATA_TOP - if it did, the black cotton band would
+   render over the ground and hide it. */
+const STRATA_TOP = -0.140;
+function groundZ(x,y){
+  const b = bermH(x,y);
+  if(b > 0.001) return b;
+  const cy = PROJ.bursterFall.crownY*MM;
+  let z = -Math.abs(y-cy)/PROJ.bursterFall.grade;          // the 1:50 crown
+  z += (hash(x*0.13)+hash(y*0.17)-1.0) * 0.045;            // surface irregularity
+  return clamp(z, STRATA_TOP + 0.030, 0.10);
+}
+/* Beyond the prepared plot the ground is ordinary country, falling gently
+   away. It starts exactly where the near plot ends, so the two meet without
+   a step. */
+function farZ(x,y){
+  const dx = Math.max(SITE.x0-x, 0, x-SITE.x1), dy = Math.max(SITE.y0-y, 0, y-SITE.y1);
+  const d = Math.hypot(dx,dy);
+  return -0.15 - d*0.006 + (hash(x*0.031)+hash(y*0.037)-1.0) * Math.min(d*0.022, 1.30);
+}
+
+/* ---------------------------------------------------------------------- */
+/* 1. TERRAIN                                                              */
+/* ---------------------------------------------------------------------- */
+function buildTerrain(){
+  const B = new Builder();
+  /* --- the wider plot, coarse, running out to the fog -------------------
+     Meshed as four rectangles fitted around the near plot rather than a grid
+     with the middle punched out, because a punched grid leaves a ring of
+     dropped cells wherever a cell only PARTLY overlaps - and that ring shows
+     as a gap of sky along the horizon. */
+  const rings = [
+    { x0:FAR.x0,  x1:FAR.x1,  y0:FAR.y0,  y1:SITE.y0 },
+    { x0:FAR.x0,  x1:FAR.x1,  y0:SITE.y1, y1:FAR.y1  },
+    { x0:FAR.x0,  x1:SITE.x0, y0:SITE.y0, y1:SITE.y1 },
+    { x0:SITE.x1, x1:FAR.x1,  y0:SITE.y0, y1:SITE.y1 }
+  ];
+  for(const r of rings){
+    const nx = Math.max(2, Math.round((r.x1-r.x0)/16)), ny = Math.max(2, Math.round((r.y1-r.y0)/16));
+    const sx = (r.x1-r.x0)/nx, sy = (r.y1-r.y0)/ny;
+    for(let i=0;i<nx;i++) for(let j=0;j<ny;j++){
+      const x0=r.x0+i*sx, x1=x0+sx, y0=r.y0+j*sy, y1=y0+sy;
+      const c = V3.lerp(MAT.turf, MAT.turfDry, hash(x0*0.7+y0*1.9));
+      B.quad(V3.c(x0,y0,farZ(x0,y0)), V3.c(x1,y0,farZ(x1,y0)),
+             V3.c(x1,y1,farZ(x1,y1)), V3.c(x0,y1,farZ(x0,y1)), c, 0.95);
+    }
+  }
+  /* --- the near plot, fine, carrying the crown and the berm ------------- */
+  const N = 150, gx = (SITE.x1-SITE.x0)/N, gy = (SITE.y1-SITE.y0)/N;
+  const inExc = (x,y) => x>EXC.x0-gx && x<EXC.x1+gx && y>EXC.y0-gy && y<EXC.y1+gy;
+  for(let i=0;i<N;i++) for(let j=0;j<N;j++){
+    const x0=SITE.x0+i*gx, x1=x0+gx, y0=SITE.y0+j*gy, y1=y0+gy;
+    const mx=(x0+x1)/2, my=(y0+y1)/2;
+    /* the excavation footprint is surfaced by the engineered cover and the
+       berm, not by natural ground - leave the hole for them to fill */
+    if(inExc(mx,my) && bermH(mx,my) < 0.005) continue;
+    const p00=V3.c(x0,y0,groundZ(x0,y0)), p10=V3.c(x1,y0,groundZ(x1,y0)),
+          p11=V3.c(x1,y1,groundZ(x1,y1)), p01=V3.c(x0,y1,groundZ(x0,y1));
+    const r = Math.hypot(mx-11,my-3.1);
+    /* drier, more worn ground close to the works; turf further out */
+    const t = clamp(smoothstep(3, 30, r) * 0.75 + hash(i*7.3+j*3.1)*0.25, 0, 1);
+    const c = V3.lerp(MAT.turfDry, MAT.turf, t);
+    B.quad(p00,p10,p11,p01,c, 0.88 + hash(i*2.7+j*5.9)*0.12);
+  }
+  return B.build();
+}
+
+/* THE BERM.
+   Graded 1.5:1 against all four headhouse walls and against the entry
+   stairwell walls, up to +0.900 (master A.4.6 / A.4.7). It sits ON the
+   engineered cover, which is why it is meshed separately from both: the
+   cover is six flat layers below grade, the berm is the earth above it. */
+function buildBerm(){
+  const B = new Builder();
+  const pad = 2.0;
+  const x0 = Math.min(PROJ.headhouse.ext.x0, PROJ.entry.ext.x0)*MM - pad;
+  const x1 = Math.max(PROJ.headhouse.ext.x1, PROJ.entry.ext.x1)*MM + pad;
+  const y0 = Math.min(PROJ.headhouse.ext.y0, PROJ.entry.ext.y0)*MM - pad;
+  const y1 = Math.max(PROJ.headhouse.ext.y1, PROJ.entry.ext.y1)*MM + pad;
+  const N = 96, gx = (x1-x0)/N, gy = (y1-y0)/N;
+  for(let i=0;i<N;i++) for(let j=0;j<N;j++){
+    const ax=x0+i*gx, bx=ax+gx, ay=y0+j*gy, by=ay+gy;
+    const h = [bermH(ax,ay), bermH(bx,ay), bermH(bx,by), bermH(ax,by)];
+    if(Math.max(...h) < 0.004) continue;
+    const c = V3.lerp(MAT.turfDry, MAT.turf, clamp(Math.max(...h)/0.9, 0, 1));
+    B.quad(V3.c(ax,ay,h[0]), V3.c(bx,ay,h[1]), V3.c(bx,by,h[2]), V3.c(ax,by,h[3]),
+           c, 0.90 + hash(i*3.3+j*5.1)*0.10);
+  }
+  return B.build();
+}
+
+/* ---------------------------------------------------------------------- */
+/* 2. STRATA — what the section exposes                                    */
+/*    Black cotton cap, rockhead band, Deccan basalt with red-bole seams.  */
+/*    Every one of these is [ASSUMED] in master A.6 and is labelled so.    */
+/* ---------------------------------------------------------------------- */
+function buildStrata(){
+  const B = new Builder();
+  /* a stratum, drawn as four blocks around the excavation void so the
+     box interior is never buried by ground that should not be there */
+  const band = (z0,z1,col)=>{
+    B.box(SITE.x0,SITE.y0,z0, SITE.x1,EXC.y0,z1, col);
+    B.box(SITE.x0,EXC.y1,z0, SITE.x1,SITE.y1,z1, col);
+    B.box(SITE.x0,EXC.y0,z0, EXC.x0,EXC.y1,z1, col);
+    B.box(EXC.x1,EXC.y0,z0, SITE.x1,EXC.y1,z1, col);
+  };
+  band(L.rockheadHi, STRATA_TOP, MAT.cotton);   // black cotton / murrum cap  [A]
+  band(L.rockheadLo, L.rockheadHi, MAT.murrum);  // rockhead band 1.5 to 2.0   [A]
+  band(-11.5,        L.rockheadLo, MAT.basalt);  // Deccan trap                [A]
+  /* red-bole / vesicular seams at flow contacts. Drawn thin and few: they
+     are the hazard the master names, not a decorative stripe. */
+  for(const z of [-3.35, -5.10, -7.55]){
+    band(z-0.050, z+0.050, MAT.redbole);
+  }
+  /* founding horizon: the basalt the mat actually sits on, drawn under the
+     excavation so the load path has somewhere to end */
+  B.box(EXC.x0,EXC.y0,-11.5, EXC.x1,EXC.y1,L.formation, MAT.basalt);
+  B.box(EXC.x0,EXC.y0,-7.600, EXC.x1,EXC.y1,-7.500, MAT.redbole);
+  return B.build();
+}
+
+/* backfill between the box faces and the excavation faces */
+function buildBackfill(){
+  const B = new Builder();
+  const bx1 = BX.lenExt*MM, by1 = BX.widExt*MM;
+  B.box(EXC.x0,EXC.y0,L.formation, EXC.x1,0,        0, MAT.backfill);
+  B.box(EXC.x0,by1,   L.formation, EXC.x1,EXC.y1,   0, MAT.backfill);
+  B.box(EXC.x0,0,     L.formation, 0,     by1,      0, MAT.backfill);
+  B.box(bx1,  0,      L.formation, EXC.x1,by1,      0, MAT.backfill);
+  return B.build();
+}
+
+/* ---------------------------------------------------------------------- */
+/* 3. ENGINEERED COVER — the six layers of master A.7.3                    */
+/*    2000 total. 39.15 kPa of layers + a declared 1.50 allowance = 40.65. */
+/* ---------------------------------------------------------------------- */
+function buildCover(){
+  const B = new Builder();
+  const runs = [
+    /* west of the headhouse, stopping clear of the entry stairwell strip */
+    { x0:EXC.x0, x1:PROJ.headhouse.ext.x0*MM, y0:EXC.y0, y1:PROJ.entry.ext.y0*MM },
+    /* east of the headhouse */
+    { x0:PROJ.headhouse.ext.x1*MM, x1:EXC.x1, y0:EXC.y0, y1:EXC.y1 }
+  ];
+  let z = L.grade;                                   // build downwards from grade
+  PROJ.coverLayers.forEach((ly,i)=>{
+    const t = ly.t*MM, zTop = z, zBot = z - t;
+    for(const r of runs) B.box(r.x0,r.y0,zBot, r.x1,r.y1,zTop, ly.col);
+    z = zBot;
+  });
+  /* the strip under the entry stairwell is ordinary backfill (A.4.7: the
+     stairwell sits on a stepped RC raft on compacted fill) */
+  B.box(EXC.x0,PROJ.entry.ext.y0*MM,L.roofTop, PROJ.headhouse.ext.x0*MM,EXC.y1,0, MAT.backfill);
+
+  /* TURF CAP over the whole excavation footprint.
+     The works are CONCEALED - the cover's own top layer is 300 topsoil/turf
+     and CAM2 is a camouflage policy - so the finished ground must read as
+     continuous, not as a green rectangle inside a construction patch. The
+     cap carries the same colour variation the surrounding terrain does, and
+     is 2 mm thick so it never shows in the section.                        */
+  const CN = 44, cx = (EXC.x1-EXC.x0)/CN, cy = (EXC.y1-EXC.y0)/CN;
+  for(let i=0;i<CN;i++) for(let j=0;j<CN;j++){
+    const x0=EXC.x0+i*cx, x1=x0+cx, y0=EXC.y0+j*cy, y1=y0+cy;
+    const mx=(x0+x1)/2, my=(y0+y1)/2;
+    if(bermH(mx,my) > 0.005) continue;                 // the berm surfaces this
+    const r = Math.hypot(mx-11,my-3.1);
+    const t = clamp(smoothstep(3, 30, r)*0.75 + hash(i*7.3+j*3.1)*0.25, 0, 1);
+    const col = V3.lerp(MAT.turfDry, MAT.turf, t);
+    B.box(x0,y0,0.002, x1,y1,0.006, col, [0,0,0,0,1,0]);
+  }
+  return B.build();
+}
+
+/* ---------------------------------------------------------------------- */
+/* 4. THE BOX — mat, perimeter walls, pressure slab, internal walls        */
+/* ---------------------------------------------------------------------- */
+function buildBox(){
+  const B = new Builder();
+  const X1 = BX.lenExt, Y1 = BX.widExt, t = BX.wallPerim;
+
+  /* blinding and mat */
+  B.mm(0,0,X1,Y1, L.formation, L.matUnder, MAT.blind);
+  B.mm(0,0,X1,Y1, L.matUnder,  L.floor,    MAT.concWet);
+
+  /* perimeter walls, 600 thk, floor to roof soffit */
+  B.mm(0,0,       X1,t,        L.floor, L.roofSoffit, MAT.conc);   // south W1
+  B.mm(0,Y1-t,    X1,Y1,       L.floor, L.roofSoffit, MAT.conc);   // north W2
+  B.mm(0,t,       t, Y1-t,     L.floor, L.roofSoffit, MAT.conc);   // west  W3
+  B.mm(X1-t,t,    X1,Y1-t,     L.floor, L.roofSoffit, MAT.conc);   // east  W4
+
+  /* pressure slab, 900 thk, with the stair void (A.4.4) and the two
+     escape-shaft openings (A.4.5) left out of it */
+  const v = PROJ.stair.voidS;
+  const slabRun = (x0,x1)=>B.mm(x0,0,x1,Y1, L.roofSoffit, L.roofTop, MAT.conc);
+  slabRun(0, v.x0);
+  slabRun(v.x1, X1);
+  /* the band beside the void: the cantilever pad survives north of it */
+  B.mm(v.x0,v.y1, v.x1,Y1, L.roofSoffit, L.roofTop, MAT.conc);
+  B.mm(v.x0,0,    v.x1,v.y0, L.roofSoffit, L.roofTop, MAT.conc);
+
+  /* internal walls. W6 and W7 are 400 (Modification M1) and are the
+     protective boundary; each carries a blast-door opening Y 600-1800. */
+  for(const w of PROJ.walls){
+    const isBd = (w.mark==='W6'||w.mark==='W7');
+    if(isBd){
+      const d = PROJ.blastDoors.find(b=>b.wallX===w.x0);
+      B.mm(w.x0,t, w.x1,d.y0, L.floor, L.roofSoffit, MAT.conc);
+      B.mm(w.x0,d.y1, w.x1,Y1-t, L.floor, L.roofSoffit, MAT.conc);
+      B.mm(w.x0,d.y0, w.x1,d.y1, L.floor+d.h*MM, L.roofSoffit, MAT.conc);   // over-door
+      /* the blast door leaf itself, 1200 x 2100, >= 7 bar */
+      B.mm(w.x0+40,d.y0, w.x1-40,d.y1, L.floor, L.floor+d.h*MM, MAT.door);
+    } else if(w.mark==='W5'){
+      B.mm(w.x0,t, w.x1,Y1-t, L.floor, L.roofSoffit, MAT.conc);
+    } else {
+      const g = PROJ.doorGap;
+      B.mm(w.x0,t, w.x1,g.y0, L.floor, L.roofSoffit, MAT.conc);
+      B.mm(w.x0,g.y1, w.x1,Y1-t, L.floor, L.roofSoffit, MAT.conc);
+      B.mm(w.x0,g.y0, w.x1,g.y1, L.floor+2.100, L.roofSoffit, MAT.conc);
+    }
+  }
+  return B.build();
+}
+
+/* ---------------------------------------------------------------------- */
+/* 5. ESCAPE SHAFTS — 1400 dia, 250 RC collar, OD 1900                     */
+/* ---------------------------------------------------------------------- */
+function buildShafts(){
+  const B = new Builder();
+  for(const s of PROJ.escShafts){
+    const cx=s.cx*MM, cy=s.cy*MM, ri=s.dia*MM/2, ro=s.od*MM/2;
+    B.cyl(cx,cy,L.roofSoffit,L.grade, ro, MAT.concDark, 28);        // collar outside
+    B.cyl(cx,cy,L.roofSoffit,L.grade, ri, MAT.concDark, 28, true);  // bore inside
+    /* the head hatch at grade (RC5: designed structurally) */
+    B.disc(cx,cy,L.grade+0.09, ro*1.06, MAT.door, 28);
+    B.cyl(cx,cy,L.grade,L.grade+0.09, ro*1.06, MAT.door, 28);
+  }
+  return B.build();
+}
+
+/* ---------------------------------------------------------------------- */
+/* 6. MAIN STAIRCASE — FROZEN geometry (CLAUDE.md).                        */
+/*    24R at 170.8333, tread 280, 3 flights x 8, total rise 4100.          */
+/* ---------------------------------------------------------------------- */
+function buildStairs(){
+  const B = new Builder();
+  const S = PROJ.stair, r = S.riser*MM, g = S.tread*MM, w = S.width*MM;
+  /* one flight of 8 risers, drawn as real treads and risers */
+  const flight = (x0, yStart, dir, zStart)=>{
+    for(let i=0;i<S.perFlight;i++){
+      const z0 = zStart + i*r, z1 = z0 + r;
+      const y0 = yStart + dir*i*g, y1 = y0 + dir*g;
+      const ya = Math.min(y0,y1), yb = Math.max(y0,y1);
+      B.box(x0, ya, z0, x0+w, yb, z1, MAT.conc);          // the step block
+    }
+  };
+  const A = S.flightA.x0*MM, Bf = S.flightB.x0*MM;
+  /* flight 1: arrival (-6.100) up to L1 (-4.7333), running north  */
+  flight(A, S.arrival.y1*MM, +1, L.floor);
+  /* landing L1 */
+  B.mm(S.shaft.x0,S.L1.y0, S.shaft.x1,S.L1.y1, S.L1.z-0.25, S.L1.z, MAT.conc);
+  /* flight 2: L1 up to L2, running south on flight B */
+  flight(Bf, S.L1.y0*MM, -1, S.L1.z);
+  /* landing L2, stacked over the arrival landing */
+  B.mm(S.shaft.x0,S.L2.y0, S.shaft.x1,S.L2.y1, S.L2.z-0.25, S.L2.z, MAT.conc);
+  /* flight 3: L2 up to the headhouse floor (-2.000), running north on A */
+  flight(A, S.L2.y1*MM, +1, S.L2.z);
+  /* store under landing L1 */
+  B.mm(S.shaft.x0,4960, S.shaft.x1,S.shaft.y1, L.floor, L.floor+2.0, MAT.concDark);
+  /* the 200 well between the flights, left open — drawn only as the
+     edge of the two flights, which is what a well is */
+  return B.build();
+}
+
+/* ---------------------------------------------------------------------- */
+/* 7. HEADHOUSE — 4800 x 5800 external, walls 400, roof 500, top +0.900    */
+/* ---------------------------------------------------------------------- */
+function buildHeadhouse(){
+  const B = new Builder();
+  const H = PROJ.headhouse, e=H.ext, n=H.int;
+  const z0 = L.roofTop, z1 = L.hhSoffit, z2 = L.hhRoofTop;
+  const d = H.innerDoor;
+  /* HW1 south, HW2 north (with the inner security door), HW3 west, HW4 east */
+  B.mm(e.x0,e.y0, e.x1,n.y0, z0,z1, MAT.conc);
+  B.mm(e.x0,n.y1, d.x0,e.y1, z0,z1, MAT.conc);
+  B.mm(d.x1,n.y1, e.x1,e.y1, z0,z1, MAT.conc);
+  B.mm(d.x0,n.y1, d.x1,e.y1, z0+d.h*MM, z1, MAT.conc);        // over the door
+  B.mm(e.x0,n.y0, n.x0,n.y1, z0,z1, MAT.conc);                 // HW3 west
+  B.mm(n.x1,n.y0, e.x1,n.y1, z0,z1, MAT.conc);                 // HW4 east
+  /* roof 500, over everything except the stair void it shares with the box */
+  const v = PROJ.stair.voidS;
+  B.mm(e.x0,e.y0, e.x1,v.y0, z1,z2, MAT.conc);
+  B.mm(e.x0,v.y1, e.x1,e.y1, z1,z2, MAT.conc);
+  B.mm(e.x0,v.y0, v.x0,v.y1, z1,z2, MAT.conc);
+  B.mm(v.x1,v.y0, e.x1,v.y1, z1,z2, MAT.conc);
+  return B.build();
+}
+
+/* ---------------------------------------------------------------------- */
+/* 8. COVERED ENTRY STAIRWELL — DECLARED EXPENDABLE (master A.2)           */
+/*    12R at 166.6667, going 300, roof 250 raking, platform at (-)2.000    */
+/* ---------------------------------------------------------------------- */
+function buildEntry(){
+  const B = new Builder();
+  const E = PROJ.entry, e=E.ext, n=E.int, w=E.wall;
+  const fl = E.flight, r = fl.rise*MM, g = fl.going*MM;
+  const zAt = x => {                       // soffit datum follows the walking line
+    if(x <= fl.x0*MM) return L.grade;
+    if(x >= E.platform.x0*MM) return E.platform.z;
+    return L.grade - (x - fl.x0*MM)/ (fl.going*MM) * r;
+  };
+  /* top landing and platform */
+  B.mm(E.topLanding.x0,n.y0, E.topLanding.x1,n.y1, -0.25, 0, MAT.conc);
+  B.mm(E.platform.x0,n.y0, E.platform.x1,n.y1, E.platform.z-0.25, E.platform.z, MAT.conc);
+  /* the 12 steps */
+  for(let i=0;i<fl.risers;i++){
+    const x0 = fl.x0*MM + i*g, z1 = L.grade - i*r;
+    B.box(x0,n.y0*MM, z1-r-0.25, x0+g,n.y1*MM, z1-r, MAT.conc);
+    B.box(x0,n.y0*MM, z1-r, x0+g,n.y1*MM, z1, MAT.conc);
+  }
+  /* side walls 250, following the rake, plus headwall and east wall */
+  const seg = 34;
+  for(let i=0;i<seg;i++){
+    const x0 = n.x0*MM + (e.x1-n.x0)*MM*i/seg, x1 = n.x0*MM + (e.x1-n.x0)*MM*(i+1)/seg;
+    const zb = Math.min(zAt(x0),zAt(x1)) - 0.45;
+    const zt = Math.max(zAt(x0),zAt(x1)) + E.soffitOverFlight*MM + E.roof*MM;
+    B.box(x0,e.y0*MM,zb, x1,n.y0*MM,zt, MAT.conc);
+    B.box(x0,n.y1*MM,zb, x1,e.y1*MM,zt, MAT.conc);
+    /* raking roof, 250, staying 250 over the platform (RC1 ruling C16) */
+    B.box(x0,e.y0*MM, zt-E.roof*MM, x1,e.y1*MM, zt, MAT.conc);
+  }
+  /* headwall with the 1000 x 2100 entry door at grade, opening outward.
+     Built as three pieces AROUND the opening - the opening is absence of
+     concrete, not a dark box inside it. */
+  const dz  = L.grade + E.door.h*MM;
+  const dcy = (n.y0+n.y1)/2, dy0 = dcy - E.door.w/2, dy1 = dcy + E.door.w/2;
+  B.mm(e.x0,e.y0, n.x0,dy0,  -0.45, L.grade + 2.45, MAT.conc);
+  B.mm(e.x0,dy1,  n.x0,e.y1, -0.45, L.grade + 2.45, MAT.conc);
+  B.mm(e.x0,dy0,  n.x0,dy1,  dz,    L.grade + 2.45, MAT.conc);
+  B.mm(e.x0,dy0,  n.x0,dy1,  -0.45, L.grade,        MAT.conc);
+  /* 300 channel + grating across the full 1500 width, X 8950-9250 */
+  B.mm(8950,n.y0, 9250,n.y1, -0.30, L.grade, MAT.steel);
+  return B.build();
+}
+
+/* ---------------------------------------------------------------------- */
+/* 9. SENTRY POST — a separate two-storey RC framed building.              */
+/*    NOT blast designed. Declared expendable. Its own footings on rock.   */
+/* ---------------------------------------------------------------------- */
+function buildSentry(){
+  const B = new Builder();
+  const S = PROJ.sentry, st = S.site;
+  const ox = st.x0, oy = st.y0;                    // post local origin, mm
+  const cs = S.col, half = cs/2;
+  const cols = [[S.gridA,S.grid1],[S.gridB,S.grid1],[S.gridA,S.grid2],[S.gridB,S.grid2]];
+  const P = (lx,ly)=>[ox+lx, oy+ly];
+
+  /* footings F1 1500 x 1500 x 600 on in-situ basalt at (-)2.000 */
+  for(const [lx,ly] of cols){
+    const [x,y] = P(lx,ly);
+    B.mm(x-S.ftg.l/2, y-S.ftg.w/2, x+S.ftg.l/2, y+S.ftg.w/2,
+         S.ftg.z, S.ftg.z + S.ftg.d*MM, MAT.concWet);
+    B.mm(x-half, y-half, x+half, y+half, S.ftg.z+S.ftg.d*MM, S.plinth.z, MAT.conc);
+  }
+  /* columns C1 350 x 350, both storeys */
+  for(const [lx,ly] of cols){
+    const [x,y] = P(lx,ly);
+    B.mm(x-half,y-half, x+half,y+half, S.plinth.z, L.sentryRoof, MAT.conc);
+  }
+  /* plinth beams, then B1/B2 at each floor, then the 150 slabs */
+  const beamRing = (zTop)=>{
+    const b = S.beam.b, d = S.beam.d, z0 = zTop - d*MM;
+    for(const g1 of [S.grid1,S.grid2]){            // B1 spanning A-B, in X
+      const [xa,y] = P(S.gridA,g1), [xb] = P(S.gridB,g1);
+      B.mm(xa,y-b/2, xb,y+b/2, z0, zTop, MAT.conc);
+    }
+    for(const gA of [S.gridA,S.gridB]){            // B2 spanning 1-2, in Y
+      const [x,y1] = P(gA,S.grid1), [,y2] = P(gA,S.grid2);
+      B.mm(x-b/2,y1, x+b/2,y2, z0, zTop, MAT.conc);
+    }
+  };
+  B.mm(ox+S.gridA, oy+S.grid1-S.plinth.b/2, ox+S.gridB, oy+S.grid1+S.plinth.b/2,
+       S.plinth.z-S.plinth.d*MM, S.plinth.z, MAT.conc);
+  B.mm(ox+S.gridA, oy+S.grid2-S.plinth.b/2, ox+S.gridB, oy+S.grid2+S.plinth.b/2,
+       S.plinth.z-S.plinth.d*MM, S.plinth.z, MAT.conc);
+  beamRing(L.sentryFF); beamRing(L.sentryRoof);
+  for(const z of [L.sentryFF, L.sentryRoof]){
+    B.mm(ox, oy, ox+S.ext.l, oy+S.ext.w, z, z + S.slab*MM, MAT.conc);
+  }
+  /* ground storey: 200 RC ballistic infill panels, full height */
+  const inf = S.infillGF;
+  const gfz0 = S.plinth.z, gfz1 = L.sentryFF - S.beam.d*MM;
+  const dW = S.door;
+  B.mm(ox,oy, ox+S.ext.l, oy+inf, gfz0,gfz1, MAT.concDark);                 // south
+  B.mm(ox,oy+S.ext.w-inf, ox+S.ext.l, oy+S.ext.w, gfz0,gfz1, MAT.concDark); // north
+  B.mm(ox,oy+inf, ox+inf, oy+S.ext.w-inf, gfz0,gfz1, MAT.concDark);         // west
+  /* east face carries D1, 900 */
+  const dy0 = oy + S.ext.w/2 - dW/2, dy1 = dy0 + dW;
+  B.mm(ox+S.ext.l-inf, oy+inf, ox+S.ext.l, dy0, gfz0,gfz1, MAT.concDark);
+  B.mm(ox+S.ext.l-inf, dy1, ox+S.ext.l, oy+S.ext.w-inf, gfz0,gfz1, MAT.concDark);
+  B.mm(ox+S.ext.l-inf, dy0, ox+S.ext.l, dy1, gfz0+2.100, gfz1, MAT.concDark);
+  /* first storey: armoured vision panels 1200 wide, piers between */
+  const ffz0 = L.sentryFF + S.slab*MM, ffz1 = L.sentryRoof - S.beam.d*MM;
+  const sill = ffz0 + 0.95, head = sill + 0.85;
+  const pierRun = (x0,y0,x1,y1,along)=>{
+    const span = along==='x' ? x1-x0 : y1-y0;
+    const nP = Math.max(2, Math.round(span/(S.visionPanel*1.9)));
+    for(let i=0;i<=nP;i++){
+      const f = i/nP, pw = 260;
+      if(along==='x'){ const px = x0 + f*(span) - pw/2;
+        B.mm(clamp(px,x0,x1-pw), y0, clamp(px+pw,x0+pw,x1), y1, ffz0, ffz1, MAT.concDark); }
+      else { const py = y0 + f*(span) - pw/2;
+        B.mm(x0, clamp(py,y0,y1-pw), x1, clamp(py+pw,y0+pw,y1), ffz0, ffz1, MAT.concDark); }
+    }
+    /* spandrel below the vision band and the head above it */
+    B.mm(x0,y0,x1,y1, ffz0, sill, MAT.concDark);
+    B.mm(x0,y0,x1,y1, head, ffz1, MAT.concDark);
+    B.mm(x0, y0, x1, y1, sill, head, MAT.steel);   // the armoured panel itself
+  };
+  pierRun(ox, oy, ox+S.ext.l, oy+inf, 'x');
+  pierRun(ox, oy+S.ext.w-inf, ox+S.ext.l, oy+S.ext.w, 'x');
+  pierRun(ox, oy+inf, ox+inf, oy+S.ext.w-inf, 'y');
+  pierRun(ox+S.ext.l-inf, oy+inf, ox+S.ext.l, oy+S.ext.w-inf, 'y');
+  /* parapet to +7.000 */
+  const pz0 = L.sentryRoof + S.slab*MM;
+  for(const [a,b,c,d] of [[ox,oy,ox+S.ext.l,oy+150],[ox,oy+S.ext.w-150,ox+S.ext.l,oy+S.ext.w],
+                          [ox,oy,ox+150,oy+S.ext.w],[ox+S.ext.l-150,oy,ox+S.ext.l,oy+S.ext.w]])
+    B.mm(a,b,c,d, pz0, L.sentryPar, MAT.conc);
+  /* external spiral stair, 1000 R, 250 dia central pole */
+  const sx = (ox+S.ext.l+S.spiral.r+250)*MM, sy = (oy+S.ext.w*0.5)*MM;
+  B.cyl(sx,sy, S.plinth.z, L.sentryRoof, S.spiral.pole*MM/2, MAT.steel, 14);
+  const turns = 22;
+  for(let i=0;i<turns;i++){
+    const a0 = i/turns*Math.PI*3.0, a1=(i+1)/turns*Math.PI*3.0;
+    const z = S.plinth.z + (L.sentryFF-S.plinth.z)*i/turns;
+    const ri = S.spiral.pole*MM/2, ro = S.spiral.r*MM;
+    B.quad(V3.c(sx+Math.cos(a0)*ri, sy+Math.sin(a0)*ri, z),
+           V3.c(sx+Math.cos(a0)*ro, sy+Math.sin(a0)*ro, z),
+           V3.c(sx+Math.cos(a1)*ro, sy+Math.sin(a1)*ro, z),
+           V3.c(sx+Math.cos(a1)*ri, sy+Math.sin(a1)*ri, z), MAT.steelLt, 0.95);
+  }
+  return B.build();
+}
+
+
+/* ==== 25_fitout.js ==== */
+/* ===========================================================================
+   AN1 — INTERIOR FIT-OUT AND FIGURES
+   Bay contents are exactly master A.3's bay schedule and nothing else.
+   Where a bay's contents are listed but not dimensioned, the item is drawn
+   as a plain block at the listed position — never detailed into something
+   the project has not specified.
+   =========================================================================== */
+
+/* rotations the figure rig needs (the fabric only ever needs Z) */
+/* Swing is about the local Y axis: after base = translate * rotZ(yaw),
+   local +X is the direction of travel, so a rotation about Y swings the
+   limb FORWARD and BACK. Rotating about X splayed the legs sideways. */
+M4.rotY = a => { const c=Math.cos(a), s=Math.sin(a), o=M4.ident();
+  o[0]=c; o[2]=-s; o[8]=s; o[10]=c; return o; };
+M4.rotZ = a => { const c=Math.cos(a), s=Math.sin(a), o=M4.ident();
+  o[0]=c; o[1]=s; o[4]=-s; o[5]=c; return o; };
+M4.trans = t => { const o=M4.ident(); o[12]=t[0]; o[13]=t[1]; o[14]=t[2]; return o; };
+
+const FLOOR = PROJ.lvl.floor;
+
+function buildFitout(){
+  const B = new Builder();
+  const bay = n => PROJ.bays.find(b=>b.n===n);
+  const F = FLOOR;
+
+  /* --- BAY 1 STORES: 1000 L potable tank + shelving ------------------- */
+  {
+    const b = bay(1);
+    B.cyl((b.x0+900)*MM, 1.5, F, F+1.45, 0.55, MAT.steelLt, 18);
+    B.disc((b.x0+900)*MM, 1.5, F+1.45, 0.55, MAT.steelLt, 18);
+    for(let i=0;i<4;i++)
+      B.mm(b.x0+150, 3800, b.x1-150, 4400, F+0.35+i*0.52, F+0.39+i*0.52, MAT.steel);
+    B.mm(b.x0+150, 4500, b.x0+1400, 5400, F, F+0.9, MAT.bunk);
+  }
+
+  /* --- BAY 2 WC / MED: lavatory 1800x2000 + medical 1800x3000 --------- */
+  {
+    const b = bay(2);
+    B.mm(b.x0, 2600, b.x1, 2710, F, F+2.4, MAT.concDark);      // the divider
+    /* SN-03 SEALED-CASSETTE CHEMICAL TOILET — no discharge, master 16.6  */
+    B.mm(b.x0+520, 900, b.x0+1160, 1560, F, F+0.42, MAT.steelLt);
+    B.mm(b.x0+520, 1300, b.x0+1160, 1560, F+0.42, F+0.86, MAT.steelLt);
+    B.mm(b.x0+300, 2100, b.x0+800, 2450, F+0.78, F+0.86, MAT.steelLt);   // basin
+    /* medical: examination bunk */
+    B.mm(b.x0+300, 3000, b.x1-300, 5000, F+0.50, F+0.62, MAT.bunk);
+  }
+
+  /* --- BAY 3 OPS ROOM: plotting + the EMP Zone 2 enclosure ------------ */
+  {
+    const b = bay(3), Z = PROJ.emp.zone2Encl;
+    /* Ops desks along the south wall, hazard plotting table behind them, and
+       a CLEAR AISLE at Y 3500-4100 between the table and the Zone 2
+       enclosure. An ops room with no circulation route is not an ops room,
+       and without the aisle there is nowhere for a camera - or a person - to
+       stand. The aisle width is [V]; A.3 gives the bay's contents, not a
+       furniture layout. */
+    B.mm(b.x0+200, 750, b.x1-200, 1500, F+0.68, F+0.76, MAT.bunk);
+    for(const x of [b.x0+500, b.x0+1600, b.x0+2700])
+      B.mm(x, 900, x+560, 1450, F+0.76, F+1.22, MAT.steel);   // consoles
+    B.mm(b.x0+780, 2300, b.x0+2380, 3300, F+0.86, F+0.94, MAT.bunk);
+    for(const [dx,dy] of [[780,2300],[2320,2300],[780,3240],[2320,3240]])
+      B.mm(b.x0+dx, dy, b.x0+dx+60, dy+60, F, F+0.86, MAT.steel);
+    /* EMP ZONE 2 — welded steel enclosure, 2400 x 1600 x 2200 external.
+       The only surface in this project that delivers 80 dB. */
+    const zx = b.x0 + 520, zy = 4200;
+    B.mm(zx, zy, zx+Z.l, zy+Z.w, F, F+Z.h*MM, MAT.z2);
+    B.mm(zx-40, zy-40, zx+Z.l+40, zy+Z.w+40, F+Z.h*MM, F+Z.h*MM+0.05, MAT.steel);
+    /* the RF door leaf and its knife-edge frame, read as a recessed panel */
+    B.mm(zx+Z.l-0.04/MM, zy+260, zx+Z.l, zy+Z.w-260, F+0.05, F+2.05, MAT.steelLt);
+  }
+
+  /* --- BAY 4 BERTHING: 3 x 3-tier bunks, 9 berths --------------------- */
+  {
+    const b = bay(4);
+    for(let s=0;s<3;s++){
+      const y0 = 700 + s*1600;
+      for(let t=0;t<3;t++){
+        const z = F + 0.42 + t*0.72;
+        B.mm(b.x0+180, y0, b.x1-180, y0+750, z, z+0.10, MAT.bunk);
+      }
+      for(const dx of [180, (b.x1-b.x0)-240])
+        for(const dy of [0, 690]){
+          B.mm(b.x0+dx, y0+dy, b.x0+dx+60, y0+dy+60, F, F+2.02, MAT.steel);
+        }
+    }
+  }
+
+  /* --- BAY 5 CBRN PLANT: 2 x 300 m3/h trains, CO2/O2, sump ------------
+     AN1-F8. Bay 5 is 1560 x 5000 clear. Master 9.1 fixes the train width at
+     1450 ("110 mm at the sides"); F.1 and DR-A2 fix SU-01's opening at
+     1500 x 1500; A.3 puts a 900 door gap at Y 2500-3400 in the W8 beside it.
+     Keeping that door line clear leaves two runs of 1900 and 2200 along the
+     bay. The sump takes 1500 of one; BOTH trains, the CO2/O2 store and the
+     dehumidifier then have to share the other 2200, which caps each train at
+     about 1100 mm long - and THE PROJECT NEVER STATES A TRAIN LENGTH. The
+     arrangement below is therefore [V]: it is the one that fits, not one the
+     project specifies. The dehumidifier has no floor space left and is NOT
+     drawn rather than drawn somewhere invented.                            */
+  {
+    const b = bay(5), tw = PROJ.cbrn.trainWidth;
+    const x0 = b.x0 + 55;                       // the 110 mm is shared, 55 a side
+    /* SU-01 clean sump, 1500 x 1500, invert (-)7.600. DR-A2-V1 records that
+       NOTHING in this project specifies its cover, so it is drawn OPEN with
+       its edge trimmed - no lid is invented here. */
+    B.mm(b.x0+30, 600, b.x0+1530, 2100, PROJ.lvl.sumpInvert, F, MAT.concWet);
+    /* O2 store, 2 x 50 L at 150 bar, in the 400 sliver the sump leaves */
+    for(const dy of [2230, 2400])
+      B.cyl((b.x0+430)*MM, dy*MM, F, F+1.42, 0.13, MAT.steelLt, 14);
+    /* the door line Y 2500-3400 is left clear */
+    for(let i=0;i<PROJ.cbrn.trains;i++){
+      const y0 = 3500 + i*1050;
+      B.mm(x0, y0, x0+tw, y0+1000, F, F+1.95, MAT.steel);
+      B.mm(x0, y0+90,  x0+tw, y0+330, F+0.30, F+1.70, MAT.steelLt);  // HEPA H14 cassette
+      B.mm(x0, y0+430, x0+tw, y0+670, F+0.30, F+1.70, MAT.z2);       // activated carbon
+    }
+  }
+
+  /* --- BAY 6 DECON AIRLOCK: 3 stages, 2000x2000 / 2000x1500 / 2000x1500 */
+  {
+    const b = bay(6);
+    for(const y of [2600, 4100]){
+      B.mm(b.x0, y, b.x1, y+110, F, F+2.10, MAT.concDark);        // stage divider
+      B.mm(b.x0+400, y, b.x0+1300, y+110, F, F+2.10, [0,0,0]);     // the pass-through
+    }
+    B.mm(b.x0+120, 700, b.x0+520, 2400, F, F+0.06, MAT.steelLt);   // grating, stage 1
+  }
+
+  /* --- BAY 8 GENERATOR (grey zone): GEN-1 15 kVA + 250 L day tank ----- */
+  {
+    const b = bay(8);
+    B.mm(b.x0+300, 900, b.x0+2400, 2500, F, F+0.22, MAT.concWet);  // plinth
+    B.mm(b.x0+380, 980, b.x0+2320, 2420, F+0.22, F+1.34, MAT.steel);
+    B.cyl((b.x0+700)*MM, 1.7, F+1.34, F+1.66, 0.30, MAT.steelLt, 14);
+    /* EL-V2 / RC5: a 250 L day tank inside bay 8, fill and vent routed up
+       the EXISTING SH-2 bore - no new envelope penetration is created. */
+    B.mm(b.x0+2600, 900, b.x1-200, 1700, F, F+0.95, MAT.steelLt);
+    /* main LV board */
+    B.mm(b.x0+300, 4900, b.x0+1900, 5150, F+0.30, F+2.10, MAT.steel);
+  }
+  return B.build();
+}
+
+/* ---------------------------------------------------------------------- */
+/* FIGURES                                                                 */
+/* Generic, low-detail, no identifiable likeness (brief section 7).        */
+/* Built once in local coordinates about the feet, then instanced.         */
+/* ---------------------------------------------------------------------- */
+function figureTorso(scale){
+  const B = new Builder(), s = scale||1;
+  const c = MAT.cloth, sk = MAT.skin;
+  B.box(-0.17*s,-0.10*s,0.84*s, 0.17*s,0.10*s,1.38*s, c);          // torso
+  B.box(-0.20*s,-0.11*s,1.20*s, 0.20*s,0.11*s,1.40*s, c);          // shoulders
+  B.box(-0.075*s,-0.075*s,1.40*s, 0.075*s,0.075*s,1.52*s, sk);     // neck + head
+  B.box(-0.095*s,-0.095*s,1.50*s, 0.095*s,0.095*s,1.70*s, sk);
+  B.box(-0.105*s,-0.105*s,1.655*s, 0.105*s,0.105*s,1.72*s, c);     // headgear
+  return B.build();
+}
+function figureArm(scale,side){
+  const B = new Builder(), s = scale||1;
+  B.box(-0.055*s,-0.055*s,-0.52*s, 0.055*s,0.055*s,0.02*s, MAT.cloth);
+  return B.build();
+}
+function figureLeg(scale){
+  const B = new Builder(), s = scale||1;
+  B.box(-0.070*s,-0.070*s,-0.84*s, 0.070*s,0.070*s,0.02*s, MAT.cloth);
+  B.box(-0.075*s,-0.115*s,-0.90*s, 0.075*s,0.065*s,-0.80*s, [0.14,0.13,0.12]);  // boot
+  return B.build();
+}
+/* seated variant for the ops consoles */
+function figureSeated(scale){
+  const B = new Builder(), s = scale||1;
+  B.box(-0.17*s,-0.10*s,0.44*s, 0.17*s,0.10*s,0.98*s, MAT.cloth);
+  B.box(-0.20*s,-0.11*s,0.80*s, 0.20*s,0.11*s,1.00*s, MAT.cloth);
+  B.box(-0.095*s,-0.095*s,1.10*s, 0.095*s,0.095*s,1.30*s, MAT.skin);
+  B.box(-0.075*s,-0.075*s,1.00*s, 0.075*s,0.075*s,1.12*s, MAT.skin);
+  B.box(-0.15*s,-0.34*s,0.36*s, 0.15*s,-0.06*s,0.46*s, MAT.cloth);   // thighs
+  B.box(-0.15*s,-0.38*s,-0.02*s, 0.15*s,-0.26*s,0.40*s, MAT.cloth);  // shins
+  return B.build();
+}
+
+/* The nine. Positions are inside the bays master A.3 assigns them to, and
+   the count is master A.1's confirmed occupancy — nine, not a chosen number. */
+function occupantStations(){
+  const b = n => PROJ.bays.find(x=>x.n===n);
+  const B3 = b(3), B4 = b(4), B5 = b(5), B1 = b(1), B8 = b(8);
+  return [
+    /* Bay 3 OPS ROOM - four: three at consoles on the south wall, one at the
+       east end of the plotting table. All clear of the Y 3500-4100 aisle. */
+    { p:[(B3.x0+780)*MM,  1.80, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
+    { p:[(B3.x0+1880)*MM, 1.80, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
+    { p:[(B3.x0+2980)*MM, 1.80, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
+    { p:[(B3.x0+2900)*MM, 2.80, FLOOR], yaw: Math.PI,   seated:false, bay:3 },
+    /* Bay 4 BERTHING - two off watch, either side of the door line */
+    { p:[(B4.x0+900)*MM, 1.30, FLOOR], yaw: 0.4, seated:false, bay:4 },
+    { p:[(B4.x0+900)*MM, 4.20, FLOOR], yaw:-2.2, seated:false, bay:4 },
+    /* Bay 5 CBRN PLANT - one, standing in the only clear ground there is:
+       the door line. AN1-F8 is why that is the only clear ground. */
+    { p:[(B5.x0+700)*MM, 2.95, FLOOR], yaw: 0.2, seated:false, bay:5 },
+    /* Bay 1 STORES - one */
+    { p:[(B1.x0+1250)*MM, 4.05, FLOOR], yaw:-0.9, seated:false, bay:1 },
+    /* Bay 8 GENERATOR, the grey zone - one */
+    { p:[(B8.x0+2100)*MM, 3.30, FLOOR], yaw: 2.6, seated:false, bay:8 }
+  ];
+}
+
+
+/* ==== 30_effects.js ==== */
+/* ===========================================================================
+   AN1 — EFFECTS AND SYSTEMS VISUALISATION
+
+   RULE OBSERVED THROUGHOUT THIS FILE (brief sections 13 and 31):
+   nothing here is an analysis result. No stress contour, no displacement,
+   no utilisation and no failure mode is drawn anywhere. The load path is
+   CONCEPTUAL - it shows WHERE the load goes, never HOW MUCH arrives.
+   The only numbers that ever appear on screen are the ones already printed
+   in the master as design INPUTS.
+   =========================================================================== */
+
+/* direction-aligned transform for arrows and streamers */
+M4.dirTo = function(from, dir, len, rad){
+  const d = V3.norm(dir);
+  let up = Math.abs(d[2]) > 0.98 ? V3.c(1,0,0) : V3.c(0,0,1);
+  const s = V3.norm(V3.cross(up, d)), u = V3.cross(d, s);
+  const o = M4.ident();
+  o[0]=s[0]*rad; o[1]=s[1]*rad; o[2]=s[2]*rad;
+  o[4]=u[0]*rad; o[5]=u[1]*rad; o[6]=u[2]*rad;
+  o[8]=d[0]*len; o[9]=d[1]*len; o[10]=d[2]*len;
+  o[12]=from[0]; o[13]=from[1]; o[14]=from[2];
+  return o;
+};
+/* shear used to bend the grass field in the blast wind */
+M4.shear = function(sx, sy){
+  const o = M4.ident(); o[8]=sx; o[9]=sy; return o;
+};
+
+/* ---------------------------------------------------------------------- */
+/* GRASS — the environmental read-out for the blast wind.                  */
+/* Authored rooted at z = 0 and bent whole-field by a shear, so the        */
+/* response is uniform and directional, as a pressure front's would be.    */
+/* ---------------------------------------------------------------------- */
+function buildGrass(){
+  const B = new Builder();
+  const N = 11000;
+  const UP = V3.norm(V3.c(0, 0, 1));
+  for(let i=0;i<N;i++){
+    const u = hash(i*1.37), v = hash(i*2.91), w = hash(i*4.11);
+    /* concentrated along the approach the camera actually travels */
+    const x = lerp(-16, 46, u) + (v-0.5)*4.0;
+    const y = lerp(-10, 18, v) + (u-0.5)*4.0;
+    const gz = groundZ(x,y);
+    if(bermH(x,y) > 0.02 && w < 0.45) continue;      // thinner on the berm
+    const h = 0.09 + w*0.15, a = hash(i*5.7)*Math.PI;
+    const bw = 0.022;
+    const dx = Math.cos(a)*bw, dy = Math.sin(a)*bw;
+    const c = V3.lerp(MAT.turf, MAT.turfDry, hash(i*7.3)*0.8);
+    /* the geometric normal of a blade is horizontal and would read black
+       under a high sun, so the blade is lit as if it faced the sky */
+    B.quadN(V3.c(x-dx,y-dy,gz), V3.c(x+dx,y+dy,gz),
+            V3.c(x+dx*0.35,y+dy*0.35,gz+h), V3.c(x-dx*0.35,y-dy*0.35,gz+h),
+            UP, c, 0.96);
+  }
+  return B.build();
+}
+
+/* ---------------------------------------------------------------------- */
+/* ARROWS — the structural load path, and nothing more.                    */
+/* ---------------------------------------------------------------------- */
+function buildArrow(){
+  const B = new Builder();
+  const c = [0.92,0.62,0.22];                      // one restrained accent, used only here
+  const sh = 0.30, r = 0.16;
+  /* shaft 0 -> 0.68 of unit length, head 0.68 -> 1.0 */
+  for(let i=0;i<10;i++){
+    const a0=i/10*Math.PI*2, a1=(i+1)/10*Math.PI*2;
+    const p=(a,z,rr)=>V3.c(Math.cos(a)*rr, Math.sin(a)*rr, z);
+    B.quad(p(a0,0,r*sh), p(a1,0,r*sh), p(a1,0.68,r*sh), p(a0,0.68,r*sh), c, 0.95);
+    B.tri(p(a0,0.68,r), p(a1,0.68,r), V3.c(0,0,1.0), V3.c(0,0,1), c, 1.0);
+    B.tri(V3.c(0,0,0.68), p(a1,0.68,r), p(a0,0.68,r), V3.c(0,0,-1), c, 0.7);
+  }
+  return B.build();
+}
+
+/* The load path, stated once, in the order the brief asks for:
+   BLAST PRESSURE -> ROOF/PRESSURE SLAB -> RC WALLS -> MAT -> FOUNDING STRATUM.
+   Plus the lateral case on the buried walls, which master A.7.2 confirms.  */
+function loadPathArrows(){
+  const a = [], X = PROJ.box.lenExt*MM, Y = PROJ.box.widExt*MM, L = PROJ.lvl;
+  /* 1. blast on to the roof: down on to the pressure slab */
+  for(let i=0;i<7;i++){
+    const x = lerp(1.6, 13.0, i/6);
+    a.push({ stage:0, from:V3.c(x, 1.55, L.grade+1.85), dir:V3.c(0,0,-1), len:1.80 });
+  }
+  /* 2. roof into the walls: the slab spans the 5000 clear and delivers to
+        the 600 perimeter walls */
+  for(const x of [3.2, 7.6, 11.4]){
+    a.push({ stage:1, from:V3.c(x, 0.30, L.roofSoffit-0.35), dir:V3.c(0,0,-1), len:1.5 });
+  }
+  /* 3. down the walls */
+  for(const x of [3.2, 7.6, 11.4]){
+    a.push({ stage:2, from:V3.c(x, 0.30, L.roofSoffit-0.55), dir:V3.c(0,0,-1), len:2.2 });
+  }
+  /* 4. walls into the mat */
+  for(const x of [3.2, 7.6, 11.4]){
+    a.push({ stage:3, from:V3.c(x, 0.30, L.floor-0.12), dir:V3.c(0,0,-1), len:0.75 });
+  }
+  /* 5. mat into the founding stratum */
+  for(const x of [2.4, 6.0, 9.6, 13.0]){
+    a.push({ stage:4, from:V3.c(x, 1.6, L.matUnder-0.15), dir:V3.c(0,0,-1), len:1.0 });
+  }
+  /* 6. the lateral case: earth + water on the buried wall, 83.2 kPa at floor.
+        Drawn as a gradient - short at the soffit, long at the base - because
+        that is what a 15.41 kPa/m gradient is. */
+  for(let i=0;i<6;i++){
+    const z = lerp(L.roofSoffit-0.25, L.floor+0.3, i/5);
+    const f = invLerp(L.roofSoffit, L.floor, z);
+    a.push({ stage:5, from:V3.c(5.0, -1.70, z), dir:V3.c(0,1,0), len:0.75+f*0.95 });
+  }
+  return a;
+}
+
+/* ---------------------------------------------------------------------- */
+/* AIRFLOW — the CBRN path, as a route through real rooms.                 */
+/* Contaminated outside air -> intake -> blast valve -> bay 5 filter        */
+/* trains -> clean air into the envelope held at +50 to +100 Pa.            */
+/* ---------------------------------------------------------------------- */
+function airPath(){
+  const b5 = PROJ.bays.find(b=>b.n===5), F = PROJ.lvl.floor;
+  /* SH-1 is the intake shaft head; master locates the two shafts 25.30 m
+     apart at opposite ends of the box (SG2 / RC8). The intake is drawn at
+     the west end, which is the end SH-1 serves. */
+  return [
+    V3.c(-2.6, 2.2, 4.2), V3.c(-0.9, 2.2, 1.9), V3.c(-0.30, 2.2, -0.6),
+    V3.c(-0.30, 2.2, -2.45),                                    // down past the boundary
+    V3.c( 0.55, 2.2, -3.30),                                    // through the wall
+    V3.c( 2.60, 1.30, -4.25), V3.c( 6.00, 1.15, -4.70),
+    V3.c( 9.60, 2.20, -4.90), V3.c((b5.x0+780)*MM, 2.95, F+1.30), // in at the door line
+    V3.c((b5.x0+780)*MM, 3.90, F+1.30),                          // through train 1
+    V3.c((b5.x0+780)*MM, 5.05, F+1.30),                          // through train 2
+    V3.c((b5.x0+300)*MM, 5.30, F+1.60),
+    V3.c( 9.00, 4.40, F+1.90), V3.c( 6.00, 4.10, F+2.10),
+    V3.c( 3.00, 3.40, F+2.15), V3.c( 1.20, 2.60, F+1.70)         // out into the envelope
+  ];
+}
+/* the point on a polyline at parameter u in [0,1], by arc length */
+function polyAt(pts, u){
+  let total=0; const seg=[];
+  for(let i=0;i<pts.length-1;i++){ const d=V3.dist(pts[i],pts[i+1]); seg.push(d); total+=d; }
+  let want = clamp(u,0,1)*total;
+  for(let i=0;i<seg.length;i++){
+    if(want <= seg[i] || i===seg.length-1)
+      return V3.lerp(pts[i], pts[i+1], clamp(want/(seg[i]||1),0,1));
+    want -= seg[i];
+  }
+  return pts[pts.length-1];
+}
+
+/* ---------------------------------------------------------------------- */
+/* PROTECTED VOLUME — bays 1 to 6, the gas-tight envelope.                 */
+/* A restrained BIM highlight. No red box, no "SAFE" label (brief 15).     */
+/* ---------------------------------------------------------------------- */
+function buildEnvelope(){
+  const B = new Builder();
+  const b1 = PROJ.bays.find(b=>b.n===1), b6 = PROJ.bays.find(b=>b.n===6);
+  const c = [0.40,0.66,0.72];
+  B.mm(b1.x0, 600, b6.x1, 5600, PROJ.lvl.floor+0.01, PROJ.lvl.roofSoffit-0.01, c);
+  return B.build();
+}
+/* the EMP Zone 2 enclosure, highlighted on its own at the end */
+function buildZone2Hi(){
+  const B = new Builder(), Z = PROJ.emp.zone2Encl;
+  const b3 = PROJ.bays.find(b=>b.n===3);
+  const zx = b3.x0 + 520, zy = 4200;
+  B.mm(zx-70, zy-70, zx+Z.l+70, zy+Z.w+70,
+       PROJ.lvl.floor, PROJ.lvl.floor+Z.h*MM+0.10, [0.52,0.60,0.46]);
+  return B.build();
+}
+
+/* ---------------------------------------------------------------------- */
+/* PARTICLE DRIVERS                                                        */
+/* Every one is a pure function of time, so scrubbing the timeline gives    */
+/* exactly the frame that plays. Nothing accumulates.                      */
+/* ---------------------------------------------------------------------- */
+
+/* THE BLAST FRONT.
+   At 2400 m range the wavefront over a 100 m plot is planar to within a
+   few centimetres, so it is drawn as a plane sweeping the site rather than
+   as a ring. `s` is the front's position along the direction of travel.
+   TRAVEL IS SLOWED FOR LEGIBILITY and the animation says so on screen:
+   no arrival time, no propagation velocity and no decay is implied. */
+const BLAST_DIR = (function(){
+  /* azimuth is the compass BEARING TO THE BURST, measured from north (+Y)
+     clockwise. The wave travels the opposite way. The burst sits east-
+     south-east, so the front crosses the SENTRY POST before the shelter:
+     that ordering is the whole stand-off argument and it is not negotiable. */
+  const a = PROJ.narrative.blastAzimuth * Math.PI/180;
+  return V3.norm(V3.c(-Math.sin(a), -Math.cos(a), 0));
+})();
+const frontCoord = (x,y) => x*BLAST_DIR[0] + y*BLAST_DIR[1];
+/* front coordinates of the two things that matter, for the timeline */
+const FC_SENTRY = frontCoord((PROJ.sentry.site.x0+PROJ.sentry.site.x1)*0.5*MM,
+                             (PROJ.sentry.site.y0+PROJ.sentry.site.y1)*0.5*MM);
+const FC_BOX    = frontCoord(PROJ.box.lenExt*0.5*MM, PROJ.box.widExt*0.5*MM);
+
+function blastFront(pts, s, camPos){
+  const perp = V3.c(-BLAST_DIR[1], BLAST_DIR[0], 0);
+  const N = 1100;
+  for(let i=0;i<N;i++){
+    const along = (hash(i*3.1)-0.5)*3.4;                 // thickness of the front
+    const across = (hash(i*1.7)-0.5)*150;                // width across the plot
+    const h = hash(i*7.7);
+    const x = BLAST_DIR[0]*(s+along) + perp[0]*across;
+    const y = BLAST_DIR[1]*(s+along) + perp[1]*across;
+    if(x<SITE.x0-14||x>SITE.x1+14||y<SITE.y0-14||y>SITE.y1+14) continue;
+    const z = groundZ(x,y) + h*h*9.0 + 0.15;
+    const fade = clamp(1.0 - Math.abs(along)/2.0, 0, 1);
+    pts.add(x, y, z, 130 + h*230, fade*0.40, clamp(h,0,1), 0);
+  }
+  /* the dust the front drags along behind it */
+  const D = 850;
+  for(let i=0;i<D;i++){
+    const lag = 1.5 + hash(i*5.3)*26.0;
+    const across = (hash(i*2.9)-0.5)*150;
+    const x = BLAST_DIR[0]*(s-lag) + perp[0]*across + (hash(i*2.2)-0.5)*4;
+    const y = BLAST_DIR[1]*(s-lag) + perp[1]*across + (hash(i*6.6)-0.5)*4;
+    if(x<SITE.x0-14||x>SITE.x1+14||y<SITE.y0-14||y>SITE.y1+14) continue;
+    const h = hash(i*9.1);
+    pts.add(x, y, groundZ(x,y) + h*4.0 + 0.1, 170 + h*300,
+            clamp(1 - lag/28, 0, 1) * 0.26, 0.25 + h*0.5, 0);
+  }
+}
+
+/* settling dust, used after the event and in the return to the surface */
+function settlingDust(pts, t, amount, centre){
+  if(amount <= 0.001) return;
+  const N = 620;
+  for(let i=0;i<N;i++){
+    const a = hash(i*1.9)*Math.PI*2, r = 4 + hash(i*3.7)*46;
+    const x = centre[0] + Math.cos(a)*r, y = centre[1] + Math.sin(a)*r;
+    const h0 = hash(i*8.3);
+    const drift = t*0.35 + hash(i*4.4)*10;
+    const z = groundZ(x,y) + 0.2 + h0*5.5 * Math.exp(-t*0.035);
+    pts.add(x + Math.sin(drift)*1.3, y + Math.cos(drift*0.7)*1.1, z,
+            140 + h0*180, amount * (0.05 + h0*0.09), 0.30 + h0*0.4, 0);
+  }
+}
+
+/* airflow: discrete marker particles walking the CBRN route, so the eye
+   can follow ONE parcel of air the whole way through the plant */
+function airflowParticles(pts, path, t, headU, density, contaminated){
+  const N = density||260;
+  for(let i=0;i<N;i++){
+    const phase = (i/N + t*0.055) % 1;
+    if(phase > headU) continue;
+    const p = polyAt(path, phase);
+    const j = (hash(i*2.3)-0.5)*0.30, k = (hash(i*5.1)-0.5)*0.30;
+    /* colour ramp t: 0 = contaminated outside air, 1 = filtered */
+    const filtered = phase > 0.62 ? 1 : 0;
+    const ramp = filtered ? 1.0 : (contaminated ? 0.0 : 0.45);
+    /* seen from a corridor a metre away, not from across a hall: additive
+       blending saturates fast, so these are small and faint. The air must
+       read as a stream of markers, not as a light source. */
+    pts.add(p[0]+j, p[1]+k, p[2]+(hash(i*7.9)-0.5)*0.22,
+            22 + hash(i*3.3)*14, 0.20, ramp, 1);
+  }
+}
+
+/* EMP: a field, not an explosion. A directional wavefront that passes
+   through the site, drawn as a thin advancing shell. */
+function empField(pts, t, originXY, radius){
+  if(radius <= 0) return;
+  const N = 1500;
+  for(let i=0;i<N;i++){
+    const u = hash(i*1.13), v = hash(i*3.71);
+    const th = u*Math.PI*2, ph = Math.acos(clamp(v*1.4-0.15,-1,1));
+    const rr = radius + (hash(i*5.17)-0.5)*1.4;
+    const x = originXY[0] + Math.sin(ph)*Math.cos(th)*rr;
+    const y = originXY[1] + Math.sin(ph)*Math.sin(th)*rr;
+    const z = Math.max(groundZ(x,y), Math.cos(ph)*rr*0.55 + 3.0);
+    if(x<SITE.x0-20||x>SITE.x1+20||y<SITE.y0-20||y>SITE.y1+20) continue;
+    pts.add(x, y, z, 22 + hash(i*8.8)*18, 0.30, 0.5 + hash(i*2.2)*0.5, 1);
+  }
+}
+
+
+/* ==== 40_timeline.js ==== */
+/* ===========================================================================
+   AN1 — TIMELINE
+   ONE continuous camera journey. There is no cut anywhere in this file.
+   Camera position and target are sampled from a single smoothed track that
+   runs from t = 0 to t = DURATION; the only override is the soldier-follow
+   during the walk, and that is cross-faded in and out so the track never
+   jumps. Every effect is a pure function of t, so the scrub bar lands on
+   exactly the frame that plays.
+   =========================================================================== */
+
+/* ---- the soldier's route ---------------------------------------------- */
+/* Both endpoints are real: D1 on the sentry post's east face (master A.4.8)
+   and the 1000 x 2100 entry door at grade in the stairwell headwall at
+   X 9250 (master A.4.7). The ground between them is open plot, so the route
+   is this animation's own [V] choice - declared in the design basis - and
+   the PACE is then derived from it, not assumed.                           */
+const WALK = (function(){
+  const S = PROJ.sentry.site;
+  const ex = (S.x1)*MM, cy = (S.y0+S.y1)*0.5*MM;
+  const pts = [
+    V3.c(ex+0.90, cy,     0), V3.c(ex+2.60, cy+3.10, 0), V3.c(ex+0.20, cy+6.70, 0),
+    V3.c(29.50,  11.60,   0), V3.c(21.50,  12.20, 0), V3.c(15.00,  11.40, 0),
+    V3.c(11.40,   9.60,   0), V3.c(10.00,   7.60, 0), V3.c( 9.78,   6.78, 0)
+  ];
+  let len = 0;
+  for(let i=0;i<pts.length-1;i++) len += Math.hypot(pts[i+1][0]-pts[i][0], pts[i+1][1]-pts[i][1]);
+  return { pts, len, pace: len / PROJ.narrative.steps };
+})();
+PROJ.narrative.walkLen = Math.round(WALK.len*1000);
+PROJ.narrative.pace    = Math.round(WALK.pace*1000);
+
+/* The heading must be taken from a WINDOW of the route, not from the current
+   segment. Segment direction changes in one step at every waypoint, and the
+   follow camera sits 4.2 m behind and 1.5 m to the side of it, so a corner
+   used to teleport the camera several metres between frames - a cut, and the
+   one thing this animation may not contain. Measured before the fix: a peak
+   camera speed of 138 m/s at t = 43.1 s. Sampling ahead and behind turns each
+   corner into a three-metre arc, and taking the heading as a VECTOR rather
+   than an angle also removes the atan2 wrap. */
+const HEAD_WIN = 1.5;                                   // metres each side
+function headingAt(d){
+  const a = walkAt(Math.min(d + HEAD_WIN, WALK.len)).p;
+  const b = walkAt(Math.max(d - HEAD_WIN, 0)).p;
+  const v = V3.c(a[0]-b[0], a[1]-b[1], 0);
+  return V3.len(v) < 1e-5 ? V3.c(1,0,0) : V3.norm(v);
+}
+
+/* position and heading at a distance d along the route */
+function walkAt(d){
+  d = clamp(d, 0, WALK.len);
+  let acc = 0;
+  for(let i=0;i<WALK.pts.length-1;i++){
+    const a = WALK.pts[i], b = WALK.pts[i+1];
+    const seg = Math.hypot(b[0]-a[0], b[1]-a[1]);
+    if(acc + seg >= d || i === WALK.pts.length-2){
+      const f = clamp((d-acc)/(seg||1), 0, 1);
+      const x = lerp(a[0],b[0],f), y = lerp(a[1],b[1],f);
+      return { p: V3.c(x, y, groundZ(x,y)), yaw: Math.atan2(b[1]-a[1], b[0]-a[0]) };
+    }
+    acc += seg;
+  }
+  const e = WALK.pts[WALK.pts.length-1];
+  return { p: V3.c(e[0],e[1],groundZ(e[0],e[1])), yaw: Math.PI };
+}
+
+/* ---- beat table -------------------------------------------------------- */
+/* Times are seconds. Each beat's end IS the next beat's start; there is no
+   gap and no overlap, which is what makes the journey continuous.          */
+const BEATS = [
+  ['SITE',              0,   20, 'The plot, the berm, the stand-off'],
+  ['SENTRY POST',      20,   36, 'The exposed outer element'],
+  ['56 STEPS',         36,   85, 'The walk to the entry'],
+  ['BLAST',            85,  100, 'Design basis threat'],
+  ['BLAST WAVE',      100,  117, 'Source to project'],
+  ['STAND-OFF',       117,  129, 'Expendability by design'],
+  ['CUTAWAY',         129,  147, 'Into the ground'],
+  ['ENGINEERED COVER',147,  162, 'Six layers, 2 000'],
+  ['LOAD PATH',       162,  187, 'Slab to wall to mat to rock'],
+  ['PROTECTED VOLUME',187,  199, 'Bays 1 to 6'],
+  ['INTERIOR',        199,  216, 'Through the boundary'],
+  ['OCCUPANTS',       216,  231, 'Nine, at work'],
+  ['CBRN AIRFLOW',    231,  257, 'Intake to filtration to envelope'],
+  ['CLOSED MODE',     257,  270, 'Sealed'],
+  ['ESSENTIAL POWER', 270,  287, 'GEN-1 and the essential board'],
+  ['SANITATION',      287,  298, 'Nothing is discharged'],
+  ['EMP',             298,  314, 'A field, not an explosion'],
+  ['EMP ZONE 2',      314,  330, '80 dB, standing alone'],
+  ['INTEGRATION',     330,  342, 'Continuity of operations'],
+  ['RETURN',          342,  360, 'Back to the surface'],
+  ['SITE, AFTER',     360,  382, 'The project, whole']
+];
+const DURATION = BEATS[BEATS.length-1][2];
+const beatAt = t => { for(const b of BEATS) if(t >= b[1] && t < b[2]) return b; return BEATS[BEATS.length-1]; };
+
+/* ---- camera keys ------------------------------------------------------- */
+/* pos and tgt in scene metres. Deliberately dense through the transitions
+   so the smoothing pass has real curvature to work with.                   */
+const CAM = [
+  /* SITE — a high oblique that establishes terrain, berm, headhouse, entry
+     and the sentry post in one frame, then descends                        */
+  [  0, [ -26,  -46,  42], [ 14,   3,  -1]],
+  [  7, [  -8,  -40,  31], [ 15,   3,  -1]],
+  [ 14, [  14,  -34,  20], [ 22,   3,   0]],
+  /* SENTRY POST — the camera comes down to standing height beside it       */
+  [ 20, [  28,  -22,  12], [ 33,   3,   2]],
+  [ 27, [  40,  -11,   5.4],[ 35,   3,   3]],
+  [ 33, [  42.5,  1.5,  2.6],[ 36,   3.1, 2.0]],
+  [ 36, [  41.0,  3.0,  2.1],[ 37.2, 3.1, 1.2]],
+  /* 56 STEPS — procedural follow takes over here; these keys only have to
+     put the track in the right neighbourhood for the cross-fade            */
+  [ 60, [  24.0, 16.0,  3.4],[ 22.0,11.5, 1.0]],
+  [ 85, [   7.0, 10.6,  2.6],[ 10.0, 7.2, 1.0]],
+  /* BLAST — the camera turns to the burst on the east-south-east horizon   */
+  [ 90, [   6.4,  9.8,  2.9],[ 26.0,-6.0, 3.6]],
+  [ 96, [   6.0,  8.6,  4.6],[ 34.0,-9.0, 4.4]],
+  [100, [   5.0,  4.0,  9.0],[ 30.0,-6.0, 4.0]],
+  /* BLAST WAVE — rise and pull back so source, wave and project are one
+     frame. This is the shot that makes the stand-off legible.              */
+  [108, [  -3.0, -14.0, 20.0],[ 24.0, 2.0, 2.0]],
+  [117, [  -1.0, -20.0, 17.0],[ 30.0, 3.0, 3.0]],
+  /* STAND-OFF — hold on the post as the environment overwhelms it          */
+  [123, [  20.0, -17.0, 11.0],[ 34.0, 3.0, 3.4]],
+  [129, [  16.0, -14.0,  8.0],[ 20.0, 3.0, 0.5]],
+  /* CUTAWAY — follow the pressure to the berm and descend through it       */
+  [136, [   6.0, -12.0,  6.0],[ 11.0, 3.0,-1.5]],
+  [142, [   2.0, -11.0,  1.6],[ 10.0, 3.0,-3.0]],
+  [147, [   0.5, -12.6,  1.0],[ 7.0, 3.0,-2.6]],
+  /* ENGINEERED COVER — a slow lateral dolly across the six layers          */
+  [153, [   3.0,  -8.6,  1.1],[ 4.2, 0.7,-0.95]],
+  [162, [   9.6,  -8.4,  1.0],[10.8, 0.7,-1.10]],
+  /* LOAD PATH — pull back to hold the whole section, then track down it    */
+  [170, [   6.0, -17.5,  0.6],[ 8.0, 1.5,-3.2]],
+  [178, [   4.5, -16.5, -1.6],[ 6.0, 1.5,-4.2]],
+  [187, [   8.0, -15.0, -3.4],[ 9.0, 1.5,-5.4]],
+  /* PROTECTED VOLUME — the envelope, seen whole from outside the section   */
+  [193, [   5.0, -16.0, -2.0],[ 9.0, 1.5,-4.2]],
+  [199, [   1.0, -10.0, -3.4],[ 6.0, 2.0,-4.5]],
+  /* INTERIOR — through the cut face and level out in the ops room.
+     FROM HERE TO THE END OF THE BOX, EVERY SIGHT LINE AND EVERY TRAVERSE IS
+     ROUTED THROUGH A REAL OPENING. The W8 partitions carry a 900 door gap at
+     Y 2500-3400 (master A.3), so longitudinal travel and longitudinal views
+     both run on Y ~ 2.90; W6 and W7 carry the blast doors at Y 600-1800
+     (A.4.9), so the traverse into bay 8 drops to Y ~ 1.3 to pass through
+     them. A camera that sights a partition instead of its doorway just
+     renders a grey wall, which is what the first cut of this sequence did. */
+  [205, [   3.6,  -3.40, -4.20],[  6.6, 2.60,-4.70]],
+  [211, [   5.35,  1.90, -4.28],[  8.0, 2.55,-4.82]],
+  [216, [   5.80,  3.05, -4.42],[  8.6, 2.25,-4.88]],
+  /* OCCUPANTS — the consoles, then the plotting table, then east           */
+  [221, [   6.45,  3.45, -4.40],[  9.0, 2.15,-4.92]],
+  [226, [   7.55,  3.15, -4.45],[ 10.4, 2.92,-4.95]],
+  [231, [   9.50,  2.95, -4.55],[ 11.6, 2.92,-4.90]],
+  /* CBRN AIRFLOW — west to the intake down the axis, then follow the air   */
+  [237, [   6.0,   2.92, -4.00],[  1.6, 2.90,-4.20]],
+  [243, [   2.25,  2.90, -4.28],[  5.8, 2.75,-4.72]],
+  [250, [   8.0,   2.92, -4.45],[ 11.2, 2.70,-4.85]],
+  [257, [  10.5,   2.92, -4.50],[ 12.2, 2.40,-4.90]],
+  /* CLOSED MODE — bay 5 is 1560 clear and the trains leave 110 mm a side,
+     so it is read from the bay 4 doorway. There is nowhere to stand in it,
+     and that is the point HV-F3 makes.                                     */
+  [264, [  10.7,   2.85, -4.40],[ 11.9, 2.30,-4.90]],
+  [270, [  11.0,   2.60, -4.35],[ 12.4, 2.10,-4.85]],
+  /* ESSENTIAL POWER — east through BLAST DOOR 1, the stair well, BLAST
+     DOOR 2, into bay 8                                                     */
+  [277, [  14.0,   1.60, -4.80],[ 16.6, 1.25,-5.05]],
+  [283, [  16.6,   1.25, -4.85],[ 19.4, 1.35,-5.05]],
+  [287, [  19.4,   1.90, -4.70],[ 20.6, 2.60,-5.05]],
+  /* SANITATION — back west through both blast doors, then up on to the
+     door line and into bay 2                                               */
+  [291, [  17.0,   1.30, -4.85],[ 14.2, 1.40,-5.00]],
+  [294, [  13.2,   2.10, -4.75],[ 10.6, 2.70,-4.95]],
+  [296, [   5.9,   2.90, -4.62],[  4.9, 2.60,-4.95]],
+  [298, [   4.95,  2.55, -4.68],[  4.45,1.30,-5.18]],
+  /* EMP — out through the cut to watch the field arrive, still continuous  */
+  [304, [   3.4,  -6.0,  -1.60],[  7.0, 2.60,-3.20]],
+  [309, [   4.0, -11.0,   3.40],[ 12.0, 3.00,-1.00]],
+  [314, [   4.6,  -8.0,  -1.20],[  7.2, 3.00,-3.60]],
+  /* ZONE 2 — down on to the welded steel enclosure in bay 3                */
+  [321, [   5.2,  -1.40, -4.00],[  6.6, 3.90,-5.00]],
+  [330, [   6.6,   1.30, -4.50],[  6.7, 4.30,-5.20]],
+  /* INTEGRATION — the long axial view down the whole envelope, straight
+     through every doorway, with everything running                         */
+  [336, [   8.6,   2.87, -4.40],[  4.5, 2.90,-4.85]],
+  [342, [  10.8,   2.90, -4.35],[  4.0, 2.90,-4.85]],
+  /* RETURN — reverse the journey: roof, cover, berm, surface               */
+  [348, [  12.0,  -6.0, -3.2],[  8.0,3.0,-4.0]],
+  [354, [  10.0, -13.0,  1.0],[  9.0,3.0,-2.0]],
+  [360, [   6.0, -21.0,  9.0],[ 12.0,3.0,-0.5]],
+  /* SITE, AFTER — the hero three-quarter, matching the Revit side profile  */
+  [368, [  -6.0, -31.0, 17.0],[ 16.0,3.0, 0.0]],
+  [375, [ -18.0, -40.0, 25.0],[ 18.0,3.0, 0.0]],
+  [382, [ -30.0, -52.0, 34.0],[ 18.0,3.0, 0.0]]
+];
+
+/* ---- build one smoothed, continuously-moving track --------------------- */
+/* Linear resample at 30 Hz, then repeated binomial smoothing. This gives
+   continuous velocity (no stop-start at keys) and cannot overshoot, which
+   a Catmull-Rom through the same keys would. */
+const TRACK = (function(){
+  const HZ = 30, n = Math.ceil(DURATION*HZ)+1;
+  const pos = new Array(n), tgt = new Array(n);
+  for(let i=0;i<n;i++){
+    const t = i/HZ;
+    let k = 0;
+    while(k < CAM.length-2 && CAM[k+1][0] <= t) k++;
+    const a = CAM[k], b = CAM[Math.min(k+1, CAM.length-1)];
+    const f = easeCam(clamp(invLerp(a[0], b[0], t), 0, 1));
+    pos[i] = V3.lerp(V3.c(...a[1]), V3.c(...b[1]), f);
+    tgt[i] = V3.lerp(V3.c(...a[2]), V3.c(...b[2]), f);
+  }
+  const smooth = arr => {
+    for(let pass=0; pass<26; pass++){
+      const o = arr.map(v=>V3.c(v[0],v[1],v[2]));
+      for(let i=1;i<arr.length-1;i++)
+        arr[i] = V3.add(V3.mul(o[i],0.5), V3.mul(V3.add(o[i-1],o[i+1]),0.25));
+    }
+  };
+  smooth(pos); smooth(tgt);
+  return { HZ, n, pos, tgt };
+})();
+function trackAt(t){
+  const x = clamp(t,0,DURATION)*TRACK.HZ, i = Math.min(Math.floor(x), TRACK.n-2), f = x-i;
+  return { pos: V3.lerp(TRACK.pos[i], TRACK.pos[i+1], f),
+           tgt: V3.lerp(TRACK.tgt[i], TRACK.tgt[i+1], f) };
+}
+
+/* ---- the walk ---------------------------------------------------------- */
+const WALK_T0 = 39.0;                                   // first footfall
+const CADENCE = 0.75;                                   // s per footfall  [V]
+const WALK_T1 = WALK_T0 + PROJ.narrative.steps*CADENCE; // 39 + 42.0 = 81.0
+function walkState(t){
+  const raw = (t - WALK_T0)/CADENCE;
+  const stepF = clamp(raw, 0, PROJ.narrative.steps);
+  const step  = Math.min(Math.floor(stepF)+ (raw>0?1:0), PROJ.narrative.steps);
+  const d     = clamp(stepF,0,PROJ.narrative.steps) * WALK.pace;
+  const w     = walkAt(d);
+  const h     = headingAt(d);
+  /* the swing phase that puts a foot down on every whole step */
+  const ph    = (stepF - Math.floor(stepF)) * Math.PI * 2;
+  const moving = t > WALK_T0-1.2 && t < WALK_T1+0.35;
+  return { p:w.p, yaw:Math.atan2(h[1],h[0]), dir:h, step, stepF,
+           swing: moving ? ph : 0, moving, done: t >= WALK_T1 };
+}
+
+/* ---- the whole animation state at time t ------------------------------- */
+function stateAt(t){
+  const s = {};
+  const tk = trackAt(t);
+  s.pos = tk.pos; s.tgt = tk.tgt;
+  /* 47 degrees outside; the box is 5 000 clear and 3 200 high, and a normal
+     lens in a room that size sees a wall. The interior beats open up to 64
+     degrees and ease back on the way out. */
+  const wide = smoothstep(203, 213, t) * (1 - smoothstep(340, 350, t));
+  s.fov = lerp(47, 64, wide) * Math.PI/180;
+
+  /* --- soldier follow, cross-faded so the track never jumps ------------ */
+  const wk = walkState(t);
+  s.walk = wk;
+  s.soldierVisible = t < 132;                 /* he goes inside; he is not
+                                                 shown in the blast environment */
+  const blend = smoothstep(36.0, 40.5, t) * (1 - smoothstep(80.0, 85.5, t));
+  if(blend > 0.001){
+    const back = 4.2, side = 1.5, up = 1.95;
+    const fx = wk.dir[0], fy = wk.dir[1];
+    const follow = V3.c(wk.p[0] - fx*back - fy*side,
+                        wk.p[1] - fy*back + fx*side,
+                        wk.p[2] + up + Math.sin(wk.stepF*Math.PI)*0.012);
+    const look = V3.c(wk.p[0] + fx*1.6, wk.p[1] + fy*1.6, wk.p[2] + 1.15);
+    s.pos = V3.lerp(s.pos, follow, blend);
+    s.tgt = V3.lerp(s.tgt, look,   blend);
+  }
+
+  /* --- the blast ------------------------------------------------------- */
+  /* front position sweeps the plot. Travel is SLOWED FOR LEGIBILITY and
+     the animation says so; no velocity or arrival time is implied.        */
+  const T_FLASH = 92.0;
+  s.flash = t < T_FLASH ? 0 : Math.exp(-(t-T_FLASH)*2.6) * smoothstep(T_FLASH, T_FLASH+0.12, t);
+  s.fireball = clamp(smoothstep(T_FLASH, T_FLASH+0.25, t) * (1-smoothstep(T_FLASH+3.0, T_FLASH+11.0, t)), 0, 1);
+  s.burstDir = V3.mul(BLAST_DIR, -1);
+  const sweep = invLerp(97.0, 128.0, t);
+  s.front   = t < 97 ? -1e9 : lerp(-78, 52, clamp(sweep,0,1.35));
+  s.frontOn = t > 96.5 && t < 150;
+  /* wind shear on the grass: builds as the front passes, then decays       */
+  const dFront = s.front - frontCoord(11, 3.1);
+  s.wind = clamp(Math.exp(-Math.abs(dFront)/22) * smoothstep(97, 101, t), 0, 1) * 1.0;
+  s.sentryHit = s.front > FC_SENTRY;
+  s.sentryDamage = clamp(invLerp(FC_SENTRY, FC_SENTRY+11, s.front), 0, 1);
+  /* dust peaks with the event, then settles to a residual haze that clears
+     over the closing minute - brief section 33, "dust settles" */
+  const dustPeak  = smoothstep(104, 116, t) * (1 - smoothstep(128, 172, t));
+  const dustResid = smoothstep(120, 140, t) * (1 - smoothstep(338, 378, t)*0.80) * 0.22;
+  s.dust = clamp(dustPeak + dustResid, 0, 1);
+
+  /* --- ground transparency, then the engineering section ---------------
+     ONE section, opened once and closed once. The plane sits at Y = 0.620,
+     the inner face of the 600 south perimeter wall, so the cut removes the
+     ground and that one wall and leaves everything else standing: bays,
+     north wall, roof slab and mat all read in true section, exactly as
+     A-203 SECTION XX draws them. The camera then flies INSIDE the same
+     section rather than needing a second model.                          */
+  s.ghost = smoothstep(130, 139, t) * (1 - smoothstep(143, 152, t))
+          + smoothstep(344, 350, t) * (1 - smoothstep(354, 360, t));
+  const SECT_OFF = -35.0, SECT_ON = 0.620;
+  s.clipY = lerp(SECT_OFF, SECT_ON, smoothstep(134, 149, t));
+  s.clipY = lerp(s.clipY, SECT_OFF, smoothstep(346, 358, t));
+  s.clip  = 1;
+
+  /* --- load path ------------------------------------------------------- */
+  /* six stages, revealed in order, each held while the next arrives       */
+  s.arrowStage = [];
+  const stageT = [[165,172],[169,176],[173,180],[177,184],[180,188],[183,191]];
+  for(let i=0;i<6;i++){
+    const [a,b] = stageT[i];
+    s.arrowStage[i] = smoothstep(a, a+2.2, t) * (1 - smoothstep(196, 201, t));
+  }
+  s.pressureOnRoof = smoothstep(163, 168, t) * (1 - smoothstep(196, 200, t));
+
+  /* --- highlights ------------------------------------------------------ */
+  s.envelope = smoothstep(188, 192, t) * (1 - smoothstep(203, 208, t));
+  s.zone2Hi  = smoothstep(319, 323, t) * (1 - smoothstep(338, 344, t));
+
+  /* --- interior -------------------------------------------------------- */
+  s.interiorLit = smoothstep(196, 206, t);
+  /* the shock, felt inside: a slight vibration and a brief light dip.
+     No panic, no falling objects, no casualties (brief section 17).       */
+  const shockT = 219.0;
+  s.shake = t > shockT && t < shockT+3.4
+          ? Math.exp(-(t-shockT)*1.5) * Math.sin((t-shockT)*46) * 0.020 : 0;
+  s.lightDip = t > shockT && t < shockT+2.6
+          ? Math.exp(-(t-shockT)*2.2) * 0.38 : 0;
+
+  /* --- CBRN ------------------------------------------------------------ */
+  s.airOn   = smoothstep(233, 238, t) * (1 - smoothstep(288, 294, t));
+  s.airHead = clamp(invLerp(236, 256, t), 0, 1);
+  s.contaminated = t < 268;
+  s.closedMode   = t > 258;
+  s.valvesShut   = smoothstep(258, 262, t);
+
+  /* --- power ----------------------------------------------------------- */
+  s.powerOn = smoothstep(272, 277, t) * (1 - smoothstep(292, 297, t));
+
+  /* --- EMP ------------------------------------------------------------- */
+  const T_EMP = 302.0;
+  s.empOn  = t > T_EMP && t < 336;
+  s.empR   = s.empOn ? (t - T_EMP) * 26.0 : -1;
+  s.empWash= t > T_EMP && t < T_EMP+7
+           ? Math.exp(-(t-T_EMP-0.6)*0.8) * 0.5 * smoothstep(T_EMP, T_EMP+0.4, t) : 0;
+  s.zoneReveal = [ smoothstep(304,307,t)*(1-smoothstep(316,320,t)),
+                   smoothstep(309,312,t)*(1-smoothstep(320,324,t)),
+                   smoothstep(318,321,t)*(1-smoothstep(338,343,t)) ];
+
+  /* --- overall --------------------------------------------------------- */
+  s.fadeIn  = 1 - smoothstep(0, 2.2, t);
+  s.fadeOut = smoothstep(DURATION-6.0, DURATION-0.4, t);
+  s.beat = beatAt(t);
+  return s;
+}
+
+/* ---- annotations -------------------------------------------------------
+   Small, anchored, specific, and gone before they become a caption. Every
+   figure below is printed somewhere in the master or the project flier;
+   nothing here is rounded, recomputed or invented, and no value tagged
+   [ASSUMED] is shown without saying so.
+   ---------------------------------------------------------------------- */
+const NOTE = (t0,t1,anchor,head,sub,cls) => ({t0,t1,anchor,head,sub,cls:cls||''});
+const ANNOT = [
+  /* staggered so no two are on screen together at the same screen position;
+     the stairwell note has been moved to where the soldier actually reaches
+     it, which is the moment it means something                             */
+  NOTE(  4.0, 11.5, [11, 3.1, 0.4],   'UNDERGROUND CBRN-HARDENED OPERATIONS ROOM', 'Pune, Maharashtra'),
+  NOTE( 12.5, 18.5, [ 6, 1.5, 0.1],   'ENGINEERED COVER', '2 000 layered, over a 900 pressure slab'),
+  NOTE( 19.0, 25.5, [16, 3.1, 0.9],   'HEADHOUSE', 'Roof +0.900, no earth cover'),
+  NOTE( 24.0, 30.0, [34, 3.1, 7.0],   'SENTRY POST', 'Two-storey RC frame - NOT blast designed'),
+  NOTE( 28.5, 34.0, [34, 3.1, 0.45],  'STAND-OFF', '10.00 m to the box face - 9.00 m to the excavation'),
+  NOTE( 31.0, 36.5, [34, 3.1,-1.7],   'FOOTINGS ON IN-SITU BASALT', 'F1 1500 x 1500 x 600 at (-)2.000'),
+  NOTE( 72.0, 81.0, [10.4,6.75,2.0],  'COVERED ENTRY STAIRWELL', 'Declared expendable'),
+
+  NOTE( 88,  97, [30,-9.0, 6.0],   'DESIGN BASIS THREAT', 'Nuclear air-blast - p so 344.7 kPa (50 psi)'),
+  NOTE( 99, 110, [22, 0.0, 5.0],   'BLAST FRONT', 'Travel slowed for legibility'),
+  NOTE(120, 129, [34, 3.1, 4.0],   'EXPENDABLE OUTER ELEMENT', 'Stand-off is the protection, not the post'),
+
+  /* the six layers are named ONE AT A TIME, top to bottom, each held about
+     three seconds with a short handover - six labels on screen together is
+     a caption, which is exactly what the brief forbids                     */
+  NOTE(149.0,152.2, [ 3.0, 0.62,-0.15],'TOPSOIL / TURF  300', 'Concealment, erosion, sheds rain'),
+  NOTE(151.8,155.0, [ 4.4, 0.62,-0.38],'GRANULAR FILTER  150', 'Stops fines clogging'),
+  NOTE(154.6,157.8, [ 6.0, 0.62,-0.60],'RC BURSTER SLAB M30  200', 'Breaks up a penetrating item - laid to a 1:50 crossfall'),
+  NOTE(157.4,160.6, [ 7.6, 0.62,-0.95],'CRUSHED BASALT RUBBLE  500', 'Scatters burster energy'),
+  NOTE(160.2,163.4, [ 9.2, 0.62,-1.58],'COMPACTED FILL 95% MDD  750', 'Radiation mass - the second metre buys neutron and gamma'),
+  NOTE(163.0,166.2, [10.6, 0.62,-1.95],'PROTECTION SCREED  100', '2 000 total - 40.65 kPa'),
+
+  NOTE(164, 174, [ 6.0, 1.0, 1.6], 'DESIGN BLAST PRESSURE  383 kPa', '344.7 x DLF 1.111 - roof AND walls'),
+  NOTE(170, 179, [ 4.0, 1.0,-2.45],'PRESSURE SLAB  900', 'The governing element'),
+  NOTE(174, 183, [ 0.3, 1.0,-4.50],'RC WALL  600', 'Blast 383 kPa acting on either face'),
+  NOTE(178, 187, [ 4.0, 1.4,-6.40],'MAT  600', 'Hydrostatic uplift 46.11 kPa, compensated'),
+  NOTE(182, 191, [ 7.0, 1.4,-7.30],'FOUNDING STRATUM', 'Deccan basalt - rockhead ASSUMED, not proved'),
+  NOTE(180, 189, [ 5.0,-1.6,-5.10],'EARTH + WATER  83.2 kPa', 'At floor level - two-thirds of it is water'),
+
+  NOTE(189, 199, [ 6.5, 3.0,-4.4], 'GAS-TIGHT ENVELOPE - BAYS 1 to 6', '67.80 m2 - 216.96 m3'),
+  NOTE(193, 201, [14.8, 1.2,-5.0], 'BLAST DOOR 1', '1200 x 2100 - >= 7 bar - the protective boundary'),
+  NOTE(208, 216, [ 8.0, 3.0,-4.9], 'OPS ROOM - BAY 3', 'Internal clear height 3 200'),
+  NOTE(219, 229, [10.2, 2.0,-4.9], 'NINE OCCUPANTS - 96 HOURS', 'The external event, felt as a tremor'),
+
+  NOTE(236, 245, [-1.2, 2.2, 1.2], 'AIR INTAKE', 'Blast valve at the boundary - all five shut at the shock'),
+  NOTE(244, 254, [11.9, 2.4,-4.3], 'CBRN FILTRATION  2 x 300 m3/h', 'HEPA H14 + activated carbon - true N+1'),
+  NOTE(250, 258, [ 6.0, 3.6,-4.3], 'ENVELOPE HELD AT +50 to +100 Pa', 'Clean air, outward leakage'),
+  NOTE(260, 269, [12.0, 2.0,-4.4], 'CBRN CLOSED MODE', '48 h - the limit is the soda lime, not the power'),
+
+  NOTE(275, 285, [19.9, 1.8,-5.1], 'GEN-1  15 kVA  BAY 8', '7.360 kVA connected - 49 %'),
+  NOTE(280, 289, [19.9, 3.4,-4.6], 'ESSENTIAL LOAD  1.283 kW', 'Battery 149 Ah, 48 V'),
+  NOTE(292, 299, [ 4.45,1.3,-5.2], 'SN-03 SEALED-CASSETTE CHEMICAL TOILET', 'NO DISCHARGE in protective mode'),
+
+  NOTE(303, 311, [12.0, 3.0, 6.0], 'EMP ZONE 0', 'Everything above grade - no attenuation credited'),
+  NOTE(309, 318, [ 9.0, 3.0,-2.4], 'EMP ZONE 1 - THE BURIED BOX', 'A genuine low-frequency measure. Not a MIL-STD boundary'),
+  NOTE(320, 333, [ 6.7, 5.0,-3.9], 'EMP ZONE 2  -  80 dB', 'Welded steel enclosure, bay 3. Designed standing alone'),
+  NOTE(334, 343, [ 8.0, 3.0,-4.6], 'CONTINUITY OF OPERATIONS', 'Structure + air + power + sanitation + EMP'),
+
+  NOTE(366, 378, [14.0, 3.1, 1.0], '22.0 x 6.2 m EXTERNAL - 8 BAYS', 'Roof 900 - mat 600 - walls 600'),
+  NOTE(371, 381, [11.0, 3.1,-0.2], 'NINE PEOPLE. NINETY-SIX HOURS. TWO METRES OF EARTH.', '')
+];
+
+/* the one standing caveat, shown while the blast is on screen. It is on
+   the project's own flier and it belongs on any animation of this threat. */
+const CAVEAT = { t0: 86, t1: 131, text: PROJ.blast.caveat };
+
+
+/* ==== 50_audio.js ==== */
+/* ===========================================================================
+   AN1 — SOUNDSCAPE
+   One continuous bed, synthesised in the browser. No music, no war-film
+   score, no heroic cues (brief section 32). Every layer is a gain driven
+   from the same state object the picture is driven from, so the sound
+   follows the scrub bar exactly as the image does.
+   =========================================================================== */
+class Sound {
+  constructor(){ this.ok=false; this.on=true; }
+  init(){
+    if(this.ok) return;
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if(!AC) return;
+    const ac = this.ac = new AC();
+    this.master = ac.createGain(); this.master.gain.value = 0.0;
+    this.master.connect(ac.destination);
+
+    /* one noise buffer, shared by every noise layer */
+    const len = ac.sampleRate * 4;
+    const buf = ac.createBuffer(1, len, ac.sampleRate);
+    const d = buf.getChannelData(0);
+    let last = 0;
+    for(let i=0;i<len;i++){                       // brown-ish noise, less hiss
+      const w = Math.random()*2-1;
+      last = (last + 0.021*w) / 1.021; d[i] = last*3.2;
+    }
+    this.buf = buf;
+
+    const noise = (type, freq, q, gain)=>{
+      const src = ac.createBufferSource(); src.buffer = buf; src.loop = true;
+      const f = ac.createBiquadFilter(); f.type = type; f.frequency.value = freq;
+      if(q) f.Q.value = q;
+      const g = ac.createGain(); g.gain.value = gain||0;
+      src.connect(f); f.connect(g); g.connect(this.master); src.start();
+      return { g, f, src };
+    };
+    const tone = (type, freq, gain)=>{
+      const o = ac.createOscillator(); o.type = type; o.frequency.value = freq;
+      const g = ac.createGain(); g.gain.value = gain||0;
+      o.connect(g); g.connect(this.master); o.start();
+      return { o, g };
+    };
+
+    /* OUTSIDE */
+    this.wind   = noise('bandpass', 520, 0.6, 0);      // open ground, wind in grass
+    this.gust   = noise('bandpass', 190, 0.8, 0);
+    /* BLAST — low-frequency pressure, rushing air, deep rumble */
+    this.rumble = noise('lowpass', 62, 1.1, 0);
+    this.rush   = noise('highpass', 380, 0.5, 0);
+    this.sub    = tone('sine', 24, 0);
+    /* UNDERGROUND — muffled exterior, ventilation, electrical, generator */
+    this.muffle = noise('lowpass', 105, 0.8, 0);
+    this.vent   = noise('bandpass', 310, 1.4, 0);
+    this.fan    = noise('bandpass', 760, 2.2, 0);
+    this.hum    = tone('sine', 50, 0);                 // 50 Hz, the Indian mains
+    this.hum2   = tone('sine', 100, 0);
+    this.gen    = tone('sawtooth', 31, 0);
+    /* EMP — a tonal artefact, not an explosion */
+    this.emp    = tone('triangle', 1180, 0);
+    this.empLo  = tone('sine', 196, 0);
+    this.ok = true;
+  }
+  /* footfalls are events, so they are scheduled rather than driven */
+  step(){
+    if(!this.ok || !this.on) return;
+    const ac = this.ac, t = ac.currentTime;
+    const src = ac.createBufferSource(); src.buffer = this.buf;
+    src.playbackRate.value = 0.8 + Math.random()*0.25;
+    const f = ac.createBiquadFilter(); f.type='bandpass'; f.frequency.value = 240; f.Q.value = 1.1;
+    const g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(0.055, t+0.008);
+    g.gain.exponentialRampToValueAtTime(0.0001, t+0.19);
+    src.connect(f); f.connect(g); g.connect(this.master);
+    src.start(t, Math.random()*3); src.stop(t+0.22);
+  }
+  set(p, v, t){ if(p) p.gain.setTargetAtTime(Math.max(v,0.0001), this.ac.currentTime, t||0.12); }
+  update(s, tNow, playing){
+    if(!this.ok) return;
+    const m = (this.on && playing) ? 0.85 : 0.0;
+    this.master.gain.setTargetAtTime(m, this.ac.currentTime, 0.25);
+    if(!playing) return;
+    const inside = clamp(s.interiorLit, 0, 1);
+    const out    = 1 - inside;
+    /* outside */
+    this.set(this.wind.g, out * (0.030 + s.wind*0.16));
+    this.set(this.gust.g, out * (0.012 + s.wind*0.26));
+    /* blast */
+    this.set(this.rumble.g, (s.frontOn ? 0.30 : 0.0) * (0.35 + s.wind) * (0.55+out*0.45), 0.35);
+    this.set(this.rush.g,   out * s.wind * 0.10, 0.20);
+    this.set(this.sub.g,    s.flash*0.30 + (s.frontOn ? s.wind*0.20 : 0), 0.30);
+    /* underground */
+    this.set(this.muffle.g, inside * (0.045 + (s.frontOn?0.10:0)));
+    this.set(this.vent.g,   inside * (0.022 + s.airOn*0.050));
+    this.set(this.fan.g,    inside * s.airOn * 0.030);
+    this.set(this.hum.g,    inside * 0.022 * (1 - s.lightDip));
+    this.set(this.hum2.g,   inside * 0.009 * (1 - s.lightDip));
+    this.set(this.gen.g,    inside * s.powerOn * 0.040);
+    /* EMP */
+    this.set(this.emp.g,   (s.empWash>0 ? 0.016 : 0) + (s.zone2Hi*0.006), 0.18);
+    this.set(this.empLo.g, (s.empWash>0 ? 0.020 : 0), 0.18);
+    if(this.emp) this.emp.o.frequency.setTargetAtTime(
+      1180 - (s.empWash||0)*520, this.ac.currentTime, 0.4);
+  }
+}
+
+
+/* ==== 60_app.js ==== */
+/* ===========================================================================
+   AN1 — APPLICATION
+   Render loop, annotation projection, and the presenter's controls.
+   =========================================================================== */
+
+let PROG, PROG_PT, PROG_FULL, AIRPATH = null;
+let MESH = {}, PTS = {}, SND = new Sound();
+let T = 0, PLAYING = false, LAST = 0, SPEED = 1, UIHIDDEN = false;
+/* Adaptive render scale. The scene is small (about 112 000 triangles) but a
+   presentation laptop may have no usable GPU at all, and a smooth 6 minutes
+   at three-quarter resolution beats a stuttering one at full. The scale
+   settles within a second or two and is quantised so the change is not
+   visible as a continuous crawl. Press Q to override. */
+const SCALES = [1.0, 0.85, 0.7, 0.6, 0.5, 0.4];
+let scaleIx = 0, scaleAuto = true, frameAvg = 16.7;
+let lastStepPlayed = -1;
+
+/* lighting: one low sun from the west-south-west and a hemisphere ambient.
+   Restrained, overcast-clear, no lens flare and no golden-hour theatrics. */
+const SUN  = V3.norm(V3.c(-0.42, -0.30, 0.68));
+const SKY  = V3.c(0.300, 0.330, 0.375);
+const GND  = V3.c(0.150, 0.132, 0.112);
+const FOGC = V3.c(0.480, 0.545, 0.650);   // linear; gammas to a light haze
+const SKY_HI = V3.c(0.560, 0.625, 0.710), SKY_LO = V3.c(0.760, 0.775, 0.780);
+
+function initGL(){
+  canvas = document.getElementById('c');
+  gl = canvas.getContext('webgl2', {antialias:true, alpha:false, powerPreference:'high-performance'});
+  if(!gl){ document.getElementById('err').style.display='block'; return false; }
+  PROG      = compile(VS_SURF, FS_SURF);
+  PROG_PT   = compile(VS_PT,   FS_PT);
+  PROG_FULL = compile(VS_FULL, FS_FULL);
+  gl.enable(gl.DEPTH_TEST);
+  gl.enable(gl.CULL_FACE);
+  gl.cullFace(gl.BACK);
+  return true;
+}
+
+function buildAll(){
+  MESH.terrain   = buildTerrain();
+  MESH.berm      = buildBerm();
+  MESH.strata    = buildStrata();
+  MESH.backfill  = buildBackfill();
+  MESH.cover     = buildCover();
+  MESH.box       = buildBox();
+  MESH.shafts    = buildShafts();
+  MESH.stairs    = buildStairs();
+  MESH.headhouse = buildHeadhouse();
+  MESH.entry     = buildEntry();
+  MESH.sentry    = buildSentry();
+  MESH.fitout    = buildFitout();
+  MESH.grass     = buildGrass();
+  MESH.arrow     = buildArrow();
+  MESH.envelope  = buildEnvelope();
+  MESH.zone2     = buildZone2Hi();
+  MESH.torso     = figureTorso(1);
+  MESH.seated    = figureSeated(1);
+  MESH.leg       = figureLeg(1);
+  MESH.arm       = figureArm(1);
+  PTS.dust = new Points(3200);
+  PTS.air  = new Points(600);
+  PTS.emp  = new Points(1800);
+  PTS.fire = new Points(64);
+  STATIONS = occupantStations();
+}
+let STATIONS = [];
+
+/* ---- draw helpers ------------------------------------------------------ */
+function setSurfCommon(VP, eye, s){
+  gl.useProgram(PROG);
+  gl.uniformMatrix4fv(PROG.u.uVP, false, VP);
+  gl.uniform3fv(PROG.u.uSun, SUN);
+  gl.uniform3fv(PROG.u.uEye, eye);
+  const dip = 1 - (s.lightDip||0)*0.55;
+  gl.uniform3f(PROG.u.uSky, SKY[0]*dip, SKY[1]*dip, SKY[2]*dip);
+  gl.uniform3fv(PROG.u.uGnd, GND);
+  gl.uniform3fv(PROG.u.uFogCol, FOGC);
+  gl.uniform1f(PROG.u.uFog, 0.0050);
+  gl.uniform3f(PROG.u.uTintCol, 0.55, 0.62, 0.78);
+  gl.uniform1f(PROG.u.uTint, 0);
+  gl.uniform1f(PROG.u.uGhost, 0);
+  gl.uniform1f(PROG.u.uAlpha, 1);
+  /* `discard` defeats early-Z, so the clip branch is only switched on while
+     the section is actually open - which is most of the middle of the film
+     and none of the opening or the hero shot */
+  gl.uniform1f(PROG.u.uClipOn, s.clipY > SITE.y0 ? 1 : 0);
+  /* section: discard everything south of clipY. Second plane parked. */
+  gl.uniform4f(PROG.u.uClipA, 0, -1, 0, s.clipY);
+  gl.uniform4f(PROG.u.uClipB, 0, 0, 0, -1e9);
+}
+function drawMesh(m, M, alpha, ghost, tint){
+  if(!m) return;
+  gl.uniformMatrix4fv(PROG.u.uM, false, M || M4.ident());
+  gl.uniform1f(PROG.u.uAlpha, alpha===undefined?1:alpha);
+  gl.uniform1f(PROG.u.uGhost, ghost?1:0);
+  gl.uniform1f(PROG.u.uTint, tint||0);
+  m.draw();
+}
+
+/* a standing or seated figure, with the leg rig */
+function drawFigure(p, yaw, seated, swing, scale){
+  const sc = scale||1;
+  const base = M4.mul(M4.trans(p), M4.rotZ(yaw));
+  if(seated){ drawMesh(MESH.seated, base); return; }
+  drawMesh(MESH.torso, base);
+  const hipZ = 0.90*sc, shZ = 1.33*sc;
+  for(const side of [-1, 1]){
+    const a = swing ? Math.sin(swing + (side>0?0:Math.PI)) * 0.42 : 0;
+    const hip = M4.mul(M4.mul(base, M4.trans(V3.c(0, side*0.095*sc, hipZ))), M4.rotY(-a));
+    drawMesh(MESH.leg, hip);
+    const sh = M4.mul(M4.mul(base, M4.trans(V3.c(0, side*0.215*sc, shZ))), M4.rotY(a*0.75));
+    drawMesh(MESH.arm, sh);
+  }
+}
+
+/* ---- frame ------------------------------------------------------------- */
+function frame(now){
+  requestAnimationFrame(frame);
+  const dt = LAST ? Math.min((now-LAST)/1000, 0.1) : 0;
+  LAST = now;
+  if(PLAYING){
+    T += dt*SPEED;
+    if(T >= DURATION){ T = DURATION; PLAYING = false; setPlayIcon(); }
+  }
+  const s = stateAt(T);
+
+  /* resize, with the adaptive scale applied */
+  if(dt > 0) frameAvg = frameAvg*0.9 + dt*1000*0.1;
+  if(scaleAuto && PLAYING){
+    if(frameAvg > 34 && scaleIx < SCALES.length-1){ scaleIx++; frameAvg = 16.7; }
+    else if(frameAvg < 15 && scaleIx > 0){ scaleIx--; frameAvg = 24; }
+  }
+  const dpr = Math.min(window.devicePixelRatio||1, 2) * SCALES[scaleIx];
+  const w = Math.max(2, Math.floor(canvas.clientWidth*dpr)),
+        h = Math.max(2, Math.floor(canvas.clientHeight*dpr));
+  if(canvas.width!==w || canvas.height!==h){ canvas.width=w; canvas.height=h; }
+  gl.viewport(0,0,canvas.width,canvas.height);
+
+  /* camera. The shake is the only non-smooth motion in the piece and it
+     lasts 3.4 s; it is the shock felt inside, not a camera style.        */
+  let eye = s.pos, tgt = s.tgt;
+  if(s.shake){
+    eye = V3.add(eye, V3.c(s.shake*0.6, s.shake*0.35, s.shake));
+    tgt = V3.add(tgt, V3.c(0, 0, s.shake*0.5));
+  }
+  const asp = canvas.width/Math.max(canvas.height,1);
+  const P = M4.persp(s.fov, asp, 0.08, 7000);
+  const VP = M4.mul(P, M4.look(eye, tgt, V3.c(0,0,1)));
+
+  /* --- sky ------------------------------------------------------------- */
+  gl.depthMask(false); gl.disable(gl.DEPTH_TEST); gl.disable(gl.BLEND);
+  gl.useProgram(PROG_FULL);
+  gl.uniform1f(PROG_FULL.u.uGrad, 1);
+  gl.uniform3fv(PROG_FULL.u.uCol,  SKY_HI);
+  gl.uniform3fv(PROG_FULL.u.uCol2, SKY_LO);
+  gl.uniform1f(PROG_FULL.u.uA, 1); gl.uniform1f(PROG_FULL.u.uVig, 0);
+  gl.uniform1f(PROG_FULL.u.uScan, 0); gl.uniform1f(PROG_FULL.u.uTime, T);
+  gl.drawArrays(gl.TRIANGLES,0,3);
+  gl.enable(gl.DEPTH_TEST); gl.depthMask(true);
+  gl.clear(gl.DEPTH_BUFFER_BIT);
+
+  /* --- opaque fabric ---------------------------------------------------- */
+  setSurfCommon(VP, eye, s);
+  const gh = s.ghost > 0.02;
+  drawMesh(MESH.strata);
+  drawMesh(MESH.backfill);
+  drawMesh(MESH.box);
+  drawMesh(MESH.shafts);
+  drawMesh(MESH.stairs);
+  drawMesh(MESH.headhouse);
+  drawMesh(MESH.entry);
+  drawMesh(MESH.fitout);
+  /* the sentry post. As the front passes it, it is drawn progressively
+     lost in the blast environment - dimmed and dust-washed. No cracking,
+     no collapse mechanics, no failure label (brief section 11).          */
+  if(s.sentryDamage > 0){
+    gl.uniform3f(PROG.u.uTintCol, 0.46, 0.43, 0.40);
+    drawMesh(MESH.sentry, null, 1, false, s.sentryDamage*0.72);
+    gl.uniform3f(PROG.u.uTintCol, 0.55, 0.62, 0.78);
+  } else drawMesh(MESH.sentry);
+  /* grass, bent whole-field by the blast wind */
+  gl.disable(gl.CULL_FACE);
+  drawMesh(MESH.grass, M4.shear(BLAST_DIR[0]*s.wind*0.85, BLAST_DIR[1]*s.wind*0.85));
+  gl.enable(gl.CULL_FACE);
+
+  /* ground and cover: ghosted through the transition, then sectioned */
+  if(gh){
+    gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.depthMask(false);
+    drawMesh(MESH.terrain, null, 1, true);
+    drawMesh(MESH.berm,    null, 1, true);
+    drawMesh(MESH.cover,   null, 1, true);
+    gl.depthMask(true); gl.disable(gl.BLEND);
+  } else {
+    drawMesh(MESH.terrain);
+    drawMesh(MESH.berm);
+    drawMesh(MESH.cover);
+  }
+
+  /* --- figures ---------------------------------------------------------- */
+  if(s.soldierVisible && (T > 18)){
+    const wk = s.walk;
+    drawFigure(wk.p, wk.yaw, false, wk.moving ? wk.swing : 0);
+    /* footstep audio, forward play only */
+    if(PLAYING && SPEED > 0 && wk.moving && wk.step !== lastStepPlayed && wk.step > 0){
+      lastStepPlayed = wk.step; SND.step();
+    }
+    if(!wk.moving) lastStepPlayed = -1;
+  }
+  if(s.interiorLit > 0.05){
+    for(const st of STATIONS){
+      const idle = Math.sin(T*0.7 + st.p[0]*3.1)*0.03;
+      drawFigure(V3.c(st.p[0], st.p[1], st.p[2]), st.yaw + idle, st.seated, 0);
+    }
+  }
+
+  /* --- load path arrows -------------------------------------------------- */
+  gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+  gl.disable(gl.CULL_FACE);
+  gl.uniform1f(PROG.u.uClipOn, 0);          // arrows are annotation, never sectioned
+  const arrows = loadPathArrows();
+  for(const a of arrows){
+    const amt = s.arrowStage[a.stage];
+    if(amt <= 0.02) continue;
+    const grow = easeInOut(clamp(amt,0,1));
+    drawMesh(MESH.arrow, M4.dirTo(a.from, a.dir, a.len*grow, 1.0), amt);
+  }
+  gl.enable(gl.CULL_FACE);
+  gl.uniform1f(PROG.u.uClipOn, s.clipY > SITE.y0 ? 1 : 0);
+  /* --- restrained BIM highlights ---------------------------------------- */
+  gl.depthMask(false);
+  if(s.envelope > 0.02) drawMesh(MESH.envelope, null, s.envelope*0.16);
+  if(s.zone2Hi  > 0.02) drawMesh(MESH.zone2,    null, s.zone2Hi*0.22);
+  gl.depthMask(true);
+  gl.disable(gl.BLEND);
+
+  /* --- particles --------------------------------------------------------- */
+  gl.useProgram(PROG_PT);
+  gl.uniformMatrix4fv(PROG_PT.u.uVP, false, VP);
+  gl.uniform3fv(PROG_PT.u.uEye, eye);
+  gl.uniform1f(PROG_PT.u.uPx, canvas.height*0.55);
+  gl.enable(gl.BLEND); gl.depthMask(false);
+
+  /* dust and the blast front */
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+  PTS.dust.reset();
+  if(s.frontOn) blastFront(PTS.dust, s.front, eye);
+  if(s.dust > 0.01) settlingDust(PTS.dust, Math.max(T-104,0), s.dust, [16, 2, 0]);
+  PTS.dust.flush();
+  gl.uniform3f(PROG_PT.u.uCa, 0.415, 0.372, 0.320);
+  gl.uniform3f(PROG_PT.u.uCb, 0.700, 0.672, 0.612);
+  PTS.dust.draw();
+
+  /* the fireball, additive, on the horizon */
+  if(s.fireball > 0.01){
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+    PTS.fire.reset();
+    const R = PROJ.narrative.blastRange;
+    const bx = 11 + s.burstDir[0]*R, by = 3.1 + s.burstDir[1]*R;
+    for(let i=0;i<26;i++){
+      const h = hash(i*3.3);
+      PTS.fire.add(bx + (h-0.5)*120, by + (hash(i*7.1)-0.5)*120, 70 + h*150,
+                   9000 + h*7000, s.fireball*(0.30+h*0.35), h, 0);
+    }
+    PTS.fire.flush();
+    gl.uniform3f(PROG_PT.u.uCa, 1.00, 0.86, 0.58);
+    gl.uniform3f(PROG_PT.u.uCb, 0.98, 0.46, 0.20);
+    PTS.fire.draw();
+  }
+
+  /* CBRN airflow */
+  if(s.airOn > 0.02){
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+    PTS.air.reset();
+    airflowParticles(PTS.air, AIRPATH, T, s.airHead, 210, s.contaminated);
+    PTS.air.flush();
+    gl.uniform3f(PROG_PT.u.uCa, 0.72, 0.50, 0.30);   // contaminated outside air
+    gl.uniform3f(PROG_PT.u.uCb, 0.40, 0.78, 0.82);   // filtered, into the envelope
+    PTS.air.draw();
+  }
+
+  /* EMP field */
+  if(s.empOn && s.empR > 0){
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+    PTS.emp.reset();
+    empField(PTS.emp, T, [11, 3.1], s.empR);
+    PTS.emp.flush();
+    gl.uniform3f(PROG_PT.u.uCa, 0.38, 0.58, 0.86);
+    gl.uniform3f(PROG_PT.u.uCb, 0.80, 0.86, 0.96);
+    PTS.emp.draw();
+  }
+  gl.depthMask(true); gl.disable(gl.BLEND);
+
+  /* --- overlay: flash, EMP wash, fades ----------------------------------- */
+  const ov = [];
+  if(s.flash    > 0.002) ov.push([[1,0.97,0.92], Math.min(s.flash*0.92,0.95), 0]);
+  if(s.empWash  > 0.002) ov.push([[0.70,0.80,0.95], s.empWash*0.22, s.empWash]);
+  if(s.fadeIn   > 0.002) ov.push([[0,0,0], s.fadeIn, 0]);
+  if(s.fadeOut  > 0.002) ov.push([[0,0,0], s.fadeOut, 0]);
+  if(ov.length){
+    gl.disable(gl.DEPTH_TEST); gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    gl.useProgram(PROG_FULL);
+    gl.uniform1f(PROG_FULL.u.uGrad, 0);
+    gl.uniform1f(PROG_FULL.u.uVig, 0.55);
+    gl.uniform1f(PROG_FULL.u.uTime, T);
+    for(const [c,a,sc] of ov){
+      gl.uniform3f(PROG_FULL.u.uCol, c[0],c[1],c[2]);
+      gl.uniform1f(PROG_FULL.u.uA, a);
+      gl.uniform1f(PROG_FULL.u.uScan, sc);
+      gl.drawArrays(gl.TRIANGLES,0,3);
+    }
+    gl.disable(gl.BLEND); gl.enable(gl.DEPTH_TEST);
+  }
+
+  updateHUD(s, VP);
+}
+/* AIRPATH is resolved in start(), once PROJ and the bay table are live */
+
+/* ---- annotations, projected from their 3D anchors ---------------------- */
+const noteEls = [];
+function buildNotes(){
+  const layer = document.getElementById('notes');
+  ANNOT.forEach((a,i)=>{
+    const el = document.createElement('div');
+    el.className = 'note';
+    el.innerHTML = '<span class="lead"></span><b>'+a.head+'</b>'+(a.sub?'<i>'+a.sub+'</i>':'');
+    layer.appendChild(el);
+    noteEls.push(el);
+  });
+}
+function project(p, VP, w, h){
+  const x = p[0]*VP[0] + p[1]*VP[4] + p[2]*VP[8]  + VP[12];
+  const y = p[0]*VP[1] + p[1]*VP[5] + p[2]*VP[9]  + VP[13];
+  const z = p[0]*VP[2] + p[1]*VP[6] + p[2]*VP[10] + VP[14];
+  const ww= p[0]*VP[3] + p[1]*VP[7] + p[2]*VP[11] + VP[15];
+  if(ww <= 0.001) return null;
+  return { x:(x/ww*0.5+0.5)*w, y:(1-(y/ww*0.5+0.5))*h, z:z/ww };
+}
+function updateHUD(s, VP){
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  ANNOT.forEach((a,i)=>{
+    const el = noteEls[i];
+    /* fade in as the camera approaches, hold, fade out - never freeze */
+    const inA  = smoothstep(a.t0, a.t0+0.8, T);
+    const outA = 1 - smoothstep(a.t1-0.9, a.t1, T);
+    let vis = inA*outA;
+    if(vis <= 0.01){ if(el.style.opacity!=='0'){ el.style.opacity='0'; el.style.visibility='hidden'; } return; }
+    const q = project(V3.c(...a.anchor), VP, w, h);
+    if(!q || q.z <= 0 || q.x<-260 || q.x>w+260 || q.y<-160 || q.y>h+160){
+      el.style.opacity='0'; el.style.visibility='hidden'; return;
+    }
+    el.style.visibility='visible';
+    el.style.opacity = (vis*(UIHIDDEN?1:1)).toFixed(3);
+    el.style.transform = 'translate('+Math.round(clamp(q.x,8,w-8))+'px,'+Math.round(clamp(q.y,8,h-8))+'px)';
+  });
+  /* the standing caveat */
+  const cav = document.getElementById('caveat');
+  const cv = smoothstep(CAVEAT.t0, CAVEAT.t0+1, T) * (1-smoothstep(CAVEAT.t1-1.2, CAVEAT.t1, T));
+  cav.style.opacity = cv.toFixed(3);
+  /* transport */
+  if(!UIHIDDEN){
+    document.getElementById('bar').style.width = (T/DURATION*100).toFixed(2)+'%';
+    document.getElementById('tc').textContent = fmt(T)+' / '+fmt(DURATION);
+    const b = s.beat;
+    document.getElementById('beat').textContent = b[0];
+    document.getElementById('beatsub').textContent = b[3];
+    document.getElementById('qual').textContent =
+      (scaleAuto ? 'Auto ' : 'Fixed ') + Math.round(SCALES[scaleIx]*100) + '%';
+  }
+  SND.update(s, T, PLAYING);
+}
+const fmt = t => Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0');
+
+/* ---- controls ---------------------------------------------------------- */
+function setPlayIcon(){ document.getElementById('play').textContent = PLAYING ? '❚❚' : '▶'; }
+function seek(t){ T = clamp(t, 0, DURATION); lastStepPlayed = -1; }
+function wireUI(){
+  document.getElementById('play').onclick = ()=>{ PLAYING=!PLAYING; setPlayIcon(); };
+  const track = document.getElementById('track');
+  const scrub = e =>{
+    const r = track.getBoundingClientRect();
+    seek(clamp((e.clientX-r.left)/r.width,0,1)*DURATION);
+  };
+  let dragging=false;
+  track.addEventListener('pointerdown', e=>{ dragging=true; track.setPointerCapture(e.pointerId); scrub(e); });
+  track.addEventListener('pointermove', e=>{ if(dragging) scrub(e); });
+  track.addEventListener('pointerup',   e=>{ dragging=false; });
+  /* chapter list */
+  const ch = document.getElementById('chapters');
+  BEATS.forEach(b=>{
+    const d = document.createElement('button');
+    d.textContent = b[0];
+    d.title = b[3]+'  ·  '+fmt(b[1]);
+    d.onclick = ()=>{ seek(b[1]); };
+    ch.appendChild(d);
+  });
+  addEventListener('keydown', e=>{
+    if(e.code==='Space'){ e.preventDefault(); PLAYING=!PLAYING; setPlayIcon(); }
+    else if(e.code==='ArrowRight') seek(T+5);
+    else if(e.code==='ArrowLeft')  seek(T-5);
+    else if(e.key==='h'||e.key==='H'){ UIHIDDEN=!UIHIDDEN; document.body.classList.toggle('bare', UIHIDDEN); }
+    else if(e.key==='m'||e.key==='M'){ SND.on=!SND.on; document.getElementById('snd').textContent = SND.on?'♪':'✕'; }
+    else if(e.key==='f'||e.key==='F'){
+      if(document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen();
+    }
+    else if(e.key==='0'){ seek(0); }
+    else if(e.key==='q'||e.key==='Q'){ cycleQuality(); }
+  });
+  document.getElementById('qual').onclick = cycleQuality;
+  document.getElementById('snd').onclick = ()=>{
+    SND.on=!SND.on; document.getElementById('snd').textContent = SND.on?'♪':'✕';
+  };
+  document.getElementById('hide').onclick = ()=>{
+    UIHIDDEN=!UIHIDDEN; document.body.classList.toggle('bare', UIHIDDEN);
+  };
+}
+
+/* Auto, then each fixed step, then back to auto */
+function cycleQuality(){
+  if(scaleAuto){ scaleAuto = false; scaleIx = 0; }
+  else if(scaleIx < SCALES.length-1){ scaleIx++; }
+  else { scaleAuto = true; scaleIx = 0; }
+}
+
+function start(){
+  if(!initGL()) return;
+  buildAll();
+  /* airPath() is resolved here, once PROJ and the bay table are live */
+  AIRPATH = airPath();
+  buildNotes();
+  wireUI();
+  /* fill the derived figures into the opening plate */
+  document.getElementById('derived').textContent =
+    PROJ.narrative.steps + ' steps  ·  ' + (PROJ.narrative.pace/1000).toFixed(3) +
+    ' m pace  ·  ' + (PROJ.narrative.walkLen/1000).toFixed(2) + ' m walked';
+  document.getElementById('gate').addEventListener('click', ()=>{
+    SND.init();
+    if(SND.ac && SND.ac.state==='suspended') SND.ac.resume();
+    document.getElementById('gate').classList.add('gone');
+    PLAYING = true; setPlayIcon();
+  });
+  setPlayIcon();
+  requestAnimationFrame(frame);
+}
+
+start();
+</script>
