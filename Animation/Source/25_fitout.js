@@ -48,16 +48,21 @@ function buildFitout(){
   /* --- BAY 3 OPS ROOM: plotting + the EMP Zone 2 enclosure ------------ */
   {
     const b = bay(3), Z = PROJ.emp.zone2Encl;
-    /* ops desks along the south wall, hazard plotting table in the middle */
+    /* Ops desks along the south wall, hazard plotting table behind them, and
+       a CLEAR AISLE at Y 3500-4100 between the table and the Zone 2
+       enclosure. An ops room with no circulation route is not an ops room,
+       and without the aisle there is nowhere for a camera - or a person - to
+       stand. The aisle width is [V]; A.3 gives the bay's contents, not a
+       furniture layout. */
     B.mm(b.x0+200, 750, b.x1-200, 1500, F+0.68, F+0.76, MAT.bunk);
     for(const x of [b.x0+500, b.x0+1600, b.x0+2700])
       B.mm(x, 900, x+560, 1450, F+0.76, F+1.22, MAT.steel);   // consoles
-    B.mm(b.x0+900, 2400, b.x0+2600, 3600, F+0.86, F+0.94, MAT.bunk);
-    for(const [dx,dy] of [[900,2400],[2540,2400],[900,3540],[2540,3540]])
+    B.mm(b.x0+780, 2300, b.x0+2380, 3300, F+0.86, F+0.94, MAT.bunk);
+    for(const [dx,dy] of [[780,2300],[2320,2300],[780,3240],[2320,3240]])
       B.mm(b.x0+dx, dy, b.x0+dx+60, dy+60, F, F+0.86, MAT.steel);
     /* EMP ZONE 2 — welded steel enclosure, 2400 x 1600 x 2200 external.
        The only surface in this project that delivers 80 dB. */
-    const zx = b.x0 + 520, zy = 3900;
+    const zx = b.x0 + 520, zy = 4200;
     B.mm(zx, zy, zx+Z.l, zy+Z.w, F, F+Z.h*MM, MAT.z2);
     B.mm(zx-40, zy-40, zx+Z.l+40, zy+Z.w+40, F+Z.h*MM, F+Z.h*MM+0.05, MAT.steel);
     /* the RF door leaf and its knife-edge frame, read as a recessed panel */
@@ -80,25 +85,34 @@ function buildFitout(){
     }
   }
 
-  /* --- BAY 5 CBRN PLANT: 2 x 300 m3/h trains, CO2/O2, sump ------------ */
+  /* --- BAY 5 CBRN PLANT: 2 x 300 m3/h trains, CO2/O2, sump ------------
+     AN1-F8. Bay 5 is 1560 x 5000 clear. Master 9.1 fixes the train width at
+     1450 ("110 mm at the sides"); F.1 and DR-A2 fix SU-01's opening at
+     1500 x 1500; A.3 puts a 900 door gap at Y 2500-3400 in the W8 beside it.
+     Keeping that door line clear leaves two runs of 1900 and 2200 along the
+     bay. The sump takes 1500 of one; BOTH trains, the CO2/O2 store and the
+     dehumidifier then have to share the other 2200, which caps each train at
+     about 1100 mm long - and THE PROJECT NEVER STATES A TRAIN LENGTH. The
+     arrangement below is therefore [V]: it is the one that fits, not one the
+     project specifies. The dehumidifier has no floor space left and is NOT
+     drawn rather than drawn somewhere invented.                            */
   {
     const b = bay(5), tw = PROJ.cbrn.trainWidth;
-    /* each train is 1450 wide in a 1560 clear bay - 110 mm at the sides,
-       so both run ALONG the bay. Master 9.1 / HV-F3. */
+    const x0 = b.x0 + 55;                       // the 110 mm is shared, 55 a side
+    /* SU-01 clean sump, 1500 x 1500, invert (-)7.600. DR-A2-V1 records that
+       NOTHING in this project specifies its cover, so it is drawn OPEN with
+       its edge trimmed - no lid is invented here. */
+    B.mm(b.x0+30, 600, b.x0+1530, 2100, PROJ.lvl.sumpInvert, F, MAT.concWet);
+    /* O2 store, 2 x 50 L at 150 bar, in the 400 sliver the sump leaves */
+    for(const dy of [2230, 2400])
+      B.cyl((b.x0+430)*MM, dy*MM, F, F+1.42, 0.13, MAT.steelLt, 14);
+    /* the door line Y 2500-3400 is left clear */
     for(let i=0;i<PROJ.cbrn.trains;i++){
-      const y0 = 800 + i*1900;
-      B.mm(b.x0+55, y0, b.x0+55+tw, y0+1500, F, F+1.95, MAT.steel);
-      B.mm(b.x0+55, y0+120, b.x0+55+tw, y0+430, F+0.30, F+1.70, MAT.steelLt);  // HEPA cassette
-      B.mm(b.x0+55, y0+560, b.x0+55+tw, y0+880, F+0.30, F+1.70, MAT.z2);       // carbon
+      const y0 = 3500 + i*1050;
+      B.mm(x0, y0, x0+tw, y0+1000, F, F+1.95, MAT.steel);
+      B.mm(x0, y0+90,  x0+tw, y0+330, F+0.30, F+1.70, MAT.steelLt);  // HEPA H14 cassette
+      B.mm(x0, y0+430, x0+tw, y0+670, F+0.30, F+1.70, MAT.z2);       // activated carbon
     }
-    /* CO2 scrubber / O2 store: 2 x 50 L at 150 bar */
-    for(const dy of [4500, 4900])
-      B.cyl((b.x0+400)*MM, dy*MM, F, F+1.42, 0.13, MAT.steelLt, 14);
-    B.mm(b.x0+800, 4400, b.x1-100, 5350, F, F+1.10, MAT.steel);   // dehumidifier
-    /* SU-01 clean sump: a 1500 x 1500 opening in the mat, invert (-)7.600.
-       DR-A2-V1 records that nothing in the project specifies its cover, so
-       it is drawn OPEN with its edge trimmed - not closed with an invented lid. */
-    B.mm(b.x0+30, 2600, b.x0+1530, 4100, PROJ.lvl.sumpInvert, F, MAT.concWet);
   }
 
   /* --- BAY 6 DECON AIRLOCK: 3 stages, 2000x2000 / 2000x1500 / 2000x1500 */
@@ -170,19 +184,21 @@ function occupantStations(){
   const b = n => PROJ.bays.find(x=>x.n===n);
   const B3 = b(3), B4 = b(4), B5 = b(5), B1 = b(1), B8 = b(8);
   return [
-    /* Bay 3 OPS ROOM — four: three at consoles, one at the plotting table */
-    { p:[(B3.x0+780)*MM, 1.95, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
-    { p:[(B3.x0+1880)*MM, 1.95, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
-    { p:[(B3.x0+2980)*MM, 1.95, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
-    { p:[(B3.x0+1750)*MM, 2.10, FLOOR], yaw: Math.PI/2, seated:false, bay:3 },
-    /* Bay 4 BERTHING — two off watch */
+    /* Bay 3 OPS ROOM - four: three at consoles on the south wall, one at the
+       east end of the plotting table. All clear of the Y 3500-4100 aisle. */
+    { p:[(B3.x0+780)*MM,  1.80, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
+    { p:[(B3.x0+1880)*MM, 1.80, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
+    { p:[(B3.x0+2980)*MM, 1.80, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
+    { p:[(B3.x0+2900)*MM, 2.80, FLOOR], yaw: Math.PI,   seated:false, bay:3 },
+    /* Bay 4 BERTHING - two off watch, either side of the door line */
     { p:[(B4.x0+900)*MM, 1.30, FLOOR], yaw: 0.4, seated:false, bay:4 },
     { p:[(B4.x0+900)*MM, 4.20, FLOOR], yaw:-2.2, seated:false, bay:4 },
-    /* Bay 5 CBRN PLANT — one at the filter trains */
-    { p:[(B5.x0+1250)*MM, 2.05, FLOOR], yaw: Math.PI, seated:false, bay:5 },
-    /* Bay 1 STORES — one */
+    /* Bay 5 CBRN PLANT - one, standing in the only clear ground there is:
+       the door line. AN1-F8 is why that is the only clear ground. */
+    { p:[(B5.x0+700)*MM, 2.95, FLOOR], yaw: 0.2, seated:false, bay:5 },
+    /* Bay 1 STORES - one */
     { p:[(B1.x0+1250)*MM, 4.05, FLOOR], yaw:-0.9, seated:false, bay:1 },
-    /* Bay 8 GENERATOR, the grey zone — one */
+    /* Bay 8 GENERATOR, the grey zone - one */
     { p:[(B8.x0+2100)*MM, 3.30, FLOOR], yaw: 2.6, seated:false, bay:8 }
   ];
 }

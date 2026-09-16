@@ -5740,6 +5740,9 @@ instead of needing a second model.
 | **AN1-F3** | **Nothing in this project documents a walk of 56 steps** — it is the presenter's requirement. Rather than assume a pace and invent a distance, **both endpoints were fixed to real features** (D1 on the post's east face, A.4.8; the 1000 × 2100 entry door at grade at X 9250, A.4.7) and the **pace was DERIVED**: 36.687 m / 56 = **0.655 m**, an ordinary walking pace. Only the route between the endpoints is `[V]` |
 | **AN1-F4** | **The project holds no wind-direction data** — `SG2-V4`'s plume half is open for exactly that reason — so the blast azimuth is `[V]`. It is chosen as the only family of azimuths that puts the sentry post **upwind** of the shelter, which is what the stand-off argument requires. Verified numerically in the running page: front coordinate of the post **−29.50** against the box **−8.66** |
 | **AN1-F5** | **No STAAD result exists for the underground model**, so the load path is conceptual by construction, not by choice |
+| **AN1-F6** | **`DR-A2-V1` is respected rather than papered over.** The mat's 1500 × 1500 sump opening has no specified cover, so `SU-01` is drawn **open**. No lid was invented |
+| **AN1-F7** | **`U4` / `RC4-F3` are stated, not smoothed over.** The annotation reads *"10.00 m to the box face — 9.00 m to the excavation"*; the flattering reading is not adopted on its own |
+| **AN1-F8** | **BAY 5 DOES NOT DEMONSTRABLY HOLD EVERYTHING `A.3` PUTS IN IT — NEW, and found by building it.** Bay 5 is **1560 × 5000 clear**. Report 9.1 fixes the train width at **1450** (*"110 mm at the sides"*); `F.1` / `WM-V8` / `DR-A2` fix `SU-01` at **1500 × 1500**; `A.3` puts a **900 door gap at Y 2500–3400** in the W8 beside it. Keeping that door line clear leaves runs of **1900 and 2200**. The sump takes 1500 of one, so **both trains, the CO₂/O₂ store and the dehumidifier share the other 2200** — which caps each train at about **1100 mm long, and the project states no train length anywhere.** `DR-A2-V1` already records that *"with the pit open there is no way past it to the two filter trains"*; this is the same tightness with the arithmetic done. **Nothing is changed and nothing is ruled.** AN1 draws the arrangement that fits, declares it `[V]`, and **does not draw the dehumidifier rather than invent a place for it.** New item `AN1-V9` |
 
 ### H.42.5 Open items — `AN1-V1` … `AN1-V8`
 
@@ -5752,7 +5755,13 @@ is drawn at EM1's `[A]` 2400 × 1600 × 2200, which `EM-V2` records as an allowa
 not registered with the drawing QA tool because it produces no DXF sheet**; if a future revision
 adds drawing sheets, H.25's rule applies and `qa_report_data.py` / `make_index.py` must be
 updated · **`AN1-V8` NEW, from `AN1-F1`** — two levels differ between the owner's Revit model
-and A.4.3, and an owner ruling is needed on which is intended.
+and A.4.3, and an owner ruling is needed on which is intended · **`AN1-V9` NEW, from `AN1-F8`** —
+the bay 5 arrangement is `[V]`, **the filter train LENGTH is the missing number**, and the
+dehumidifier has no floor space left and is not drawn · **`AN1-V10`** — **W5 has no door anywhere
+in it (`FS-1`)**, so the camera crosses the W5 plane the way a cutaway camera crosses the south
+wall it has already removed; **no door is drawn there and the defect is not named on screen.**
+Every *other* traverse and sight line inside the box is routed through a real opening — the W8
+door gaps at Y 2500–3400 and Blast Doors 1 and 2 at Y 600–1800.
 
 **`K.1b` is unaffected: AN1 closes nothing and opens nothing in it.** The eight `AN1-V` items
 are animation-scope items and are carried here and in the package's own design basis.
@@ -5769,8 +5778,15 @@ Run in headless Chromium (Playwright) against the built file, with frames captur
 * **Blast ordering checked numerically**: FC_SENTRY **−29.50** < FC_BOX **−8.66**, so the front
   crosses the sentry post before the shelter. **PASS.**
 * Camera continuity: speed sampled mid-journey at **1.003 and 0.604 m/s** — continuous, no jump.
-* **Main staircase constants re-read from `PROJ.stair` in the running page: 24 R @ 170.8333 /
-  280, 3 flights × 8, rise 4100, headroom 2533 — UNCHANGED.**
+* **MAIN STAIRCASE — all eight constants read back out of the RUNNING page and compared field
+  by field with A.4.4: 8 / 8 MATCH. UNCHANGED.** 24 R · 170.8333 · 280 · 3 flights · 8 per
+  flight · rise 4100 · headroom 2533 · width 1200. Landings read back too: L1 −4.7333,
+  L2 −3.3667, arrival −6.100, well 200.
+* Scene size **111 784 triangles**. The harness renders on **SwiftShader — pure-CPU software
+  rasterisation with no GPU** — at 0.6–2.7 s a frame, which is a property of the harness and
+  not of the animation. **No claim is made about the frame rate on the presenter's machine,
+  because it was not measured on one**; instead the page measures its own frame time and drops
+  render scale in quantised steps until it is smooth, with `Q` to pin a fixed scale.
 
 **Could not be made consistent:** `AN1-F1`'s two Revit/master level discrepancies (needs an
 owner ruling, carried as `AN1-V8`); `AN1-F7`'s sentry position, where both readings are shown

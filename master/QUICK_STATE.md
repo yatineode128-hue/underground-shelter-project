@@ -218,7 +218,12 @@ different things here, the **HEPA/carbon filter cassette** and the separately-co
 documents a walk of 56 steps, so both endpoints were fixed to real features and the **pace
 DERIVED at 0.655 m** from the 36.687 m route · **`AN1-F4`** the project holds no wind-direction
 data (`SG2-V4`), so the blast azimuth is `[V]`, chosen as the only one that puts the post
-**upwind** of the shelter. **Eight new animation-scope items `AN1-V1…V8`. `K.1b` is unaffected —
+**upwind** of the shelter · **`AN1-F8` NEW, and found by building it — BAY 5 DOES NOT
+DEMONSTRABLY HOLD EVERYTHING `A.3` PUTS IN IT.** 1560 × 5000 clear, less the 1500 × 1500 sump
+and a clear 900 door line at Y 2500–3400, leaves **both trains, the CO₂/O₂ store and the
+dehumidifier sharing 2200** — capping each train at about **1100 mm long, and the project
+states no train length anywhere.** `DR-A2-V1` already saw the tightness; this is the arithmetic.
+**Nothing ruled, nothing changed.** **Ten new animation-scope items `AN1-V1…V10`. `K.1b` is unaffected —
 AN1 closes nothing and opens nothing in it.**
 
 ---

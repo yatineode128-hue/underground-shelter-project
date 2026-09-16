@@ -224,6 +224,7 @@ Brief sections 11, 24, 30 and 31, applied as hard rules in the code:
 | **AN1-F5** | **No STAAD result exists for the underground model** (master D.3.5 `[N]`). The load path is conceptual only, by construction |
 | **AN1-F6** | **`DR-A2-V1` is respected rather than papered over.** The mat's 1500 × 1500 sump opening has no specified cover, so `SU-01` is drawn **open**. No lid was invented |
 | **AN1-F7** | **The sentry post position is `[ASSUMED]` and fails its own rule as written.** `U4` stays open and `RC4-F3` records 9.00 m to the excavation face against a "≥ 10 m clear of the excavation" rule. **Both readings are stated on screen**: *"10.00 m to the box face — 9.00 m to the excavation."* The animation does not quietly adopt the flattering one |
+| **AN1-F8** | **BAY 5 DOES NOT DEMONSTRABLY HOLD EVERYTHING MASTER A.3 PUTS IN IT — NEW, and found by building it.** Bay 5 is **1560 × 5000 clear**. Report 9.1 fixes the train width at **1450** (*"110 mm at the sides"*); `F.1` / `WM-V8` / `DR-A2` fix `SU-01`'s opening at **1500 × 1500**; `A.3` puts a **900 door gap at Y 2500–3400** in the W8 beside it. Keeping that door line clear leaves two runs of **1900 and 2200** along the bay. The sump takes 1500 of one; **both trains, the CO₂/O₂ store and the dehumidifier then have to share the other 2200**, which caps each train at about **1100 mm long — and the project never states a train length anywhere.** `DR-A2-V1` already records that *"with the pit open there is no way past it to the two filter trains"*; this is the same tightness with the arithmetic done. **Nothing is changed and nothing is ruled** — the animation draws the arrangement that fits, declares it `[V]`, and **does not draw the dehumidifier rather than invent a place for it.** New open item `AN1-V9` |
 
 ---
 
@@ -239,6 +240,8 @@ Brief sections 11, 24, 30 and 31, applied as hard rules in the code:
 | **AN1-V6** | The soundscape is synthesised and illustrative. No acoustic data exists in the project |
 | **AN1-V7** | **AN1 is not registered with the drawing QA tool**, because it produces no DXF sheet. If a future revision adds drawing sheets, master H.25's rule applies and `qa_report_data.py` / `make_index.py` must be updated |
 | **AN1-V8** | **NEW, from `AN1-F1`:** two levels differ between the owner's Revit model and master A.4.3. Needs an owner ruling on which is the intended value |
+| **AN1-V9** | **NEW, from `AN1-F8`:** the bay 5 equipment arrangement is `[V]` — it is the layout that fits, not one the project specifies. **The filter train LENGTH is the missing number**, and the dehumidifier has no floor space left and is not drawn. Needs a vendor dimension before bay 5 can be shown to work |
+| **AN1-V10** | **W5 has no door anywhere in it — `FS-1`.** The camera therefore crosses the W5 plane between bay 5 and bay 6 the way a cutaway camera crosses the south wall it has already removed. **No door is drawn there and the defect is not named on screen** (brief section 30). Every *other* traverse and sight line in the box is routed through a real opening: the W8 door gaps at Y 2500–3400, and Blast Doors 1 and 2 at Y 600–1800 |
 
 ---
 
@@ -301,13 +304,21 @@ Run in headless Chromium (Playwright) against the built file, with frames captur
 | WebGL 2 context acquired | **PASS** |
 | Console and page errors across a full traverse | **NONE** |
 | Duration and beat count read back from the running page | **382 s, 21 beats** |
-| Meshes constructed | **20** |
-| Annotations constructed | **39** |
+| Meshes constructed / annotations constructed | **20 / 39** |
+| Scene size | **111 784 triangles** |
 | Walk length / derived pace read back from the running page | **36.687 m / 0.655 m** |
 | **Blast ordering** — front coordinate of the sentry post vs the box | **−29.50 < −8.66 → the post is crossed first. PASS** |
 | Camera continuity — speed sampled mid-journey | **1.003 and 0.604 m/s, continuous, no jump** |
-| Frames rendered and inspected | 33 first pass, 16 second pass |
-| Main staircase geometry | **UNCHANGED** — 24R @ 170.8333, tread 280, 3 × 8, rise 4100, and the animation reads it from `PROJ.stair`, which is a transcription of A.4.4 |
+| **Main staircase — all eight constants read back out of the RUNNING page and compared field by field with master A.4.4** | **8 / 8 MATCH — UNCHANGED.** 24 R · 170.8333 · 280 · 3 flights · 8 per flight · rise 4100 · headroom 2533 · width 1200. Landings also read back: L1 −4.7333, L2 −3.3667, arrival −6.100, well 200 |
+| Frames rendered and inspected across all 21 beats | yes, over four passes |
+
+> **On the frame rate in this harness.** The test runs in headless Chromium on
+> **SwiftShader — pure-CPU software rasterisation with no GPU at all** — where a frame costs
+> 0.6–2.7 s. That is a property of the harness, not of the animation: the scene is **111 784
+> triangles**, which is small. No claim is made here about the frame rate on the presenter's
+> machine, because it was not measured on one. What the page does instead is **adapt**: it
+> measures its own frame time and drops render scale in quantised steps until it is smooth,
+> and `Q` pins a fixed scale when a steady scale matters more — which it does when recording.
 
 ### What could not be made consistent
 

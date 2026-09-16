@@ -64,8 +64,11 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   chemical toilet**) and they were nearly conflated · **`AN1-F3`** nothing documents a walk of
   56 steps, so both endpoints were fixed to real features and the pace **derived** at 0.655 m ·
   **`AN1-F4`** the project holds no wind-direction data, so the blast azimuth is `[V]`, chosen
-  as the only one that puts the sentry post **upwind** of the shelter. Eight open items
-  `AN1-V1…V8`; **`K.1b` is unaffected.**
+  as the only one that puts the sentry post **upwind** of the shelter · **`AN1-F8`** bay 5 does
+  not demonstrably hold everything `A.3` puts in it — 1560 × 5000 less the 1500 × 1500 sump and
+  a clear 900 door line caps each filter train at about **1100 mm long**, and **no train length
+  is stated anywhere**; nothing ruled, nothing changed. Ten open items `AN1-V1…V10`;
+  **`K.1b` is unaffected.**
   Before it: **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own
   copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire
   revision line (`STRUCTURAL - PHASE 2 REV A + M1`) deleted from the header — asked directly

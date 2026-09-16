@@ -126,9 +126,10 @@ function airPath(){
     V3.c(-0.30, 2.2, -2.45),                                    // down past the boundary
     V3.c( 0.55, 2.2, -3.30),                                    // through the wall
     V3.c( 2.60, 1.30, -4.25), V3.c( 6.00, 1.15, -4.70),
-    V3.c( 9.60, 1.60, -4.90), V3.c((b5.x0+800)*MM, 1.55, F+1.30), // into the trains
-    V3.c((b5.x0+800)*MM, 3.10, F+1.30),                          // through the cassettes
-    V3.c((b5.x0+300)*MM, 4.60, F+1.60),
+    V3.c( 9.60, 2.20, -4.90), V3.c((b5.x0+780)*MM, 2.95, F+1.30), // in at the door line
+    V3.c((b5.x0+780)*MM, 3.90, F+1.30),                          // through train 1
+    V3.c((b5.x0+780)*MM, 5.05, F+1.30),                          // through train 2
+    V3.c((b5.x0+300)*MM, 5.30, F+1.60),
     V3.c( 9.00, 4.40, F+1.90), V3.c( 6.00, 4.10, F+2.10),
     V3.c( 3.00, 3.40, F+2.15), V3.c( 1.20, 2.60, F+1.70)         // out into the envelope
   ];
@@ -161,7 +162,7 @@ function buildEnvelope(){
 function buildZone2Hi(){
   const B = new Builder(), Z = PROJ.emp.zone2Encl;
   const b3 = PROJ.bays.find(b=>b.n===3);
-  const zx = b3.x0 + 520, zy = 3900;
+  const zx = b3.x0 + 520, zy = 4200;
   B.mm(zx-70, zy-70, zx+Z.l+70, zy+Z.w+70,
        PROJ.lvl.floor, PROJ.lvl.floor+Z.h*MM+0.10, [0.52,0.60,0.46]);
   return B.build();

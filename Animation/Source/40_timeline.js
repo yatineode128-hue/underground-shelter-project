@@ -119,37 +119,53 @@ const CAM = [
   /* PROTECTED VOLUME — the envelope, seen whole from outside the section   */
   [193, [   5.0, -16.0, -2.0],[ 9.0, 1.5,-4.2]],
   [199, [   1.0, -10.0, -3.4],[ 6.0, 2.0,-4.5]],
-  /* INTERIOR — through the wall line and level out in the ops room         */
-  [205, [   2.0,  -3.6, -4.1],[ 6.0, 2.6,-4.6]],
-  [211, [   4.4,   1.1, -4.55],[ 8.2, 2.8,-4.7]],
-  [216, [   5.9,   1.5, -4.60],[ 8.6, 3.0,-4.8]],
-  /* OCCUPANTS — a slow pass along bay 3 and bay 4                          */
-  [224, [   7.4,   3.6, -4.55],[ 10.4,2.2,-4.9]],
-  [231, [   9.9,   3.1, -4.60],[ 12.0,2.0,-4.9]],
-  /* CBRN AIRFLOW — back west to the intake, then follow the air east       */
-  [237, [   4.0,   4.4, -3.3],[ 0.5, 2.4,-3.6]],
-  [243, [   1.2,   3.9, -4.1],[ 3.4, 2.0,-4.7]],
-  [250, [   7.8,   3.9, -4.5],[ 11.4,2.2,-4.9]],
-  [257, [  11.0,   4.3, -4.5],[ 12.0,2.0,-4.9]],
-  /* CLOSED MODE — tighten on the plant in bay 5                            */
-  [264, [  12.4,   4.2, -4.6],[ 11.9,1.9,-5.0]],
-  [270, [  12.9,   3.4, -4.6],[ 13.6,2.6,-4.9]],
-  /* ESSENTIAL POWER — east through W7 into bay 8                           */
-  [277, [  16.2,   3.0, -4.6],[ 19.2,2.4,-5.0]],
-  [287, [  19.6,   3.6, -4.6],[ 20.4,1.9,-5.1]],
-  /* SANITATION — back west to bay 2                                        */
-  [293, [  11.0,   3.2, -4.5],[  6.0,2.4,-4.8]],
-  [298, [   5.4,   3.0, -4.6],[  4.2,1.6,-5.0]],
-  /* EMP — up out of the box to watch the field arrive, still continuous    */
-  [304, [   3.4,  -6.0, -1.6],[  7.0,2.6,-3.2]],
-  [309, [   4.0, -11.0,  3.4],[ 12.0,3.0,-1.0]],
-  [314, [   4.6,  -8.0, -1.2],[  7.2,3.0,-3.6]],
-  /* ZONE 2 — down on to the enclosure in bay 3                             */
-  [321, [   5.2,  -1.4, -4.0],[  6.6,3.9,-5.0]],
-  [330, [   6.6,   1.3, -4.5],[  6.7,4.3,-5.2]],
-  /* INTEGRATION — a long pull back through the box, everything running     */
-  [336, [   9.0,   2.8, -4.4],[  4.0,3.0,-4.8]],
-  [342, [  13.6,   2.6, -4.3],[  4.0,3.0,-4.8]],
+  /* INTERIOR — through the cut face and level out in the ops room.
+     FROM HERE TO THE END OF THE BOX, EVERY SIGHT LINE AND EVERY TRAVERSE IS
+     ROUTED THROUGH A REAL OPENING. The W8 partitions carry a 900 door gap at
+     Y 2500-3400 (master A.3), so longitudinal travel and longitudinal views
+     both run on Y ~ 2.90; W6 and W7 carry the blast doors at Y 600-1800
+     (A.4.9), so the traverse into bay 8 drops to Y ~ 1.3 to pass through
+     them. A camera that sights a partition instead of its doorway just
+     renders a grey wall, which is what the first cut of this sequence did. */
+  [205, [   3.6,  -3.40, -4.20],[  6.6, 2.60,-4.70]],
+  [211, [   5.35,  1.90, -4.28],[  8.0, 2.55,-4.82]],
+  [216, [   5.80,  3.05, -4.42],[  8.6, 2.25,-4.88]],
+  /* OCCUPANTS — the consoles, then the plotting table, then east           */
+  [221, [   6.45,  3.45, -4.40],[  9.0, 2.15,-4.92]],
+  [226, [   7.55,  3.15, -4.45],[ 10.4, 2.92,-4.95]],
+  [231, [   9.50,  2.95, -4.55],[ 11.6, 2.92,-4.90]],
+  /* CBRN AIRFLOW — west to the intake down the axis, then follow the air   */
+  [237, [   6.0,   2.92, -4.00],[  1.6, 2.90,-4.20]],
+  [243, [   2.6,   2.92, -4.30],[  5.6, 2.70,-4.70]],
+  [250, [   8.0,   2.92, -4.45],[ 11.2, 2.70,-4.85]],
+  [257, [  10.5,   2.92, -4.50],[ 12.2, 2.40,-4.90]],
+  /* CLOSED MODE — bay 5 is 1560 clear and the trains leave 110 mm a side,
+     so it is read from the bay 4 doorway. There is nowhere to stand in it,
+     and that is the point HV-F3 makes.                                     */
+  [264, [  10.7,   2.85, -4.40],[ 11.9, 2.30,-4.90]],
+  [270, [  11.0,   2.60, -4.35],[ 12.4, 2.10,-4.85]],
+  /* ESSENTIAL POWER — east through BLAST DOOR 1, the stair well, BLAST
+     DOOR 2, into bay 8                                                     */
+  [277, [  14.0,   1.60, -4.80],[ 16.6, 1.25,-5.05]],
+  [283, [  16.6,   1.25, -4.85],[ 19.4, 1.35,-5.05]],
+  [287, [  19.4,   1.90, -4.70],[ 20.6, 2.60,-5.05]],
+  /* SANITATION — back west through both blast doors, then up on to the
+     door line and into bay 2                                               */
+  [291, [  17.0,   1.30, -4.85],[ 14.2, 1.40,-5.00]],
+  [294, [  13.2,   2.10, -4.75],[ 10.6, 2.70,-4.95]],
+  [296, [   5.9,   2.90, -4.62],[  4.9, 2.60,-4.95]],
+  [298, [   4.95,  2.55, -4.68],[  4.45,1.30,-5.18]],
+  /* EMP — out through the cut to watch the field arrive, still continuous  */
+  [304, [   3.4,  -6.0,  -1.60],[  7.0, 2.60,-3.20]],
+  [309, [   4.0, -11.0,   3.40],[ 12.0, 3.00,-1.00]],
+  [314, [   4.6,  -8.0,  -1.20],[  7.2, 3.00,-3.60]],
+  /* ZONE 2 — down on to the welded steel enclosure in bay 3                */
+  [321, [   5.2,  -1.40, -4.00],[  6.6, 3.90,-5.00]],
+  [330, [   6.6,   1.30, -4.50],[  6.7, 4.30,-5.20]],
+  /* INTEGRATION — the long axial view down the whole envelope, straight
+     through every doorway, with everything running                         */
+  [336, [   8.6,   2.87, -4.40],[  4.5, 2.90,-4.85]],
+  [342, [  10.8,   2.90, -4.35],[  4.0, 2.90,-4.85]],
   /* RETURN — reverse the journey: roof, cover, berm, surface               */
   [348, [  12.0,  -6.0, -3.2],[  8.0,3.0,-4.0]],
   [354, [  10.0, -13.0,  1.0],[  9.0,3.0,-2.0]],
@@ -213,7 +229,12 @@ function walkState(t){
 function stateAt(t){
   const s = {};
   const tk = trackAt(t);
-  s.pos = tk.pos; s.tgt = tk.tgt; s.fov = 47*Math.PI/180;
+  s.pos = tk.pos; s.tgt = tk.tgt;
+  /* 47 degrees outside; the box is 5 000 clear and 3 200 high, and a normal
+     lens in a room that size sees a wall. The interior beats open up to 64
+     degrees and ease back on the way out. */
+  const wide = smoothstep(203, 213, t) * (1 - smoothstep(340, 350, t));
+  s.fov = lerp(47, 64, wide) * Math.PI/180;
 
   /* --- soldier follow, cross-faded so the track never jumps ------------ */
   const wk = walkState(t);
@@ -370,11 +391,11 @@ const ANNOT = [
 
   NOTE(275, 285, [19.9, 1.8,-5.1], 'GEN-1  15 kVA  BAY 8', '7.360 kVA connected - 49 %'),
   NOTE(280, 289, [19.9, 3.4,-4.6], 'ESSENTIAL LOAD  1.283 kW', 'Battery 149 Ah, 48 V'),
-  NOTE(290, 298, [ 4.3, 1.5,-5.3], 'SN-03 SEALED-CASSETTE CHEMICAL TOILET', 'NO DISCHARGE in protective mode'),
+  NOTE(292, 299, [ 4.45,1.3,-5.2], 'SN-03 SEALED-CASSETTE CHEMICAL TOILET', 'NO DISCHARGE in protective mode'),
 
   NOTE(303, 311, [12.0, 3.0, 6.0], 'EMP ZONE 0', 'Everything above grade - no attenuation credited'),
   NOTE(309, 318, [ 9.0, 3.0,-2.4], 'EMP ZONE 1 - THE BURIED BOX', 'A genuine low-frequency measure. Not a MIL-STD boundary'),
-  NOTE(320, 333, [ 6.7, 4.7,-3.9], 'EMP ZONE 2  -  80 dB', 'Welded steel enclosure, bay 3. Designed standing alone'),
+  NOTE(320, 333, [ 6.7, 5.0,-3.9], 'EMP ZONE 2  -  80 dB', 'Welded steel enclosure, bay 3. Designed standing alone'),
   NOTE(334, 343, [ 8.0, 3.0,-4.6], 'CONTINUITY OF OPERATIONS', 'Structure + air + power + sanitation + EMP'),
 
   NOTE(366, 378, [14.0, 3.1, 1.0], '22.0 x 6.2 m EXTERNAL - 8 BAYS', 'Roof 900 - mat 600 - walls 600'),

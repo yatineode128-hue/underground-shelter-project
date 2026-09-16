@@ -1368,16 +1368,21 @@ function buildFitout(){
   /* --- BAY 3 OPS ROOM: plotting + the EMP Zone 2 enclosure ------------ */
   {
     const b = bay(3), Z = PROJ.emp.zone2Encl;
-    /* ops desks along the south wall, hazard plotting table in the middle */
+    /* Ops desks along the south wall, hazard plotting table behind them, and
+       a CLEAR AISLE at Y 3500-4100 between the table and the Zone 2
+       enclosure. An ops room with no circulation route is not an ops room,
+       and without the aisle there is nowhere for a camera - or a person - to
+       stand. The aisle width is [V]; A.3 gives the bay's contents, not a
+       furniture layout. */
     B.mm(b.x0+200, 750, b.x1-200, 1500, F+0.68, F+0.76, MAT.bunk);
     for(const x of [b.x0+500, b.x0+1600, b.x0+2700])
       B.mm(x, 900, x+560, 1450, F+0.76, F+1.22, MAT.steel);   // consoles
-    B.mm(b.x0+900, 2400, b.x0+2600, 3600, F+0.86, F+0.94, MAT.bunk);
-    for(const [dx,dy] of [[900,2400],[2540,2400],[900,3540],[2540,3540]])
+    B.mm(b.x0+780, 2300, b.x0+2380, 3300, F+0.86, F+0.94, MAT.bunk);
+    for(const [dx,dy] of [[780,2300],[2320,2300],[780,3240],[2320,3240]])
       B.mm(b.x0+dx, dy, b.x0+dx+60, dy+60, F, F+0.86, MAT.steel);
     /* EMP ZONE 2 — welded steel enclosure, 2400 x 1600 x 2200 external.
        The only surface in this project that delivers 80 dB. */
-    const zx = b.x0 + 520, zy = 3900;
+    const zx = b.x0 + 520, zy = 4200;
     B.mm(zx, zy, zx+Z.l, zy+Z.w, F, F+Z.h*MM, MAT.z2);
     B.mm(zx-40, zy-40, zx+Z.l+40, zy+Z.w+40, F+Z.h*MM, F+Z.h*MM+0.05, MAT.steel);
     /* the RF door leaf and its knife-edge frame, read as a recessed panel */
@@ -1400,25 +1405,34 @@ function buildFitout(){
     }
   }
 
-  /* --- BAY 5 CBRN PLANT: 2 x 300 m3/h trains, CO2/O2, sump ------------ */
+  /* --- BAY 5 CBRN PLANT: 2 x 300 m3/h trains, CO2/O2, sump ------------
+     AN1-F8. Bay 5 is 1560 x 5000 clear. Master 9.1 fixes the train width at
+     1450 ("110 mm at the sides"); F.1 and DR-A2 fix SU-01's opening at
+     1500 x 1500; A.3 puts a 900 door gap at Y 2500-3400 in the W8 beside it.
+     Keeping that door line clear leaves two runs of 1900 and 2200 along the
+     bay. The sump takes 1500 of one; BOTH trains, the CO2/O2 store and the
+     dehumidifier then have to share the other 2200, which caps each train at
+     about 1100 mm long - and THE PROJECT NEVER STATES A TRAIN LENGTH. The
+     arrangement below is therefore [V]: it is the one that fits, not one the
+     project specifies. The dehumidifier has no floor space left and is NOT
+     drawn rather than drawn somewhere invented.                            */
   {
     const b = bay(5), tw = PROJ.cbrn.trainWidth;
-    /* each train is 1450 wide in a 1560 clear bay - 110 mm at the sides,
-       so both run ALONG the bay. Master 9.1 / HV-F3. */
+    const x0 = b.x0 + 55;                       // the 110 mm is shared, 55 a side
+    /* SU-01 clean sump, 1500 x 1500, invert (-)7.600. DR-A2-V1 records that
+       NOTHING in this project specifies its cover, so it is drawn OPEN with
+       its edge trimmed - no lid is invented here. */
+    B.mm(b.x0+30, 600, b.x0+1530, 2100, PROJ.lvl.sumpInvert, F, MAT.concWet);
+    /* O2 store, 2 x 50 L at 150 bar, in the 400 sliver the sump leaves */
+    for(const dy of [2230, 2400])
+      B.cyl((b.x0+430)*MM, dy*MM, F, F+1.42, 0.13, MAT.steelLt, 14);
+    /* the door line Y 2500-3400 is left clear */
     for(let i=0;i<PROJ.cbrn.trains;i++){
-      const y0 = 800 + i*1900;
-      B.mm(b.x0+55, y0, b.x0+55+tw, y0+1500, F, F+1.95, MAT.steel);
-      B.mm(b.x0+55, y0+120, b.x0+55+tw, y0+430, F+0.30, F+1.70, MAT.steelLt);  // HEPA cassette
-      B.mm(b.x0+55, y0+560, b.x0+55+tw, y0+880, F+0.30, F+1.70, MAT.z2);       // carbon
+      const y0 = 3500 + i*1050;
+      B.mm(x0, y0, x0+tw, y0+1000, F, F+1.95, MAT.steel);
+      B.mm(x0, y0+90,  x0+tw, y0+330, F+0.30, F+1.70, MAT.steelLt);  // HEPA H14 cassette
+      B.mm(x0, y0+430, x0+tw, y0+670, F+0.30, F+1.70, MAT.z2);       // activated carbon
     }
-    /* CO2 scrubber / O2 store: 2 x 50 L at 150 bar */
-    for(const dy of [4500, 4900])
-      B.cyl((b.x0+400)*MM, dy*MM, F, F+1.42, 0.13, MAT.steelLt, 14);
-    B.mm(b.x0+800, 4400, b.x1-100, 5350, F, F+1.10, MAT.steel);   // dehumidifier
-    /* SU-01 clean sump: a 1500 x 1500 opening in the mat, invert (-)7.600.
-       DR-A2-V1 records that nothing in the project specifies its cover, so
-       it is drawn OPEN with its edge trimmed - not closed with an invented lid. */
-    B.mm(b.x0+30, 2600, b.x0+1530, 4100, PROJ.lvl.sumpInvert, F, MAT.concWet);
   }
 
   /* --- BAY 6 DECON AIRLOCK: 3 stages, 2000x2000 / 2000x1500 / 2000x1500 */
@@ -1490,19 +1504,21 @@ function occupantStations(){
   const b = n => PROJ.bays.find(x=>x.n===n);
   const B3 = b(3), B4 = b(4), B5 = b(5), B1 = b(1), B8 = b(8);
   return [
-    /* Bay 3 OPS ROOM — four: three at consoles, one at the plotting table */
-    { p:[(B3.x0+780)*MM, 1.95, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
-    { p:[(B3.x0+1880)*MM, 1.95, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
-    { p:[(B3.x0+2980)*MM, 1.95, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
-    { p:[(B3.x0+1750)*MM, 2.10, FLOOR], yaw: Math.PI/2, seated:false, bay:3 },
-    /* Bay 4 BERTHING — two off watch */
+    /* Bay 3 OPS ROOM - four: three at consoles on the south wall, one at the
+       east end of the plotting table. All clear of the Y 3500-4100 aisle. */
+    { p:[(B3.x0+780)*MM,  1.80, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
+    { p:[(B3.x0+1880)*MM, 1.80, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
+    { p:[(B3.x0+2980)*MM, 1.80, FLOOR], yaw:-Math.PI/2, seated:true,  bay:3 },
+    { p:[(B3.x0+2900)*MM, 2.80, FLOOR], yaw: Math.PI,   seated:false, bay:3 },
+    /* Bay 4 BERTHING - two off watch, either side of the door line */
     { p:[(B4.x0+900)*MM, 1.30, FLOOR], yaw: 0.4, seated:false, bay:4 },
     { p:[(B4.x0+900)*MM, 4.20, FLOOR], yaw:-2.2, seated:false, bay:4 },
-    /* Bay 5 CBRN PLANT — one at the filter trains */
-    { p:[(B5.x0+1250)*MM, 2.05, FLOOR], yaw: Math.PI, seated:false, bay:5 },
-    /* Bay 1 STORES — one */
+    /* Bay 5 CBRN PLANT - one, standing in the only clear ground there is:
+       the door line. AN1-F8 is why that is the only clear ground. */
+    { p:[(B5.x0+700)*MM, 2.95, FLOOR], yaw: 0.2, seated:false, bay:5 },
+    /* Bay 1 STORES - one */
     { p:[(B1.x0+1250)*MM, 4.05, FLOOR], yaw:-0.9, seated:false, bay:1 },
-    /* Bay 8 GENERATOR, the grey zone — one */
+    /* Bay 8 GENERATOR, the grey zone - one */
     { p:[(B8.x0+2100)*MM, 3.30, FLOOR], yaw: 2.6, seated:false, bay:8 }
   ];
 }
@@ -1637,9 +1653,10 @@ function airPath(){
     V3.c(-0.30, 2.2, -2.45),                                    // down past the boundary
     V3.c( 0.55, 2.2, -3.30),                                    // through the wall
     V3.c( 2.60, 1.30, -4.25), V3.c( 6.00, 1.15, -4.70),
-    V3.c( 9.60, 1.60, -4.90), V3.c((b5.x0+800)*MM, 1.55, F+1.30), // into the trains
-    V3.c((b5.x0+800)*MM, 3.10, F+1.30),                          // through the cassettes
-    V3.c((b5.x0+300)*MM, 4.60, F+1.60),
+    V3.c( 9.60, 2.20, -4.90), V3.c((b5.x0+780)*MM, 2.95, F+1.30), // in at the door line
+    V3.c((b5.x0+780)*MM, 3.90, F+1.30),                          // through train 1
+    V3.c((b5.x0+780)*MM, 5.05, F+1.30),                          // through train 2
+    V3.c((b5.x0+300)*MM, 5.30, F+1.60),
     V3.c( 9.00, 4.40, F+1.90), V3.c( 6.00, 4.10, F+2.10),
     V3.c( 3.00, 3.40, F+2.15), V3.c( 1.20, 2.60, F+1.70)         // out into the envelope
   ];
@@ -1672,7 +1689,7 @@ function buildEnvelope(){
 function buildZone2Hi(){
   const B = new Builder(), Z = PROJ.emp.zone2Encl;
   const b3 = PROJ.bays.find(b=>b.n===3);
-  const zx = b3.x0 + 520, zy = 3900;
+  const zx = b3.x0 + 520, zy = 4200;
   B.mm(zx-70, zy-70, zx+Z.l+70, zy+Z.w+70,
        PROJ.lvl.floor, PROJ.lvl.floor+Z.h*MM+0.10, [0.52,0.60,0.46]);
   return B.build();
@@ -1904,37 +1921,53 @@ const CAM = [
   /* PROTECTED VOLUME — the envelope, seen whole from outside the section   */
   [193, [   5.0, -16.0, -2.0],[ 9.0, 1.5,-4.2]],
   [199, [   1.0, -10.0, -3.4],[ 6.0, 2.0,-4.5]],
-  /* INTERIOR — through the wall line and level out in the ops room         */
-  [205, [   2.0,  -3.6, -4.1],[ 6.0, 2.6,-4.6]],
-  [211, [   4.4,   1.1, -4.55],[ 8.2, 2.8,-4.7]],
-  [216, [   5.9,   1.5, -4.60],[ 8.6, 3.0,-4.8]],
-  /* OCCUPANTS — a slow pass along bay 3 and bay 4                          */
-  [224, [   7.4,   3.6, -4.55],[ 10.4,2.2,-4.9]],
-  [231, [   9.9,   3.1, -4.60],[ 12.0,2.0,-4.9]],
-  /* CBRN AIRFLOW — back west to the intake, then follow the air east       */
-  [237, [   4.0,   4.4, -3.3],[ 0.5, 2.4,-3.6]],
-  [243, [   1.2,   3.9, -4.1],[ 3.4, 2.0,-4.7]],
-  [250, [   7.8,   3.9, -4.5],[ 11.4,2.2,-4.9]],
-  [257, [  11.0,   4.3, -4.5],[ 12.0,2.0,-4.9]],
-  /* CLOSED MODE — tighten on the plant in bay 5                            */
-  [264, [  12.4,   4.2, -4.6],[ 11.9,1.9,-5.0]],
-  [270, [  12.9,   3.4, -4.6],[ 13.6,2.6,-4.9]],
-  /* ESSENTIAL POWER — east through W7 into bay 8                           */
-  [277, [  16.2,   3.0, -4.6],[ 19.2,2.4,-5.0]],
-  [287, [  19.6,   3.6, -4.6],[ 20.4,1.9,-5.1]],
-  /* SANITATION — back west to bay 2                                        */
-  [293, [  11.0,   3.2, -4.5],[  6.0,2.4,-4.8]],
-  [298, [   5.4,   3.0, -4.6],[  4.2,1.6,-5.0]],
-  /* EMP — up out of the box to watch the field arrive, still continuous    */
-  [304, [   3.4,  -6.0, -1.6],[  7.0,2.6,-3.2]],
-  [309, [   4.0, -11.0,  3.4],[ 12.0,3.0,-1.0]],
-  [314, [   4.6,  -8.0, -1.2],[  7.2,3.0,-3.6]],
-  /* ZONE 2 — down on to the enclosure in bay 3                             */
-  [321, [   5.2,  -1.4, -4.0],[  6.6,3.9,-5.0]],
-  [330, [   6.6,   1.3, -4.5],[  6.7,4.3,-5.2]],
-  /* INTEGRATION — a long pull back through the box, everything running     */
-  [336, [   9.0,   2.8, -4.4],[  4.0,3.0,-4.8]],
-  [342, [  13.6,   2.6, -4.3],[  4.0,3.0,-4.8]],
+  /* INTERIOR — through the cut face and level out in the ops room.
+     FROM HERE TO THE END OF THE BOX, EVERY SIGHT LINE AND EVERY TRAVERSE IS
+     ROUTED THROUGH A REAL OPENING. The W8 partitions carry a 900 door gap at
+     Y 2500-3400 (master A.3), so longitudinal travel and longitudinal views
+     both run on Y ~ 2.90; W6 and W7 carry the blast doors at Y 600-1800
+     (A.4.9), so the traverse into bay 8 drops to Y ~ 1.3 to pass through
+     them. A camera that sights a partition instead of its doorway just
+     renders a grey wall, which is what the first cut of this sequence did. */
+  [205, [   3.6,  -3.40, -4.20],[  6.6, 2.60,-4.70]],
+  [211, [   5.35,  1.90, -4.28],[  8.0, 2.55,-4.82]],
+  [216, [   5.80,  3.05, -4.42],[  8.6, 2.25,-4.88]],
+  /* OCCUPANTS — the consoles, then the plotting table, then east           */
+  [221, [   6.45,  3.45, -4.40],[  9.0, 2.15,-4.92]],
+  [226, [   7.55,  3.15, -4.45],[ 10.4, 2.92,-4.95]],
+  [231, [   9.50,  2.95, -4.55],[ 11.6, 2.92,-4.90]],
+  /* CBRN AIRFLOW — west to the intake down the axis, then follow the air   */
+  [237, [   6.0,   2.92, -4.00],[  1.6, 2.90,-4.20]],
+  [243, [   2.6,   2.92, -4.30],[  5.6, 2.70,-4.70]],
+  [250, [   8.0,   2.92, -4.45],[ 11.2, 2.70,-4.85]],
+  [257, [  10.5,   2.92, -4.50],[ 12.2, 2.40,-4.90]],
+  /* CLOSED MODE — bay 5 is 1560 clear and the trains leave 110 mm a side,
+     so it is read from the bay 4 doorway. There is nowhere to stand in it,
+     and that is the point HV-F3 makes.                                     */
+  [264, [  10.7,   2.85, -4.40],[ 11.9, 2.30,-4.90]],
+  [270, [  11.0,   2.60, -4.35],[ 12.4, 2.10,-4.85]],
+  /* ESSENTIAL POWER — east through BLAST DOOR 1, the stair well, BLAST
+     DOOR 2, into bay 8                                                     */
+  [277, [  14.0,   1.60, -4.80],[ 16.6, 1.25,-5.05]],
+  [283, [  16.6,   1.25, -4.85],[ 19.4, 1.35,-5.05]],
+  [287, [  19.4,   1.90, -4.70],[ 20.6, 2.60,-5.05]],
+  /* SANITATION — back west through both blast doors, then up on to the
+     door line and into bay 2                                               */
+  [291, [  17.0,   1.30, -4.85],[ 14.2, 1.40,-5.00]],
+  [294, [  13.2,   2.10, -4.75],[ 10.6, 2.70,-4.95]],
+  [296, [   5.9,   2.90, -4.62],[  4.9, 2.60,-4.95]],
+  [298, [   4.95,  2.55, -4.68],[  4.45,1.30,-5.18]],
+  /* EMP — out through the cut to watch the field arrive, still continuous  */
+  [304, [   3.4,  -6.0,  -1.60],[  7.0, 2.60,-3.20]],
+  [309, [   4.0, -11.0,   3.40],[ 12.0, 3.00,-1.00]],
+  [314, [   4.6,  -8.0,  -1.20],[  7.2, 3.00,-3.60]],
+  /* ZONE 2 — down on to the welded steel enclosure in bay 3                */
+  [321, [   5.2,  -1.40, -4.00],[  6.6, 3.90,-5.00]],
+  [330, [   6.6,   1.30, -4.50],[  6.7, 4.30,-5.20]],
+  /* INTEGRATION — the long axial view down the whole envelope, straight
+     through every doorway, with everything running                         */
+  [336, [   8.6,   2.87, -4.40],[  4.5, 2.90,-4.85]],
+  [342, [  10.8,   2.90, -4.35],[  4.0, 2.90,-4.85]],
   /* RETURN — reverse the journey: roof, cover, berm, surface               */
   [348, [  12.0,  -6.0, -3.2],[  8.0,3.0,-4.0]],
   [354, [  10.0, -13.0,  1.0],[  9.0,3.0,-2.0]],
@@ -1998,7 +2031,12 @@ function walkState(t){
 function stateAt(t){
   const s = {};
   const tk = trackAt(t);
-  s.pos = tk.pos; s.tgt = tk.tgt; s.fov = 47*Math.PI/180;
+  s.pos = tk.pos; s.tgt = tk.tgt;
+  /* 47 degrees outside; the box is 5 000 clear and 3 200 high, and a normal
+     lens in a room that size sees a wall. The interior beats open up to 64
+     degrees and ease back on the way out. */
+  const wide = smoothstep(203, 213, t) * (1 - smoothstep(340, 350, t));
+  s.fov = lerp(47, 64, wide) * Math.PI/180;
 
   /* --- soldier follow, cross-faded so the track never jumps ------------ */
   const wk = walkState(t);
@@ -2155,11 +2193,11 @@ const ANNOT = [
 
   NOTE(275, 285, [19.9, 1.8,-5.1], 'GEN-1  15 kVA  BAY 8', '7.360 kVA connected - 49 %'),
   NOTE(280, 289, [19.9, 3.4,-4.6], 'ESSENTIAL LOAD  1.283 kW', 'Battery 149 Ah, 48 V'),
-  NOTE(290, 298, [ 4.3, 1.5,-5.3], 'SN-03 SEALED-CASSETTE CHEMICAL TOILET', 'NO DISCHARGE in protective mode'),
+  NOTE(292, 299, [ 4.45,1.3,-5.2], 'SN-03 SEALED-CASSETTE CHEMICAL TOILET', 'NO DISCHARGE in protective mode'),
 
   NOTE(303, 311, [12.0, 3.0, 6.0], 'EMP ZONE 0', 'Everything above grade - no attenuation credited'),
   NOTE(309, 318, [ 9.0, 3.0,-2.4], 'EMP ZONE 1 - THE BURIED BOX', 'A genuine low-frequency measure. Not a MIL-STD boundary'),
-  NOTE(320, 333, [ 6.7, 4.7,-3.9], 'EMP ZONE 2  -  80 dB', 'Welded steel enclosure, bay 3. Designed standing alone'),
+  NOTE(320, 333, [ 6.7, 5.0,-3.9], 'EMP ZONE 2  -  80 dB', 'Welded steel enclosure, bay 3. Designed standing alone'),
   NOTE(334, 343, [ 8.0, 3.0,-4.6], 'CONTINUITY OF OPERATIONS', 'Structure + air + power + sanitation + EMP'),
 
   NOTE(366, 378, [14.0, 3.1, 1.0], '22.0 x 6.2 m EXTERNAL - 8 BAYS', 'Roof 900 - mat 600 - walls 600'),
