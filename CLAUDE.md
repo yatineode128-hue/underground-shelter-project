@@ -47,7 +47,30 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
+- Latest revision: **MEP3** (18 Sep 2026, master **H.44**) — **`ARCH001` and `ARCH002`
+  corrected against the Rev F CAD.** The four Rev F DXFs they redraw were **parsed entity by
+  entity**, and ten depiction errors on sheet 01 and nine on sheet 02 were fixed: **both blast
+  doors now swing opposite ways** (BD1 west into bay 6, BD2 east into bay 8), the **W5 fire
+  door D-05** is drawn, the **decon airlock** has its real 110 partitions with **STAGE 1 at
+  the south**, the **main stair** is drawn as the plan draws it (flights Y 1800–3760, eight
+  risers each — `mep_proj.STAIR`, unchanged), the **headhouse and entry doors open outward**
+  through walls that are now broken at the opening, the **berm toe** is drawn, **sentry-post
+  door D1 is in the WEST wall on both floors**, the **spiral stair** is at (−1150, 1450), and
+  the **300 projection with its 300 high pardi** is drawn for the first time. **No design
+  value moved, no analysis was run.** `ARCH001` view 3 is now **1 : 200** so the sentry post
+  is drawn at its site position instead of off position; `ARCH002` views 1 and 2 are **1 : 75**
+  so both plans fit beside their spiral stairs. **Read `arch_data.CAD_FINDINGS` (master H.44.4)
+  before trusting either sheet against the Rev F CAD** — six places where the drawing and the
+  master disagree, resolved in the master's favour and none of them silently: **no W8 door is
+  drawn** (`MEP3-F1`, the gap is permanent), **D-05 is the ruled 900 not the drawn 800**
+  (`MEP3-F2`), **no excavation line is drawn at all** (`MEP3-F3`, Rev F says 1500 and WM-V9 /
+  RC6 measure 1000 at formation under a 1:1 batter), and **the roof projection stays
+  `[NOT AVAILABLE]`** (`MEP3-F6`, U8-F1 — only the FIRST FLOOR projection is drawn).
+  **`MEP3-F2a` is OPEN and unresolved: `FLS012` routes escape route R1 across W5 at Y 2950,
+  where there is no opening.** FLS012 was not altered. Only nine files changed; `a2_lib.py`,
+  `sheet_data.py`, `sentry_data.py`, `mep_data.py`, `ops_data.py` and STR006…STR009 / MEP010 /
+  MEP011 / FLS012 / WMS013 are **untouched**. Index still **90 drawings, 84 PASS**.
+  Before it: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
   presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
   plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,
   the owner's own sheets 1 and 2, same views and scales, **every dimension and level brought

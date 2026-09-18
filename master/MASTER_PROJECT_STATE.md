@@ -6034,6 +6034,117 @@ not appear on this sheet.**
 
 ---
 
+## H.44 `ARCH001` and `ARCH002` corrected against the Rev F CAD — revision MEP3 — 18 September 2026
+
+> **The owner's instruction:** *"Correct the ARCH001 and ARCH002 exactly as per the project
+> details and auto cad drawings in this layout.. the current is full of errors in depiction
+> like doors directions, pardi etc or other things."*
+>
+> The four Rev F DXFs that these two sheets redraw — `1_Underground_Level_Plan.dxf`,
+> `2_Ground_Plan_Headhouse_Berm.dxf`, `3_Sentry_Post_Ground_Floor_Plan.dxf` and
+> `4_Sentry_Post_First_Floor_Plan.dxf` — were **PARSED, entity by entity, not remembered**,
+> and every arc, swing, partition, riser and hidden line was transcribed into
+> `arch_data.py`. **NO DESIGN VALUE MOVED. NO ANALYSIS WAS RUN. STAAD.Pro WAS NOT OPENED.
+> THE MAIN STAIRCASE IS UNCHANGED** — and is now drawn as the Rev F plan draws it, eight
+> risers to a flight over Y 1800 – 3760, which is what `mep_proj.STAIR` already held.
+
+### H.44.1 The Y offsets, recovered from the files themselves
+
+```
+1_Underground_Level_Plan.dxf       project_Y = dxf_Y + 5807.9
+2_Ground_Plan_Headhouse_Berm.dxf   project_Y = dxf_Y + 5857.2
+3_ / 4_Sentry_Post_*_Plan.dxf      local_Y   = dxf_Y + 8180.8
+```
+
+### H.44.2 Depiction errors corrected on `ARCH001`
+
+| # | Was | Is now | Source |
+|---|---|---|---|
+| 1 | Blast doors 1 and 2 drawn swinging the **same** way | **BD1 hinged on the WEST face of W6 opening WEST into bay 6; BD2 hinged on the EAST face of W7 opening EAST into bay 8.** Both hinge on the south jamb of the Y 600 – 1800 opening, and W6 / W7 now start at Y 1800 as the CAD draws them | `1_…Plan.dxf` OPENINGS arcs c=(14800,600) r 1200 90→180 and c=(18400,600) r 1200 0→90 |
+| 2 | W5 drawn **solid** | **Gas-tight fire door D-05 drawn**, hinged (12800, 4400), opening EAST into bay 6 | ruled by **RC4** (K.1e); position from the CAD — see `MEP3-F2` |
+| 3 | Decon partitions at Y 2100 / 3600, drawn as bare lines | **Two 110 partitions at Y 2600 – 2710 and 4100 – 4210**, each in two pieces (X 12800 – 13100 and 13900 – 14800) with an **800 door hinged on the west jamb opening NORTH** | CAD WALLS + OPENINGS |
+| 4 | Stage labels numbered **north to south** | **STAGE 1 at the SOUTH, at blast door 1** — the dirty end. Clear depths 2000 / 1390 / 1390; with the two partitions that is A.3's 2000 / 1500 / 1500 module, and 2.0 × 2.0 × 3.2 = 12.8 m³ reproduces `mep_proj.VENT["purge_stage_m3"]` exactly | A.3 + VENT |
+| 5 | Both flights drawn Y 600 – 4960 with 8 riser lines | **Flights Y 1800 – 3760 with six riser lines at 2080 / 2360 / 2640 / 2920 / 3200 / 3480** — 7 goings at 280, i.e. **eight risers**, unchanged. Landing L1 Y 3760 – 4960, arrival Y 600 – 1800, up-arrow (15900, 3510) → (15900, 2050) | CAD STAIRS |
+| 6 | Rooms labelled `U-01 … U-08` on the plan | **Bay-number bubbles above the box and the Rev F room names inside it.** The `U-` references stay in the ROOM SCHEDULE | CAD TEXT |
+| 7 | Headhouse door hinged on the **inner** face | **Hinged on the OUTER face at the west jamb, opening NORTH**, and **both faces of HW2 broken at the opening** | CAD OPENINGS arc c=(14450,6000) r 900 0→90 |
+| 8 | Entry door hinged (9250, 6000) opening EAST | **Hinged (9250, 6250) on the OUTER face, opening WEST — outward, as its Rev F note says** — and the headwall broken at the opening on both faces | CAD OPENINGS arc c=(9250,6250) r 1000 90→180 |
+| 9 | Berm not drawn | **The 1.5:1 berm toe drawn, 1350 run**, as ONE merged outline | CAD GROUND |
+| 10 | Sentry post drawn **off position** inside the box footprint | **View 3 is now 1 : 200 and the sentry post is drawn at its site position, X 32000 – 36000**, with the 10 000 gap dimensioned | A.4.8 / RC4 |
+
+### H.44.3 Depiction errors corrected on `ARCH002`
+
+| # | Was | Is now | Source |
+|---|---|---|---|
+| 1 | Door D1 in the **SOUTH** wall | **In the WEST wall, opening Y 1000 – 1900, hinged (200, 1000) opening EAST into the room, on BOTH storeys**, reached off the spiral-stair landing | drawings 3 and 4, WALLS + OPENINGS |
+| 2 | Spiral stair a bare circle at (−350, 1600) | **Centred (−1150, 1450), 1000 R, 250 dia pole, twelve radial treads, landing (−150 … 0, 1000 … 1900) and an up-arrow** | drawings 3 and 4, STAIRS |
+| 3 | Ground-storey W1 not positioned | **East wall, Y 1900 – 3100, 1200 wide** | drawing 3 OPENINGS |
+| 4 | First-storey panels invented at Y 900 – 2100 / 2900 – 4100 | **The Rev F positions**, seven of the eight drawn — see `MEP3-F5` | drawing 4 OPENINGS |
+| 5 | **The pardi was missing entirely** | **The first floor projects 300 all round with a 300 high pardi over it** — drawn as the hidden 300 offset in plan and as a projecting band in the elevation, and scheduled | drawing 4 HIDDEN + its own note |
+| 6 | Columns drawn about the grid intersections | **At the four corners, outer faces flush with the wall**, with the Rev F cross | drawings 3 / 4 WALLS |
+| 7 | Grid bubbles outside the frame | **A / B above at X 175 / 3825, 1 / 2 to the west at Y 175 / 4825**, r 260 | drawings 3 / 4 DIM |
+| 8 | First-floor beams not shown | **B1 / B2 250 wide shown hidden, centred on the grids** | drawing 4 HIDDEN |
+| 9 | South elevation showed a **door and vision panels that are not on the south face** | The ground storey shows **no opening** (D1 is west, W1 is east) and the first storey shows the **two south-face panels at their own local X**, 650 – 1850 and 2150 – 3350 | drawing 4 OPENINGS |
+
+**Scale.** Views 1 and 2 are now **1 : 75**, not the owner's 1 : 50. The external spiral stair
+stands 2150 clear of the west wall; two plans with their stairs and grid bubbles do not fit
+side by side on A2 at 1 : 50, and stacking them would have cost the elevation, which is the
+view that carries the level corrections. **The scale is stated on both view titles.**
+
+### H.44.4 `MEP3-F1 … F6` — where the Rev F drawing and the master disagree
+
+**In every case the master governs (CLAUDE.md), nothing was silently resolved, and no tag was
+downgraded.** The register is also machine-readable as `arch_data.CAD_FINDINGS`.
+
+| Mark | The Rev F drawing shows | What governs | What was drawn |
+|---|---|---|---|
+| **`MEP3-F1`** | a **900 door swing in each of the four W8 partitions** | A.3 and A.4.9: the 900 gap at Y 2500 – 3400 is **PERMANENT** and **no door is scheduled in a W8 partition anywhere in the project**; fire compartment **C1** depends on the four gaps being open | **The four gaps drawn open. No leaf, no swing.** |
+| **`MEP3-F2`** | an **800** opening in W5 at Y **4400 – 5200** with the leaf opening east | **RC4** ruled `D-05` at **900 × 2100** gas-tight, **opening EAST into bay 6**; RC4 gives no Y | **900 leaf at the drawing's position**, opening Y 4400 – 5300, opening east |
+| **`MEP3-F2a`** | — | — | **`FLS012` (SHEET 12) routes escape route R1 across W5 at Y 2950**, where the Rev F plan has no opening and where the south decon partition lands on W5's east face at Y 2600 – 2710. **`FLS012` was NOT altered** — it is out of the scope of this instruction and its travel distances are computed. **The two sheets disagree about where R1 crosses W5, and that is recorded here rather than papered over.** OPEN |
+| **`MEP3-F3`** | an **excavation line 1500 clear all round**, X (−)1500 – 23500, Y (−)1500 – 7700 | **`WM-V9`** measures **1.000 m of working space AT FORMATION**, and **RC6 (H.30)** rules a **1 : 1 MINIMUM batter over the soil cap** with the angle left to the geotechnical engineer — so the **top** of the excavation has no single value in this project | **No excavation line is drawn on either sheet.** Neither offset is asserted. `RC4-F3` is untouched |
+| **`MEP3-F4`** | *"OUTER SECURITY DOOR 900 × 2100, NOT BLAST RATED"* | A.4.9 calls the same leaf the **INNER security door** — same size, same wall HW2, same X 14450 – 15350 | **The master's name in the schedule; the drawing's swing on the drawing** |
+| **`MEP3-F5`** | **eight** 1200 vision panels on the first storey, two per face — and its lower **WEST** panel at Y 1000 – 2200 **overlaps door D1** at Y 1000 – 1900 | A.4.8 says *"armoured vision panels, 1200 wide"* and gives **no count and no position**; D1 is in the west wall on both floors | **Seven panels drawn, the clashing one omitted.** The schedule says *"FIRST STOREY, ALL FOUR FACES — TWO PER FACE"* and **asserts no count** |
+| **`MEP3-F6`** | *"300 PROJECTION WITH 300 HIGH PARDI OVER"* on the **first-floor** plan, with the 300 offset drawn hidden | A.7.7 confirms the **parapet** at 300 × 150; **`U8-F1` records that the SENTRY POST ROOF projection dimension is [NOT AVAILABLE]** — back-solving 3.037 kN/m gives 810 or 578, neither drawn, neither adopted | **The FIRST FLOOR projection and pardi drawn at 300.** **No roof projection is drawn to any figure and `U8` stays open** |
+
+> **One earlier suspicion was checked and withdrawn.** A first pass recorded that the Rev F
+> sentry-post ground-floor plan had no north wall. **It has one** — `WALLS` polyline
+> (0, 4800) – (4000, 5000). Re-parsing the file settled it; nothing was changed on that basis.
+
+### H.44.5 Registration with the QA tools
+
+Both drawings were already registered at MEP2 (H.43.9) under the `ARCH` filename prefix, so
+**no change was needed** to `qa_report_data.DISCIPLINE` or `make_index.ORDER`. Both were
+re-run anyway.
+
+### H.44.6 Verified after the change, and how
+
+- `qa_overlap.py` on **both** sheets: overlaps **0**, near-touches **0**, text below 1.70 mm
+  **0**, text outside the inner frame **0**, non-dark layers **0**.
+- `qa_overlap.py` on the other eight A2 sheets: unchanged, **0 / 0 / 0 / 0 / 0**.
+- `DRAWING_INDEX.md` re-run: **90 drawings, 84 PASS**. `ARCH001` **372 texts, A2, PASS**;
+  `ARCH002` **267 texts, A2, PASS**; `over_geom` and `geom_in_panel` **0** on both.
+- Both PDFs re-rendered at **1683.78 × 1190.55 pt** (A2).
+- Both sheets rendered to PNG and read view by view — door swings, partitions, the stair,
+  the berm toe, the spiral stair, the pardi and the elevation were each checked against the
+  parsed CAD entities.
+- `git status`: **nine** files changed and no others — `arch_data.py`, `s01_arch_plans.py`,
+  `s02_sentry_arch.py`, the two DXFs, the two PDFs and the two regenerated QA outputs.
+  **`a2_lib.py`, `sheet_data.py`, `sentry_data.py`, `mep_data.py`, `ops_data.py` and
+  STR006 … STR009 / MEP010 / MEP011 / FLS012 / WMS013 are untouched.**
+- **The main staircase is unchanged:** 24 risers at 170.8333, tread 280, 3 flights of 8,
+  total rise 4100, width 1200, well 200, headroom 2533. `ARCH001` now draws it as the Rev F
+  plan does — 8 risers per flight over Y 1800 – 3760 — which is `mep_proj.STAIR` exactly.
+
+### H.44.7 What MEP3 did NOT do
+
+It changed **no dimension, level, load, bar or rate**; it opened no `[UNRESOLVED]`,
+`[ASSUMED]` or `[NOT AVAILABLE]` item and closed none. It did not touch `FLS012`, whose
+disagreement with `ARCH001` over the W5 crossing is recorded as **`MEP3-F2a`** and left open.
+It did not touch the owner's Rev F DXFs. `CORRECTIONS` — the fourteen figures the redraw
+brings to project data — is unchanged from H.43.4 except that the sentry post's door and
+opening schedule rows now carry the wall and the Y range.
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)

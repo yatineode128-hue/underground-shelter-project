@@ -249,6 +249,43 @@ specified"*; **RC4 superseded that** (A.4.9 / H.28) — ladder only, fall-arrest
 the sheet draws and schedules the ruled ladder. `DRAWING_INDEX.md` now reads **90 drawings,
 84 PASS**, with the series split across four disciplines by filename prefix.
 
+Updated **18 Sep 2026** for **MEP3** (master Part **H.44**) — **`ARCH001` and `ARCH002`
+corrected against the Rev F CAD**, on the instruction that they were *"full of errors in
+depiction like doors directions, pardi etc"*. The four Rev F DXFs the two sheets redraw were
+**parsed entity by entity** — they are not drawn from memory any more — and **ten** depiction
+errors on sheet 01 and **nine** on sheet 02 were fixed. The ones that matter: **the two blast
+doors swing OPPOSITE ways** (BD1 west into bay 6, BD2 east into bay 8); the **W5 gas-tight
+fire door D-05** is drawn; the decon airlock has its real **110 partitions at Y 2600 and
+4100** with **STAGE 1 at the south, at blast door 1**; the **main stair is drawn as the plan
+draws it** — flights Y 1800 – 3760, eight risers each, which is `mep_proj.STAIR` unchanged;
+the **headhouse and entry doors open OUTWARD** through walls now broken at the opening; the
+**berm toe** is drawn; **sentry-post door D1 is in the WEST wall on both floors, off the
+spiral-stair landing**; the spiral stair is at **(−1150, 1450)** with twelve treads; and the
+**300 projection with its 300 high pardi** appears for the first time. **No design value
+moved and no analysis was run.**
+
+**Two scales changed to make honest drawings fit.** `ARCH001` view 3 is **1 : 200**, so the
+sentry post is drawn at its **site position X 32000 – 36000** instead of off position beside
+the box; `ARCH002` views 1 and 2 are **1 : 75**, because the external spiral stair stands 2150
+clear of the west wall and two plans with their stairs do not fit on A2 at 1 : 50.
+
+**Read `arch_data.CAD_FINDINGS` (master H.44.4) before trusting either sheet against the Rev F
+CAD.** Six places where the drawing and the master disagree, all resolved the master's way and
+none silently: **no W8 partition door is drawn** (`MEP3-F1` — the 900 gap is permanent and
+fire compartment C1 depends on it); **D-05 is the RULED 900, not the drawn 800**
+(`MEP3-F2`); **no excavation line is drawn at all** (`MEP3-F3` — Rev F says 1500 all round,
+`WM-V9` measures 1000 at formation and RC6 rules a 1 : 1 minimum batter over the soil cap, so
+the top of the excavation has no value); the headhouse door keeps the master's name
+(`MEP3-F4`); **seven of the eight first-storey vision panels are drawn**, the eighth clashing
+with D1 (`MEP3-F5`); and **only the FIRST FLOOR projection is drawn — the sentry post ROOF
+projection stays `[NOT AVAILABLE]`** (`MEP3-F6`, `U8-F1`).
+
+**`MEP3-F2a` is OPEN.** `FLS012` (SHEET 12) routes escape route **R1 across W5 at Y 2950**,
+where the Rev F plan has no opening and where the south decon partition lands on W5's east
+face. **`FLS012` was not altered** — it is outside this instruction and its travel distances
+are computed — so the two sheets disagree about where R1 crosses W5. Index unchanged at
+**90 drawings, 84 PASS**.
+
 ---
 
 ## Identity and revisions

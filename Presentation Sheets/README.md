@@ -5,7 +5,7 @@ set (`ARCH001 … ARCH005`, `Project1.pdf`):
 
 | Sheets | Drawing Nos. | Discipline | Revision |
 |---|---|---|---|
-| **01 · 02** | `ARCH001` `ARCH002` | ARCHITECTURAL — **redraws of the owner's own sheets 1 and 2** | **MEP2** |
+| **01 · 02** | `ARCH001` `ARCH002` | ARCHITECTURAL — **redraws of the owner's own sheets 1 and 2** | **MEP2**, corrected **MEP3** |
 | 06 · 07 | `STR006` `STR007` | STRUCTURAL — the underground box | SR1 / SR1A |
 | 08 · 09 | `STR008` `STR009` | STRUCTURAL — the sentry post | SR2 / SR2A |
 | 10 · 11 | `MEP010` `MEP011` | MEP — HVAC, EMP and the drainage structures | MEP1 |
@@ -38,12 +38,32 @@ moved and no analysis was run.**
   different revisions on different bases and both stand. Every amount, quantity, count, date
   and duration is read at build time from `WORKS MANAGEMENT/Cost/REVISED_*_RC1.csv` and
   `WORKS MANAGEMENT/Programme/REVISED_MASTER_CONSTRUCTION_SCHEDULE_R1.csv`.
-* **`ARCH001` SHEET 01** — the owner's three plans at the owner's 1:100, but **all three
-  spanning the full 22000 box** so that both escape shafts appear at every level, plus room,
-  door, opening, wall and level schedules.
-* **`ARCH002` SHEET 02** — the sentry post's two floor plans at 1:50, the south elevation
-  with the shelter at **1:150 and the post at its true X across a break**, and a 1:20 detail
-  of lintel L1, the wall ties and the 200 infill zone.
+* **`ARCH001` SHEET 01** — the underground level plan and the headhouse level plan at the
+  owner's 1:100, both spanning the full 22000 box so that both escape shafts appear at every
+  level, and the **ground level plan at 1:200** so the **sentry post is drawn at its site
+  position X 32000 – 36000** instead of off position; plus room, door, opening, wall and
+  level schedules.
+* **`ARCH002` SHEET 02** — the sentry post's two floor plans at **1:75** (the external
+  spiral stair stands 2150 clear of the west wall, and two plans with their stairs do not fit
+  on A2 at 1:50), the south elevation with the shelter at **1:150 and the post at its true X
+  across a break**, and a 1:20 detail of lintel L1, the wall ties and the 200 infill zone.
+
+> **MEP3, 18 September 2026 — both sheets corrected against the Rev F CAD.** The four Rev F
+> DXFs the two sheets redraw (`1_Underground_Level_Plan`, `2_Ground_Plan_Headhouse_Berm`,
+> `3_` / `4_Sentry_Post_*_Plan`) were **parsed entity by entity**, and ten depiction errors on
+> sheet 01 and nine on sheet 02 were fixed — **the two blast doors swing opposite ways**, the
+> W5 fire door **D-05** is drawn, the decon airlock has its real 110 partitions with **STAGE 1
+> at the south**, the stair is drawn as the plan draws it (flights Y 1800 – 3760, eight risers
+> each — unchanged), the headhouse and entry doors **open outward** through walls broken at the
+> opening, the berm toe is drawn, sentry-post door **D1 is in the WEST wall on both floors**,
+> the spiral stair is at **(−1150, 1450)**, and the **300 projection with its 300 high pardi**
+> is drawn for the first time. **No design value moved and no analysis was run.**
+> Six places where the Rev F drawing and the master disagree are registered in
+> **`arch_data.CAD_FINDINGS`** and master **H.44.4** — including **`MEP3-F1`** (no W8
+> partition door is drawn: the 900 gap is permanent), **`MEP3-F3`** (no excavation line is
+> drawn at all) and **`MEP3-F6`** (the sentry post ROOF projection stays `[NOT AVAILABLE]`).
+> **`MEP3-F2a` is open:** `FLS012` routes escape route R1 across W5 at Y 2950, where there is
+> no opening; `FLS012` was not altered.
 
 > **The redraws change what the owner's two sheets PRINT, not what the project IS.**
 > All **fourteen** corrected figures already existed in master Part A and each is cited to
