@@ -53,9 +53,9 @@ G2 = vw(SC_PL, 198.0, 285.0)                   # first floor
 V12_TTL = 255.0
 
 SC_EL = 150.0                                  # view 3
-EL_X, EL_DATUM = 48.0, 175.0                   # model X 0 ; paper y of 0.000
+EL_X, EL_DATUM = 46.0, 178.0                   # model X 0 ; paper y of 0.000
 EL_BREAK = 26000.0                             # the 10 m gap is broken here
-EL_SHIFT = -7500.0                             # and the post pulled 7.5 m closer
+EL_SHIFT = -6150.0                             # and the post pulled 6.15 m closer
 V3_TTL = 121.0
 
 SC_DT = 20.0                                   # view 4
@@ -96,8 +96,9 @@ s = A2Sheet(
         "WALL POSITIONS ARE IDENTICAL ON BOTH FLOORS. DOOR D1 IS IN THE WEST "
         "WALL AT Y 1000 - 1900 ON BOTH STOREYS, HINGED ON THE SOUTH JAMB AND "
         "OPENING EAST INTO THE ROOM, OFF THE EXTERNAL SPIRAL STAIR LANDING.",
-        "THE FIRST FLOOR PROJECTS 300 ALL ROUND WITH A 300 HIGH PARDI OVER "
-        "THE PROJECTION.",
+        "THE ROOF PROJECTS 300 ALL ROUND WITH A 300 HIGH PARDI OVER IT. THE "
+        "FIRST FLOOR DOES NOT PROJECT; THE FIRST-FLOOR PLAN SHOWS THE ROOF "
+        "PROJECTION HIDDEN, AS THE THING OVERHEAD.",
         "GROUND-STOREY INFILL IS 190 ONE-BRICK MODULAR BRICKWORK TO IS 1077 "
         "IN CM 1:6, BUILT INSIDE THE UNCHANGED 200 STRUCTURAL ZONE BETWEEN "
         "THE COLUMN FACES, THE RESIDUAL 10 TAKEN UP AT THE INTERNAL FACE IN "
@@ -237,96 +238,206 @@ s.text("FIRST FLOOR  FFL +3.650", G2(2000, 2500), SMS, "S-TEXT", "C")
 s.text("ARMOURED VISION PANELS 1200 WIDE", G2(2000, 2050), SMS, "S-TEXT", "C")
 s.text("B1 / B2  250 x 450  ROOF BEAMS OVER", G2(2000, 3500), SMS,
        "S-TEXT", "C")
-s.text("300 PROJECTION WITH 300 HIGH PARDI OVER", G2(2000, 5700), SMS,
-       "S-TEXT", "C")
+s.text("ROOF OVER -  300 PROJECTION WITH 300 HIGH PARDI", G2(2000, 5700),
+       SMS, "S-TEXT", "C")
 s.text("SPIRAL STAIR 1000 R", G2(-1150, 5400), SMS, "S-TEXT", "C")
 s.text("250 DIA CENTRAL POLE", G2(-1150, 4950), SMS, "S-TEXT", "C")
 s.view_title(174.0, V12_TTL, "2", "FIRST FLOOR LEVEL",
              "1 : 75   FFL +3.650", RULE_TO)
 
 # =====================================================================  VIEW 3
-# SOUTH ELEVATION, 1 : 150.  The shelter at true X, the post at true X across a
-# break, and every level as master A.4.3.
+# SOUTH ELEVATION, 1 : 150.  The shelter at true X, the sentry post and its
+# spiral stair at true X across a break, the berm profile and the covered entry
+# stairwell roof from section C-C, and the engineered cover called out.
 B = D.BOX
-s.hatch_pat([EL(-800, D.L_SLAB_TOP), EL(22800, D.L_SLAB_TOP),
-             EL(22800, 0.0), EL(-800, 0.0)], "EARTH", 2.6, 0.0, "A-COVER")
-s.line(EL(-800, 0.0), EL(22800, 0.0), "A-COVER")
-s.line(EL(31200, 0.0), EL(36800, 0.0), "A-COVER")
+H_, A_ = D.HH, D.ASW
+GL = 0.0
 
-for lvl0, lvl1 in ((D.L_ROOF_SOF, D.L_SLAB_TOP), (D.L_MAT_SOF, D.L_FLOOR)):
+
+def prof(pts, layer="A-COVER"):
+    s.pline([EL(x, l) for x, l in pts], layer)
+
+
+def rake(pts, dz=0.0):
+    return [(x, l + dz) for x, l in pts]
+
+
+# --- the ground: flat to the headwall, 1.5:1 up to the berm crest, down again
+prof(D.BERM_PROFILE)
+for x0, x1 in ((9250.0, 10600.0), (18400.0, 19750.0)):          # the two slopes
+    lo, hi = (0.0, 0.900) if x0 == 9250.0 else (0.900, 0.0)
+    s.hatch_pat([EL(x0, 0.0), EL(x1, 0.0), EL(x1, hi), EL(x0, lo)],
+                "EARTH", 2.2, 0.0, "A-COVER")
+s.hatch_pat([EL(10600, 0.0), EL(18400, 0.0), EL(18400, 0.900),
+             EL(10600, 0.900)], "EARTH", 2.2, 0.0, "A-COVER")
+
+# --- the engineered cover over the pressure slab: 2000 in six layers, A.7.3
+lv, COV = 0.0, []
+for th, name in D.COVER_LAYERS:
+    COV.append((lv, lv - th / 1000.0, th, name))
+    lv -= th / 1000.0
+for _, bot, _, _ in COV[:-1]:
+    s.line(EL(0, bot), EL(A_["x0"], bot), "A-COVER")
+CX, CY = 52.0, 214.0
+s.text("ENGINEERED COVER - 2000 IN SIX LAYERS", (CX, CY), SMS, "S-TEXT", "ML")
+for k, (top, bot, th, name) in enumerate(COV):
+    s.text(f"{th:.0f}  {name}", (CX + 3.0, CY - 3.2 * (k + 1)), SMS,
+           "S-TEXT", "ML")
+s.pline([(CX + 1.5, CY - 3.2 * len(COV) - 1.6), (CX + 1.5, EL(0, -1.0)[1]),
+         EL(4200, -1.0)], "S-NOTE")
+
+# --- the buried box, shown beyond the ground line
+for lvl0, lvl1 in ((D.L_FORMATION, D.L_MAT_SOF), (D.L_MAT_SOF, D.L_FLOOR),
+                   (D.L_ROOF_SOF, D.L_SLAB_TOP)):
     s.rect(*EL(B["x0"], lvl0), *EL(B["x1"], lvl1), "A-OVER")
-s.rect(*EL(B["x0"], D.L_FLOOR), *EL(B["x1"], D.L_SLAB_TOP), "A-OVER")
-s.line(EL(B["x0"], D.L_FORMATION), EL(B["x1"], D.L_FORMATION), "A-COVER")
-s.text("BURIED BOX  22000 x 6200", EL(6000, -4.20), SMS, "S-TEXT", "C")
+for x0, x1 in ((B["x0"], D.INTR["x0"]), (D.INTR["x1"], B["x1"])):
+    s.rect(*EL(x0, D.L_FLOOR), *EL(x1, D.L_ROOF_SOF), "A-OVER")
+for x0, x1 in ((D.IW[1][1], D.IW[1][2]), (D.IW[2][1], D.IW[2][2])):
+    s.dline(EL(x0, D.L_FLOOR), EL(x0, D.L_ROOF_SOF), "A-OVER", 1.4, 1.0)
+    s.dline(EL(x1, D.L_FLOOR), EL(x1, D.L_ROOF_SOF), "A-OVER", 1.4, 1.0)
+s.dline(EL(B["x0"], D.L_FLOOR), EL(B["x1"], D.L_FLOOR), "A-OVER", 1.6, 1.1)
+s.text("BURIED BOX  22000 x 6200 EXTERNAL,  EIGHT BAYS", EL(7000, -4.30), SMS,
+       "S-TEXT", "C")
+s.text("900 PRESSURE SLAB", EL(5000, -2.48), SMS, "S-TEXT", "C")
+s.text("600 MAT ON 100 PCC", EL(11000, -6.42), SMS, "S-TEXT", "C")
+s.text("W6", EL(15000, -5.30), SMS, "S-TEXT", "C", rot=90.0)
+s.text("W7", EL(18200, -5.30), SMS, "S-TEXT", "C", rot=90.0)
 
-H_ = D.HH                                                  # headhouse
-s.rect(*EL(H_["x0"], D.L_SLAB_TOP), *EL(H_["x1"], D.L_HH_TOP), "A-WALL")
-s.text("HEADHOUSE", EL(16000, -0.80), SMS, "S-TEXT", "C")
-A_ = D.ASW                                                 # entry stairwell
-s.pline([EL(A_["x0"], 0.0), EL(A_["x0"], D.L_ASW_HEAD),
-         EL(A_["x1"], D.L_ASW_HEAD), EL(A_["x1"], D.L_SLAB_TOP)], "A-WALL")
-s.text("COVERED ENTRY STAIRWELL", EL(12000, 1.10), SMS, "S-TEXT", "C")
-for name, cx, cy, head in D.ESC:                           # escape shaft heads
-    s.rect(*EL(cx - 950, 0.0), *EL(cx + 950, head), "A-OPEN")
+# --- the headhouse: entirely under the berm crest, so shown beyond
+for a, b in (((H_["x0"], D.L_SLAB_TOP), (H_["x1"], D.L_SLAB_TOP)),
+             ((H_["x0"], D.L_HH_TOP), (H_["x1"], D.L_HH_TOP)),
+             ((H_["x0"], D.L_SLAB_TOP), (H_["x0"], D.L_HH_TOP)),
+             ((H_["x1"], D.L_SLAB_TOP), (H_["x1"], D.L_HH_TOP)),
+             ((H_["x0"], D.L_HH_SOF), (H_["x1"], D.L_HH_SOF))):
+    s.dline(EL(*a), EL(*b), "A-OVER", 1.6, 1.1)
+s.text("HEADHOUSE BEYOND  -  ROOF +0.900, NO EARTH COVER", EL(16000, -1.35),
+       SMS, "S-TEXT", "C")
 
-# the sentry post, at true X across the break
+# --- the covered entry stairwell: the roof and the headwall stand proud
+TOPS = rake(D.ASW_SOFFIT, D.ASW_ROOF_T / 1000.0)
+XB = 11000.0 + (TOPS[1][1] - 0.900) * (14300.0 - 11000.0) / \
+     (TOPS[1][1] - TOPS[2][1])                 # where the roof meets the crest
+s.pline([EL(A_["x0"], GL)] + [EL(x, l) for x, l in TOPS[:2]] +
+        [EL(XB, 0.900)], "A-WALL")
+SB = D.ASW_SOFFIT[1][1] - (D.ASW_SOFFIT[1][1] - D.ASW_SOFFIT[2][1]) * \
+     (XB - 11000.0) / (14300.0 - 11000.0)          # soffit level at the crest
+s.pline([EL(A_["ix0"], D.ASW_SOFFIT[0][1]),
+         EL(D.ASW_SOFFIT[1][0], D.ASW_SOFFIT[1][1]), EL(XB, SB)], "A-WALL")
+s.dline(EL(XB, SB), EL(14300.0, D.ASW_SOFFIT[2][1]), "A-OVER", 1.6, 1.1)
+s.dline(EL(14300.0, D.ASW_SOFFIT[2][1]), EL(15800.0, D.ASW_SOFFIT[3][1]),
+        "A-OVER", 1.6, 1.1)
+s.dline(EL(XB, 0.900), EL(14300.0, TOPS[2][1]), "A-OVER", 1.6, 1.1)
+s.dline(EL(14300.0, TOPS[2][1]), EL(15800.0, TOPS[3][1]), "A-OVER", 1.6, 1.1)
+s.line(EL(A_["x0"], GL), EL(A_["ix0"], GL), "A-WALL")
+s.text("COVERED ENTRY STAIRWELL  -  250 RC ROOF,", EL(13800, 4.30), SMS,
+       "S-TEXT", "C")
+s.text("SOFFIT FOLLOWS THE FLIGHT AT 2200 CLEAR", EL(13800, 3.85), SMS,
+       "S-TEXT", "C")
+s.text("HEADWALL AND ROOF STAND PROUD OF THE BERM", EL(13800, 3.40), SMS,
+       "S-TEXT", "C")
+
+# --- the two escape shaft heads
+for name, cx, cy, head in D.ESC:
+    s.rect(*EL(cx - D.ESC_COLLAR_OD / 2.0, GL),
+           *EL(cx + D.ESC_COLLAR_OD / 2.0, head), "A-OPEN")
+    s.dline(EL(cx - D.ESC_CLEAR_D / 2.0, GL),
+            EL(cx - D.ESC_CLEAR_D / 2.0, head), "A-OPEN", 1.2, 0.9)
+    s.dline(EL(cx + D.ESC_CLEAR_D / 2.0, GL),
+            EL(cx + D.ESC_CLEAR_D / 2.0, head), "A-OPEN", 1.2, 0.9)
+s.text("ESC 1  HEAD +0.150", EL(2050, 0.75), SMS, "S-TEXT", "C")
+s.text("ESC 2  HEAD +0.700", EL(19900, 2.10), SMS, "S-TEXT", "C")
+
+# --- the break in the 10 m gap
+for bx in (23025.0, 29625.0):
+    s.dline(EL(bx, -7.300), EL(bx, 7.500), "S-CENTER", 2.2, 1.5)
+s.text("BREAK", EL(23025.0, -4.700), SMS, "S-TEXT", "C", rot=90.0)
+
+# --- the sentry post, at true X across the break, as A-301 draws it
 SP = D.SP_SITE
-s.rect(*EL(SP["x0"], D.SP_L_FOUND), *EL(SP["x1"], D.SP_L_FOUND + 0.600),
-       "A-WALL")
-s.rect(*EL(SP["x0"], 0.0), *EL(SP["x1"], D.SP_L_PARAPET), "A-WALL")
-for lvl in (D.SP_L_PLINTH, D.SP_L_FF, D.SP_L_ROOF):
-    s.line(EL(SP["x0"], lvl), EL(SP["x1"], lvl), "A-WALL")
-# the first floor projects 300 all round with a 300 high pardi over it
-PJ0, PJ1 = SP["x0"] - D.SP_PROJECTION, SP["x1"] + D.SP_PROJECTION
-s.rect(*EL(PJ0, D.SP_L_FF - 0.150), *EL(PJ1, D.SP_L_FF), "A-WALL")
-s.rect(*EL(PJ0, D.SP_L_FF), *EL(PJ1, D.SP_L_FF + D.SP_PARDI_H / 1000.0),
-       "A-WALL")
-# the two SOUTH-face vision panels, at the local X the Rev F plan gives them.
-# D1 is in the west wall and the ground-storey W1 is in the east wall, so the
-# ground storey shows no opening at all in a south elevation.
-for x0, y0, x1, y1 in D.SP_PANELS_FF:
-    if y0 != 0.0:
+X0, X1 = SP["x0"], SP["x1"]
+PJ = D.SP_ROOF_PROJECTION
+s.line(EL(X0 - 2400, GL), EL(X1 + 900, GL), "A-COVER")
+for gx in (D.SP_GRID_A, D.SP_GRID_B):                      # F1 footings, buried
+    s.dline(EL(X0 + gx - D.SP_FTG_L / 2, D.SP_L_FOUND),
+            EL(X0 + gx + D.SP_FTG_L / 2, D.SP_L_FOUND), "A-OVER", 1.4, 1.0)
+    s.dline(EL(X0 + gx - D.SP_FTG_L / 2, D.SP_L_FOUND + D.SP_FTG_T / 1000.0),
+            EL(X0 + gx + D.SP_FTG_L / 2, D.SP_L_FOUND + D.SP_FTG_T / 1000.0),
+            "A-OVER", 1.4, 1.0)
+    for dx in (-D.SP_FTG_L / 2, D.SP_FTG_L / 2):
+        s.dline(EL(X0 + gx + dx, D.SP_L_FOUND),
+                EL(X0 + gx + dx, D.SP_L_FOUND + D.SP_FTG_T / 1000.0),
+                "A-OVER", 1.4, 1.0)
+    s.dline(EL(X0 + gx, D.SP_L_FOUND + D.SP_FTG_T / 1000.0), EL(X0 + gx, GL),
+            "A-OVER", 1.4, 1.0)
+s.rect(*EL(X0 - D.SP_PLINTH_PROJ, GL),
+       *EL(X1 + D.SP_PLINTH_PROJ, D.SP_L_PLINTH), "A-WALL")   # plinth
+s.rect(*EL(X0, D.SP_L_PLINTH), *EL(X1, D.SP_ROOF_SOFFIT), "A-WALL")
+s.line(EL(X0, D.SP_L_FF), EL(X1, D.SP_L_FF), "A-WALL")
+s.rect(*EL(X0 - PJ, D.SP_ROOF_SOFFIT), *EL(X1 + PJ, D.SP_L_ROOF), "A-WALL")
+s.rect(*EL(X0 - PJ, D.SP_L_ROOF),
+       *EL(X1 + PJ, D.SP_L_ROOF + D.SP_PARDI_H / 1000.0), "A-WALL")
+for x0, y0, x1, y1 in D.SP_PANELS_FF:                      # the SOUTH face only
+    if y0 == 0.0:
+        s.rect(*EL(X0 + x0, D.SP_PANEL_SILL),
+               *EL(X0 + x1, D.SP_PANEL_HEAD), "A-OPEN")
+for c0, c1 in D.SP_FRAME_COLS:                             # the RC frame behind
+    s.dline(EL(X0 + c0, D.SP_L_PLINTH), EL(X0 + c0, D.SP_L_ROOF),
+            "A-OVER", 1.4, 1.0)
+    s.dline(EL(X0 + c1, D.SP_L_PLINTH), EL(X0 + c1, D.SP_L_ROOF),
+            "A-OVER", 1.4, 1.0)
+FS0, FS1 = D.SP_FRAME_SPAN
+for b0, b1 in D.SP_FRAME_BEAMS + [D.SP_FRAME_PLINTH]:
+    for lv in (b0, b1):
+        s.dline(EL(X0 + FS0, lv), EL(X0 + FS1, lv), "A-OVER", 1.4, 1.0)
+ST_ = D.SP_STAIR_EL                                        # the spiral stair
+SCX = (ST_["x0"] + ST_["x1"]) / 2.0                        # the pole centre
+SR = (ST_["x1"] - ST_["x0"]) / 2.0                         # 1000 R
+for px in ST_["pole"]:
+    s.line(EL(X0 + px, GL), EL(X0 + px, ST_["top"]), "A-WALL-IN")
+for k in range(1, ST_["risers"] + 1):
+    lv = D.SP_L_PLINTH + k * ST_["rise"] / 1000.0          # the tread tip runs
+    tip = SCX + SR * math.sin(math.radians(k * 30.0))      # round the pole
+    if abs(tip - SCX) < 1.0:                               # edge-on, no line
         continue
-    s.rect(*EL(SP["x0"] + x0, D.SP_L_FF + 1.100),
-           *EL(SP["x0"] + x1, D.SP_L_FF + 2.300), "A-OPEN")
-s.text("SENTRY POST", EL(SP["x0"] + 2000, 6.25), SMS, "S-TEXT", "C")
+    s.line(EL(X0 + SCX, lv), EL(X0 + tip, lv), "A-WALL-IN")
+s.text("SENTRY POST", EL(X0 + 2000, 4.15), SMS, "S-TEXT", "C")
+s.text("SENTRY POST: RC FRAME DASHED BEHIND THE 190 BRICK INFILL",
+       (130.0, 221.0), SMS, "S-TEXT", "ML")
+s.text("300 ROOF PROJECTION WITH A 300 HIGH PARDI OVER IT",
+       (130.0, 217.5), SMS, "S-TEXT", "ML")
+s.text("SPIRAL STAIR 1000 R", EL(X0 - 150, 5.30), SMS, "S-TEXT", "R")
+s.text("250 DIA CENTRAL POLE", EL(X0 - 150, 4.85), SMS, "S-TEXT", "R")
 
-# the break in the 10 m gap.  22275 is unshifted and 31725 is shifted, so the
-# two lines land either side of the paper gap between the box and the post.
-for bx in (23400.0, 31500.0):
-    s.dline(EL(bx, -7.400), EL(bx, 7.600), "S-CENTER", 2.2, 1.5)
-s.text("BREAK", EL(23400.0, -5.100), SMS, "S-TEXT", "C", rot=90.0)
-
-# (level, label, text offset in mm -- tightly spaced levels are staggered so
-# that two labels 300 mm apart cannot touch at 1 : 150)
+# --- the levels.  Short labels: the LEVEL SCHEDULE carries the descriptions.
 LEVELS_EL = [
-    (D.SP_L_PARAPET, "+7.000  PARAPET TOP", 1.8),
-    (D.SP_L_ROOF, "+6.700  POST ROOF SLAB", -1.8),
-    (D.SP_L_FF, "+3.650  POST FIRST FLOOR", 0.0),
-    (D.L_ASW_HEAD, "+2.450  STAIRWELL ROOF HEAD", 0.0),
-    (D.L_HH_TOP, "+0.900  HEADHOUSE ROOF", 1.4),
-    (D.SP_L_PLINTH, "+0.450  POST GROUND FFL", -1.4),
-    (0.0, "0.000  FINISHED SITE GRADE", -3.6),
-    (D.L_SLAB_TOP, "(-)2.000  PRESSURE SLAB TOP", 0.0),
+    (D.SP_L_PARAPET, "+7.000  PARDI", 1.8),
+    (D.SP_L_ROOF, "+6.700  ROOF", -1.8),
+    (D.SP_L_FF, "+3.650  1ST FLOOR", 0.0),
+    (D.L_ASW_HEAD, "+2.450  ASW HEAD", 0.0),
+    (D.L_HH_TOP, "+0.900  BERM TOP", 1.4),
+    (D.SP_L_PLINTH, "+0.450  POST FFL", -1.4),
+    (0.0, "0.000  GRADE", -3.6),
+    (D.L_SLAB_TOP, "(-)2.000  SLAB TOP", 0.0),
     (D.L_ROOF_SOF, "(-)2.900  ROOF SOFFIT", 0.0),
-    (D.L_FLOOR, "(-)6.100  FLOOR / MAT TOP", 1.4),
+    (D.L_FLOOR, "(-)6.100  FLOOR", 1.4),
     (D.L_MAT_SOF, "(-)6.700  MAT SOFFIT", -1.4),
 ]
-LX = EL(36900, 0.0)[0]
+LX = 250.0
 for lvl, lab, dy in LEVELS_EL:
     ly = EL(0, lvl)[1]
-    s.line(EL(36000 if lvl > 0.0 else 22400, lvl), (LX, ly), "S-LEVEL")
+    s.line(EL(X1 + PJ if lvl > 0.0 else 22800.0, lvl), (LX, ly), "S-LEVEL")
     s.msp.add_blockref("A2-LEVEL", (LX, ly), dxfattribs={"layer": "S-LEVEL"})
     s.text(lab, (LX + 2.6, ly + 2.4 + dy), SMS, "S-LEVEL", "ML")
-s.text("(-)6.800  FORMATION", EL(1000, -6.35), SMS, "S-TEXT", "ML")
-s.text("(-)2.000  POST FOUNDING LEVEL, F1 ON IN-SITU BASALT",
-       EL(7000, -6.35), SMS, "S-TEXT", "ML")
-s.dim_v(EL(SP["x0"], D.SP_L_PLINTH), EL(SP["x0"], D.SP_L_FF),
-        EL(SP["x0"] + 700, 0)[0], SC_EL, "A2-DIM-S")
-s.dim_v(EL(SP["x0"], D.SP_L_FF), EL(SP["x0"], D.SP_L_ROOF),
-        EL(SP["x0"] + 700, 0)[0], SC_EL, "A2-DIM-S")
+s.text("(-)6.800  FORMATION", EL(600, -6.40), SMS, "S-TEXT", "ML")
+s.text("F1 FOUNDING LEVEL  (-)2.000", EL(X0 + 1200, -2.60), SMS,
+       "S-TEXT", "C")
+s.dim_v(EL(X0, D.SP_L_PLINTH), EL(X0, D.SP_L_FF), EL(X0 + 700, 0)[0], SC_EL,
+        "A2-DIM-S")
+s.dim_v(EL(X0, D.SP_L_FF), EL(X0, D.SP_L_ROOF), EL(X0 + 700, 0)[0], SC_EL,
+        "A2-DIM-S")
 s.view_title(44.0, V3_TTL, "3", "SOUTH ELEVATION - SHELTER AND SENTRY POST",
-             "1 : 150   SENTRY POST AT TRUE X ACROSS A BREAK", RULE_TO)
+             "1 : 150   THE BURIED STRUCTURE IS SHOWN BEYOND THE GROUND LINE",
+             RULE_TO)
 
 # =====================================================================  VIEW 4
 # LINTEL L1, WALL TIES AND THE 200 INFILL ZONE, 1 : 20
@@ -373,8 +484,8 @@ ELEMENT_ROWS = [
      "10 TAKEN UP IN THE INTERNAL PLASTER"],
     ["FIRST STOREY INFILL", "200 ZONE", "ARMOURED VISION PANELS 1200 WIDE",
      "-", "ALL FOUR FACES"],
-    ["FIRST FLOOR PROJECTION", "300 WIDE", "ALL ROUND", "-",
-     "300 HIGH PARDI OVER THE PROJECTION"],
+    ["ROOF PROJECTION", "300 WIDE", "ALL ROUND, AT ROOF LEVEL", "-",
+     "300 HIGH PARDI (PARAPET) 300 x 150 OVER IT"],
     ["SPIRAL STAIR", "1000 R", "EXTERNAL, WEST OF THE POST", "-",
      "250 DIA CENTRAL POLE, 12 TREADS, LANDING AT D1"],
     ["L1  LINTEL", "190 x 150", "OVER EVERY OPENING", "30",

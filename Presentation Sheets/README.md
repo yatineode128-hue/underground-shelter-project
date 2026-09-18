@@ -64,6 +64,17 @@ moved and no analysis was run.**
 > drawn at all) and **`MEP3-F6`** (the sentry post ROOF projection stays `[NOT AVAILABLE]`).
 > **`MEP3-F2a` is open:** `FLS012` routes escape route R1 across W5 at Y 2950, where there is
 > no opening; `FLS012` was not altered.
+>
+> **MEP3A, the same day — the south elevation rebuilt.** A-301 (`5_Front_Elevation.dxf`) and
+> section C-C were parsed and **corrected a mistake MEP3 made: the 300 projection and the 300
+> pardi are at the ROOF, not the first floor.** `ARCH002` view 3 now carries the real **berm
+> profile**, the stairwell roof **soffit following the flight** at 2200 clear, the
+> **engineered cover 2000 in six layers** (A.7.3), the buried box's slab / mat / end walls,
+> both escape shaft heads, and the sentry post as A-301 draws it — plinth, **RC frame dashed
+> behind the infill**, F1 footings and the **spiral stair in elevation**. New findings
+> **`MEP3-F7`** (A-301 draws D1 and the ground W1 in the south face; the plans put them in the
+> west and east walls and **the plans govern**) and **`MEP3-F8`** (A-301 is the only source for
+> the vision panels' sill +4.650 / head +5.850). **`U8` stays open.**
 
 > **The redraws change what the owner's two sheets PRINT, not what the project IS.**
 > All **fourteen** corrected figures already existed in master Part A and each is cited to

@@ -286,6 +286,30 @@ face. **`FLS012` was not altered** — it is outside this instruction and its tr
 are computed — so the two sheets disagree about where R1 crosses W5. Index unchanged at
 **90 drawings, 84 PASS**.
 
+**Amended the same day as MEP3A** (master **H.44.8**), on the instruction *"improve south
+elevation drawing"*. The two Rev F drawings that actually carry that view — **A-301
+(`5_Front_Elevation.dxf`) and section C-C** — had not been parsed for MEP3, and they
+**corrected a mistake MEP3 made: the 300 projection and the 300 pardi are at the ROOF, not
+the first floor.** A-301 draws 31700 – 36300 from **+6.550 → +6.700 → +7.000** and labels it
+*"TOP OF PARDI"*; the ground-floor plan carries no 300 outline, so the first floor does not
+project at all. The pardi **is** the A.7.7 parapet, 300 × 150, 1.125 kN/m exactly — and
+**`U8` / `U8-F1` STAY OPEN**, because a 300 *roof* projection gives 1.125 (1.575 with finish)
+against U8's residual **3.037 kN/m**, so the drawn figure does not explain the load term and
+**nothing is adopted**.
+
+The elevation itself was rebuilt: the **real berm profile** (level to X 9250, up 1.5:1 to
++0.900 by X 10600, crest to 18400, down to grade by 19750 — so nothing of the headhouse shows
+above it), the **stairwell roof soffit following the flight** at 2200 clear and drawn solid
+only where it stands proud, the **engineered cover 2000 in six layers** from A.7.3 drawn for
+the first time, the buried box's slab / mat / end walls / W6 / W7, both **escape shaft
+heads**, and the sentry post exactly as A-301 draws it — plinth 31900 – 36100, the **RC frame
+dashed behind the 190 brick infill**, the F1 footings, and the **spiral stair in elevation**
+with its tread tips tracing the spiral. Two new findings: **`MEP3-F7`** — A-301 draws D1 and
+the ground-storey W1 in the **south** face, while drawings 3 and 4 put them in the **west** and
+**east** walls and the spiral-stair landing confirms the west; **the plans govern**, so the
+south elevation shows no ground-storey opening. **`MEP3-F8`** — A-301 is the only source
+anywhere for the vision panels' **sill +4.650 and head +5.850**. **Only `ARCH002` changed.**
+
 ---
 
 ## Identity and revisions

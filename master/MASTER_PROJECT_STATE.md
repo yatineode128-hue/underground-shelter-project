@@ -6079,7 +6079,7 @@ not appear on this sheet.**
 | 2 | Spiral stair a bare circle at (−350, 1600) | **Centred (−1150, 1450), 1000 R, 250 dia pole, twelve radial treads, landing (−150 … 0, 1000 … 1900) and an up-arrow** | drawings 3 and 4, STAIRS |
 | 3 | Ground-storey W1 not positioned | **East wall, Y 1900 – 3100, 1200 wide** | drawing 3 OPENINGS |
 | 4 | First-storey panels invented at Y 900 – 2100 / 2900 – 4100 | **The Rev F positions**, seven of the eight drawn — see `MEP3-F5` | drawing 4 OPENINGS |
-| 5 | **The pardi was missing entirely** | **The first floor projects 300 all round with a 300 high pardi over it** — drawn as the hidden 300 offset in plan and as a projecting band in the elevation, and scheduled | drawing 4 HIDDEN + its own note |
+| 5 | **The pardi was missing entirely** | **The 300 projection and the 300 high pardi are drawn** — hidden on the first-floor plan and as a projecting band in the elevation, and scheduled. *MEP3 put them at the FIRST FLOOR; **MEP3A (H.44.8) corrects them to the ROOF**, where A-301 draws them.* | drawing 4 HIDDEN + A-301 |
 | 6 | Columns drawn about the grid intersections | **At the four corners, outer faces flush with the wall**, with the Rev F cross | drawings 3 / 4 WALLS |
 | 7 | Grid bubbles outside the frame | **A / B above at X 175 / 3825, 1 / 2 to the west at Y 175 / 4825**, r 260 | drawings 3 / 4 DIM |
 | 8 | First-floor beams not shown | **B1 / B2 250 wide shown hidden, centred on the grids** | drawing 4 HIDDEN |
@@ -6103,7 +6103,7 @@ downgraded.** The register is also machine-readable as `arch_data.CAD_FINDINGS`.
 | **`MEP3-F3`** | an **excavation line 1500 clear all round**, X (−)1500 – 23500, Y (−)1500 – 7700 | **`WM-V9`** measures **1.000 m of working space AT FORMATION**, and **RC6 (H.30)** rules a **1 : 1 MINIMUM batter over the soil cap** with the angle left to the geotechnical engineer — so the **top** of the excavation has no single value in this project | **No excavation line is drawn on either sheet.** Neither offset is asserted. `RC4-F3` is untouched |
 | **`MEP3-F4`** | *"OUTER SECURITY DOOR 900 × 2100, NOT BLAST RATED"* | A.4.9 calls the same leaf the **INNER security door** — same size, same wall HW2, same X 14450 – 15350 | **The master's name in the schedule; the drawing's swing on the drawing** |
 | **`MEP3-F5`** | **eight** 1200 vision panels on the first storey, two per face — and its lower **WEST** panel at Y 1000 – 2200 **overlaps door D1** at Y 1000 – 1900 | A.4.8 says *"armoured vision panels, 1200 wide"* and gives **no count and no position**; D1 is in the west wall on both floors | **Seven panels drawn, the clashing one omitted.** The schedule says *"FIRST STOREY, ALL FOUR FACES — TWO PER FACE"* and **asserts no count** |
-| **`MEP3-F6`** | *"300 PROJECTION WITH 300 HIGH PARDI OVER"* on the **first-floor** plan, with the 300 offset drawn hidden | A.7.7 confirms the **parapet** at 300 × 150; **`U8-F1` records that the SENTRY POST ROOF projection dimension is [NOT AVAILABLE]** — back-solving 3.037 kN/m gives 810 or 578, neither drawn, neither adopted | **The FIRST FLOOR projection and pardi drawn at 300.** **No roof projection is drawn to any figure and `U8` stays open** |
+| **`MEP3-F6`** | *"300 PROJECTION WITH 300 HIGH PARDI OVER"* on the **first-floor** plan, with the 300 offset drawn hidden | **SUPERSEDED BY MEP3A — see H.44.8.** The ground-floor plan carries no such outline and **A-301 draws the 300 projection and the 300 pardi at the ROOF**, +6.550 → +6.700 → +7.000 | **They are drawn AT ROOF LEVEL.** A 300 roof projection gives 1.125 kN/m against `U8`'s residual 3.037, so **`U8` and `U8-F1` STAY OPEN** |
 
 > **One earlier suspicion was checked and withdrawn.** A first pass recorded that the Rev F
 > sentry-post ground-floor plan had no north wall. **It has one** — `WALLS` polyline
@@ -6142,6 +6142,85 @@ disagreement with `ARCH001` over the W5 crossing is recorded as **`MEP3-F2a`** a
 It did not touch the owner's Rev F DXFs. `CORRECTIONS` — the fourteen figures the redraw
 brings to project data — is unchanged from H.43.4 except that the sentry post's door and
 opening schedule rows now carry the wall and the Y range.
+
+---
+
+### H.44.8 MEP3A — the south elevation rebuilt, and the pardi corrected to the ROOF, 18 September 2026
+
+> **The owner's instruction:** *"Improve south elevation drawing."*
+>
+> Improving it meant reading the two Rev F drawings that actually carry it —
+> `5_Front_Elevation.dxf` (A-301) and `5_Entry_Headhouse_Stair_Section.dxf` (section C-C) —
+> which had not been parsed for MEP3. **They contradicted one thing MEP3 had drawn, and it is
+> corrected here rather than left standing.** No design value moved; no analysis was run.
+
+**THE CORRECTION — `MEP3-F6` REWRITTEN.** MEP3 drew the 300 projection and the 300 pardi at
+the **first floor**, reading the Rev F first-floor plan's note *"300 PROJECTION WITH 300 HIGH
+PARDI OVER"* and its hidden 300 offset outline. **They are at the ROOF.** Three things settle
+it, and they agree:
+
+1. A hidden outline on a floor plan is what is **overhead**, and the note says *"OVER"*.
+2. The **ground-floor** plan carries **no such outline**, so the first floor does not project.
+3. A-301 draws **31700 – 36300 (300 each side) from +6.550 to +6.700** — the 150 roof slab —
+   and **31700 – 36300 from +6.700 to +7.000 labelled *"+7.000 TOP OF PARDI"***.
+
+So the **pardi is the A.7.7 parapet**, 300 × 150, and 0.300 × 0.150 × 25 = **1.125 kN/m
+exactly**, which is the term A.7.7 already confirms. **`U8` and `U8-F1` STAY OPEN and nothing
+is adopted:** a 300 *roof projection* gives 1.125 kN/m, or 1.575 with a 1.5 kPa finish,
+against U8's residual of **3.037 kN/m** — so the drawn 300 does **not** explain the load term,
+and the back-solved 810 / 578 are still neither drawn nor adopted. **The projection dimension
+being drawn does not make the load term reconcile, and this entry says so rather than closing
+`U8` on a coincidence of words.**
+
+**TWO MORE FINDINGS, from A-301.**
+
+| Mark | A-301 shows | What governs | What was drawn |
+|---|---|---|---|
+| **`MEP3-F7`** | door **D1 in the SOUTH face** at local X 400 – 1300, and a ground-storey vision panel **in the SOUTH face** at local X 2100 – 3300 | drawings 3 and 4 put **D1 in the WEST wall at Y 1000 – 1900** — which is exactly where the external spiral stair's landing is, so the two plans and the stair are self-consistent — and the ground-storey **W1 in the EAST wall at Y 1900 – 3100**. Two plans and a stair against one elevation: **the plans govern** | the south elevation shows **no ground-storey opening at all**, because neither of them is in the south face |
+| **`MEP3-F8`** | the first-storey panels with a **sill of +4.650 and a head of +5.850** — 1200 × 1200 — at local X 500 – 1700 and 2200 – 3400 | `A.4.8` gives *"armoured vision panels, 1200 wide"* and **no height anywhere else in the project**; drawing 4 puts the south-face panels at local X 650 – 1850 and 2150 – 3350 | the **plan governs X, the elevation governs the levels**. The 1200 height is now **the drawing's, not this package's assumption** — MEP3 had drawn them +4.750 to +5.950 |
+
+**WHAT THE ELEVATION NOW CARRIES.** Everything below is read off the two Rev F drawings.
+
+- **The berm, in profile.** MEP3's ground line was flat at 0.000 for the whole width. Section
+  C-C's `BEYOND` layer gives the real profile: level to **X 9250** at the headwall, up 1.5:1 to
+  **+0.900 by X 10600**, crest to **X 18400**, down to grade by **X 19750**. The headhouse roof
+  top is +0.900, so **nothing of the headhouse shows above the berm** — which is what A.4.6's
+  *"no earth cover; berm graded to this"* means, drawn instead of stated.
+- **The covered entry stairwell roof.** Its soffit is flat at **+2.200** over the top landing,
+  then **follows the flight** down to **+0.400** at the platform, where it runs on continuous
+  with the headhouse roof soffit. Section C-C's own clear heights — **2200 / 2212 / 2224 /
+  2233** at X 11000 / 12200 / 13400 / 14300 — reproduce that line to the millimetre. The roof
+  and the headwall are drawn **solid where they stand proud of the berm crest and hidden
+  where they do not**, the change-over computed at **X 13842**.
+- **The engineered cover, drawn for the first time.** `A.7.3`'s 2000 in six layers — 300
+  topsoil / 150 granular filter / 200 RC burster slab M30 / 500 crushed basalt rubble 25-75 /
+  750 compacted engineered fill / 100 protection screed — drawn as five division lines between
+  the pressure slab top and grade, with the build-up called out. It sums to 2000 exactly and
+  the zone between (−)2.000 and 0.000 is exactly 2000.
+- **The buried box.** Was an empty outline; now carries the **900 pressure slab**, the **600
+  mat on 100 PCC**, the two **600 end walls**, the internal floor at (−)6.100 and **W6 / W7**
+  hidden, with the formation line at (−)6.800.
+- **The two escape shaft heads**, at the 1900 collar OD with the 1400 clear bore hidden, ESC 1
+  standing 150 proud of grade and ESC 2 standing 700 proud where the berm has fallen away.
+- **The sentry post, as A-301 draws it.** Plinth **31900 – 36100** (100 each side) from grade
+  to +0.450; wall 32000 – 36000 to the **+6.550 roof soffit**; the 150 roof slab and the 300
+  pardi both projecting **300**; the **RC frame dashed behind the 190 brick infill** —
+  C1 350 at each end, B1 250 × 450 at +3.200 – +3.650 and +6.250 – +6.700, PB 250 × 400 at
+  +0.050 – +0.450; the **F1 footings** hidden at (−)2.000 – (−)1.400; and the **spiral stair
+  in elevation**, its tread tips tracing the spiral round the 250 pole, 21 risers at 152.381
+  from +0.450 to +3.650 — A-301's own line lengths reproduce `30850 + 1000 sin(30k°)` exactly.
+- **The break** now opens a real gap: the post group is pulled **6150** closer instead of
+  9000, so the spiral stair fits west of the post and the earth stops clear of it.
+- **Levels** shortened to value plus a two-word tag; the SENTRY POST LEVEL SCHEDULE on the
+  same sheet carries the descriptions in full.
+
+**Verified after the change:** `qa_overlap.py` on all ten A2 sheets **0 / 0 / 0 / 0 / 0**;
+`DRAWING_INDEX.md` **90 drawings, 84 PASS**; the ARCH002 PDF re-rendered at A2. The post's
+roof slab measures **1.00 mm** on paper and its pardi **2.00 mm** — 150 and 300 at 1 : 150 —
+and both project **2.00 mm** each side, checked by reading the written DXF back. **Only
+`ARCH002` changed:** `ARCH001` and the other eight sheets are untouched, and so are
+`a2_lib.py`, `sheet_data.py`, `sentry_data.py`, `mep_data.py` and `ops_data.py`. **The main
+staircase does not appear on this sheet and is unchanged.**
 
 ---
 

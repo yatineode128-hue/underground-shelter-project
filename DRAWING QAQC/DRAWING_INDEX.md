@@ -47,7 +47,7 @@ and `make_index.py`, so it cannot drift from the drawings.
 | Drawing No. | Title | Scale | Size | Texts | Final QA |
 |---|---|---|---|---|---|
 | **ARCH001** | UNDERGROUND LEVEL PLAN, HEADHOUSE LEVEL PLAN AND GROUND LEVEL PLAN | - | A2 | 372 | PASS |
-| **ARCH002** | SENTRY POST - FLOOR PLANS AND SOUTH ELEVATION | - | A2 | 267 | PASS |
+| **ARCH002** | SENTRY POST - FLOOR PLANS AND SOUTH ELEVATION | - | A2 | 288 | PASS |
 
 <details><summary>filenames</summary>
 

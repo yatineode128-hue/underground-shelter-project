@@ -337,17 +337,52 @@ SP_PANELS_FF = [
     (650.0, 4800.0, 1850.0, 5000.0), (2150.0, 4800.0, 3350.0, 5000.0),
 ]
 SP_PANELS_REVF = 8
-# The first floor projects 300 all round with a 300 high PARDI over it - the
-# Rev F first-floor plan says so on its face and draws the 300 offset as a
-# hidden line.  This is the FIRST FLOOR.  The SENTRY POST ROOF projection is a
-# different dimension and it is [NOT AVAILABLE] (master U8-F1); nothing here
-# resolves it and no roof projection is drawn to a figure.  MEP3-F6.
-SP_PROJECTION = 300.0
+# THE 300 PROJECTION AND THE 300 PARDI ARE AT THE **ROOF**, not the first floor.
+# The Rev F first-floor plan carries the note and the hidden 300 offset outline,
+# but a hidden outline on a floor plan is what is OVERHEAD - and the Rev F FRONT
+# ELEVATION settles it: it draws 31700-36300 (300 each side) from +6.550 to
+# +6.700, the 150 roof slab, and 31700-36300 from +6.700 to +7.000 labelled
+# "+7.000 TOP OF PARDI".  The GROUND floor plan carries no such outline, so the
+# first floor does not project at all.  The pardi IS the A.7.7 parapet,
+# 300 x 150, [CONFIRMED], 0.300 x 0.150 x 25 = 1.125 kN/m exactly.
+# A 300 ROOF projection gives 1.125 (+0.450 with finish) against U8's residual
+# 3.037 kN/m, so it does NOT explain the load term: **U8 STAYS OPEN.**  MEP3-F6.
+SP_ROOF_PROJECTION = 300.0
 SP_PARDI_H = 300.0
 SP_PARDI_T = 150.0                       # = the A.7.7 parapet, 300 x 150 [C]
-SP_PROJ_OUTLINE = (-300.0, -300.0, 4300.0, 5300.0)
+SP_ROOF_SOFFIT = 6.550                   # +6.700 less the 150 slab
+SP_PROJ_OUTLINE = (-300.0, -300.0, 4300.0, 5300.0)   # the ROOF over, on plan 4
 SP_BEAM_BANDS_X = [(50.0, 300.0), (3700.0, 3950.0)]      # B2 on grids A and B
 SP_BEAM_BANDS_Y = [(50.0, 300.0), (4700.0, 4950.0)]      # B1 on grids 1 and 2
+
+# ================= the south / front elevation, from 5_Front_Elevation.dxf
+# (A-301).  Grade 0.000 is at dxf Y = -10532.9 in that file.  Levels in metres.
+
+# The covered entry stairwell roof, from section C-C
+# (5_Entry_Headhouse_Stair_Section.dxf, grade 0.000 at dxf Y = -3104).  Its
+# soffit is flat at +2.200 over the top landing, then FOLLOWS THE FLIGHT down to
+# +0.400 at the platform, where it runs on continuous with the headhouse roof
+# soffit.  The section's own clear heights - 2200 / 2212 / 2224 / 2233 at
+# X 11000 / 12200 / 13400 / 14300 - reproduce this line to the millimetre.
+ASW_ROOF_T = 250.0
+ASW_SOFFIT = [(9250.0, 2.200), (11000.0, 2.200), (14300.0, 0.400),
+              (15800.0, 0.400)]
+
+# The berm in south elevation, read off the section's BEYOND layer: level at
+# grade to X 9250 at the headwall, up 1.5:1 to +0.900 by X 10600, crest to
+# X 18400, down to grade by X 19750.
+BERM_PROFILE = [(-800.0, 0.000), (9250.0, 0.000), (10600.0, 0.900),
+                (18400.0, 0.900), (19750.0, 0.000), (22800.0, 0.000)]
+
+# The sentry post in elevation.  X is the post's own site X, 32000 - 36000.
+SP_PLINTH_PROJ = 100.0                   # 31900 - 36100 against 32000 - 36000
+SP_PANEL_SILL, SP_PANEL_HEAD = 4.650, 5.850     # 1200 x 1200, sill 1000 over FF
+SP_FRAME_COLS = [(0.0, 350.0), (3650.0, 4000.0)]        # local X, hidden behind
+SP_FRAME_BEAMS = [(3.200, 3.650), (6.250, 6.700)]       # B1 250 x 450
+SP_FRAME_PLINTH = (0.050, 0.450)                        # PB 250 x 400
+SP_FRAME_SPAN = (350.0, 3650.0)                         # local X between columns
+SP_STAIR_EL = dict(x0=-2150.0, x1=-150.0, pole=(-1275.0, -1025.0),
+                   top=4.550, risers=21, rise=152.381)
 
 # ================================================== the correction register
 # (sheet, view, item, owner's figure, project figure, authority)
@@ -425,11 +460,40 @@ CAD_FINDINGS = [
      "A.4.8 says 'armoured vision panels, 1200 wide' and gives no count or "
      "position; D1 is in the west wall on both floors",
      "SEVEN panels drawn, the clashing one omitted; the schedule states 8"),
-    ("MEP3-F6", "ARCH002, the 300 projection and pardi",
-     "'300 PROJECTION WITH 300 HIGH PARDI OVER' on the FIRST FLOOR plan, "
-     "with the 300 offset drawn as a hidden line",
-     "A.7.7 confirms the PARAPET at 300 x 150; master U8-F1 records that the "
-     "SENTRY POST ROOF projection dimension is [NOT AVAILABLE]",
-     "the FIRST FLOOR projection and pardi drawn at 300; NO roof projection "
-     "drawn to any figure and U8 left open"),
+    ("MEP3-F6", "ARCH002, the 300 projection and pardi  -  CORRECTED AT MEP3A",
+     "'300 PROJECTION WITH 300 HIGH PARDI OVER' on the FIRST FLOOR plan with "
+     "the 300 offset drawn hidden, and NO such outline on the ground-floor "
+     "plan; the FRONT ELEVATION draws 31700 - 36300 (300 each side) from "
+     "+6.550 to +6.700, and 31700 - 36300 from +6.700 to +7.000 labelled "
+     "'+7.000 TOP OF PARDI'",
+     "the three Rev F drawings agree: the projection and the pardi are at the "
+     "ROOF.  A hidden outline on a floor plan is what is OVERHEAD, and the "
+     "ground floor carries none, so the first floor does not project at all. "
+     "A.7.7 confirms the parapet at 300 x 150 and 0.300 x 0.150 x 25 = 1.125 "
+     "kN/m exactly",
+     "the 300 projection and the 300 pardi drawn AT ROOF LEVEL, in plan and "
+     "in the elevation.  **MEP3 first drew them at the first floor; MEP3A "
+     "corrects that.**  A 300 ROOF projection gives 1.125 kN/m (1.575 with "
+     "finish) against U8's residual 3.037, so it does NOT explain the load "
+     "term: U8 and U8-F1 STAY OPEN and nothing is adopted"),
+    ("MEP3-F7", "ARCH002 view 3, the sentry post ground storey",
+     "the Rev F FRONT ELEVATION draws door D1 in the SOUTH face at local "
+     "X 400 - 1300 and a ground-storey vision panel in the SOUTH face at "
+     "local X 2100 - 3300",
+     "drawings 3 and 4 put D1 in the WEST wall at Y 1000 - 1900 - which is "
+     "where the external spiral stair's landing is, so the plans are "
+     "self-consistent - and the ground-storey W1 in the EAST wall at "
+     "Y 1900 - 3100.  Two plans against one elevation, and the stair settles "
+     "it: THE PLANS GOVERN",
+     "the south elevation shows NO ground-storey opening, because neither of "
+     "them is in the south face"),
+    ("MEP3-F8", "ARCH002 view 3, first-storey vision panels",
+     "the Rev F FRONT ELEVATION gives them a sill of +4.650 and a head of "
+     "+5.850 - 1200 x 1200 - at local X 500 - 1700 and 2200 - 3400",
+     "A.4.8 gives 'armoured vision panels, 1200 wide' and NO height anywhere "
+     "else in the project; drawing 4 puts the south-face panels at local "
+     "X 650 - 1850 and 2150 - 3350",
+     "the PLAN governs X and the ELEVATION governs the levels: drawn at the "
+     "plan's X, sill +4.650, head +5.850.  The 1200 height is the drawing's, "
+     "not an assumption of this package"),
 ]

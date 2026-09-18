@@ -70,6 +70,23 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   where there is no opening.** FLS012 was not altered. Only nine files changed; `a2_lib.py`,
   `sheet_data.py`, `sentry_data.py`, `mep_data.py`, `ops_data.py` and STR006…STR009 / MEP010 /
   MEP011 / FLS012 / WMS013 are **untouched**. Index still **90 drawings, 84 PASS**.
+  Amended the same day as **MEP3A** (master **H.44.8**), by instruction — *"improve south
+  elevation drawing"*. The two Rev F drawings that carry it, **`5_Front_Elevation.dxf`
+  (A-301) and section C-C**, were parsed for the first time and **corrected a mistake MEP3
+  made: the 300 projection and the 300 pardi are at the ROOF, not the first floor** (A-301
+  draws +6.550 → +6.700 → +7.000 and labels it *"TOP OF PARDI"*; the ground-floor plan has no
+  such outline, so the first floor does not project). **`U8` and `U8-F1` STAY OPEN** — a 300
+  roof projection gives 1.125 kN/m against U8's residual 3.037, so the drawn figure does not
+  explain the load term and nothing is adopted. The elevation now carries the **real berm
+  profile** (level to X 9250, up 1.5:1 to +0.900 by X 10600, crest to 18400, down by 19750),
+  the **stairwell roof soffit following the flight** at 2200 clear, the **engineered cover
+  2000 in six layers** (A.7.3, drawn for the first time), the box's slab / mat / end walls /
+  W6 / W7, both **escape shaft heads**, and the sentry post as A-301 draws it — plinth, RC
+  frame dashed behind the infill, F1 footings, and the **spiral stair in elevation**. Two new
+  findings: **`MEP3-F7`** (A-301 draws D1 and the ground W1 in the SOUTH face; the plans put
+  them in the WEST and EAST walls and **the plans govern**, so the south elevation shows no
+  ground-storey opening) and **`MEP3-F8`** (A-301 is the only source anywhere for the vision
+  panels' **sill +4.650 / head +5.850**). **Only `ARCH002` changed.**
   Before it: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
   presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
   plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,
