@@ -47,7 +47,25 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **MEP1** (16 Sep 2026, master **H.42**) — **two A2 SERVICES presentation
+- Latest revision: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
+  presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
+  plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,
+  the owner's own sheets 1 and 2, same views and scales, **every dimension and level brought
+  to Part A** — the owner's `Project1.pdf` is preserved and untouched. **No design value
+  moved, no analysis was run.** New data modules `arch_data.py` (sheets 01 / 02) and
+  `ops_data.py` (sheets 12 / 13); `a2_lib.py`, `sheet_data.py`, `sentry_data.py`,
+  `mep_data.py` and STR006…STR009 / MEP010 / MEP011 are **untouched**.
+  **SHEET 13 presents `WM3`, NOT `WM4`** — the revised owner package of H.15, final project
+  cost **Rs 2,97,90,913**, programme R1; WM4 is the later SSR-priced bill and both stand.
+  **Read `arch_data.CORRECTIONS` (and master H.43.4) before trusting any figure on the
+  owner's sheets 1 or 2** — fourteen are corrected, chiefly the **bay chain** (A.3) and the
+  **sentry post 4000 × 5000** (A.4.8). Findings **`MEP2-F1`** (the owner's door schedule
+  makes every door 900 × 2100; **both blast doors are 1200 × 2100**, A.4.9) and
+  **`MEP2-F2`** (its *"FDN LEVEL −6100"* is the internal floor, not the foundation).
+  **`FLS012` uses the RC4-ruled escape-shaft ladder, not `fs_data`'s superseded
+  `FS-6`/`FS-V7` text.** Index now **90 drawings, 84 PASS**; the series is split across four
+  QA disciplines by filename prefix.
+  Before it: **MEP1** (16 Sep 2026, master **H.42**) — **two A2 SERVICES presentation
   sheets in the same `ARCH001…ARCH005` frame, `MEP010` (SHEET 10, HVAC + EMP zone layout plans)
   and `MEP011` (SHEET 11, septic tank, soak pit and sump pit in plan and cross-sectional
   elevation).** **No design value moved, no analysis was run.** Values are read from

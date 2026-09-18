@@ -5815,6 +5815,183 @@ information gaps — every gap they name is already recorded in Part K or in an 
 
 ---
 
+## H.43 Fire plan, works management and two architectural sheets redrawn — revision MEP2 — 18 September 2026
+
+> **Four more A2 sheets in the `ARCH001…ARCH005` series.** Two are NEW —
+> **`FLS012` SHEET 12** (fire and life safety escape plan) and **`WMS013` SHEET 13**
+> (works management) — and two are **REDRAWS of the owner's own sheets 1 and 2**,
+> **`ARCH001`** and **`ARCH002`**, with the same views at the same scales and every
+> dimension and level brought to the project's authoritative data.
+> **NO DESIGN VALUE MOVED, NO ANALYSIS WAS RUN, AND STAAD.Pro WAS NOT OPENED.**
+
+### H.43.1 What was asked
+
+*"Make similar sheets 12 & 13 — 1) Fire plan, 2) works management not as per the latest
+revision but the just previous one having an estimate of 2.98 cr one. Recreate sheets 1 & 2
+with the same plans just correct the dimensions as per project data. Retain all other
+instructions from the previous prompt."* The retained instructions are MEP1's (H.42): the
+owner's A2 frame and title block, **dark colours only and mostly black**, **no design-basis
+panel, no calculation table, and no revision, phase or open-item text on the face**, neat
+with no overwriting, and schedules where they help.
+
+### H.43.2 "The just previous one having an estimate of 2.98 cr" is WM3, not WM4
+
+| Revision | Where | Total | Basis |
+|---|---|---|---|
+| **WM2** (H.13) | the owner's package as supplied | **Rs 3,00,33,306** as stated | the owner's own rates |
+| **WM3** (H.15) | **the owner's package REVISED with the RC1 rulings applied** | **Rs 2,97,90,913** | the owner's own rates |
+| WM4 (H.38) | priced from the Maharashtra PWD SSR 2022-23 | Rs 2,07,39,408 estimated cost | a published schedule |
+
+**Rs 2,97,90,913 is Rs 2.98 crore, so SHEET 13 presents `WM3`** — the revised bill, the
+revised cost summary and the revised master construction schedule **R1**. WM4 is the later
+revision and is deliberately **not** the subject of this sheet. Every amount, quantity,
+count, date and duration is read at build time from
+`WORKS MANAGEMENT/Cost/REVISED_*_RC1.csv` and
+`WORKS MANAGEMENT/Programme/REVISED_MASTER_CONSTRUCTION_SCHEDULE_R1.csv`; **nothing is
+retyped and nothing is re-derived.**
+
+### H.43.3 What was produced — all under `Presentation Sheets/`
+
+| Sheet | Drawing No. | Views |
+|---|---|---|
+| **SHEET 01** | **`ARCH001`** | 1 underground level plan (−)6.100 1:100 · 2 headhouse level plan (−)2.000 1:100 · 3 ground level plan 0.000 1:100. All three span the full 22000 box so that both escape shafts appear at every level |
+| **SHEET 02** | **`ARCH002`** | 1 sentry post ground floor level 1:50 · 2 first floor level 1:50 · 3 south elevation, shelter and sentry post, 1:150 · 4 lintel L1, wall ties and the 200 infill zone 1:20 |
+| **SHEET 12** | **`FLS012`** | 1 underground level escape plan 1:100 · 2 entry level escape plan 1:100 · 3 escape shaft section and ladder 1:100 · 4 evacuation decision rule |
+| **SHEET 13** | **`WMS013`** | 1 master construction programme bar chart, 18 summary activities of the 130 · 2 cost distribution by bill part |
+
+New files: `Scripts/arch_data.py` (sheets 01 and 02), `Scripts/ops_data.py` (sheets 12 and
+13), four generators `s01_arch_plans.py`, `s02_sentry_arch.py`, `s12_fire_plan.py`,
+`s13_works_management.py`, four `DXF/` and four `PDF/`.
+
+### H.43.4 The correction register — every figure the redraw changes
+
+The owner's sheets 1 and 2 are preserved as the uploaded `Project1.pdf` and are **not
+altered**. `arch_data.CORRECTIONS` is the machine-readable copy of this table; by
+instruction it is **not printed on the sheets**.
+
+| Sheet | View | Item | Owner's figure | Project figure | Authority |
+|---|---|---|---|---|---|
+| **01** | UNDERGROUND LEVEL PLAN | Bay clear-width chain | 2900 / 3500 / 1800 / 1560 / 2400 then 2800 / 3400 | **2900 / 1800 / 3500 / 1800 / 1560 / 2000 / 2800 / 3000** | `A.3` |
+| **01** | UNDERGROUND LEVEL PLAN | Bay 6 decon airlock clear width | 2400 | **2000** | `A.3` |
+| **01** | UNDERGROUND LEVEL PLAN | Bay 8 generator bay clear width | 3400 | **3000** | `A.3` |
+| **01** | UNDERGROUND LEVEL PLAN | Bay 2 clear width | not dimensioned | **1800** | `A.3` |
+| **01** | UNDERGROUND LEVEL PLAN | Internal walls W5 / W6 / W7 | not dimensioned | **200 / 400 / 400, W6 and W7 thickened by M1** | `A.3` |
+| **01** | UNDERGROUND LEVEL PLAN | Blast door leaf, W6 and W7 | 900 x 2100 in the door schedule | **1200 x 2100** | `A.4.9` |
+| **01** | HEADHOUSE LEVEL PLAN | Covered entry stairwell external length | 6550 | **6800  (X 9250 - 16050)** | `A.4.7` |
+| **01** | GROUND LEVEL PLAN | Sentry post external plan | 3950 x 4950 | **4000 x 5000** | `A.4.8` |
+| **02** | GROUND / FIRST FLOOR LEVEL | Sentry post external plan | 3950 x 4950 | **4000 x 5000** | `A.4.8` |
+| **02** | SOUTH ELEVATION | Sentry post ground floor level | 440 | **+0.450** | `A.4.3` |
+| **02** | SOUTH ELEVATION | Entry stairwell roof at head | 3400 | **+2.450  (soffit +2.200)** | `A.4.3 / A.4.7` |
+| **02** | SOUTH ELEVATION | Sentry post roof | 7000, labelled POST ROOF | **+6.700 roof slab, +7.000 parapet top - two separate levels** | `A.4.3` |
+| **02** | SOUTH ELEVATION | Lowest level shown | -6100, labelled FDN LEVEL | **(-)6.100 is the internal floor / top of mat; the mat soffit is (-)6.700 and the formation (-)6.800** | `A.4.3` |
+| **02** | SOUTH ELEVATION | Sentry post founding level | not shown | **(-)2.000, F1 footings on in-situ basalt** | `A.4.8 / B.8.7` |
+
+**The bay chain is the principal correction.** The owner's underground level plan reads
+`2900 / 3500 / 1800 / 1560 / 2400` and then `2800 / 3400`: it omits bay 2 entirely, puts
+bays 3 and 4 in the wrong order, and gives bay 6 as 2400 and bay 8 as 3400. Master **A.3**
+gives **2900 / 1800 / 3500 / 1800 / 1560 / 2000 / 2800 / 3000**, and the redraw dimensions
+every boundary in that schedule, with the 110 W8 partitions and the 200 / 400 internal walls
+labelled. **The 22000 × 6200 external envelope and the 6200 depth were already right and are
+unchanged.**
+
+### H.43.5 `MEP2-F1` — the owner's door schedule is wrong for the two blast doors
+
+The owner's sheets 1 and 2 share one **DOOR SCH** listing thirteen marks, `100`…`110`, `114`
+and `115`, **every one of them 900 × 2100 × 45**. Master **A.4.9** records **five distinct
+openings at four different sizes**: Blast Door 1 and Blast Door 2 are **1200 × 2100** and
+are the protective boundary; the headhouse inner security door is 900 × 2100 and not blast
+rated; the entry door is **1000 × 2100** and opens outward; the sentry post door is
+900 × 2100. **A 900 leaf will not fit either blast door opening, which is dimensioned
+Y 600 – 1800 in W6 and W7.** `ARCH001` therefore carries a **new DOOR SCHEDULE keyed
+BD1 / BD2 / D1 / D2 / D3** against A.4.9, and a separate **OPENING SCHEDULE** for the two
+escape shafts, the stair void, the service entry plate and the vision panels. The owner's
+mark numbers are not carried forward, because nothing in the project maps them to openings.
+
+### H.43.6 `MEP2-F2` — the elevation's "FDN LEVEL −6100" is the floor, not the foundation
+
+On the owner's sheet 2 the lowest level is labelled **FDN LEVEL −6100**. Master A.4.3 makes
+**(−)6.100 the internal floor and the top of the mat**; the **underside of the mat is
+(−)6.700** and the **formation is (−)6.800**. The redraw labels all three, and adds the
+sentry post's own founding level, **(−)2.000 on in-situ basalt**, which the owner's sheet
+does not show at all. Two more levels on that elevation are corrected: the sentry post
+ground floor is **+0.450** and not 440, and the entry stairwell roof at head is **+2.450**
+and not 3400. The single **POST ROOF 7000** is split into the **+6.700 roof slab** and the
+**+7.000 parapet top**, which are different levels in A.4.3.
+
+### H.43.7 The fire sheet uses the RULED ladder, not the superseded finding
+
+`Fire and Life Safety/Scripts/fs_data.py` still carries **`FS-6` / `FS-V7`** as *"no ladder,
+rung or fall-arrest is specified in either escape shaft"*. **That was superseded by the RC4
+ruling of 11 September 2026** (master A.4.9 and H.28): **ladder only, fall-arrest deferred.**
+`FLS012` therefore draws and schedules the **ruled** ladder — 20 dia galvanised MS rungs at
+400 clear width, equal pitch (ESC 1 297.6 over 21 spaces, ESC 2 295.7 over 23), 2 No.
+50 × 10 galvanised flat stringers, cast-in lugs to the 250 collar and the roof-slab bore,
+expansion-anchored brackets at 1.5 m over the lower 3.200 m, ≥ 200 behind the rung, ≥ 750
+climbing space in front and grab rails 1100 above the head — and **does not reproduce the
+superseded finding text**. **Fall-arrest, a rest platform and the injured-person question
+remain outside this sheet and are unchanged in Part K.**
+
+Every route, travel distance and climb is **computed** in `fs_data` from `mep_proj`, so a
+figure on the sheet cannot disagree with the escape-route schedule: R1 travel **14.6 m**,
+climb **6.100 m**; R2 **1.45 m** and **6.250 m**; R3 **1.50 m** and **6.800 m**; the spine
+**20.800 m**; R1's surface leg **11.47 m**. The sheet states as fact the three things the
+plan is built on — bays 1 to 6 are **one** smoke compartment, blast doors 1 and 2 are the
+only real barriers, and **ESC 2 is in bay 8 with the generator, so R3 is not used for a fire
+in bay 8** — as an operating instruction, not as an open item.
+
+### H.43.8 What the two new sheets do NOT claim
+
+**`WMS013` is a presentation of WM3, not a re-pricing.** No rate was touched, no quantity
+re-measured and no total recomputed; the sheet's own note says that **a line shown nil is
+not priced in the bill**, so the generator line that WM3 deliberately carries at zero cannot
+be read as free. **`FLS012` designs nothing.** It draws the escape routes the project
+already has and the ladder RC4 ruled; it adds no detection, no alarm, no emergency lighting
+and no suppression, because the project contains none, and it does not pretend that the
+three routes are four.
+
+### H.43.9 Registration with the QA tools — the H.25 rule, obeyed
+
+The A2 presentation series now spans **four disciplines in one folder**, so
+`qa_report_data.DISCIPLINE` matches each by **filename prefix** ahead of the generic folder
+prefix: `…/DXF/MEP`, `…/DXF/ARCH`, `…/DXF/FLS`, `…/DXF/WMS`, with `…/DXF/` left as the
+structural fallback. The three new labels were added to `make_index.ORDER` and all four
+drawing numbers to `TITLE_OVERRIDE`. **Both tools re-run: `DRAWING_INDEX.md` and
+`qa_index.json` now carry 90 drawings, 84 PASS — up from 86 / 80 — and ARCH001, ARCH002,
+FLS012 and WMS013 all report PASS.**
+
+### H.43.10 Verified after the change, and how
+
+* `qa_overlap.py` on **all ten** A2 sheets: **0 text overlaps, 0 near-touches at 2 %,
+  0 text below the 1.70 mm floor, 0 text outside the inner frame, 0 non-dark layers.**
+* `qa_report_data.py` + `make_index.py` re-run: **90 drawings, 84 PASS**; ARCH001 350 texts,
+  ARCH002 250, FLS012 244, WMS013 298, all **A2**, all **PASS**.
+* All four PDFs measured with `pdfinfo`: **1683.78 × 1190.55 pt — the same page box as
+  `Project1.pdf`**, so they plot 1 : 1 on the owner's own sheet.
+* **`git status` confirms STR006…STR009 and MEP010 / MEP011 — DXF, PDF and their generators
+  — are UNCHANGED**, as are `a2_lib.py`, `sheet_data.py`, `sentry_data.py` and
+  `mep_data.py`. The Fire and Life Safety, Drainage, HVAC, EMP and Works Management
+  packages are **read and not written**. The only edited files outside the new ones are
+  `qa_report_data.py` and `make_index.py` (registration) and the two regenerated QA outputs.
+* **Main staircase: UNTOUCHED.** 24 risers at 170.8333, tread 280, 3 flights × 8, total rise
+  4100, well 200, waist 200, headroom 2533 — re-read from `sc_proj.STAIR` after the build.
+  It is drawn on `ARCH001` view 1 and used by escape route R1 on `FLS012`, and **not one of
+  its values is altered**; both sheets print it from `mep_proj.STAIR`.
+
+### H.43.11 What MEP2 did NOT do
+
+**No design value, load, duty, thickness, level, bar, spacing, quantity, rate, date or float
+changed.** The redraws correct what the owner's two sheets *print*; they do not change what
+the project *is* — every corrected figure already existed in Part A and is cited to it. No
+`.std` file was touched and **STAAD.Pro was not run**. **No evidence tag was converted,
+downgraded or deleted**, and no `[U]` or `[N]` item was drawn as though it were confirmed:
+the sentry post's site position is still `[ASSUMED]` under `U4` and is labelled a convention
+on ARCH001, and WM3's own unpriced line is still unpriced. **K.1b is not edited and no count
+is restated.** The owner's `Project1.pdf`, `USER_SOURCE/` and the as-supplied WM2
+publication are untouched, and **WM4 is neither superseded nor altered** — WM3 and WM4 are
+different revisions on different bases and both stand (M.11).
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)

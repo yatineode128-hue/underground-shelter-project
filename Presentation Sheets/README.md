@@ -1,9 +1,70 @@
-# Presentation Sheets — A2 series, revisions SR1 through MEP1
+# Presentation Sheets — A2 series, revisions SR1 through MEP2
 
-**Six A2 sheets** drawn in the layout and title block of the supplied Revit A2 architectural
-set (`ARCH001 … ARCH005`, `Project1.pdf`), so that they read as the next six sheets of that
-same series: **four structural** (SHEET 06 … SHEET 09, revisions SR1 / SR1A / SR2 / SR2A) and
-**two services** (SHEET 10 and SHEET 11, revision MEP1).
+**Ten A2 sheets**, all in the layout and title block of the supplied Revit A2 architectural
+set (`ARCH001 … ARCH005`, `Project1.pdf`):
+
+| Sheets | Drawing Nos. | Discipline | Revision |
+|---|---|---|---|
+| **01 · 02** | `ARCH001` `ARCH002` | ARCHITECTURAL — **redraws of the owner's own sheets 1 and 2** | **MEP2** |
+| 06 · 07 | `STR006` `STR007` | STRUCTURAL — the underground box | SR1 / SR1A |
+| 08 · 09 | `STR008` `STR009` | STRUCTURAL — the sentry post | SR2 / SR2A |
+| 10 · 11 | `MEP010` `MEP011` | MEP — HVAC, EMP and the drainage structures | MEP1 |
+| **12** | `FLS012` | FIRE AND LIFE SAFETY — escape plan | **MEP2** |
+| **13** | `WMS013` | WORKS MANAGEMENT — programme and bill | **MEP2** |
+
+**MEP2 — the fire plan, the works management sheet and the two redraws.  No design value
+moved and no analysis was run.**
+
+* **`FLS012` SHEET 12** — 1 underground level escape plan 1:100 · 2 entry level escape plan
+  1:100 · 3 escape shaft section and ladder 1:100 · 4 evacuation decision rule. Every route,
+  travel distance and climb is **computed** in `Fire and Life Safety/Scripts/fs_data.py` from
+  the confirmed geometry, so a figure on the sheet cannot disagree with the schedule.
+  **The ladder drawn is the one RC4 RULED** (master A.4.9 / H.28) — ladder only, fall-arrest
+  deferred — **not** `fs_data`'s superseded `FS-6` / `FS-V7` *"no ladder specified"* text.
+* **`WMS013` SHEET 13** — 1 master construction programme bar chart · 2 cost distribution by
+  bill part. **It presents `WM3`, the REVISED owner package of master H.15, final project
+  cost `Rs 2,97,90,913` and programme R1, 224 working days 02-11-26 to 26-07-27.**
+  **It is NOT `WM4`**, the later bill priced from the Maharashtra SSR 2022-23; the two are
+  different revisions on different bases and both stand. Every amount, quantity, count, date
+  and duration is read at build time from `WORKS MANAGEMENT/Cost/REVISED_*_RC1.csv` and
+  `WORKS MANAGEMENT/Programme/REVISED_MASTER_CONSTRUCTION_SCHEDULE_R1.csv`.
+* **`ARCH001` SHEET 01** — the owner's three plans at the owner's 1:100, but **all three
+  spanning the full 22000 box** so that both escape shafts appear at every level, plus room,
+  door, opening, wall and level schedules.
+* **`ARCH002` SHEET 02** — the sentry post's two floor plans at 1:50, the south elevation
+  with the shelter at **1:150 and the post at its true X across a break**, and a 1:20 detail
+  of lintel L1, the wall ties and the 200 infill zone.
+
+> **The redraws change what the owner's two sheets PRINT, not what the project IS.**
+> All **fourteen** corrected figures already existed in master Part A and each is cited to
+> it. The register is `arch_data.CORRECTIONS` and master **H.43.4**; by instruction it is
+> **not printed on the sheets**. The owner's originals are preserved as the uploaded
+> `Project1.pdf` and are not altered.
+>
+> The principal correction is the **bay clear-width chain**. The owner's underground level
+> plan reads `2900 / 3500 / 1800 / 1560 / 2400` then `2800 / 3400` — it omits bay 2, reverses
+> bays 3 and 4, and gives bay 6 as 2400 and bay 8 as 3400. Master **A.3** gives
+> **`2900 / 1800 / 3500 / 1800 / 1560 / 2000 / 2800 / 3000`**. The 22000 × 6200 envelope was
+> already right and is unchanged.
+>
+> Two findings the redraw raised:
+>
+> * **`MEP2-F1`** — the owner's shared **DOOR SCH** lists thirteen marks and makes **every
+>   one 900 × 2100 × 45**. Master **A.4.9** has five distinct openings at four sizes, and
+>   **a 900 leaf will not fit either blast door**, which are **1200 × 2100** in the
+>   Y 600 – 1800 openings in W6 and W7. `ARCH001` carries a new schedule keyed
+>   `BD1 / BD2 / D1 / D2 / D3`.
+> * **`MEP2-F2`** — the elevation's lowest level, labelled **"FDN LEVEL −6100"**, is the
+>   **internal floor and top of mat**. The mat soffit is **(−)6.700** and the formation
+>   **(−)6.800**; the sentry post's own founding level, **(−)2.000**, was not shown at all.
+>   Also corrected: post ground floor **+0.450** (not 440), entry stairwell roof head
+>   **+2.450** (not 3400), and the single "POST ROOF 7000" split into the **+6.700** roof
+>   slab and the **+7.000** parapet top.
+
+`arch_data.py` is the single value source for sheets 01 and 02 and `ops_data.py` for sheets
+12 and 13. Both read the discipline modules (`mep_proj`, `sentry_data`, `fs_data`, the WM3
+CSVs) and **write nothing back**; `a2_lib.py`, `sheet_data.py`, `sentry_data.py`,
+`mep_data.py` and STR006 … STR009 / MEP010 / MEP011 are **untouched** by MEP2.
 
 **SR1 — the underground structure**
 
@@ -185,6 +246,10 @@ python3 s08_sentry_beam_col.py        # -> DXF/STR008_...dxf
 python3 s09_sentry_footing_slab.py    # -> DXF/STR009_...dxf
 python3 s10_hvac_emp_layout.py        # -> DXF/MEP010_...dxf
 python3 s11_drainage_structures.py    # -> DXF/MEP011_...dxf
+python3 s01_arch_plans.py             # -> DXF/ARCH001_...dxf
+python3 s02_sentry_arch.py            # -> DXF/ARCH002_...dxf
+python3 s12_fire_plan.py              # -> DXF/FLS012_...dxf
+python3 s13_works_management.py       # -> DXF/WMS013_...dxf
 python3 qa_overlap.py ../DXF/*.dxf          # drafting QA, exits non-zero on a defect
 python3 render_a2.py  ../DXF/*.dxf          # visual QA PNG
 python3 render_pdf.py ../DXF/*.dxf          # true-size A2 vector PDF, 1:1
@@ -206,7 +271,7 @@ blocks as well, so a dimension value colliding with a label is caught.
 
 Tables and view titles are **measured, not guessed**: every cell and every title is sized
 with the same font metrics `ezdxf` places it with, and shrunk until it fits its column.
-That is why all six sheets pass the drafting QA with **zero text overlaps**.
+That is why all ten sheets pass the drafting QA with **zero text overlaps**.
 
 **`SR2-F2`, open:** `qa_overlap.py` reports that **STR007's two note panels are set at
 1.49 mm**, below the 1.70 mm `MIN_TXT_H` this package declares in `a2_lib.py` — 53 lines.
@@ -230,8 +295,13 @@ Done, per `CLAUDE.md`:
   "MEP - A2 presentation sheets")` was inserted **ahead** of it — the lookup takes the first
   match — and the same label added to `make_index.ORDER`. Both drawing numbers added to
   `TITLE_OVERRIDE`.
-* All re-run. `DRAWING_INDEX.md` and `qa_index.json` now carry **86 drawings, 80 PASS**;
-  **STR006 … STR009 and MEP010 / MEP011 all report PASS**.
+* **MEP2:** the series now spans **four disciplines in one folder**, so `DISCIPLINE` matches
+  each by **filename prefix** ahead of the generic folder prefix — `…/DXF/MEP`,
+  `…/DXF/ARCH`, `…/DXF/FLS`, `…/DXF/WMS`, with `…/DXF/` left as the structural fallback.
+  The three new labels were added to `make_index.ORDER` and all four drawing numbers to
+  `TITLE_OVERRIDE`.
+* All re-run. `DRAWING_INDEX.md` and `qa_index.json` now carry **90 drawings, 84 PASS**;
+  **all ten A2 sheets report PASS**.
 
 ### `SR2-F2` — CLOSED at SR1A
 

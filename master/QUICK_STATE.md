@@ -218,6 +218,31 @@ still open and SG2's northern placement would put them on the same side. `DRAWIN
 reads **86 drawings, 80 PASS**. Still open from the series: **`SR2-F1`**, the B2 roof-joint
 contradiction that keeps the sentry roof frame undrawn, and `SR2-V1…V6`.
 
+Updated **18 Sep 2026** for **MEP2** (master Part **H.43**) — **four more A2 sheets, so the
+presentation series is now TEN**: `FLS012` **SHEET 12** (fire and life safety escape plan,
+shaft section and evacuation decision rule) and `WMS013` **SHEET 13** (works management), both
+new; and **`ARCH001` / `ARCH002`, REDRAWS of the owner's own sheets 1 and 2** with the same
+views at the same scales and every dimension and level brought to Part A. **No design value
+moved and no analysis was run.**
+
+**Two things to know before using them.** **SHEET 13 presents `WM3`** — the revised owner
+package of H.15, final project cost **Rs 2,97,90,913**, programme R1, 224 working days
+02-11-26 to 26-07-27 — and **NOT `WM4`**, the later SSR-priced bill; both revisions stand and
+they are different bases. **The redraws change what the owner's sheets PRINT, not what the
+project IS**: fourteen figures are corrected, all of them already in Part A, and the register
+is `arch_data.CORRECTIONS` plus master H.43.4. The principal one is the **bay chain** — the
+owner's plan omits bay 2, reverses bays 3 and 4, and gives bay 6 as 2400 and bay 8 as 3400,
+against A.3's **2900 / 1800 / 3500 / 1800 / 1560 / 2000 / 2800 / 3000**. Two findings:
+**`MEP2-F1`**, the owner's door schedule makes every door 900 × 2100 when **both blast doors
+are 1200 × 2100** and the entry door is 1000 × 2100 (A.4.9); **`MEP2-F2`**, its
+*"FDN LEVEL −6100"* is the **internal floor and top of mat**, with the mat soffit at
+(−)6.700 and the formation at (−)6.800.
+
+**`FLS012` uses the RULED ladder.** `fs_data` still carries `FS-6`/`FS-V7` as *"no ladder
+specified"*; **RC4 superseded that** (A.4.9 / H.28) — ladder only, fall-arrest deferred — and
+the sheet draws and schedules the ruled ladder. `DRAWING_INDEX.md` now reads **90 drawings,
+84 PASS**, with the series split across four disciplines by filename prefix.
+
 ---
 
 ## Identity and revisions

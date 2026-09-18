@@ -8,9 +8,13 @@ import os, json, collections
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "DRAWING_INDEX.md")
 
-ORDER = ["ARCHITECTURAL / GENERAL - Rev F", "ARCHITECTURAL - finishes",
+ORDER = ["ARCHITECTURAL / GENERAL - Rev F",
+         "ARCHITECTURAL - A2 presentation sheets",
+         "ARCHITECTURAL - finishes",
          "STRUCTURAL - reinforcement", "STRUCTURAL - A2 presentation sheets",
          "MEP - A2 presentation sheets",
+         "FIRE AND LIFE SAFETY - A2 presentation sheets",
+         "WORKS MANAGEMENT - A2 presentation sheets",
          "DRAINAGE", "DRAINAGE - handout",
          "HVAC", "HVAC - handout", "FIRE AND LIFE SAFETY",
          "SITE AND CONCEALMENT", "EMP PROTECTION", "ELECTRICAL",
