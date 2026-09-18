@@ -15,6 +15,15 @@ from declash import SOLID as HARD_LAYERS      # noqa: E402
 
 DISCIPLINE = [
     ("Structural CAD/DXF/", "STRUCTURAL - reinforcement"),
+    # The A2 presentation series shares one folder and one frame but spans four
+    # disciplines, so each is matched by FILENAME PREFIX first and the generic
+    # folder prefix is the structural fallback.
+    ("Presentation Sheets/DXF/MEP", "MEP - A2 presentation sheets"),
+    ("Presentation Sheets/DXF/ARCH", "ARCHITECTURAL - A2 presentation sheets"),
+    ("Presentation Sheets/DXF/FLS",
+     "FIRE AND LIFE SAFETY - A2 presentation sheets"),
+    ("Presentation Sheets/DXF/WMS",
+     "WORKS MANAGEMENT - A2 presentation sheets"),
     ("Presentation Sheets/DXF/", "STRUCTURAL - A2 presentation sheets"),
     ("Drainage/DXF/",       "DRAINAGE"),
     ("Drainage/Handout/",   "DRAINAGE - handout"),
@@ -70,6 +79,12 @@ TITLE_OVERRIDE = {
     "STR007": "STRUCTURAL REINFORCEMENT DETAILING - 600 SHEAR WALL AND MAIN STAIRCASE",
     "STR008": "STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST - BEAMS AND COLUMN",
     "STR009": "STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST - FOOTING AND SLAB",
+    "MEP010": "HVAC AND EMP ZONE LAYOUT PLANS - UNDERGROUND LEVEL",
+    "MEP011": "SEPTIC TANK, SOAK PIT AND SUMP PIT - PLANS, SECTIONS AND SCHEDULES",
+    "ARCH001": "UNDERGROUND LEVEL PLAN, HEADHOUSE LEVEL PLAN AND GROUND LEVEL PLAN",
+    "ARCH002": "SENTRY POST - FLOOR PLANS AND SOUTH ELEVATION",
+    "FLS012": "FIRE AND LIFE SAFETY - ESCAPE PLAN, SHAFT SECTION AND DECISION RULE",
+    "WMS013": "WORKS MANAGEMENT - MASTER PROGRAMME AND BILL OF QUANTITIES",
 }
 
 

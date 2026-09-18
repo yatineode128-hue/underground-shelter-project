@@ -1,8 +1,80 @@
-# Presentation Sheets — A2 structural series, revisions SR1 through SR2A
+# Presentation Sheets — A2 series, revisions SR1 through MEP2
 
-Four A2 structural reinforcement sheets drawn in the layout and title block of the
-supplied Revit A2 architectural set (`ARCH001 … ARCH005`, `Project1.pdf`), so that they
-read as the next four sheets of that same series.
+**Ten A2 sheets**, all in the layout and title block of the supplied Revit A2 architectural
+set (`ARCH001 … ARCH005`, `Project1.pdf`):
+
+| Sheets | Drawing Nos. | Discipline | Revision |
+|---|---|---|---|
+| **01 · 02** | `ARCH001` `ARCH002` | ARCHITECTURAL — **redraws of the owner's own sheets 1 and 2** | **MEP2** |
+| 06 · 07 | `STR006` `STR007` | STRUCTURAL — the underground box | SR1 / SR1A |
+| 08 · 09 | `STR008` `STR009` | STRUCTURAL — the sentry post | SR2 / SR2A |
+| 10 · 11 | `MEP010` `MEP011` | MEP — HVAC, EMP and the drainage structures | MEP1 |
+| **12** | `FLS012` | FIRE AND LIFE SAFETY — escape plan | **MEP2** |
+| **13** | `WMS013` | WORKS MANAGEMENT — programme and bill | **MEP2** |
+
+**MEP2 — the fire plan, the works management sheet and the two redraws.  No design value
+moved and no analysis was run.**
+
+* **`FLS012` SHEET 12** — 1 underground level escape plan 1:100 · 2 entry level escape plan
+  1:100 · 3 escape shaft section and ladder 1:100 · 4 evacuation decision rule. Every route,
+  travel distance and climb is **computed** in `Fire and Life Safety/Scripts/fs_data.py` from
+  the confirmed geometry, so a figure on the sheet cannot disagree with the schedule.
+  **The ladder drawn is the one RC4 RULED** (master A.4.9 / H.28) — ladder only, fall-arrest
+  deferred — **not** `fs_data`'s superseded `FS-6` / `FS-V7` *"no ladder specified"* text.
+* **`WMS013` SHEET 13** — a **pure schedule sheet, no charts or graphs**: the whole
+  **BILL OF QUANTITIES, all 38 measured items** under their five part headings with unit,
+  quantity, rate and amount, plus the **MASTER CONSTRUCTION PROGRAMME** (18 summary
+  activities), the **COST SUMMARY**, the **PART SUMMARY** and **WHAT THE REVISED BILL
+  CARRIES**. *(Issued first with a programme bar chart and a cost chart; both were deleted
+  the same day at **MEP2A** by instruction, which freed the drawing region for the full bill.
+  No figure changed — master H.43.12.)*
+  Long item descriptions are the bill's own, **trimmed to the column at a word break and
+  marked with an ellipsis**; the bill governs. The **standby generator line carries no rate
+  in WM3** and prints as **NOT PRICED** — it is in no total on the sheet and no rate is
+  invented for it.
+  **It presents `WM3`, the REVISED owner package of master H.15, final project
+  cost `Rs 2,97,90,913` and programme R1, 224 working days 02-11-26 to 26-07-27.**
+  **It is NOT `WM4`**, the later bill priced from the Maharashtra SSR 2022-23; the two are
+  different revisions on different bases and both stand. Every amount, quantity, count, date
+  and duration is read at build time from `WORKS MANAGEMENT/Cost/REVISED_*_RC1.csv` and
+  `WORKS MANAGEMENT/Programme/REVISED_MASTER_CONSTRUCTION_SCHEDULE_R1.csv`.
+* **`ARCH001` SHEET 01** — the owner's three plans at the owner's 1:100, but **all three
+  spanning the full 22000 box** so that both escape shafts appear at every level, plus room,
+  door, opening, wall and level schedules.
+* **`ARCH002` SHEET 02** — the sentry post's two floor plans at 1:50, the south elevation
+  with the shelter at **1:150 and the post at its true X across a break**, and a 1:20 detail
+  of lintel L1, the wall ties and the 200 infill zone.
+
+> **The redraws change what the owner's two sheets PRINT, not what the project IS.**
+> All **fourteen** corrected figures already existed in master Part A and each is cited to
+> it. The register is `arch_data.CORRECTIONS` and master **H.43.4**; by instruction it is
+> **not printed on the sheets**. The owner's originals are preserved as the uploaded
+> `Project1.pdf` and are not altered.
+>
+> The principal correction is the **bay clear-width chain**. The owner's underground level
+> plan reads `2900 / 3500 / 1800 / 1560 / 2400` then `2800 / 3400` — it omits bay 2, reverses
+> bays 3 and 4, and gives bay 6 as 2400 and bay 8 as 3400. Master **A.3** gives
+> **`2900 / 1800 / 3500 / 1800 / 1560 / 2000 / 2800 / 3000`**. The 22000 × 6200 envelope was
+> already right and is unchanged.
+>
+> Two findings the redraw raised:
+>
+> * **`MEP2-F1`** — the owner's shared **DOOR SCH** lists thirteen marks and makes **every
+>   one 900 × 2100 × 45**. Master **A.4.9** has five distinct openings at four sizes, and
+>   **a 900 leaf will not fit either blast door**, which are **1200 × 2100** in the
+>   Y 600 – 1800 openings in W6 and W7. `ARCH001` carries a new schedule keyed
+>   `BD1 / BD2 / D1 / D2 / D3`.
+> * **`MEP2-F2`** — the elevation's lowest level, labelled **"FDN LEVEL −6100"**, is the
+>   **internal floor and top of mat**. The mat soffit is **(−)6.700** and the formation
+>   **(−)6.800**; the sentry post's own founding level, **(−)2.000**, was not shown at all.
+>   Also corrected: post ground floor **+0.450** (not 440), entry stairwell roof head
+>   **+2.450** (not 3400), and the single "POST ROOF 7000" split into the **+6.700** roof
+>   slab and the **+7.000** parapet top.
+
+`arch_data.py` is the single value source for sheets 01 and 02 and `ops_data.py` for sheets
+12 and 13. Both read the discipline modules (`mep_proj`, `sentry_data`, `fs_data`, the WM3
+CSVs) and **write nothing back**; `a2_lib.py`, `sheet_data.py`, `sentry_data.py`,
+`mep_data.py` and STR006 … STR009 / MEP010 / MEP011 are **untouched** by MEP2.
 
 **SR1 — the underground structure**
 
@@ -41,6 +113,44 @@ read as the next four sheets of that same series.
 |---|---|---|---|
 | **SHEET 08** | **STR008** | STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST — BEAMS & COLUMN | 1 first-floor framing plan 1:50 · 2 beam B1 longitudinal section 1:40 · 3 beam B2 longitudinal section 1:40 · 4 sections a-a/b-b (B1), c-c/d-d (B2), 3-3 (C1 confining zone), 4-4 (C1 general) 1:10 · 5 column C1 vertical section, full height, 1:25 |
 | **SHEET 09** | **STR009** | STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST — FOOTING & SLAB | 1 slab S1 bottom reinforcement plan 1:40 · 2 slab S1 top reinforcement plan (400 edge bands + 700 × 700 corner torsion mats) 1:40 · 3 slab S1 longitudinal section 2-2 1:25 · 4 isolated footing F1 reinforcement plan 1:20 · 5 isolated footing F1 section 1-1 1:20 |
+
+**MEP1 — the services sheets.  No design value moved and no analysis was run.**
+
+| Sheet | Drawing No. | Title | Views |
+|---|---|---|---|
+| **SHEET 10** | **MEP010** | HVAC & EMP ZONE LAYOUT PLANS — UNDERGROUND LEVEL | 1 HVAC services layout plan (−)6.100 1:100 · 2 EMP zone layout plan (−)6.100 1:100 · 3 EMP Zone 2 enclosure, plan and section, 1:30 · 4 protective ventilation schematic, filter train and cascade |
+| **SHEET 11** | **MEP011** | SEPTIC TANK, SOAK PIT & SUMP PIT — PLANS, SECTIONS & SCHEDULES | 1 sump pit SU-01 reinforcement plan 1:35 · 2 sump pit SU-01 sectional elevation A-A 1:35 · 3 septic tank ST-01 plan 1:30 · 4 septic tank ST-01 sectional elevation 1:30 · 5 soak pit SK-01 plan 1:50 · 6 soak pit SK-01 sectional elevation 1:50 · 7 key plan, external works location, 1:500 |
+
+Each of the three drainage structures is drawn **twice — once in plan and once as a
+cross-sectional elevation** — and the key plan puts all three at true project X and Y, with
+the septic tank and the soak pits **east of the shelter and 10 400 north of the sentry post**.
+
+> **By instruction these two sheets carry no design-basis panel, no calculation table, and no
+> revision, phase or open-item text.** The gaps the project genuinely has are therefore
+> recorded in master **H.42.4 / H.42.5** as `MEP1-F1` … `MEP1-F7`, not on the drawing. Two of
+> them govern how the sheets may be read:
+>
+> * **`MEP1-F2` — ST-01, the soak-pit cover slabs and the inspection chambers have NO
+>   reinforcement anywhere in this project.** No bar is drawn in them and none is scheduled;
+>   the element schedule and title-block note 8 call them to the structural engineer's detail.
+>   **The only reinforcement detailed on SHEET 11 is SU-01**, whose marks `F10`, `F11`, `F12`
+>   and `F13` are read straight out of `rebar_data.py`.
+> * **`MEP1-F7` — SHEET 11's key plan uses the RC4 EAST sentry-post placement**
+>   (X 32000–36000, Y 600–5600), the one DR-A2 drew. `U4` is still open and SG2's northern
+>   placement would put the post and the external works on the *same* side.
+>
+> Three more things the project does not hold are handled by **not drawing them**: `SH-1`, the
+> fresh-air shaft, has no plan position and is shown as a **direction arrow only**; `SK-03` and
+> `SK-04` have a reserved footprint and no size, and are drawn **dashed**; `ST-01` has no
+> recorded level, so its section is drawn to local finished grade and carries **no level at
+> all**. `PD-06`, `PD-11` and `PD-13` have scheduled lengths but no fixed route, so they are
+> **not drawn on the key plan** — only `PD-16`, whose two ends the project fixes.
+
+`mep_data.py` is the single value source for both sheets. It imports `hv_data`, `em_proj`,
+`dr_data`, `mep_proj` and `rebar_data` and **writes nothing back to them**; `a2_lib.py`,
+`sheet_data.py`, `sentry_data.py` and STR006 … STR009 are **not touched** by MEP1 — the
+nineteen services layers the two sheets need are added to each document at build time rather
+than to the shared `a2_lib.LAYERS` table, precisely so the structural sheets cannot move.
 
 ## Sheet standard
 
@@ -144,9 +254,15 @@ python3 s06_roof_mat.py               # -> DXF/STR006_...dxf
 python3 s07_wall_stair.py             # -> DXF/STR007_...dxf
 python3 s08_sentry_beam_col.py        # -> DXF/STR008_...dxf
 python3 s09_sentry_footing_slab.py    # -> DXF/STR009_...dxf
-python3 qa_overlap.py ../DXF/STR00*.dxf     # drafting QA, exits non-zero on a defect
-python3 render_a2.py  ../DXF/STR00*.dxf     # visual QA PNG
-python3 render_pdf.py ../DXF/STR00*.dxf     # true-size A2 vector PDF, 1:1
+python3 s10_hvac_emp_layout.py        # -> DXF/MEP010_...dxf
+python3 s11_drainage_structures.py    # -> DXF/MEP011_...dxf
+python3 s01_arch_plans.py             # -> DXF/ARCH001_...dxf
+python3 s02_sentry_arch.py            # -> DXF/ARCH002_...dxf
+python3 s12_fire_plan.py              # -> DXF/FLS012_...dxf
+python3 s13_works_management.py       # -> DXF/WMS013_...dxf
+python3 qa_overlap.py ../DXF/*.dxf          # drafting QA, exits non-zero on a defect
+python3 render_a2.py  ../DXF/*.dxf          # visual QA PNG
+python3 render_pdf.py ../DXF/*.dxf          # true-size A2 vector PDF, 1:1
 ```
 
 Each generator writes its own DXF; they take no arguments and the save path is at the
@@ -165,7 +281,7 @@ blocks as well, so a dimension value colliding with a label is caught.
 
 Tables and view titles are **measured, not guessed**: every cell and every title is sized
 with the same font metrics `ezdxf` places it with, and shrunk until it fits its column.
-That is why all four sheets pass the drafting QA with **zero text overlaps**.
+That is why all ten sheets pass the drafting QA with **zero text overlaps**.
 
 **`SR2-F2`, open:** `qa_overlap.py` reports that **STR007's two note panels are set at
 1.49 mm**, below the 1.70 mm `MIN_TXT_H` this package declares in `a2_lib.py` — 53 lines.
@@ -184,8 +300,18 @@ Done, per `CLAUDE.md`:
   and there is no single text to read.
 * `DRAWING QAQC/Scripts/make_index.py` — `STRUCTURAL - A2 presentation sheets` added to
   `ORDER` (done at SR1; unchanged by SR2).
-* Both re-run. `DRAWING_INDEX.md` and `qa_index.json` now carry **84 drawings, 78 PASS**;
-  **STR006, STR007, STR008 and STR009 all report PASS**.
+* **MEP1:** `Presentation Sheets/DXF/` maps to *"STRUCTURAL - A2 presentation sheets"*, which
+  MEP010 / MEP011 are not, so a **filename-prefix** entry `("Presentation Sheets/DXF/MEP",
+  "MEP - A2 presentation sheets")` was inserted **ahead** of it — the lookup takes the first
+  match — and the same label added to `make_index.ORDER`. Both drawing numbers added to
+  `TITLE_OVERRIDE`.
+* **MEP2:** the series now spans **four disciplines in one folder**, so `DISCIPLINE` matches
+  each by **filename prefix** ahead of the generic folder prefix — `…/DXF/MEP`,
+  `…/DXF/ARCH`, `…/DXF/FLS`, `…/DXF/WMS`, with `…/DXF/` left as the structural fallback.
+  The three new labels were added to `make_index.ORDER` and all four drawing numbers to
+  `TITLE_OVERRIDE`.
+* All re-run. `DRAWING_INDEX.md` and `qa_index.json` now carry **90 drawings, 84 PASS**;
+  **all ten A2 sheets report PASS**.
 
 ### `SR2-F2` — CLOSED at SR1A
 

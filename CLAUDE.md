@@ -47,7 +47,47 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own
+- Latest revision: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
+  presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
+  plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,
+  the owner's own sheets 1 and 2, same views and scales, **every dimension and level brought
+  to Part A** — the owner's `Project1.pdf` is preserved and untouched. **No design value
+  moved, no analysis was run.** New data modules `arch_data.py` (sheets 01 / 02) and
+  `ops_data.py` (sheets 12 / 13); `a2_lib.py`, `sheet_data.py`, `sentry_data.py`,
+  `mep_data.py` and STR006…STR009 / MEP010 / MEP011 are **untouched**.
+  **SHEET 13 presents `WM3`, NOT `WM4`** — the revised owner package of H.15, final project
+  cost **Rs 2,97,90,913**, programme R1; WM4 is the later SSR-priced bill and both stand.
+  **Read `arch_data.CORRECTIONS` (and master H.43.4) before trusting any figure on the
+  owner's sheets 1 or 2** — fourteen are corrected, chiefly the **bay chain** (A.3) and the
+  **sentry post 4000 × 5000** (A.4.8). Findings **`MEP2-F1`** (the owner's door schedule
+  makes every door 900 × 2100; **both blast doors are 1200 × 2100**, A.4.9) and
+  **`MEP2-F2`** (its *"FDN LEVEL −6100"* is the internal floor, not the foundation).
+  **`FLS012` uses the RC4-ruled escape-shaft ladder, not `fs_data`'s superseded
+  `FS-6`/`FS-V7` text.** Index now **90 drawings, 84 PASS**; the series is split across four
+  QA disciplines by filename prefix.
+  Amended the same day as **MEP2A** (master **H.43.12**), by instruction: **both charts
+  DELETED from `WMS013`** — the programme bar chart and the cost distribution chart. **No
+  figure changed.** The sheet is now purely tabular and carries **all 38 measured bill items**
+  with unit, quantity, rate and amount, which the charted version had no room for. Long item
+  descriptions are **trimmed to the column at a word break and marked with an ellipsis** (the
+  bill governs), and the standby generator line, which carries no rate in WM3, prints as
+  **NOT PRICED** and is in no total on the sheet. **Never invent a rate for it.**
+  Before it: **MEP1** (16 Sep 2026, master **H.42**) — **two A2 SERVICES presentation
+  sheets in the same `ARCH001…ARCH005` frame, `MEP010` (SHEET 10, HVAC + EMP zone layout plans)
+  and `MEP011` (SHEET 11, septic tank, soak pit and sump pit in plan and cross-sectional
+  elevation).** **No design value moved, no analysis was run.** Values are read from
+  `hv_data.py`, `em_proj.py`, `dr_data.py`, `mep_proj.py` and `rebar_data.py` through the new
+  `Presentation Sheets/Scripts/mep_data.py`; nothing is written back to those packages and
+  **`a2_lib.py`, `sheet_data.py`, `sentry_data.py` and STR006…STR009 are untouched** (the
+  services layers are added per-document, not to `a2_lib.LAYERS`). By instruction the sheets
+  carry **no design-basis panel, no calculation table and no revision, phase or open-item
+  text**; the gaps are therefore recorded in the master only, as **`MEP1-F1` … `MEP1-F7`**.
+  **Read `MEP1-F2` before adding any bar to SHEET 11** — ST-01, the soak-pit cover slabs and
+  the inspection chambers have **no reinforcement anywhere in this project**, so none is drawn
+  or scheduled; only SU-01 (marks F10–F13) is detailed. **Read `MEP1-F7` before quoting
+  SHEET 11's key plan** — it uses the **RC4 east** sentry-post placement, and `U4` is open.
+  New QA discipline **`MEP - A2 presentation sheets`**; index now **86 drawings, 80 PASS**.
+  Before it: **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own
   copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire
   revision line (`STRUCTURAL - PHASE 2 REV A + M1`) deleted from the header — asked directly
   which reading was meant (drop just `REV A`, or the whole line), and the whole line was the

@@ -200,6 +200,55 @@ procurement requirement — a certified curve for the panel as built — not a d
 four RECORDED AND NOT CORRECTED.** `CONSOLIDATED_PROJECT_REPORT.md` remains stale on the open-item and assumption counts
 (`PR1-F3`) and is **not edited either.**
 
+Updated **16 Sep 2026** for the **A2 presentation-sheet series** (master Parts **H.39 – H.42**),
+which this digest had not carried at all. Six A2 sheets now sit in the frame and title block of
+the owner's Revit set `ARCH001…ARCH005`, numbered on from it: **`STR006` SHEET 06** roof slab +
+mat and **`STR007` SHEET 07** 600 shear wall + main staircase (**SR1**, H.39, amended **SR1A**,
+H.41); **`STR008` SHEET 08** sentry-post beams + column and **`STR009` SHEET 09** footing + slab
+(**SR2**, H.40, amended **SR2A**); and now **`MEP010` SHEET 10** HVAC + EMP zone layout plans and
+**`MEP011` SHEET 11** septic tank, soak pit and sump pit in plan and cross-sectional elevation
+(**MEP1**, H.42). **None of them moved a design value and none ran an analysis** — they
+re-present what the project already holds. MEP1 reads `hv_data.py`, `em_proj.py`, `dr_data.py`,
+`mep_proj.py` and `rebar_data.py` and writes nothing back; the only reinforcement detailed on
+SHEET 11 is **SU-01**, whose marks F10–F13 exist in the register, because **ST-01, the soak-pit
+cover slabs and the inspection chambers have no bar anywhere in this project** (`MEP1-F2`).
+**`MEP1-F7` is the one to read before quoting SHEET 11's key plan:** it shows the septic tank and
+the soak pits standing 10 400 north of the sentry post **on the RC4 east placement**; `U4` is
+still open and SG2's northern placement would put them on the same side. `DRAWING_INDEX.md` now
+reads **86 drawings, 80 PASS**. Still open from the series: **`SR2-F1`**, the B2 roof-joint
+contradiction that keeps the sentry roof frame undrawn, and `SR2-V1…V6`.
+
+Updated **18 Sep 2026** for **MEP2** (master Part **H.43**) — **four more A2 sheets, so the
+presentation series is now TEN**: `FLS012` **SHEET 12** (fire and life safety escape plan,
+shaft section and evacuation decision rule) and `WMS013` **SHEET 13** (works management), both
+new; and **`ARCH001` / `ARCH002`, REDRAWS of the owner's own sheets 1 and 2** with the same
+views at the same scales and every dimension and level brought to Part A. **No design value
+moved and no analysis was run.**
+
+**Two things to know before using them.** **SHEET 13 presents `WM3`** — the revised owner
+package of H.15, final project cost **Rs 2,97,90,913**, programme R1, 224 working days
+02-11-26 to 26-07-27 — and **NOT `WM4`**, the later SSR-priced bill; both revisions stand and
+they are different bases. **The redraws change what the owner's sheets PRINT, not what the
+project IS**: fourteen figures are corrected, all of them already in Part A, and the register
+is `arch_data.CORRECTIONS` plus master H.43.4. The principal one is the **bay chain** — the
+owner's plan omits bay 2, reverses bays 3 and 4, and gives bay 6 as 2400 and bay 8 as 3400,
+against A.3's **2900 / 1800 / 3500 / 1800 / 1560 / 2000 / 2800 / 3000**. Two findings:
+**`MEP2-F1`**, the owner's door schedule makes every door 900 × 2100 when **both blast doors
+are 1200 × 2100** and the entry door is 1000 × 2100 (A.4.9); **`MEP2-F2`**, its
+*"FDN LEVEL −6100"* is the **internal floor and top of mat**, with the mat soffit at
+(−)6.700 and the formation at (−)6.800.
+
+**Amended the same day as MEP2A** (master H.43.12), by instruction: **both charts were
+DELETED from `WMS013`** and **no figure changed**. The sheet is now purely tabular, and
+carries **all 38 measured bill items** with unit, quantity, rate and amount — which the two
+charts had left no room for. The standby generator line carries no rate in WM3 and prints as
+**NOT PRICED**; it is in no total on the sheet and **no rate is invented for it**.
+
+**`FLS012` uses the RULED ladder.** `fs_data` still carries `FS-6`/`FS-V7` as *"no ladder
+specified"*; **RC4 superseded that** (A.4.9 / H.28) — ladder only, fall-arrest deferred — and
+the sheet draws and schedules the ruled ladder. `DRAWING_INDEX.md` now reads **90 drawings,
+84 PASS**, with the series split across four disciplines by filename prefix.
+
 ---
 
 ## Identity and revisions

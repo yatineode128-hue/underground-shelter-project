@@ -3,7 +3,7 @@
 Generated from the DXF files themselves by `DRAWING QAQC/Scripts/qa_report_data.py`
 and `make_index.py`, so it cannot drift from the drawings.
 
-**84 DXF · 75 A1 · 4 A4 · 4 A2 · 1 A0.**  Drafting QA/QC baseline **QA1** (9 September 2026, master H.11), re-scanned at **QA2** (11 September 2026, master H.25).  The FIRE AND LIFE SAFETY and SITE AND CONCEALMENT sheets were added at **FS2 / CAM2**, and the EMP PROTECTION, ELECTRICAL and SITE SELECTION AND GEOTECHNICAL sheets at **EM1 / EL1 / SG1 / SG2**, all after the QA1 pass and all drawn to the same standard.
+**90 DXF · 75 A1 · 10 A2 · 4 A4 · 1 A0.**  Drafting QA/QC baseline **QA1** (9 September 2026, master H.11), re-scanned at **QA2** (11 September 2026, master H.25).  The FIRE AND LIFE SAFETY and SITE AND CONCEALMENT sheets were added at **FS2 / CAM2**, and the EMP PROTECTION, ELECTRICAL and SITE SELECTION AND GEOTECHNICAL sheets at **EM1 / EL1 / SG1 / SG2**, all after the QA1 pass and all drawn to the same standard.
 
 > **Filenames are deliberately unchanged.** Master Parts E.2 and I.1 and every
 > document in this project cite the current filenames, and the QA/QC brief requires
@@ -39,6 +39,20 @@ and `make_index.py`, so it cannot drift from the drawings.
 - `A-204` — `current/cad/5_Entry_Headhouse_Stair_Section.dxf`
 - `A-301` — `current/cad/5_Front_Elevation.dxf`
 - `S-06` — `current/cad/06_Underground_Plan_Services_Sump_BlastValves.dxf`
+
+</details>
+
+## ARCHITECTURAL - A2 presentation sheets  (2)
+
+| Drawing No. | Title | Scale | Size | Texts | Final QA |
+|---|---|---|---|---|---|
+| **ARCH001** | UNDERGROUND LEVEL PLAN, HEADHOUSE LEVEL PLAN AND GROUND LEVEL PLAN | - | A2 | 350 | PASS |
+| **ARCH002** | SENTRY POST - FLOOR PLANS AND SOUTH ELEVATION | - | A2 | 250 | PASS |
+
+<details><summary>filenames</summary>
+
+- `ARCH001` — `Presentation Sheets/DXF/ARCH001_Underground_Headhouse_and_Ground_Level_Plans_Redrawn_to_Project_Data.dxf`
+- `ARCH002` — `Presentation Sheets/DXF/ARCH002_Sentry_Post_Floor_Plans_and_South_Elevation_Redrawn_to_Project_Data.dxf`
 
 </details>
 
@@ -143,6 +157,44 @@ and `make_index.py`, so it cannot drift from the drawings.
 - `STR007` — `Presentation Sheets/DXF/STR007_Structural_Reinforcement_Detailing_Shear_Wall_and_Main_Staircase.dxf`
 - `STR008` — `Presentation Sheets/DXF/STR008_Structural_Reinforcement_Detailing_Sentry_Post_Beams_and_Column.dxf`
 - `STR009` — `Presentation Sheets/DXF/STR009_Structural_Reinforcement_Detailing_Sentry_Post_Footing_and_Slab.dxf`
+
+</details>
+
+## MEP - A2 presentation sheets  (2)
+
+| Drawing No. | Title | Scale | Size | Texts | Final QA |
+|---|---|---|---|---|---|
+| **MEP010** | HVAC AND EMP ZONE LAYOUT PLANS - UNDERGROUND LEVEL | - | A2 | 383 | PASS |
+| **MEP011** | SEPTIC TANK, SOAK PIT AND SUMP PIT - PLANS, SECTIONS AND SCHEDULES | - | A2 | 342 | PASS |
+
+<details><summary>filenames</summary>
+
+- `MEP010` — `Presentation Sheets/DXF/MEP010_HVAC_and_EMP_Zone_Layout_Plans.dxf`
+- `MEP011` — `Presentation Sheets/DXF/MEP011_Septic_Tank_Soak_Pit_and_Sump_Pit_Plans_Sections_and_Schedules.dxf`
+
+</details>
+
+## FIRE AND LIFE SAFETY - A2 presentation sheets  (1)
+
+| Drawing No. | Title | Scale | Size | Texts | Final QA |
+|---|---|---|---|---|---|
+| **FLS012** | FIRE AND LIFE SAFETY - ESCAPE PLAN, SHAFT SECTION AND DECISION RULE | NOT TO SCALE | A2 | 244 | PASS |
+
+<details><summary>filenames</summary>
+
+- `FLS012` — `Presentation Sheets/DXF/FLS012_Fire_and_Life_Safety_Escape_Plan_and_Decision_Rule.dxf`
+
+</details>
+
+## WORKS MANAGEMENT - A2 presentation sheets  (1)
+
+| Drawing No. | Title | Scale | Size | Texts | Final QA |
+|---|---|---|---|---|---|
+| **WMS013** | WORKS MANAGEMENT - MASTER PROGRAMME AND BILL OF QUANTITIES | Not to scale | A2 | 491 | PASS |
+
+<details><summary>filenames</summary>
+
+- `WMS013` — `Presentation Sheets/DXF/WMS013_Works_Management_Master_Programme_and_Bill_of_Quantities.dxf`
 
 </details>
 
@@ -310,7 +362,7 @@ and `make_index.py`, so it cannot drift from the drawings.
 
 ---
 
-**Package QA result — 84 drawings, 78 PASS, 6 REVIEW REQUIRED, 12 residual items in total.**
+**Package QA result — 90 drawings, 84 PASS, 6 REVIEW REQUIRED, 12 residual items in total.**
 
 Every REVIEW item is a single annotation still crossing a dimension or a wall line
 in a dense zone of a section or plan. Each one is named individually in
