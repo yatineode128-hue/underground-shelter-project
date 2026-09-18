@@ -5990,6 +5990,48 @@ is restated.** The owner's `Project1.pdf`, `USER_SOURCE/` and the as-supplied WM
 publication are untouched, and **WM4 is neither superseded nor altered** — WM3 and WM4 are
 different revisions on different bases and both stand (M.11).
 
+### H.43.12 MEP2A — the two charts deleted from SHEET 13, by instruction, 18 September 2026
+
+> ***"No need to include graphs in works management."*** `WMS013` was re-issued the same day
+> with **both charts deleted** — view 1, the master construction programme bar chart, and
+> view 2, the cost distribution by bill part. **No figure changed.** The record above is
+> preserved under M.11 and describes the sheet as first issued.
+
+**What the sheet is now.** A pure schedule sheet, and a fuller one than the charts allowed:
+
+| Where | Table | Rows |
+|---|---|---|
+| Drawing region, x 44 – 260 | **BILL OF QUANTITIES — MEASURED ITEMS (REVISED)** | **all 38 items** under their five part headings, each heading a full-width band carrying its own item count and total |
+| Schedule column | **MASTER CONSTRUCTION PROGRAMME** | 18 summary activities, ID / activity / working days / start / finish |
+| Schedule column | **COST SUMMARY** | 8 cost heads to the final project cost |
+| Schedule column | **BILL OF QUANTITIES — PART SUMMARY** | the five parts |
+| Schedule column | **WHAT THE REVISED BILL CARRIES** | the six WM3 changes |
+
+**The bar chart carried 18 activities and no quantities; the tables carry the whole bill.**
+Deleting the charts freed the entire drawing region, so the sheet now prints **every measured
+item with its unit, quantity, rate and amount** — 491 texts against 298 before — which the
+charted version could not do. The `PRINCIPAL BILL ITEMS BY VALUE` table is dropped as
+redundant once the full bill is on the sheet, and `PROGRAMME PHASES` is dropped because the
+programme table already contains the four phases. The two chart layers `W-GRID` / `W-BAR` /
+`W-PHASE` / `W-SUB` / `W-AXIS` / `W-TEXT` are no longer created.
+
+**Two honesty points the tabular sheet has to make, and does.** The bill's item descriptions
+run to 293 characters, so they are **trimmed to the column at a word break and marked with an
+ellipsis**, with title-block note 10 saying so and that the bill governs — no description is
+reworded. And the **standby generator line carries no rate in WM3** (it is deliberately held
+at `DATA REQUIRED` there, so the omission is visible rather than silent), so it prints as
+**`NOT PRICED`** with a `-` rate, and title-block note 9 states that such a line is not
+included in any total on the sheet. **No rate is invented, and the Rs 2,97,90,913 total is
+WM3's own.**
+
+**Verified after the change:** `qa_overlap.py` on all ten A2 sheets **0 / 0 / 0 / 0 / 0**;
+`DRAWING_INDEX.md` re-run **90 drawings, 84 PASS**, `WMS013` **491 texts, A2, PASS**; the PDF
+still **1683.78 × 1190.55 pt**. **No other sheet, script or data module was touched** — the
+only files that change are `s13_works_management.py`, `ops_data.py` (which gains
+`BOQ_ITEMS` and `PROGRAMME_ROWS` and keeps everything else), the `WMS013` DXF and PDF, the
+two regenerated QA outputs and the documentation. **The main staircase is untouched and does
+not appear on this sheet.**
+
 ---
 
 # PART I — PROJECT FILE MANIFEST

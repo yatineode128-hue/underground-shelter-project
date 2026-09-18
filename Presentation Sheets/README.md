@@ -21,8 +21,18 @@ moved and no analysis was run.**
   the confirmed geometry, so a figure on the sheet cannot disagree with the schedule.
   **The ladder drawn is the one RC4 RULED** (master A.4.9 / H.28) — ladder only, fall-arrest
   deferred — **not** `fs_data`'s superseded `FS-6` / `FS-V7` *"no ladder specified"* text.
-* **`WMS013` SHEET 13** — 1 master construction programme bar chart · 2 cost distribution by
-  bill part. **It presents `WM3`, the REVISED owner package of master H.15, final project
+* **`WMS013` SHEET 13** — a **pure schedule sheet, no charts or graphs**: the whole
+  **BILL OF QUANTITIES, all 38 measured items** under their five part headings with unit,
+  quantity, rate and amount, plus the **MASTER CONSTRUCTION PROGRAMME** (18 summary
+  activities), the **COST SUMMARY**, the **PART SUMMARY** and **WHAT THE REVISED BILL
+  CARRIES**. *(Issued first with a programme bar chart and a cost chart; both were deleted
+  the same day at **MEP2A** by instruction, which freed the drawing region for the full bill.
+  No figure changed — master H.43.12.)*
+  Long item descriptions are the bill's own, **trimmed to the column at a word break and
+  marked with an ellipsis**; the bill governs. The **standby generator line carries no rate
+  in WM3** and prints as **NOT PRICED** — it is in no total on the sheet and no rate is
+  invented for it.
+  **It presents `WM3`, the REVISED owner package of master H.15, final project
   cost `Rs 2,97,90,913` and programme R1, 224 working days 02-11-26 to 26-07-27.**
   **It is NOT `WM4`**, the later bill priced from the Maharashtra SSR 2022-23; the two are
   different revisions on different bases and both stand. Every amount, quantity, count, date

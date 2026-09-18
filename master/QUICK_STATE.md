@@ -238,6 +238,12 @@ are 1200 × 2100** and the entry door is 1000 × 2100 (A.4.9); **`MEP2-F2`**, it
 *"FDN LEVEL −6100"* is the **internal floor and top of mat**, with the mat soffit at
 (−)6.700 and the formation at (−)6.800.
 
+**Amended the same day as MEP2A** (master H.43.12), by instruction: **both charts were
+DELETED from `WMS013`** and **no figure changed**. The sheet is now purely tabular, and
+carries **all 38 measured bill items** with unit, quantity, rate and amount — which the two
+charts had left no room for. The standby generator line carries no rate in WM3 and prints as
+**NOT PRICED**; it is in no total on the sheet and **no rate is invented for it**.
+
 **`FLS012` uses the RULED ladder.** `fs_data` still carries `FS-6`/`FS-V7` as *"no ladder
 specified"*; **RC4 superseded that** (A.4.9 / H.28) — ladder only, fall-arrest deferred — and
 the sheet draws and schedules the ruled ladder. `DRAWING_INDEX.md` now reads **90 drawings,

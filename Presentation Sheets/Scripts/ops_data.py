@@ -181,8 +181,40 @@ PART_SUMMARY = [[p.replace("PART ", "").split(" - ")[0],
                  p.split(" - ", 1)[1] if " - " in p else p,
                  str(n), _money(t)] for p, n, t in PART_TOTALS]
 
+def _short(desc, n=62):
+    """The bill's own description, trimmed to the column without inventing
+    words.  Nothing is reworded; a long description is cut at a word break and
+    marked, and the full text stays in the bill itself."""
+    d = " ".join(desc.split())
+    if len(d) <= n:
+        return d
+    cut = d[:n].rsplit(" ", 1)[0]
+    return cut + " ..."
+
+
+def _rate(r):
+    """The bill's rate, or '-' where the bill carries no rate for the line."""
+    v = r[5].strip()
+    return v if v and v.replace(".", "").isdigit() else "-"
+
+
+def _amount(r):
+    v = float(r[8] or 0)
+    return _money(v) if v else "NOT PRICED"
+
+
+# The whole measured bill, 38 items under the five part headings.  Each part
+# heading is a full-width band carrying its own item count and total.
+BOQ_ITEMS = []
+for _p, _n, _tot in PART_TOTALS:
+    BOQ_ITEMS.append(f"{_p}          {_n} ITEMS          "
+                     f"Rs {_money(_tot)}")
+    for _r in (x for x in _ITEMS if x[0] == _p):
+        BOQ_ITEMS.append([_r[1], _short(_r[2]), _r[3], _r[4], _rate(_r),
+                          _amount(_r)])
+
 PRINCIPAL_ITEMS = [
-    [r[2][:58], r[3], r[4], _money(r[8])]
+    [_short(r[2], 58), r[3], r[4], _money(r[8])]
     for r in sorted(_ITEMS, key=lambda r: -float(r[8]))[:12]
 ]
 
@@ -199,6 +231,17 @@ GANTT = [(PROG[i][1], PROG[i][2], PROG[i][3], PROG[i][4]) for i in GANTT_IDS]
 
 MILESTONES = [[PROG[i][1][:54], PROG[i][2], PROG[i][3], PROG[i][4]]
               for i in ("2", "6", "27", "86")]
+
+# The programme as a table: the master line, the four phases and the
+# sub-summaries the owner's own outline carries under them.
+PHASE_IDS = {"1", "2", "6", "27", "86"}
+PROGRAMME_ROWS = [
+    [i,
+     (PROG[i][1] if i in PHASE_IDS else "    " + PROG[i][1])[:58],
+     PROG[i][2].replace(" days", "").strip(), PROG[i][3], PROG[i][4]]
+    for i in GANTT_IDS
+]
+PROGRAMME_ROWS[0][1] = "MASTER CONSTRUCTION SCHEDULE"
 
 # what WM3 applied, from master H.15 -- stated as what the bill now contains
 WM3_APPLIED = [

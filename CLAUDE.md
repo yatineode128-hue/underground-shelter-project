@@ -65,6 +65,13 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   **`FLS012` uses the RC4-ruled escape-shaft ladder, not `fs_data`'s superseded
   `FS-6`/`FS-V7` text.** Index now **90 drawings, 84 PASS**; the series is split across four
   QA disciplines by filename prefix.
+  Amended the same day as **MEP2A** (master **H.43.12**), by instruction: **both charts
+  DELETED from `WMS013`** — the programme bar chart and the cost distribution chart. **No
+  figure changed.** The sheet is now purely tabular and carries **all 38 measured bill items**
+  with unit, quantity, rate and amount, which the charted version had no room for. Long item
+  descriptions are **trimmed to the column at a word break and marked with an ellipsis** (the
+  bill governs), and the standby generator line, which carries no rate in WM3, prints as
+  **NOT PRICED** and is in no total on the sheet. **Never invent a rate for it.**
   Before it: **MEP1** (16 Sep 2026, master **H.42**) — **two A2 SERVICES presentation
   sheets in the same `ARCH001…ARCH005` frame, `MEP010` (SHEET 10, HVAC + EMP zone layout plans)
   and `MEP011` (SHEET 11, septic tank, soak pit and sump pit in plan and cross-sectional

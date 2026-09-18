@@ -190,7 +190,7 @@ and `make_index.py`, so it cannot drift from the drawings.
 
 | Drawing No. | Title | Scale | Size | Texts | Final QA |
 |---|---|---|---|---|---|
-| **WMS013** | WORKS MANAGEMENT - MASTER PROGRAMME AND BILL OF QUANTITIES | Not to scale | A2 | 298 | PASS |
+| **WMS013** | WORKS MANAGEMENT - MASTER PROGRAMME AND BILL OF QUANTITIES | Not to scale | A2 | 491 | PASS |
 
 <details><summary>filenames</summary>
 
