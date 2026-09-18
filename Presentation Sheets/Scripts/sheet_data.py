@@ -322,3 +322,163 @@ BASIS_07 = [
     "THE LANDINGS PROP W6 AND W7 AT (-)4.733 AND (-)3.367, BUT ONLY OVER",
     "   THEIR 1200 DEPTH.  The 400 wall design does NOT rely on that prop.",
 ]
+
+
+# =====================================================================  SHEET 14
+# HEADHOUSE.  Geometry sc_proj.HH / HH_DOOR / HH_BAND; design master B.7.1,
+# B.7.2, B.7.3; detailing master F.3; loads A.7.5.  Bar marks H01A..H10 are read
+# from rebar_data.py by headhouse_marks() -- nothing here re-types a bar.
+def headhouse_marks():
+    return _rows("HEADHOUSE")
+
+
+def entrance_marks():
+    return _rows("ENTRANCE / ENTRY STAIRWELL")
+
+
+NOTES_14 = [
+    "ALL DIMENSIONS ARE IN MM. ALL LEVELS ARE IN METRES RELATIVE TO FINISHED "
+    "SITE GRADE 0.000, NEGATIVE DOWNWARDS.",
+    "WRITTEN DIM TO BE FOLLOWED ONLY. DRG NOT TO BE SCALED.",
+    "THIS DRG IS TO BE READ IN CONJUNCTION WITH ALL RELEVANT ARCH AND STR DRGS.",
+    "CONCRETE M35, w/c NOT MORE THAN 0.45. REINFORCEMENT Fe500D TO IS 1786:2008. "
+    "Ld 40 PHI, LAPS 50 PHI, ALL STAGGERED SO THAT NOT MORE THAN 50 % ARE "
+    "SPLICED AT ONE SECTION.",
+    "MAX BAR SPACING 150 IN BOTH CURTAINS - THIS IS AN EMP REQUIREMENT AND IS "
+    "STRICTER THAN IS 456 Cl. 26.3.3.",
+    "THE HEADHOUSE ROOF IS FLUSH WITH THE BERM CREST AT (+)0.900 AND CARRIES NO "
+    "EARTH COVER. IT IS LOADED AT 396.5 kPa = 383 BLAST + 12.5 SELF + 1.0 SIDL.",
+    "THE FOUR WALLS ARE REINFORCED SYMMETRICALLY FOR 383 kPa ACTING ON EITHER "
+    "FACE - SEE THE CONSTRUCTION REQUIREMENTS PANEL. THIS IS A STATED "
+    "REQUIREMENT, NOT AN ACCIDENT OF DETAILING.",
+    "THE HEADHOUSE FLOOR IS THE TOP OF THE 900 PRESSURE SLAB AT (-)2.000. WALL "
+    "STARTERS H10 ARE CAST WITH THAT SLAB - SEE SHEET 06.",
+    "CONTRACTOR TO CHECK AND VERIFY THE DRG BEFORE EXECUTION.",
+]
+
+ELEMENT_ROWS_14 = [
+    ["ROOF - END 1200 EACH SIDE", "500", "75", "415",
+     "T20 @ 150 EF EW   (2094 mm2/m)", "T12 4L @ 175"],
+    ["ROOF - MID ZONE", "500", "75", "415", "T20 @ 150 EF EW", "T12 4L @ 250"],
+    ["WALLS HW1 - HW4", "400", "50 / 40", "342",
+     "T16 @ 150 EF EW   (1340 mm2/m)", "T12 4L @ 250 THROUGHOUT"],
+    ["DOOR JAMBS, HW2", "-", "40", "-",
+     "2-T20 EACH JAMB, EACH FACE, Ld 800 BEYOND", "-"],
+    ["DOOR-HEAD EDGE BAND", "400 x 800", "40", "742",
+     "4-T20 TOP + 4-T20 BOTTOM", "T12 4L @ 150"],
+    ["WALL / ROOF HAUNCH", "300 x 300", "-", "-", "DIAGONAL T16 @ 150", "-"],
+    "THE WALLS ARE SYMMETRICAL FOR 383 kPa EITHER FACE.  ROOF SPANS 4000 CLEAR, WALLS 2400 CLEAR",
+]
+
+HH_CHECK = [
+    ["ROOF 500 - ONE-WAY STRIP", "w Ln2 / 16", "396.5 kNm/m", "1879 mm2/m",
+     "2094  (T20 @ 150 EF EW)", "90 %  *** ADOPTED ***"],
+    ["ROOF 500 - IS 456 TABLE 26", "CASE 1, alpha x- 0.045", "285.5 kNm/m", "-",
+     "as above", "65 %"],
+    ["ROOF 500 - YIELD LINE", "FIXED 4 EDGES, ISOTROPIC", "162.2 kNm/m", "-",
+     "as above", "37 %"],
+    ["WALLS 400", "w Ln2 / 16 AT 383 kPa", "137.9 kNm/m",
+     "766 ; Cl. 32.5(b) min 800", "1340  (T16 @ 150 EF EW)", "59 %"],
+    "SHEAR - tau_c IS READ AT THE STATIC M35 VALUE.  IS 4991 Cl. 10.3.1.1 FORBIDS A DYNAMIC INCREASE ON SHEAR",
+    ["ROOF SHEAR AT d", "V 628.4 kN/m", "tau_v 1.514", "tau_c 0.502",
+     "T12 4L @ 175 / 250", "LINKS MANDATORY"],
+    ["WALL SHEAR AT d", "V 328.6 kN/m", "tau_v 0.961", "tau_c 0.444",
+     "T12 4L @ 250", "Cl. 26.5.1.5 256 GOVERNS"],
+]
+
+PANEL_14 = [
+    "1  THE WALLS ARE REINFORCED SYMMETRICALLY FOR 383 kPa ACTING EITHER FACE.  The inner security",
+    "   door is NOT blast rated and the entry stairwell is expected to be lost, so the headhouse",
+    "   FILLS and the walls are pushed OUTWARDS.  A stated requirement, not an accident of detailing.",
+    "2  HW3 HAS NO WALL UNDER IT.  It is carried as a LINE LOAD on the pressure slab, not as a",
+    "   support - 26 % (two-way) / 41 % (one-way bound).  Robustness band: 4 No. T25 ADDITIONAL top",
+    "   and bottom over a 1200 width beneath HW3, lapped 1250 (50 phi) - mark S16, SHEET 06.",
+    "3  ROOF SHEAR LINKS ARE MANDATORY AND WERE NOT IN THE PHASE 1 REPORT.  tau_v 1.514 > tau_c",
+    "   0.502, tau_c read at the STATIC M35 value because IS 4991 Cl. 10.3.1.1 forbids any dynamic",
+    "   increase on shear.  T12 4-legged at 175 over the end 1200 each side, at 250 elsewhere.",
+    "4  ONLY 300 mm OF WALL SITS ABOVE THE DOOR - too shallow for a lintel.  Door head (-)2.000 +",
+    "   2.100 = (+)0.100; roof soffit (+)0.400.  The 300 wall and the 500 roof act TOGETHER as an",
+    "   800 deep edge band, 4-T20 top + 4-T20 bottom, over the opening and 600 each side.",
+    "5  THE DOOR FRAME IS CAST IN AND WELDED TO THE CAGE (EMP), even though the leaf is a security",
+    "   door and is not blast rated.",
+    "6  HAUNCH 300 x 300 AT ALL FOUR WALL / ROOF JUNCTIONS, diagonal T16 @ 150.  Top steel is",
+    "   continuous over every support, anchored Ld 800 into the wall.  No opening occurs in the",
+    "   headhouse roof - the stair void is in the FLOOR, not the roof.",
+]
+
+# =====================================================================  SHEET 15
+# ENTRY (APPROACH) STAIRWELL.  Geometry sc_proj.ASW; design master B.6;
+# detailing master F.2; loads A.7.6.  Bar marks E01..E12 from rebar_data.py.
+NOTES_15 = [
+    "ALL DIMENSIONS ARE IN MM. ALL LEVELS ARE IN METRES RELATIVE TO FINISHED "
+    "SITE GRADE 0.000, NEGATIVE DOWNWARDS.",
+    "WRITTEN DIM TO BE FOLLOWED ONLY. DRG NOT TO BE SCALED.",
+    "THIS DRG IS TO BE READ IN CONJUNCTION WITH ALL RELEVANT ARCH AND STR DRGS.",
+    "CONCRETE M35, w/c NOT MORE THAN 0.45. REINFORCEMENT Fe500D TO IS 1786:2008. "
+    "Ld 40 PHI, LAPS 50 PHI, ALL STAGGERED SO THAT NOT MORE THAN 50 % ARE "
+    "SPLICED AT ONE SECTION.",
+    "*** THIS STRUCTURE IS OUTSIDE THE PROTECTIVE BOUNDARY AND IS NOT BLAST "
+    "RATED (REV F DRAWING NOTE 8). IT IS EXPECTED TO BE LOST IN THE DESIGN "
+    "EVENT. IT IS DESIGNED TO IS 456 WITH NORMAL PARTIAL FACTORS, NOT WITH "
+    "IS 4991 DYNAMIC STRENGTHS. ***",
+    "THE 150 EMP BAR-SPACING RULE DOES NOT APPLY HERE. IT IS A REQUIREMENT OF "
+    "THE PROTECTIVE ENVELOPE, AND THIS STRUCTURE IS OUTSIDE IT; SPACING IS 200.",
+    "THE OPENING CORNER AT THE TOP OF THE FLIGHT IS DETAILED TO SP 34:1987 "
+    "Cl. 5.5 - MAIN BARS ARE NOT BENT ROUND IT. SEE DETAIL 3 AND THE "
+    "CONSTRUCTION REQUIREMENTS PANEL.",
+    "MOVEMENT JOINT WHERE THE STEPPED RAFT MEETS THE HEADHOUSE. THE RAFT BEARS "
+    "ON COMPACTED FILL AND THE HEADHOUSE BEARS ON THE PRESSURE SLAB - THEY MUST "
+    "NOT BE CAST MONOLITHIC.",
+    "CONTRACTOR TO CHECK AND VERIFY THE DRG BEFORE EXECUTION.",
+]
+
+ELEMENT_ROWS_15 = [
+    ["FLIGHT, WAIST 250", "250", "30", "214", "T16 @ 200  (1005)", "T10 @ 200",
+     "T16 @ 200, 1200 INTO THE FLIGHT"],
+    ["TOP LANDING   0.000", "250", "30", "214", "T12 @ 200 EF EW  (565)", "-", "-"],
+    ["PLATFORM   (-)2.000", "250", "30", "214", "T12 @ 200 EF EW", "-", "ON FILL"],
+    ["SIDE WALLS", "250", "50", "194", "T12 @ 200 EF EW", "-",
+     "MIN STEEL GOVERNS"],
+    ["RAKING ROOF", "250", "30", "204", "T12 @ 200 EF EW", "-",
+     "MIN STEEL GOVERNS"],
+    ["HEADWALL", "250", "30", "214", "T12 @ 200 EF EW", "-", "-"],
+    ["DOOR LINTEL  1000 CLEAR", "250 x 350", "30", "306", "3-T12 T + 3-T12 B",
+     "T8 @ 150", "-"],
+    ["STEPPED RAFT", "300", "50", "244", "T12 @ 200 EF EW", "-",
+     "ON COMPACTED FILL"],
+    "OUTSIDE THE PROTECTIVE BOUNDARY.  NOT BLAST RATED.  DESIGNED TO IS 456, NOT TO IS 4991",
+]
+
+ASW_CHECK = [
+    ["FLIGHT, WAIST 250", "wu 22.85 kPa", "Leff 4800 (Cl. 33.1(b))",
+     "M 65.8 kNm/m", "Ast,req 744", "T16 @ 200  (1005)", "75 %"],
+    ["SIDE WALLS 250", "34 kPa AT BASE", "RETAINED 2.9 m, PROPPED",
+     "M 14.0 kNm/m", "168 ; min 500", "T12 @ 200 EF EW  (565)", "31 %"],
+    ["RAKING ROOF 250", "wu 50.5 kPa", "1500 CLEAR", "M 9.5 kNm/m",
+     "108 ; min 300", "T12 @ 200 EF EW", "20 %"],
+    ["TOP LANDING 250", "wu 54.9 kPa", "Leff 1750", "M 21.0 kNm/m",
+     "Ast,req 229", "T12 @ 200 EF EW  (565)", "41 %"],
+    "THE RAKING ROOF CARRIES A 20 kPa IMPOSED LOAD, DELIBERATELY, FOR A STRAY VEHICLE ON THE BERM",
+    "FLIGHT DEFLECTION  4800/214 = 22.4 ; basic 20 ; fs 215 ; pt 0.470 % ; MF about 1.5 -> 30.  SHEAR tau_v 0.256 < tau_c 0.484 x k 1.10 - NO LINKS",
+]
+
+PANEL_15 = [
+    "1  THIS STRUCTURE IS OUTSIDE THE PROTECTIVE BOUNDARY AND IS NOT BLAST RATED.  It is expected",
+    "   to be LOST in the design event.  Designed to IS 456 with normal partial factors - NOT with",
+    "   IS 4991 dynamic strengths.  The blast boundary is the headhouse wall HW2 and its door.",
+    "2  THE OPENING CORNER AT THE TOP OF THE FLIGHT IS THE DETAIL MOST OFTEN GOT WRONG.  There the",
+    "   tension face turns through 209 deg, and a bar bent round that corner has its bend resultant",
+    "   directed OUT of the concrete: it spalls the cover and the bar loses its anchorage.",
+    "   *** MAIN BARS SHALL NOT BE BENT ROUND IT. ***  Each layer runs STRAIGHT, CROSSED, anchored",
+    "   Ld = 640 into the OPPOSITE face, with a U-bar T16 @ 200 (mark E12) across the corner.",
+    "   SP 34:1987 Cl. 5.5.  At the FOOT of the flight the corner CLOSES at 151 deg - bars turn",
+    "   normally there.",
+    "3  MOVEMENT JOINT WHERE THE STEPPED RAFT MEETS THE HEADHOUSE.  The raft bears on compacted",
+    "   fill, the headhouse on the pressure slab.  Different supports, different settlement - they",
+    "   must NOT be cast monolithic.",
+    "4  300 mm CHANNEL AND GRATING THE FULL 1500 WIDTH at the door (X 8950 - 9250), and a 1.0 m3",
+    "   external sump at the platform with its own soakaway.  The stairwell has no gravity outfall",
+    "   to the shelter drainage and must not be allowed to discharge into it.",
+    "5  BERM GRADED 1.5 : 1 AGAINST THE WALLS TO (+)0.900, toe at grade over 1350.  The 20 kPa roof",
+    "   imposed load is what covers a stray vehicle on that berm.",
+]

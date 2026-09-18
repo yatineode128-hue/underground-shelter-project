@@ -442,6 +442,32 @@
   "geom_in_panel": 0
  },
  {
+  "file": "Presentation Sheets/DXF/STR014_Structural_Reinforcement_Detailing_Entry_Headhouse.dxf",
+  "base": "STR014_Structural_Reinforcement_Detailing_Entry_Headhouse.dxf",
+  "number": "STR014",
+  "discipline": "STRUCTURAL - A2 presentation sheets",
+  "title": "STRUCTURAL REINFORCEMENT DETAILING - ENTRY HEADHOUSE ROOF AND WALLS",
+  "scale": "-",
+  "size": "A2",
+  "texts": 329,
+  "overlap": 0,
+  "over_geom": 0,
+  "geom_in_panel": 0
+ },
+ {
+  "file": "Presentation Sheets/DXF/STR015_Structural_Reinforcement_Detailing_Covered_Entry_Stairwell.dxf",
+  "base": "STR015_Structural_Reinforcement_Detailing_Covered_Entry_Stairwell.dxf",
+  "number": "STR015",
+  "discipline": "STRUCTURAL - A2 presentation sheets",
+  "title": "STRUCTURAL REINFORCEMENT DETAILING - COVERED ENTRY STAIRWELL",
+  "scale": "-",
+  "size": "A2",
+  "texts": 351,
+  "overlap": 0,
+  "over_geom": 0,
+  "geom_in_panel": 0
+ },
+ {
   "file": "Schedule of Finishes/DXF/A-601_Finish_Legend_Notes_and_Typical_Details.dxf",
   "base": "A-601_Finish_Legend_Notes_and_Typical_Details.dxf",
   "number": "A-601",

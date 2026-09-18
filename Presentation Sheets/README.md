@@ -1,8 +1,12 @@
-# Presentation Sheets — A2 structural series, revisions SR1 through SR2A
+# Presentation Sheets — A2 structural series, SR1 · SR1A · SR2 · SR2A · HH1 / AS1
 
-Four A2 structural reinforcement sheets drawn in the layout and title block of the
+Six A2 structural reinforcement sheets drawn in the layout and title block of the
 supplied Revit A2 architectural set (`ARCH001 … ARCH005`, `Project1.pdf`), so that they
-read as the next four sheets of that same series.
+read as further sheets of that same series.
+
+> **Sheet numbering.** The series runs **SHEET 06, 07, 08, 09, 14, 15**. **Sheets 10 to 13 do
+> not exist** — 14 and 15 were given by instruction, not derived, and nothing has been created
+> to fill the gap. Drawing numbers follow sheet numbers exactly.
 
 **SR1 — the underground structure**
 
@@ -22,6 +26,25 @@ read as the next four sheets of that same series.
 > `MIN_TXT_H` when the starting height wasn't grid-aligned — a `pad` parameter and a post-loop
 > floor clamp fix it, verified **not** to change STR008 / STR009 (byte-identical rebuild,
 > diffed with timestamps stripped). **This also CLOSES `SR2-F2`** — see below. Master **H.41**.
+
+**HH1 / AS1 — the headhouse and the approach stairwell** (master H.42)
+
+| Sheet | Drawing No. | Title | Views |
+|---|---|---|---|
+| **SHEET 14** | **STR014** | STRUCTURAL REINFORCEMENT DETAILING — ENTRY HEADHOUSE ROOF & WALLS | 1 roof reinforcement plan 1:50 · 2 section A-A 1:50 · 3 wall HW2 internal elevation at the security door 1:50 · 4 sections b-b roof / c-c wall / d-d door-head edge band / e-e door jamb 1:20 · 5 wall-roof haunch 1:20 |
+| **SHEET 15** | **STR015** | STRUCTURAL REINFORCEMENT DETAILING — COVERED ENTRY STAIRWELL | 1 longitudinal section B-B 1:50 · 2 plan 1:50 · 3 **the opening corner at the top of the flight** 1:20 · 4 sections c-c waist / d-d side wall / e-e raking roof / f-f door lintel 1:10 |
+
+> **These two structures are ALREADY in `rebar_data.py`** — groups `HEADHOUSE` (`H01A`…`H10`)
+> and `ENTRANCE / ENTRY STAIRWELL` (`E01`…`E12`). They therefore read their marks from the
+> project's own register through `sheet_data.headhouse_marks()` / `entrance_marks()`, and
+> **`rebar_data.py` is not changed**. That is the opposite of the sentry post, which the file
+> explicitly excludes and which needed its own register in `sentry_data.py`.
+>
+> **`AS1-F1`, OPEN.** Master B.6 designs the stairwell flight as a SPANNING slab (L<sub>eff</sub>
+> 4800, IS 456 Cl. 33.1(b)) and separately specifies a stepped raft on compacted fill, but never
+> states the relationship between them. Drawing them in contact would make the flight
+> ground-bearing and contradict its own span, so STR015 draws the raft CLEAR of the flight
+> soffit — and **the 400 gap shown is a drawing convention, not a master value.**
 
 **SR2 — the sentry post.  This is the project's IS 13920:2016 sheet pair.**
 
@@ -144,6 +167,8 @@ python3 s06_roof_mat.py               # -> DXF/STR006_...dxf
 python3 s07_wall_stair.py             # -> DXF/STR007_...dxf
 python3 s08_sentry_beam_col.py        # -> DXF/STR008_...dxf
 python3 s09_sentry_footing_slab.py    # -> DXF/STR009_...dxf
+python3 s14_headhouse.py              # -> DXF/STR014_...dxf
+python3 s15_entry_stairwell.py        # -> DXF/STR015_...dxf
 python3 qa_overlap.py ../DXF/STR00*.dxf     # drafting QA, exits non-zero on a defect
 python3 render_a2.py  ../DXF/STR00*.dxf     # visual QA PNG
 python3 render_pdf.py ../DXF/STR00*.dxf     # true-size A2 vector PDF, 1:1
@@ -185,7 +210,8 @@ Done, per `CLAUDE.md`:
 * `DRAWING QAQC/Scripts/make_index.py` — `STRUCTURAL - A2 presentation sheets` added to
   `ORDER` (done at SR1; unchanged by SR2).
 * Both re-run. `DRAWING_INDEX.md` and `qa_index.json` now carry **84 drawings, 78 PASS**;
-  **STR006, STR007, STR008 and STR009 all report PASS**.
+  **STR006, STR007, STR008, STR009, STR014 and STR015 all report PASS**. `STR014` / `STR015`
+  titles added to `TITLE_OVERRIDE` at HH1 / AS1; the index now carries **86 drawings, 80 PASS**.
 
 ### `SR2-F2` — CLOSED at SR1A
 

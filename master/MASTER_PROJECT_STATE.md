@@ -22,7 +22,8 @@
 **A2 presentation sheets:** **SR1** (16 Sep 2026, Part **H.39**) — **two A2 structural reinforcement sheets, `STR006` SHEET 06 (roof slab + mat foundation) and `STR007` SHEET 07 (600 shear wall + main staircase)**, drawn in the frame and title block of the owner's Revit A2 architectural set `ARCH001…ARCH005` so they read as the next two sheets of it. Every bar mark is read from `rebar_data.py`; **no design value, level, thickness, bar or spacing changed** and **the main staircase is untouched**. Finding **`SR1-F1`**: the request asked for IS 13920 detailing; **IS 13920 Cl. 10.4 was checked for the box and is NOT triggered** (τ = 0.063 N/mm²), the box is IS 456 + IS 4991 + IS 3370, and the project's IS 13920 detailing is the **sentry post frame**, which is not on these sheets. Both sheets **PASS** the drafting QA with **zero text overlaps**.
 **A2 sentry-post sheets:** **SR2** (16 Sep 2026, Part **H.40**) — **two more A2 sheets in the same series, `STR008` SHEET 08 (sentry post beams B1 / B2 and column C1) and `STR009` SHEET 09 (isolated footing F1 and slab S1)**. **This is the project's IS 13920:2016 sheet pair** — the box is not a ductile-detailing element (Cl. 10.4 checked, not triggered) and the sentry post frame is, so STR008 carries a 14-clause IS 13920 compliance table. **No design value moved and no analysis was run.** Because the sentry post is EXCLUDED from `rebar_data.py`, SR2 builds a separate register `sentry_data.py` to the same rule. Principal finding **`SR2-F1` — the master contradicts itself on B2's top steel at the ROOF joint**: B.8.6 checks that joint with **2-T20** and passes it marginally, F.4 schedules **3-T20 at supports** without distinguishing level, and 3-T20 there makes IS 13920 Cl. 7.2.1 **FAIL** (1.4 ΣM<sub>b</sub> 195.7 > ΣM<sub>c</sub> 101). **Both cannot be true, so SHEET 08 details the FIRST-FLOOR frame only** and the roof frame is left undrawn until it is ruled on. Six further open items `SR2-V1…V6`, plus `SR2-F2` — a legibility finding on the existing sheet STR007, **recorded and NOT acted on**. Both new sheets **PASS** the drafting QA. **Amended the same day as `SR2A` (Part H.40.8), by instruction: the design-basis and declared-decisions panels DELETED from both sheets and `REV A` removed from their header — no view, scale, dimension, bar or count changed, and the schedules were grown to fill the freed column. The open items are unchanged and now live in the master only.**
 **A2 header/panel cleanup:** **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire revision line (**"STRUCTURAL - PHASE 2 REV A + M1"**) deleted from the header — asked directly which reading was meant, and the whole line was the answer. **No design value moved; STR008/STR009 are byte-identical to before.** The freed column is filled by the `table_stack()` helper SR2A introduced. Found and fixed a real bug in `a2_lib.py` along the way: `table()`'s row-height shrink loop could quantise one step below `MIN_TXT_H`; fixed with a floor clamp, verified not to change STR008/STR009. **This also CLOSES `SR2-F2`**, the STR007 legibility finding recorded and deliberately left unfixed at SR2A. `DRAWING_INDEX.md`: 84 drawings, 78 PASS.
-**Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and a ruling on **`SR2-F1`** before the sentry post roof beams can be detailed.
+**A2 headhouse / stairwell sheets:** **HH1 / AS1** (18 Sep 2026, Part **H.42**) — **two more A2 sheets, `STR014` SHEET 14 (entry headhouse roof 500 + walls HW1–HW4 400) and `STR015` SHEET 15 (covered entry stairwell)**. Unlike the sentry post, **both structures are already in `rebar_data.py`** (`H01A…H10`, `E01…E12`), so the marks come from the project's own register and that file is unchanged. **No design value moved, no analysis was run**, and STR006–STR009 rebuild entity-identical. STR015's view 3 draws **the opening corner at the top of the flight** — the 209° re-entrant that master B.6 calls *the detail most often got wrong* — with the main bars NOT bent round it. One finding, **`AS1-F1`: the master does not state whether the flight bears on the stepped raft or clear-spans over it**; B.6 designs it as spanning (Leff 4800), so the raft is drawn clear and the gap shown is a drawing convention, not a master value — **OPEN**. `DRAWING_INDEX.md`: 86 drawings, 80 PASS. Sheets 10–13 do not exist; the numbers were given by instruction.
+**Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and rulings on **`SR2-F1`** (sentry post roof beams) and **`AS1-F1`** (stairwell raft) before either can be built.
 
 ---
 
@@ -5666,6 +5667,123 @@ reference was found (checked by grep for the panel's exact heading text across `
 **Nothing engineering moved.** This revision is drafting only: two panels deleted, one header
 line deleted, the freed space filled, one dangling note reference fixed, and one real
 text-sizing bug in the shared library fixed and verified not to regress the other two sheets.
+
+---
+
+## H.42 A2 headhouse and entry-stairwell reinforcement sheets — revisions HH1 / AS1 — 18 September 2026
+
+By instruction: **two more A2 sheets in the same Revit series, numbered SHEET 14 and SHEET 15**,
+carrying the structural reinforcement detailing of the **entry headhouse** and the **covered
+entry (approach) stairwell** — the two structures that sit on top of, and lead down into, the
+protective box.
+
+**NOTHING IN PARTS A, B, D, E, F OR L CHANGES.** No dimension, level, thickness, load, capacity,
+bar size, spacing or bar mark moved. No `.std` file was opened and **no analysis was run**. **The
+main staircase is untouched** and does not appear on either sheet. `STR006`, `STR007`, `STR008`
+and `STR009` rebuild **entity-for-entity identical** (3 283 / 1 220 / 1 070 / 1 624 modelspace
+entities, compared by type, layer and text). These are **drawing production revisions only**.
+
+### H.42.1 What was produced — all under `Presentation Sheets/`
+
+| Sheet | Drawing No. | Title | Views |
+|---|---|---|---|
+| **SHEET 14** | **STR014** | STRUCTURAL REINFORCEMENT DETAILING — ENTRY HEADHOUSE ROOF & WALLS | V1 roof reinforcement plan 1:50 · V2 section A-A, cut in X looking north, 1:50 · V3 wall HW2 internal elevation at the security door 1:50 · V4 sections b-b roof / c-c wall / d-d door-head edge band / e-e door jamb, 1:20 · V5 wall-roof haunch detail 1:20 |
+| **SHEET 15** | **STR015** | STRUCTURAL REINFORCEMENT DETAILING — COVERED ENTRY STAIRWELL | V1 longitudinal section B-B 1:50 · V2 plan 1:50 · V3 **the opening corner at the top of the flight** 1:20 · V4 sections c-c flight waist / d-d side wall / e-e raking roof / f-f entry door lintel, 1:10 |
+
+Tables carried: headhouse element schedule · headhouse bar-mark schedule (14 marks) · headhouse
+design summary (the three roof analyses, the wall case, and both shear checks) · entry stairwell
+element schedule · entry stairwell bar-mark schedule (16 marks) · entry stairwell design summary
+· a construction-requirements panel on each sheet.
+
+### H.42.2 The bar marks were ALREADY in the register — unlike the sentry post
+
+This is the material difference from SR2. The sentry post is **excluded** from
+`Structural CAD/Scripts/rebar_data.py` and needed its own register (`sentry_data.py`). The
+headhouse and the entry stairwell are **already in it**: groups `HEADHOUSE` (`H01A`…`H10`, 14
+marks) and `ENTRANCE / ENTRY STAIRWELL` (`E01`…`E12`, 16 marks). SHEET 14 and SHEET 15 therefore
+read their marks from **the project's own register**, through two new helpers
+`sheet_data.headhouse_marks()` and `sheet_data.entrance_marks()` built on the existing `_rows()`.
+**`rebar_data.py` is NOT changed.** Verified after the build: every bar-mark tag drawn on a view
+exists in that sheet's schedule — STR014 tags `H01A H01B H01C H02 H03 H04A H04B H05 H06 H07 H08
+H10`, STR015 tags `E01 E02 E03 E05A E09A E12`, **zero orphans on either sheet**.
+
+### H.42.3 Provenance of every value drawn
+
+* **Headhouse** — geometry `sc_proj.HH` / `HH_DOOR` / `HH_BAND` (master A.4.6); design master
+  **B.7.1** (roof, three analyses, most conservative adopted), **B.7.2** (walls, conflict C10),
+  **B.7.3** (HW3, the wall with nothing under it); detailing master **F.3**; loads **A.7.5**.
+* **Entry stairwell** — geometry `sc_proj.ASW` (master A.4.7, including the **RC1 ruling on C16**
+  that the roof stays 250 over the platform); design master **B.6**; detailing master **F.2**;
+  loads **A.7.6**.
+* Nothing is invented, and **no `[UNRESOLVED]`, `[ASSUMED]` or `[NOT AVAILABLE]` item was
+  resolved.**
+
+### H.42.4 What the sheets say, that a reader must not miss
+
+* **The headhouse walls are reinforced SYMMETRICALLY for 383 kPa acting on EITHER face.** The
+  inner security door is not blast rated and the stairwell is expected to be lost, so the
+  headhouse fills and the walls are pushed **outwards**. STR014 carries this as note 7, as an
+  element-schedule band and as construction requirement 1.
+* **The headhouse roof shear links are mandatory and were not in the Phase 1 report** —
+  τ<sub>v</sub> 1.514 > τ<sub>c</sub> 0.502, τ<sub>c</sub> read at the **static** M35 value
+  because IS 4991 Cl. 10.3.1.1 forbids a dynamic increase on shear.
+* **Only 300 mm of wall sits above the security door** — too shallow for a lintel, so the 300
+  wall and the 500 roof act together as an 800 deep edge band. STR014 view 3 draws it.
+* **The entry stairwell is OUTSIDE the protective boundary and is NOT blast rated.** It is
+  expected to be LOST in the design event, is designed to IS 456 with normal partial factors,
+  and **the 150 EMP bar-spacing rule does not reach it** — spacing is 200 throughout. Note 5 and
+  note 6 on STR015 say so in those words.
+* **STR015 view 3 is the point of that sheet.** At the top of the flight the tension face turns
+  through **209°**; a bar bent round it has its bend resultant directed OUT of the concrete and
+  loses anchorage. Master B.6 calls it *"the detail most often got wrong"*. The view draws the
+  correct detail: main bars **not** bent round the corner, each layer straight and **crossed**,
+  anchored L<sub>d</sub> 640 into the **opposite** face, with the U-bar `E12` across it
+  (SP 34:1987 Cl. 5.5).
+
+### H.42.5 One finding raised — `AS1-F1`, NOT resolved
+
+| Ref | Item | Status |
+|---|---|---|
+| **`AS1-F1`** | **The master does not state the vertical relationship between the entry stairwell flight and its stepped raft.** B.6 designs the flight as a **spanning** slab — L<sub>eff</sub> 4800 by IS 456 Cl. 33.1(b), deflection and shear both checked on that span — and **separately** specifies a "stepped RC raft 300 thk on compacted fill". If the two are drawn in contact the flight becomes ground-bearing, which **contradicts its own design span**. STR015 therefore draws the raft **clear of the flight soffit**, on compacted fill, because that is the only geometry consistent with both statements. **The 400 mm gap shown is a drawing convention, not a master value**, and is labelled on the sheet as `AS1-F1`. | **OPEN — the gap needs a ruling before the stairwell is set out** |
+
+### H.42.6 What was verified, and how
+
+* **Drafting QA — both sheets PASS.** `dxfqa` via `qa_report_data.py`: **0 text overlaps, 0 text
+  outside the inner border, 0 geometry in the title block** on STR014 and STR015.
+* `qa_overlap.py` (same `ezdxf.bbox` measurement as `dxfqa`, plus near-touch at 2 %, minimum
+  height, non-dark colour, and the MTEXT inside rendered `DIMENSION` blocks): **0 / 0 / 0 / 0 on
+  both sheets.** It caught, and drove the fix of, three real defects during production — the
+  opening-corner detail overlapping the plan, the stairwell tags falling outside the frame, and
+  the headhouse notes panel colliding with the 1:20 sections band.
+* **Two drafting errors were found by looking at the render, not by the checker, and fixed:**
+  the stairwell's raking roof was first drawn following the *stepped* nosing line instead of
+  raking straight, and the flight was drawn unhatched while the raft below it was hatched, which
+  read as though the raft were the flight.
+* **Registration with the project QA tools — done, per `CLAUDE.md`.** `STR014` and `STR015`
+  added to `TITLE_OVERRIDE` in `qa_report_data.py`. `Presentation Sheets/DXF/` was already in
+  `DISCIPLINE` and the discipline already in `make_index.py`'s `ORDER`. Both re-run:
+  **`DRAWING_INDEX.md` now carries 86 drawings, 80 PASS.**
+* **No design value was recomputed and STAAD.Pro was NOT run.** Every number printed is quoted
+  from Parts A.4.6, A.4.7, A.7.5, A.7.6, B.6, B.7 and F.2 / F.3 as they already stand.
+
+### H.42.7 Sheet numbering — stated, not glossed
+
+The series now runs **SHEET 06, 07, 08, 09, 14, 15**. **Sheets 10 to 13 do not exist**: the
+numbers were given by the instruction, not derived, and no drawing has been created to fill the
+gap. The drawing numbers follow the sheet numbers exactly, as they have since SR1.
+
+### H.42.8 Files added
+
+| File | What it is |
+|---|---|
+| `Presentation Sheets/DXF/STR014_Structural_Reinforcement_Detailing_Entry_Headhouse.dxf` | **SHEET 14** |
+| `Presentation Sheets/DXF/STR015_Structural_Reinforcement_Detailing_Covered_Entry_Stairwell.dxf` | **SHEET 15** |
+| `Presentation Sheets/PDF/STR014…pdf` · `STR015…pdf` | True-size A2 vector PDFs, plotted 1:1 |
+| `Presentation Sheets/Scripts/s14_headhouse.py` · `s15_entry_stairwell.py` | One generator per sheet |
+
+`sheet_data.py` gains `headhouse_marks()`, `entrance_marks()`, `NOTES_14` / `NOTES_15`,
+`ELEMENT_ROWS_14` / `ELEMENT_ROWS_15`, `HH_CHECK`, `ASW_CHECK` and `PANEL_14` / `PANEL_15`.
+Nothing already in it was altered.
 
 ---
 

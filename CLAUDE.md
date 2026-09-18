@@ -47,7 +47,18 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own
+- Latest revision: **HH1 / AS1** (18 Sep 2026, master **H.42**) — **two A2 sheets, `STR014`
+  (SHEET 14, entry headhouse roof 500 + walls HW1–HW4 400) and `STR015` (SHEET 15, covered entry
+  stairwell)**. **No design value moved and no analysis was run**; STR006–STR009 rebuild
+  entity-identical. **Unlike the sentry post, these two structures ARE in `rebar_data.py`**
+  (groups `HEADHOUSE` `H01A…H10` and `ENTRANCE / ENTRY STAIRWELL` `E01…E12`), so the marks are
+  read from the project's own register through `sheet_data.headhouse_marks()` /
+  `entrance_marks()` — **`rebar_data.py` is NOT changed and must stay that way.** Finding
+  **`AS1-F1` is OPEN**: the master designs the stairwell flight as SPANNING (Leff 4800, Cl.
+  33.1(b)) but also specifies a stepped raft on fill, and never states the relationship; the
+  raft is drawn CLEAR of the flight soffit and **the 400 gap shown is a drawing convention, not
+  a master value**. Sheets 10–13 do not exist — the numbers came from the instruction.
+  Before it: **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own
   copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire
   revision line (`STRUCTURAL - PHASE 2 REV A + M1`) deleted from the header — asked directly
   which reading was meant (drop just `REV A`, or the whole line), and the whole line was the
