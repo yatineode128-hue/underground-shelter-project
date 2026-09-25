@@ -6145,6 +6145,18 @@ back to Liberation Sans, which is metric-identical.
 - Pages rendered and inspected. **Main staircase unchanged** — printed as 24R @ 170.833, 280
   tread, 3 × 8, rise 4 100, 1 200 wide, 200 well, headroom 2 533.
 
+### H.44.9 PR3A — Appendix C limited to the drawings generated in the project, 25 September 2026
+
+*"Include those drawings only which have been generated in index."* Appendix C now lists the
+**80 drawings generated in this project** and omits the **ten Rev F architectural input
+drawings supplied by the owner** (A-101…A-105, A-201…A-204, A-301 — master E.2), which H.44.6
+above records as listed. **S-06 stays** (it is an E.3 output sheet) and is grouped as *Services -
+General Arrangement*; the finishes sheets A-601 / A-611 / A-612 stay (FN1 output). The filter is
+`sw_figures.INPUT_SET` / `is_generated()`; `DRAWING QAQC/qa_index.json` and the drawing index
+itself are **not** edited. Appendix C's opening paragraph now says "the eighty drawings generated
+for the project". Nothing else in the report changed; still 114 pages. H.44.1–H.44.8 are
+preserved as first issued (M.11).
+
 ---
 
 # PART I — PROJECT FILE MANIFEST

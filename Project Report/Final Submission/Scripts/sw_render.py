@@ -721,7 +721,7 @@ def drawing_index_rows():
     idx = json.load(open(os.path.join(ROOT, "DRAWING QAQC", "qa_index.json")))
     import sw_figures as SF
     groups = []
-    for rec in idx:
+    for rec in (r for r in idx if SF.is_generated(r)):
         g = SF.drawing_group(rec)
         if g not in [x[0] for x in groups]:
             groups.append((g, []))

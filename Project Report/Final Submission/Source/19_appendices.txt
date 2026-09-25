@@ -85,9 +85,9 @@ P1 General | The bill of quantities of the project is given below. The amount of
 
 T **Total basic cost (Parts I to V) : Rs 2,42,20,254. Final project cost : Rs 2,97,90,913.**
 
-#appendix C | LIST OF DRAWINGS | (INDEX OF ALL DRAWINGS AND PRESENTATION SHEETS)
+#appendix C | LIST OF DRAWINGS | (INDEX OF DRAWINGS AND PRESENTATION SHEETS GENERATED FOR THE PROJECT)
 
-P1 General | The drawings of the project are listed below by discipline, with the folder of the project record in which each set is held. All drawings are prepared in AutoCAD (DXF). The A1 sheets form the working drawing set, the A2 sheets form the presentation series (sheets 01 to 13), and the A4 sheets are handout sheets.
+P1 General | The eighty drawings generated for the project are listed below by discipline, with the folder of the project record in which each set is held. All drawings are prepared in AutoCAD (DXF). The A1 sheets form the working drawing set, the A2 sheets form the presentation series, and the A4 sheets are handout sheets.
 
 #table @drawings Drawing Index
 #font 9

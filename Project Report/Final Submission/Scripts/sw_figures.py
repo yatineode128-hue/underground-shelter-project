@@ -613,7 +613,7 @@ def all_strings(name):
 #  Drawing index helpers
 # --------------------------------------------------------------------------
 DRAWING_GROUP_ORDER = [
-    "Architectural - General Arrangement",
+    "Services - General Arrangement",
     "Architectural - Presentation Sheets (A2)",
     "Architectural - Finishes",
     "Structural - Reinforcement",
@@ -634,7 +634,7 @@ DRAWING_GROUP_ORDER = [
 
 _GROUPS = {
     "ARCHITECTURAL / GENERAL - Rev F":
-        ("Architectural - General Arrangement", "current/cad"),
+        ("Services - General Arrangement", "current/cad"),
     "ARCHITECTURAL - A2 presentation sheets":
         ("Architectural - Presentation Sheets (A2)", "Presentation Sheets"),
     "ARCHITECTURAL - finishes":
@@ -662,6 +662,26 @@ _GROUPS = {
         ("Site Selection and Geotechnical",
          "Site Selection and Geotechnical"),
 }
+
+
+# The ten Rev F architectural drawings supplied by the owner (master E.2).
+# They are input, not drawings generated in the project, and are not listed.
+INPUT_SET = {
+    "current/cad/1_Underground_Level_Plan.dxf",
+    "current/cad/1_Staircase_Section.dxf",
+    "current/cad/2_Side_Section_with_Stairs.dxf",
+    "current/cad/2_Ground_Plan_Headhouse_Berm.dxf",
+    "current/cad/3_Headhouse_Section_Cutaway.dxf",
+    "current/cad/5_Entry_Headhouse_Stair_Section.dxf",
+    "current/cad/5_Front_Elevation.dxf",
+    "current/cad/3_Sentry_Post_Ground_Floor_Plan.dxf",
+    "current/cad/4_Sentry_Post_First_Floor_Plan.dxf",
+    "current/cad/6_Sentry_Post_Framing_Plan.dxf",
+}
+
+
+def is_generated(rec):
+    return rec["file"] not in INPUT_SET
 
 
 def drawing_group(rec):

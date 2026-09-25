@@ -4,7 +4,7 @@
 service-writing layout: red double-rule frame, page number on the bottom rule, decimal paragraph
 numbering 1 / 1.1 / 1.1.1 restarting in each chapter, Arial 12, black text, no running header.
 114 A4 pages, 18 chapters, appendices A (reinforcement), B (bill of quantities, WM3),
-C (drawing index, 90 drawings), D (references).
+C (drawing index — the 80 drawings generated in the project; the ten owner-supplied Rev F input drawings are not listed), D (references).
 
 **It is a presentation of the design, not a change to it.** By instruction it leaves out the
 evidence tags, revision history, findings and open-item register. **Nothing in master K.1b or
