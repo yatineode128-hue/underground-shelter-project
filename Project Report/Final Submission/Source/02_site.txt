@@ -2,7 +2,15 @@
 
 #head Site Selection
 
-P1 Location | The site is located within the CTW area of the College of Military Engineering campus, Pune. It is an undeveloped rectangular plot east of the two CTW blocks, bounded on the east by the perimeter track and the nullah line, with the CBRN Live Training Area to the south.
+P1 Location | The site is located within the CTW area of the College of Military Engineering campus, Pune. It is an undeveloped rectangular plot east of the two CTW blocks, bounded on the east by the perimeter track and the nullah line, with the CBRN Live Training Area to the south. The location of the site is shown in Fig 2.1. The following inferences are drawn from it:-
+
+P2 | The plot is open ground clear of the existing buildings and roads, so the excavation and the construction yard can be laid out without disturbing any existing facility.
+
+P2 | The plot is separated from the CTW blocks by open ground, which reduces the effect of the noise and dust of rock breaking on the occupied buildings.
+
+P2 | A track runs along the eastern side of the plot and gives access for plant and tippers.
+
+#photo site_location | Site Location
 
 P1 Selection Criteria | The site was selected after a study of the location, contours, watershed, existing pipelines, elevation profile, wind, rainfall, temperature, seismic zone and soil conditions of the candidate areas. The SWOT analysis on which the selection was made is given in Table 2.1.
 
@@ -15,15 +23,55 @@ Opportunities | Training value of a protected facility within the campus
 Threats | Interference with the CTW training schedule during construction
 #end
 
-P1 Significance of the Site Features | Three of the strengths are of direct value to the design:-
+P1 Significance of the Site Features | Four of the strengths are of direct value to the design. The existing services on the campus are shown in Fig 2.2.
 
 P2 No Pipelines | The plot is free of buried services. Every service that crosses the protective envelope is a blast, gas and EMP discontinuity, and a clear plot allows the box to be excavated and tanked without diversions.
 
-P2 Electric Supply | An existing electric line is available for the peacetime supply to the installation, with the generator and battery providing the protected supply.
+P2 Electric Supply | Mains supply is available on the campus from substation SS-15, and an existing electric line is available for the peacetime supply to the installation, with the generator and battery providing the protected supply.
+
+P2 Water Supply | The campus water supply is fed from an RCC overhead reservoir of 15 000 gallons capacity on 15 m staging, and supplies the installation in peacetime (Chapter 12).
 
 P2 Road Connectivity | About 1 000 m³ of rock is to be broken and removed by tipper, and the existing roads provide the haul route.
 
-P1 Orientation and Topography | The plot lies on a gentle slope falling towards the east. The underground box is aligned east-west with the entry at its west end. The project coordinate system has its origin at the south-west external corner of the box at ground level, with X to the east and Y to the north. The finished grade over the box is crowned and falls at 1 in 50 on either side. The site layout is shown in Fig 2.1.
+#photo services | Existing Services on the Campus
+
+#head Site Reconnaissance
+
+P1 Site as Found | The condition of the plot at the time of the site reconnaissance is shown in Fig 2.3. The following inferences are drawn:-
+
+P2 | The plot is covered with scrub and grass, with loose basalt at the surface. There is no structure or large tree on it, and site clearance is limited to clearing and grubbing the scrub and stripping the topsoil (Appendix B).
+
+P2 | The loose basalt at the surface agrees with the shallow rock recorded in the trial pits (Table 2.2).
+
+P2 | Water stands on the track and in shallow depressions after rain, which shows that the surface drains slowly. The finished grade over the box is accordingly crowned and falls at 1 in 50, and a channel across the entrance of the covered stairwell intercepts surface water (Chapter 3).
+
+P2 | An overhead electric line runs along the access track.
+
+#photo site_as_found | The Site as Found
+
+P1 Contours | The contour map of the site and its surroundings, with contours at 1 m interval, is shown in Fig 2.4. The following inferences are drawn:-
+
+P2 | The contours run roughly north-south across the plot, and the ground falls gently from the CTW blocks in the west towards the track and the nullah line in the east.
+
+P2 | There is no closed contour on the plot, so there is no hollow in which surface water can collect over the structure.
+
+P2 | The levels of the project are referred to a site datum, with the finished ground level over the box taken as 0.000. All levels in this report are given to this datum.
+
+#photo contour_map | Contour Map
+
+P1 Watershed and Surface Drainage | The flow accumulation over the site and its surroundings, derived from the terrain, is shown in Fig 2.5. The following inferences are drawn:-
+
+P2 | The flow lines over the plot are fine and scattered and all run towards the east. No concentrated drainage line crosses the plot.
+
+P2 | The larger flow paths form to the south and south-east of the plot, on the lower ground towards the nullah, which is the natural outfall for surface water from the site.
+
+P2 | The structure is therefore not placed in the path of any concentrated surface flow. The surface water to be dealt with is local sheet flow, which runs off the crowned cover and away to the east with the natural fall of the ground.
+
+#photo watershed | Watershed and Surface Drainage
+
+#head Site Layout
+
+P1 Orientation and Layout | The underground box is aligned east-west. The covered entry stairwell runs along its north side and descends eastward from ground level to the headhouse (Chapter 3). The project coordinate system has its origin at the south-west external corner of the box at ground level, with X to the east and Y to the north. The finished grade over the box is crowned and falls at 1 in 50 on either side. The site layout is shown in Fig 2.6.
 
 #fig fig_site_plan | Site Layout Plan
 
@@ -110,7 +158,7 @@ Soil transmission factor for blast, K<sub>a</sub> | 1.0 | IS 4991 Cl. 7.2, satur
 
 P1 Check on K<sub>0</sub> | The measured angles of internal friction of the granular murrum samples (27° to 35°) give K<sub>0</sub> between 0.43 and 0.55, so the adopted value of 0.50 is representative. The bulk unit weight of 20 kN/m³ is 2 to 5 per cent above the compacted densities measured at MDD, and is conservative for lateral load.
 
-P1 Bearing Capacity | The bearing pressures under the governing cases are compared with the soaked rock capacity in Table 2.6 and Fig 2.2. Even under the full blast load the mat uses about one-fifth of the lowest measured soaked capacity; bearing therefore does not govern any element.
+P1 Bearing Capacity | The bearing pressures under the governing cases are compared with the soaked rock capacity in Table 2.6 and Fig 2.7. Even under the full blast load the mat uses about one-fifth of the lowest measured soaked capacity; bearing therefore does not govern any element.
 
 #table Bearing Pressure Checks
 #widths 34,18,24,24
@@ -143,7 +191,7 @@ P1 Treatment of Weak Seams | Basalt flows commonly contain red-bole or vesicular
 
 #head Meteorological Data
 
-P1 Climate | The monthly averages of wind speed, rainfall and temperature for the site, based on ten years of data, are given in Table 2.7 and Fig 2.3. About 700 mm of the annual rainfall falls between June and October, which has been considered in programming the excavation and the substructure.
+P1 Climate | The monthly averages of wind speed, rainfall and temperature for the site, based on ten years of data, are given in Table 2.7 and Fig 2.8. About 700 mm of the annual rainfall falls between June and October, which has been considered in programming the excavation and the substructure.
 
 #table Meteorological Data (Monthly Averages)
 #font 8.6

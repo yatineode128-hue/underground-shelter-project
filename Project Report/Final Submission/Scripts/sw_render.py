@@ -33,6 +33,7 @@ until a blank line or the next directive):
     expression ;; result                   (result optional; '!' prefix = bold)
     #end
     #fig name | Caption                    drawn figure from sw_figures.py
+    #photo name | Caption                  photograph / map (sw_figures.PHOTOS)
     #drawings                              drawing index, read from the QA index
     #toc  #lof  #lot                       lists
     #pagebreak
@@ -450,6 +451,25 @@ class FigBox(Flowable):
         c.scale(self.sc, self.sc)
         renderPDF.draw(self.d, c, 0, 0)
         c.restoreState()
+
+
+class PhotoBox(Flowable):
+    """A photograph or map, scaled to the text measure and centred."""
+
+    def __init__(self, buf, size, maxw=TXT_W, maxh=86 * mm):
+        Flowable.__init__(self)
+        from reportlab.lib.utils import ImageReader
+        self.img = ImageReader(buf)
+        pw, ph = size
+        sc = min(maxw / float(pw), maxh / float(ph))
+        self.width, self.height = pw * sc, ph * sc
+
+    def wrap(self, aw, ah):
+        return self.width, self.height
+
+    def draw(self):
+        self.canv.drawImage(self.img, (TXT_W - self.width) / 2.0, 0,
+                            self.width, self.height)
 
 
 # ---------------------------------------------------------------- lists
@@ -973,14 +993,16 @@ def story(blocks, entries, cover_fn):
             ind = TAB[max(last_level, 1)][1]
             st.append(calc_block(b["rows"], ind))
             continue
-        if k == "fig":
+        if k in ("fig", "photo"):
             name, cap = [x.strip() for x in b["arg"].split("|", 1)]
             fcount += 1
             num = "%s.%d" % (chap, fcount) if chap else str(fcount)
-            d = SF.figure(name)
+            box = FigBox(SF.figure(name)) if k == "fig" else \
+                PhotoBox(*SF.photo(name),
+                         maxh=SF.PHOTO_MAXH.get(name, 86) * mm)
             capt = "Fig %s : %s" % (num, cap)
             st.append(KeepTogether([Entry("lof", 2, capt), Spacer(1, 3),
-                                    FigBox(d),
+                                    box,
                                     Paragraph(inline(capt), S["fcap"])]))
             continue
         raise ValueError("unknown directive %r" % k)
@@ -1020,6 +1042,26 @@ def signature_block(arg):
     return t
 
 
+# Syndicate 01, in the order of the syndicate's own title slide (the left
+# column is filled first)
+MEMBERS = ["Maj Yatin", "Capt Sukender Singh", "Capt DV Ghanashyama",
+           "Capt Sonu Sharma", "Capt Balbanka Tiwary", "Capt Siddharth Sinha"]
+# the guides, in the order of the list supplied by the syndicate
+GUIDES = ["Maj Ashish Dubey, FGS", "Dr I R Chaudhuri", "Dr Uttam Awari",
+          "Lt Col APS Chauhan", "Sh Tilak Sharma, Jt Dir (C), FCM"]
+
+
+def two_columns(names, style):
+    """Names in two centred columns, the left column filled first."""
+    cells = [Paragraph(n, style) for n in names]
+    half = (len(cells) + 1) // 2
+    t = Table([[cells[i], cells[i + half] if i + half < len(cells) else ""]
+               for i in range(half)], colWidths=[TXT_W / 2.0] * 2)
+    t.setStyle(TableStyle([("TOPPADDING", (0, 0), (-1, -1), 0),
+                           ("BOTTOMPADDING", (0, 0), (-1, -1), 1)]))
+    return t
+
+
 def cover():
     import sw_figures as SF
     out = []
@@ -1029,10 +1071,10 @@ def cover():
                          leading=17, alignment=TA_CENTER, textColor=INK)
     small = ParagraphStyle("sm", fontName="Arial", fontSize=11, leading=15,
                            alignment=TA_CENTER, textColor=INK)
-    out.append(Spacer(1, 6 * mm))
+    out.append(Spacer(1, 3 * mm))
     out.append(Paragraph("COLLEGE OF MILITARY ENGINEERING, PUNE", mid))
     out.append(Paragraph("FACULTY OF CIVIL ENGINEERING", small))
-    out.append(Spacer(1, 12 * mm))
+    out.append(Spacer(1, 8 * mm))
     out.append(Paragraph("PROJECT REPORT", mid))
     out.append(Spacer(1, 5 * mm))
     out.append(Paragraph("CBRN HARDENED UNDERGROUND OPS ROOM", big))
@@ -1041,20 +1083,23 @@ def cover():
                          "PROTECTED UNDERGROUND OPERATIONS ROOM WITH SENTRY "
                          "POST AT PUNE)", ParagraphStyle(
                              "s2", parent=mid, fontSize=11.2, leading=15)))
-    out.append(Spacer(1, 8 * mm))
+    out.append(Spacer(1, 6 * mm))
     out.append(FigBox(SF.cover_figure(), maxw=TXT_W))
-    out.append(Spacer(1, 9 * mm))
+    out.append(Spacer(1, 6 * mm))
     out.append(Paragraph("Submitted in partial fulfilment of the requirements "
                          "for the award of the degree of", small))
     out.append(Paragraph("<b>Bachelor of Engineering (Civil Engineering)</b>",
                          small))
-    out.append(Spacer(1, 8 * mm))
+    out.append(Spacer(1, 6 * mm))
     out.append(Paragraph("Submitted by", small))
     out.append(Paragraph("<b>SYNDICATE 01</b>", mid))
+    out.append(Spacer(1, 2 * mm))
+    out.append(two_columns(MEMBERS, small))
     out.append(Spacer(1, 5 * mm))
     out.append(Paragraph("Under the guidance of", small))
-    out.append(Paragraph("<b>Dr I R Chaudhari</b>", mid))
-    out.append(Spacer(1, 10 * mm))
+    out.append(Spacer(1, 2 * mm))
+    out.append(two_columns(GUIDES, small))
+    out.append(Spacer(1, 7 * mm))
     out.append(Paragraph("SEPTEMBER 2026", mid))
     return out
 

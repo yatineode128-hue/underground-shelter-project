@@ -8,7 +8,8 @@ restated, explanatory side notes are replaced by short design notes or left
 out, and the evidence tags used in the working documents are removed.  The
 geometry, levels, dimensions and values drawn are not touched.
 
-It also carries the small helpers used to print the drawing index.
+It also carries the site photographs and maps (PHOTOS) and the small helpers
+used to print the drawing index.
 """
 
 import os
@@ -607,6 +608,39 @@ def all_strings(name):
                 out.append(el.text)
     walk(d)
     return out
+
+
+# --------------------------------------------------------------------------
+#  Photographs and maps -- slides of the P1 presentation deck, in ../Images
+#  exactly as supplied.  The crop box (left, top, right, bottom, in pixels)
+#  trims the slide's black edge and its dark title bar only; the picture
+#  itself is not retouched.
+# --------------------------------------------------------------------------
+IMG_DIR = os.path.abspath(os.path.join(HERE, "..", "Images"))
+
+PHOTOS = {
+    "site_location": ("P1_site_location.jpg", (56, 22, 1174, 708)),
+    "services":      ("P1_services.jpg",      (56, 0, 1174, 722)),
+    "site_as_found": ("P1_site_as_found.jpg", (6, 0, 1174, 762)),
+    "contour_map":   ("P1_contour_map.jpg",   (56, 28, 1174, 714)),
+    "watershed":     ("P1_watershed.jpg",     (56, 70, 1174, 759)),
+}
+
+# printed height limit in mm (default 86); the services map carries small
+# lettering and is printed to the full text width
+PHOTO_MAXH = {"services": 115}
+
+
+def photo(name):
+    """JPEG bytes of the cropped slide picture, and its size in pixels."""
+    from io import BytesIO
+    from PIL import Image
+    fn, box = PHOTOS[name]
+    im = Image.open(os.path.join(IMG_DIR, fn)).convert("RGB").crop(box)
+    buf = BytesIO()
+    im.save(buf, "JPEG", quality=92)
+    buf.seek(0)
+    return buf, im.size
 
 
 # --------------------------------------------------------------------------

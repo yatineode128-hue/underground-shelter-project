@@ -85,14 +85,30 @@ P1 General | The bill of quantities of the project is given below. The amount of
 
 T **Total basic cost (Parts I to V) : Rs 2,42,20,254. Final project cost : Rs 2,97,90,913.**
 
-#appendix C | LIST OF DRAWINGS | (INDEX OF DRAWINGS AND PRESENTATION SHEETS GENERATED FOR THE PROJECT)
+#appendix C | LIST OF DRAWINGS | (INDEX OF DRAWING SHEETS)
 
-P1 General | The eighty drawings generated for the project are listed below by discipline, with the folder of the project record in which each set is held. All drawings are prepared in AutoCAD (DXF). The A1 sheets form the working drawing set, the A2 sheets form the presentation series, and the A4 sheets are handout sheets.
+P1 General | The drawings of the project form a series of fifteen A2 (594 x 420 mm) sheets in a common title block, listed below. Sheets 01 to 05 form the architectural set and are prepared in Autodesk Revit. Sheets 06 to 15 are prepared in AutoCAD and are held, in DXF and PDF, in the Presentation Sheets folder of the project record.
 
-#table @drawings Drawing Index
-#font 9
-#widths 7,13,62,11,7
-#align C,L,L,C,C
+#table Drawing Index
+#font 9.5
+#widths 9,13,62,16
+#align C,C,L,C
+Sheet No | Drawing No | Title | Scale
+01 | ARCH001 | UNDERGROUND LEVEL PLAN, HEADHOUSE LEVEL PLAN AND GROUND LEVEL PLAN | 1 : 100
+02 | ARCH002 | SENTRY POST - GROUND FLOOR LEVEL, FIRST FLOOR LEVEL PLAN AND FRONT ELEVATION | As indicated
+03 | ARCH003 | UNDERGROUND OPS ROOM - SECTIONAL VIEWS | 1 : 100
+04 | ARCH004 | REVIT 3D VIEWS - ISOMETRIC VIEW OF UNDERGROUND LEVEL AND FRONT ELEVATION | -
+05 | ARCH005 | REVIT 3D VIEWS - SIDE PROFILES OF UNDERGROUND OPS ROOM AND SENTRY POST | -
+06 | STR006 | STRUCTURAL REINFORCEMENT DETAILING - ROOF SLAB AND MAT FOUNDATION | 1 : 100
+07 | STR007 | STRUCTURAL REINFORCEMENT DETAILING - 600 SHEAR WALL AND MAIN STAIRCASE | As indicated
+08 | STR008 | STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST - BEAMS AND COLUMN | As indicated
+09 | STR009 | STRUCTURAL REINFORCEMENT DETAILING OF SENTRY POST - FOOTING AND SLAB | As indicated
+10 | MEP010 | HVAC AND EMP ZONE LAYOUT PLANS - UNDERGROUND LEVEL | As indicated
+11 | MEP011 | SEPTIC TANK, SOAK PIT AND SUMP PIT - PLANS, SECTIONS AND SCHEDULES | As indicated
+12 | FLS012 | FIRE AND LIFE SAFETY - ESCAPE PLAN, SHAFT SECTION AND DECISION RULE | As indicated
+13 | WMS013 | WORKS MANAGEMENT - MASTER PROGRAMME AND BILL OF QUANTITIES | Not to scale
+14 | STR014 | STRUCTURAL REINFORCEMENT DETAILING - ENTRY HEADHOUSE ROOF AND WALLS | As indicated
+15 | STR015 | STRUCTURAL REINFORCEMENT DETAILING - COVERED ENTRY STAIRWELL | As indicated
 #end
 
 #appendix D | REFERENCES | (CODES, STANDARDS AND LITERATURE)

@@ -51,7 +51,10 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, in the
   owner's service-writing layout (1 / 1.1 / 1.1.1, Arial 12, black, no header), WM3 cost only.
   **By instruction it omits the open-item register — it closes nothing; K.1b stands.** Edit
-  `Source/*.txt` and re-run `Scripts/sw_render.py`. No design value moved.
+  `Source/*.txt` and re-run `Scripts/sw_render.py`. No design value moved. Amended **PR3B**
+  (H.44.10): P1-deck site slides in Chapter 2 (`Images/`), Appendix C = sheets 01–15 only,
+  syndicate and guides named. **The guide is *Dr I R Chaudhuri* (owner ruling); the drawing
+  title blocks still read CHAUDHARI and were not regenerated.**
   Before it: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
   presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
   plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,

@@ -1,12 +1,12 @@
 #front CERTIFICATE
 
-T This is to certify that the project report entitled **"CBRN Hardened Underground Ops Room"** is a bonafide record of the work carried out by **Syndicate 01**, Faculty of Civil Engineering, College of Military Engineering, Pune, in partial fulfilment of the requirements for the award of the degree of Bachelor of Engineering (Civil Engineering).
+T This is to certify that the project report entitled **"CBRN Hardened Underground Ops Room"** is a bonafide record of the work carried out by **Syndicate 01**, comprising **Maj Yatin**, **Capt Sonu Sharma**, **Capt Sukender Singh**, **Capt Balbanka Tiwary**, **Capt DV Ghanashyama** and **Capt Siddharth Sinha**, Faculty of Civil Engineering, College of Military Engineering, Pune, in partial fulfilment of the requirements for the award of the degree of Bachelor of Engineering (Civil Engineering).
 
 T The work embodied in this report has been carried out under my guidance and supervision. The report is found satisfactory and is approved for submission.
 
 #vspace 38
 
-#sign (Dr I R Chaudhari) | Project Guide | Faculty of Civil Engineering || Head of Faculty | Faculty of Civil Engineering | College of Military Engineering, Pune
+#sign (Dr I R Chaudhuri) | Project Guide | Faculty of Civil Engineering || Head of Faculty | Faculty of Civil Engineering | College of Military Engineering, Pune
 
 #vspace 22
 
@@ -16,7 +16,7 @@ T Month : September 2026
 
 #front ACKNOWLEDGEMENT
 
-T The syndicate expresses its sincere gratitude to **Dr I R Chaudhari**, Project Guide, for the guidance, encouragement and critical review at every stage of the project, from the selection of the site to the preparation of the final drawings and estimate.
+T The syndicate expresses its sincere gratitude to its guides, **Maj Ashish Dubey**, FGS, **Dr I R Chaudhuri**, **Dr Uttam Awari**, **Lt Col APS Chauhan** and **Sh Tilak Sharma**, Jt Dir (C), FCM, for the guidance, encouragement and critical review at every stage of the project, from the selection of the site to the preparation of the final drawings and estimate.
 
 T We are thankful to the Head of Faculty and the faculty members of the Faculty of Civil Engineering, College of Military Engineering, Pune, for the facilities and support extended to us during the course of the project.
 

@@ -22,7 +22,7 @@
 **A2 presentation sheets:** **SR1** (16 Sep 2026, Part **H.39**) — **two A2 structural reinforcement sheets, `STR006` SHEET 06 (roof slab + mat foundation) and `STR007` SHEET 07 (600 shear wall + main staircase)**, drawn in the frame and title block of the owner's Revit A2 architectural set `ARCH001…ARCH005` so they read as the next two sheets of it. Every bar mark is read from `rebar_data.py`; **no design value, level, thickness, bar or spacing changed** and **the main staircase is untouched**. Finding **`SR1-F1`**: the request asked for IS 13920 detailing; **IS 13920 Cl. 10.4 was checked for the box and is NOT triggered** (τ = 0.063 N/mm²), the box is IS 456 + IS 4991 + IS 3370, and the project's IS 13920 detailing is the **sentry post frame**, which is not on these sheets. Both sheets **PASS** the drafting QA with **zero text overlaps**.
 **A2 sentry-post sheets:** **SR2** (16 Sep 2026, Part **H.40**) — **two more A2 sheets in the same series, `STR008` SHEET 08 (sentry post beams B1 / B2 and column C1) and `STR009` SHEET 09 (isolated footing F1 and slab S1)**. **This is the project's IS 13920:2016 sheet pair** — the box is not a ductile-detailing element (Cl. 10.4 checked, not triggered) and the sentry post frame is, so STR008 carries a 14-clause IS 13920 compliance table. **No design value moved and no analysis was run.** Because the sentry post is EXCLUDED from `rebar_data.py`, SR2 builds a separate register `sentry_data.py` to the same rule. Principal finding **`SR2-F1` — the master contradicts itself on B2's top steel at the ROOF joint**: B.8.6 checks that joint with **2-T20** and passes it marginally, F.4 schedules **3-T20 at supports** without distinguishing level, and 3-T20 there makes IS 13920 Cl. 7.2.1 **FAIL** (1.4 ΣM<sub>b</sub> 195.7 > ΣM<sub>c</sub> 101). **Both cannot be true, so SHEET 08 details the FIRST-FLOOR frame only** and the roof frame is left undrawn until it is ruled on. Six further open items `SR2-V1…V6`, plus `SR2-F2` — a legibility finding on the existing sheet STR007, **recorded and NOT acted on**. Both new sheets **PASS** the drafting QA. **Amended the same day as `SR2A` (Part H.40.8), by instruction: the design-basis and declared-decisions panels DELETED from both sheets and `REV A` removed from their header — no view, scale, dimension, bar or count changed, and the schedules were grown to fill the freed column. The open items are unchanged and now live in the master only.**
 **A2 header/panel cleanup:** **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire revision line (**"STRUCTURAL - PHASE 2 REV A + M1"**) deleted from the header — asked directly which reading was meant, and the whole line was the answer. **No design value moved; STR008/STR009 are byte-identical to before.** The freed column is filled by the `table_stack()` helper SR2A introduced. Found and fixed a real bug in `a2_lib.py` along the way: `table()`'s row-height shrink loop could quantise one step below `MIN_TXT_H`; fixed with a floor clamp, verified not to change STR008/STR009. **This also CLOSES `SR2-F2`**, the STR007 legibility finding recorded and deliberately left unfixed at SR2A. `DRAWING_INDEX.md`: 84 drawings, 78 PASS.
-**Final-submission report:** **PR3** (25 Sep 2026, Part **H.44**) — `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, 114 pages in the owner's service-writing format, WM3 cost Rs 2,97,90,913. **By instruction it omits the open-item register; nothing in K.1b or K.2 is closed by it** — H.44.2 lists what a reader will not see.
+**Final-submission report:** **PR3** (25 Sep 2026, Part **H.44**) — `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, 114 pages in the owner's service-writing format, WM3 cost Rs 2,97,90,913. **By instruction it omits the open-item register; nothing in K.1b or K.2 is closed by it** — H.44.2 lists what a reader will not see. Amended **PR3A** (H.44.9) and **PR3B** (H.44.10): the five P1-deck site slides in Chapter 2, Appendix C = the fifteen A2 sheets 01–15, the syndicate and guides named, and the guide's name spelt *Chaudhuri* by owner ruling (the drawing title blocks still read *CHAUDHARI*).
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and a ruling on **`SR2-F1`** before the sentry post roof beams can be detailed.
 
 ---
@@ -6156,6 +6156,107 @@ General Arrangement*; the finishes sheets A-601 / A-611 / A-612 stay (FN1 output
 itself are **not** edited. Appendix C's opening paragraph now says "the eighty drawings generated
 for the project". Nothing else in the report changed; still 114 pages. H.44.1–H.44.8 are
 preserved as first issued (M.11).
+
+### H.44.10 PR3B — site slides in Chapter 2, a fifteen-sheet drawing index, and the syndicate, 25 September 2026
+
+Three instructions, the same day:
+
+1. *"Include the map photos also from ppt with basic inferences"* — the owner supplied five
+   **P1-deck slides** as images: *The Site As Found* (four photographs), *Services Already On The
+   Ground*, *Watershed And Surface Drainage*, *Contour Map* and *Site Location*.
+2. *"Also for the index of drawings include only these drawings"*, then *"See all are there from
+   1-15"* — the owner uploaded `Project1.pdf` (twice, identical) and STR006 (`…_FINAL`), STR007,
+   STR008, STR009, MEP010, FLS012, WMS013, STR014 and STR015 (some more than once).
+3. *"Names of syndicate members of syndicate one"* — with the syndicate's own title slide.
+
+**No design value moved. No analysis was run.** PR3A's 80-drawing Appendix C (H.44.9) is
+superseded, and H.44.1–H.44.9 are preserved as issued (M.11).
+
+**Chapter 2 — the slides.** The five slides are Figs **2.1–2.5**, stored **byte-identical** as
+`Final Submission/Images/P1_*.jpg`; `sw_figures.PHOTOS` crops only the slide's black edge and dark
+title bar at build time (so the slide captions, e.g. *"Road connectivity adequate for 994 m³ of
+rock haulage"*, are not printed), and nothing is retouched. PR3's Figs 2.1–2.3 become **2.6–2.8**
+and the text references follow. The slides are `[C]` **as a record of what the P1 deck presents**
+(the deck is already row 2 of the SG1 source table) — **they are presentation slides, not a
+survey.** H.37.2's *"No photograph, satellite image, contour sheet or survey drawing of the plot
+exists in this project"* was true at PR2 and stands as written; these five slides are the first
+such images in the record.
+
+- **`SG-V4` is untouched.** The contour figure prints the deck's own 580 / 581 m labels, but the
+  report text adopts **no absolute level and no gradient**: it says only that the ground falls
+  gently east (PR3 and Chapter 17 already said so) and that levels are to the site datum, grade
+  = 0.000. The elevation-profile slide is **not** included.
+- **Inferences that read the images** — each is an observation of a supplied slide, not a survey
+  result: the plot is open ground clear of buildings and roads; open ground separates it from the
+  CTW blocks; a track on its east side gives plant access; scrub and grass with loose basalt at the
+  surface, no structure or large tree; water standing on the track after rain; an overhead
+  electric line along the access track; the contours run roughly N–S with no closed contour on the
+  plot; the flow lines over the plot are fine and run east, with no concentrated line crossing it,
+  and the heavier flow paths lie to the S and SE towards the nullah.
+- **Tied only to features already in the design:** the crowned grade at 1 in 50, the 300 channel
+  at the stairwell entrance (Chapter 3), site clearance and grubbing (WM3 Part I item 2), and the
+  campus water and electric supply in peacetime (Chapters 12 and 13).
+- **The services slide** is reported as the deck states it — substation **SS-15**, an **RCC
+  overhead reservoir of 15 000 gal on 15 m staging** — and a fourth "strength", *Water Supply*,
+  is added to para 3. The map does not show the plot; `SG2-V1`'s record that the reservoir is a
+  tank on the far side of the campus stands.
+- **The site-as-found slide's caption says "murrum" at the surface.** The report does **not**
+  adopt it: the inference text says only "loose basalt at the surface", and Chapters 2 and 17 keep
+  the SEMT surface clay. `SG-F13` / `SG-F14` are unchanged.
+- **A PR3 error corrected.** PR3 wrote *"aligned east-west with the entry at its west end"*. The
+  covered entry stairwell is at X 9 250–16 050, Y 5 750–7 750 and descends east to the headhouse
+  over bay 6 (A.4); the sentence now reads *"The covered entry stairwell runs along its north side
+  and descends eastward from ground level to the headhouse."*
+
+**Appendix C — fifteen sheets, 01 to 15,** transcribed from the title blocks (number, title,
+scale; all A2) as a fixed table in `Source/19_appendices.txt`. What each sheet is:
+
+| Sheet | Source of the entry | Relation to the repository |
+|---|---|---|
+| 01–05 ARCH001…005 | owner's `Project1.pdf` (Revit, 15 Sep 2026; sha256 `f342ee4d8f61…`) | **not in the repository**, as before (H.43). The redrawn ARCH001 / ARCH002 in `Presentation Sheets` carry the same numbers; **the index does not say which version it lists.** `MEP2-F1` (door schedule 900 × 2100; both blast doors are 1 200 × 2 100) and `MEP2-F2` (*"FDN LEVEL −6100"* is the internal floor) apply to the owner's sheets 01 / 02 and are **not** corrected by listing them. The title of 04 and 05 is *"REVIT 3D VIEWS"*; the index adds each sheet's view titles to tell them apart (the owner's *"UNDERGOUND"* spelt correctly). Their scale fields are blank — printed "-" |
+| 06 STR006 `_FINAL` | upload | **differs from the repository copy in one respect: the panel *"CONSTRUCTION REQUIREMENTS THAT ARE DESIGN OUTPUTS, NOT OPTIONS"* is deleted** (red-bole over-excavation; M15 blinding and cementitious spacers; F05 link grid and joints; flotation dewatering, relief plugs, no bar displaced). **The repository STR006 is not changed, and the four requirements stand in this master** — the owner's copy is not to be read as removing them |
+| 07, 10, 12, 13 | upload | **byte-identical** to `Presentation Sheets/PDF` |
+| 08, 09 | upload | differ only in PDF creation time (16 Sep, 09:00 vs 09:29 UTC); **pixel-identical** at 60 dpi |
+| 11 MEP011 | **not uploaded** — included on *"all are there from 1-15"*, from the repository copy | as issued (MEP1) |
+| 14, 15 STR014 / STR015 | upload | **not on this branch.** Byte-identical to the HH1 / AS1 sheets on the **unmerged** branch `claude/sentry-post-detailing-dxf-jb8y10` (commit `97254e6`). The report's *"held in the Presentation Sheets folder"* is true there and becomes true here when that branch merges; **this revision does not copy them** |
+
+The scale column follows the title blocks (FLS012 *"As indicated"* where `qa_index.json` says NOT
+TO SCALE). Everything else in `qa_index.json` — the A1 working set, the A4 handouts, S-06, the
+finishes sheets — is no longer listed; **`qa_index.json` is not edited**, and the `@drawings` /
+`is_generated()` code is kept but unused.
+
+**The syndicate.** The cover (two columns, as on the slide) and the certificate now name **Maj
+Yatin, Capt Sonu Sharma, Capt Sukender Singh, Capt Balbanka Tiwary, Capt DV Ghanashyama and Capt
+Siddharth Sinha** — `[C]` as supplied on the syndicate's title slide. The same slide gives
+*occupancy 8–9*; the design basis stays **9** and nothing is changed by it.
+
+**The guides** — a fourth instruction, *"Names of guides"*, with the list **Maj Ashish Dubey, FGS;
+Dr IR Chaudhuri; Dr Uttam Awari; Lt Col APS Chauhan; Sh Tilak Sharma, Jt Dir (C), FCM** `[C]`.
+Two questions were put to the owner, and both answers are rulings `[C]`:
+
+- **Spelling — "Chaudhuri".** The list spells it *Chaudhuri*; PR3 and **every drawing title block
+  in the project** (the owner's own Revit sheets included) read *CHAUDHARI*. **Owner's ruling:
+  *Chaudhuri*, as in the list.** The report now reads *Dr I R Chaudhuri* throughout. **The title
+  blocks are NOT changed by PR3B** — `STR006`…`STR009`, `MEP010`, `MEP011`, `FLS012`, `WMS013`,
+  `STR014`, `STR015` (their `IDENTITY` text in `Presentation Sheets/Scripts/`) and the owner's
+  `ARCH001`…`ARCH005` all still print *DR IR CHAUDHARI*. Correcting them is a regeneration of the
+  whole presentation series and has not been asked for.
+- **Placement — the cover list only.** All five are named on the cover under *"Under the guidance
+  of"* and thanked in the acknowledgement; **the certificate's signature blocks are unchanged**
+  (*(Dr I R Chaudhuri), Project Guide* and *Head of Faculty*).
+
+**Renderer.** New `#photo` directive and `PhotoBox` (`sw_render.py`); `PHOTOS`, `PHOTO_MAXH`
+(`sw_figures.py`); `MEMBERS` (cover). Photographs print at up to 86 mm high — the size at which
+Chapter 2 packs without a half-empty page — and the services map at full width so its lettering
+stays legible. **Still 114 pages**: Chapter 2 grew by four and Appendix C shrank by four.
+
+**Verified.** Five slide files byte-compared with the uploads; every uploaded drawing hashed
+against the repository and the unmerged branch, STR006 / 008 / 009 diffed by rendering; the fifteen
+title blocks read from renders (ARCH sheets from their PDF text); Chapter 2 pages 4–8 and the cover,
+certificate and Appendix C inspected as renders; a whole-document text scan finds only the four
+engineering uses of "assumed" / "defect" found at PR3; every text span is black (the photographs
+keep their own colours); fonts ArialMT / Arial-BoldMT / Arial-ItalicMT, figure lettering FreeSans.
+**Main staircase unchanged.**
 
 ---
 
