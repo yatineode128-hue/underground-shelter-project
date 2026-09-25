@@ -1,0 +1,89 @@
+#chapter ELECTRICAL SERVICES | (SOURCES, LOAD SCHEDULE, DISTRIBUTION AND ESSENTIAL SUPPLY)
+
+#head Sources of Supply
+
+P1 Sources | Power is supplied from three sources:-
+
+P2 Mains | The campus electric supply, through a meter panel, in peacetime.
+
+P2 Generator | A 15 kVA diesel generator GEN-1 in bay 8, outside the gas-tight envelope and within the EMP boundary of the box.
+
+P2 Battery | A 48 V battery with inverter, which supplies the essential loads on failure of both the mains and the generator.
+
+#head Load Schedule
+
+P1 Connected Load | The connected load is given in Table 13.1. Standby units (the second filter fan and the standby pumps) do not run with their duty units and are not counted.
+
+#table Electrical Load Schedule
+#widths 10,48,12,15,15
+#align C,L,C,R,L
+Tag | Load | Board | kW | Remarks
+L-01 | General lighting, bays 1 to 8, LED | DB-E | 0.520 | -
+L-02 | Emergency lighting, maintained, DC | DB-E | 0.100 | -
+P-01 | Small power, socket outlets | DB-M | 1.000 | -
+F-01 | Filter train fan, one duty of two | DB-E | 0.379 | Hand crank also
+D-01 | Dehumidifier DH-1 | DB-E | 1.000 | -
+U-01 | Clean sump pump, one duty of two | DB-E | 0.334 | -
+U-02 | Stairwell sump pump, one duty of two | DB-M | 0.223 | -
+Z-01 | EMP Zone 2 operations and communication equipment | DB-Z2 | 1.500 | -
+S-01 | Fire detection and alarm panel | DB-E | 0.100 | -
+B-01 | Battery charger and inverter | DB-M | 0.800 | -
+G-01 | Generator auxiliaries | DB-M | 0.300 | -
+| **Connected load** | | **6.256** | 7.360 kVA at pf 0.85
+#end
+
+#calc
+Generator rating ;; 15.0 kVA
+Connected load ;; 7.360 kVA
+!Generator utilisation ;; 49.1 %
+Largest motor, filter fan 0.379 kW; direct-on-line starting ;; about 2.7 kVA
+#end
+
+T The generator runs at about half load, which avoids light-load running of the diesel engine and leaves margin for additional load. Motor starting does not govern the size of the set.
+
+#head Distribution
+
+P1 Boards | The distribution consists of three boards, shown in Fig 13.1:-
+
+P2 DB-M, Main LV Board | In bay 8, outside the gas-tight envelope, with changeover between the mains and the generator.
+
+P2 DB-E, Essential Board | In bay 5, within the envelope, fed from DB-M and from the battery inverter on failure of both sources.
+
+P2 DB-Z2, Zone 2 Sub-Board | Inside the shielded enclosure in bay 3, fed from DB-E through the pulse current injection protection on the Zone 2 boundary.
+
+P1 Service Entry | Every conductor crossing the protective envelope passes through the service entry plate, with PCI protection on every power conductor and optical fibre for all signal circuits. No other cable penetration is made.
+
+#fig fig_single_line | Electrical Single Line Diagram
+
+#head Essential Supply
+
+P1 Essential Loads | The loads that remain live with neither the mains nor the generator available are given below.
+
+#calc
+Emergency lighting, maintained ;; 0.100 kW
+Reduced general lighting, 25 % ;; 0.150 kW
+Fire detection and alarm ;; 0.100 kW
+EMP Zone 2 equipment at 50 % duty ;; 0.750 kW
+Clean sump pump at 10 % duty ;; 0.033 kW
+CO<sub>2</sub> scrubber recirculation fan ;; 0.100 kW
+Instruments and monitoring ;; 0.050 kW
+!Total essential load ;; 1.283 kW
+!Battery for 4 h at 48 V (depth of discharge 0.80, inverter efficiency 0.90) ;; 149 Ah
+Battery mass and floor area ;; 204 kg, 0.40 m²
+#end
+
+T The battery is housed in a cabinet in bay 5. Since the generator can run during the closed mode (Chapter 10), the battery is required to carry the essential load only during changeover and short interruptions.
+
+P1 Non-Electrical Back-up | The two filter fans are fitted with hand cranks and the clean sump with a hand pump, so that ventilation and dewatering continue even if all electrical sources fail.
+
+#head Generator Fuel
+
+P1 Day Tank | The fuel for 96 hours of generator operation is worked out as under.
+
+#calc
+Energy over 96 h ;; 600.6 kWh
+Fuel at 0.35 l/kWh ;; 210.2 litres
+!Day tank: 210 l usable, 250 l nominal, bund 275 l (110 %) ;; Bay 8
+#end
+
+T The tank is of welded steel with a bund, contents gauge and low-level alarm to the panel. Its filling and vent pipes (DN25, metallic, with a lockable filler cap) are run up the existing generator air shaft SH-2 and bonded to the shaft earth, so that no additional penetration of the protective boundary is made.

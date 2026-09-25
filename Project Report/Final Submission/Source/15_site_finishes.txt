@@ -1,0 +1,93 @@
+#chapter SITE LAYOUT, FINISHES AND CONCEALMENT | (EXTERNAL WORKS, AIR SHAFTS, SCHEDULE OF FINISHES AND CONCEALMENT)
+
+#head External Works
+
+P1 External Works Reserve | The septic tank, soak pits and soakaways are grouped in an external works reserve of 18.0 x 11.0 m at X 33 000 - 51 000, Y 6 500 - 17 500, 10.0 m clear of the east face of the excavation and downhill of the shelter. The layout is shown in Fig 15.1 and the items are listed in Table 15.1.
+
+#table External Works
+#widths 14,34,22,30
+#align L,L,C,L
+Tag | Item | Centre (X, Y) | Serves
+ST-01 | Septic tank 1.5 x 0.75 m | (36 750, 16 000) | 10 users, 450 l/day
+SK-01 | Foul soak pit, 2.2 m diameter | (44 000, 16 000) | Septic tank effluent
+SK-02 | Storm soakaway, 2.2 m diameter | (35 000, 8 500) | Clean sump and entry channel
+SK-03 | Stairwell soakaway | (41 400, 8 500) | Stairwell sump SU-02
+SK-04 | Headhouse soakaway | (47 800, 8 500) | Headhouse floor gully
+IC-01, IC-02 | Inspection chambers 600 x 450 | (7 500, 9 800), (40 200, 16 000) | Change of direction; de-sludging
+#end
+
+P1 Reasons for the Layout | All effluent is released downhill of, and away from, the buried box, whose backfill is more permeable than the surrounding rock. The grouping gives one percolation test location, one keep-clear zone and one common services trench, and the cover slabs and septic vent are 11 to 22 m from the shelter, so that they do not indicate its position.
+
+P1 Clearances | The clearances required by IS 2470 are met: foul soak pit to septic tank 5.40 m against 5 m, and soak pit to the nearest building 10.97 m against 2 m. There is no well within 15 m of the foul soak pit.
+
+P1 Pipe Runs | The external pipe runs are: septic tank to soak pit, DN100 at 1 in 100, 5.40 m; rising main from the service entry plate to the storm soakaway, DN50, 27.00 m; entry channel to the storm soakaway, DN100 at 1 in 100, 32.35 m, routed west clear of the stairwell excavation; and stairwell sump to its soakaway, DN50 rising main, 29.60 m.
+
+#fig fig_external_works | External Works, Septic Tank, Soak Pits and Soakaways
+
+P1 Air Shafts | The fresh-air intake shaft SH-1 (600 x 600 mm) is centred at (-2 400, 3 100), west of the box, and the generator air shaft SH-2 (600 x 600 mm) is at X 22 598 - 23 198, east of the box. Both have gooseneck heads at +1.500. The two shafts are 25.30 m apart at opposite ends of the box, which separates the fresh air intake from the generator exhaust.
+
+#head Schedule of Finishes
+
+P1 Finishing Rules | The finishes have been selected for decontamination, drainage and the protection of the envelope. The following rules apply throughout:-
+
+P2 No Voids | No suspended ceiling, dry lining, boxing-in or cavity of any kind is provided anywhere in the gas-tight envelope. Every finish is applied directly to the concrete, so that every duct, pipe and surface can be inspected and decontaminated.
+
+P2 Cast-in Fixings | No fixing is drilled into the tanked envelope. Bunk frames, handrails, cable trays, duct supports and door frames are fixed to cast-in sockets or frames only.
+
+P2 Coved Junctions | Every junction in a wet or clean area, floor to wall, wall to soffit and around every gully and sleeve, is coved.
+
+P2 Stair Finishes | The stair treads carry a cast-in non-slip nosing with no build-up on the tread, so that the 280 mm going is maintained.
+
+P1 Finish Codes | The finish codes are given in Table 15.2 and the room finish schedule in Table 15.3.
+
+#table Finish Codes
+#widths 10,34,56
+#align C,L,L
+Code | Finish | Performance
+F-01 | Sealed power-floated screed | Decontaminable, non-dusting, washdown-resistant, laid to falls, coved to the skirting
+F-02 | Seamless coved heavy-duty wet-area finish | Impervious, coved 150 mm up every wall in one piece, resistant to decontaminant; no joints or tiles
+F-03 | Non-slip decontaminable floor and tread finish | Wet-slip resistant, abrasion resistant; treads, landings and shaft floor
+F-04 | Abrasion and oil-resistant floor | Fuel and oil resistant, laid to falls, bunded plinth under the generator
+F-05 | Power-floated non-slip slab finish | External grade, non-slip when wet, 1 in 80 fall to the gully
+F-06 | In-situ concrete, non-slip, cast nosing | External grade; covered stairwell
+S-01 / S-02 | Coved skirting 150 integral with the floor / hard skirting 100 | Decontamination / impact resistance
+W-01 | Fair-face RC with sealed washable coating | Applied direct to the concrete; no cavity or lining
+W-02 | W-01 with impervious finish to full height | Wet areas, continuous with the F-02 cove
+W-03 / W-05 | Fair-face RC, sealed / external grade | Grey zone and stair shaft / headhouse and stairwell
+W-04 | EMP Zone 2 shielded enclosure lining | Welded steel room; finish subordinate to shielding
+C-01 / C-02 / C-03 | Exposed RC soffit, sealed | Decontaminable in the envelope; sealed elsewhere; external grade in the stairwell
+#end
+
+#table Room Finish Schedule
+#font 9
+#widths 9,30,9,9,11,9,11,12
+#align C,L,C,C,C,C,C,L
+Room | Name | Floor | Skirting | Wall | Ceiling | Door | Remarks
+U-01 | Emergency stores, ESC 1 | F-01 | S-01 | W-01 | C-01 | D-04 | Falls 1:100
+U-02 | Lavatory and medical | F-02 | S-01 | W-02 | C-01 | D-04 | Wet area, falls 1:80
+U-03 | Operations room | F-01 | S-01 | W-01, W-04 | C-01 | D-04 | Zone 2 enclosure
+U-04 | Berthing | F-01 | S-01 | W-01 | C-01 | D-04 | Bunk fixings cast in
+U-05 | CBRN plant and sump | F-02 | S-01 | W-02 | C-01 | D-05 | Wet area, falls 1:80
+U-06 | Decontamination airlock | F-02 | S-01 | W-02 | C-01 | D-01, D-05 | Wet area, 50 mm upstands
+U-07 | Stair shaft | F-03 | S-02 | W-03 | C-02 | D-01 | Cast-in nosing
+U-08 | Generator bay, ESC 2 | F-04 | S-02 | W-03 | C-02 | D-01 | Bunded plinth
+G-01 | Stairwell top landing | F-06 | S-03 | W-05 | C-03 | D-03 | Channel at threshold
+G-02 | Stairwell flight | F-06 | S-03 | W-05 | C-03 | - | Non-slip
+G-03 | Stairwell platform | F-06 | S-03 | W-05 | C-03 | D-02 | Gully to sump
+G-04 | Headhouse | F-05 | S-02 | W-05 | C-02 | D-02 | Hose-down, 1:80 fall
+G-05 | Stair void edge | F-05 | S-02 | W-05 | - | - | 1 100 mm guarding
+#end
+
+#head Concealment
+
+P1 Measures | The buried structure is concealed by the following measures:-
+
+P2 Turf | The whole buried roof is covered by 300 mm of topsoil and turf (30.87 m³), re-laid from the 92.82 m³ of topsoil stripped from the site itself, so that the restored surface matches its surroundings.
+
+P2 Ground Form | The finished grade over the box is crowned and falls at 1 in 50, a natural-looking fall, and the berms against the headhouse and stairwell are graded at 1.5 : 1 to read as ground.
+
+P2 No Surface Drainage Features | There is no roof outlet, downpipe, manhole or gully anywhere on the buried roof; the cover drains through the granular filter on the sloping burster slab to the berm toe.
+
+P2 No Spoil Heap | All surplus excavation (1 113.94 m³) is re-used on site as engineered fill and crushed rubble, and no spoil heap is left.
+
+P1 Above-Ground Elements | The elements that stand above grade are the sentry post (parapet +7.000), the covered stairwell head (+2.450), the two air shaft goosenecks (+1.500), the headhouse roof (+0.900) and the escape shaft heads (+0.700 and +0.150). The sentry post is a manned observation post and is meant to be seen, and the headhouse is the entrance; the protected volume itself lies below ground under graded, turfed cover.

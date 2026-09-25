@@ -1,0 +1,71 @@
+#chapter INTRODUCTION | (BACKGROUND, AIM AND SCOPE OF THE PROJECT)
+
+#head General
+
+P1 Background | An operations room is the nerve centre from which a commander and a small staff plan and control operations. In a conflict in which nuclear, biological or chemical weapons may be employed, such a room must continue to function during and after an attack, and its occupants must survive for a stated period without outside support. This requires a structure that resists the blast of a nuclear air burst, keeps contaminated air out, shields its occupants from nuclear radiation and fallout, and protects its electronic equipment from electromagnetic pulse.
+
+P1 Project | The project deals with the complete design of such a facility, titled the **CBRN Hardened Underground Ops Room**, to be constructed within the College of Military Engineering (CME) campus at Pune, Maharashtra. The project has been carried out as the final year project of the Bachelor of Engineering (Civil Engineering) course and has been developed to the stage of drawings, bill of quantities, cost estimate and construction programme.
+
+P1 Aim | The aim of the project is to plan and design a buried reinforced concrete operations room that protects nine occupants for 96 hours against the blast of a nuclear air burst, chemical, biological, radiological and nuclear (CBRN) contamination, initial nuclear radiation, fallout and electromagnetic pulse (EMP), together with an associated sentry post, and to prepare the drawings, bill of quantities, cost estimate and construction programme for its execution.
+
+P1 Scope | The scope of the project is as under:-
+
+P2 | Selection of the site and interpretation of the sub-soil investigation.
+
+P2 | Planning of the underground structure, the entry headhouse, the covered entry stairwell and the sentry post.
+
+P2 | Derivation of the design loads, including blast, earth and water pressure, seismic and wind loads.
+
+P2 | Analysis and structural design of all reinforced concrete elements to the relevant Indian Standards, and preparation of the reinforcement details.
+
+P2 | Design of the protective services, namely CBRN filtration and ventilation, EMP protection, water supply and drainage, electrical power, and fire and life safety.
+
+P2 | Works management, comprising the bill of quantities, cost estimate, construction programme, quality control and safety.
+
+#head Design Requirements
+
+P1 User Requirements | The design requirements adopted for the project are given in Table 1.1.
+
+#table Design Requirements
+#widths 30,70
+Parameter | Requirement
+Occupancy | 9 persons
+Endurance | 96 hours without external support
+Design threat | Nuclear air burst; peak incident overpressure 344.7 kPa (50 psi); positive phase duration 0.13 to 1.33 s
+Protection | Blast, CBRN contamination, initial nuclear radiation, fallout and EMP
+Ventilation | Filtered air 300 m³/h with a standby train of equal capacity; internal overpressure +50 to +100 Pa
+Standby power | 15 kVA diesel generator with battery back-up for essential loads
+EMP performance | 80 dB from 10 kHz to 1 GHz for mission equipment (MIL-STD-188-125-1)
+Seismic zone | Zone III, IS 1893 (Part 1) : 2016
+Location | CME campus, Pune, Maharashtra
+#end
+
+P1 Components of the Project | The installation consists of three separate structures:-
+
+P2 Underground Structure | A buried reinforced concrete box 22.0 m long and 6.2 m wide externally, divided into eight bays, with its roof 2.0 m below finished ground level. This is the protected volume and houses the operations room, berthing, CBRN plant, decontamination airlock, stair shaft and generator.
+
+P2 Entry Headhouse and Covered Entry Stairwell | A reinforced concrete headhouse standing on the roof of the box and bermed on all sides, reached from ground level through a covered stairwell of twelve risers.
+
+P2 Sentry Post | A two-storey reinforced concrete framed observation post on isolated footings on rock, located 10 m clear of the underground structure.
+
+#head Methodology
+
+P1 Stages of Work | The project has been executed in the following stages:-
+
+P2 | Study of the threat and of the codes and literature on protective design, including IS 4991, IS 456, IS 13920, MIL-STD-188-125-1, UFC 3-340-02 and Glasstone and Dolan.
+
+P2 | Selection of the site and study of the sub-soil investigation report and the meteorological data.
+
+P2 | Architectural planning and preparation of the general arrangement drawings.
+
+P2 | Derivation of the design loads and preparation of the analysis models in STAAD.Pro.
+
+P2 | Design of every structural element by the limit state method, with the blast case treated as an equivalent static load using the dynamic load factor.
+
+P2 | Design of the protective services.
+
+P2 | Preparation of the reinforcement drawings, presentation sheets, bill of quantities, cost estimate and construction programme.
+
+P1 Software Used | AutoCAD has been used for all general arrangement, structural, services and site drawings, STAAD.Pro for the structural analysis models, Autodesk Revit for the architectural presentation sheets, MS Excel for the bill of quantities and cost estimate, and MS Project for the construction programme.
+
+P1 Organisation of the Report | The report is arranged in eighteen chapters. Chapters 2 and 3 cover the site and the planning of the installation. Chapters 4 to 9 cover the design basis, loads, analysis and the structural design of the underground structure, the stairs and headhouse, and the sentry post. Chapters 10 to 15 cover the protective and building services, fire safety, external works, finishes and concealment. Chapter 16 covers works management, Chapter 17 the environmental management plan and Chapter 18 the conclusions. The reinforcement schedule, the bill of quantities, the list of drawings and the references are placed in the appendices.

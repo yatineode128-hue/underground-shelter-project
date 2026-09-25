@@ -1,0 +1,23 @@
+#chapter CONCLUSION | (SUMMARY OF THE DESIGN)
+
+#head Summary
+
+P1 Conclusion | The CBRN Hardened Underground Ops Room has been planned, analysed and designed for the protection of nine occupants for 96 hours against a nuclear air burst of 344.7 kPa peak overpressure, CBRN contamination, nuclear radiation, fallout and EMP. The salient features of the design are as under:-
+
+P2 Structure | A buried reinforced concrete box 22.0 x 6.2 m founded on basalt at (-)6.800, with 600 mm walls and mat, 400 mm protective walls W6 and W7, and a 900 mm pressure slab under 2.0 m of engineered cover with a burster slab.
+
+P2 Blast Design | The design blast pressure of 383 kPa has been derived with a dynamic load factor of 1.111 for a ductility ratio of 5. The response is quasi-static (t<sub>d</sub>/T = 10 to 100), and all elements have been designed to IS 456 with the plastic mechanism moment and dynamic material strengths, with no dynamic increase on shear. The highest utilisations are the headhouse roof (90 per cent) and the mat (84 per cent); the governing pressure slab is 51 per cent utilised in flexure with x<sub>u</sub>/d = 0.139.
+
+P2 Protective Boundary | The boundary is formed by two 7 bar blast doors in 400 mm walls, the perimeter walls, the mat and the pressure slab, with two escape shafts closed by blast hatches designed for the full pressure.
+
+P2 Sentry Post | A two-storey RC frame on footings on rock, designed for seismic Zone III to IS 1893 and detailed to IS 13920.
+
+P2 CBRN Protection | Two 300 m³/h NBC filter trains in N+1, an overpressure of +50 to +100 Pa with a four-step cascade through a three-stage airlock, and a closed-mode endurance of 48 hours on CO<sub>2</sub> scrubbing and oxygen.
+
+P2 EMP Protection | A welded steel Zone 2 enclosure providing 80 dB from 10 kHz to 1 GHz on its own, with a honeycomb ventilation panel of 88.3 dB, PCI-protected power and optical fibre signals, and a continuous reinforcement cage as additional margin.
+
+P2 Services | A tanked drainage system with eight days of sump storage and a hand pump, a 15 kVA generator at 49 per cent load with a four-hour battery for essential loads, and a fire and life safety plan with three escape routes and a route decision rule.
+
+P2 Works Management | A bill of quantities of 38 items, an estimated cost of Rs 2,97,90,913 and a construction programme of 224 working days from November 2026 to July 2027.
+
+P1 Learning Value | The project has brought together structural dynamics, reinforced concrete design, geotechnical engineering, building services and construction management in the design of a single protective installation, and has shown how each protective requirement, from the blast pressure to the bar spacing and the position of every opening, shapes the civil engineering of the structure.

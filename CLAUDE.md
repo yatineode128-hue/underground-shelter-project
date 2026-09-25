@@ -47,7 +47,12 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
+- Latest revision: **PR3** (25 Sep 2026, master **H.44**) — the **final-submission project report**,
+  `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, in the
+  owner's service-writing layout (1 / 1.1 / 1.1.1, Arial 12, black, no header), WM3 cost only.
+  **By instruction it omits the open-item register — it closes nothing; K.1b stands.** Edit
+  `Source/*.txt` and re-run `Scripts/sw_render.py`. No design value moved.
+  Before it: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
   presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
   plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,
   the owner's own sheets 1 and 2, same views and scales, **every dimension and level brought

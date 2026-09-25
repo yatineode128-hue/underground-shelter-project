@@ -1,0 +1,138 @@
+#chapter EMP PROTECTION | (SHIELDING, POINTS OF ENTRY, BONDING AND EARTHING)
+
+#head The Threat
+
+P1 High-Altitude EMP | A nuclear burst high above the atmosphere produces no blast or fallout at the ground but generates an intense electromagnetic pulse. Gamma rays from the burst eject electrons from air molecules by Compton scattering, and the geomagnetic field turns these electrons into a transverse current sheet that radiates a nearly plane wave over a very large area. The pulse has three components, as given in Table 11.1.
+
+#table Components of High-Altitude EMP
+#widths 14,26,60
+#align C,L,L
+Component | Time Scale | Couples to
+E1 | Nanoseconds | Short conductors, cables, equipment enclosures and circuit boards; the component that damages electronics
+E2 | Microseconds to milliseconds | Similar to lightning; conventional surge protection is effective
+E3 | Seconds | Long conductors such as power lines and pipelines (quasi-DC induced currents)
+#end
+
+P1 Purpose of Protection | EMP is not a hazard to the occupants, who are protected by the structure against blast, CBRN agents and radiation. EMP protection is provided so that the communication and control equipment of the operations room continues to function after the event.
+
+P1 Design Requirement | The mission equipment is protected to MIL-STD-188-125-1, which requires a shielding effectiveness of **80 dB from 10 kHz to 1 GHz**, verified by a survey to IEEE Std 299. The lower end of the band is set by the E3 component and the upper end by the fast rise of E1.
+
+#head Zone Concept
+
+P1 EMP Zones | The installation is divided into three EMP zones, as given in Table 11.2 and Fig 11.1.
+
+#table EMP Zones
+#widths 14,46,40
+Zone | Extent | Protection
+Zone 0 | Everything above grade: sentry post, headhouse, covered stairwell, shaft heads | No shielding credit taken
+Zone 1 | The buried box, all eight bays; the reinforcement cage | Low-frequency attenuation; taken as margin only
+Zone 2 | Welded steel shielded enclosure in the operations room, bay 3 | 80 dB, 10 kHz to 1 GHz, on its own
+#end
+
+P1 Design Rule | The Zone 2 enclosure is designed to provide the full 80 dB on its own. No attenuation from the concrete box is credited at any frequency, and the reinforcement cage is treated as additional margin.
+
+#fig fig_emp_zones | EMP Zones
+
+#head Reinforcement Cage
+
+P1 Shielding by the Cage | A reinforcement cage acts as a mesh, whose shielding effectiveness falls at 20 dB per decade of frequency. For the 150 mm bar spacing adopted in both curtains of every element, SE = 20 log<sub>10</sub>(λ / 2s) gives the values in Table 11.3 and Fig 11.2.
+
+#table Shielding Effectiveness of the 150 mm Cage
+#widths 34,33,33
+#align C,C,C
+Frequency | Wavelength | SE (dB)
+10 kHz | 29 979 m | 99.99
+100 kHz | 2 998 m | 79.99
+1 MHz | 299.8 m | 59.99
+10 MHz | 29.98 m | 39.99
+100 MHz | 2.998 m | 19.99
+999.31 MHz | 300.2 mm | 0.00
+#end
+
+T The cage provides 80 dB up to about 100 kHz, which is where the slow E3 component acts on long conductors. The full band is provided by the Zone 2 enclosure.
+
+#fig fig_emp_se | Shielding Effectiveness of the Reinforcement Cage
+
+P1 Structural Measures | The following measures in the structural design maintain the continuity of the cage:-
+
+P2 | Main bar spacing limited to 150 mm in both curtains.
+
+P2 | Every blast door frame, the headhouse door frame, every blast valve sleeve and the service entry plate cast in and welded to the cage.
+
+P2 | A welded copper or galvanised steel strap across every construction joint.
+
+P2 | No movement joint anywhere within the protective envelope.
+
+#head Zone 2 Enclosure
+
+P1 Enclosure | The Zone 2 enclosure is a welded steel shielded room in the operations room, with the particulars given in Table 11.4. A clear space of at least 300 mm is kept on every free face so that the survey can reach every seam, and the enclosure is clear of the circulation route at Y 2500 - 3400.
+
+#table Zone 2 Enclosure
+#widths 40,60
+Item | Particulars
+Location | Bay 3 (internal 3 500 x 5 000 x 3 200), at X 5820 - 8220, Y 3700 - 5300
+External size | 2 400 x 1 600 x 2 200 mm
+Shielded panel | 50 mm panels, solid welded steel
+Internal clear size | 2 300 x 1 500 x 2 100 mm (3.45 m², 7.245 m³)
+Shielded envelope area | 25.28 m² (walls 17.60, roof 3.84, floor 3.84)
+Total seam length | 24.80 m, continuously welded or gasketed
+Clearances | 300 mm north, south and west; 800 mm east; 1 000 mm above (850 mm clear above the duct zone)
+#end
+
+P1 Shield Performance | For a solid steel shield the loss is the sum of absorption and reflection. For low-carbon steel (σ = 1.0 x 10<sup>7</sup> S/m, μ<sub>r</sub> = 200) the skin depth at 10 kHz is 0.1125 mm, and about 1 mm of steel gives 80 dB by absorption alone at the lowest frequency of the band; the reflection term adds a further 97 dB. The steel panel is therefore not the limiting item; the performance of the enclosure is governed by its seams, its door and its points of entry, which is why the acceptance test is a survey of the joints.
+
+P1 Points of Entry | Every conductor or opening that crosses the Zone 2 boundary is treated at the boundary, as given in Table 11.5.
+
+#table Points of Entry of the Zone 2 Enclosure
+#widths 20,40,40
+Point of Entry | Treatment | Performance
+Access (MIL-STD Sec 5.4) | RF-gasketed or knife-edge shielded door | Not less than 80 dB
+Ventilation (Sec 5.5) | Honeycomb waveguide panel, 6 mm cell x 25 mm deep | 88.3 dB (array included)
+Power (Sec 5.7.2.1) | Pulse current injection (PCI) protection device on every conductor, mounted on the boundary | Pulse-tested to MIL-STD-188-125-1
+Signal (Sec 5.7.4.1) | Optical fibre with no metallic strength member or armour | Not a penetration
+#end
+
+P1 Honeycomb Waveguide Panel | A tube whose bore is small compared with the wavelength does not pass energy below its cutoff frequency. The ventilation opening of the enclosure is closed by a honeycomb panel of such tubes, designed as under.
+
+#calc
+Cell size d = 6 mm; depth L = 25 mm
+TE11 cutoff f<sub>c</sub> = 1.8412 c / (π d) = 1.8412 x 2.998 x 10<sup>8</sup> / (π x 0.006) ;; 29.28 GHz
+Attenuation of one cell below cutoff, A = 32 L / d = 32 x 25 / 6 ;; 133.3 dB
+Cell area (√3 / 2) x 6² = 31.18 mm²; cells per m² = 10<sup>6</sup> / 31.18 ;; 32 075
+Array correction for n apertures, -10 log<sub>10</sub>(32 075) ;; - 45.1 dB
+!Net attenuation of the panel = 133.3 - 45.1 ;; 88.3 dB > 80 dB
+#end
+
+T The panel is mounted inboard of the blast valve, so that the valve takes the blast pressure and the honeycomb takes the radio frequency energy, and it is procured with a certified attenuation curve for the complete panel.
+
+#fig fig_honeycomb | Honeycomb Waveguide Ventilation Panel
+
+#head Bonding and Earthing
+
+P1 Bonding | At EMP frequencies a bonding strap behaves as an inductance, and its impedance rises with frequency. The comparison in Table 11.6 shows the benefit of a short, wide strap.
+
+#table Impedance of Bonding Straps
+#widths 28,18,18,18,18
+#align L,R,R,R,R
+Strap | Inductance | X at 1 MHz | X at 10 MHz | X at 100 MHz
+600 x 25 x 3 mm | 512.2 nH | 3.22 Ω | 32.2 Ω | 321.8 Ω
+100 x 50 x 3 mm (adopted) | 38.9 nH | 0.24 Ω | 2.45 Ω | 24.5 Ω
+#end
+
+T The following bonding rules are adopted: every bond not more than 100 mm long; width to length ratio not less than 5 : 1; flat strap only, never a round wire or pigtail; clean bare metal at both ends, protected after making off; and the Zone 2 shield bonded to the structure at one point only, so that no loop is formed.
+
+P1 Earthing | Deccan basalt has a resistivity of 1 000 to 10 000 Ω.m, in which a single 3 m x 16 mm rod has a resistance of 335 Ω at the lower bound. The mat and its reinforcement cage form a large concrete-encased electrode (136.4 m², equivalent radius 6.589 m) with a resistance of about 38 Ω in the same ground, and are used as the main earth electrode. All earthing and bonding conductors are connected to the structure at a single point.
+
+#head Verification
+
+P1 Acceptance Survey | The Zone 2 enclosure is surveyed to IEEE Std 299 over 10 kHz to 1 GHz on completion, with every penetration made off, every panel closed and the door shut. Every seam, the door perimeter and each point of entry is surveyed, and the acceptance level is 80 dB. No equipment is installed in the enclosure until the survey has been passed.
+
+P1 Checks during Construction | The following checks are made at the stage at which a defect can still be corrected:-
+
+P2 | Continuity of the reinforcement cage across every construction joint, before concreting.
+
+P2 | Continuity of every cast-in frame, sleeve and the service entry plate to the cage, before concreting.
+
+P2 | Earth resistance of the structure electrode, early in the works.
+
+P2 | Resistance of every bonding strap after making off.

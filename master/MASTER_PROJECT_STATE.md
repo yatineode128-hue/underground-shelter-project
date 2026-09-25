@@ -22,6 +22,7 @@
 **A2 presentation sheets:** **SR1** (16 Sep 2026, Part **H.39**) — **two A2 structural reinforcement sheets, `STR006` SHEET 06 (roof slab + mat foundation) and `STR007` SHEET 07 (600 shear wall + main staircase)**, drawn in the frame and title block of the owner's Revit A2 architectural set `ARCH001…ARCH005` so they read as the next two sheets of it. Every bar mark is read from `rebar_data.py`; **no design value, level, thickness, bar or spacing changed** and **the main staircase is untouched**. Finding **`SR1-F1`**: the request asked for IS 13920 detailing; **IS 13920 Cl. 10.4 was checked for the box and is NOT triggered** (τ = 0.063 N/mm²), the box is IS 456 + IS 4991 + IS 3370, and the project's IS 13920 detailing is the **sentry post frame**, which is not on these sheets. Both sheets **PASS** the drafting QA with **zero text overlaps**.
 **A2 sentry-post sheets:** **SR2** (16 Sep 2026, Part **H.40**) — **two more A2 sheets in the same series, `STR008` SHEET 08 (sentry post beams B1 / B2 and column C1) and `STR009` SHEET 09 (isolated footing F1 and slab S1)**. **This is the project's IS 13920:2016 sheet pair** — the box is not a ductile-detailing element (Cl. 10.4 checked, not triggered) and the sentry post frame is, so STR008 carries a 14-clause IS 13920 compliance table. **No design value moved and no analysis was run.** Because the sentry post is EXCLUDED from `rebar_data.py`, SR2 builds a separate register `sentry_data.py` to the same rule. Principal finding **`SR2-F1` — the master contradicts itself on B2's top steel at the ROOF joint**: B.8.6 checks that joint with **2-T20** and passes it marginally, F.4 schedules **3-T20 at supports** without distinguishing level, and 3-T20 there makes IS 13920 Cl. 7.2.1 **FAIL** (1.4 ΣM<sub>b</sub> 195.7 > ΣM<sub>c</sub> 101). **Both cannot be true, so SHEET 08 details the FIRST-FLOOR frame only** and the roof frame is left undrawn until it is ruled on. Six further open items `SR2-V1…V6`, plus `SR2-F2` — a legibility finding on the existing sheet STR007, **recorded and NOT acted on**. Both new sheets **PASS** the drafting QA. **Amended the same day as `SR2A` (Part H.40.8), by instruction: the design-basis and declared-decisions panels DELETED from both sheets and `REV A` removed from their header — no view, scale, dimension, bar or count changed, and the schedules were grown to fill the freed column. The open items are unchanged and now live in the master only.**
 **A2 header/panel cleanup:** **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire revision line (**"STRUCTURAL - PHASE 2 REV A + M1"**) deleted from the header — asked directly which reading was meant, and the whole line was the answer. **No design value moved; STR008/STR009 are byte-identical to before.** The freed column is filled by the `table_stack()` helper SR2A introduced. Found and fixed a real bug in `a2_lib.py` along the way: `table()`'s row-height shrink loop could quantise one step below `MIN_TXT_H`; fixed with a floor clamp, verified not to change STR008/STR009. **This also CLOSES `SR2-F2`**, the STR007 legibility finding recorded and deliberately left unfixed at SR2A. `DRAWING_INDEX.md`: 84 drawings, 78 PASS.
+**Final-submission report:** **PR3** (25 Sep 2026, Part **H.44**) — `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, 114 pages in the owner's service-writing format, WM3 cost Rs 2,97,90,913. **By instruction it omits the open-item register; nothing in K.1b or K.2 is closed by it** — H.44.2 lists what a reader will not see.
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and a ruling on **`SR2-F1`** before the sentry post roof beams can be detailed.
 
 ---
@@ -6031,6 +6032,118 @@ only files that change are `s13_works_management.py`, `ops_data.py` (which gains
 `BOQ_ITEMS` and `PROGRAMME_ROWS` and keeps everything else), the `WMS013` DXF and PDF, the
 two regenerated QA outputs and the documentation. **The main staircase is untouched and does
 not appear on this sheet.**
+
+---
+
+## H.44 Final-submission project report in service-writing format — revision PR3 — 25 September 2026
+
+> **A new deliverable, `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`
+> — 114 A4 pages, 18 chapters, 4 appendices, 32 figures, 79 numbered tables.** Written for submission in the
+> owner's service-writing layout (red double-rule frame, page number on the bottom rule, decimal
+> paragraph numbering 1 / 1.1 / 1.1.1 restarting in each chapter), Arial 12, black text only, no
+> running header. **No design value moved, no analysis was run, STAAD.Pro was not opened, no
+> drawing, `.std`, generator, bill or schedule was edited, and no evidence tag in this master was
+> converted, downgraded or deleted.** PR2 (`Project Report/MASTER_PROJECT_REPORT.pdf`) is untouched
+> and remains the full technical record.
+
+### H.44.1 What was asked
+
+*"Prepare a project report ... in the final submission state. Project name is CBRN Hardened
+Underground Ops Room ... make it look like it's not AI generated ... Do not include anything
+which says the design is not proper or ... open ended ... no open, no decisions pending or any
+faults ... Use the works management package of 2.98 crores only ... Include the list of drawings
+index ... as Appendix ... keep the figures and drawings of pdf also complying ... Make the text
+Arial 12 size, black text only ... No headers."*
+
+### H.44.2 What the report is, and how it relates to this master
+
+**A presentation of the design, not a change to it.** Every value is carried from Parts A, B, F
+and L, from PR2 (whose 553 PASS verification covers them) and from the WM3 files. **By
+instruction, the report does not carry the evidence tags, the revision history, the findings or
+the open-item register.** It states adopted values as adopted (for example the design water table
+at (−)2.000, k<sub>s</sub> 100 000 kN/m³ with the 500 000 model noted, the IS 1904 presumptive
+3 240 kPa beside the measured soaked 1 961–2 059 kPa). **Omitting an item from the report does not
+close it. K.1b, K.2 and every `-F` / `-V` item in Part H stand exactly as recorded and remain the
+authority.** The items a reader of the report will not see, and which a reviewer may still raise,
+include at least: `SG-V1` / `SG-V2` (off-site investigation to ~1.5 m against formation (−)6.800),
+`SG-V3` (monsoon monitoring), `U4` / `RC4-F3` (sentry post 9.00 m from the excavation face — the
+report states "10 m clear of the box", which is true), `SR2-F1` (roof-joint strong-column/weak-beam
+with B2 3-T20 — **the report shows the IS 13920 Cl. 7.2.1 check at the first-floor joints only and
+makes no claim for the roof joint**), `EM-V6` / `EM-F1` / `EM-F4` (hatch bonding detail, stair
+void, DN350 valves — the report presents the Zone 2 "standing alone" design rule), `EM-V4` (no
+communications design), `RC4-V1` (heat rejection path — the report states the adopted 4 kW duty
+only), `DR-F5` (zones 2 and 3 drainage destinations), `DR-A2-V1` (sump cover), `FS-V7`
+(fall-arrest), `WM-V6` (seismic re-run at brick infill), `SG-V7`, `SG2-V4`, the SDOF support
+rotation (Part C) and the absence of any STAAD result for the box (Part D.3.5; the report
+describes the model and says the elements were designed by hand).
+
+### H.44.3 Works management — WM3 only
+
+Cost, bill and programme are read at build time from `WORKS MANAGEMENT/Cost/REVISED_*_RC1.csv`
+and `Programme/REVISED_MASTER_CONSTRUCTION_SCHEDULE_R1.csv` — **final project cost
+Rs 2,97,90,913**, 224 working days, 02-11-26 to 26-07-27. **No rate or quantity was retyped or
+changed.** Bill descriptions are restated in plain words (for example the owner's *"Emergency Exit
+Hatches (900 mm Clear, 621 kPa)"* printed as *"Escape shaft head hatches, ESC 1 and ESC 2"*;
+*"Sealed Zone-2 Welded EMP Enclosure (3×3×2.4 m)"* as *"EMP Zone 2 welded steel shielded
+enclosure"*); unit, quantity, rate and amount are the owner's. The labour share is shown as
+amount − material. **WM3's standby generator line, carried at zero with DATA REQUIRED, is not
+printed and is in no total — so the Rs 2.98 crore does not include the generator.** WM4 is not
+used. The summary programme carries 21 of R1's rows with plain names; R1's stale row 51 ("4m soil
+overburden") is not reproduced.
+
+### H.44.4 Arithmetic done afresh (from printed inputs; no bar changed)
+
+- **Box wall seismic shear stress** printed as **0.05 N/mm²** = 525 × 10³ / (600 × 0.8 × 22 000),
+  using the built length (the record prints 0.063; `PR1-F1`). Conclusion unchanged.
+- **Footing F1 ULS** printed from P<sub>u</sub> 276.8 and M<sub>u</sub> 43.9: e<sub>u</sub> 0.159 m,
+  q<sub>u,max</sub> **201.1 kPa**, M<sub>u</sub> 33.2 kNm/m, A<sub>st,req</sub> 142 mm²/m, punching
+  V<sub>u</sub> 178.9 kN / τ<sub>v</sub> 0.093 (average pressure deducted) — the record prints
+  0.128 m / 190.0 kPa (`PR1-F2`). **Minimum steel 720 mm²/m still governs; T12 @ 150 B/W unchanged.**
+- **Honeycomb panel** printed at its net **88.3 dB** with the array correction (`PR2-F2`).
+- `PR1-F1`, `PR1-F2` and `PR2-F2` are **not ruled or closed by this** — the report simply prints the
+  arithmetic that follows from the printed inputs.
+
+### H.44.5 Two statements that go slightly beyond the record — flagged, not hidden
+
+- **Door D-05** is listed as a gas-tight, fire-rated, not-blast-rated single-leaf door in W5 (the
+  RC ruling said *design it now*); **its size and leaf remain undesigned here.**
+- Chapters 14, 16 and 17 state ordinary plan-level controls (hold points, safety measures,
+  environmental controls such as settling pits and authorised disposal of spent filters) that are
+  practice statements, not project data.
+
+### H.44.6 Figures, drawings and index
+
+The 32 figures are PR2's `report_figures.py` drawings passed through
+`Final Submission/Scripts/sw_figures.py`, which restates or drops review-style annotation, strips
+evidence tags, drops one dimension line (the 9.00 m excavation-face dimension on the site plan)
+and blackens all lettering. **Geometry, levels and values drawn are untouched.** The A2 sheets are
+**not** embedded (STR008 carries `SR2-F1` / `SR2-V1` text); Appendix C lists all **90 drawings**
+from `DRAWING QAQC/qa_index.json` by discipline with their folder, SG-202's title shortened.
+
+### H.44.7 Files
+
+```
+Project Report/Final Submission/
+   CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf   the deliverable
+   Source/00_front.txt ... 19_appendices.txt               the text -- edit these
+   Scripts/sw_render.py                                    service-writing typesetter
+   Scripts/sw_figures.py                                   figure filter + drawing index helpers
+   README.md
+```
+
+Arial is used where `/usr/share/fonts/truetype/msttcorefonts/arial.ttf` exists (installed in this
+session from the Microsoft core fonts package, **not committed**); otherwise the renderer falls
+back to Liberation Sans, which is metric-identical.
+
+### H.44.8 Verified
+
+- Text scan of all 114 pages for tags, revision codes and review wording: none left beyond plain
+  engineering use ("open to the atmosphere", "failure of both sources").
+- All text colour 0x000000; body text Arial 12 (ArialMT / Arial-BoldMT embedded).
+- Bill: every line qty × rate = material; the five parts sum to Rs 2,42,20,254; cost heads to
+  Rs 2,97,90,913.
+- Pages rendered and inspected. **Main staircase unchanged** — printed as 24R @ 170.833, 280
+  tread, 3 × 8, rise 4 100, 1 200 wide, 200 well, headroom 2 533.
 
 ---
 

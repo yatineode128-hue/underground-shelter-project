@@ -1,0 +1,31 @@
+#chapter ENVIRONMENTAL MANAGEMENT PLAN | (ENVIRONMENTAL ASPECTS OF THE WORKS AND THEIR CONTROL)
+
+#head Environmental Setting
+
+P1 Setting | The site is an undeveloped plot within the campus, with the CBRN Live Training Area to the south and the perimeter track and nullah line to the east. The ground falls towards the nullah, which is the principal receptor for surface water from the site. The surface soil is black cotton clay, and the monsoon (June to October) brings about 700 mm of rain.
+
+#head Aspects and Controls
+
+P1 Environmental Aspects | The environmental aspects of the works, derived from the quantities of the project, and the controls adopted are given in Table 17.1.
+
+#table Environmental Aspects and Controls
+#widths 20,26,54
+Aspect | Quantity | Control
+Excavation and spoil | About 1 540 m³, largely rock | All surplus re-used on site as engineered fill and rubble; no spoil heap; topsoil stripped and stockpiled for re-use
+Rock breaking | About 1 000 m³ | Hydraulic breaker, no blasting; working hours as permitted by the station; dust suppression by water spraying
+Dust | Excavation, haulage, stockpiles | Water spraying of the haul route and stockpiles; covered transport
+Dewatering and surface water | Continuous during the substructure | Discharge through a settling pit; silt fencing on the downhill side towards the nullah
+Black cotton soil | From the stairwell raft area and the batter | Kept separate from the granular fill; not used under any structure
+Concrete | About 468 m³; cement at 400 kg/m³ (M35) and 360 kg/m³ (M30) | Ready mixed or site batched with controlled washout; washout water settled before discharge
+Curing water | 14-day curing of all pours | Curing compounds and wet hessian to limit water use
+Foul water in service | 450 l/day, peacetime | Septic tank and soak pit to IS 2470, downhill and away from the shelter
+Decontamination effluent | Holding tank 1 000 l | Removed by tanker to an approved disposal point; never discharged to ground
+Fuel | Day tank 250 l | Bunded to 110 %; spill kit in bay 8
+Generator emissions and noise | 15 kVA set | Exhaust discharged through the dedicated shaft SH-2, away from the intake
+Spent CBRN filters | HEPA and carbon cartridges | Bagged, sealed and disposed of as hazardous waste through an authorised agency
+Site restoration | Whole roof area and berms | Re-laid turf from the site stockpile; berms graded to blend with the ground
+#end
+
+#head Monitoring
+
+P1 Monitoring | The following are monitored during the works: compaction of backfill (IS 2720 Part 28); groundwater level in the confirmatory boreholes and the dewatering discharge; dust and noise during rock breaking; and the percolation test before the soak pits are built.

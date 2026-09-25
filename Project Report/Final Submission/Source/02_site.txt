@@ -1,0 +1,162 @@
+#chapter SITE SELECTION AND GEOTECHNICAL INVESTIGATION | (SITE, SOIL, ROCK, GROUNDWATER AND CLIMATE)
+
+#head Site Selection
+
+P1 Location | The site is located within the CTW area of the College of Military Engineering campus, Pune. It is an undeveloped rectangular plot east of the two CTW blocks, bounded on the east by the perimeter track and the nullah line, with the CBRN Live Training Area to the south.
+
+P1 Selection Criteria | The site was selected after a study of the location, contours, watershed, existing pipelines, elevation profile, wind, rainfall, temperature, seismic zone and soil conditions of the candidate areas. The SWOT analysis on which the selection was made is given in Table 2.1.
+
+#table SWOT Analysis of the Selected Site
+#widths 22,78
+Factor | Assessment
+Strengths | Proximity to FCBRNP; availability of electric lines; good road connectivity; good water supply; no pipelines crossing the plot
+Weakness | Located near the perimeter fence
+Opportunities | Training value of a protected facility within the campus
+Threats | Interference with the CTW training schedule during construction
+#end
+
+P1 Significance of the Site Features | Three of the strengths are of direct value to the design:-
+
+P2 No Pipelines | The plot is free of buried services. Every service that crosses the protective envelope is a blast, gas and EMP discontinuity, and a clear plot allows the box to be excavated and tanked without diversions.
+
+P2 Electric Supply | An existing electric line is available for the peacetime supply to the installation, with the generator and battery providing the protected supply.
+
+P2 Road Connectivity | About 1 000 m³ of rock is to be broken and removed by tipper, and the existing roads provide the haul route.
+
+P1 Orientation and Topography | The plot lies on a gentle slope falling towards the east. The underground box is aligned east-west with the entry at its west end. The project coordinate system has its origin at the south-west external corner of the box at ground level, with X to the east and Y to the north. The finished grade over the box is crowned and falls at 1 in 50 on either side. The site layout is shown in Fig 2.1.
+
+#fig fig_site_plan | Site Layout Plan
+
+#head Sub-Soil Investigation
+
+P1 Source of Data | The geotechnical data for the site is taken from the sub-soil investigation carried out by the Soil Engineering and Material Testing (SEMT) Wing, CME, Report No SEMT/67/15, *Report on Sub-Soil Investigation for CTW Ph-III ACCN Project at CME Pune*. Eleven trial pits were excavated by JCB at three locations adjoining the site (G Building, H Building and Mess Building), and soil samples and rock cores were tested in the laboratory. In addition, four confirmatory boreholes with rock coring at the location of the underground structure form the first item of the works (Appendix B) to confirm the founding strata before excavation.
+
+P1 Geology | The report states that *"the area under investigation is underlain by the Deccan Trap formation. These are volcanic lava flows, which were poured out between the late cretaceous and early Eocene times. These basaltic flows are horizontally bedded and more or less uniform in character over a wide area."* The founding stratum of the underground structure is therefore sound basalt.
+
+P1 Strata | The strata recorded in the trial pits are given in Table 2.2. Hard basalt was met at 0.9 m to 1.5 m below ground level at all three locations, overlain by broken rock, murrum and, at two locations, high plasticity clay.
+
+#table Strata Recorded in the Trial Pits
+#widths 16,12,14,22,10,12,14
+#align L,L,C,L,C,R,R
+Location | Pits | Depth (m) | Stratum | IS 1498 | SBC (kg/cm²) | SBC (kPa)
+G Building | TP-1 to 4 | GL - 1.0 | High plasticity clay | CH | 0.27 | 26.5
+ | | 1.0 - 1.2 | Murrum | GM | 4.27 | 418.7
+ | | 1.2 - 1.5 | Broken rock | - | 10.00 | 980.7
+ | | Below 1.5 | Basalt | - | 20.00 | 1 961.3
+H Building | TP-5 to 8 | GL - 0.18 | High plasticity clay | CH | 0.25 | 24.5
+ | | 0.18 - 0.7 | Murrum | GM | 4.66 | 457.0
+ | | 0.7 - 0.9 | Broken rock | - | 10.00 | 980.7
+ | | Below 0.9 | Basalt | - | 21.00 | 2 059.4
+Mess Building | TP-9 to 11 | GL - 0.2 | Murrum | SC | 2.07 | 203.0
+ | | 0.2 - 0.5 | Murrum | GP | 5.18 | 508.0
+ | | 0.5 - 1.0 | Broken rock | - | 10.00 | 980.7
+ | | Below 1.0 | Basalt | - | 21.00 | 2 059.4
+#end
+
+P1 Laboratory Tests on Soil | The soil samples were tested to IS 2720 (Parts IV, VIII, X, XIII and XL). The results are given in Table 2.3. The safe bearing capacities in the report are for a footing 1.2 m wide at 1.5 m depth in the submerged condition, with a factor of safety of 2.5.
+
+#table Laboratory Test Results on Soil Samples
+#widths 10,8,10,8,6,6,6,7,7,8,7,6,10
+#font 9
+#align L,L,C,C,C,C,C,C,C,C,C,C,R
+Sample | Pit | Depth (m) | IS 1498 | LL % | PL % | PI % | FSI % | OMC % | MDD (g/cc) | c (kg/cm²) | φ (deg) | SBC (kPa)
+44/15 | TP-1 | GL-1.0 | CH | 61 | 29 | 32 | 60 | 10 | 1.76 | 0.13 | - | 26.5
+45/15 | TP-1 | 1.0-1.2 | GM | - | - | - | - | 9 | 1.93 | 0.00 | 33 | 418.7
+61/15 | TP-8 | GL-0.18 | CH | 63 | 30 | 33 | 65 | 12 | 1.78 | 0.12 | - | 24.5
+62/15 | TP-8 | 0.18-0.7 | GM | - | - | - | - | 8 | 1.90 | 0.00 | 34 | 457.0
+64/15 | TP-9 | GL-0.2 | SC | 30 | 15 | 15 | - | 10 | 1.88 | 0.01 | 27 | 203.0
+65/15 | TP-9 | 0.2-0.5 | GP | - | - | - | - | 8 | 1.91 | 0.00 | 35 | 508.0
+#end
+
+P1 Rock Core Tests | Rock cores were tested for unconfined compressive strength to IS 1121 (Part I), and the safe bearing capacity was obtained as UCS / 25 in accordance with IS 12070. The results are given in Table 2.4. The founding horizon of the underground structure lies below the design groundwater table, so the **soaked** values govern the design.
+
+#table Rock Core Test Results
+#widths 14,20,14,12,12,14,14
+#align L,L,R,R,R,R,R
+Condition | Location | Max Load (kg) | Area (cm²) | UCS (kg/cm²) | SBC (kg/cm²) | SBC (kPa)
+Unsoaked | G Building, TP-1 | 42 356 | 52.06 | 814 | 33 | 3 236.2
+Unsoaked | H Building, TP-8 | 21 924 | 29.15 | 752 | 30 | 2 942.0
+Unsoaked | Mess, TP-9 | 57 573 | 63.96 | 900 | 36 | 3 530.4
+Soaked | G Building, TP-1 | 24 563 | 48.30 | 509 | 20 | 1 961.3
+Soaked | H Building, TP-8 | 14 133 | 27.56 | 513 | 21 | 2 059.4
+Soaked | Mess, TP-9 | 27 033 | 51.12 | 529 | 21 | 2 059.4
+#end
+
+#head Surface Soil and Groundwater
+
+P1 Black Cotton Soil | The surface soil at two of the three locations is a high plasticity clay (CH) with a free swell index of 60 to 65 per cent, which places it in the black cotton soil category. No structural element is founded in it. The underground structure bears on basalt at (-)6.800 and the sentry post footings on in-situ basalt at (-)2.000. Under the stepped raft of the covered entry stairwell, whose top is at about (-)0.300, the clay is stripped to 1.0 m below existing ground over the raft area plus 1.0 m beyond every edge and replaced with granular fill of free swell index not more than 20 per cent, compacted in 200 mm layers to at least 95 per cent of MDD.
+
+P1 Groundwater | The investigation report records that *"water table was not encountered in any trial pit. However, water table may raise during/after rainy season."* The design groundwater table has therefore been taken at **(-)2.000**, i.e. 2.0 m below finished ground level, representing the monsoon condition. This is conservative for both the hydrostatic uplift on the mat and the lateral pressure on the walls. At this level the lateral load on the walls below the water table is about two-thirds water pressure and one-third effective earth pressure.
+
+#head Design Parameters
+
+P1 Adopted Ground Parameters | The ground parameters adopted for design are given in Table 2.5.
+
+#table Design Ground Parameters
+#widths 42,30,28
+Parameter | Value | Basis
+Founding stratum | Deccan basalt | SEMT/67/15
+Rockhead | (-)1.500 to (-)2.000 | Adopted
+Safe bearing capacity, hard rock | 3 240 kPa | IS 1904 : 1986, Table 1
+Soaked basalt SBC (measured range) | 1 961 to 2 059 kPa | Rock core tests
+Bulk unit weight, γ | 20 kN/m³ | Adopted
+Saturated unit weight, γ<sub>sat</sub> | 21 kN/m³ | Adopted
+Submerged unit weight, γ′ = 21 - 9.81 | 11.19 kN/m³ | Derived
+Coefficient of earth pressure at rest, K<sub>0</sub> = 1 - sin φ | 0.50 (φ = 30°) | Jaky
+Design groundwater table | (-)2.000 | Monsoon condition
+Modulus of subgrade reaction, k<sub>s</sub> | 100 000 kN/m³ (upper bound 500 000) | Basalt
+Soil transmission factor for blast, K<sub>a</sub> | 1.0 | IS 4991 Cl. 7.2, saturated ground
+#end
+
+P1 Check on K<sub>0</sub> | The measured angles of internal friction of the granular murrum samples (27° to 35°) give K<sub>0</sub> between 0.43 and 0.55, so the adopted value of 0.50 is representative. The bulk unit weight of 20 kN/m³ is 2 to 5 per cent above the compacted densities measured at MDD, and is conservative for lateral load.
+
+P1 Bearing Capacity | The bearing pressures under the governing cases are compared with the soaked rock capacity in Table 2.6 and Fig 2.2. Even under the full blast load the mat uses about one-fifth of the lowest measured soaked capacity; bearing therefore does not govern any element.
+
+#table Bearing Pressure Checks
+#widths 34,18,24,24
+#align L,R,R,R
+Element and Case | Pressure (kPa) | % of 3 240 kPa | % of 1 961 kPa (soaked)
+Mat, service | 58.4 | 1.8 | 3.0
+Mat, blast | 404.9 | 12.5 | 20.6
+Sentry post footing F1, service | 157.6 | 4.9 | 8.0
+#end
+
+#fig fig_bearing_chart | Bearing Demand against Capacity
+
+P1 Settlement | The excavation removes more load than the completed structure imposes, as shown below. The foundation is fully compensated and settlement on sound basalt is negligible (IS 12070 Cl. 6).
+
+#calc
+Overburden removed, 1.13 m of soil at 19.5 kN/m³ ;; 22.10 kPa
+Overburden removed, 5.67 m of basalt at 25.0 kN/m³ ;; 141.67 kPa
+!Total pressure removed at formation ;; 163.77 kPa
+Pressure applied by the completed structure in service ;; 58.40 kPa
+!Net change of pressure at formation ;; (-) 105.37 kPa
+#end
+
+#head Excavation
+
+P1 Excavation Profile | The excavation is 6.8 m deep to formation, with 1.0 m working space around the box at formation level. The soil and murrum cap above rockhead is battered at not steeper than 1 : 1 on all four sides, graded back to rockhead, and the face below rockhead is cut vertical in basalt.
+
+P1 Method | Rock is broken by hydraulic breaker; blasting is not permitted, so that the founding rock and the adjoining campus facilities are not disturbed. The excavation is dewatered continuously from the start of excavation until the backfill and cover are complete.
+
+P1 Treatment of Weak Seams | Basalt flows commonly contain red-bole or vesicular layers at flow contacts. Any such seam exposed at formation level is over-excavated and replaced with M15 lean concrete. The mat is designed for the loss of support over a 3.0 m wide band at the worst position (Chapter 7), so that a local seam does not govern the structure.
+
+#head Meteorological Data
+
+P1 Climate | The monthly averages of wind speed, rainfall and temperature for the site, based on ten years of data, are given in Table 2.7 and Fig 2.3. About 700 mm of the annual rainfall falls between June and October, which has been considered in programming the excavation and the substructure.
+
+#table Meteorological Data (Monthly Averages)
+#font 8.6
+#widths 12,6.5,6.5,6.5,6.5,6.5,6.5,6.5,6.5,6.5,6.5,6.5,6.5,9
+#align L,R,R,R,R,R,R,R,R,R,R,R,R,R
+Item | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec | Year
+Wind (km/h) | 1.4 | 2.1 | 2.5 | 3.6 | 6.2 | 6.6 | 5.7 | 5.2 | 3.3 | 1.6 | 1.4 | 1.2 | 3.4
+Rain (mm) | 0.1 | 3.0 | 5.5 | 3.9 | 19.0 | 137.8 | 166.2 | 120.8 | 134.9 | 139.8 | 22.7 | 5.9 | 759.6
+Max (°C) | 29.8 | 32.4 | 35.5 | 38.3 | 37.8 | 32.1 | 28.5 | 28.2 | 29.7 | 31.6 | 30.9 | 29.6 | 38.3
+Avg (°C) | 20.7 | 23.2 | 26.0 | 29.3 | 30.6 | 27.6 | 25.4 | 24.8 | 25.4 | 25.6 | 23.1 | 21.7 | 25.3
+Min (°C) | 11.6 | 13.7 | 16.7 | 20.2 | 23.1 | 23.1 | 22.3 | 21.6 | 21.1 | 19.7 | 15.2 | 13.5 | 11.6
+#end
+
+#fig fig_met_chart | Monthly Rainfall and Temperature at the Site
+
+P1 Design Wind and Seismic Data | The design wind speed for Pune is 39 m/s (IS 875 Part 3, Annex A) and the site lies in seismic Zone III (IS 1893 Part 1, Z = 0.16). Both are used only for the sentry post, since the buried structure is governed by blast.

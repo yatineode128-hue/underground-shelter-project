@@ -1,0 +1,220 @@
+#chapter DESIGN BASIS AND MATERIALS | (CODES, DESIGN PHILOSOPHY, MATERIALS AND CONCRETE MIX DESIGN)
+
+#head Codes and Standards
+
+P1 Codes Followed | The design has been carried out in accordance with the codes and references listed in Table 4.1.
+
+#table Codes and Standards
+#widths 30,70
+Code / Reference | Used for
+IS 456 : 2000 | Design of all reinforced concrete elements, limit state method
+IS 4991 : 1968 | Blast loading on buried elements, soil transmission factor, dynamic load factor and dynamic material strengths
+IS 875 (Parts 1, 2, 3, 5) | Dead, imposed and wind loads; load combinations
+IS 1893 (Part 1) : 2016 | Seismic loads
+IS 13920 : 2016 | Ductile detailing of the sentry post frame
+IS 3370 (Parts 1 and 2) : 2021 | Crack width and surface-zone steel for water-retaining faces
+IS 1786 : 2008 | Fe500D reinforcement
+IS 10262 : 2019 / IS 383 : 2016 / IS 269 : 2015 | Concrete mix proportioning, aggregates and cement
+IS 1904, IS 12070, IS 2950 (Part 1) | Foundations on rock and raft foundations
+IS 1498, IS 2720, IS 1121 | Soil classification, soil testing and rock testing
+IS 2470 (Parts 1 and 2) : 1985 | Septic tank and soak pit
+IS 1077, IS 2645 | Burnt clay bricks; integral waterproofing admixture
+IS 732, IS 3043, IS 694, IS 1554 | Electrical installation, earthing and cables
+SP 16 : 1980, SP 34 : 1987, BS 8666 | Design aids, detailing and bar shape codes
+NBC 2016 Part 4 | Stairs, guarding and means of escape
+UFC 3-340-02 | Direct shear and trimming of openings in blast-resistant slabs
+MIL-STD-188-125-1 / IEEE Std 299 | EMP protection requirement and shielding effectiveness testing
+FEMA 453 / EN 1822 | Shelter ventilation rate; HEPA filter classification
+Glasstone and Dolan, *The Effects of Nuclear Weapons*; Biggs, *Introduction to Structural Dynamics* | Blast and radiation data; single degree of freedom response
+#end
+
+P1 Order of Precedence | Where two project documents differed, the following order of precedence was applied: the latest general arrangement drawings over earlier reports; arithmetic over a transcribed figure; the analysis input file over a picture of it; and a value confirmed by several independent sources over a single differing figure.
+
+#head Design Philosophy
+
+P1 Limit State Design | All elements have been designed by the limit state method of IS 456 : 2000. The blast case is treated as an equivalent static load obtained from the dynamic load factor (Chapter 5), which is valid because the response of the structure to the long-duration nuclear blast pulse is quasi-static.
+
+P1 Blast Case | For the blast combination the following provisions of IS 4991 have been applied, with all section capacities computed to IS 456:-
+
+P2 Load Factor | The blast load is applied with a load factor of 1.0, since it is an extreme event checked against ultimate capacity with dynamic material strengths.
+
+P2 Dynamic Strength | The characteristic strengths of concrete and steel are increased by 25 per cent for flexure (IS 4991 Cl. 10.3.1): f<sub>ck,dyn</sub> = 43.75 N/mm² for M35 and f<sub>y,dyn</sub> = 625 N/mm² for Fe500D.
+
+P2 Shear | No dynamic increase is taken on shear (IS 4991 Cl. 10.3.1.1). Every τ<sub>c</sub> is taken at the static M35 value.
+
+P2 Bond | The 25 per cent increase in bond permitted for the blast case is not taken; all development and lap lengths are the static values.
+
+P2 Ductility | A ductility ratio μ = 5 (moderate, repairable damage) is adopted. The sections are kept under-reinforced (x<sub>u</sub>/d well below 0.46) and every blast-governed element carries designed shear links, so that the ductile flexural mode governs.
+
+P1 Other Cases | The static, uplift, serviceability and construction cases are designed with the partial safety factors of IS 456 Table 18, and the sentry post to IS 456 and IS 13920 with the seismic combinations of IS 1893.
+
+#head Materials
+
+P1 Concrete and Steel | The materials adopted are given in Table 4.2.
+
+#table Materials
+#widths 34,26,20,20
+#align L,C,C,L
+Item | Shelter, Stairs, Headhouse | Sentry Post | Reference
+Concrete grade | M35 | M30 | IS 456 Table 5
+Maximum free w/c ratio | 0.45 | 0.45 | IS 456 Table 5
+Minimum cement content | 340 kg/m³ | 320 kg/m³ | IS 456 Table 5
+Admixture | Integral crystalline waterproofing + superplasticiser | Superplasticiser | IS 2645
+Blinding | M15, 100 mm | M15 | -
+Burster slab (in the cover) | M30, 200 mm | - | -
+Reinforcement | Fe500D | Fe500 | IS 1786
+E<sub>c</sub> = 5000 √f<sub>ck</sub> | 29 580 N/mm² | 27 386 N/mm² | IS 456 Cl. 6.2.3.1
+Poisson's ratio | 0.20 | 0.20 | -
+Unit weight of RC | 25 kN/m³ | 25 kN/m³ | IS 875 (Part 1)
+γ<sub>m</sub>, concrete / steel | 1.5 / 1.15 | 1.5 / 1.15 | IS 456 Cl. 36.4.2
+#end
+
+P1 Choice of Grade | M35 is the minimum grade for the very severe exposure condition (IS 456 Table 3 and 5), which applies because the structure stands permanently below the design groundwater table. Fe500D is used for the shelter because the D grade guarantees the minimum elongation on which the ductility ratio of 5 depends.
+
+P1 Cover | The clear cover adopted is given in Table 4.3. The 5 mm reduction permitted by IS 456 Table 16 for M35 and above has not been taken.
+
+#table Clear Cover to Reinforcement
+#widths 60,40
+#align L,C
+Face | Cover
+Cast against blinding or trimmed rock | 75 mm
+Formed face against earth | 50 mm
+Internal faces | 40 mm
+Stair shaft faces | 30 mm
+Sentry post beams and slabs | 30 mm
+Sentry post columns | 40 mm
+Footings cast against earth | 50 mm
+Maximum bar spacing, both curtains | 150 mm (EMP requirement)
+#end
+
+P1 Bar Spacing | The spacing of the main bars in both curtains of every element of the box is limited to 150 mm each way. This is closer than IS 456 Cl. 26.3.3 requires and has been adopted so that the reinforcement cage gives useful low-frequency EMP shielding (Chapter 11).
+
+P1 Development and Lap Lengths | Development lengths have been worked out to IS 456 Cl. 26.2.1 as under.
+
+#calc
+L<sub>d</sub> = φ σ<sub>s</sub> / (4 τ<sub>bd</sub>), with σ<sub>s</sub> = 0.87 f<sub>y</sub> = 435 N/mm²
+τ<sub>bd</sub> for deformed bars in tension: M35 = 1.7 x 1.6 = 2.72 N/mm²; M30 = 1.5 x 1.6 = 2.40 N/mm²
+L<sub>d</sub> in tension, M35 = 435 / (4 x 2.72) = 40 φ ;; 40 φ
+L<sub>d</sub> in tension, M30 = 435 / (4 x 2.40) = 46 φ ;; 46 φ
+#end
+
+#table Development and Lap Lengths (mm)
+#widths 20,20,20,20,20
+#align C,C,C,C,C
+Bar | L<sub>d</sub> M35 (40 φ) | Lap M35 (50 φ) | L<sub>d</sub> M30 (46 φ) | L<sub>d</sub> comp. M30
+T8 | 320 | 400 | 368 | 296
+T10 | 400 | 500 | 460 | 370
+T12 | 480 | 600 | 552 | 444
+T16 | 640 | 800 | 736 | 592
+T20 | 800 | 1000 | 920 | 740
+T25 | 1000 | 1250 | 1150 | 925
+#end
+
+P1 Lap Policy | IS 456 Cl. 26.2.5.1 gives a lap length of L<sub>d</sub> or 30 φ, whichever is greater, i.e. 40 φ. All laps are staggered so that not more than 50 per cent of the bars are lapped at any section, and the lap is specified as **50 φ**.
+
+#head Waterproofing
+
+P1 Tanked Structure | The underground structure is a tanked box and is never drained to relieve groundwater pressure. The waterproofing system is given in Table 4.5.
+
+#table Waterproofing System
+#widths 30,70
+Element | Specification
+Membrane | Continuous tanking membrane on the blinding, turned up the external face of the walls and lapped to the roof membrane
+Admixture | Integral crystalline waterproofing admixture in all M35 concrete
+Roof protection | 100 mm protection screed over the roof membrane
+Construction joints | At about 6 m centres; reinforcement fully continuous; two waterstops; welded copper or galvanised EMP bonding strap
+Movement joints | None within the protective envelope
+Floor falls | Formed in the floor screed, never cut into the mat
+Pipe crossings | Puddle flange welded to the sleeve; membrane dressed and clamped to it
+#end
+
+#head Concrete Mix Design
+
+P1 Method | The concrete mixes have been proportioned by the method of IS 10262 : 2019 (Annex A) for M35 (shelter, stairs and headhouse) and M30 (sentry post and burster slab). The pressure slab is cast in a single continuous pour of 112 m³ into a congested cage (T25 at 150 mm in both curtains with four-legged links), and the M35 mix is therefore designed for pumping at 100 mm slump.
+
+P1 Stipulations | The stipulations for proportioning are given in Table 4.6.
+
+#table Stipulations for Proportioning
+#widths 40,30,30
+Item | M35 | M30
+Type of cement | OPC 43 grade, IS 269 | OPC 43 grade, IS 269
+Maximum nominal size of aggregate | 20 mm | 20 mm
+Minimum / maximum cement content | 340 / 450 kg/m³ | 320 / 450 kg/m³
+Maximum free w/c ratio | 0.45 | 0.45
+Workability | 100 mm slump | 75 mm slump
+Exposure condition | Very severe | Severe
+Method of placing | Pumped | Conventional
+Type of aggregate | Crushed angular basalt | Crushed angular basalt
+Fine aggregate | Zone II, IS 383 | Zone II, IS 383
+Chemical admixture | Superplasticiser + crystalline waterproofing | Superplasticiser
+#end
+
+P1 Test Data for Materials | Specific gravity of cement 3.15, coarse aggregate (basalt) 2.84, fine aggregate 2.65 and admixture 1.145. Standard deviation s = 5.0 N/mm² (IS 10262 Table 2). Entrapped air 1.0 per cent for 20 mm aggregate (Table 3).
+
+P1 Target Mean Strength | The target mean strength is the greater of f<sub>ck</sub> + 1.65 s and f<sub>ck</sub> + X (IS 10262 Cl. 5.2).
+
+#calc
+M35: 35 + 1.65 x 5.0 = 43.25; 35 + 6.5 = 41.50 ;; f′<sub>ck</sub> = 43.25 N/mm²
+M30: 30 + 1.65 x 5.0 = 38.25; 30 + 6.5 = 36.50 ;; f′<sub>ck</sub> = 38.25 N/mm²
+#end
+
+P1 Water/Cement Ratio | The free w/c ratio has been taken as 0.40 for M35 and 0.44 for M30, within the limit of 0.45. The lower value for M35 is adopted because the structure is permanently below the water table and its external face can never be inspected; a dense, low-permeability matrix is also required for the crystalline waterproofing admixture to be effective.
+
+P1 Water Content | IS 10262 Table 4 gives 186 kg/m³ for 20 mm aggregate at 50 mm slump, increased by 3 per cent for every 25 mm of additional slump.
+
+#calc
+M35: 186 x 1.06 (100 mm slump) = 197.16; less 20 % for superplasticiser = 157.7 ;; 158 kg/m³
+M30: 186 x 1.03 (75 mm slump) = 191.58; less 18 % for superplasticiser = 157.1 ;; 157 kg/m³
+#end
+
+P1 Cement Content | The cement content follows from the water content and the w/c ratio.
+
+#calc
+M35: 158 / 0.40 = 395.0, adopted 400 kg/m³; free w/c = 158 / 400 = 0.395 ;; 400 kg/m³
+M30: 157 / 0.44 = 356.8, adopted 360 kg/m³; free w/c = 157 / 360 = 0.436 ;; 360 kg/m³
+Check: 400 and 360 lie between the minimum (340 / 320) and the maximum (450) ;; OK
+#end
+
+P1 Proportion of Coarse Aggregate | IS 10262 Table 5 gives 0.62 for 20 mm aggregate with zone II sand at w/c 0.50, corrected by 0.01 for every 0.05 change in w/c. For the pumped M35 the value is reduced by 10 per cent (Cl. 5.5.1).
+
+#calc
+M35: 0.62 + 0.01 x (0.50 - 0.395) / 0.05 = 0.641; x 0.90 = 0.577 ;; CA 0.577, FA 0.423
+M30: 0.62 + 0.01 x (0.50 - 0.436) / 0.05 = 0.633 ;; CA 0.633, FA 0.367
+#end
+
+P1 Mix Calculations | The quantities per cubic metre are obtained by the absolute volume method.
+
+#calc
+!M35
+Volume of cement = 400 / (3.15 x 1000) ;; 0.12698 m³
+Volume of water = 158 / 1000 ;; 0.15800 m³
+Volume of admixture (1.0 % of cement) = 4.00 / (1.145 x 1000) ;; 0.00349 m³
+Volume of entrapped air ;; 0.01000 m³
+Volume of all-in aggregate = 1 - 0.29847 ;; 0.70153 m³
+Mass of coarse aggregate = 0.70153 x 0.577 x 2.84 x 1000 ;; 1 149.6 kg
+Mass of fine aggregate = 0.70153 x 0.423 x 2.65 x 1000 ;; 786.4 kg
+!M30
+Volume of cement = 360 / 3150 = 0.11429; water 0.15700; admixture (0.8 %) 0.00252; air 0.01000 ;; 0.28380 m³
+Volume of all-in aggregate = 1 - 0.28380 ;; 0.71620 m³
+Mass of coarse aggregate = 0.71620 x 0.633 x 2.84 x 1000 ;; 1 287.5 kg
+Mass of fine aggregate = 0.71620 x 0.367 x 2.65 x 1000 ;; 696.5 kg
+#end
+
+P1 Mix Proportions | The mix proportions are given in Table 4.7. The M35 and M30 cement contents of 400 and 360 kg/m³ are those used in the quantity take-off of the bill of quantities.
+
+#table Mix Proportions per Cubic Metre
+#widths 46,27,27
+#align L,R,R
+Material | M35 | M30
+Cement, OPC 43 | 400 kg | 360 kg
+Water | 158 litres | 157 litres
+Fine aggregate, zone II | 786.4 kg | 696.5 kg
+Coarse aggregate, 20 mm graded (60 : 40 of 20 mm and 10 mm) | 1 149.6 kg | 1 287.5 kg
+Superplasticiser | 4.00 kg | 2.88 kg
+Free w/c ratio | 0.395 | 0.436
+Mix by mass (C : FA : CA) | 1 : 1.966 : 2.874 | 1 : 1.935 : 3.576
+Fresh density | 2 498 kg/m³ | 2 504 kg/m³
+Batch per 50 kg bag: FA / CA / water | 98.3 kg / 143.7 kg / 19.75 l | 96.7 kg / 178.8 kg / 21.81 l
+#end
+
+P1 Trial Mixes | The proportions are confirmed by trial mixes before the first structural pour. The trials establish workability after the transport time, 7 and 28 day strength against the target mean strength, the compatibility of the superplasticiser with the crystalline admixture, and the behaviour of the mix at the placing temperature. Water and aggregate batch weights are corrected on site for the free moisture and absorption of the aggregate.

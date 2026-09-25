@@ -1,0 +1,228 @@
+#chapter LOADS AND LOAD COMBINATIONS | (BLAST, GRAVITY, EARTH AND WATER, SEISMIC AND WIND LOADS)
+
+#head Blast Loading
+
+P1 Blast Wave | A nuclear air burst releases its energy far faster than the surrounding air can move away, and the disturbance steepens into a shock front across which pressure, density and particle velocity rise almost instantaneously. Two pressures act behind the front:-
+
+P2 Static Overpressure, p<sub>so</sub> | The rise above ambient pressure, acting equally in all directions. It loads the roof and walls of a buried structure.
+
+P2 Dynamic Pressure, q | The kinetic pressure of the moving air, q = 0.5 ρ u², which acts only in the direction of flow and produces drag on an object standing in the flow.
+
+P1 Design Blast Parameters | The design blast parameters are as under. The reflected pressure applies only to a free-standing face normal to the wave and is used in Chapter 9 for the sentry post.
+
+#calc
+Peak incident static overpressure, p<sub>so</sub> (50 psi) ;; 344.7 kPa
+Positive phase duration, t<sub>d</sub> ;; 0.13 to 1.33 s
+Peak reflected pressure, p<sub>r</sub> ;; 1 366 kPa
+Peak dynamic pressure, q ;; 282 kPa
+Reflection coefficient, p<sub>r</sub> / p<sub>so</sub> = 1366 / 344.7 ;; 3.96
+#end
+
+#fig fig_blast_wave | Design Blast Wave (Pressure-Time History)
+
+P1 Load on a Buried Structure | Soil transmits the air-blast pressure to a buried structure as a stress wave. IS 4991 Cl. 7.2 and Table 3 apply a soil transmission factor K<sub>a</sub> to the free-field overpressure. The founding horizon is below the design water table, and for saturated soil K<sub>a</sub> = 1.0. The roof and walls of the box are therefore designed for the full overpressure. No reduction has been taken for arching of the soil over the roof, which is conservative.
+
+P1 Dynamic Response | A blast-loaded slab responds essentially in its first mode, and is idealised as a single degree of freedom system. Its response depends on the ratio of the load duration to its natural period, t<sub>d</sub> / T: below about 0.1 the response is impulsive, between 0.1 and 10 it is dynamic, and above 10 it is quasi-static, i.e. the peak response approaches that under a suddenly applied constant load. The natural period of the governing element, the 900 mm pressure slab spanning 5.0 m, is worked out below.
+
+#calc
+Participating mass, m = 0.900 x 2500 + 0.25 x 2.0 x 2000 ;; 3 250 kg/m²
+Cracked stiffness, 0.5 E I<sub>g</sub> = 0.5 x 2.958 x 10<sup>10</sup> x 0.900³ / 12 ;; 8.985 x 10<sup>8</sup> Nm²/m
+f<sub>1</sub> = (22.373 / 2π) √(EI / m L<sub>n</sub><sup>4</sup>), fixed-fixed beam ;; 74.9 Hz
+T = 1 / f<sub>1</sub> ;; 13.4 ms
+!t<sub>d</sub> / T = 130 / 13.4 to 1330 / 13.4 ;; 10 to 100
+#end
+
+T The ratio t<sub>d</sub> / T lies between 10 and 100 and the response is **quasi-static** (Fig 5.2). An equivalent static load obtained with a dynamic load factor therefore gives the correct design demand.
+
+#fig fig_regimes | Response Regime of the Structure
+
+P1 Dynamic Load Factor | For an elasto-plastic system under a suddenly applied load, the dynamic load factor is related to the ductility ratio μ (maximum displacement / yield displacement) by IS 4991 Cl. 10.3.3.
+
+#calc
+DLF = μ / (μ - 0.5); check: μ = 1 gives DLF = 2.00, the elastic value
+Adopted μ = 5 (moderate, repairable damage), DLF = 5 / 4.5 ;; 1.111
+!Design blast pressure = 344.7 x 1.111 ;; 383 kPa
+#end
+
+T The design pressure of **383 kPa** is applied to the roof and to all external walls. The ductility on which it depends is ensured by the detailing: the neutral axis depth of the pressure slab is x<sub>u</sub>/d = 0.139 against the limit of 0.46 for Fe500, and all blast-governed elements carry designed shear links (Chapter 7).
+
+#fig fig_dlf | Dynamic Load Factor against Ductility Ratio
+
+P1 Plastic Mechanism Moment | The flexural demand on the blast-governed one-way elements is taken as the collapse mechanism moment of a fixed-fixed strip, M<sub>p</sub> = w L<sub>n</sub>² / 16, which is reached when hinges have formed at both supports and at mid-span. This is permissible because the sections are ductile enough to redistribute moment, which is the same condition on which μ = 5 depends.
+
+#head Dead, Imposed, Earth and Water Loads
+
+P1 Gravity Loads | The gravity loads on the underground structure are given in Table 5.1.
+
+#table Gravity, Earth and Water Loads on the Underground Structure
+#widths 40,26,34
+Load | Value | Applied to
+Self weight of RC | 25 kN/m³ | All elements
+Roof self weight, 0.900 x 25 | 22.50 kPa | Roof
+Mat self weight, 0.600 x 25 | 15.00 kPa | Mat
+Engineered cover, 2 000 mm | 40.65 kPa | Roof
+Superimposed dead load | 2.0 kPa roof / 1.0 kPa mat | Roof / mat
+Imposed load, internal floor | 5.0 kPa (plant and storage) | Mat
+Earth and water, gradient K<sub>0</sub>γ′ + γ<sub>w</sub> | 15.41 kPa/m | External walls
+- at roof soffit (-)2.900 / at floor (-)6.100 | 33.9 / 83.2 kPa | External walls
+Hydrostatic uplift, 4.700 x 9.81 | 46.11 kPa (6 289 kN) | Mat
+Construction surcharge | 20 kPa vertical / 10 kPa lateral | Construction case
+Staircase load on the shaft walls | 2.947 kPa | W6 / W7
+#end
+
+P1 Engineered Cover | The 2 000 mm cover over the roof is built up in six layers, as given in Table 5.2 and Fig 5.4. The design value of 40.65 kPa includes an allowance of 1.50 kPa for the tolerance on six compacted layers over the 136 m² roof.
+
+#table Engineered Cover Build-up
+#widths 38,15,15,15,17
+#align L,C,C,R,L
+Layer (from the top) | Thickness (mm) | Unit Wt (kN/m³) | Load (kPa) | Function
+Topsoil and turf | 300 | 18 | 5.40 | Concealment, erosion control
+Granular filter | 150 | 19 | 2.85 | Drainage, prevents clogging
+RC burster slab, M30, T12 @ 150 both ways | 200 | 25 | 5.00 | Breaks up a penetrating item
+Crushed basalt rubble, 25 - 75 mm | 500 | 17 | 8.50 | Disperses burster energy
+Compacted engineered fill, 95 % MDD | 750 | 20 | 15.00 | Radiation shielding mass
+Protection screed over the membrane | 100 | 24 | 2.40 | Protects the waterproofing
+Sum of layers | 2 000 | - | 39.15 | -
+Allowance for layer tolerance | - | - | 1.50 | -
+**Design value** | **2 000** | - | **40.65** | -
+#end
+
+#fig fig_cover | Engineered Cover over the Pressure Slab
+
+P1 Burster Slab to Falls | The burster slab is laid to a 1 in 50 crossfall from the box centreline (Y = 3100) towards both edges, parallel to the finished grade. Water that passes the topsoil is intercepted by the granular filter and led to the berm toe without any pipe in the cover. The fall is taken up in the compacted fill, which is 750 mm at the crown and 688 mm at the edges, so the load does not increase anywhere.
+
+P1 Earth and Water Pressure | Below the water table the soil skeleton and the pore water act separately. The at-rest coefficient is used because a stiff buried box does not move enough to develop active pressure.
+
+#calc
+Submerged unit weight, γ′ = γ<sub>sat</sub> - γ<sub>w</sub> = 21 - 9.81 ;; 11.19 kN/m³
+K<sub>0</sub> = 1 - sin 30° ;; 0.50
+Lateral gradient = K<sub>0</sub> γ′ + γ<sub>w</sub> = 0.50 x 11.19 + 9.81 ;; 15.41 kPa/m
+of which soil 5.60 kPa/m and water 9.81 kPa/m
+Pressure at roof soffit (-)2.900 / at floor (-)6.100 ;; 33.9 / 83.2 kPa
+#end
+
+#fig fig_lateral | Lateral Pressure on a Perimeter Wall, Static and Blast Cases
+
+P1 Hydrostatic Uplift | The uplift acts on the actual underside of the mat.
+
+#calc
+u = γ<sub>w</sub> h<sub>w</sub> = 9.81 x 4.700 ;; 46.11 kPa
+Plan area = 22.000 x 6.200 ;; 136.40 m²
+!Total uplift U = 46.11 x 136.40 ;; 6 289 kN
+#end
+
+P1 Total Roof Load | The load on the pressure slab in the blast combination (combination 103) is worked out below. No imposed load is taken on the roof at the time of blast (IS 4991 Cl. 11.2).
+
+#calc
+Blast, 344.7 x 1.111 ;; 383.00 kPa
+Engineered cover ;; 40.65 kPa
+Superimposed dead load ;; 2.00 kPa
+Self weight ;; 22.50 kPa
+!Total, w (combination 103) ;; 448.15 kPa
+Static ULS (combination 101), 1.5 x (40.65 + 2.0 + 22.5 + 20) ;; 127.7 kPa
+Ratio blast / static = 448.15 / 127.7 ;; 3.51
+#end
+
+T The blast combination governs every element of the underground structure.
+
+P1 Headhouse Loads | The headhouse roof, which is flush with the berm crest and has no earth cover, carries 383 + 12.5 (self weight) + 1.0 (SIDL) = **396.5 kPa**. The headhouse walls stand behind about 2.5 m of berm; since earth transmits pressure and the transmission factor of a dry compacted berm cannot be relied upon, the walls are designed for the full **383 kPa** instead of the drag load of C<sub>d</sub> q = 0.4 x 282 = 113 kPa. The headhouse also fills with blast pressure through the entry, so the walls are designed for 383 kPa acting on either face.
+
+P1 Entry Stairwell Loads | The covered entry stairwell is designed for static loads only, as given in Table 5.3. The imposed load of 20 kPa on the raking roof allows for a vehicle straying on to the berm.
+
+#table Entry Stairwell Loads
+#widths 26,54,20
+#align L,L,R
+Element | Load Build-up | w<sub>u</sub>
+Flight, waist 250 | Waist 7.150 + steps 2.083 + finishes 1.000 + imposed 5.000 = 15.233 kPa | 22.85 kPa
+Side walls, 250 | K<sub>0</sub> 0.50 x 20 x 2.9 + 0.5 x 10 surcharge = 34 kPa at base | -
+Raking roof, 250 | Self 6.25 + waterproofing 2.0 + earth lap 5.4 + imposed 20 = 33.65 kPa | 50.5 kPa
+Top landing, 250 | 18.4 + flight reaction 36.5 | 54.9 kPa
+#end
+
+P1 Sentry Post Loads | The loads on the sentry post are given in Table 5.4. The slab loads are transferred to the beams by 45° yield lines (IS 456 Cl. 24.5): triangular on the short beams B1 and trapezoidal on the long beams B2, with an equivalent factor of 1 - 1 / (3 r²) = 0.7946 for r = 4650 / 3650 = 1.274.
+
+#table Sentry Post Loads
+#widths 50,22,28
+#align L,R,L
+Item | Value | Basis
+Slab dead load, first floor | 4.750 kPa | 0.150 x 25 + 1.0 finish
+Slab dead load, roof | 5.250 kPa | 3.75 + 1.5 screed and waterproofing
+Imposed load, first floor | 3.000 kPa | IS 875 (Part 2), observation post
+Imposed load, roof | 1.500 kPa | IS 875 (Part 2), accessible roof
+Peak intensity on beams, DL floor / roof | 8.669 / 9.581 kN/m | w x 1.825 m
+Peak intensity on beams, LL floor / roof | 5.475 / 2.737 kN/m | w x 1.825 m
+Wall load on first-floor beams | 13.000 kN/m | 0.200 x 2.600 x 25
+Roof projection and parapet | 4.162 kN/m | Parapet 300 x 150 = 1.125 kN/m + projection
+Factored slab load, first floor | 11.625 kPa | 1.5 (4.75 + 3.00), governs
+Factored slab load, roof | 10.125 kPa | 1.5 (5.25 + 1.50)
+#end
+
+T The wall load of 13.000 kN/m on the first-floor beams corresponds to a 200 mm RC panel. The brick masonry actually adopted weighs about 9.88 kN/m, so the value used is on the safe side.
+
+#head Seismic and Wind Loads
+
+P1 Underground Structure | The seismic load on the buried box has been worked out to IS 1893 (Part 1) : 2016.
+
+#calc
+Z = 0.16 (Zone III), I = 1.5, R = 4.0, S<sub>a</sub>/g = 2.5
+A<sub>h</sub> = (Z/2)(I/R)(S<sub>a</sub>/g) = 0.08 x 0.375 x 2.5 ;; 0.075
+Seismic weight W ;; 14 002 kN
+V<sub>b</sub> = 0.075 x 14 002 ;; 1 050 kN
+Shear per long wall = 525 kN; τ = 525 x 10³ / (600 x 0.8 x 22 000) ;; 0.05 N/mm²
+#end
+
+T The seismic shear stress in the walls is negligible, and the boundary element provisions of IS 13920 Cl. 10.4 are not attracted. A buried box moves with the surrounding ground and seismic loading does not govern any element of it.
+
+P1 Sentry Post | The seismic load on the sentry post has been worked out to IS 1893 (Part 1) : 2016. The response reduction factor is taken as 3.0, since the masonry infill is built tight to the frame and is not separated from it.
+
+#calc
+Z = 0.16, I = 1.5, R = 3.0, S<sub>a</sub>/g = 2.5 (rock, T on the plateau)
+A<sub>h</sub> = 0.08 x 0.50 x 2.5 ;; 0.100
+T<sub>a</sub>, bare frame = 0.075 h<sup>0.75</sup> = 0.075 x 6.250<sup>0.75</sup> ;; 0.297 s
+T<sub>a</sub>, with infill = 0.09 h / √d, X / Z direction ;; 0.281 / 0.252 s
+Seismic weight from the STAAD model, roof 331.46 + floor 400.34 ;; 731.80 kN
+!Design base shear V<sub>b</sub> = 0.100 x 731.80 ;; 73.18 kN
+Check from the support reactions: 18.295 kN per column x 4 ;; 73.18 kN
+#end
+
+T All three period estimates lie on the plateau of the spectrum (0.10 to 0.40 s). A hand calculation of the seismic weight gives 592.7 kN; the model value of 731.80 kN is higher because it includes half the first-storey infill at the floor level and the full beam depth in the self weight, and the design uses the higher value.
+
+P1 Wind on the Sentry Post | The wind load has been worked out to IS 875 (Part 3) : 2015.
+
+#calc
+V<sub>b</sub> = 39 m/s; k<sub>1</sub> = 1.08 (100 year life); k<sub>2</sub> = 1.00; k<sub>3</sub> = k<sub>4</sub> = 1.00
+V<sub>z</sub> = 39 x 1.08 ;; 42.12 m/s
+p<sub>z</sub> = 0.6 V<sub>z</sub>² ;; 1.065 kPa
+p<sub>d</sub> = p<sub>z</sub> x K<sub>d</sub> 0.90 x K<sub>a</sub> 0.897 x K<sub>c</sub> 1.0 ;; 0.859 kPa
+F = C<sub>f</sub> 1.3 x A<sub>e</sub> (4.0 x 6.7 = 26.8 m²) x p<sub>d</sub> ;; 29.9 kN
+!Seismic 73.18 kN governs over wind 29.9 kN ;; 2.4 : 1
+#end
+
+#head Load Combinations
+
+P1 Underground Structure | The load combinations for the underground structure are given in Table 5.5. Wind and earthquake are not combined with blast (IS 4991 Cl. 11.1).
+
+#table Load Combinations, Underground Structure
+#widths 10,26,64
+#align C,L,L
+No | Title | Combination
+101 | ULS static | 1.5 (DL + SIDL + LL + SOIL + UPLIFT)
+102 | ULS uplift | 0.9 DL + 1.5 UPLIFT
+103 | Blast | 1.0 (DL + SIDL + SOIL + UPLIFT + BLAST), governs
+104 | SLS crack width | 1.0 (DL + SIDL + LL + SOIL + UPLIFT), IS 3370 (Part 2)
+105 | Construction | 1.5 (DL + SOIL + UPLIFT + SURCHARGE)
+#end
+
+P1 Sentry Post | The sixteen load combinations of the sentry post model are given in Table 5.6.
+
+#table Load Combinations, Sentry Post
+#widths 16,84
+#align C,L
+No | Combination
+101 | 1.5 DL + 1.5 LL
+102 - 105 | 1.2 DL + 1.2 LL + 1.2 EQ (+X, -X, +Z, -Z)
+106 - 109 | 1.5 DL + 1.5 EQ (+X, -X, +Z, -Z)
+110 - 113 | 0.9 DL + 1.5 EQ (+X, -X, +Z, -Z)
+201 | 1.0 DL + 1.0 LL (service)
+202, 203 | 1.0 DL + 1.0 EQ+X; 1.0 DL + 1.0 EQ+Z (storey drift, IS 1893 Cl. 7.11)
+#end

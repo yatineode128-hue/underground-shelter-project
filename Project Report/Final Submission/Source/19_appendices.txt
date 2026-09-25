@@ -1,0 +1,152 @@
+#appendix A | REINFORCEMENT SCHEDULE | (UNDERGROUND STRUCTURE, STAIRS, HEADHOUSE AND SENTRY POST)
+
+P1 General | The reinforcement of every element is scheduled below. All bars are Fe500D (Fe500 for the sentry post). Laps are 50 φ and staggered, and bars are detailed to SP 34 and BS 8666.
+
+#table Reinforcement, Underground Structure
+#font 9
+#widths 20,9,10,8,21,18,8,6
+#align L,C,C,C,L,L,C,C
+Element | Size (mm) | Cover (mm) | d (mm) | Main Reinforcement | Links | x<sub>u</sub>/d | Util.
+Perimeter walls W1 - W4 | 600 | 75 / 50 / 40 | 517 | T16 @ 150 EF EW | T12 closed @ 200 | 0.089 | 68 %
+Wall W5 | 200 | 40 | 154 | T12 @ 150 EF EW | - | - | -
+Walls W6, W7 | 400 | 50 / 40 | 342 | T20 @ 150 EF EW | T12 4L @ 200 | 0.211 | 69 %
+Partitions W8 (4 No.) | 110 | 25 | - | A252 mesh both faces | - | - | -
+Mat foundation | 600 | 75 / 50 | 517 | T16 @ 150 EF EW | T12 on 250 x 250 grid | 0.089 | 84 %
+Pressure slab, mid-span | 900 | 75 | 812.5 | T25 @ 150 EF EW | T12 4L @ 250 end 1 500; 2L @ 300 | 0.139 | 51 %
+Pressure slab, cantilever pad | 900 | 75 | 812.5 | T25 @ 150 top continuous | T12 4L @ 250 throughout | 0.139 | 56 %
+Sump pit walls / base | 300 / 400 | 50 | 244 | T16 @ 150 EF EW | - | - | -
+#end
+
+#table Additional Reinforcement, Underground Structure
+#widths 34,66
+Location | Reinforcement
+Wall starters | T16 @ 150 each face, 900 mm leg into the mat, lap 800 (50 φ) above a 150 mm kicker
+Haunches at wall-roof and wall-mat junctions | 500 x 500 haunch, diagonal T20 @ 150
+Mat free edges | T16 @ 150 U-bars closing both curtains
+Sump pit opening in the mat | 4-T20 each face, each side, L<sub>d</sub> 800 beyond
+Blast door jambs, W6 and W7 | 4-T20 each jamb, each face, L<sub>d</sub> 800 beyond
+Blast door header | 400 x 1 100: 4-T20 top + 4-T20 bottom, T12 4L @ 150
+Escape shaft collars ESC 1 and ESC 2 | 5-T25 each side, each face, each direction, L<sub>d</sub> 1 000 beyond; T16 @ 150 hoops in 3 layers + T16 @ 150 radials; slab thickened 900 to 1 200 over a 600 annulus
+Stair void free edge | Thickened 900 to 1 200 over 600; 6-T25 top + 6-T25 bottom, T12 closed @ 150
+Stair void side bands | 6-T25 each face, top and bottom, in a 900 band over W6 and W7
+Stair void re-entrant corners (2 No.) | 4-T25 each face at 45°, 2 000 long each way, anchored L<sub>d</sub> beyond
+Band under headhouse wall HW3 | 4-T25 extra top and bottom in a 1 200 band, lapped 1 250
+Construction joints (about 6 m) | Reinforcement continuous; two waterstops; welded Cu or galvanised EMP strap
+#end
+
+#table Reinforcement, Stairs and Headhouse
+#font 9
+#widths 24,10,8,8,22,14,14
+#align L,C,C,C,L,L,L
+Element | Size (mm) | Cover | d | Main | Distribution / Links | Top Steel
+Main stair flight | 200 waist | 30 | 164 | T12 @ 150 | T10 @ 200 | T12 @ 150 for 800, L<sub>d</sub> 480
+Main stair landings L1, L2, arrival | 200 | 30 | 164 | T12 @ 125 bottom | T10 @ 200 | T12 @ 125 for 900 from supports
+Entry stairwell flight | 250 waist | 30 | 214 | T16 @ 200 | T10 @ 200 | T16 @ 200 for 1 200, L<sub>d</sub> 640
+Entry stairwell landing, platform, headwall | 250 | 30 | 214 | T12 @ 200 EF EW | - | -
+Entry stairwell side walls | 250 | 50 | 194 | T12 @ 200 EF EW | - | -
+Entry stairwell raking roof | 250 | 30 | 204 | T12 @ 200 EF EW | - | -
+Stepped raft | 300 | 50 | 244 | T12 @ 200 EF EW | - | -
+Entry door lintel, 1 000 clear | 250 x 350 | 30 | 306 | 3-T12 top + 3-T12 bottom | T8 @ 150 | -
+Opening corner, top of entry flight | - | - | - | T16 @ 200 U-bar; bars crossed, L<sub>d</sub> 640 | - | -
+Headhouse roof | 500 | 75 | 415 | T20 @ 150 EF EW | T12 4L @ 175 end 1 200; @ 250 | Continuous, L<sub>d</sub> 800 into walls
+Headhouse walls HW1 - HW4 | 400 | 50 / 40 | 342 | T16 @ 150 EF EW | T12 4L @ 250 | -
+HW2 door jambs | - | - | - | 2-T20 each jamb each face | - | -
+HW2 door head edge band | 400 x 800 | 40 | 742 | 4-T20 top + 4-T20 bottom | T12 4L @ 150 | -
+Wall-roof haunch | 300 x 300 | - | - | Diagonal T16 @ 150 | - | -
+#end
+
+#table Reinforcement, Sentry Post
+#widths 24,16,10,10,40
+#align L,C,C,C,L
+Element | Size (mm) | Cover | d | Reinforcement
+Slab S1, bottom | 150 | 30 | 116 / 108 | T8 @ 150 both ways
+Slab S1, top at edges | - | 30 | 116 | T8 @ 300, 400 mm into the span, all four edges
+Slab S1, corners | - | - | - | T8 @ 200 in four layers, 700 x 700 at every corner
+Beam B1 (span 3 650) | 250 x 450 | 30 | 404 | 4-T16 top at supports; 2-T16 bottom continuous
+Beam B2 (span 4 650) | 250 x 450 | 30 | 404 | 3-T20 top at supports; 2-T20 bottom continuous
+Beam hoops | - | - | - | T8 2L @ 100 over 810 from each face; @ 150 elsewhere
+Column C1 | 350 x 350 | 40 | - | 8-T16 (p = 1.31 %)
+Column confinement | - | - | - | T10 hoops + one cross-tie each way @ 85 over 500 from every joint face and through the joint; T8 @ 150 elsewhere
+Plinth beam PB | 250 x 400 | 30 | 354 | 3-T12 top + 3-T12 bottom
+Footing F1 | 1 500 x 1 500 x 600 | 50 | 542 | T12 @ 150 both ways bottom
+Lintel L1 (11 No.) | 190 x 150 | 30 | - | 2-T10 bottom + 2-T8 top, T6 2L @ 150
+Wall ties | - | - | - | 6 mm MS at every fifth course, 200 into the bed joint, 10 mm dowel
+#end
+
+#appendix B | BILL OF QUANTITIES | (MEASURED ITEMS, RATES AND AMOUNTS)
+
+P1 General | The bill of quantities of the project is given below. The amount of each item comprises the material cost (quantity x rate) and the cost of the labour deployed on it. The additional cost heads and the final project cost are given in Table 16.4.
+
+#table @boq Bill of Quantities
+#font 8.8
+#widths 7,33,7,8,10,12,11,12
+#align C,L,C,R,R,R,R,R
+#end
+
+T **Total basic cost (Parts I to V) : Rs 2,42,20,254. Final project cost : Rs 2,97,90,913.**
+
+#appendix C | LIST OF DRAWINGS | (INDEX OF ALL DRAWINGS AND PRESENTATION SHEETS)
+
+P1 General | The drawings of the project are listed below by discipline, with the folder of the project record in which each set is held. All drawings are prepared in AutoCAD (DXF). The A1 sheets form the working drawing set, the A2 sheets form the presentation series (sheets 01 to 13), and the A4 sheets are handout sheets.
+
+#table @drawings Drawing Index
+#font 9
+#widths 7,13,62,11,7
+#align C,L,L,C,C
+#end
+
+#appendix D | REFERENCES | (CODES, STANDARDS AND LITERATURE)
+
+P1 Indian Standards | The following Indian Standards have been referred to:-
+
+P2 | IS 456 : 2000, Plain and Reinforced Concrete - Code of Practice.
+
+P2 | IS 4991 : 1968, Criteria for Blast Resistant Design of Structures for Explosions above Ground.
+
+P2 | IS 875 (Parts 1, 2, 3 and 5), Code of Practice for Design Loads (other than Earthquake) for Buildings and Structures.
+
+P2 | IS 1893 (Part 1) : 2016, Criteria for Earthquake Resistant Design of Structures.
+
+P2 | IS 13920 : 2016, Ductile Design and Detailing of Reinforced Concrete Structures subjected to Seismic Forces.
+
+P2 | IS 3370 (Parts 1 and 2) : 2021, Concrete Structures for Retaining Aqueous Liquids.
+
+P2 | IS 1786 : 2008, High Strength Deformed Steel Bars and Wires for Concrete Reinforcement.
+
+P2 | IS 10262 : 2019, Concrete Mix Proportioning - Guidelines; IS 383 : 2016, Coarse and Fine Aggregate for Concrete; IS 269 : 2015, Ordinary Portland Cement.
+
+P2 | IS 1904 : 1986, Design and Construction of Foundations in Soils; IS 12070 : 1987, Design and Construction of Shallow Foundations on Rocks; IS 2950 (Part 1) : 1981, Design and Construction of Raft Foundations.
+
+P2 | IS 1498 : 1970, Classification and Identification of Soils; IS 2720, Methods of Test for Soils; IS 1121 (Part 1), Determination of Strength Properties of Natural Building Stones.
+
+P2 | IS 2470 (Parts 1 and 2) : 1985, Installation of Septic Tanks.
+
+P2 | IS 1077, Common Burnt Clay Building Bricks; IS 2645 : 2003, Integral Waterproofing Compounds for Cement Mortar and Concrete.
+
+P2 | IS 732 : 2019, Electrical Wiring Installations; IS 3043 : 2018, Earthing; IS 694 : 2010 and IS 1554 (Part 1), Cables.
+
+P2 | SP 16 : 1980, Design Aids for Reinforced Concrete; SP 34 : 1987, Handbook on Concrete Reinforcement and Detailing.
+
+P2 | National Building Code of India 2016, Part 4, Fire and Life Safety.
+
+P1 Other Standards | The following other standards have been referred to:-
+
+P2 | UFC 3-340-02, Structures to Resist the Effects of Accidental Explosions, US Department of Defense.
+
+P2 | MIL-STD-188-125-1, High-Altitude Electromagnetic Pulse (HEMP) Protection for Ground-Based C4I Facilities Performing Critical, Time-Urgent Missions.
+
+P2 | IEEE Std 299, Standard Method for Measuring the Effectiveness of Electromagnetic Shielding Enclosures.
+
+P2 | EN 1822, High Efficiency Air Filters (EPA, HEPA and ULPA).
+
+P2 | FEMA 453, Safe Rooms and Shelters - Protecting People Against Terrorist Attacks.
+
+P2 | BS 8666, Scheduling, Dimensioning, Cutting and Bending of Steel Reinforcement for Concrete.
+
+P1 Literature | The following literature has been referred to:-
+
+P2 | Glasstone, S. and Dolan, P. J., *The Effects of Nuclear Weapons*, US Department of Defense and Energy Research and Development Administration.
+
+P2 | Biggs, J. M., *Introduction to Structural Dynamics*, McGraw-Hill.
+
+P2 | Soil Engineering and Material Testing Wing, CME, Report No SEMT/67/15, *Report on Sub-Soil Investigation for CTW Ph-III ACCN Project at CME Pune*.

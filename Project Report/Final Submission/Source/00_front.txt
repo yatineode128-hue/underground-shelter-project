@@ -1,0 +1,82 @@
+#front CERTIFICATE
+
+T This is to certify that the project report entitled **"CBRN Hardened Underground Ops Room"** is a bonafide record of the work carried out by **Syndicate 01**, Faculty of Civil Engineering, College of Military Engineering, Pune, in partial fulfilment of the requirements for the award of the degree of Bachelor of Engineering (Civil Engineering).
+
+T The work embodied in this report has been carried out under my guidance and supervision. The report is found satisfactory and is approved for submission.
+
+#vspace 38
+
+#sign (Dr I R Chaudhari) | Project Guide | Faculty of Civil Engineering || Head of Faculty | Faculty of Civil Engineering | College of Military Engineering, Pune
+
+#vspace 22
+
+T Place : Pune
+
+T Month : September 2026
+
+#front ACKNOWLEDGEMENT
+
+T The syndicate expresses its sincere gratitude to **Dr I R Chaudhari**, Project Guide, for the guidance, encouragement and critical review at every stage of the project, from the selection of the site to the preparation of the final drawings and estimate.
+
+T We are thankful to the Head of Faculty and the faculty members of the Faculty of Civil Engineering, College of Military Engineering, Pune, for the facilities and support extended to us during the course of the project.
+
+T We gratefully acknowledge the Soil Engineering and Material Testing Wing, College of Military Engineering, whose sub-soil investigation report for the adjoining CTW Phase III project provided the geotechnical data for the site, and the staff of CTW for their assistance during the site studies.
+
+T We also thank all others who helped us directly or indirectly in completing this project.
+
+#vspace 20
+
+T **Syndicate 01**
+
+#front ABSTRACT
+
+T The project covers the planning, analysis, design and works management of a CBRN hardened underground operations room at the College of Military Engineering campus, Pune. The facility protects nine occupants for 96 hours against the blast of a nuclear air burst with a peak incident overpressure of 344.7 kPa (50 psi), together with chemical, biological, radiological and nuclear contamination, initial nuclear radiation, fallout and electromagnetic pulse.
+
+T The protected volume is a buried reinforced concrete box 22.0 m long and 6.2 m wide, divided into eight bays and founded on Deccan basalt at a depth of 6.8 m, with 2.0 m of engineered cover including a reinforced concrete burster slab. Entry is through a covered stairwell, an entry headhouse and a main staircase to two blast doors rated at 7 bar, and two vertical escape shafts provide emergency exits. A two-storey framed sentry post on isolated footings completes the installation.
+
+T The blast load has been derived using the dynamic load factor approach of IS 4991 with a ductility ratio of 5, giving a design pressure of 383 kPa on the roof and walls. With a roof natural period of 13.4 ms against a positive phase duration of 0.13 to 1.33 s, the response is quasi-static. All elements have been designed to IS 456 : 2000 by the limit state method, using the plastic mechanism moment and dynamic material strengths for the blast case, and the sentry post frame has been detailed to IS 13920 : 2016 for seismic Zone III. The governing element, the 900 mm pressure slab, carries T25 bars at 150 mm each face each way.
+
+T The protective services comprise two 300 m³/h NBC filter trains with an overpressure cascade through a three-stage decontamination airlock, a shielded EMP Zone 2 enclosure designed for 80 dB from 10 kHz to 1 GHz, a tanked drainage system with a clean sump, a 15 kVA standby generator with battery-backed essential supply, and a fire and life safety plan with three escape routes. The works have been estimated at **Rs 2,97,90,913** and programmed for completion in 224 working days.
+
+#front CONTENTS
+#toc
+
+#front LIST OF FIGURES
+#lof
+
+#front LIST OF TABLES
+#lot
+
+#front ABBREVIATIONS
+
+#table -
+#widths 22,78
+Abbreviation | Expansion
+AHU | Air handling unit (filter train)
+BD | Blast door
+BV | Blast valve
+CBRN | Chemical, biological, radiological and nuclear
+CME | College of Military Engineering
+DLF | Dynamic load factor
+EF EW | Each face, each way
+EMP | Electromagnetic pulse
+ESC | Escape shaft
+FSI | Free swell index
+GWT | Groundwater table
+HEPA | High efficiency particulate air (filter)
+HW | Headhouse wall
+IEEE | Institute of Electrical and Electronics Engineers
+IS | Indian Standard
+MDD / OMC | Maximum dry density / optimum moisture content
+NBC | Nuclear, biological and chemical (filtration); National Building Code (codes)
+PCC | Plain cement concrete
+PCI | Pulse current injection (protection device)
+RC / RCC | Reinforced concrete / reinforced cement concrete
+SBC | Safe bearing capacity
+SDOF | Single degree of freedom
+SE | Shielding effectiveness
+SEMT | Soil Engineering and Material Testing (Wing)
+T12, T16 ... | High yield deformed bar of 12 mm, 16 mm ... diameter
+ULS / SLS | Ultimate limit state / serviceability limit state
+WBC | Waveguide below cutoff
+#end

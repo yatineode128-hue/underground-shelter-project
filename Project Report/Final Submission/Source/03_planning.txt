@@ -1,0 +1,208 @@
+#chapter PLANNING AND ARCHITECTURAL LAYOUT | (UNDERGROUND STRUCTURE, HEADHOUSE, ENTRY AND SENTRY POST)
+
+#head Planning Concept
+
+P1 Protective Boundary | The planning of the installation is governed by the protective boundary, which is the continuous surface that excludes blast, contaminated air and radiation. The boundary is formed by **Blast Doors 1 and 2 at level (-)6.100, walls W6 and W7 in which they are set, the perimeter walls, the mat foundation and the pressure (roof) slab**. The stair shaft, the headhouse and the covered entry stairwell lie outside the boundary. The stair shaft is open to the atmosphere through the stair void and fills with blast pressure; walls W6 and W7 and both blast doors are therefore designed for the full blast pressure.
+
+P1 Gas-Tight Envelope | Within the protective boundary, bays 1 to 6 form the gas-tight envelope, which is held at a positive pressure by the filtration plant. Its floor area is 67.80 m² and its volume 216.96 m³. Bay 7 (stair shaft) and bay 8 (generator) are outside the gas-tight envelope; bay 8 is a grey zone, separately ventilated for the generator.
+
+P1 Planning Principles | The following principles have been followed in the layout:-
+
+P2 Width Fixed, Length Free | The roof spans one way across the 5.0 m internal width (Chapter 7), so its moment depends only on the width. Additional accommodation is therefore obtained by lengthening the box, never by widening it.
+
+P2 Minimum Penetrations | Every opening in the boundary is a blast, gas and EMP discontinuity. All services enter through one service entry plate, the air enters and leaves through blast valves only, and nothing penetrates the buried roof.
+
+P2 No Movement Joints | No movement joint is provided anywhere within the protective envelope. Construction joints are made with continuous reinforcement, two waterstops and a welded EMP bonding strap.
+
+P2 Clean to Dirty | The bays are arranged so that air, people and water move from the clean end (west) towards the dirty end (east), through the decontamination airlock to the stair shaft.
+
+#head Underground Structure
+
+P1 Coordinate System and Levels | All dimensions are in millimetres and all levels in metres relative to finished site grade 0.000, negative downwards. The origin is at the south-west external corner of the box. The level schedule is given in Table 3.1.
+
+#table Level Schedule
+#widths 42,18,40
+#align L,C,L
+Level | Value | Description
+Finished site grade | 0.000 | Crowned, falling 1 in 50 away from the box
+Top of pressure slab | (-)2.000 | Headhouse floor level
+Roof soffit | (-)2.900 | 900 mm pressure slab
+Internal floor, top of mat | (-)6.100 | 3 200 mm clear height
+Underside of mat | (-)6.700 | 600 mm mat
+Formation, underside of PCC | (-)6.800 | 100 mm M15 blinding
+Design groundwater table | (-)2.000 | Monsoon condition
+Stair landing L1 | (-)4.733 | 8 risers above the floor
+Stair landing L2 | (-)3.367 | 16 risers above the floor
+Headhouse roof soffit / top | +0.400 / +0.900 | 2 400 mm clear inside
+Entry stairwell roof at head | +2.450 | Soffit +2.200
+Sentry post floors | +0.450 / +3.650 / +6.700 | Ground, first floor, roof
+Sentry post parapet top | +7.000 | -
+Sump pit invert / base | (-)7.600 / (-)8.000 | Clean sump SU-01, bay 5
+#end
+
+P1 Main Dimensions | The main dimensions of the underground box are given in Table 3.2 and the plan, longitudinal section and cross section in Figs 3.1 to 3.3.
+
+#table Main Dimensions of the Underground Box
+#widths 50,50
+#align L,L
+Item | Value
+External length x width | 22 000 x 6 200 mm
+Internal length x width | 20 800 x 5 000 mm
+Perimeter walls W1 to W4 | 600 mm
+Pressure (roof) slab | 900 mm
+Mat foundation | 600 mm on 100 mm M15 blinding
+Internal clear height | 3 200 mm
+Engineered cover over the roof | 2 000 mm in six layers
+#end
+
+#fig fig_underground_plan | Underground Level Plan at (-)6.100
+
+P1 Bay Schedule | The box is divided into eight bays, as given in Table 3.3.
+
+#table Bay Schedule
+#widths 7,17,11,65
+#align C,C,C,L
+Bay | X Range (mm) | Clear Width | Use
+1 | 600 - 3500 | 2900 | Emergency stores, 1 000 L potable water tank, escape shaft ESC 1
+2 | 3610 - 5410 | 1800 | Lavatory (1800 x 2000) and medical room (1800 x 3000)
+3 | 5520 - 9020 | 3500 | Operations room and hazard plotting; EMP Zone 2 enclosure
+4 | 9130 - 10930 | 1800 | Berthing, three 3-tier bunks, 9 berths
+5 | 11040 - 12600 | 1560 | CBRN plant: two 300 m³/h NBC filter trains, CO<sub>2</sub> scrubber and O<sub>2</sub> store, dehumidifier, clean sump
+6 | 12800 - 14800 | 2000 | Decontamination airlock, three stages (2000 x 2000, 2000 x 1500, 2000 x 1500)
+7 | 15200 - 18000 | 2800 | Stair shaft (main staircase)
+8 | 18400 - 21400 | 3000 | 15 kVA generator (grey zone), escape shaft ESC 2
+#end
+
+P1 Internal Walls | The internal walls are given in Table 3.4.
+
+#table Internal Walls
+#widths 16,30,12,42
+#align L,L,C,L
+Mark | X Range (mm) | Thickness | Function
+W8 (4 No.) | 3500-3610, 5410-5520, 9020-9130, 10930-11040 | 110 | Non-structural partitions, each with a 900 mm opening at Y 2500 - 3400
+W5 | 12600 - 12800 | 200 | Fire and gas-tight wall between the plant room and the airlock, with gas-tight door D-05
+W6 | 14800 - 15200 | 400 | Protective boundary, bay 6 / 7; Blast Door 1 at Y 600 - 1800
+W7 | 18000 - 18400 | 400 | Protective boundary, bay 7 / 8; Blast Door 2 at Y 600 - 1800
+#end
+
+P1 Walls W6 and W7 | W6 and W7 separate the stair shaft, which fills with blast pressure, from bays 6 and 8. They are part of the protective boundary and are 400 mm thick, compared with 110 mm and 200 mm for the other internal walls. The additional 400 mm this needs has been taken in the length of the box, since the stair shaft width (two 1 200 mm flights and a 200 mm well) and the bay 8 width (set by the escape shaft clearance) cannot be reduced.
+
+#fig fig_long_section | Longitudinal Section on the Box Centreline
+
+#fig fig_cross_section | Transverse Section through the Box
+
+#head Access and Egress
+
+P1 Routes | The access and escape routes are as under:-
+
+P2 Primary | From ground level through the entry door and the covered entry stairwell (12 risers of 166.67 mm, going 300 mm) to the platform at (-)2.000, through the inner security door into the headhouse, down the main staircase (24 risers in three flights of eight) to the arrival landing at (-)6.100, and through **Blast Door 1** (1 200 x 2 100, 7 bar) into the decontamination airlock in bay 6.
+
+P2 Secondary | Through **Blast Door 2** (1 200 x 2 100) from the stair shaft into bay 8.
+
+P2 Emergency | Two 1 400 mm diameter vertical escape shafts, **ESC 1** in bay 1 and **ESC 2** in bay 8, each in a 250 mm reinforced concrete collar and fitted with a ladder and a hatch at the head.
+
+#fig fig_entry_route | Access Route from Grade to the Clean Zone
+
+P1 Main Staircase | The main staircase in bay 7 is a dog-leg stair of three flights. Its geometry and the checks against NBC 2016 Part 4 are given in Table 3.5, and the developed section in Fig 3.5.
+
+#table Main Staircase Geometry
+#widths 34,26,20,20
+#align L,C,C,C
+Item | Provided | Limit | Check
+Riser | 170.833 mm | 190 mm max | OK
+Tread (going) | 280 mm | 250 mm min | OK
+Flight width | 1 200 mm | 1 000 mm min | OK, stretcher width
+Risers per flight | 8 | 12 max | OK
+Headroom | 2 533 mm | 2 200 mm min | OK
+Total rise | 24 x 170.833 = 4 100 mm | (-)6.100 to (-)2.000 | Closes exactly
+2R + T | 621.7 mm | 550 to 700 mm | OK
+#end
+
+P1 Stair Shaft Layout | The stair shaft is 2 800 x 5 000 mm clear (X 15200 - 18000, Y 600 - 5600). Flights 1 and 3 are stacked in the 1 200 mm lane at X 15300 - 16500, flight 2 is in the lane at X 16700 - 17900, with a 200 mm well between them. Landing L1 at (-)4.733 is at the north end and landing L2 at (-)3.367 at the south end, over the arrival landing, which is the mat surface. A store is formed under landing L1. The pressure slab over the shaft has a 2 800 x 3 160 mm void, leaving a 1 840 mm cantilever pad at the north end.
+
+#fig fig_stair_section | Main Staircase, Developed Section
+
+P1 Escape Shafts | The escape shafts are detailed in Table 3.6. Each opening edge is kept at least 750 mm from the face of the nearest structural wall, made up of the 250 mm collar, a trimmer band of about 400 mm and a tolerance of 100 mm. A bay must therefore be at least 1 400 + 2 x 750 = 2 900 mm wide to hold an escape shaft, which fixes the widths of bays 1 and 8.
+
+#table Escape Shafts
+#widths 34,33,33
+#align L,C,C
+Item | ESC 1 | ESC 2
+Location | Bay 1, centre (2050, 2050) | Bay 8, centre (19900, 2050)
+Clear opening | 1 400 mm diameter | 1 400 mm diameter
+Collar | 250 mm RC, OD 1 900 | 250 mm RC, OD 1 900
+Clearance to wall face | 750 mm all round | 800 mm
+Head level | +0.150 | +0.700
+Climb from (-)6.100 | 6.250 m | 6.800 m
+Escape route | R2 | R3
+#end
+
+#head Headhouse and Covered Entry Stairwell
+
+P1 Entry Headhouse | The headhouse is a reinforced concrete room standing on the pressure slab over the stair shaft, as under:-
+
+P2 Dimensions | External 4 800 x 5 800 mm (X 13600 - 18400, Y 200 - 6000); internal 4 000 x 5 000 mm; clear height 2 400 mm.
+
+P2 Construction | Walls HW1 (south), HW2 (north), HW3 (west) and HW4 (east) are 400 mm thick; the roof is 500 mm thick with its soffit at +0.400 and top at +0.900, without earth cover. The floor is the top of the pressure slab at (-)2.000. The berm is graded against all four walls to +0.900 at 1.5 : 1.
+
+P2 Opening | The inner security door, 900 x 2 100 mm, is in HW2 at X 14450 - 15350. It is a security door and is not blast rated.
+
+P2 Support | HW1 and HW2 stand directly over the box perimeter walls and HW4 over wall W7. HW3 stands on the pressure slab over bay 6 and is designed as a line load on the slab (Chapter 8).
+
+P1 Covered Entry Stairwell | The covered entry stairwell leads from ground level to the headhouse platform, as under:-
+
+P2 Dimensions | External 6 800 x 2 000 mm (X 9250 - 16050, Y 5750 - 7750); internal 6 300 x 1 500 mm.
+
+P2 Construction | 250 mm RC side walls, headwall and east wall; top landing at 0.000 (X 9500 - 11000); flight of 12 risers of 166.67 mm with 11 goings of 300 mm (X 11000 - 14300), waist 250 mm; platform 1 500 x 1 500 mm at (-)2.000 (X 14300 - 15800); raking roof 250 mm with soffit 2 200 mm above the flight, remaining 250 mm over the platform.
+
+P2 Entry | The entry door, 1 000 x 2 100 mm, is at grade in the headwall and opens outward. A 300 mm channel with grating across the full 1 500 mm width at the threshold intercepts surface water.
+
+P2 Foundation | The stairwell stands on a stepped RC raft 300 mm thick on compacted granular fill, with a movement joint where it meets the headhouse. A 1.0 m³ external sump at the platform drains to its own soakaway. The berm is graded against the walls at 1.5 : 1 to +0.900.
+
+P1 Function | The covered stairwell and the headhouse provide a weather-proof and secure approach to the stair shaft. Both are outside the protective boundary. The headhouse roof and walls are designed for the full blast pressure; the covered stairwell is designed for static loads only and is not blast rated.
+
+#head Sentry Post
+
+P1 Description | The sentry post is a two-storey reinforced concrete framed building, as under:-
+
+P2 Plan | External 4 000 x 5 000 mm, internal 3 600 x 4 600 mm. Column grid A - B at 3 650 mm centres (X) and 1 - 2 at 4 650 mm centres (Y).
+
+P2 Frame | Four columns C1, 350 x 350 mm; beams B1 (250 x 450) spanning A - B on grids 1 and 2, and B2 (250 x 450) spanning 1 - 2 on grids A and B; two-way slab S1, 150 mm thick, at both floors; plinth beam PB 250 x 400 at +0.450.
+
+P2 Foundations | Four isolated footings F1, 1 500 x 1 500 x 600 mm, on in-situ basalt at (-)2.000.
+
+P2 Storeys | Ground storey +0.450 to +3.650 (3 200 mm); first storey +3.650 to +6.700 (3 050 mm); parapet top +7.000.
+
+P2 Walls | The ground storey infill is 190 mm one-brick modular brickwork to IS 1077 in CM 1 : 6, built within the 200 mm structural zone between the columns. The first storey carries armoured vision panels 1 200 mm wide. Access to the first floor is by an external spiral stair of 1 000 mm radius around a 250 mm diameter central pole. The door D1 is 900 mm wide.
+
+P1 Siting | The sentry post is sited east of the underground structure at X 32000 - 36000, Y 600 - 5600, 10 m clear of the box, so that its footings are on undisturbed rock and not on the backfill of the shelter excavation.
+
+#head Openings in the Protective Boundary
+
+P1 Door and Opening Schedule | Every door and opening in and around the protective boundary is listed in Table 3.7.
+
+#table Door and Opening Schedule
+#widths 15,33,15,12,25
+#align L,L,C,C,L
+Mark | Location | Size | Level | Rating
+BD 1 | Wall W6, stair shaft to bay 6 | 1 200 x 2 100 | (-)6.100 | 7 bar, gas-tight, rebound rated
+BD 2 | Wall W7, stair shaft to bay 8 | 1 200 x 2 100 | (-)6.100 | 7 bar, gas-tight, rebound rated
+D-05 | Wall W5, clean-side exit from the airlock | Single leaf | (-)6.100 | Gas-tight and fire-rated
+D1 (HH) | Headhouse wall HW2 | 900 x 2 100 | (-)2.000 | Security door
+Entry | Stairwell headwall, opens outward | 1 000 x 2 100 | 0.000 | Weather and security door
+W8 gaps | Four partitions | 900 x 2 100 | (-)6.100 | Open, no door
+ESC 1 / 2 | Pressure slab, bays 1 and 8 | 1 400 dia | +0.150 / +0.700 | Blast hatch, 383 kPa
+Stair void | Pressure slab, bay 7 | 2 800 x 3 160 | (-)2.000 | Guarded, 1 100 mm railing
+BV-1 to BV-5 | W1 bay 1 (2), W6 (1), east wall bay 8 (2) | DN100 (3), DN350 (2) | Various | Blast valves
+SEP | Service entry plate, north wall | 800 wide | - | Welded steel plate
+#end
+
+#head Radiation Shielding
+
+P1 Engineered Cover | The roof of the box is covered by 2.0 m of engineered cover in six layers (Chapter 5). Since a buried roof receives the full blast overpressure (K<sub>a</sub> = 1.0), the cover is not provided for blast; it is provided for protection against nuclear radiation, as under:-
+
+P2 Fallout | The first metre of cover gives a protection factor of about 2 200 against fallout, against a requirement of the order of 1 000.
+
+P2 Initial Radiation | The second metre provides the mass needed to attenuate the initial neutron and gamma radiation. Attenuation is exponential in the areal density of the shield, and the moisture in the fill and the bound water in the concrete are effective in slowing neutrons.
+
+P2 Burster Slab | A 200 mm M30 reinforced concrete burster slab (T12 at 150 mm both ways) within the cover breaks up a penetrating item so that its energy is dispersed in the 500 mm layer of crushed basalt rubble below it instead of being delivered to the roof as a concentrated load.

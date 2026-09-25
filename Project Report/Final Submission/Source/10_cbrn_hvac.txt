@@ -1,0 +1,137 @@
+#chapter CBRN PROTECTION AND VENTILATION | (COLLECTIVE PROTECTION, FILTRATION, OVERPRESSURE AND CLOSED-MODE ENDURANCE)
+
+#head Design Basis
+
+P1 Principle | The occupants are protected against chemical and biological agents and radioactive dust by collective protection. All air entering the gas-tight envelope is filtered, and the envelope is held above atmospheric pressure so that any leakage flows outwards. The design basis is given in Table 10.1.
+
+#table Ventilation Design Basis
+#widths 40,60
+Parameter | Value
+Occupancy / endurance | 9 persons / 96 hours
+Gas-tight envelope | Bays 1 to 6; 67.80 m², 216.96 m³
+Clean zone (bays 1 to 5) | 57.80 m²; occupied volume 184.96 m³ with the airlock closed
+Design flow | 300 m³/h per train; two trains, one duty and one standby (N+1)
+Flow per person | 33.3 m³/h
+Air changes, envelope / clean zone | 1.38 / 1.62 per hour
+Check against FEMA 453 (0.25 cfm/ft²) | 57.8 m² = 622.2 ft², requiring 264.3 m³/h; 300 m³/h provided
+Survival / working-shelter rates | 5 and 15 m³/h per person = 45 and 135 m³/h; 300 m³/h provided
+Operating overpressure | +50 to +100 Pa
+Leakage limit | 0.15 volume/h at +300 Pa = 32.5 m³/h (11 % of one train)
+Pressure cascade, dirty to clean | 0, +10, +20, +35, +50 Pa
+Duct and plenum loss (excluding the filter stages) | 161 Pa
+#end
+
+#head Filtration
+
+P1 Threats and Filter Stages | Particulate agents and gaseous agents are removed by different mechanisms, and the filter stages are therefore in series, as given in Table 10.2.
+
+#table Threats and Means of Removal
+#widths 30,20,50
+Threat | Form | Removed by
+Radioactive dust, fallout, biological agents | Aerosol, 0.1 to 10 μm | HEPA filter, EN 1822 class H14, 99.995 % at the most penetrating particle size
+Chemical warfare agents | Vapour | Impregnated activated carbon (ASZM-TEDA)
+Coarse dust; the blast pulse | - | Pre-filter; blast valve
+#end
+
+P1 Filter Train | Each filter train consists of seven stages in the order shown in Fig 10.1: weather louvre with sand and debris trap; blast valve (closes in less than 2 ms and holds for 1.3 s); pre-filter G4/F7; HEPA filter H14; activated carbon bed ASZM-TEDA (300 000 mg.min/m³); fan with electric drive and hand crank; and supply plenum at +50 to +100 Pa. A differential pressure gauge is fitted across every stage and a flow meter on each train, to indicate filter loading and to set the change-out of each stage. The fan is selected on the pressure drop of the filters in the dirty condition, and the hand crank is sized for the same duty.
+
+#fig fig_filter_train | NBC Filter Train, Seven Stages
+
+P1 Blast Valves | Five blast valves protect the openings through which air enters and leaves, as given in Table 10.3. They are recessed into the walls (IS 4991 Cl. 6.2.1) and each has a manual quarter-turn gas-tight damper on its inner side.
+
+#table Blast Valves
+#widths 14,14,36,36
+#align C,C,L,L
+Tag | Size | Location | Function
+BV-1, BV-2 | DN100 | West wall W1, bay 1 | Fresh air intake from shaft SH-1
+BV-3 | DN100 | Wall W6 at (14998, 4900) | Exhaust from the airlock to the stair shaft
+BV-4, BV-5 | DN350 | East wall, bay 8 | Generator combustion and cooling air, 2 600 m³/h, from shaft SH-2
+#end
+
+P1 Carbon Beds | The activated carbon beds give out heat when they adsorb, and the filter bay is therefore included in the fire load of the shelter (Chapter 14). The plant room is separated from the airlock by the fire and gas-tight wall W5.
+
+#head Air Distribution and Overpressure
+
+P1 Air Path | Fresh air is drawn through the intake shaft SH-1 (600 x 600 mm, gooseneck head at +1.500, west of the box), enters through BV-1 and BV-2 in the west wall of bay 1, and is carried along the clean zone to the filter trains in bay 5 in a raw-air duct. The raw-air duct is fully welded with no push-fit or slip joints, is run exposed along its whole length and labelled, and is tested to the +300 Pa envelope standard. Filtered air is distributed to the rooms, flows through the three stages of the airlock and leaves through BV-3 into the stair shaft. The air path is shown in Fig 10.2.
+
+P1 Room Distribution | The operations room and the berthing bay are not occupied at the same time, and two volume control dampers switch the flow between day and night settings, as given in Table 10.4. The occupied room of the pair receives 135 m³/h, i.e. 15 m³/h per person.
+
+#table Room Air Distribution
+#widths 12,36,14,13,13,12
+#align C,L,R,R,R,R
+Room | Use | Volume (m³) | Day (m³/h) | Night (m³/h) | Extract (m³/h)
+U-01 | Emergency stores, ESC 1 | 46.40 | 30 | 30 | -
+U-02 | Lavatory and medical | 28.80 | 30 | 30 | 45
+U-03 | Operations room | 56.00 | 135 | 45 | -
+U-04 | Berthing, 9 berths | 28.80 | 45 | 135 | -
+U-05 | CBRN plant and sump | 24.96 | 60 | 60 | -
+U-06 | Decontamination airlock | 32.00 | 300 transfer | 300 transfer | to BV-3
+| **Total supply** | | **300** | **300** |
+#end
+
+#fig fig_hvac_schematic | Ventilation Air Path and Room Distribution
+
+P1 Overpressure Cascade | The pressure steps down from the clean zone to the stair shaft through the three airlock stages, as given in Table 10.5 and Fig 10.3, so that at every door air moves from clean to dirty. No air is supplied directly to the airlock; the whole 300 m³/h passes through it.
+
+#table Overpressure Cascade
+#widths 40,20,40
+#align L,C,L
+Zone | Pressure | Maintained by
+Stair shaft, bay 7 | 0 Pa | Atmosphere, outside the envelope
+Airlock stage 1, dirty end | +10 Pa | Transfer from stage 2
+Airlock stage 2 | +20 Pa | Transfer from stage 3
+Airlock stage 3, clean end | +35 Pa | Transfer from the clean zone
+Clean zone, bays 1 to 5 | +50 Pa | Supply plenum, +50 to +100 Pa
+#end
+
+#fig fig_cascade | Overpressure Cascade through the Airlock
+
+P1 Decontamination Airlock | The airlock has three stages, 2 000 x 2 000, 2 000 x 1 500 and 2 000 x 1 500 mm. Each entry requires five air changes of the airlock volume before the next person can pass.
+
+#calc
+Purge volume = 5 x (2.0 x 2.0 x 3.2) ;; 64 m³
+Purge time at 300 m³/h ;; 12.8 min
+Entry rate through the airlock ;; 4 to 5 persons per hour
+#end
+
+P1 Trap Seals | Every water trap within the envelope is a pressure boundary. Traps are provided with 75 mm deep seals, which hold 736 Pa, i.e. 7.4 times the operating overpressure and 2.5 times the test pressure, and are kept primed as a routine maintenance task.
+
+#head Closed Mode
+
+P1 Endurance | In the closed mode all five blast valves are shut and there is no fresh air. The endurance is set by the carbon dioxide produced and the oxygen consumed by the occupants.
+
+#calc
+Allowable CO<sub>2</sub> rise 0.04 % to 1.0 % = 0.0096 volume fraction; occupied volume 184.96 m³
+CO<sub>2</sub> produced = 9 x 0.020 m³/h ;; 0.18 m³/h
+Time to reach 1.0 % without scrubbing = 0.0096 x 184.96 / 0.18 ;; 9.9 h
+CO<sub>2</sub> scrubber, soda lime store 40 kg at 20 kg/day ;; 48 h
+Oxygen store, 2 x 50 litre cylinders at 150 bar = 15 m³ at 4.5 m³/day ;; 80 h
+#end
+
+T The CO<sub>2</sub> scrubber is therefore an essential item, and the closed mode can be maintained for 48 hours on the soda lime store. For the remainder of the 96 hours the shelter operates in the filtered mode.
+
+P1 CO<sub>2</sub> Scrubber Loop | The recirculation flow through the scrubber, Q = CO<sub>2</sub> production / (efficiency x target concentration), is 72.0 m³/h at 50 per cent single-pass efficiency and a target of 0.5 per cent. A recirculation loop of **75 m³/h** has been adopted. Its fan draws about 11.6 W at 250 Pa, within the allowance of 0.10 kW on the essential board.
+
+P1 Operating Modes | The operating modes are given in Table 10.6. The generator air path through BV-4 and BV-5 serves bay 8 only, which is outside the gas-tight envelope. All five blast valves close on the arrival of the shock, and BV-4 and BV-5 are then reopened for generator operation, so that the generator can run in the closed mode without affecting the clean zone.
+
+#table Operating Modes
+#widths 26,74
+Mode | Condition
+1. Normal | Peacetime ventilation
+2. Filtered (protective) | Full seven-stage filtration; overpressure maintained
+3. Closed | From attack to all-clear; blast valves shut; CO<sub>2</sub> scrubbing and oxygen supply; 48 h
+4. Purge | Airlock purge for each entry, 12.8 min
+5. Generator running | BV-4 and BV-5 open for bay 8; independent of modes 1 to 4
+#end
+
+#head Heat Balance
+
+P1 Heat Gains | The sensible heat gain within the envelope in the closed mode is the electrical load dissipated inside it (5.733 kW) and the sensible heat of the occupants (9 x 70 W = 0.630 kW), a total of 6.363 kW, or 2.199 GJ over 96 hours.
+
+P1 Heat Sink | Almost all of this heat is absorbed by the concrete of the envelope and the rock around it, since the air in the envelope has a heat capacity of only 262 kJ/K. The concrete that can respond within 96 hours (a thermal penetration depth of √(αt) = 0.436 m) has been taken as a 0.30 m layer over the 414.38 m² of internal surface, with a heat capacity of 273 493 kJ/K.
+
+P1 Cooling Duty | To hold the internal air at 30 °C from a ground temperature of 26 °C, the structure absorbs 273 493 x 4 = 1.094 GJ and the remaining 1.105 GJ is to be removed, a mean sensible duty of 3.20 kW. With a latent load of 0.405 kW the mean duty is 3.60 kW (1.02 TR), and a closed-mode cooling duty of **4 kW (1.14 TR)** has been adopted.
+
+#head Testing
+
+P1 Envelope Leakage Test | On completion, the gas-tight envelope is tested at +300 Pa. The leakage must not exceed 0.15 volume changes per hour (32.5 m³/h). The test is repeated after any work that penetrates the envelope, and the raw-air duct is re-tested after any work in bays 1 to 4.
