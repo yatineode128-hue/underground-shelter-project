@@ -22,7 +22,7 @@
 **A2 presentation sheets:** **SR1** (16 Sep 2026, Part **H.39**) — **two A2 structural reinforcement sheets, `STR006` SHEET 06 (roof slab + mat foundation) and `STR007` SHEET 07 (600 shear wall + main staircase)**, drawn in the frame and title block of the owner's Revit A2 architectural set `ARCH001…ARCH005` so they read as the next two sheets of it. Every bar mark is read from `rebar_data.py`; **no design value, level, thickness, bar or spacing changed** and **the main staircase is untouched**. Finding **`SR1-F1`**: the request asked for IS 13920 detailing; **IS 13920 Cl. 10.4 was checked for the box and is NOT triggered** (τ = 0.063 N/mm²), the box is IS 456 + IS 4991 + IS 3370, and the project's IS 13920 detailing is the **sentry post frame**, which is not on these sheets. Both sheets **PASS** the drafting QA with **zero text overlaps**.
 **A2 sentry-post sheets:** **SR2** (16 Sep 2026, Part **H.40**) — **two more A2 sheets in the same series, `STR008` SHEET 08 (sentry post beams B1 / B2 and column C1) and `STR009` SHEET 09 (isolated footing F1 and slab S1)**. **This is the project's IS 13920:2016 sheet pair** — the box is not a ductile-detailing element (Cl. 10.4 checked, not triggered) and the sentry post frame is, so STR008 carries a 14-clause IS 13920 compliance table. **No design value moved and no analysis was run.** Because the sentry post is EXCLUDED from `rebar_data.py`, SR2 builds a separate register `sentry_data.py` to the same rule. Principal finding **`SR2-F1` — the master contradicts itself on B2's top steel at the ROOF joint**: B.8.6 checks that joint with **2-T20** and passes it marginally, F.4 schedules **3-T20 at supports** without distinguishing level, and 3-T20 there makes IS 13920 Cl. 7.2.1 **FAIL** (1.4 ΣM<sub>b</sub> 195.7 > ΣM<sub>c</sub> 101). **Both cannot be true, so SHEET 08 details the FIRST-FLOOR frame only** and the roof frame is left undrawn until it is ruled on. Six further open items `SR2-V1…V6`, plus `SR2-F2` — a legibility finding on the existing sheet STR007, **recorded and NOT acted on**. Both new sheets **PASS** the drafting QA. **Amended the same day as `SR2A` (Part H.40.8), by instruction: the design-basis and declared-decisions panels DELETED from both sheets and `REV A` removed from their header — no view, scale, dimension, bar or count changed, and the schedules were grown to fill the freed column. The open items are unchanged and now live in the master only.**
 **A2 header/panel cleanup:** **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire revision line (**"STRUCTURAL - PHASE 2 REV A + M1"**) deleted from the header — asked directly which reading was meant, and the whole line was the answer. **No design value moved; STR008/STR009 are byte-identical to before.** The freed column is filled by the `table_stack()` helper SR2A introduced. Found and fixed a real bug in `a2_lib.py` along the way: `table()`'s row-height shrink loop could quantise one step below `MIN_TXT_H`; fixed with a floor clamp, verified not to change STR008/STR009. **This also CLOSES `SR2-F2`**, the STR007 legibility finding recorded and deliberately left unfixed at SR2A. `DRAWING_INDEX.md`: 84 drawings, 78 PASS.
-**Final-submission report:** **PR3** (25 Sep 2026, Part **H.44**) — `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, 114 pages in the owner's service-writing format, WM3 cost Rs 2,97,90,913. **By instruction it omits the open-item register; nothing in K.1b or K.2 is closed by it** — H.44.2 lists what a reader will not see. Amended **PR3A** (H.44.9) and **PR3B** (H.44.10): the five P1-deck site slides in Chapter 2, Appendix C = the fifteen A2 sheets 01–15, the syndicate and guides named, and the guide's name spelt *Chaudhuri* by owner ruling (the drawing title blocks still read *CHAUDHARI*). **PR3C** (H.44.11): front pages in the form of a CME sample (certificate, approval sheet, declaration, acknowledgement; borderless), degree B.Tech (Civil) / JNU, drawings as a separate A3 spiral book, and two black hard covers (`Hard_Cover_Report_A4.pdf`, `Hard_Cover_Drawings_A3_Landscape.pdf`).
+**Final-submission report:** **PR3** (25 Sep 2026, Part **H.44**) — `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, 114 pages in the owner's service-writing format, WM3 cost Rs 2,97,90,913. **By instruction it omits the open-item register; nothing in K.1b or K.2 is closed by it** — H.44.2 lists what a reader will not see. Amended **PR3A** (H.44.9) and **PR3B** (H.44.10): the five P1-deck site slides in Chapter 2, Appendix C = the fifteen A2 sheets 01–15, the syndicate and guides named, and the guide's name spelt *Chaudhuri* by owner ruling (the drawing title blocks still read *CHAUDHARI*). **PR3C** (H.44.11): front pages in the form of a CME sample (certificate, approval sheet, declaration, acknowledgement; borderless), degree B.Tech (Civil) / JNU, drawings as a separate A3 spiral book, and two black hard covers (`Hard_Cover_Report_A4.pdf`, `Hard_Cover_Drawings_A3_Landscape.pdf`). **PR3D** (H.44.12): STAAD.Pro captures and the owner's mesh-study results in Chapter 6 — **the peak does not converge (`[C]` as reported), and the sentry captures are of a different model, `PR3D-F1` `[UNRESOLVED]`.**
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and a ruling on **`SR2-F1`** before the sentry post roof beams can be detailed.
 
 ---
@@ -6321,6 +6321,72 @@ pages 2–5 carry no frame (their only vector paths are the heading rule and the
 Contents lists i–v in the sample's order; the whole-document text scan finds only PR3's four
 engineering uses of "assumed" / "defect", and no "Bachelor of Engineering" or "Chaudhari"; every
 text span is black. **Main staircase unchanged.**
+
+### H.44.12 PR3D — STAAD.Pro captures and a short mesh-sensitivity statement in Chapter 6, 26 September 2026
+
+*"Add wherever coherent and relevant — STAAD Pro photos and analysis in short only"*, with eight
+**phone screenshots of the owner's 130-page deck `ULTIMATE FINAL.pdf`** (its pages 49–56 and
+72–76). **The deck itself is not in this workspace.** **No design value moved, and no analysis
+was run here** — every result below is the owner's STAAD.Pro output as the deck shows it, `[C]`
+as reported, read from screenshots.
+
+**What was added (report now 120 pages).** Chapter 6 gains Figs **6.1–6.6** and Table **6.3**; the
+sentry-post tables become **6.4–6.6** and the text references follow.
+
+| Figure / table | Content | Source capture |
+|---|---|---|
+| Fig 6.1, 6.2 | the box plate model and load cases 1–10 | window title *Underground_Structure_WITH_LOADS_worked_example (4)* — **the repository's reference model**. Its loads agree with Table 6.2 and the `.std`: LOAD 3 is 2 kPa on the roof and 1 kPa on the mat, and LOAD 10 is 20 kPa vertical plus K₀q = 10 kPa lateral, as the deck labels them |
+| Fig 6.3 | plate-stress contours | legend footer *"Load 105"* = COMB 105 CONSTRUCTION in the `.std`; **the caption names no load** |
+| Table 6.3, Fig 6.4 | the three meshes and their peak plate stress | see below |
+| Fig 6.5, 6.6 | sentry-post frame, BMD / SFD, and six load pictures | **a different model — `PR3D-F1`** |
+
+The 26 captures are cropped, trimmed to the STAAD window and stored as
+`Final Submission/Images/STAAD/*.png`; the deck's own slide captions are not reproduced, and
+each panel carries a plain label (new `#grid` directive, `sw_figures.GRIDS`). They are
+screenshots of a screenshot at about 150 dpi as printed; **the deck's original images would
+replace them one for one**.
+
+**MS1 — the mesh study now has results, from the owner's run** (H.5 §5 had recorded them as
+outstanding). Under one load case — the deck's slide says **LOAD 6, earth and water on the
+external walls** — the peak *max absolute* plate stress is:
+
+| Mesh | Plates | Joints | Element size X × Z (m) | Peak (kN/m²) | Step |
+|---|---|---|---|---|---|
+| Coarse | 336 | 324 | 1.259 × 1.120 | 3 240 | — |
+| Medium (reference) | 1 138 | 1 113 | 0.713 × 0.622 | 3 839 | +18.5 % |
+| Fine | 4 552 | 4 500 | 0.357 × 0.311 | 4 482 | +16.8 % (coarse → fine +38.3 %) |
+
+Plate and joint counts agree with Table 6.1, H.5 and MS2. **The deck's own heading is *"The
+Peak Does Not Converge"* — and that is correct: MS1 does NOT demonstrate mesh-independence of the
+peak.** The report states only what the design rests on: the stress pattern is the same in all
+three meshes; the peak rises with refinement, *"which is the behaviour of a local peak"*; the
+elements are designed from the plastic-mechanism moments by hand (Part B), not from peak plate
+stresses; and the medium mesh is the adopted model. **The "local peak" reading is an
+interpretation — flagged, not established:** the record does not locate the peak, and no
+element's design depends on it.
+
+**`PR3D-F1` — the sentry-post captures come from a different STAAD model `[UNRESOLVED]`.** They
+show a frame with a **plinth-beam level** (columns continued to supports below it), titled
+*Building_1* / *SENTRY POST*. `current/staad/Sentry_Post_Framed_Seismic.std` — the model of Table
+6.4 and master B.8 — has **12 joints with the bases at +0.450**. The deck's *"Load 4"* reactions
+(**Y ±32.147 kN, Z 11.901 kN per base ≈ 47.6 kN total, MX 15.063 kN·m**) match **no load case of
+the repository file**, whose LOAD 4 is **EQ−X, 73.18 kN in X**, with seismic axials ±36.127 /
+±27.891 kN. **Owner's ruling `[C]`: include the pictures without numbers.** The *"Design
+results"* reactions capture is therefore **not** in the report, and Tables 6.4 / 6.5 and every
+sentry value are unchanged. **Which model the owner treats as governing is not resolved, and a
+careful reader will see the plinth level in Fig 6.5 against the 12 joints of Table 6.4.** The item
+is recorded here only: **it is not yet a row of K.1b**, whose count carries its own verification
+index and should be revised deliberately rather than in passing.
+
+**Also noted, not changed.** The deck labels LC 6 *"87.8 → 26.9 kPa"*. Table 6.2 says *"33.9 to
+83.2 kPa"*, and the `.std` applies 32.00 to 82.71 kPa by mesh row. The report's figure labels
+carry no load values.
+
+**Verified.** Every crop viewed on a contact sheet (four re-cut to remove a cell border and the
+phone's header); Chapter 6 rendered and inspected, with Figs 6.1–6.6 and Tables 6.1–6.6 in order
+and every in-text reference matching; the load cases in the captures compared with the reference
+`.std` (LOAD 3, 6, 10); the sentry `.std` read for its LOAD 4 and joint count. **Main staircase
+unchanged** — it is not in either model.
 
 ---
 

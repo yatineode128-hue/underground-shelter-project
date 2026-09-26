@@ -624,6 +624,44 @@ PHOTOS = {
     "site_as_found": ("P1_site_as_found.jpg", (6, 0, 1174, 762)),
     "contour_map":   ("P1_contour_map.jpg",   (56, 28, 1174, 714)),
     "watershed":     ("P1_watershed.jpg",     (56, 70, 1174, 759)),
+    # STAAD.Pro capture, already cropped (Images/STAAD, see master H.44.12)
+    "staad_stress":  ("STAAD/box_stress.png", None),
+}
+
+# Panels of STAAD.Pro captures (Images/STAAD/<file>.png), cut from the
+# owner's screenshots of the analysis deck: (columns, [(file, label)]).
+GRIDS = {
+    "staad_box_a": (3, [
+        ("box_plate_model", "(a) Plate model"),
+        ("box_lc1", "(b) Load case 1, self weight"),
+        ("box_lc2", "(c) Load case 2, earth cover on the roof"),
+        ("box_lc3", "(d) Load case 3, superimposed dead load"),
+        ("box_lc4", "(e) Load case 4, live load on the floor"),
+        ("box_lc5", "(f) Load case 5, staircase load on the shaft walls")]),
+    "staad_box_b": (3, [
+        ("box_lc6", "(a) Load case 6, earth and water pressure on the "
+                    "external walls"),
+        ("box_lc7", "(b) Load case 7, hydrostatic uplift on the mat"),
+        ("box_lc10", "(c) Load case 10, construction surcharge"),
+        ("box_lc8", "(d) Load case 8, blast on the roof"),
+        ("box_lc9", "(e) Load case 9, blast on the external walls")]),
+    "staad_mesh": (3, [
+        ("mesh_coarse", "(a) Coarse mesh, 336 plates"),
+        ("mesh_medium", "(b) Medium mesh, 1 138 plates"),
+        ("mesh_fine", "(c) Fine mesh, 4 552 plates"),
+        ("mesh_coarse_stress", "(d) Coarse mesh, plate stress"),
+        ("mesh_medium_stress", "(e) Medium mesh, plate stress"),
+        ("mesh_fine_stress", "(f) Fine mesh, plate stress")]),
+    "staad_sentry_frame": (2, [
+        ("sentry_frame", "(a) Frame model"),
+        ("sentry_bmd_sfd", "(b) Bending moment and shear force diagrams")]),
+    "staad_sentry_loads": (3, [
+        ("sentry_eq_px", "(a) Seismic load, +X"),
+        ("sentry_eq_nx", "(b) Seismic load, -X"),
+        ("sentry_eq_pz", "(c) Seismic load, +Z"),
+        ("sentry_eq_nz", "(d) Seismic load, -Z"),
+        ("sentry_dl", "(e) Dead load"),
+        ("sentry_ll", "(f) Live load")]),
 }
 
 # printed height limit in mm (default 86); the services map carries small
@@ -636,7 +674,9 @@ def photo(name):
     from io import BytesIO
     from PIL import Image
     fn, box = PHOTOS[name]
-    im = Image.open(os.path.join(IMG_DIR, fn)).convert("RGB").crop(box)
+    im = Image.open(os.path.join(IMG_DIR, fn)).convert("RGB")
+    if box:
+        im = im.crop(box)
     buf = BytesIO()
     im.save(buf, "JPEG", quality=92)
     buf.seek(0)

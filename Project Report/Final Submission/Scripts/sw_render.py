@@ -35,6 +35,7 @@ until a blank line or the next directive):
     #end
     #fig name | Caption                    drawn figure from sw_figures.py
     #photo name | Caption                  photograph / map (sw_figures.PHOTOS)
+    #grid name | Caption                   captures in panels (sw_figures.GRIDS)
     #drawings                              drawing index, read from the QA index
     #toc  #lof  #lot                       lists
     #pagebreak
@@ -1025,6 +1026,15 @@ def story(blocks, entries, cover_fn):
             ind = TAB[max(last_level, 1)][1]
             st.append(calc_block(b["rows"], ind))
             continue
+        if k == "grid":
+            name, cap = [x.strip() for x in b["arg"].split("|", 1)]
+            fcount += 1
+            num = "%s.%d" % (chap, fcount) if chap else str(fcount)
+            capt = "Fig %s : %s" % (num, cap)
+            st.append(KeepTogether([Entry("lof", 2, capt), Spacer(1, 3)] +
+                                   grid_figure(SF, name) +
+                                   [Paragraph(inline(capt), S["fcap"])]))
+            continue
         if k in ("fig", "photo"):
             name, cap = [x.strip() for x in b["arg"].split("|", 1)]
             fcount += 1
@@ -1058,6 +1068,43 @@ def fix_case(s):
 
 def inline_plain(s):
     return re.sub(r"\*\*|\*", "", s)
+
+
+def grid_figure(SF, name):
+    """Panels of captures in columns, each with its own label.  Images in a
+    row are centred in the height of the tallest, so the labels line up; a
+    short last row is centred."""
+    from reportlab.platypus import Image
+    from PIL import Image as PImage
+    cols, items = SF.GRIDS[name]
+    cw = TXT_W / float(cols)
+    iw = cw - 4 * mm
+    lab = ParagraphStyle("gl", parent=S["body"], fontSize=9, leading=11,
+                         alignment=TA_CENTER, spaceAfter=0)
+    panels = []
+    for fn, label in items:
+        path = os.path.join(SF.IMG_DIR, "STAAD", fn + ".png")
+        w, h = PImage.open(path).size
+        panels.append((path, iw * h / float(w), label))
+    out = []
+    for r0 in range(0, len(panels), cols):
+        row = panels[r0:r0 + cols]
+        hmax = max(p[1] for p in row)
+        cells = []
+        for path, ih, label in row:
+            pad = (hmax - ih) / 2.0
+            cells.append([Spacer(1, pad), Image(path, width=iw, height=ih),
+                          Spacer(1, pad + 1.5 * mm),
+                          Paragraph(inline(label), lab)])
+        t = Table([cells], colWidths=[cw] * len(cells), hAlign="CENTER")
+        t.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP"),
+                               ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+                               ("LEFTPADDING", (0, 0), (-1, -1), 2 * mm),
+                               ("RIGHTPADDING", (0, 0), (-1, -1), 2 * mm),
+                               ("TOPPADDING", (0, 0), (-1, -1), 1 * mm),
+                               ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm)]))
+        out.append(t)
+    return out
 
 
 def crest_image(height_mm):

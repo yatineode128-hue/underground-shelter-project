@@ -58,6 +58,9 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   title blocks still read CHAUDHARI and were not regenerated.**
   Amended **PR3C** (H.44.11): front pages as a CME sample (no border), Appendix C says the
   drawings are a separate A3 spiral book, and two hard covers from `Scripts/sw_covers.py`.
+  Amended **PR3D** (H.44.12): STAAD.Pro captures in Chapter 6 (`Images/STAAD/`). **Read
+  `PR3D-F1` before touching the sentry post** — the owner's STAAD captures are of a different
+  model from `Sentry_Post_Framed_Seismic.std`; and the MS1 peak does **not** converge.
   Before it: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
   presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
   plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,

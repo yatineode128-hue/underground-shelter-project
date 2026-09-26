@@ -43,6 +43,29 @@ No | Title | Value
 11 | BL3 Blast in the stair shaft on W6 and W7 | 383 kPa
 #end
 
+P1 Model and Load Cases | The model and the load cases 1 to 10, as applied in STAAD.Pro, are shown in Fig 6.1 and Fig 6.2, and the plate stress contours obtained from the model in Fig 6.3.
+
+#grid staad_box_a | Underground Structure Model and Load Cases 1 to 5 (STAAD.Pro)
+
+#grid staad_box_b | Load Cases 6 to 10, Underground Structure Model (STAAD.Pro)
+
+#photo staad_stress | Plate Stress Contours, Underground Structure Model (STAAD.Pro)
+
+P1 Mesh Sensitivity | The model has been analysed with three mesh densities under the same load case, earth and water pressure on the external walls, with the geometry, supports and loads unchanged. The meshes and the peak plate stresses are given in Table 6.3 and Fig 6.4.
+
+#table Mesh Sensitivity Study, Underground Structure Model
+#widths 22,16,12,26,24
+#align L,R,R,C,R
+Mesh | Plate Elements | Joints | Element Size, X x Z (m) | Peak Plate Stress (kN/m²)
+Coarse | 336 | 324 | 1.259 x 1.120 | 3 240
+Medium (adopted) | 1 138 | 1 113 | 0.713 x 0.622 | 3 839
+Fine | 4 552 | 4 500 | 0.357 x 0.311 | 4 482
+#end
+
+T The pattern of stress is the same in all three meshes. The peak value rises as the mesh is refined, which is the behaviour of a local peak, while the general stress field does not change. The elements have been designed from the plastic mechanism moments set out below and not from the peak plate stresses, and the medium mesh has been adopted for the model.
+
+#grid staad_mesh | Mesh Sensitivity Study, Coarse, Medium and Fine Meshes (STAAD.Pro)
+
 P1 Flotation | The springs of an elastic foundation model act in tension as well as compression, so the model cannot show whether the box floats. Flotation has therefore been checked by hand on the actual weights and the actual plan area (Chapter 7).
 
 #head Plastic Mechanism Method
@@ -61,7 +84,7 @@ P1 Shear | Shear has been checked to IS 456 Cl. 40, with τ<sub>c</sub> from Tab
 
 #head Sentry Post Model
 
-P1 Model Description | The sentry post has been analysed as a space frame in STAAD.Pro. Its particulars are given in Table 6.3.
+P1 Model Description | The sentry post has been analysed as a space frame in STAAD.Pro. Its particulars are given in Table 6.4.
 
 #table Sentry Post Model
 #widths 30,70
@@ -75,7 +98,7 @@ Slab | Load applied to the beams as triangular and trapezoidal loads
 Analysis | Linear static with statics check
 #end
 
-P1 Statics Check | The model reactions balance the applied loads exactly in every case, as given in Table 6.4.
+P1 Statics Check | The model reactions balance the applied loads exactly in every case, as given in Table 6.5.
 
 #table Statics Check, Sentry Post Model
 #widths 20,16,16,16,16,16
@@ -86,6 +109,12 @@ Load Case | ΣF<sub>x</sub> (kN) | ΣF<sub>y</sub> (kN) | ΣF<sub>z</sub> (kN) |
 3 EQ +X | 73.180 | 0.000 | 0.000 | 0.000 | 182.950
 5 EQ +Z | 0.000 | 0.000 | 73.180 | 436.631 | -146.360
 #end
+
+P1 Model Views | The frame model, its load cases and the bending moment and shear force diagrams are shown in Fig 6.5 and Fig 6.6.
+
+#grid staad_sentry_frame | Sentry Post Frame Model (STAAD.Pro)
+
+#grid staad_sentry_loads | Load Cases, Sentry Post Frame Model (STAAD.Pro)
 
 P1 Results Used in Design | The following results of the model have been used directly in design:-
 
@@ -108,7 +137,7 @@ Beam moment at the roof joint ;; 22.69 kNm
 
 T This distribution places slightly more shear in the ground storey than the model's own distribution (roof 55.57 kN, floor 17.61 kN), and gives the larger ground-storey column moment.
 
-P1 Gravity Moments in the Frame | The beam-column joints rotate under gravity load, and the support moments of the beams have been obtained by slope deflection, as given in Table 6.5.
+P1 Gravity Moments in the Frame | The beam-column joints rotate under gravity load, and the support moments of the beams have been obtained by slope deflection, as given in Table 6.6.
 
 #calc
 I<sub>beam</sub> = 250 x 450³ / 12 ;; 1.8984 x 10<sup>9</sup> mm<sup>4</sup>
