@@ -7,17 +7,17 @@ layout.
 Reads   Project Report/Final Submission/Source/report_text.txt
 Writes  Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf
 
-Page layout follows the service-writing pattern supplied by the owner: a red
-double-rule frame with rounded corners, the running head outside the frame on
-the outer side, the page number in a circle on the bottom rule and a red tab
-at the outer bottom corner.  Paragraph numbering is decimal and restarts in
-every chapter: 1. / 1.1 / 1.1.1.
+Page layout follows the service-writing pattern supplied by the owner.  The
+red double-rule frame with rounded corners and the red tab are drawn on the
+first page only; every other page carries its page number alone, centred at
+the foot.  Paragraph numbering is decimal and restarts in every chapter:
+1. / 1.1 / 1.1.1.
 
 Source markup (one directive per line; a paragraph continues on following lines
 until a blank line or the next directive):
 
     #front  TITLE                         unnumbered front-matter page
-    #plainfront TITLE                     the same, without the frame
+    #plainfront TITLE                     the same (kept for the sample pages)
     #chapter TITLE | (SUBTITLE)            new chapter, numbering restarts
     #appendix A | TITLE | (SUBTITLE)       new appendix, numbering restarts
     #head   Text                           unnumbered side heading
@@ -218,7 +218,8 @@ class Doc(BaseDocTemplate):
         draw_frame(c, True, None)
 
     def _front(self, c, d):
-        draw_frame(c, self.page % 2 == 1, self.page_label())
+        # owner's instruction (PR3E): the frame is kept on the first page only
+        self._plain(c, d)
 
     def _plain(self, c, d):
         """No frame: the page number alone, centred at the foot."""
@@ -229,7 +230,7 @@ class Doc(BaseDocTemplate):
         c.restoreState()
 
     def _main(self, c, d):
-        draw_frame(c, self.page % 2 == 1, self.page_label())
+        self._plain(c, d)
 
     def afterFlowable(self, f):
         tag = getattr(f, "_entry", None)

@@ -61,6 +61,7 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   Amended **PR3D** (H.44.12): STAAD.Pro captures in Chapter 6 (`Images/STAAD/`). **Read
   `PR3D-F1` before touching the sentry post** — the owner's STAAD captures are of a different
   model from `Sentry_Post_Framed_Seismic.std`; and the MS1 peak does **not** converge.
+  Amended **PR3E** (H.44.13): the red frame is drawn on the first page only.
   Before it: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
   presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
   plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,
