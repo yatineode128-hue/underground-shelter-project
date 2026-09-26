@@ -1,0 +1,255 @@
+#chapter DESIGN OF THE UNDERGROUND STRUCTURE | (PERIMETER WALLS, PROTECTIVE WALLS, MAT FOUNDATION AND PRESSURE SLAB)
+
+#head General
+
+P1 Notation | In the reinforcement descriptions, T16 @ 150 EF EW denotes 16 mm Fe500D deformed bars at 150 mm centres, each face, each way, and 4L denotes four-legged links. Design values for the blast case use f<sub>ck,dyn</sub> = 43.75 N/mm² and f<sub>y,dyn</sub> = 625 N/mm² in flexure, and the static τ<sub>c</sub> of M35 in shear.
+
+#head Perimeter Walls W1 to W4 (600 mm)
+
+P1 Design | The perimeter walls span vertically between the mat and the pressure slab over a clear height of 3.2 m and are designed for the blast pressure of 383 kPa, which exceeds the static earth and water pressure at the base (83.2 kPa) by 4.6 times.
+
+#calc
+d = 600 - 75 - 8 ;; 517 mm
+M<sub>p</sub> = w L<sub>n</sub>² / 16 = 383 x 3.200² / 16 ;; 245.1 kNm/m
+M<sub>u,lim</sub> = 0.133 x 43.75 x 1000 x 517² ;; 1 556 kNm/m
+A<sub>st</sub> required (f<sub>y,dyn</sub> 625, f<sub>ck,dyn</sub> 43.75) ;; 894 mm²/m
+Minimum steel: vertical 0.0012 x 600 = 720; horizontal 0.0020 x 600 = 1 200 mm²/m (IS 456 Cl. 32.5)
+Surface zone steel, IS 3370 (Part 2): 0.35 % x 250 ;; 875 mm²/m per face
+!Provided T16 @ 150 EF EW = 1 340 mm²/m per face; M<sub>u</sub> = 362.8 kNm/m ;; Utilisation 68 %
+x<sub>u</sub> = 46.3 mm, x<sub>u</sub>/d = 0.089 < 0.46 ;; Ductile
+!Shear
+V at d from the support = 383 (1.600 - 0.517) ;; 414.8 kN/m
+τ<sub>v</sub> = 414.8 x 10³ / (1000 x 517) ;; 0.802 N/mm²
+τ<sub>c</sub> (p<sub>t</sub> = 0.259 %, M35) ;; 0.375 N/mm²
+V<sub>us</sub> = (0.802 - 0.375) x 517 = 220.8 kN/m; A<sub>sv</sub>/s<sub>v</sub> ;; 0.982 mm²/mm
+!Provided T12 closed links @ 200 (A<sub>sv</sub>/s<sub>v</sub> = 1.131) ;; OK
+!Axial load and cracking
+N = 448.15 x 2.50 + 3.2 x 0.6 x 25 = 1 168 kN/m; f = 1.95 N/mm² = 11 % of 0.4 f<sub>ck,dyn</sub> ;; Not critical
+Crack width limit 0.2 mm (IS 3370); surface steel 875 < 1 340 mm²/m ;; OK
+#end
+
+P1 Thickness | The wall is 68 per cent utilised in flexure. The 600 mm thickness is also required for the 75 mm cover against rock, for two curtains of steel with closed links, waterstops and cast-in frames within one section, for crack control under a permanent head of water, for the EMP double curtain at 150 mm, and for the axial load of 1 168 kN/m from the roof.
+
+#fig fig_wall_section | Perimeter Wall W1 to W4, Section and Reinforcement
+
+#head Protective Walls W6 and W7 (400 mm)
+
+P1 Loading | The stair shaft is open to the atmosphere through the 2 800 x 3 160 mm roof void, the headhouse and the entry stairwell. The time taken for the shaft to fill with blast pressure is compared below with the duration of the blast pulse.
+
+#calc
+Fill time = V / (A c) = 105 / (3.3 x 340) ;; 0.094 s
+Positive phase duration, t<sub>d</sub> ;; 0.13 to 1.33 s
+#end
+
+T The shaft fills to the full overpressure in less than the shortest positive phase duration. Walls W6 and W7 therefore separate a pressurised shaft from bays 6 and 8 at ambient pressure, and are designed for 383 kPa acting from the shaft (load case BL3).
+
+P1 Thickness | A 200 mm wall is not adequate for this load, since its limiting moment is below the demand whatever steel is provided:-
+
+#calc
+200 mm wall: d = 200 - 40 - 6 = 154 mm; M<sub>u,lim</sub> = 0.133 x 43.75 x 1000 x 154² ;; 138.0 kNm/m
+Demand M<sub>p</sub> = 383 x 3.200² / 16 ;; 245.1 kNm/m
+Two-way action, panel 3 200 x 3 800 fixed on three edges (yield line) ;; about 172 kNm/m
+#end
+
+T The walls have therefore been made **400 mm** thick.
+
+P1 Design | The design of the 400 mm wall is as under.
+
+#calc
+d = 400 - 50 - 8 ;; 342 mm
+M<sub>p</sub> = 383 x 3.200² / 16 ;; 245.1 kNm/m
+M<sub>u,lim</sub> = 0.133 x 43.75 x 1000 x 342² ;; 680.6 kNm/m
+A<sub>st</sub> required ;; 1 400 mm²/m
+!Provided T20 @ 150 EF EW = 2 094 mm²/m; M<sub>u</sub> = 355.3 kNm/m ;; Utilisation 69 %
+x<sub>u</sub>/d = 0.211 < 0.46 ;; Ductile
+V at d = 383 (1.600 - 0.342) = 481.8 kN/m; τ<sub>v</sub> = 1.409 N/mm²
+τ<sub>c</sub> (p<sub>t</sub> = 0.612 %) = 0.540; τ<sub>c,max</sub> = 3.70 N/mm² ;; OK
+V<sub>us</sub> = 297.2 kN/m; A<sub>sv</sub>/s<sub>v</sub> = 1.998, spacing limit min (0.75d = 257, 300) ;; 257 mm
+!Provided T12 4-legged links @ 200 ;; OK
+#end
+
+P1 Blast Door Openings | Each wall carries a blast door opening of 1 200 x 2 100 mm at Y 600 - 1800.
+
+#calc
+Interrupted steel = 2 094 x 1.2 = 2 513 mm² per face, i.e. 1 256 mm² per jamb per face
+!Provided 4 No. T20 each jamb each face (1 257 mm²), anchored L<sub>d</sub> = 800 beyond ;; OK
+Header 400 x 1 100 over 1 200 clear: w = 383 x 2.1 / 2 ;; 402 kN/m
+M = w L² / 12 = 48.2 kNm; V = 241 kN; τ = 0.578 N/mm² ;; OK
+!Provided 4-T20 top + 4-T20 bottom, T12 4-legged links @ 150 ;; OK
+#end
+
+P1 Door Frames | Each blast door frame is a cast-in steel frame anchored into and welded to the reinforcement cage, which provides both the blast fixing and the EMP continuity across the opening. The frames are welded into the W6 and W7 cages before the walls are cast.
+
+#fig fig_w6_and_door | Walls W6 and W7 with the Blast Door Opening
+
+#head Mat Foundation (600 mm)
+
+P1 Bearing | The bearing pressure is 58.4 kPa in service and 404.9 kPa under blast, i.e. 1.8 and 12.5 per cent of the safe bearing capacity of 3 240 kPa, and 20.6 per cent of the lowest soaked rock value. Bearing does not govern.
+
+P1 Flexure | Two cases have been considered:-
+
+P2 Case 1, Net Uplift | Under combination 102 the net upward load over the 5.0 m span is 46.11 - 15.00 = 31.1 kPa, giving M<sub>p</sub> = 31.1 x 5.0² / 16 = 48.6 kNm/m, which is nominal.
+
+P2 Case 2, Soft Band | A 3.0 m wide band of red-bole or vesicular rock is assumed to be lost at the worst position under the blast bearing pressure. This case governs.
+
+#calc
+q = 404.9 kPa over a 3.0 m unsupported width; M = q L² / 12 = 404.9 x 9 / 12 ;; 303.7 kNm/m
+d = 600 - 75 - 8 ;; 517 mm
+A<sub>st</sub> required ;; 1 115 mm²/m
+!Provided T16 @ 150 EF EW = 1 340 mm²/m; M<sub>u</sub> = 362.8 kNm/m ;; Utilisation 84 %
+#end
+
+P1 Thickness | The thickness has been chosen from the study in Table 7.1. A 500 mm mat would require more steel than the 150 mm spacing provides, and 600 mm is adopted.
+
+#table Mat Thickness Study (Case 2)
+#widths 25,25,25,25
+#align C,C,C,L
+Thickness (mm) | A<sub>st</sub> required (mm²/m) | % of T16 @ 150 | Remarks
+500 | 1 407 | 105 | Inadequate
+600 | 1 115 | 84 | **Adopted**
+700 | 926 | 70 | Uneconomical
+800 | - | about 57 | Uneconomical
+#end
+
+P1 Shear | One-way shear is checked at d from the edge of the soft band.
+
+#calc
+V = 404.9 (1.500 - 0.517) ;; 398.0 kN/m
+τ<sub>v</sub> = 0.770 N/mm²; τ<sub>c</sub> = 0.375 N/mm² (static M35, p<sub>t</sub> 0.259 %) ;; Links required
+V<sub>us</sub> = 204.2 kN/m; A<sub>sv</sub>/s<sub>v</sub> required ;; 0.908 mm²/mm
+!Provided T12 closed links on a 250 x 250 grid, A<sub>sv</sub>/s<sub>v</sub> = 4 x 113.1 / 250 = 1.810 ;; 2.0 x required
+#end
+
+T The link grid also acts as the spacer system between the two curtains of the mat.
+
+#fig fig_mat_section | Mat Foundation, Governing Soft-Band Case
+
+P1 Other Checks | The remaining checks on the mat are as under:-
+
+P2 Punching | No column or pedestal bears on the mat; the headhouse walls bear on the roof. Punching shear (IS 456 Cl. 31.6) does not arise.
+
+P2 Sliding and Overturning | The box is socketed about 4.8 m into basalt and the annulus is backfilled with M15 lean concrete, and the lateral loads on opposite faces are symmetrical. Neither sliding nor overturning is a possible mode of failure.
+
+P2 Settlement | The foundation is compensated (net pressure change at formation -105 kPa) and rests on sound basalt. Settlement is negligible.
+
+P1 Flotation | The box is lightest during construction, before the roof and the cover are in place. The factor of safety against flotation at each stage, at the design groundwater table, is given in Table 7.2 and Fig 7.4. The factors are independent of the box length, since weight and uplift both vary in proportion to it.
+
+#table Factor of Safety against Flotation
+#widths 50,25,25
+#align L,C,L
+Construction Stage | FoS at GWT (-)2.000 | Measure
+1. Mat cast | 0.33 | Dewatering, relief plugs
+2. Mat and walls, no roof | 0.78 | Dewatering, relief plugs
+3. Box complete, not backfilled | 1.22 | Dewatering until backfilled
+4. Backfilled and covered (in service) | 2.02 | -
+#end
+
+#calc
+In service, ULS combination 102: 0.9 x 12 684 / (1.5 x 6 289) ;; 1.21 > 1.2, OK
+#end
+
+T The following measures are specified for construction:-
+
+P2 Dewatering | Continuous dewatering from the start of excavation until the backfill and the cover are complete.
+
+P2 Relief Plugs | Six temporary pressure-relief (knock-out) plugs in the mat, grouted only after backfilling.
+
+P2 Programme | The substructure is programmed to be completed and backfilled in the dry season, before the monsoon.
+
+P2 Backfilling | Backfill placed symmetrically on all sides in layers.
+
+#fig fig_flotation | Flotation Check at each Construction Stage
+
+#head Pressure Slab (900 mm)
+
+P1 One-Way Action | The roof panel is 20.8 m long and 5.0 m wide, an aspect ratio of 4.2. IS 456 Table 26 is tabulated only up to 2.0, so two-way action is not claimed and the slab is designed to span one way across the 5.0 m width. The moment therefore depends only on the width; lengthening the box adds no roof moment, whereas widening it from 5.0 to 6.0 m would increase the moment by 44 per cent.
+
+P1 Flexure | The slab is designed for the total load of 448.15 kPa (combination 103).
+
+#calc
+d = 900 - 75 - 12.5 ;; 812.5 mm
+M<sub>p</sub> = w L<sub>n</sub>² / 16 = 448.15 x 5.0² / 16 ;; 700.2 kNm/m
+M<sub>u,lim</sub> = 0.133 x 43.75 x 1000 x 812.5² ;; 3 841 kNm/m
+A<sub>st</sub> required ;; 1 632 mm²/m
+Minimum steel 0.12 % x 900 = 1 080 mm²/m; maximum bar diameter D/8 = 112 mm ;; OK
+!Provided T25 @ 150 EF EW = 3 272 mm²/m; M<sub>u</sub> = 1 362.4 kNm/m ;; Utilisation 51 %
+x<sub>u</sub> = 113.0 mm, x<sub>u</sub>/d = 0.139 < 0.46 ;; Ductile
+#end
+
+P1 Shear | The shear at the support and the direct shear are checked as under.
+
+#calc
+V at the support face = 448.15 x 2.50 ;; 1 120 kN/m
+V at d from the face = 448.15 (2.50 - 0.8125) ;; 756.3 kN/m
+τ<sub>v</sub> = 0.931 N/mm²; τ<sub>c</sub> = 0.450 N/mm² (p<sub>t</sub> 0.403 %); τ<sub>c,max</sub> = 3.70 N/mm² ;; Links required
+V<sub>us</sub> = 390.8 kN/m; A<sub>sv</sub>/s<sub>v</sub> = 1.106 mm²/mm; spacing limit 300 mm governs
+!Provided T12 4-legged @ 250 in the end 1 500 mm each side; T12 2-legged @ 300 elsewhere ;; OK
+!Direct shear (UFC 3-340-02 Sec. 4-30)
+V<sub>d,max</sub> = 0.16 f<sub>ck,dyn</sub> b d ;; 5 688 kN/m
+Applied 1 120 kN/m ;; 19.7 %, OK
+#end
+
+T Direct shear is a blast-specific mode in which a very short, high shear pulse shears a slab at its support before the flexural response develops. It has been checked to UFC 3-340-02, since IS 456 does not cover it.
+
+P1 Choice of Thickness | The thickness study for the pressure slab is given in Table 7.3. An 800 mm slab is the lightest adequate section; 900 mm has been adopted to provide reserve at the two 1 400 mm escape shaft collars where the slab is interrupted, to keep the support rotation small without lacing reinforcement, and to provide reserve against a higher threat level.
+
+#table Pressure Slab Thickness Study
+#widths 14,14,14,18,14,26
+#align C,C,C,C,C,L
+t (mm) | d (mm) | M<sub>p</sub> (kNm/m) | A<sub>st</sub> req (mm²/m) | τ<sub>v</sub> (N/mm²) | Remarks
+600 | 512.5 | 689 | 2 673 | 1.71 | Links at 164, congested
+800 | 712.5 | 696 | 1 868 | 1.12 | Lightest adequate
+900 | 812.5 | 700 | 1 633 | 0.93 | **Adopted**
+1000 | 912.5 | 704 | 1 453 | 0.78 | Heavier than needed
+#end
+
+#fig fig_roof_section | Pressure Slab, Section and Reinforcement
+
+#head Openings in the Pressure Slab
+
+P1 Escape Shaft Openings | Each 1 400 mm diameter opening interrupts the slab steel in both directions and is trimmed as under.
+
+#calc
+Interrupted steel = 3 272 x 1.400 ;; 4 581 mm² per face per direction
+Trimmers required each side = 4 581 / 2 ;; 2 291 mm²
+!Provided 5 No. T25 each side, each face, each direction (2 454 mm²), anchored L<sub>d</sub> = 1 000 beyond ;; OK
+Collar 250 RC with T16 @ 150 hoops in three layers and T16 @ 150 radials; slab thickened from 900 to 1 200 over a 600 mm annulus
+#end
+
+T The circular shape gives hoop action and no re-entrant corner. The trimmer band is the basis of the 750 mm clearance between the opening and the nearest wall (Chapter 3).
+
+P1 Stair Void and Cantilever Pad | The 2 800 x 3 160 mm stair void leaves a cantilever of the 900 mm slab, 1 840 mm long and 2 800 mm wide, at the north end of bay 7.
+
+#calc
+M at the root = 448.15 x 1.840² / 2 ;; 758.6 kNm/m
+A<sub>st</sub> required, top = 1 772 mm²/m < 3 272 provided ;; Utilisation 56 %
+V at the root = 448.15 x 1.840 ;; 824.6 kN/m
+τ<sub>v</sub> = 1.015 > τ<sub>c</sub> 0.450; V<sub>us</sub> = 459.4 kN/m; A<sub>sv</sub>/s<sub>v</sub> = 1.300 mm²/mm
+!Provided T12 4-legged links @ 250 throughout the pad ;; OK
+#end
+
+T In addition, the free edge is thickened from 900 to 1 200 mm over 600 mm with 6-T25 top and bottom and T12 closed links @ 150; a band of 6-T25 each face, top and bottom, is placed over W6 and W7; 4-T25 diagonal trimmers each face at 45° are placed at both re-entrant corners, 2 000 mm long each way; and the free edge carries a 1 100 mm high guard rail (NBC 2016 Part 4).
+
+#fig fig_roof_openings | Roof Plan, Openings and Trimmers
+
+#head Sump Pit and Internal Walls
+
+P1 Clean Sump SU-01 | The sump pit in bay 5 is 1 500 x 1 500 x 1 500 mm internally (3.375 m³), with its invert at (-)7.600 and base slab at (-)8.000. The walls are 300 mm and the base 400 mm thick, reinforced with T16 @ 150 each face each way, and the pit is cast monolithic with the mat in the same continuous pour. The opening in the mat is trimmed with 4-T20 each face each side, anchored L<sub>d</sub> 800 beyond, and the tanking membrane is dressed around the pit.
+
+P1 Wall W5 and Partitions W8 | Wall W5 (200 mm) is a fire and gas-tight wall with no pressure difference across it, and carries T12 @ 150 each face each way. The four W8 partitions are 110 mm non-structural walls reinforced with A252 mesh on both faces.
+
+#head Summary of Design
+
+P1 Principal Elements | The design of the principal elements of the underground structure and the headhouse is summarised in Table 7.4.
+
+#table Summary of Design, Underground Structure and Headhouse
+#widths 22,12,30,26,10
+#align L,C,L,L,C
+Element | Thickness | Main Reinforcement | Links | Util.
+Pressure slab | 900 | T25 @ 150 EF EW | T12 4L @ 250 end 1 500; 2L @ 300 mid | 51 %
+Perimeter walls W1 - W4 | 600 | T16 @ 150 EF EW | T12 closed @ 200 | 68 %
+Walls W6, W7 | 400 | T20 @ 150 EF EW | T12 4L @ 200 | 69 %
+Mat foundation | 600 | T16 @ 150 EF EW | T12 on 250 x 250 grid | 84 %
+Headhouse roof | 500 | T20 @ 150 EF EW | T12 4L @ 175 / 250 | 90 %
+Headhouse walls HW1 - HW4 | 400 | T16 @ 150 EF EW | T12 4L @ 250 | 59 %
+#end

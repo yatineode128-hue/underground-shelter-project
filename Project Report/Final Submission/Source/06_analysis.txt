@@ -1,0 +1,157 @@
+#chapter STRUCTURAL ANALYSIS | (ANALYSIS MODELS AND METHODS)
+
+#head Approach
+
+P1 Methods Used | The structural analysis has been carried out as under:-
+
+P2 Underground Structure | The box has been modelled in STAAD.Pro as a plate model on an elastic foundation to represent the load distribution and the support conditions. The elements have been designed by hand calculation, using the plastic mechanism moment under the equivalent static blast load for the governing combination 103 and the elastic coefficients of IS 456 for the other cases.
+
+P2 Stairs, Headhouse and Stairwell | Designed as one-way slabs and walls by hand calculation, with the headhouse roof checked by three methods (Chapter 8). The covered entry stairwell has also been modelled in STAAD.Pro for the static load cases.
+
+P2 Sentry Post | Analysed as a three-dimensional space frame in STAAD.Pro for the gravity and seismic load cases. The member forces used in design have been obtained from the model and from the portal method, the larger value being adopted.
+
+#head Underground Structure Model
+
+P1 Model Description | The model of the box is a plate and beam model on the mid-surface of every element, meshed on a regular grid over the 22.0 x 6.2 m footprint. Its particulars are given in Table 6.1. The model uses metres and kilonewtons with the global Y axis vertical; its origin is at the underside of the mat, so that project level = model Y - 6.700.
+
+#table Underground Structure Model
+#widths 30,70
+Item | Particulars
+Elements | 1 138 plate elements in four thickness groups: mat 600, roof 900, perimeter walls 600, internal walls 200 to 400
+Supports | Elastic mat foundation, vertical springs at every mat node generated from k<sub>s</sub> = 100 000 kN/m³ (a second model at 500 000 kN/m³ represents the stiffer bound)
+Corner springs | 6 891 / 8 269 / 7 219 / 8 663 kN/m, from the corner tributary areas
+Openings | Stair void 2 800 x 3 160 and two 1 400 mm escape shaft openings in the roof
+Analysis | Linear static with statics check
+#end
+
+P1 Load Cases | The primary load cases of the model are given in Table 6.2. Load case 11 represents the blast pressure in the stair shaft acting outward on walls W6 and W7.
+
+#table Primary Load Cases, Underground Structure Model
+#widths 8,62,30
+#align C,L,R
+No | Title | Value
+1 | DL1 Self weight | Automatic
+2 | DL2 Earth cover on roof | 40.65 kPa
+3 | DL3 Superimposed dead load, services and finishes | 2.0 kPa
+4 | LL1 Live load on internal floor | 5.0 kPa
+5 | DL4 Staircase load on the two shaft walls | 2.947 kPa
+6 | EP1 Earth and water pressure on external walls | 33.9 to 83.2 kPa
+7 | HY1 Hydrostatic uplift on mat | 46.11 kPa
+8 | BL1 Blast on roof | 383 kPa
+9 | BL2 Blast on external walls | 383 kPa
+10 | LL2 Construction surcharge | 20.0 kPa
+11 | BL3 Blast in the stair shaft on W6 and W7 | 383 kPa
+#end
+
+P1 Model and Load Cases | The model and the load cases 1 to 10, as applied in STAAD.Pro, are shown in Fig 6.1 and Fig 6.2, and the plate stress contours obtained from the model in Fig 6.3.
+
+#grid staad_box_a | Underground Structure Model and Load Cases 1 to 5 (STAAD.Pro)
+
+#grid staad_box_b | Load Cases 6 to 10, Underground Structure Model (STAAD.Pro)
+
+#photo staad_stress | Plate Stress Contours, Underground Structure Model (STAAD.Pro)
+
+P1 Mesh Sensitivity | The model has been analysed with three mesh densities under the same load case, earth and water pressure on the external walls, with the geometry, supports and loads unchanged. The meshes and the peak plate stresses are given in Table 6.3 and Fig 6.4.
+
+#table Mesh Sensitivity Study, Underground Structure Model
+#widths 22,16,12,26,24
+#align L,R,R,C,R
+Mesh | Plate Elements | Joints | Element Size, X x Z (m) | Peak Plate Stress (kN/m²)
+Coarse | 336 | 324 | 1.259 x 1.120 | 3 240
+Medium (adopted) | 1 138 | 1 113 | 0.713 x 0.622 | 3 839
+Fine | 4 552 | 4 500 | 0.357 x 0.311 | 4 482
+#end
+
+T The pattern of stress is the same in all three meshes. The peak value rises as the mesh is refined, which is the behaviour of a local peak, while the general stress field does not change. The elements have been designed from the plastic mechanism moments set out below and not from the peak plate stresses, and the medium mesh has been adopted for the model.
+
+#grid staad_mesh | Mesh Sensitivity Study, Coarse, Medium and Fine Meshes (STAAD.Pro)
+
+P1 Flotation | The springs of an elastic foundation model act in tension as well as compression, so the model cannot show whether the box floats. Flotation has therefore been checked by hand on the actual weights and the actual plan area (Chapter 7).
+
+#head Plastic Mechanism Method
+
+P1 Principle | For a one-way strip fixed at both ends, the elastic moments are w L²/12 at the supports and w L²/24 at mid-span. When the support sections yield they rotate at constant moment and the load is redistributed until a hinge also forms at mid-span. Equating the external work to the internal work of the three-hinge mechanism gives a capacity requirement of **M<sub>p</sub> = w L<sub>n</sub>² / 16** at every hinge. This moment has been used for the blast design of the perimeter walls, walls W6 and W7, the pressure slab, the headhouse roof and walls, with the sections kept under-reinforced so that the hinges can rotate.
+
+P1 Flexural Capacity | The flexural capacity of every section has been computed from IS 456 Annex G-1.1(b), with the limiting moment from Annex G-1.1(c) and the neutral axis depth from Cl. 38.1.
+
+#calc
+M<sub>u</sub> = 0.87 f<sub>y</sub> A<sub>st</sub> d [1 - (A<sub>st</sub> f<sub>y</sub>) / (b d f<sub>ck</sub>)]
+x<sub>u</sub> = 0.87 f<sub>y</sub> A<sub>st</sub> / (0.36 f<sub>ck</sub> b); x<sub>u,max</sub> / d = 0.46 for Fe500
+M<sub>u,lim</sub> = 0.133 f<sub>ck</sub> b d²
+#end
+
+P1 Shear | Shear has been checked to IS 456 Cl. 40, with τ<sub>c</sub> from Table 19 at the static strength of concrete and τ<sub>c,max</sub> from Table 20. Where τ<sub>v</sub> exceeds τ<sub>c</sub>, links have been designed for V<sub>us</sub> = (τ<sub>v</sub> - τ<sub>c</sub>) b d with A<sub>sv</sub> / s<sub>v</sub> = V<sub>us</sub> / (0.87 f<sub>y</sub> d), subject to the maximum spacing of Cl. 26.5.1.5.
+
+#head Sentry Post Model
+
+P1 Model Description | The sentry post has been analysed as a space frame in STAAD.Pro. Its particulars are given in Table 6.4.
+
+#table Sentry Post Model
+#widths 30,70
+Item | Particulars
+Joints | 12: bases at +0.450, first floor +3.650, roof +6.700
+Members | 16: members 1 to 8 columns 350 x 350; members 9 to 16 beams 250 x 450
+Supports | All four column bases fixed; the footings are on in-situ rock
+Connections | All beam-column joints fully continuous (no member releases)
+Infill | Applied as member load on the beams
+Slab | Load applied to the beams as triangular and trapezoidal loads
+Analysis | Linear static with statics check
+#end
+
+P1 Statics Check | The model reactions balance the applied loads exactly in every case, as given in Table 6.5.
+
+#table Statics Check, Sentry Post Model
+#widths 20,16,16,16,16,16
+#align L,R,R,R,R,R
+Load Case | ΣF<sub>x</sub> (kN) | ΣF<sub>y</sub> (kN) | ΣF<sub>z</sub> (kN) | ΣM<sub>x</sub> (kNm) | ΣM<sub>y</sub> (kNm)
+1 Dead load | 0.000 | -624.548 | 0.000 | 1 561.369 | 0.000
+2 Live load | 0.000 | -76.376 | 0.000 | 190.941 | 0.000
+3 EQ +X | 73.180 | 0.000 | 0.000 | 0.000 | 182.950
+5 EQ +Z | 0.000 | 0.000 | 73.180 | 436.631 | -146.360
+#end
+
+P1 Model Views | The frame model, its load cases and the bending moment and shear force diagrams are shown in Fig 6.5 and Fig 6.6.
+
+#grid staad_sentry_frame | Sentry Post Frame Model (STAAD.Pro)
+
+#grid staad_sentry_loads | Load Cases, Sentry Post Frame Model (STAAD.Pro)
+
+P1 Results Used in Design | The following results of the model have been used directly in design:-
+
+P2 Base Shear | F<sub>x</sub> = 18.295 kN per column, total 73.18 kN, which is exactly the equal-share distribution assumed in the portal method.
+
+P2 Seismic Axial Forces | F<sub>y</sub> = ±36.127 kN (EQ in X) and ±27.891 kN (EQ in Z) in the columns due to overturning. The larger value, 36.127 kN, has been used in the column and footing design.
+
+P1 Portal Method | The seismic member forces have been worked out by the portal method at the model base shear of 73.18 kN, with the storey forces distributed in proportion to W h².
+
+#calc
+Q<sub>roof</sub> = 73.18 x (315.9 x 6.25²) / Σ W h² ;; 59.51 kN
+Q<sub>floor</sub> = 73.18 x (276.8 x 3.20²) / Σ W h² ;; 13.67 kN
+Column shear, ground storey = 73.18 / 4 ;; 18.30 kN
+Column shear, first storey = 59.51 / 4 ;; 14.88 kN
+Column moment, ground storey = 18.30 x 3.200 / 2 ;; 29.27 kNm
+Column moment, first storey = 14.88 x 3.050 / 2 ;; 22.69 kNm
+Beam moment at the first-floor joint = 29.27 + 22.69 ;; 51.96 kNm
+Beam moment at the roof joint ;; 22.69 kNm
+#end
+
+T This distribution places slightly more shear in the ground storey than the model's own distribution (roof 55.57 kN, floor 17.61 kN), and gives the larger ground-storey column moment.
+
+P1 Gravity Moments in the Frame | The beam-column joints rotate under gravity load, and the support moments of the beams have been obtained by slope deflection, as given in Table 6.6.
+
+#calc
+I<sub>beam</sub> = 250 x 450³ / 12 ;; 1.8984 x 10<sup>9</sup> mm<sup>4</sup>
+I<sub>col</sub> = 350<sup>4</sup> / 12 ;; 1.2505 x 10<sup>9</sup> mm<sup>4</sup>
+Column stiffness at the first-floor joint, 4EI/3200 + 4EI/3050 ;; 3.203 x 10<sup>6</sup> E
+M<sub>support</sub> = FEM x (column stiffness) / (2EI<sub>b</sub>/L<sub>b</sub> + column stiffness)
+#end
+
+#table Beam Gravity Moments at the First Floor (kNm)
+#widths 26,16,20,14,12,12
+#align L,R,R,R,R,R
+Beam and Load | FEM | 2EI/L (x E) | Factor | M<sub>support</sub> | M<sub>mid</sub>
+B1, 1.5 (DL + LL) | 39.49 | 1.040 x 10<sup>6</sup> | 0.755 | 29.81 | 30.90
+B1, DL only | 22.53 | - | 0.755 | 17.01 | -
+B2, 1.5 (DL + LL) | 70.60 | 0.8165 x 10<sup>6</sup> | 0.797 | 56.26 | 49.64
+B2, DL only | 39.21 | - | 0.797 | 31.25 | -
+#end

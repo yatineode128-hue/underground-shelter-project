@@ -1,0 +1,172 @@
+#chapter DESIGN OF STAIRCASES, HEADHOUSE AND CLOSURES | (MAIN STAIRCASE, ENTRY STAIRWELL, HEADHOUSE, BLAST DOORS AND ESCAPE SHAFTS)
+
+#head Main Staircase
+
+P1 Basis | The main staircase is within the stair shaft. The blast pressure in the shaft acts on the shaft walls and the blast doors; it does not produce a net load on the stair slabs, which are open on both faces. The staircase is therefore designed to IS 456 with the normal partial safety factors for the static loads.
+
+P1 Flight | Each flight has a waist of 200 mm and spans between the landings.
+
+#calc
+θ = tan<sup>-1</sup> (170.833 / 280) = 31.4°, cos θ ;; 0.8535
+Waist 0.200 x 25 / 0.8535 ;; 5.858 kPa
+Steps 0.5 x 0.170833 x 25 (IS 456 Cl. 33.2) ;; 2.135 kPa
+Finishes ;; 1.000 kPa
+Imposed load (plant route and escape route) ;; 5.000 kPa
+Total 13.99 kPa; w<sub>u</sub> = 1.5 x 13.99 ;; 21.0 kPa
+L<sub>eff</sub> = 1 960 + 600 + 600 (IS 456 Cl. 33.1(b)) ;; 3 160 mm
+d = 200 - 30 - 6 ;; 164 mm
+M = w<sub>u</sub> L<sub>eff</sub>² / 8 ;; 26.2 kNm/m
+A<sub>st</sub> required 380 mm²/m; minimum 0.12 % x 200 = 240 mm²/m
+!Provided T12 @ 150 main (754 mm²/m), M<sub>u</sub> = 50.3 kNm/m ;; Utilisation 52 %
+Distribution T10 @ 200; top steel T12 @ 150 for 800 mm into the flight, anchored L<sub>d</sub> 480
+Deflection: L/d = 19.3 < 20 x 1.9 = 38 (p<sub>t</sub> 0.46 %, f<sub>s</sub> = 146) ;; OK
+Shear: V = 33.2 kN/m, τ<sub>v</sub> = 0.202 < k τ<sub>c</sub> = 1.20 x 0.479 = 0.575 N/mm² ;; OK, no links
+#end
+
+P1 Landings | Landings L1 and L2 and the arrival landing are 200 mm slabs spanning across the 2 800 mm shaft.
+
+#calc
+Load = self 7.50 + finishes 1.50 + imposed 7.50 + flight reaction 27.70 ;; 44.20 kPa
+L<sub>eff</sub> = 2 800 + 200 (IS 456 Cl. 22.2(a)) ;; 3 000 mm
+M = 44.2 x 3.000² / 8 ;; 49.7 kNm/m
+A<sub>st</sub> required ;; 745 mm²/m
+!Provided T12 @ 125 bottom (905 mm²/m), M<sub>u</sub> = 59.5 kNm/m ;; Utilisation 84 %
+Top steel T12 @ 125 for 900 mm from each support; distribution T10 @ 200
+Deflection: L/d = 18.3 < 20 x 1.35 = 27 ;; OK
+Shear: V = 66.3 kN/m, τ<sub>v</sub> = 0.404 < 1.20 x 0.519 = 0.622 N/mm² ;; OK
+#end
+
+T The arrival landing at (-)6.100 is the surface of the mat, and flight 3 lands on the 900 mm cantilever pad of the pressure slab at (-)2.000. The landings bear on walls W6 and W7, but the design of those walls does not rely on the landings as props.
+
+#head Covered Entry Stairwell
+
+P1 Basis | The covered entry stairwell is outside the protective boundary and is designed to IS 456 for static loads. Its design is summarised below.
+
+#calc
+!Flight: 12R @ 166.67 / 300, 1 500 wide, waist 250
+θ = 29.05°; w<sub>u</sub> = 1.5 x 15.233 ;; 22.85 kPa
+L<sub>eff</sub> = 3 300 + 750 + 750; d = 250 - 30 - 8 = 214 mm ;; 4 800 mm
+M = 22.85 x 4.800² / 8 ;; 65.8 kNm/m
+!Provided T16 @ 200 main (1 005 mm²/m), M<sub>u</sub> = 87.3 kNm/m, x<sub>u</sub>/d = 0.162 ;; Utilisation 75 %
+Distribution T10 @ 200; top steel T16 @ 200 for 1 200 mm, anchored L<sub>d</sub> 640
+Deflection L/d = 22.4 < 30; shear τ<sub>v</sub> = 0.256 < 0.532 N/mm² ;; OK
+!Side walls, 250 thick, retaining 2.9 m
+Pressure at base = 0.5 x 20 x 2.900 + 0.5 x 10 = 34 kPa; M = 14.0 kNm/m; A<sub>st</sub> req 168 mm²/m
+!Provided T12 @ 200 EF EW (minimum steel of IS 456 Cl. 32.5 governs) ;; Utilisation 31 %
+!Raking roof, 250 thick, 1 500 clear
+w<sub>u</sub> = 1.5 x 33.65 = 50.5 kPa; M = w l² / 12 ;; 9.5 kNm/m
+!Provided T12 @ 200 EF EW (minimum steel governs), M<sub>u</sub> = 48.2 kNm/m ;; Utilisation 20 %
+!Top landing, 250 thick
+w<sub>u</sub> = 54.9 kPa, L<sub>eff</sub> = 1 750 mm, M = 21.0 kNm/m
+!Provided T12 @ 200 EF EW, M<sub>u</sub> = 50.6 kNm/m ;; Utilisation 41 %
+!Platform, headwall and raft
+Platform 250 and headwall 250: T12 @ 200 EF EW; stepped raft 300: T12 @ 200 EF EW
+Door lintel over 1 000 clear, 250 x 350: 3-T12 top + 3-T12 bottom, T8 @ 150
+#end
+
+P1 Opening Corner | At the top of the flight the tension face of the slab turns through an obtuse angle of 209°. A bar bent round such a corner has the resultant of its bend force directed out of the concrete and would spall the cover. The main bars are therefore not bent round this corner; each layer is continued straight, crossed and anchored L<sub>d</sub> = 640 mm into the opposite face, and a U-bar T16 @ 200 is added across the corner (SP 34, Cl. 5.5). At the foot of the flight the corner closes (151°) and the bars are bent normally.
+
+#fig fig_opening_corner | Opening Corner Detail at the Top of the Entry Flight
+
+#head Entry Headhouse
+
+P1 Roof Slab (500 mm) | The headhouse roof is a 4 000 x 5 000 mm panel monolithic with 400 mm walls on all four sides (l<sub>y</sub>/l<sub>x</sub> = 1.25) and is designed for 396.5 kPa. It has been analysed by three methods and the most conservative has been adopted.
+
+#calc
+d = 500 - 75 - 10 ;; 415 mm
+M<sub>u,lim</sub> = 0.133 x 43.75 x 1000 x 415² ;; 1 002 kNm/m
+Method 1, one-way fixed-fixed strip, M<sub>p</sub> = w L<sub>n</sub>² / 16 = 396.5 x 4.0² / 16 ;; 396.5 kNm/m (adopted)
+Method 2, IS 456 Table 26, Case 1, α<sub>x</sub> = 0.045 ;; 285.5 kNm/m
+Method 3, yield line, fixed on four edges ;; 162.2 kNm/m
+A<sub>st</sub> required (Method 1) 1 879 mm²/m; minimum 600 mm²/m
+!Provided T20 @ 150 EF EW = 2 094 mm²/m, M<sub>u</sub> = 438.5 kNm/m ;; Utilisation 90 %
+x<sub>u</sub>/d = 0.174 < 0.46 ;; Ductile
+!Shear
+V at d = 396.5 (2.000 - 0.415) ;; 628.4 kN/m
+τ<sub>v</sub> = 1.514 N/mm²; τ<sub>c</sub> = 0.502 N/mm² (static M35, p<sub>t</sub> 0.505 %) ;; Links required
+V<sub>us</sub> = 420.0 kN/m; A<sub>sv</sub>/s<sub>v</sub> = 2.327 mm²/mm; spacing limit 300 mm
+!Provided T12 4-legged links @ 175 in the end 1 200 mm each side, @ 250 elsewhere ;; OK
+#end
+
+T The yield line capacity for a slab fixed on four edges is w<sub>u</sub> = 48 m / [a² (√(3 + (a/b)²) - a/b)²], which reduces to the fixed-fixed strip value w L²/16 as b tends to infinity. The one-way strip value has been adopted because it does not depend on full fixity of all four edges under a blast load. The roof has no opening. Its top steel is continuous over every support and anchored L<sub>d</sub> = 800 mm into the walls, and 300 x 300 mm haunches with diagonal T16 @ 150 are provided at all four wall-roof junctions. Corner torsion steel (IS 456 Cl. D-1.8) is not required, since all four edges carry full hogging steel continuous into the walls.
+
+P1 Walls HW1 to HW4 (400 mm) | The walls are designed for the full blast pressure of 383 kPa acting on either face over a clear height of 2.4 m.
+
+#calc
+d = 400 - 50 - 8 ;; 342 mm
+M<sub>p</sub> = 383 x 2.400² / 16 ;; 137.9 kNm/m
+A<sub>st</sub> required 766 mm²/m; minimum vertical 480 / horizontal 800 mm²/m
+!Provided T16 @ 150 EF EW = 1 340 mm²/m, M<sub>u</sub> = 235.2 kNm/m, x<sub>u</sub>/d = 0.135 ;; Utilisation 59 %
+V at d = 328.6 kN/m; τ<sub>v</sub> = 0.961 > τ<sub>c</sub> 0.444 N/mm² ;; Links required
+V<sub>us</sub> = 176.9 kN/m; A<sub>sv</sub>/s<sub>v</sub> = 1.189 mm²/mm; spacing limit min (0.75d = 256, 300) ;; 256 mm
+!Provided T12 4-legged links @ 250 throughout all four walls ;; OK
+Axial: worst N = 793 + 29 = 822 kN/m, f = 2.06 N/mm² = 12 % of 0.4 f<sub>ck,dyn</sub> ;; OK
+#end
+
+P1 Door Opening in HW2 | The 900 x 2 100 mm door in HW2 interrupts 1 340 x 0.900 = 1 206 mm² per face, and 2 No. T20 (628 mm²) are provided at each jamb on each face, anchored L<sub>d</sub> 800 beyond. The door head is at +0.100 and the roof soffit at +0.400, leaving only 300 mm of wall over the door. The 300 mm of wall and the 500 mm roof are therefore designed together as an 800 mm deep edge band.
+
+#calc
+w = 383 x 2.100 / 2 = 402 kN/m; M = w L² / 12 = 27.1 kNm; V = 181 kN
+d = 800 - 40 - 8 - 10 = 742 mm; τ<sub>v</sub> = 0.610 N/mm² ;; OK
+!Provided edge band 400 x 800: 4-T20 top + 4-T20 bottom, T12 4-legged links @ 150 over the opening and 600 mm each side ;; OK
+#end
+
+T The door frame is cast in and welded to the reinforcement cage for EMP continuity.
+
+P1 Wall HW3 | HW3 stands on the pressure slab over bay 6 and has no wall below it. Its load is carried by a strip of the one-way pressure slab acting as a beam, with an effective width of 0.400 + 2 x 1.05 = 2.5 m (45° spread through the 900 mm slab).
+
+#calc
+Two-way roof distribution (IS 456 Cl. 24.5): line load 476 + 29 = 505 kN/m
+Equivalent UDL = 505 / 2.5 + 22.5 + 2.0 = 226 kPa; M = 226 x 5.0² / 16 ;; 354 kNm/m
+Against the slab capacity of 1 362 kNm/m ;; 26 %
+One-way roof bound: line load 822 kN/m, equivalent 353 kPa, M = 552 kNm/m ;; 41 %
+#end
+
+T No change in the slab is required. For robustness, 4 No. T25 additional bars top and bottom are placed in a 1 200 mm band under HW3, lapped 1 250 mm (50 φ) into the main mesh.
+
+#head Blast Doors
+
+P1 Requirements | Blast Doors 1 and 2 are proprietary tested assemblies, each 1 200 x 2 100 mm, rated not less than 7 bar, gas-tight and rebound-rated. Each door and its frame performs four functions at the same time:-
+
+P2 Positive Pressure | The door takes the full 383 kPa from the stair shaft, in the same plane as the 400 mm wall in which it is set.
+
+P2 Rebound | The negative phase of the blast and the rebound of the structure pull the leaf away from its frame. The door and its latching resist load in both directions.
+
+P2 Gas-Tightness | The door is part of the envelope tested at +300 Pa. The seal seats on the steel frame, not on the concrete.
+
+P2 EMP Continuity | The frame is cast in and welded to the reinforcement cage, so the cage is continuous around the opening. The same rule is applied to the frame of the headhouse security door and of the gas-tight door D-05 in W5.
+
+P1 Door D-05 in Wall W5 | Wall W5 separates the plant room (bay 5), which contains the activated carbon filter beds, from the airlock (bay 6), and the primary escape route passes through it. It is fitted with a gas-tight, fire-rated door D-05, which is not blast rated since there is no pressure difference across W5.
+
+#head Escape Shaft Heads and Ladders
+
+P1 Hatch Loading | Each escape shaft is a 1 400 mm bore through the pressure slab, within a 250 mm collar of 1 900 mm outside diameter, with its head at +0.150 (ESC 1) or +0.700 (ESC 2). The hatch at the head closes an opening in the protective boundary and is designed for the full blast pressure of 383 kPa.
+
+#calc
+Force on the leaf = 383 x π x 0.700² ;; 589.6 kN
+Moment, circular plate simply supported, M = w a² (3 + ν) / 16, ν = 0.30 ;; 38.71 kNm/m
+Shear at the seating = w a / 2 ;; 134.1 kN/m
+Flat Fe250 plate, t = √(6M / σ) = 30.5, say 32 mm; mass of a 1 600 dia x 32 mm leaf ;; 505 kg
+#end
+
+P1 Hatch Adopted | A flat plate of 505 kg cannot be opened by a person climbing out of the shaft. The hatch is therefore a ribbed steel weldment, with the following particulars:-
+
+P2 Leaf | 1 600 mm diameter, 12 mm face plate, 8 radial ribs 150 x 10 mm and a 150 x 12 mm perimeter ring; indicative mass about 322 kg.
+
+P2 Seating | A steel seating ring cast into the 250 mm collar, with 150 mm bearing all round.
+
+P2 Fastening | Four quarter-turn dogs, so that the leaf resists uplift due to the negative phase and rebound as well as downward pressure.
+
+P2 Operation | Counterbalanced or spring-assisted, and openable from inside by one person without a key or tool.
+
+P2 EMP Bonding | The leaf, the seating ring and the collar reinforcement are electrically continuous, and the hatch is procured as a single item covering both its structural and its bonding requirements.
+
+P1 Ladders | One ladder type serves both shafts, with the following particulars:-
+
+P2 Rungs | 20 mm diameter galvanised mild steel rungs, 400 mm clear width, at equal pitch within each shaft: 297.6 mm over 21 spaces in ESC 1 and 295.7 mm over 23 spaces in ESC 2.
+
+P2 Stringers and Fixing | Two 50 x 10 mm galvanised flat stringers, fixed by cast-in lugs to the collar and the roof slab bore, with expansion-anchored brackets at 1.5 m centres over the lower 3.2 m.
+
+P2 Clearances | Not less than 200 mm behind the rungs and 750 mm clear climbing space in front, with grab rails extending 1 100 mm above the head.
+
+#fig fig_esc_head | Escape Shaft Head, Hatch and Ladder

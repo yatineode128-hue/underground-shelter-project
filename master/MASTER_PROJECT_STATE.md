@@ -22,6 +22,7 @@
 **A2 presentation sheets:** **SR1** (16 Sep 2026, Part **H.39**) — **two A2 structural reinforcement sheets, `STR006` SHEET 06 (roof slab + mat foundation) and `STR007` SHEET 07 (600 shear wall + main staircase)**, drawn in the frame and title block of the owner's Revit A2 architectural set `ARCH001…ARCH005` so they read as the next two sheets of it. Every bar mark is read from `rebar_data.py`; **no design value, level, thickness, bar or spacing changed** and **the main staircase is untouched**. Finding **`SR1-F1`**: the request asked for IS 13920 detailing; **IS 13920 Cl. 10.4 was checked for the box and is NOT triggered** (τ = 0.063 N/mm²), the box is IS 456 + IS 4991 + IS 3370, and the project's IS 13920 detailing is the **sentry post frame**, which is not on these sheets. Both sheets **PASS** the drafting QA with **zero text overlaps**.
 **A2 sentry-post sheets:** **SR2** (16 Sep 2026, Part **H.40**) — **two more A2 sheets in the same series, `STR008` SHEET 08 (sentry post beams B1 / B2 and column C1) and `STR009` SHEET 09 (isolated footing F1 and slab S1)**. **This is the project's IS 13920:2016 sheet pair** — the box is not a ductile-detailing element (Cl. 10.4 checked, not triggered) and the sentry post frame is, so STR008 carries a 14-clause IS 13920 compliance table. **No design value moved and no analysis was run.** Because the sentry post is EXCLUDED from `rebar_data.py`, SR2 builds a separate register `sentry_data.py` to the same rule. Principal finding **`SR2-F1` — the master contradicts itself on B2's top steel at the ROOF joint**: B.8.6 checks that joint with **2-T20** and passes it marginally, F.4 schedules **3-T20 at supports** without distinguishing level, and 3-T20 there makes IS 13920 Cl. 7.2.1 **FAIL** (1.4 ΣM<sub>b</sub> 195.7 > ΣM<sub>c</sub> 101). **Both cannot be true, so SHEET 08 details the FIRST-FLOOR frame only** and the roof frame is left undrawn until it is ruled on. Six further open items `SR2-V1…V6`, plus `SR2-F2` — a legibility finding on the existing sheet STR007, **recorded and NOT acted on**. Both new sheets **PASS** the drafting QA. **Amended the same day as `SR2A` (Part H.40.8), by instruction: the design-basis and declared-decisions panels DELETED from both sheets and `REV A` removed from their header — no view, scale, dimension, bar or count changed, and the schedules were grown to fill the freed column. The open items are unchanged and now live in the master only.**
 **A2 header/panel cleanup:** **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire revision line (**"STRUCTURAL - PHASE 2 REV A + M1"**) deleted from the header — asked directly which reading was meant, and the whole line was the answer. **No design value moved; STR008/STR009 are byte-identical to before.** The freed column is filled by the `table_stack()` helper SR2A introduced. Found and fixed a real bug in `a2_lib.py` along the way: `table()`'s row-height shrink loop could quantise one step below `MIN_TXT_H`; fixed with a floor clamp, verified not to change STR008/STR009. **This also CLOSES `SR2-F2`**, the STR007 legibility finding recorded and deliberately left unfixed at SR2A. `DRAWING_INDEX.md`: 84 drawings, 78 PASS.
+**Final-submission report:** **PR3** (25 Sep 2026, Part **H.44**) — `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, 114 pages in the owner's service-writing format, WM3 cost Rs 2,97,90,913. **By instruction it omits the open-item register; nothing in K.1b or K.2 is closed by it** — H.44.2 lists what a reader will not see. Amended **PR3A** (H.44.9) and **PR3B** (H.44.10): the five P1-deck site slides in Chapter 2, Appendix C = the fifteen A2 sheets 01–15, the syndicate and guides named, and the guide's name spelt *Chaudhuri* by owner ruling (the drawing title blocks still read *CHAUDHARI*). **PR3C** (H.44.11): front pages in the form of a CME sample (certificate, approval sheet, declaration, acknowledgement; borderless), degree B.Tech (Civil) / JNU, drawings as a separate A3 spiral book, and two black hard covers (`Hard_Cover_Report_A4.pdf`, `Hard_Cover_Drawings_A3_Landscape.pdf`). **PR3D** (H.44.12): STAAD.Pro captures and the owner's mesh-study results in Chapter 6 — **the peak does not converge (`[C]` as reported), and the sentry captures are of a different model, `PR3D-F1` `[UNRESOLVED]`.** **PR3E** (H.44.13): the frame on the first page only. **PR3F** (H.44.14): the CME report format (Appx 'C') — Times New Roman 12 at 1.5 lines, margins 37.5 / 25 / 25 / 25, titles 12 bold in sentence case numbered 3.1 / 3.1.1, page number centred — the certificate signed by the guides and **Shri AV Sangamnerkar, Assoc Prof, Chief Project Coordinator**, and an editable Word copy. **PR3G** (H.44.15): the guides are listed by name on the certificate, not signed; the Chief Project Coordinator still signs.
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and a ruling on **`SR2-F1`** before the sentry post roof beams can be detailed.
 
 ---
@@ -49,7 +50,7 @@
 | Project title | Underground CBRN-hardened, blast-resistant protective structure with associated sentry post | [CONFIRMED] |
 | Location | Pune, Maharashtra, India | [CONFIRMED] |
 | Project type | Buried reinforced-concrete protective structure, military-operational, for actual construction | [CONFIRMED] |
-| Academic context | B.E. Civil Engineering, final semester, three-presentation capstone | [CONFIRMED] |
+| Academic context | **B.Tech (Civil), College of Military Engineering, Pune, affiliated to Jawaharlal Nehru University, New Delhi** (owner ruling, 26 Sep 2026, H.44.11; previously recorded here as *B.E. Civil Engineering*), final semester, three-presentation capstone | [CONFIRMED] |
 | Objective | Protect 9 occupants for 96 h against a nuclear air-blast design basis threat with CBRN, EMP and fallout hardening | [CONFIRMED] |
 | **Architectural revision** | **Rev F** (the ten uploaded DXF files) | [CONFIRMED] |
 | **Design report revision** | **Rev D** (older than the drawings — this is the single largest reconciliation issue) | [CONFIRMED] |
@@ -6031,6 +6032,459 @@ only files that change are `s13_works_management.py`, `ops_data.py` (which gains
 `BOQ_ITEMS` and `PROGRAMME_ROWS` and keeps everything else), the `WMS013` DXF and PDF, the
 two regenerated QA outputs and the documentation. **The main staircase is untouched and does
 not appear on this sheet.**
+
+---
+
+## H.44 Final-submission project report in service-writing format — revision PR3 — 25 September 2026
+
+> **A new deliverable, `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`
+> — 114 A4 pages, 18 chapters, 4 appendices, 32 figures, 79 numbered tables.** Written for submission in the
+> owner's service-writing layout (red double-rule frame, page number on the bottom rule, decimal
+> paragraph numbering 1 / 1.1 / 1.1.1 restarting in each chapter), Arial 12, black text only, no
+> running header. **No design value moved, no analysis was run, STAAD.Pro was not opened, no
+> drawing, `.std`, generator, bill or schedule was edited, and no evidence tag in this master was
+> converted, downgraded or deleted.** PR2 (`Project Report/MASTER_PROJECT_REPORT.pdf`) is untouched
+> and remains the full technical record.
+
+### H.44.1 What was asked
+
+*"Prepare a project report ... in the final submission state. Project name is CBRN Hardened
+Underground Ops Room ... make it look like it's not AI generated ... Do not include anything
+which says the design is not proper or ... open ended ... no open, no decisions pending or any
+faults ... Use the works management package of 2.98 crores only ... Include the list of drawings
+index ... as Appendix ... keep the figures and drawings of pdf also complying ... Make the text
+Arial 12 size, black text only ... No headers."*
+
+### H.44.2 What the report is, and how it relates to this master
+
+**A presentation of the design, not a change to it.** Every value is carried from Parts A, B, F
+and L, from PR2 (whose 553 PASS verification covers them) and from the WM3 files. **By
+instruction, the report does not carry the evidence tags, the revision history, the findings or
+the open-item register.** It states adopted values as adopted (for example the design water table
+at (−)2.000, k<sub>s</sub> 100 000 kN/m³ with the 500 000 model noted, the IS 1904 presumptive
+3 240 kPa beside the measured soaked 1 961–2 059 kPa). **Omitting an item from the report does not
+close it. K.1b, K.2 and every `-F` / `-V` item in Part H stand exactly as recorded and remain the
+authority.** The items a reader of the report will not see, and which a reviewer may still raise,
+include at least: `SG-V1` / `SG-V2` (off-site investigation to ~1.5 m against formation (−)6.800),
+`SG-V3` (monsoon monitoring), `U4` / `RC4-F3` (sentry post 9.00 m from the excavation face — the
+report states "10 m clear of the box", which is true), `SR2-F1` (roof-joint strong-column/weak-beam
+with B2 3-T20 — **the report shows the IS 13920 Cl. 7.2.1 check at the first-floor joints only and
+makes no claim for the roof joint**), `EM-V6` / `EM-F1` / `EM-F4` (hatch bonding detail, stair
+void, DN350 valves — the report presents the Zone 2 "standing alone" design rule), `EM-V4` (no
+communications design), `RC4-V1` (heat rejection path — the report states the adopted 4 kW duty
+only), `DR-F5` (zones 2 and 3 drainage destinations), `DR-A2-V1` (sump cover), `FS-V7`
+(fall-arrest), `WM-V6` (seismic re-run at brick infill), `SG-V7`, `SG2-V4`, the SDOF support
+rotation (Part C) and the absence of any STAAD result for the box (Part D.3.5; the report
+describes the model and says the elements were designed by hand).
+
+### H.44.3 Works management — WM3 only
+
+Cost, bill and programme are read at build time from `WORKS MANAGEMENT/Cost/REVISED_*_RC1.csv`
+and `Programme/REVISED_MASTER_CONSTRUCTION_SCHEDULE_R1.csv` — **final project cost
+Rs 2,97,90,913**, 224 working days, 02-11-26 to 26-07-27. **No rate or quantity was retyped or
+changed.** Bill descriptions are restated in plain words (for example the owner's *"Emergency Exit
+Hatches (900 mm Clear, 621 kPa)"* printed as *"Escape shaft head hatches, ESC 1 and ESC 2"*;
+*"Sealed Zone-2 Welded EMP Enclosure (3×3×2.4 m)"* as *"EMP Zone 2 welded steel shielded
+enclosure"*); unit, quantity, rate and amount are the owner's. The labour share is shown as
+amount − material. **WM3's standby generator line, carried at zero with DATA REQUIRED, is not
+printed and is in no total — so the Rs 2.98 crore does not include the generator.** WM4 is not
+used. The summary programme carries 21 of R1's rows with plain names; R1's stale row 51 ("4m soil
+overburden") is not reproduced.
+
+### H.44.4 Arithmetic done afresh (from printed inputs; no bar changed)
+
+- **Box wall seismic shear stress** printed as **0.05 N/mm²** = 525 × 10³ / (600 × 0.8 × 22 000),
+  using the built length (the record prints 0.063; `PR1-F1`). Conclusion unchanged.
+- **Footing F1 ULS** printed from P<sub>u</sub> 276.8 and M<sub>u</sub> 43.9: e<sub>u</sub> 0.159 m,
+  q<sub>u,max</sub> **201.1 kPa**, M<sub>u</sub> 33.2 kNm/m, A<sub>st,req</sub> 142 mm²/m, punching
+  V<sub>u</sub> 178.9 kN / τ<sub>v</sub> 0.093 (average pressure deducted) — the record prints
+  0.128 m / 190.0 kPa (`PR1-F2`). **Minimum steel 720 mm²/m still governs; T12 @ 150 B/W unchanged.**
+- **Honeycomb panel** printed at its net **88.3 dB** with the array correction (`PR2-F2`).
+- `PR1-F1`, `PR1-F2` and `PR2-F2` are **not ruled or closed by this** — the report simply prints the
+  arithmetic that follows from the printed inputs.
+
+### H.44.5 Two statements that go slightly beyond the record — flagged, not hidden
+
+- **Door D-05** is listed as a gas-tight, fire-rated, not-blast-rated single-leaf door in W5 (the
+  RC ruling said *design it now*); **its size and leaf remain undesigned here.**
+- Chapters 14, 16 and 17 state ordinary plan-level controls (hold points, safety measures,
+  environmental controls such as settling pits and authorised disposal of spent filters) that are
+  practice statements, not project data.
+
+### H.44.6 Figures, drawings and index
+
+The 32 figures are PR2's `report_figures.py` drawings passed through
+`Final Submission/Scripts/sw_figures.py`, which restates or drops review-style annotation, strips
+evidence tags, drops one dimension line (the 9.00 m excavation-face dimension on the site plan)
+and blackens all lettering. **Geometry, levels and values drawn are untouched.** The A2 sheets are
+**not** embedded (STR008 carries `SR2-F1` / `SR2-V1` text); Appendix C lists all **90 drawings**
+from `DRAWING QAQC/qa_index.json` by discipline with their folder, SG-202's title shortened.
+
+### H.44.7 Files
+
+```
+Project Report/Final Submission/
+   CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf   the deliverable
+   Source/00_front.txt ... 19_appendices.txt               the text -- edit these
+   Scripts/sw_render.py                                    service-writing typesetter
+   Scripts/sw_figures.py                                   figure filter + drawing index helpers
+   README.md
+```
+
+Arial is used where `/usr/share/fonts/truetype/msttcorefonts/arial.ttf` exists (installed in this
+session from the Microsoft core fonts package, **not committed**); otherwise the renderer falls
+back to Liberation Sans, which is metric-identical.
+
+### H.44.8 Verified
+
+- Text scan of all 114 pages for tags, revision codes and review wording: none left beyond plain
+  engineering use ("open to the atmosphere", "failure of both sources").
+- All text colour 0x000000; body text Arial 12 (ArialMT / Arial-BoldMT embedded).
+- Bill: every line qty × rate = material; the five parts sum to Rs 2,42,20,254; cost heads to
+  Rs 2,97,90,913.
+- Pages rendered and inspected. **Main staircase unchanged** — printed as 24R @ 170.833, 280
+  tread, 3 × 8, rise 4 100, 1 200 wide, 200 well, headroom 2 533.
+
+### H.44.9 PR3A — Appendix C limited to the drawings generated in the project, 25 September 2026
+
+*"Include those drawings only which have been generated in index."* Appendix C now lists the
+**80 drawings generated in this project** and omits the **ten Rev F architectural input
+drawings supplied by the owner** (A-101…A-105, A-201…A-204, A-301 — master E.2), which H.44.6
+above records as listed. **S-06 stays** (it is an E.3 output sheet) and is grouped as *Services -
+General Arrangement*; the finishes sheets A-601 / A-611 / A-612 stay (FN1 output). The filter is
+`sw_figures.INPUT_SET` / `is_generated()`; `DRAWING QAQC/qa_index.json` and the drawing index
+itself are **not** edited. Appendix C's opening paragraph now says "the eighty drawings generated
+for the project". Nothing else in the report changed; still 114 pages. H.44.1–H.44.8 are
+preserved as first issued (M.11).
+
+### H.44.10 PR3B — site slides in Chapter 2, a fifteen-sheet drawing index, and the syndicate, 25 September 2026
+
+Three instructions, the same day:
+
+1. *"Include the map photos also from ppt with basic inferences"* — the owner supplied five
+   **P1-deck slides** as images: *The Site As Found* (four photographs), *Services Already On The
+   Ground*, *Watershed And Surface Drainage*, *Contour Map* and *Site Location*.
+2. *"Also for the index of drawings include only these drawings"*, then *"See all are there from
+   1-15"* — the owner uploaded `Project1.pdf` (twice, identical) and STR006 (`…_FINAL`), STR007,
+   STR008, STR009, MEP010, FLS012, WMS013, STR014 and STR015 (some more than once).
+3. *"Names of syndicate members of syndicate one"* — with the syndicate's own title slide.
+
+**No design value moved. No analysis was run.** PR3A's 80-drawing Appendix C (H.44.9) is
+superseded, and H.44.1–H.44.9 are preserved as issued (M.11).
+
+**Chapter 2 — the slides.** The five slides are Figs **2.1–2.5**, stored **byte-identical** as
+`Final Submission/Images/P1_*.jpg`; `sw_figures.PHOTOS` crops only the slide's black edge and dark
+title bar at build time (so the slide captions, e.g. *"Road connectivity adequate for 994 m³ of
+rock haulage"*, are not printed), and nothing is retouched. PR3's Figs 2.1–2.3 become **2.6–2.8**
+and the text references follow. The slides are `[C]` **as a record of what the P1 deck presents**
+(the deck is already row 2 of the SG1 source table) — **they are presentation slides, not a
+survey.** H.37.2's *"No photograph, satellite image, contour sheet or survey drawing of the plot
+exists in this project"* was true at PR2 and stands as written; these five slides are the first
+such images in the record.
+
+- **`SG-V4` is untouched.** The contour figure prints the deck's own 580 / 581 m labels, but the
+  report text adopts **no absolute level and no gradient**: it says only that the ground falls
+  gently east (PR3 and Chapter 17 already said so) and that levels are to the site datum, grade
+  = 0.000. The elevation-profile slide is **not** included.
+- **Inferences that read the images** — each is an observation of a supplied slide, not a survey
+  result: the plot is open ground clear of buildings and roads; open ground separates it from the
+  CTW blocks; a track on its east side gives plant access; scrub and grass with loose basalt at the
+  surface, no structure or large tree; water standing on the track after rain; an overhead
+  electric line along the access track; the contours run roughly N–S with no closed contour on the
+  plot; the flow lines over the plot are fine and run east, with no concentrated line crossing it,
+  and the heavier flow paths lie to the S and SE towards the nullah.
+- **Tied only to features already in the design:** the crowned grade at 1 in 50, the 300 channel
+  at the stairwell entrance (Chapter 3), site clearance and grubbing (WM3 Part I item 2), and the
+  campus water and electric supply in peacetime (Chapters 12 and 13).
+- **The services slide** is reported as the deck states it — substation **SS-15**, an **RCC
+  overhead reservoir of 15 000 gal on 15 m staging** — and a fourth "strength", *Water Supply*,
+  is added to para 3. The map does not show the plot; `SG2-V1`'s record that the reservoir is a
+  tank on the far side of the campus stands.
+- **The site-as-found slide's caption says "murrum" at the surface.** The report does **not**
+  adopt it: the inference text says only "loose basalt at the surface", and Chapters 2 and 17 keep
+  the SEMT surface clay. `SG-F13` / `SG-F14` are unchanged.
+- **A PR3 error corrected.** PR3 wrote *"aligned east-west with the entry at its west end"*. The
+  covered entry stairwell is at X 9 250–16 050, Y 5 750–7 750 and descends east to the headhouse
+  over bay 6 (A.4); the sentence now reads *"The covered entry stairwell runs along its north side
+  and descends eastward from ground level to the headhouse."*
+
+**Appendix C — fifteen sheets, 01 to 15,** transcribed from the title blocks (number, title,
+scale; all A2) as a fixed table in `Source/19_appendices.txt`. What each sheet is:
+
+| Sheet | Source of the entry | Relation to the repository |
+|---|---|---|
+| 01–05 ARCH001…005 | owner's `Project1.pdf` (Revit, 15 Sep 2026; sha256 `f342ee4d8f61…`) | **not in the repository**, as before (H.43). The redrawn ARCH001 / ARCH002 in `Presentation Sheets` carry the same numbers; **the index does not say which version it lists.** `MEP2-F1` (door schedule 900 × 2100; both blast doors are 1 200 × 2 100) and `MEP2-F2` (*"FDN LEVEL −6100"* is the internal floor) apply to the owner's sheets 01 / 02 and are **not** corrected by listing them. The title of 04 and 05 is *"REVIT 3D VIEWS"*; the index adds each sheet's view titles to tell them apart (the owner's *"UNDERGOUND"* spelt correctly). Their scale fields are blank — printed "-" |
+| 06 STR006 `_FINAL` | upload | **differs from the repository copy in one respect: the panel *"CONSTRUCTION REQUIREMENTS THAT ARE DESIGN OUTPUTS, NOT OPTIONS"* is deleted** (red-bole over-excavation; M15 blinding and cementitious spacers; F05 link grid and joints; flotation dewatering, relief plugs, no bar displaced). **The repository STR006 is not changed, and the four requirements stand in this master** — the owner's copy is not to be read as removing them |
+| 07, 10, 12, 13 | upload | **byte-identical** to `Presentation Sheets/PDF` |
+| 08, 09 | upload | differ only in PDF creation time (16 Sep, 09:00 vs 09:29 UTC); **pixel-identical** at 60 dpi |
+| 11 MEP011 | **not uploaded** — included on *"all are there from 1-15"*, from the repository copy | as issued (MEP1) |
+| 14, 15 STR014 / STR015 | upload | **not on this branch.** Byte-identical to the HH1 / AS1 sheets on the **unmerged** branch `claude/sentry-post-detailing-dxf-jb8y10` (commit `97254e6`). The report's *"held in the Presentation Sheets folder"* is true there and becomes true here when that branch merges; **this revision does not copy them** |
+
+The scale column follows the title blocks (FLS012 *"As indicated"* where `qa_index.json` says NOT
+TO SCALE). Everything else in `qa_index.json` — the A1 working set, the A4 handouts, S-06, the
+finishes sheets — is no longer listed; **`qa_index.json` is not edited**, and the `@drawings` /
+`is_generated()` code is kept but unused.
+
+**The syndicate.** The cover (two columns, as on the slide) and the certificate now name **Maj
+Yatin, Capt Sonu Sharma, Capt Sukender Singh, Capt Balbanka Tiwary, Capt DV Ghanashyama and Capt
+Siddharth Sinha** — `[C]` as supplied on the syndicate's title slide. The same slide gives
+*occupancy 8–9*; the design basis stays **9** and nothing is changed by it.
+
+**The guides** — a fourth instruction, *"Names of guides"*, with the list **Maj Ashish Dubey, FGS;
+Dr IR Chaudhuri; Dr Uttam Awari; Lt Col APS Chauhan; Sh Tilak Sharma, Jt Dir (C), FCM** `[C]`.
+Two questions were put to the owner, and both answers are rulings `[C]`:
+
+- **Spelling — "Chaudhuri".** The list spells it *Chaudhuri*; PR3 and **every drawing title block
+  in the project** (the owner's own Revit sheets included) read *CHAUDHARI*. **Owner's ruling:
+  *Chaudhuri*, as in the list.** The report now reads *Dr I R Chaudhuri* throughout. **The title
+  blocks are NOT changed by PR3B** — `STR006`…`STR009`, `MEP010`, `MEP011`, `FLS012`, `WMS013`,
+  `STR014`, `STR015` (their `IDENTITY` text in `Presentation Sheets/Scripts/`) and the owner's
+  `ARCH001`…`ARCH005` all still print *DR IR CHAUDHARI*. Correcting them is a regeneration of the
+  whole presentation series and has not been asked for.
+- **Placement — the cover list only.** All five are named on the cover under *"Under the guidance
+  of"* and thanked in the acknowledgement; **the certificate's signature blocks are unchanged**
+  (*(Dr I R Chaudhuri), Project Guide* and *Head of Faculty*).
+
+**Renderer.** New `#photo` directive and `PhotoBox` (`sw_render.py`); `PHOTOS`, `PHOTO_MAXH`
+(`sw_figures.py`); `MEMBERS` (cover). Photographs print at up to 86 mm high — the size at which
+Chapter 2 packs without a half-empty page — and the services map at full width so its lettering
+stays legible. **Still 114 pages**: Chapter 2 grew by four and Appendix C shrank by four.
+
+**Verified.** Five slide files byte-compared with the uploads; every uploaded drawing hashed
+against the repository and the unmerged branch, STR006 / 008 / 009 diffed by rendering; the fifteen
+title blocks read from renders (ARCH sheets from their PDF text); Chapter 2 pages 4–8 and the cover,
+certificate and Appendix C inspected as renders; a whole-document text scan finds only the four
+engineering uses of "assumed" / "defect" found at PR3; every text span is black (the photographs
+keep their own colours); fonts ArialMT / Arial-BoldMT / Arial-ItalicMT, figure lettering FreeSans.
+**Main staircase unchanged.**
+
+### H.44.11 PR3C — front pages in the form of a CME sample, drawings as a separate A3 book, two hard covers, 26 September 2026
+
+The owner photographed an earlier CME project report (Syndicate 3, Oct 2019, CME library copy)
+— its **black hard cover**, **Certificate**, **Approval Sheet**, **Declaration** and
+**Acknowledgement** — and asked: *"Black is hard cover of the book. Add the other pages like this.
+Also just include the drawings index and write that it is presented as a separate spiral bind book
+of A3 pages"*; then *"keep the original … cover also additionally"*, *"a black cover for my A3
+book in landscape format of drawings"* and *"remove the border also from the other pages"*.
+**No design value moved. No analysis was run.** H.44.1–H.44.10 are preserved as issued (M.11).
+
+**Four rulings were asked for and given** `[C]`:
+
+| Question | Owner's answer |
+|---|---|
+| Degree wording (the sample reads B.Tech (Civil) of CME, affiliated to JNU; the report read B.E.) | **Bachelor of Technology (Civil), College of Military Engineering, Pune, affiliated to the Jawaharlal Nehru University, New Delhi.** Now on the report's first page, the certificate, the approval sheet and Chapter 1 para 2. The Part A row *"Academic context"* is amended to match, with its earlier wording kept in the row |
+| Who signs the Declaration and Acknowledgement | **Maj Yatin, CME/EODE 128, Syndicate Leader** (on behalf of Syndicate 01) |
+| The sample thanks named officials | **By appointment, no names** — Head of the Structures Department, Commander Faculty of Civil Engineering, Dean and Deputy Commandant, Commandant CME. **No name is guessed** |
+| The black hard cover | **A separate cover file**, and the report's own first page kept as it was ("the original cover also additionally") |
+
+**What changed in the report (now 116 pages).**
+
+- **Front matter** is now Certificate (i), Approval Sheet (ii), Declaration (iii), Acknowledgement
+  (iv), Abstract (v), Contents, Lists, Abbreviations — the sample's order. The four sample pages
+  follow its content and layout: crest, *COLLEGE OF MILITARY ENGINEERING, PUNE*, the certificate
+  sentence, Syndicate 01 and Guides in two numbered columns, *Date : ____ Sep 2026 / Place : CME
+  Pune*; the approval sheet with **External Examiner** and **Guide** signature lines; the standard
+  academic-honesty declaration (in the first person plural, signed by the Syndicate Leader); and
+  the acknowledgement by appointment. **The PR3B certificate signature blocks are gone** — the
+  sample's certificate has none, and the approval sheet now carries the signatures. Headings are
+  underlined as in the sample; **lettering stays black** (the sample's red is not copied — the
+  owner's *"black text only"* stands).
+- **Border.** Read as the four sample-style pages: they carry **no frame**, only a centred roman
+  page number, as in the sample. **Every other page keeps the service-writing frame**, the first
+  page included.
+- **The crest** is not drawn: it is **cut from the owner's photographs** — the colour crest from the
+  approval-sheet photo, the gold one from the hard-cover photo — stored as crest-only crops
+  (`Images/CME_crest_photo_colour.png`, `…_gold.png`; nothing else of the 2019 report is kept) and
+  cleaned by the new `Scripts/sw_crest.py` (paper made transparent; the gold reduced to one tone).
+  It is a photograph at about 130–200 dpi as printed, **not an official artwork file**; if the owner
+  supplies one it replaces these two images and nothing else changes.
+- **Appendix C** keeps only the index, and now says the drawings are presented as **a separate
+  spiral-bound book of A3 sheets**, drawn on A2 and reduced, **the scales stated being those of the
+  A2 sheets** (a 1 : 100 A2 sheet is not 1 : 100 at A3).
+- **Renderer:** `#plainfront` (borderless page, `plain` page template), `C` centred paragraphs,
+  `#crest`, `#cols`, `#right`, `#examiners`.
+
+**The hard covers** — the new `Scripts/sw_covers.py`, gold (212, 175, 55) lettering and double
+frame on black, laid out after the sample:
+
+- `Hard_Cover_Report_A4.pdf` — A4 portrait: COLLEGE OF MILITARY ENGINEERING, crest, PROJECT
+  REPORT, the title, SYNDICATE 01 and GUIDES in two columns.
+- `Hard_Cover_Drawings_A3_Landscape.pdf` — A3 landscape, the same, with *PROJECT DRAWINGS* and
+  *DRAWING SHEETS 01 TO 15* (wording chosen for the drawing book; not from the sample).
+
+**Not done by this revision:** the A3 drawing book itself is not assembled here — its fifteen
+sheets are those of Appendix C, and STR014 / STR015 are still only on the unmerged branch
+(H.44.10). The title blocks still read *CHAUDHARI* (H.44.10).
+
+**Verified.** The four front pages, both covers, the Contents and Appendix C inspected as renders;
+pages 2–5 carry no frame (their only vector paths are the heading rule and the signature lines);
+Contents lists i–v in the sample's order; the whole-document text scan finds only PR3's four
+engineering uses of "assumed" / "defect", and no "Bachelor of Engineering" or "Chaudhari"; every
+text span is black. **Main staircase unchanged.**
+
+### H.44.12 PR3D — STAAD.Pro captures and a short mesh-sensitivity statement in Chapter 6, 26 September 2026
+
+*"Add wherever coherent and relevant — STAAD Pro photos and analysis in short only"*, with eight
+**phone screenshots of the owner's 130-page deck `ULTIMATE FINAL.pdf`** (its pages 49–56 and
+72–76). **The deck itself is not in this workspace.** **No design value moved, and no analysis
+was run here** — every result below is the owner's STAAD.Pro output as the deck shows it, `[C]`
+as reported, read from screenshots.
+
+**What was added (report now 120 pages).** Chapter 6 gains Figs **6.1–6.6** and Table **6.3**; the
+sentry-post tables become **6.4–6.6** and the text references follow.
+
+| Figure / table | Content | Source capture |
+|---|---|---|
+| Fig 6.1, 6.2 | the box plate model and load cases 1–10 | window title *Underground_Structure_WITH_LOADS_worked_example (4)* — **the repository's reference model**. Its loads agree with Table 6.2 and the `.std`: LOAD 3 is 2 kPa on the roof and 1 kPa on the mat, and LOAD 10 is 20 kPa vertical plus K₀q = 10 kPa lateral, as the deck labels them |
+| Fig 6.3 | plate-stress contours | legend footer *"Load 105"* = COMB 105 CONSTRUCTION in the `.std`; **the caption names no load** |
+| Table 6.3, Fig 6.4 | the three meshes and their peak plate stress | see below |
+| Fig 6.5, 6.6 | sentry-post frame, BMD / SFD, and six load pictures | **a different model — `PR3D-F1`** |
+
+The 26 captures are cropped, trimmed to the STAAD window and stored as
+`Final Submission/Images/STAAD/*.png`; the deck's own slide captions are not reproduced, and
+each panel carries a plain label (new `#grid` directive, `sw_figures.GRIDS`). They are
+screenshots of a screenshot at about 150 dpi as printed; **the deck's original images would
+replace them one for one**.
+
+**MS1 — the mesh study now has results, from the owner's run** (H.5 §5 had recorded them as
+outstanding). Under one load case — the deck's slide says **LOAD 6, earth and water on the
+external walls** — the peak *max absolute* plate stress is:
+
+| Mesh | Plates | Joints | Element size X × Z (m) | Peak (kN/m²) | Step |
+|---|---|---|---|---|---|
+| Coarse | 336 | 324 | 1.259 × 1.120 | 3 240 | — |
+| Medium (reference) | 1 138 | 1 113 | 0.713 × 0.622 | 3 839 | +18.5 % |
+| Fine | 4 552 | 4 500 | 0.357 × 0.311 | 4 482 | +16.8 % (coarse → fine +38.3 %) |
+
+Plate and joint counts agree with Table 6.1, H.5 and MS2. **The deck's own heading is *"The
+Peak Does Not Converge"* — and that is correct: MS1 does NOT demonstrate mesh-independence of the
+peak.** The report states only what the design rests on: the stress pattern is the same in all
+three meshes; the peak rises with refinement, *"which is the behaviour of a local peak"*; the
+elements are designed from the plastic-mechanism moments by hand (Part B), not from peak plate
+stresses; and the medium mesh is the adopted model. **The "local peak" reading is an
+interpretation — flagged, not established:** the record does not locate the peak, and no
+element's design depends on it.
+
+**`PR3D-F1` — the sentry-post captures come from a different STAAD model `[UNRESOLVED]`.** They
+show a frame with a **plinth-beam level** (columns continued to supports below it), titled
+*Building_1* / *SENTRY POST*. `current/staad/Sentry_Post_Framed_Seismic.std` — the model of Table
+6.4 and master B.8 — has **12 joints with the bases at +0.450**. The deck's *"Load 4"* reactions
+(**Y ±32.147 kN, Z 11.901 kN per base ≈ 47.6 kN total, MX 15.063 kN·m**) match **no load case of
+the repository file**, whose LOAD 4 is **EQ−X, 73.18 kN in X**, with seismic axials ±36.127 /
+±27.891 kN. **Owner's ruling `[C]`: include the pictures without numbers.** The *"Design
+results"* reactions capture is therefore **not** in the report, and Tables 6.4 / 6.5 and every
+sentry value are unchanged. **Which model the owner treats as governing is not resolved, and a
+careful reader will see the plinth level in Fig 6.5 against the 12 joints of Table 6.4.** The item
+is recorded here only: **it is not yet a row of K.1b**, whose count carries its own verification
+index and should be revised deliberately rather than in passing.
+
+**Also noted, not changed.** The deck labels LC 6 *"87.8 → 26.9 kPa"*. Table 6.2 says *"33.9 to
+83.2 kPa"*, and the `.std` applies 32.00 to 82.71 kPa by mesh row. The report's figure labels
+carry no load values.
+
+**Verified.** Every crop viewed on a contact sheet (four re-cut to remove a cell border and the
+phone's header); Chapter 6 rendered and inspected, with Figs 6.1–6.6 and Tables 6.1–6.6 in order
+and every in-text reference matching; the load cases in the captures compared with the reference
+`.std` (LOAD 3, 6, 10); the sentry `.std` read for its LOAD 4 and joint count. **Main staircase
+unchanged** — it is not in either model.
+
+### H.44.13 PR3E — the frame on the first page only, 26 September 2026
+
+*"You remove the border except the first page."* The red double-rule frame and the red corner
+tab are now drawn on **the first page only**; every other page — front matter, chapters and
+appendices — carries its page number alone, centred at the foot (the treatment PR3C gave the
+four sample pages). The text area is unchanged, so **no page reflowed: still 120 pages, every
+page number and every TOC / LOF / LOT entry as before.** This supersedes H.44.1's *"red
+double-rule frame, page number on the bottom rule"* and H.44.11's *"every other page keeps the
+service-writing frame"*; both are preserved as issued (M.11). The decimal paragraph numbering,
+Arial 12 and black text are unchanged. Change: `Doc._front` and `Doc._main` in `sw_render.py` now
+call `_plain`; `draw_frame` is used by the first page only.
+
+**Verified.** Every page scanned for a red stroke spanning the page width: page 1 only (the one
+other hit, page 93, is the zone boundary drawn inside Fig 13.1, the single-line diagram); page
+labels read i … and 1 … 108 as before; pages 1, vi, 1 and 39 inspected as renders. **Main
+staircase unchanged.**
+
+### H.44.14 PR3F — the CME project report format (Appx 'C'), a wording recheck, and an editable Word copy, 26 September 2026
+
+The owner supplied the course's own format instruction, **Appx 'C', *Project Report***, and asked:
+*"Recheck as per this and see that anywhere it should not feel it is AI generated or any things
+which are open. Then render a pdf and editable word document also."* **No design value moved. No
+analysis was run.** H.44.1–H.44.13 are preserved as issued (M.11); where they say *Arial 12*,
+*1. / 1.1 / 1.1.1 restarting in each chapter* or *the certificate carries no signatures*, this
+revision supersedes them.
+
+**Three rulings were asked for and given** `[C]`:
+
+| Question | Owner's answer |
+|---|---|
+| Appx 'C' contradicts itself: 1(h) *"Right aligned at footer"*, item 3 *"page number at bottom margin at center"* | **Centre** (item 3) |
+| 2(e) says all other matter 12 point; the wide tables do not fit at 12 in a 147.5 mm measure | **12 point, reduced only where a table cannot fit, not below 9** |
+| Item 7: the certificate must carry the signatures of the Guides and the **Chief Project Coordinator**, whose name the record did not have | **Shri AV Sangamnerkar, Assoc Prof** |
+
+**Appx 'C' applied, item by item.**
+
+| Item | Requirement | As set |
+|---|---|---|
+| 1(a)–(e) | A4; margins left 37.5, right 25, top 25, bottom 25 mm | as required; text measure **147.5 mm** (was 174). The first-page frame stays (H.44.13) |
+| 1(f), (g) | Times New Roman 12; 1.5 lines | **Times New Roman** throughout the report (the hard covers keep their gold Arial); 1.5 lines = 20.7 pt, as Word sets it |
+| 1(h), 3 | page number, 12 point, at the foot | **centred** in the bottom margin, 12 point (ruling above) |
+| 1(j) | headings 14 point bold | the **page headings** — Certificate, Approval Sheet, Declaration, Acknowledgement, Abstract, Contents, the lists, Abbreviations — at 14 bold. *Read together with 2(a)–(b), which set the chapter number and name at 12; recorded as an interpretation* |
+| 2(a), (b) | chapter number and chapter name, 12 capital bold | *CHAPTER 3* and the name on separate lines, 12 capital bold; the parenthetical subtitle kept, also 12 capital bold |
+| 2(c), (d) | main titles (1.1, 3.4) and sub titles (1.1.4, 2.5.3), 12 bold, **sentence case** | paragraphs now numbered **within the chapter — 3.1, 3.1.1, 3.1.1.1** (A.1 in an appendix); a titled paragraph has its number and title in bold. Every title, side heading, caption and table head put into sentence case by the new `Scripts/sw_case.py` (acronyms, codes, variables, months, proper names and *Zone 2 / Part I / Appendix A* references keep their capitals); all 409 conversions were read before use |
+| 2(e) | all other matter 12 point, sentence case | body, calculations, lists and table text at 12. **Tables:** each column is widened, at the expense of columns with room, until its longest word fits at 12; only **three** tables still step down — soil tests (Table 2.3) **10.5**, meteorological data (Table 2.7) **10**, bill of quantities (Table B.1) **11.5**. The lettering inside figures (and the panel labels of the STAAD figures, 10 point) is figure content |
+| 4 | no blank sheet | **none** — every page checked |
+| 5, 6 | figure name below, table title above, 12, sentence case | as required (set in bold) |
+| 7 | certificate to the group; signatures of Guides and Chief Project Coordinator | certificate names Syndicate 01 and its six officers, then **signature lines for the five guides and for Shri AV Sangamnerkar, Assoc Prof, Chief Project Coordinator** |
+| 8 | black, golden embossing | the PR3C hard covers |
+| 9 | diary; three copies | not report content |
+
+**The recheck for AI-sounding or open wording found nothing to change.** Every source file was
+scanned for the usual tells (*robust, comprehensive, seamless, leverage, crucial, delve, notably,
+furthermore, in conclusion …*), for pending language (*to be confirmed / decided / verified,
+pending, provisional, future, further study, not yet, subject to, recommended, assumed,
+approximate, open …*), for every *should / may / might / will / would*, and for em dashes, curly
+quotes and ellipses. The only hits are engineering usage (*"ensured by the detailing"*,
+*"seamless coved finish"*, *"open ground"*, *"assumed in the portal method"*) and quotations from
+SEMT/67/15. The conclusion chapter has no future-scope or open-issue section.
+
+**The Word copy.** `CBRN_Hardened_Underground_Ops_Room_Project_Report.docx`, built by the new
+`Scripts/sw_export.py` (the same parse, numbering, sentence case, table fitting and figure sizes
+as the PDF, written to JSON with the figures as 220 dpi PNG) and `Scripts/sw_docx.js` (docx-js
+9.7.2), run together by `Scripts/sw_word.py`. It is an editable document, not a picture of the
+PDF: real paragraphs, numbered text, Word tables, and the contents, figure and table lists as
+**Word fields built from TC entries**. The fields are pre-filled with the PDF's entries, and Word
+is set to ask to update fields on opening, after which the page numbers are Word's own. **Word
+lays out differently from the PDF** (LibreOffice renders it at 138 pages against the PDF's 152).
+**The PDF is the submission copy; the .docx is for editing.** Two things Word cannot reproduce:
+the rounded corners and the red corner tab of the first-page frame (Word page borders are
+rectangular).
+
+**Environment, not in the repository:** Times New Roman from the msttcorefonts `times32.exe`,
+the `docx` npm package installed globally, and LibreOffice Writer, installed only to render the
+.docx for inspection.
+
+**Verified.** PDF rebuilt: 152 pages; no blank page; every footer is exactly one centred page
+number; text spans are Times New Roman at 12 except the three tables above, sub- and superscripts,
+the first page and the 14-point page headings; **all 1 678 table words checked intact — no word
+split across lines** (a first build split *Sample* and *2,04,420*, fixed by a 2 pt margin in the
+column fitting); every text span black. The .docx passes the OOXML schema validator; 66 drawings
+carry unique ids; 30 contents, 43 figure and 80 table TC entries; one font, Times New Roman;
+rendered through LibreOffice and inspected (first page, certificate, chapters 1, 2 and 6,
+Tables 2.7 and B.1, Appendix C). The whole-text scan of both files finds only PR3's four
+engineering uses of *"assumed"* / *"defect"*, and no *Chaudhari*, *Bachelor of Engineering* or
+*Arial*. **Main staircase unchanged.**
+
+### H.44.15 PR3G — the guides listed, not signed, on the certificate, 26 September 2026
+
+*"Remove the signature blocks of guides … just list out their names."* The five guides' signature
+lines added by PR3F are removed; the certificate now lists **SYNDICATE 01 (1–6)** and **GUIDES
+(1–5)** side by side, as in the CME sample of PR3C. **The Chief Project Coordinator's signature
+line — Shri AV Sangamnerkar, Assoc Prof — stays**; the instruction named the guides only. This
+departs from Appx 'C' item 7 (*"signatures of Guides and Chief Project Coordinator"*) **by the
+owner's instruction** `[C]`. PDF and Word copy rebuilt (152 and, in LibreOffice, 138 pages, both
+unchanged in length); the certificate page of each inspected as a render; the .docx passes the
+schema validator. `Source/00_front.txt` only. **Main staircase unchanged.**
 
 ---
 

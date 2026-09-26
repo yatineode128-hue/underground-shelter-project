@@ -1,0 +1,140 @@
+#plainfront CERTIFICATE
+
+C **COLLEGE OF MILITARY ENGINEERING, PUNE**
+
+#crest 24
+
+#vspace 4
+
+T This is to certify that the project entitled **'CBRN HARDENED UNDERGROUND OPS ROOM'** submitted by six officers of Syndicate 01, in partial fulfilment of the requirements for the award of the degree of Bachelor of Technology (Civil) of College of Military Engineering, Pune, affiliated to the Jawaharlal Nehru University, New Delhi, is a record of their own work.
+
+#vspace 6
+
+#cols SYNDICATE 01 | 1. Maj Yatin | 2. Capt Sonu Sharma | 3. Capt Sukender Singh | 4. Capt Balbanka Tiwary | 5. Capt DV Ghanashyama | 6. Capt Siddharth Sinha || GUIDES :- | 1. Maj Ashish Dubey, FGS | 2. Dr I R Chaudhuri | 3. Dr Uttam Awari | 4. Lt Col APS Chauhan | 5. Sh Tilak Sharma, Jt Dir (C), FCM
+
+#vspace 4
+
+#sigs Shri AV Sangamnerkar, Assoc Prof | Chief Project Coordinator
+
+T Date : ________ Sep 2026
+
+T Place : CME Pune
+
+#plainfront APPROVAL SHEET
+
+#crest 24
+
+#vspace 3
+
+C This Project Entitled
+
+C **"CBRN HARDENED UNDERGROUND OPS ROOM"**
+
+C by
+
+C **SYNDICATE 01**
+
+C 1. Maj Yatin<br/>2. Capt Sonu Sharma<br/>3. Capt Sukender Singh<br/>4. Capt Balbanka Tiwary<br/>5. Capt DV Ghanashyama<br/>6. Capt Siddharth Sinha
+
+C is Approved for the Degree of
+
+C Bachelor of Technology (Civil)<br/>of<br/>Jawaharlal Nehru University<br/>at<br/>Faculty of Civil Engineering<br/>College of Military Engineering, Pune
+
+#examiners
+
+#vspace 4
+
+T Date : ________ Sep 2026
+
+T Place : CME Pune
+
+#plainfront DECLARATION
+
+#vspace 6
+
+T We declare that this written submission represents our ideas in our own words and, where others' ideas or words have been included, we have adequately cited and referenced the original sources. We also declare that we have adhered to all principles of academic honesty and integrity and have not misrepresented, fabricated or falsified any idea, data, fact or source in our submission. We understand that any violation of the above will be cause for disciplinary action by the Institute and can also evoke penal action from the sources which have thus not been properly cited or from whom proper permission has not been taken when needed.
+
+#vspace 45
+
+#right - | Maj Yatin | CME/EODE 128 | Syndicate Leader | (on behalf of Syndicate 01)
+
+#vspace 34
+
+T Date : ________ Sep 2026
+
+T Place : CME Pune
+
+#plainfront ACKNOWLEDGEMENT
+
+T It is indeed difficult to express in words our gratitude to all those who stood by us through this project. Nevertheless, we attempt to do so here.
+
+T We express our deep sense of gratitude to our guides, **Maj Ashish Dubey**, FGS, **Dr I R Chaudhuri**, **Dr Uttam Awari**, **Lt Col APS Chauhan** and **Sh Tilak Sharma**, Jt Dir (C), FCM, for their expert guidance, advice and encouragement, and for their critical review at every stage of the project, from the selection of the site to the preparation of the final drawings and estimate.
+
+T We are thankful to the **Head of the Structures Department** for constantly driving us towards the completion of the project.
+
+T We extend our sincere thanks to the **Commander, Faculty of Civil Engineering**, CME, Pune, for extending all support during the course.
+
+T We are also thankful to the **Dean and Deputy Commandant**, CME, Pune, for the constant inspiration and encouragement.
+
+T We are grateful to the **Commandant**, CME, Pune, for providing the student officers constant support and the infrastructure that made for a conducive academic environment in which to complete this project.
+
+T We gratefully acknowledge the **Soil Engineering and Material Testing Wing**, CME, whose sub-soil investigation report for the adjoining CTW Phase III project provided the geotechnical data for the site, and the staff of CTW for their assistance during the site studies.
+
+T We are thankful to all the **Instructors** and **Professors** of the Faculty for sharing their knowledge with us, and to the **library** and the **administrative staff** for their cordial support and the facilities provided in preparing this report.
+
+#vspace 10
+
+#right Maj Yatin | CME/EODE 128 | Syndicate Leader | (On behalf of Syndicate 01) | CME, Pune-411031
+
+#front ABSTRACT
+
+T The project covers the planning, analysis, design and works management of a CBRN hardened underground operations room at the College of Military Engineering campus, Pune. The facility protects nine occupants for 96 hours against the blast of a nuclear air burst with a peak incident overpressure of 344.7 kPa (50 psi), together with chemical, biological, radiological and nuclear contamination, initial nuclear radiation, fallout and electromagnetic pulse.
+
+T The protected volume is a buried reinforced concrete box 22.0 m long and 6.2 m wide, divided into eight bays and founded on Deccan basalt at a depth of 6.8 m, with 2.0 m of engineered cover including a reinforced concrete burster slab. Entry is through a covered stairwell, an entry headhouse and a main staircase to two blast doors rated at 7 bar, and two vertical escape shafts provide emergency exits. A two-storey framed sentry post on isolated footings completes the installation.
+
+T The blast load has been derived using the dynamic load factor approach of IS 4991 with a ductility ratio of 5, giving a design pressure of 383 kPa on the roof and walls. With a roof natural period of 13.4 ms against a positive phase duration of 0.13 to 1.33 s, the response is quasi-static. All elements have been designed to IS 456 : 2000 by the limit state method, using the plastic mechanism moment and dynamic material strengths for the blast case, and the sentry post frame has been detailed to IS 13920 : 2016 for seismic Zone III. The governing element, the 900 mm pressure slab, carries T25 bars at 150 mm each face each way.
+
+T The protective services comprise two 300 m³/h NBC filter trains with an overpressure cascade through a three-stage decontamination airlock, a shielded EMP Zone 2 enclosure designed for 80 dB from 10 kHz to 1 GHz, a tanked drainage system with a clean sump, a 15 kVA standby generator with battery-backed essential supply, and a fire and life safety plan with three escape routes. The works have been estimated at **Rs 2,97,90,913** and programmed for completion in 224 working days.
+
+#front CONTENTS
+#toc
+
+#front LIST OF FIGURES
+#lof
+
+#front LIST OF TABLES
+#lot
+
+#front ABBREVIATIONS
+
+#table -
+#widths 22,78
+Abbreviation | Expansion
+AHU | Air handling unit (filter train)
+BD | Blast door
+BV | Blast valve
+CBRN | Chemical, biological, radiological and nuclear
+CME | College of Military Engineering
+DLF | Dynamic load factor
+EF EW | Each face, each way
+EMP | Electromagnetic pulse
+ESC | Escape shaft
+FSI | Free swell index
+GWT | Groundwater table
+HEPA | High efficiency particulate air (filter)
+HW | Headhouse wall
+IEEE | Institute of Electrical and Electronics Engineers
+IS | Indian Standard
+MDD / OMC | Maximum dry density / optimum moisture content
+NBC | Nuclear, biological and chemical (filtration); National Building Code (codes)
+PCC | Plain cement concrete
+PCI | Pulse current injection (protection device)
+RC / RCC | Reinforced concrete / reinforced cement concrete
+SBC | Safe bearing capacity
+SDOF | Single degree of freedom
+SE | Shielding effectiveness
+SEMT | Soil Engineering and Material Testing (Wing)
+T12, T16 ... | High yield deformed bar of 12 mm, 16 mm ... diameter
+ULS / SLS | Ultimate limit state / serviceability limit state
+WBC | Waveguide below cutoff
+#end

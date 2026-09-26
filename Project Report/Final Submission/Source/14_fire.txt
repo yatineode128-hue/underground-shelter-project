@@ -1,0 +1,78 @@
+#chapter FIRE AND LIFE SAFETY | (FIRE STRATEGY, COMPARTMENTATION AND EVACUATION PLAN)
+
+#head Fire Strategy
+
+P1 Basis | The shelter is a sealed underground volume of 332.8 m³ supplied with 300 m³/h of filtered air, about 0.9 air changes per hour, and it has no smoke vent, since every opening in the envelope is a blast valve or a blast door. The fire strategy is therefore to prevent fires, to detect them early, to extinguish them while they are small, and to evacuate by a route away from the fire if a fire cannot be controlled.
+
+P1 Features of the Design | The following features of the design support the strategy:-
+
+P2 Generator Compartment | The largest fire load, the generator with its fuel and exhaust, is in bay 8 behind Blast Door 2 in the 400 mm wall W7, separated from the occupied bays by the stair shaft.
+
+P2 Separate Ventilation | Bay 8 has its own air path of 2 600 m³/h through BV-4 and BV-5, which does not connect with the gas-tight envelope, so that a generator fire is ventilated away from the occupied bays.
+
+P2 Escape from Dead Ends | The two end bays, bays 1 and 8, each contain an escape shaft, so that no occupant is in a dead end without a way out.
+
+P2 Short Travel | The longest travel distance to the primary route is about 14.6 m.
+
+P1 Fire Load | The fire loads in the shelter are given in Table 14.1.
+
+#table Fire Load
+#widths 12,30,58
+#align C,L,L
+Bay | Fire Load | Measures
+8 | Generator, fuel system and exhaust | Separate compartment behind BD 2; separate ventilation; bunded day tank
+5 | CBRN filter trains (activated carbon) | Separated from the airlock by the fire and gas-tight wall W5 with door D-05
+3 | Operations room, EMP Zone 2 enclosure | Electronic equipment and cabling; detection
+4 | Berthing, 9 berths | Bedding and personal effects
+1 | Stores | Detection
+#end
+
+P1 Compartmentation | Bays 1 to 6 form one smoke compartment 20.8 m long, since the four W8 partitions are non-structural and have permanent 900 mm openings. Blast Doors 1 and 2, and wall W5 with door D-05, are the fire barriers within the shelter.
+
+P1 Detection and Lighting | A fire detection and alarm panel and maintained emergency lighting are provided on the essential board and are supplied from the battery if both the mains and the generator fail.
+
+P1 Water | The 1 000 litre tank in bay 1 is the 96-hour potable water supply for the occupants and is not used as firefighting water except on the orders of the commander.
+
+#head Evacuation Plan
+
+P1 Escape Routes | Three escape routes are provided, as given in Table 14.2 and Fig 14.1.
+
+#table Escape Routes
+#widths 12,50,38
+#align C,L,L
+Route | Path | Exit
+R1 (primary) | Any bay, along the spine, through Blast Door 1 into the stair shaft, up the main staircase (24 risers, 1 200 mm wide) | Headhouse at (-)2.000, then up the covered stairwell (12 risers) to the entry door at grade
+R2 | Escape shaft ESC 1 in bay 1, 1 400 mm diameter, ladder | Head at +0.150; climb 6.250 m
+R3 | Escape shaft ESC 2 in bay 8, 1 400 mm diameter, ladder | Head at +0.700; climb 6.800 m
+#end
+
+T R1 is the primary route and the only one that does not require a climb; it is the route for an injured person. R2 and R3 are emergency exits.
+
+P1 Choice of Route | The route to be used depends on the location of the fire, as given in Table 14.3.
+
+#table Route Decision Rule
+#widths 26,22,52
+Fire in | Route | Reason
+Bay 8, generator | R1, or R2 if the spine is smoke-logged | Blast Door 2 shut; bay 8 separately ventilated; ESC 2 is within the fire compartment and is not used
+Bays 1 to 6 | R1 if the route to bay 7 is clear; otherwise R2 from the west end, R1 or R3 from the east end | Bays 1 to 6 form one smoke compartment
+Bay 7, stair shaft | R2 or R3 | The primary route is affected; both blast doors shut
+Headhouse or stairwell | R2 or R3 | The surface end of R1 is affected
+#end
+
+#fig fig_fire_egress | Fire and Egress, Escape Routes and Decision Rule
+
+P1 Immediate Actions | On discovering a fire the following actions are taken:-
+
+P2 | The alarm is raised.
+
+P2 | The fire is attacked while it is small, provided the route behind the person is clear.
+
+P2 | The blast door between the occupants and the fire is shut.
+
+P2 | The generator is stopped if the fire is in bay 8 or its origin is not known.
+
+P2 | The occupants evacuate by the route given in Table 14.3, without passing the fire to reach a preferred route.
+
+P2 | A roll call of the nine occupants is taken at the exit.
+
+P1 Fire Party | With nine occupants, every occupant forms part of the fire party and is practised in the fire drill and the use of the escape routes and shaft ladders.

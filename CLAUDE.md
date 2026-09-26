@@ -1,7 +1,8 @@
 # CLAUDE.md — project operating guide
 
 Underground CBRN-hardened blast-resistant protective structure + sentry post, Pune.
-B.E. Civil capstone, designed for actual construction.
+B.Tech (Civil) capstone, CME Pune (affiliated to JNU; owner ruling, master H.44.11 — previously
+recorded as B.E. Civil), designed for actual construction.
 
 ## Authority
 
@@ -47,7 +48,25 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
+- Latest revision: **PR3** (25 Sep 2026, master **H.44**) — the **final-submission project report**,
+  `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, in the
+  owner's service-writing layout (now in the CME Appx 'C' format, PR3F), WM3 cost only.
+  **By instruction it omits the open-item register — it closes nothing; K.1b stands.** Edit
+  `Source/*.txt` and re-run `Scripts/sw_render.py`. No design value moved. Amended **PR3B**
+  (H.44.10): P1-deck site slides in Chapter 2 (`Images/`), Appendix C = sheets 01–15 only,
+  syndicate and guides named. **The guide is *Dr I R Chaudhuri* (owner ruling); the drawing
+  title blocks still read CHAUDHARI and were not regenerated.**
+  Amended **PR3C** (H.44.11): front pages as a CME sample (no border), Appendix C says the
+  drawings are a separate A3 spiral book, and two hard covers from `Scripts/sw_covers.py`.
+  Amended **PR3D** (H.44.12): STAAD.Pro captures in Chapter 6 (`Images/STAAD/`). **Read
+  `PR3D-F1` before touching the sentry post** — the owner's STAAD captures are of a different
+  model from `Sentry_Post_Framed_Seismic.std`; and the MS1 peak does **not** converge.
+  Amended **PR3E** (H.44.13): the red frame is drawn on the first page only.
+  Amended **PR3F** (H.44.14): **the course format, Appx 'C', governs the report** — Times New
+  Roman 12, 1.5 lines, margins 37.5/25/25/25 mm, titles in sentence case numbered 3.1 / 3.1.1,
+  page number centred. The editable `.docx` is built by `Scripts/sw_word.py` from the same
+  source; the PDF is the submission copy.
+  Before it: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
   presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
   plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,
   the owner's own sheets 1 and 2, same views and scales, **every dimension and level brought

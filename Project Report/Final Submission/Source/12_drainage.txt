@@ -1,0 +1,117 @@
+#chapter WATER SUPPLY, DRAINAGE AND SEWAGE | (WATER BALANCE, INTERNAL DRAINAGE, SUMP, SEPTIC TANK AND OPERATING PROCEDURE)
+
+#head Principles
+
+P1 Tanked Structure | The underground structure is tanked, not drained. Four rules follow from this and govern the whole drainage design:-
+
+P2 Nothing through the Roof | No rainwater outlet, vent or soil stack passes through the 2.0 m cover, which would breach both the radiation shield and the roof membrane. There is no downpipe on the buried roof.
+
+P2 One Service Crossing | All pipes and cables cross the envelope through the service entry plate on the north wall (X 11398 - 12198). The rising main from the sump uses it, and no other drainage penetration is made.
+
+P2 Three Separate Streams | Clean water (seepage and condensate) goes to the storm soakaway; peacetime foul water goes to the septic tank and soak pit; decontamination effluent goes to a holding tank and is removed by tanker. The streams are never combined.
+
+P2 Safety | No failure of the drainage may block an escape route, breach the envelope or flood an entrance.
+
+P1 Water Supply | Potable water for the 96-hour occupation is stored in a 1 000 litre tank in bay 1, giving 27.8 litres per person per day. In peacetime the installation is supplied from the campus water supply.
+
+#head Water Balance
+
+P1 Daily Flows | The flows to be handled are given in Table 12.1.
+
+#table Daily Water Balance
+#widths 24,30,14,32
+#align L,L,R,L
+Source | Basis | Rate | Held in / Discharged to
+Structural seepage | 0.5 l/m²/day x 401 m² | 200 l/day | Clean sump SU-01 (3 375 l), then storm soakaway SK-02
+Condensate and washdown | Dehumidifier DH-1, through a 75 mm seal trap | 200 l/day | Clean sump SU-01, then storm soakaway SK-02
+Foul water, peacetime | 10 users x 45 lpcd | 450 l/day | Septic tank ST-01 (1 125 l), then soak pit SK-01
+Decontamination effluent | Airlock stages 1 and 2, on use | On use | Tank TK-01 (1 000 l), removed by tanker
+Stairwell surface water | Approach and stairwell | 0.10 l/s | Sump SU-02 (1.0 m³), then soakaway SK-03
+#end
+
+P1 Seepage Area | The seepage allowance is applied to the external envelope below the design water table.
+
+#calc
+Submerged wall height (-)2.000 to (-)6.700 ;; 4.700 m
+Perimeter 2 x (22.0 + 6.2) = 56.40 m; wall area 56.40 x 4.700 ;; 265.08 m²
+Mat underside 22.0 x 6.2 ;; 136.40 m²
+Total 401.48 m² x 0.5 l/m²/day ;; 200 l/day
+!Storage of the clean sump against the inflow = 3 375 / 400 ;; 8 days
+#end
+
+T The clean sump holds eight days of inflow without pumping, four times the 48-hour closed-mode period.
+
+#head Internal Drainage
+
+P1 Floor Drainage | The design of the internal drainage is given in Table 12.2. With a flow of 0.0046 l/s against a pipe capacity of 6.72 l/s, the drains are sized by minimum bore and self-cleansing velocity, not by flow.
+
+#table Internal Drainage
+#widths 28,72
+Item | Provision
+Floor falls | 1 in 80 in wet areas, 1 in 100 elsewhere; spine fall 1 in 400 to the sump along Y 3100
+Falls formed in | Floor screed, 25 mm at the sump edge to 78 mm at the far corner (average 52 mm)
+Gravity drains | DN100 minimum at 1 in 100 minimum; capacity 6.72 l/s at 0.85 m/s
+Traps | 75 mm deep seal, primed
+Rising main | DN50, 0.76 m/s at 1.5 l/s; welded or flanged, no push-fit joint within the envelope
+Airlock | Falls 1 in 80 to separate gullies; 50 mm upstand at W5 and at Blast Door 1
+#end
+
+P1 Trap Seals | The trap seals also resist the internal overpressure, as given in Table 12.3.
+
+#table Trap Seal Depth against Overpressure
+#widths 25,25,25,25
+#align C,C,C,C
+Seal Depth | Holds | Against +100 Pa | Against +300 Pa
+50 mm | 491 Pa | 4.9 : 1 | 1.6 : 1
+75 mm (adopted) | 736 Pa | 7.4 : 1 | 2.5 : 1
+100 mm | 981 Pa | 9.8 : 1 | 3.3 : 1
+#end
+
+P1 Clean Sump SU-01 | The clean sump is 1 500 x 1 500 x 1 500 mm internally (3.375 m³), with its invert at (-)7.600, and is cast monolithic with the mat. It has two submersible pumps, PU-01 (duty) and PU-02 (standby), each of 1.5 l/s, alternating automatically, and a hand pump PU-03 that needs no power. The control levels above the invert are: stop +300, start +900 and high-level alarm +1 200 mm. The duty pump starts about once in 3.4 days and runs for about 15 minutes, and the standby pump and the hand pump are therefore tested monthly.
+
+#head Sewage
+
+P1 Septic Tank | In the protective modes sealed-cassette chemical toilets are used and nothing is discharged. The septic tank serves the installation in peacetime and is designed to IS 2470 (Part 1).
+
+#calc
+Design population 10; 45 lpcd ;; 450 l/day
+Required capacity: 450 l detention (24 h) + 600 l sludge ;; 1 050 l
+!Provided 1.5 x 0.75 x 1.0 m liquid depth ;; 1 125 l (+7.1 %)
+L / B = 2.0; width 750 mm; freeboard 300 mm; overall depth 1.30 m ;; OK
+#end
+
+T The tank has two compartments with a baffle at two-thirds of the length, inlet and outlet tees and a 50 mm cowled vent carried at least 2 m above grade.
+
+P1 Soak Pit | The effluent from the septic tank is dispersed through soak pit SK-01, 2.200 m in diameter with an effective depth of 3.500 m, giving a side area of 24.19 m² against 22.5 m² required at an absorption rate of 20 l/m²/day. The pit is filled with 40 - 80 mm brickbat or stone, capped with 300 mm of sand and covered with an RC slab. A percolation test to IS 2470 (Part 2) Cl. 4 is carried out at the location before construction. The storm soakaway SK-02 uses the same detail.
+
+#fig fig_septic_soakpit | Septic Tank and Soak Pit
+
+P1 Decontamination Effluent | Effluent from airlock stages 1 and 2 is collected in the 1 000 litre tank TK-01 and is removed by tanker. It is never discharged to the ground.
+
+#head Operating Procedure
+
+P1 Streams in each Mode | The disposal of each stream in each operating mode is given in Table 12.4.
+
+#table Disposal of Water in each Operating Mode
+#font 9
+#widths 20,16,16,16,16,16
+Stream | Peacetime | Protective | Closed | Purge | Recovery
+Seepage and condensate | Sump, pumped | Sump, pumped | Sump, pumped | Sump, pumped | Sump, pumped
+Foul water | Septic tank | Sealed cassette | Sealed cassette | Sealed cassette | Septic tank
+Decontamination effluent | None | TK-01, tanker | None | TK-01, tanker | TK-01, tanker
+Stairwell surface water | SU-02, soakaway | SU-02, soakaway | Outside envelope | SU-02, soakaway | SU-02, soakaway
+#end
+
+P1 Changeover on Warning | On receipt of warning the following actions are taken:-
+
+P2 | The lavatory is changed over to sealed-cassette chemical toilets.
+
+P2 | Every trap is checked to be primed.
+
+P2 | The clean sump is pumped down to its stop level.
+
+P2 | Pumps PU-01 and PU-02 are confirmed on the essential board and the changeover is tested.
+
+P1 Closed Mode | Seepage and condensate continue to arrive at about 400 litres per day with all blast valves shut, and the clean sump pump remains on the essential supply at about 10 per cent duty. If the power fails the standby pump is started, and if both pumps are unserviceable the hand pump is used. No opening is made in the envelope to drain water.
+
+P1 Recovery | After the all-clear, the foul drainage is restored only after the ground outside has been checked, TK-01 is emptied before decontamination is resumed, the trap seals are checked while the envelope is still pressurised, the standby pumps and hand pump are tested, and the volume pumped during the closed period is recorded as a measure of the actual seepage.

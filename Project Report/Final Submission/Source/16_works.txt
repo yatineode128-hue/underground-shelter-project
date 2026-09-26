@@ -1,0 +1,135 @@
+#chapter WORKS MANAGEMENT | (CONSTRUCTION METHODOLOGY, QUANTITIES, COST ESTIMATE AND PROGRAMME)
+
+#head General
+
+P1 Scope | The works management of the project covers the construction methodology, the quantities of the principal materials, the bill of quantities, the cost estimate, the master construction programme, quality control, procurement and safety. The estimated cost of the works is **Rs 2,97,90,913** and the works are programmed for completion in 224 working days.
+
+#head Construction Methodology
+
+P1 Sequence of Construction | The works are executed in the following sequence:-
+
+P2 Initial Works | Site clearance, removal of shrubs, water and electricity provision, setting out and checking, and the confirmatory boreholes.
+
+P2 Excavation | Stripping and stockpiling of topsoil; excavation of the soil cap with the batter; excavation of rock by hydraulic breaker to formation at (-)6.800, with the sump pit to (-)8.000; continuous dewatering; trimming and inspection of the formation, with any weak seam replaced by M15 concrete.
+
+P2 Foundation | Anti-termite treatment; 100 mm PCC blinding; horizontal tanking membrane with protection screed; mat reinforcement in two curtains with the link grid, wall starters, sump pit and cast-in items; and the mat and sump cast in a single continuous pour.
+
+P2 Walls | Perimeter walls and walls W5 to W7 in two lifts, with waterstops and EMP straps at the construction joints and the blast door frames, blast valve sleeves and service entry plate welded to the cage before concreting.
+
+P2 Pressure Slab | Falsework to the 3.2 m soffit; T25 reinforcement in both curtains with the links, trimmers and escape shaft collars; the 900 mm slab cast in a single continuous pour of about 112 m³; curing for 14 days and props retained for a further 14 days.
+
+P2 Tanking and Backfill | Vertical tanking of the walls and roof membrane with protection screed, each inspected before it is covered; backfill placed symmetrically in layers compacted to 95 per cent of MDD (IS 2720 Part 28); relief plugs in the mat grouted after backfilling.
+
+P2 Engineered Cover | Compacted engineered fill laid to falls, basalt rubble, the 200 mm burster slab, granular filter and turf, in that order.
+
+P2 Headhouse, Stairwell and Sentry Post | Headhouse walls and roof, covered entry stairwell with its raft on replaced granular fill, and the sentry post footings, frame and brickwork.
+
+P2 Services and Finishes | Filter trains, blast valves, generator, drainage and pumps, electrical installation, EMP Zone 2 enclosure, finishes, doors and hatches.
+
+P2 Testing and Commissioning | Envelope leakage test at +300 Pa, IEEE Std 299 survey of the Zone 2 enclosure, commissioning of all services and hand-over.
+
+P1 Critical Operations | The two single pours (the mat with the sump, and the pressure slab) have no construction joint to fall back on. Each is carried out to a written pour plan with standby batching and pumping plant and a second source of supply, and is not started unless the whole pour can be completed.
+
+#head Quantities
+
+P1 Concrete | The quantities of concrete are given in Table 16.1.
+
+#table @concrete Quantity of Concrete
+#widths 10,60,12,18
+#align C,L,C,R
+#end
+
+P1 Reinforcement | The quantity of reinforcement is given in Table 16.2.
+
+#table @steel Quantity of Reinforcement (Fe500D)
+#widths 10,46,20,24
+#align C,L,R,R
+#end
+
+#head Bill of Quantities and Cost Estimate
+
+P1 Bill of Quantities | The bill of quantities has been prepared in five parts, as given in Table 16.3. The rates include materials, and the labour deployed on each item is priced separately in the amount. The complete bill is placed at Appendix B.
+
+#table @parts Abstract of the Bill of Quantities
+#widths 10,56,12,22
+#align C,L,C,R
+#end
+
+P1 Cost Estimate | The final project cost has been worked out by adding the cost heads to the total basic cost, as given in Table 16.4.
+
+#table @cost Cost Estimate
+#widths 10,48,20,22
+#align C,L,L,R
+#end
+
+T The estimated cost of the project is **Rs 2,97,90,913 (Rupees Two Crore Ninety Seven Lakh Ninety Thousand Nine Hundred and Thirteen only)**.
+
+P1 Distribution of Cost | Parts IV and V, the reinforcement and the protective equipment, account for about 70 per cent of the basic cost. The single largest items are the two NBC filter trains (Rs 37.73 lakh), the two blast doors (Rs 25.50 lakh) and the pressure slab reinforcement (Rs 20.11 lakh).
+
+#head Construction Programme
+
+P1 Programme Parameters | The master construction programme has been prepared with the following parameters:-
+
+P2 Duration | 224 working days, from 02 November 2026 to 26 July 2027.
+
+P2 Working Week | Six days a week, with a relaxation of three days a month during the monsoon.
+
+P2 Milestones | Substructure complete by 18 December 2026; superstructure complete by 26 March 2027; hand-over on 26 July 2027.
+
+P1 Master Construction Schedule | The summary of the master construction schedule is given in Table 16.5.
+
+#table @programme Master Construction Schedule (Summary)
+#widths 8,56,12,12,12
+#align C,L,C,C,C
+#end
+
+P1 Monsoon | The excavation, the substructure and the backfill are programmed for completion between November and February, in the dry season, so that the box is complete and backfilled before the monsoon, which is the condition assumed in the flotation check (Chapter 7).
+
+#head Procurement
+
+P1 Long-Lead Items | The protective equipment is procured from specialist suppliers. The blast doors, blast valves, filter trains, EMP Zone 2 enclosure, generator, escape hatches, armoured vision panels and pumps are ordered immediately after award of the work. The blast door frames and the blast valve sleeves are required first, since they are welded into the W6, W7 and perimeter wall cages before those walls are cast.
+
+P1 Specification of Protective Items | Each protective item is procured with a type test certificate: blast doors for 7 bar with rebound, blast valves for closure in less than 2 ms, HEPA filters to EN 1822 H14, carbon beds for 300 000 mg.min/m³, the honeycomb panel with a certified attenuation curve for the complete panel, and the PCI devices to MIL-STD-188-125-1.
+
+#head Quality Control
+
+P1 Hold Points | Work does not proceed beyond the hold points given in Table 16.6 until the inspection has been carried out and the work accepted.
+
+#table Hold Points
+#widths 8,40,52
+#align C,L,L
+No | Hold Point | Reason
+1 | Formation, before blinding | Last sight of the founding rock; weak seams found and replaced
+2 | Horizontal tanking, before the protection screed | The membrane under the mat cannot be reached again
+3 | Mat reinforcement, cover and cast-in items | 75 mm bottom cover; sleeves, earth pits and EMP straps
+4 | Wall reinforcement, lifts 1 and 2 | Blast door frames and sleeves welded to the cage
+5 | Pressure slab before concreting | Governing element, single pour, T25 at 150 in both curtains
+6 | Headhouse walls and roof | Most highly utilised element (90 %)
+7 | Vertical tanking, before backfilling | The external face is seen only once
+8 | Roof membrane integrity test, before the cover | 2 m of cover is placed over it permanently
+9 | Sentry post founding stratum, footings, slabs and masonry | Footings on in-situ rock; masonry before plastering
+10 | Trial mix and admixtures (IS 10262, IS 2645) | Before the first structural pour
+11 | Envelope leakage test at +300 Pa | Acceptance of the gas-tight envelope
+12 | IEEE Std 299 survey of the Zone 2 enclosure | Before any equipment is installed
+#end
+
+P1 Tests | In addition, the following tests are carried out: cube tests of every pour at 7 and 28 days; slump at the point of placing; cover checks before every pour; compaction of backfill to 95 per cent of MDD (IS 2720 Part 28); electrical continuity of the cage across every construction joint and cast-in frame; and the percolation test at the soak pit location.
+
+#head Safety
+
+P1 Safety Measures | The principal hazards and the measures against them are given in Table 16.7.
+
+#table Safety Measures
+#widths 30,70
+Hazard | Measures
+Deep excavation (6.8 m) | Soil cap battered not steeper than 1 : 1; edge protection and barricading; ladders at the working face; daily inspection of the face, especially after rain
+Rock breaking | Hydraulic breaker only, no blasting; dust suppression by water; hearing protection; exclusion zone around the machine
+Dewatering | Standby pump and generator; discharge through a settling pit
+Heavy reinforcement and formwork | Designed falsework for the 900 mm slab; props retained for 14 days after curing; safe access to the deck
+Confined spaces (sump, shafts, enclosure) | Permit to work, gas testing and forced ventilation before entry
+Welding and hot work | Hot work permit, fire watch and extinguishers, particularly inside the steel enclosure
+Lifting of heavy items | Lifting plan for blast doors, hatches, filter trains and generator
+Work at height | Guard rails at the stair void and shaft heads; harness during ladder installation
+#end
+
+P1 Testing and Commissioning | On completion, every service is tested and commissioned, the envelope leakage test and the Zone 2 survey are carried out, the operating procedures and drills are handed over, and the installation is handed over to the user.

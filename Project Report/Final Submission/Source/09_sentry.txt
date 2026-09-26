@@ -1,0 +1,225 @@
+#chapter DESIGN OF THE SENTRY POST | (SLAB, BEAMS, COLUMNS, FOOTINGS, LINTELS AND WALL TIES)
+
+#head General
+
+P1 Design Basis | The sentry post is an observation post outside the protective boundary. It has been designed as a conventional reinforced concrete moment-resisting frame for gravity, seismic and wind loads, to IS 456 : 2000, IS 1893 (Part 1) : 2016 and IS 13920 : 2016, in M30 concrete with Fe500 reinforcement. All members are designed for the base shear of 73.18 kN.
+
+P1 Blast | The post is not designed for blast. The reflected pressure of 1 366 kPa on its 4.0 x 6.7 m face amounts to about 36 600 kN, and resisting it would need about 700 mm of reinforced concrete on all four above-ground faces, which is not justified for a peacetime observation post. The protection of the shelter does not depend on the post in any way.
+
+#fig fig_sentry_post | Sentry Post, Two-Storey RC Frame on Isolated Footings
+
+#head Slab S1 (150 mm, Two-Way)
+
+P1 Design | The slab is a two-way panel on beams at both floors, designed for the first-floor load of 11.625 kPa, which governs.
+
+#calc
+Cover 30 mm, T8 bars: d<sub>x</sub> = 150 - 30 - 4 = 116 mm; d<sub>y</sub> = 150 - 30 - 8 - 4 = 108 mm
+l<sub>x</sub> = min (3 400 + 116, 3 650) = 3 516 mm; l<sub>y</sub> = min (4 400 + 108, 4 650) = 4 508 mm
+l<sub>y</sub> / l<sub>x</sub> = 1.282 < 2 ;; Two-way
+IS 456 Table 26, Case 9 (four edges discontinuous, corners restrained): α<sub>x</sub> = 0.0777, α<sub>y</sub> = 0.056
+M<sub>x</sub> = 0.0777 x 11.625 x 3.516² ;; 11.17 kNm/m
+M<sub>y</sub> = 0.0560 x 11.625 x 3.516² ;; 8.05 kNm/m
+A<sub>st</sub> required: x 229, y 176 mm²/m; minimum 0.12 % x 150 = 180 mm²/m
+!Provided T8 @ 150 both ways bottom (335 mm²/m), M<sub>u</sub> = 16.09 / 14.92 kNm/m ;; Utilisation 69 % / 54 %
+Deflection: l<sub>x</sub>/d<sub>x</sub> = 30.3 < 20 x 1.68 = 33.6 (taken as simply supported) ;; OK
+Shear: V<sub>u</sub> = 13.6 kN/m, τ<sub>v</sub> = 0.117 < 1.30 x 0.390 = 0.507 N/mm² ;; OK
+#end
+
+P1 Detailing | The slab is detailed to IS 456 Annex D as given in Table 9.1. The corner torsion steel is essential to the use of the Table 26 coefficients and is inspected before concreting.
+
+#table Detailing of Slab S1
+#widths 18,50,32
+Clause | Requirement | Provided
+D-1.4 | 50 % of mid-span bottom steel to within 0.1 L of the edge; the rest curtailed at 0.25 L | As required
+D-1.6 | Top steel at discontinuous edges, 50 % of mid-span steel, 0.1 L into the span | T8 @ 300 top, 400 mm band, all four edges
+D-1.8 | Corner torsion steel, 3/4 of mid-span steel, four layers, over l<sub>x</sub>/5 | T8 @ 200 in four layers, 700 x 700 at every corner
+#end
+
+#head Beam B1 (250 x 450, Span 3 650)
+
+P1 Section | The section satisfies the limits of IS 13920 Cl. 6.1: b = 250 ≥ 200 mm, b/D = 0.556 ≥ 0.3 and clear span / D = 3 300 / 450 = 7.33 ≥ 4.
+
+P1 Flexure | The support moments under the load combinations are given in Table 9.2. The seismic moment at the first-floor joint is 51.96 kNm.
+
+#table Beam B1, Support Moments (kNm)
+#widths 60,40
+#align L,R
+Combination | Hogging Moment
+1.5 (DL + LL) | 29.8
+1.2 (DL + LL + EL) = 1.2 (19.87 + 51.96) | 86.2
+1.5 (DL + EL) = 1.5 (17.01 + 51.96) | 103.5 (governs)
+0.9 DL + 1.5 EL | 93.2
+#end
+
+#calc
+d = 450 - 30 - 8 - 8 = 404 mm; M<sub>u,lim</sub> = 0.133 x 30 x 250 x 404² ;; 162.8 kNm
+M<sub>u</sub> = 103.5 kNm < 162.8, A<sub>st</sub> required ;; 661 mm²
+!Top at supports: 4-T16 (804 mm²), M<sub>u</sub> = 122.6 kNm, x<sub>u</sub>/d = 0.321 ;; Utilisation 84 %
+Reversal 1.5 (17.01 - 51.96) = 52.4 kNm sagging, A<sub>st</sub> 313 mm²
+IS 13920 Cl. 6.2.3, bottom ≥ 50 % of top = 0.5 x 804 ;; 402 mm² (governs)
+!Bottom: 2-T16 continuous (402 mm²), M<sub>u</sub> = 66.0 kNm ;; OK
+Minimum 0.24 √f<sub>ck</sub> / f<sub>y</sub> x b d = 266 mm²; maximum 2.5 % = 2 525 mm² ;; OK
+#end
+
+P1 Shear by Capacity Design | The design shear is the shear that accompanies the flexural capacity of the beam (IS 13920 Cl. 6.3.3), V<sub>u</sub> = 1.2 (D + L) L/2 ± 1.4 (M<sub>u</sub><sup>As</sup> + M<sub>u</sub><sup>Bh</sup>) / L.
+
+#calc
+Gravity: 1.2 x 80.1 / 2 ;; 48.1 kN
+Sway: 1.4 x (122.6 + 66.0) / 3.650 ;; 72.3 kN
+V<sub>u</sub> ;; 120.4 kN
+τ<sub>v</sub> = 1.192 N/mm² < τ<sub>c,max</sub> 3.50 N/mm² ;; OK
+Earthquake share = 72.3 / 120.4 = 60 % > 50 %, so τ<sub>c</sub> = 0 in the hinge zone (Cl. 6.3.4)
+A<sub>sv</sub>/s<sub>v</sub> = 120.4 x 10³ / (0.87 x 500 x 404) = 0.685 mm²/mm, i.e. T8 2-legged at 147 mm
+Hinge zone spacing ≤ min (d/4 = 101, 8 x 16 = 128), not less than 100 mm (Cl. 6.3.5) ;; 100 mm
+!Provided T8 2-legged hoops @ 100 over 2d = 810 mm from each face, @ 150 elsewhere ;; OK
+Deflection: l/d = 3 650 / 404 = 9.0 < 20 ;; OK
+#end
+
+#head Beam B2 (250 x 450, Span 4 650)
+
+P1 Flexure | The support moments of B2 are given in Table 9.3.
+
+#table Beam B2, Support Moments (kNm)
+#widths 60,40
+#align L,R
+Combination | Hogging Moment
+1.5 (DL + LL) | 56.3
+1.2 (DL + LL + EL) = 1.2 (37.51 + 51.96) | 107.4
+1.5 (DL + EL) = 1.5 (31.25 + 51.96) | 124.8 (governs)
+0.9 DL + 1.5 EL | 106.1
+#end
+
+#calc
+M<sub>u</sub> = 124.8 kNm < 162.8, A<sub>st</sub> required ;; 822 mm²
+!Top at supports: 3-T20 (942 mm²), M<sub>u</sub> = 139.8 kNm, x<sub>u</sub>/d = 0.376 ;; Utilisation 89 %
+Bottom ≥ 0.5 x 942 = 471 mm²; mid-span 49.6 kNm needs 297 mm²
+!Bottom: 2-T20 continuous (628 mm²), M<sub>u</sub> = 98.9 kNm ;; OK
+#end
+
+T Three T20 bars are used in place of five T16 bars, which would need 256 mm of width in the 250 mm beam.
+
+P1 Shear by Capacity Design | The design shear of B2 is worked out as for B1.
+
+#calc
+Gravity: 1.2 x 121.4 / 2 ;; 72.8 kN
+Sway: 1.4 x (139.8 + 98.9) / 4.650 ;; 71.9 kN
+V<sub>u</sub> = 144.7 kN; τ<sub>v</sub> = 1.433 N/mm² ;; OK
+Earthquake share 49.7 %; taken as 50 % and τ<sub>c</sub> = 0 in the hinge zone
+A<sub>sv</sub>/s<sub>v</sub> = 0.823 mm²/mm (T8 2-legged at 122 mm); hinge spacing limit 100 mm governs
+!Provided T8 2-legged hoops @ 100 over 810 mm from each face, @ 150 elsewhere ;; OK
+Deflection: l/d = 4 650 / 404 = 11.5 < 20 ;; OK
+#end
+
+#head Column C1 (350 x 350)
+
+P1 Slenderness and Loads | The columns are short and are designed for the axial loads and moments given below.
+
+#calc
+Clear height, ground storey = 3 650 - 450 - 450 = 2 750 mm; l<sub>ex</sub> = 1.2 x 2 750 = 3 300 mm
+l<sub>ex</sub> / D = 9.43 < 12 ;; Short column
+e<sub>min</sub> = l/500 + D/30 = 17.2, not less than 20 mm; M<sub>min</sub> = 5.5 kNm ;; Not critical
+Per column: DL 148.4 kN, LL 19.1 kN, seismic axial ±36.127 kN
+1.5 (DL + LL) = 251.3 kN; 1.5 (DL + EL) = 276.8 kN; 1.5 (DL - EL) = 168.4 kN
+#end
+
+P1 Longitudinal Steel | Eight T16 bars (1 608 mm², p = 1.31 per cent) are provided, distributed on all four faces, within the limits of 0.8 and 6 per cent (IS 456 Cl. 26.5.3.1). Clear cover is 40 mm and d′ = 56 mm (d′/D = 0.16). The uniaxial capacities have been computed from the IS 456 stress block and the Fe500 stress-strain curve.
+
+#calc
+Uniaxial capacity M<sub>u1</sub> at P<sub>u</sub> = 168.4 / 251.3 / 276.8 kN ;; 105.8 / 111.7 / 112.9 kNm
+P<sub>uz</sub> = 0.45 x 30 x 120 892 + 0.75 x 500 x 1 608 ;; 2 235 kN
+P<sub>u</sub> / P<sub>uz</sub> = 0.124 < 0.2, α<sub>n</sub> = 1.0 (IS 456 Cl. 39.6)
+Earthquake in Z with 30 % in X (IS 1893 Cl. 6.3.2.2): M<sub>ux</sub> = 25.6, M<sub>uy</sub> = 66.8 kNm
+!25.6 / 112.9 + 66.8 / 112.9 = 0.227 + 0.592 ;; 0.819 < 1.0, OK
+#end
+
+P1 Strong Column - Weak Beam | The check of IS 13920 Cl. 7.2.1, ΣM<sub>c</sub> ≥ 1.4 ΣM<sub>b</sub>, at the first-floor joints is given in Table 9.4.
+
+#table Strong Column - Weak Beam Check at the First Floor
+#widths 30,18,18,18,16
+#align L,R,R,R,C
+Joint | ΣM<sub>b</sub> (kNm) | 1.4 ΣM<sub>b</sub> (kNm) | ΣM<sub>c</sub> (kNm) | Check
+First floor, X direction (B1) | 122.6 | 171.6 | 112.9 + 101.0 = 213.9 | OK
+First floor, Z direction (B2) | 139.8 | 195.7 | 213.9 | OK
+#end
+
+P1 Transverse Reinforcement | The ties and the special confining reinforcement are designed as under.
+
+#calc
+General ties: diameter ≥ max (6, 16/4) = 8 mm; spacing ≤ min (350, 16 x 16 = 256, 300)
+IS 13920 Cl. 7.4: hoops over the full length at ≤ half the least dimension ;; 175 mm
+!Provided T8 hoops @ 150 outside the confining zone ;; OK
+Confining length l<sub>o</sub> ≥ max (350, 2 750 / 6 = 458, 450) ;; 500 mm
+Spacing ≤ 0.25 x 350 = 87.5, between 75 and 100 mm ;; 85 mm
+A<sub>sh</sub> = 0.18 s h (f<sub>ck</sub>/f<sub>y</sub>) [(A<sub>g</sub>/A<sub>k</sub>) - 1] = 0.18 x 85 x 270 x 0.06 x 0.680 ;; 168.5 mm²
+!Provided T10 hoops + one cross-tie each way @ 85, 3 legs x 78.5 = 235.5 mm², over 500 mm from every joint face and through the joint ;; OK
+Storey drift under the service seismic load < 3 mm against 0.004 h = 12.8 mm ;; OK
+#end
+
+#head Isolated Footing F1 (1 500 x 1 500 x 600)
+
+P1 Founding | The footings are founded on in-situ basalt at (-)2.000, below the black cotton soil horizon and clear of the backfill of the shelter excavation.
+
+P1 Base Pressure | The base pressures are worked out as under.
+
+#calc
+!Service
+P = 167.5 (column) + 36.1 (seismic axial) + 33.75 (footing) ;; 237.4 kN
+M = 29.3 kNm; e = 0.123 m < L/6 = 0.250 m ;; No tension
+q<sub>max</sub> = 105.5 (1 + 6 x 0.123 / 1.5) ;; 157.6 kPa
+Against 3 240 kPa (4.9 %) and the soaked rock value 1 961 kPa (8.0 %) ;; OK
+!Ultimate, 1.5 (DL + EL)
+P<sub>u</sub> = 1.5 (148.4 + 36.127) = 276.8 kN; M<sub>u</sub> = 1.5 x 29.27 = 43.9 kNm
+e<sub>u</sub> = 43.9 / 276.8 = 0.159 m < 0.250 m; average pressure 276.8 / 2.25 = 123.0 kPa
+q<sub>u,max</sub> = 123.0 (1 + 6 x 0.159 / 1.5) ;; 201.1 kPa
+#end
+
+P1 Design of the Base | The base is designed conservatively for the maximum pressure acting over the whole cantilever.
+
+#calc
+Cantilever from the column face = (1 500 - 350) / 2 ;; 575 mm
+M<sub>u</sub> = 201.1 x 0.575² / 2 ;; 33.2 kNm/m
+d = 600 - 50 - 8 ;; 542 mm
+A<sub>st</sub> required 142 mm²/m; minimum 0.12 % x 600 = 720 mm²/m ;; Minimum governs
+!Provided T12 @ 150 both ways bottom (754 mm²/m) ;; OK
+One-way shear at d from the face (33 mm from the edge): V<sub>u</sub> = 6.6 kN/m, τ<sub>v</sub> = 0.012 N/mm² ;; OK
+Punching at d/2 (IS 456 Cl. 31.6.1): b<sub>0</sub> = 4 x (350 + 542) = 3 568 mm
+V<sub>u</sub> = 276.8 - 123.0 x 0.892² = 178.9 kN; τ<sub>v</sub> = 0.093 N/mm² < 0.25 √30 = 1.369 N/mm² ;; OK
+Anchorage of column starters: L<sub>d</sub> (compression) = 37 x 16 = 592 mm; available 526 + 128 (bend) = 654 mm ;; OK
+#end
+
+T The 600 mm depth is governed by the anchorage of the column starter bars, not by bending or shear.
+
+#head Lintels and Wall Ties
+
+P1 Lintel L1 | One lintel type, L1, is used over all eleven openings in the sentry post (ground floor door D1 900 and window W1 1 200; first floor door D1 900 and eight vision-panel openings 1 200 wide). The lintel carries only the masonry above it, since the floors and roof are carried by beams B1 and B2.
+
+#calc
+Section 190 x 150, M30 / Fe500, cover 30, bearing 200 each end
+Effective span = min (clear + d, bearing centres) = min (1 315, 1 400) ;; 1.315 m
+Masonry height at the 60° arching limit = 0.866 x 1.315 ;; 1.139 m
+w = 0.190 x 20 x 1.139 ;; 4.33 kN/m
+M = 0.935 kNm, V = 2.85 kN; M<sub>u</sub> = 1.403 kNm against M<sub>u,lim</sub> = 10.03 kNm ;; 14 %
+A<sub>st</sub> required 29.5 mm²; minimum 0.85 b d / f<sub>y</sub> = 37.1 mm² ;; Minimum governs
+!Provided 2-T10 bottom (157 mm²), 2-T8 top, T6 2-legged links @ 150 ;; OK
+τ<sub>v</sub> = 0.195 < τ<sub>c</sub> 0.56 N/mm² ;; Nominal links only
+#end
+
+T The lintel has been designed for masonry standing just below the 60° arching height, which is the heaviest load any opening height can produce, so the design covers every opening in the post.
+
+P1 Wall Ties | The brick infill is tied to the columns with 6 mm mild steel ties at every fifth course (about 450 mm) up both column faces, projecting 200 mm into the bed joint and anchored to the column by a cast-in or drilled and grouted 10 mm dowel. The top course is built tight to the beam soffit and the joint packed, consistent with the response reduction factor of 3.0 adopted for a frame with unseparated infill.
+
+#head Summary
+
+P1 Reinforcement of the Sentry Post | The reinforcement of the sentry post is summarised in Table 9.5.
+
+#table Reinforcement of the Sentry Post
+#widths 20,20,60
+Member | Size (mm) | Reinforcement
+Slab S1 | 150 thick | T8 @ 150 both ways bottom; T8 @ 300 top at edges; T8 @ 200 corner mats in four layers
+Beam B1 | 250 x 450 | 4-T16 top at supports, 2-T16 bottom continuous; T8 2L @ 100 / 150
+Beam B2 | 250 x 450 | 3-T20 top at supports, 2-T20 bottom continuous; T8 2L @ 100 / 150
+Column C1 | 350 x 350 | 8-T16; T10 hoops + cross-ties @ 85 over 500 mm at joints; T8 @ 150 elsewhere
+Plinth beam PB | 250 x 400 | 3-T12 top + 3-T12 bottom
+Footing F1 | 1 500 x 1 500 x 600 | T12 @ 150 both ways bottom
+Lintel L1 (11 No.) | 190 x 150 | 2-T10 bottom, 2-T8 top, T6 2L @ 150
+#end
