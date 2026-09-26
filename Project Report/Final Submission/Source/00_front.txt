@@ -1,32 +1,94 @@
-#front CERTIFICATE
+#plainfront CERTIFICATE
 
-T This is to certify that the project report entitled **"CBRN Hardened Underground Ops Room"** is a bonafide record of the work carried out by **Syndicate 01**, comprising **Maj Yatin**, **Capt Sonu Sharma**, **Capt Sukender Singh**, **Capt Balbanka Tiwary**, **Capt DV Ghanashyama** and **Capt Siddharth Sinha**, Faculty of Civil Engineering, College of Military Engineering, Pune, in partial fulfilment of the requirements for the award of the degree of Bachelor of Engineering (Civil Engineering).
+C **COLLEGE OF MILITARY ENGINEERING, PUNE**
 
-T The work embodied in this report has been carried out under my guidance and supervision. The report is found satisfactory and is approved for submission.
+#vspace 8
 
-#vspace 38
+#crest 32
 
-#sign (Dr I R Chaudhuri) | Project Guide | Faculty of Civil Engineering || Head of Faculty | Faculty of Civil Engineering | College of Military Engineering, Pune
+#vspace 16
 
-#vspace 22
+T This is to certify that the project entitled **'CBRN HARDENED UNDERGROUND OPS ROOM'** submitted by six officers of Syndicate 01, in partial fulfilment of the requirements for the award of the degree of Bachelor of Technology (Civil) of College of Military Engineering, Pune, affiliated to the Jawaharlal Nehru University, New Delhi, is a record of their own work.
 
-T Place : Pune
+#vspace 34
 
-T Month : September 2026
+#cols SYNDICATE 01 | 1. Maj Yatin | 2. Capt Sonu Sharma | 3. Capt Sukender Singh | 4. Capt Balbanka Tiwary | 5. Capt DV Ghanashyama | 6. Capt Siddharth Sinha || GUIDES :- | 1. Maj Ashish Dubey, FGS | 2. Dr I R Chaudhuri | 3. Dr Uttam Awari | 4. Lt Col APS Chauhan | 5. Sh Tilak Sharma, Jt Dir (C), FCM
 
-#front ACKNOWLEDGEMENT
+#vspace 24
 
-T The syndicate expresses its sincere gratitude to its guides, **Maj Ashish Dubey**, FGS, **Dr I R Chaudhuri**, **Dr Uttam Awari**, **Lt Col APS Chauhan** and **Sh Tilak Sharma**, Jt Dir (C), FCM, for the guidance, encouragement and critical review at every stage of the project, from the selection of the site to the preparation of the final drawings and estimate.
+T Date : ________ Sep 2026
 
-T We are thankful to the Head of Faculty and the faculty members of the Faculty of Civil Engineering, College of Military Engineering, Pune, for the facilities and support extended to us during the course of the project.
+T Place : CME Pune
 
-T We gratefully acknowledge the Soil Engineering and Material Testing Wing, College of Military Engineering, whose sub-soil investigation report for the adjoining CTW Phase III project provided the geotechnical data for the site, and the staff of CTW for their assistance during the site studies.
+#plainfront APPROVAL SHEET
 
-T We also thank all others who helped us directly or indirectly in completing this project.
+#vspace 2
 
-#vspace 20
+#crest 30
 
-T **Syndicate 01**
+#vspace 8
+
+C This Project Entitled
+
+C **"CBRN HARDENED UNDERGROUND OPS ROOM"**
+
+C by
+
+C **SYNDICATE 01**
+
+C 1. Maj Yatin<br/>2. Capt Sonu Sharma<br/>3. Capt Sukender Singh<br/>4. Capt Balbanka Tiwary<br/>5. Capt DV Ghanashyama<br/>6. Capt Siddharth Sinha
+
+C is Approved for the Degree of
+
+C Bachelor of Technology (Civil)<br/>of<br/>Jawaharlal Nehru University<br/>at<br/>Faculty of Civil Engineering<br/>College of Military Engineering, Pune
+
+#vspace 6
+
+#examiners
+
+#vspace 12
+
+T Date : ________ Sep 2026
+
+T Place : CME Pune
+
+#plainfront DECLARATION
+
+#vspace 6
+
+T We declare that this written submission represents our ideas in our own words and, where others' ideas or words have been included, we have adequately cited and referenced the original sources. We also declare that we have adhered to all principles of academic honesty and integrity and have not misrepresented, fabricated or falsified any idea, data, fact or source in our submission. We understand that any violation of the above will be cause for disciplinary action by the Institute and can also evoke penal action from the sources which have thus not been properly cited or from whom proper permission has not been taken when needed.
+
+#vspace 45
+
+#right - | Maj Yatin | CME/EODE 128 | Syndicate Leader | (on behalf of Syndicate 01)
+
+#vspace 34
+
+T Date : ________ Sep 2026
+
+T Place : CME Pune
+
+#plainfront ACKNOWLEDGEMENT
+
+T It is indeed difficult to express in words our gratitude to all those who stood by us through this project. Nevertheless, we attempt to do so here.
+
+T We express our deep sense of gratitude to our guides, **Maj Ashish Dubey**, FGS, **Dr I R Chaudhuri**, **Dr Uttam Awari**, **Lt Col APS Chauhan** and **Sh Tilak Sharma**, Jt Dir (C), FCM, for their expert guidance, advice and encouragement, and for their critical review at every stage of the project, from the selection of the site to the preparation of the final drawings and estimate.
+
+T We are thankful to the **Head of the Structures Department** for constantly driving us towards the completion of the project.
+
+T We extend our sincere thanks to the **Commander, Faculty of Civil Engineering**, CME, Pune, for extending all support during the course.
+
+T We are also thankful to the **Dean and Deputy Commandant**, CME, Pune, for the constant inspiration and encouragement.
+
+T We are grateful to the **Commandant**, CME, Pune, for providing the student officers constant support and the infrastructure that made for a conducive academic environment in which to complete this project.
+
+T We gratefully acknowledge the **Soil Engineering and Material Testing Wing**, CME, whose sub-soil investigation report for the adjoining CTW Phase III project provided the geotechnical data for the site, and the staff of CTW for their assistance during the site studies.
+
+T We are thankful to all the **Instructors** and **Professors** of the Faculty for sharing their knowledge with us, and to the **library** and the **administrative staff** for their cordial support and the facilities provided in preparing this report.
+
+#vspace 10
+
+#right Maj Yatin | CME/EODE 128 | Syndicate Leader | (On behalf of Syndicate 01) | CME, Pune-411031
 
 #front ABSTRACT
 

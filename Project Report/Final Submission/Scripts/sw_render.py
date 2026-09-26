@@ -17,6 +17,7 @@ Source markup (one directive per line; a paragraph continues on following lines
 until a blank line or the next directive):
 
     #front  TITLE                         unnumbered front-matter page
+    #plainfront TITLE                     the same, without the frame
     #chapter TITLE | (SUBTITLE)            new chapter, numbering restarts
     #appendix A | TITLE | (SUBTITLE)       new appendix, numbering restarts
     #head   Text                           unnumbered side heading
@@ -37,6 +38,11 @@ until a blank line or the next directive):
     #drawings                              drawing index, read from the QA index
     #toc  #lof  #lot                       lists
     #pagebreak
+    C  text                                centred paragraph (front pages)
+    #crest H                               CME crest, H mm high
+    #cols Head | a | b || Head | c          side-by-side lists
+    #right - | line | line                 right-hand signature block
+    #examiners                             examiners' signature lines
 
 Inline: **bold**, *italic*, <sub>..</sub>, <sup>..</sup>.
 """
@@ -194,6 +200,7 @@ class Doc(BaseDocTemplate):
         self.addPageTemplates([
             PageTemplate(id="cover", frames=[fr], onPageEnd=self._cover),
             PageTemplate(id="front", frames=[fr], onPageEnd=self._front),
+            PageTemplate(id="plain", frames=[fr], onPageEnd=self._plain),
             PageTemplate(id="main", frames=[fr], onPageEnd=self._main)])
 
     def page_label(self):
@@ -211,6 +218,14 @@ class Doc(BaseDocTemplate):
 
     def _front(self, c, d):
         draw_frame(c, self.page % 2 == 1, self.page_label())
+
+    def _plain(self, c, d):
+        """No frame: the page number alone, centred at the foot."""
+        c.saveState()
+        c.setFont("Arial", 11)
+        c.setFillColor(INK)
+        c.drawCentredString(PW / 2.0, 12 * mm, self.page_label())
+        c.restoreState()
 
     def _main(self, c, d):
         draw_frame(c, self.page % 2 == 1, self.page_label())
@@ -830,7 +845,7 @@ def parse():
             i += 1
             blocks.append(blk)
             continue
-        m = re.match(r"^(P1|P2|P3|T)\s(.*)$", ln)
+        m = re.match(r"^(P1|P2|P3|T|C)\s(.*)$", ln)
         if ln.startswith("#"):
             flush()
             parts = ln.split(None, 1)
@@ -839,14 +854,14 @@ def parse():
             continue
         if m:
             flush()
-            lev = {"P1": 1, "P2": 2, "P3": 3, "T": 0}[m.group(1)]
+            lev = {"P1": 1, "P2": 2, "P3": 3, "T": 0, "C": 0}[m.group(1)]
             rest = m.group(2)
             if lev and "|" in rest:
                 title, text = rest.split("|", 1)
             else:
                 title, text = "", rest
             cur = {"k": "p", "lev": lev, "title": title.strip(),
-                   "text": text.strip()}
+                   "text": text.strip(), "centre": m.group(1) == "C"}
             continue
         if cur is not None:
             cur["text"] += " " + ln.strip()
@@ -863,9 +878,6 @@ def story(blocks, entries, cover_fn):
     import sw_figures as SF
     st = []
     st += cover_fn()
-    st.append(NextPageTemplate("front"))
-    st.append(PageBreak())
-    st.append(Marker("front"))
     chap = None
     nums = [0, 0, 0]
     tcount = fcount = 0
@@ -874,13 +886,17 @@ def story(blocks, entries, cover_fn):
     last_level = 0
     for b in blocks:
         k = b["k"]
-        if k in ("front", "chapter", "appendix"):
-            if k == "front":
-                if not first_front:
-                    st.append(PageBreak())
+        if k in ("front", "plainfront", "chapter", "appendix"):
+            if k in ("front", "plainfront"):
+                # the pages modelled on the owner's sample carry no frame
+                st.append(NextPageTemplate("plain" if k == "plainfront"
+                                           else "front"))
+                st.append(PageBreak())
+                if first_front:
+                    st.append(Marker("front"))
                 first_front = False
                 title = b["arg"].strip()
-                st.append(Paragraph(inline(title), S["chap"]))
+                st.append(Paragraph("<u>%s</u>" % inline(title), S["chap"]))
                 st.append(Spacer(1, 8))
                 if title not in ("CONTENTS",):
                     st.append(Entry("toc", 1, fix_case(title.title())
@@ -937,6 +953,18 @@ def story(blocks, entries, cover_fn):
         if k == "lot":
             st.append(("LOT",))
             continue
+        if k == "crest":
+            st.append(crest_image(float(b["arg"] or 30)))
+            continue
+        if k == "cols":
+            st.append(column_block(b["arg"]))
+            continue
+        if k == "right":
+            st.append(right_block(b["arg"]))
+            continue
+        if k == "examiners":
+            st.append(examiners_block())
+            continue
         if k == "sign":
             st.append(signature_block(b["arg"]))
             continue
@@ -957,9 +985,13 @@ def story(blocks, entries, cover_fn):
                 p = numbered(lev, number, b["title"], b["text"])
             else:
                 ind = TAB[last_level][0] if last_level else 0
-                p = Paragraph(inline(b["text"]),
-                              ParagraphStyle("t", parent=S["body"],
-                                             leftIndent=ind))
+                if b.get("centre"):
+                    p = Paragraph(inline(b["text"]), ParagraphStyle(
+                        "tc", parent=S["body"], alignment=TA_CENTER))
+                else:
+                    p = Paragraph(inline(b["text"]),
+                                  ParagraphStyle("t", parent=S["body"],
+                                                 leftIndent=ind))
             st.append(p)
             continue
         if k == "table":
@@ -1028,6 +1060,70 @@ def inline_plain(s):
     return re.sub(r"\*\*|\*", "", s)
 
 
+def crest_image(height_mm):
+    """The CME crest (Images/CME_crest_colour.png, see sw_crest.py)."""
+    from reportlab.platypus import Image
+    fn = os.path.join(PKG, "Images", "CME_crest_colour.png")
+    from PIL import Image as PImage
+    w, h = PImage.open(fn).size
+    im = Image(fn, width=height_mm * mm * w / float(h), height=height_mm * mm,
+               mask="auto")
+    im.hAlign = "CENTER"
+    return im
+
+
+def column_block(arg):
+    """Side-by-side lists: 'Head | line | line || Head | line'.  The first
+    line of each column is bold."""
+    cols = [[x.strip() for x in part.split("|")] for part in arg.split("||")]
+    st = ParagraphStyle("cl", parent=S["body"], leading=18)
+    cells = []
+    for c in cols:
+        txt = ["<b>%s</b>" % inline(c[0])] + [inline(x) for x in c[1:]]
+        cells.append(Paragraph("<br/>".join(txt), st))
+    t = Table([cells], colWidths=[TXT_W / len(cells)] * len(cells))
+    t.setStyle(TableStyle([("VALIGN", (0, 0), (-1, -1), "TOP"),
+                           ("LEFTPADDING", (0, 0), (-1, -1), 6)]))
+    return t
+
+
+def right_block(arg):
+    """A signature block in the right half: '- | name | line ...'; a
+    leading '-' draws the signature rule."""
+    lines = [x.strip() for x in arg.split("|")]
+    rule = lines and lines[0] == "-"
+    if rule:
+        lines = lines[1:]
+    p = Paragraph("<br/>".join(inline(x) for x in lines),
+                  ParagraphStyle("rb", parent=S["body"], leading=17))
+    t = Table([[""], [p]] if rule else [[p]], colWidths=[TXT_W * 0.42],
+              hAlign="RIGHT")
+    ts = [("LEFTPADDING", (0, 0), (-1, -1), 0),
+          ("TOPPADDING", (0, 0), (-1, -1), 2)]
+    if rule:
+        ts.append(("LINEABOVE", (0, 1), (0, 1), 0.8, INK))
+    t.setStyle(TableStyle(ts))
+    return t
+
+
+def examiners_block():
+    """Examiners, name and signature lines, as on the owner's sample."""
+    b = ParagraphStyle("ex", parent=S["body"], leading=15)
+    hb = ParagraphStyle("exh", parent=b, fontName="Arial-Bold")
+    rows = [[Paragraph("Examiners", hb), Paragraph("Name", hb),
+             Paragraph("Signatures", hb)],
+            [Paragraph("1.&nbsp;&nbsp;&nbsp;External Examiner", b), "", ""],
+            [Paragraph("2.&nbsp;&nbsp;&nbsp;Guide", b), "", ""]]
+    t = Table(rows, colWidths=[TXT_W * 0.34, TXT_W * 0.36, TXT_W * 0.30],
+              rowHeights=[9 * mm, 13 * mm, 13 * mm])
+    t.setStyle(TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "BOTTOM"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("LINEBELOW", (1, 1), (-1, 1), 0.8, INK),
+        ("LINEBELOW", (1, 2), (-1, 2), 0.8, INK)]))
+    return t
+
+
 def signature_block(arg):
     parts = [p.strip() for p in arg.split("||")]
     cells = []
@@ -1088,7 +1184,7 @@ def cover():
     out.append(Spacer(1, 6 * mm))
     out.append(Paragraph("Submitted in partial fulfilment of the requirements "
                          "for the award of the degree of", small))
-    out.append(Paragraph("<b>Bachelor of Engineering (Civil Engineering)</b>",
+    out.append(Paragraph("<b>Bachelor of Technology (Civil)</b>",
                          small))
     out.append(Spacer(1, 6 * mm))
     out.append(Paragraph("Submitted by", small))

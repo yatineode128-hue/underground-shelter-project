@@ -1,7 +1,8 @@
 # CLAUDE.md — project operating guide
 
 Underground CBRN-hardened blast-resistant protective structure + sentry post, Pune.
-B.E. Civil capstone, designed for actual construction.
+B.Tech (Civil) capstone, CME Pune (affiliated to JNU; owner ruling, master H.44.11 — previously
+recorded as B.E. Civil), designed for actual construction.
 
 ## Authority
 
@@ -55,6 +56,8 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (H.44.10): P1-deck site slides in Chapter 2 (`Images/`), Appendix C = sheets 01–15 only,
   syndicate and guides named. **The guide is *Dr I R Chaudhuri* (owner ruling); the drawing
   title blocks still read CHAUDHARI and were not regenerated.**
+  Amended **PR3C** (H.44.11): front pages as a CME sample (no border), Appendix C says the
+  drawings are a separate A3 spiral book, and two hard covers from `Scripts/sw_covers.py`.
   Before it: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
   presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
   plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,

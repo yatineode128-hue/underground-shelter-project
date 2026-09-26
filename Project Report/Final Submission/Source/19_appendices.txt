@@ -87,7 +87,7 @@ T **Total basic cost (Parts I to V) : Rs 2,42,20,254. Final project cost : Rs 2,
 
 #appendix C | LIST OF DRAWINGS | (INDEX OF DRAWING SHEETS)
 
-P1 General | The drawings of the project form a series of fifteen A2 (594 x 420 mm) sheets in a common title block, listed below. Sheets 01 to 05 form the architectural set and are prepared in Autodesk Revit. Sheets 06 to 15 are prepared in AutoCAD and are held, in DXF and PDF, in the Presentation Sheets folder of the project record.
+P1 General | The drawings of the project are presented as a separate spiral-bound book of A3 sheets. The index of the fifteen drawings is given below. The drawings are prepared on A2 sheets and reduced to A3 for binding; the scales stated are those of the A2 sheets.
 
 #table Drawing Index
 #font 9.5

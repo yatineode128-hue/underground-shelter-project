@@ -22,7 +22,7 @@
 **A2 presentation sheets:** **SR1** (16 Sep 2026, Part **H.39**) — **two A2 structural reinforcement sheets, `STR006` SHEET 06 (roof slab + mat foundation) and `STR007` SHEET 07 (600 shear wall + main staircase)**, drawn in the frame and title block of the owner's Revit A2 architectural set `ARCH001…ARCH005` so they read as the next two sheets of it. Every bar mark is read from `rebar_data.py`; **no design value, level, thickness, bar or spacing changed** and **the main staircase is untouched**. Finding **`SR1-F1`**: the request asked for IS 13920 detailing; **IS 13920 Cl. 10.4 was checked for the box and is NOT triggered** (τ = 0.063 N/mm²), the box is IS 456 + IS 4991 + IS 3370, and the project's IS 13920 detailing is the **sentry post frame**, which is not on these sheets. Both sheets **PASS** the drafting QA with **zero text overlaps**.
 **A2 sentry-post sheets:** **SR2** (16 Sep 2026, Part **H.40**) — **two more A2 sheets in the same series, `STR008` SHEET 08 (sentry post beams B1 / B2 and column C1) and `STR009` SHEET 09 (isolated footing F1 and slab S1)**. **This is the project's IS 13920:2016 sheet pair** — the box is not a ductile-detailing element (Cl. 10.4 checked, not triggered) and the sentry post frame is, so STR008 carries a 14-clause IS 13920 compliance table. **No design value moved and no analysis was run.** Because the sentry post is EXCLUDED from `rebar_data.py`, SR2 builds a separate register `sentry_data.py` to the same rule. Principal finding **`SR2-F1` — the master contradicts itself on B2's top steel at the ROOF joint**: B.8.6 checks that joint with **2-T20** and passes it marginally, F.4 schedules **3-T20 at supports** without distinguishing level, and 3-T20 there makes IS 13920 Cl. 7.2.1 **FAIL** (1.4 ΣM<sub>b</sub> 195.7 > ΣM<sub>c</sub> 101). **Both cannot be true, so SHEET 08 details the FIRST-FLOOR frame only** and the roof frame is left undrawn until it is ruled on. Six further open items `SR2-V1…V6`, plus `SR2-F2` — a legibility finding on the existing sheet STR007, **recorded and NOT acted on**. Both new sheets **PASS** the drafting QA. **Amended the same day as `SR2A` (Part H.40.8), by instruction: the design-basis and declared-decisions panels DELETED from both sheets and `REV A` removed from their header — no view, scale, dimension, bar or count changed, and the schedules were grown to fill the freed column. The open items are unchanged and now live in the master only.**
 **A2 header/panel cleanup:** **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire revision line (**"STRUCTURAL - PHASE 2 REV A + M1"**) deleted from the header — asked directly which reading was meant, and the whole line was the answer. **No design value moved; STR008/STR009 are byte-identical to before.** The freed column is filled by the `table_stack()` helper SR2A introduced. Found and fixed a real bug in `a2_lib.py` along the way: `table()`'s row-height shrink loop could quantise one step below `MIN_TXT_H`; fixed with a floor clamp, verified not to change STR008/STR009. **This also CLOSES `SR2-F2`**, the STR007 legibility finding recorded and deliberately left unfixed at SR2A. `DRAWING_INDEX.md`: 84 drawings, 78 PASS.
-**Final-submission report:** **PR3** (25 Sep 2026, Part **H.44**) — `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, 114 pages in the owner's service-writing format, WM3 cost Rs 2,97,90,913. **By instruction it omits the open-item register; nothing in K.1b or K.2 is closed by it** — H.44.2 lists what a reader will not see. Amended **PR3A** (H.44.9) and **PR3B** (H.44.10): the five P1-deck site slides in Chapter 2, Appendix C = the fifteen A2 sheets 01–15, the syndicate and guides named, and the guide's name spelt *Chaudhuri* by owner ruling (the drawing title blocks still read *CHAUDHARI*).
+**Final-submission report:** **PR3** (25 Sep 2026, Part **H.44**) — `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, 114 pages in the owner's service-writing format, WM3 cost Rs 2,97,90,913. **By instruction it omits the open-item register; nothing in K.1b or K.2 is closed by it** — H.44.2 lists what a reader will not see. Amended **PR3A** (H.44.9) and **PR3B** (H.44.10): the five P1-deck site slides in Chapter 2, Appendix C = the fifteen A2 sheets 01–15, the syndicate and guides named, and the guide's name spelt *Chaudhuri* by owner ruling (the drawing title blocks still read *CHAUDHARI*). **PR3C** (H.44.11): front pages in the form of a CME sample (certificate, approval sheet, declaration, acknowledgement; borderless), degree B.Tech (Civil) / JNU, drawings as a separate A3 spiral book, and two black hard covers (`Hard_Cover_Report_A4.pdf`, `Hard_Cover_Drawings_A3_Landscape.pdf`).
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and a ruling on **`SR2-F1`** before the sentry post roof beams can be detailed.
 
 ---
@@ -50,7 +50,7 @@
 | Project title | Underground CBRN-hardened, blast-resistant protective structure with associated sentry post | [CONFIRMED] |
 | Location | Pune, Maharashtra, India | [CONFIRMED] |
 | Project type | Buried reinforced-concrete protective structure, military-operational, for actual construction | [CONFIRMED] |
-| Academic context | B.E. Civil Engineering, final semester, three-presentation capstone | [CONFIRMED] |
+| Academic context | **B.Tech (Civil), College of Military Engineering, Pune, affiliated to Jawaharlal Nehru University, New Delhi** (owner ruling, 26 Sep 2026, H.44.11; previously recorded here as *B.E. Civil Engineering*), final semester, three-presentation capstone | [CONFIRMED] |
 | Objective | Protect 9 occupants for 96 h against a nuclear air-blast design basis threat with CBRN, EMP and fallout hardening | [CONFIRMED] |
 | **Architectural revision** | **Rev F** (the ten uploaded DXF files) | [CONFIRMED] |
 | **Design report revision** | **Rev D** (older than the drawings — this is the single largest reconciliation issue) | [CONFIRMED] |
@@ -6257,6 +6257,70 @@ certificate and Appendix C inspected as renders; a whole-document text scan find
 engineering uses of "assumed" / "defect" found at PR3; every text span is black (the photographs
 keep their own colours); fonts ArialMT / Arial-BoldMT / Arial-ItalicMT, figure lettering FreeSans.
 **Main staircase unchanged.**
+
+### H.44.11 PR3C — front pages in the form of a CME sample, drawings as a separate A3 book, two hard covers, 26 September 2026
+
+The owner photographed an earlier CME project report (Syndicate 3, Oct 2019, CME library copy)
+— its **black hard cover**, **Certificate**, **Approval Sheet**, **Declaration** and
+**Acknowledgement** — and asked: *"Black is hard cover of the book. Add the other pages like this.
+Also just include the drawings index and write that it is presented as a separate spiral bind book
+of A3 pages"*; then *"keep the original … cover also additionally"*, *"a black cover for my A3
+book in landscape format of drawings"* and *"remove the border also from the other pages"*.
+**No design value moved. No analysis was run.** H.44.1–H.44.10 are preserved as issued (M.11).
+
+**Four rulings were asked for and given** `[C]`:
+
+| Question | Owner's answer |
+|---|---|
+| Degree wording (the sample reads B.Tech (Civil) of CME, affiliated to JNU; the report read B.E.) | **Bachelor of Technology (Civil), College of Military Engineering, Pune, affiliated to the Jawaharlal Nehru University, New Delhi.** Now on the report's first page, the certificate, the approval sheet and Chapter 1 para 2. The Part A row *"Academic context"* is amended to match, with its earlier wording kept in the row |
+| Who signs the Declaration and Acknowledgement | **Maj Yatin, CME/EODE 128, Syndicate Leader** (on behalf of Syndicate 01) |
+| The sample thanks named officials | **By appointment, no names** — Head of the Structures Department, Commander Faculty of Civil Engineering, Dean and Deputy Commandant, Commandant CME. **No name is guessed** |
+| The black hard cover | **A separate cover file**, and the report's own first page kept as it was ("the original cover also additionally") |
+
+**What changed in the report (now 116 pages).**
+
+- **Front matter** is now Certificate (i), Approval Sheet (ii), Declaration (iii), Acknowledgement
+  (iv), Abstract (v), Contents, Lists, Abbreviations — the sample's order. The four sample pages
+  follow its content and layout: crest, *COLLEGE OF MILITARY ENGINEERING, PUNE*, the certificate
+  sentence, Syndicate 01 and Guides in two numbered columns, *Date : ____ Sep 2026 / Place : CME
+  Pune*; the approval sheet with **External Examiner** and **Guide** signature lines; the standard
+  academic-honesty declaration (in the first person plural, signed by the Syndicate Leader); and
+  the acknowledgement by appointment. **The PR3B certificate signature blocks are gone** — the
+  sample's certificate has none, and the approval sheet now carries the signatures. Headings are
+  underlined as in the sample; **lettering stays black** (the sample's red is not copied — the
+  owner's *"black text only"* stands).
+- **Border.** Read as the four sample-style pages: they carry **no frame**, only a centred roman
+  page number, as in the sample. **Every other page keeps the service-writing frame**, the first
+  page included.
+- **The crest** is not drawn: it is **cut from the owner's photographs** — the colour crest from the
+  approval-sheet photo, the gold one from the hard-cover photo — stored as crest-only crops
+  (`Images/CME_crest_photo_colour.png`, `…_gold.png`; nothing else of the 2019 report is kept) and
+  cleaned by the new `Scripts/sw_crest.py` (paper made transparent; the gold reduced to one tone).
+  It is a photograph at about 130–200 dpi as printed, **not an official artwork file**; if the owner
+  supplies one it replaces these two images and nothing else changes.
+- **Appendix C** keeps only the index, and now says the drawings are presented as **a separate
+  spiral-bound book of A3 sheets**, drawn on A2 and reduced, **the scales stated being those of the
+  A2 sheets** (a 1 : 100 A2 sheet is not 1 : 100 at A3).
+- **Renderer:** `#plainfront` (borderless page, `plain` page template), `C` centred paragraphs,
+  `#crest`, `#cols`, `#right`, `#examiners`.
+
+**The hard covers** — the new `Scripts/sw_covers.py`, gold (212, 175, 55) lettering and double
+frame on black, laid out after the sample:
+
+- `Hard_Cover_Report_A4.pdf` — A4 portrait: COLLEGE OF MILITARY ENGINEERING, crest, PROJECT
+  REPORT, the title, SYNDICATE 01 and GUIDES in two columns.
+- `Hard_Cover_Drawings_A3_Landscape.pdf` — A3 landscape, the same, with *PROJECT DRAWINGS* and
+  *DRAWING SHEETS 01 TO 15* (wording chosen for the drawing book; not from the sample).
+
+**Not done by this revision:** the A3 drawing book itself is not assembled here — its fifteen
+sheets are those of Appendix C, and STR014 / STR015 are still only on the unmerged branch
+(H.44.10). The title blocks still read *CHAUDHARI* (H.44.10).
+
+**Verified.** The four front pages, both covers, the Contents and Appendix C inspected as renders;
+pages 2–5 carry no frame (their only vector paths are the heading rule and the signature lines);
+Contents lists i–v in the sample's order; the whole-document text scan finds only PR3's four
+engineering uses of "assumed" / "defect", and no "Bachelor of Engineering" or "Chaudhari"; every
+text span is black. **Main staircase unchanged.**
 
 ---
 
