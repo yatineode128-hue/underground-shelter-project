@@ -1,10 +1,12 @@
 <!-- MASTER PROJECT REPORT -- source.  Rendered to PDF by Scripts/report_render.py.
      Underground CBRN-hardened blast-resistant protective structure + sentry post, Pune.
-     Project Report package, revision PR2, 13 September 2026.
+     Project Report package, revision PR3, 26 September 2026.
      AUTHORITY: master/MASTER_PROJECT_STATE.md.  Where this file and the master
      disagree, the master governs.  Edit this file and re-run the renderer;
      never edit the PDF. -->
+<!-- HARDCOVER -->
 <!-- COVER -->
+<!-- FRONTMATTER -->
 <!-- TOC -->
 
 <!-- LOF -->
@@ -31,10 +33,11 @@ part of the design. Where it is only project history, it is left in the master, 
 carries it in full — the conflicts, the rulings and the revision list — so that nothing is lost by
 keeping it out of the design.
 
-**The figures are drawn for this report.** Forty-four of them, generated from the confirmed
+**The figures are drawn for this report.** Fifty-six of them, generated from the confirmed
 geometry rather than traced, at reading scale. They are **not** the issued drawings: they carry no
 title block, no revision box and no bar mark, and they must never be used for setting out or
-fabrication. The issued package is the 80 DXF sheets of Part 14.
+fabrication. **The issued drawings — 90 DXF sheets — are presented as a separate spiral-bound book
+of A3 pages**, and Part 14 carries their index.
 
 ## 1.2 Authority, and what governs what
 
@@ -44,7 +47,7 @@ fabrication. The issued package is the 80 DXF sheets of Part 14.
 | `master/QUICK_STATE.md` | Orientation digest only. **Not an authority** |
 | **This report** | The project stated once, in full, for reading — design basis, science, calculations, services, works management, open items |
 | Discipline packages | `Structural CAD/` · `Drainage/` · `HVAC/` · `Electrical/` · `EMP Protection/` · `Fire and Life Safety/` · `Schedule of Finishes/` · `Site Selection and Geotechnical/` · `Site and Concealment/` · `WORKS MANAGEMENT/` · `DRAWING QAQC/` |
-| Drawings | 80 DXF. The ten Rev F architectural files are **source**, not build artefacts; the discipline sheets are generated and must be regenerated, never hand-edited |
+| Drawings | 90 DXF, **presented as a separate spiral-bound book of A3 pages** and indexed in Part 14. The ten Rev F architectural files are **source**, not build artefacts; the discipline sheets are generated and must be regenerated, never hand-edited |
 
 > **This report changes no design value.** No dimension, level, load, thickness, bar, quantity,
 > rate, date or float is altered by it, no `.std` file is touched, and **no evidence tag is
@@ -168,7 +171,8 @@ several of them exist because something once went wrong.
 7. **Every significant change is recorded, and no record is overwritten without preserving it.**
    This report is the current statement of the design; the master is the ledger behind it.
 8. **A new drawing package registers itself with the QA tool.** A package that does not is
-   invisible to the drawing index, and stays invisible for as long as nobody looks (Part 14.3).
+   invisible to the drawing index, and stays invisible for as long as nobody looks — and the
+   index in Part 14 is read from that tool.
 9. **A change that stops at "reinforcement" and never reaches "drawings" is not finished.**
 
 ### 1.7.1 Frozen geometry
@@ -193,7 +197,7 @@ several of them exist because something once went wrong.
 | **9–11** | **Structural design calculations**, element by element: the box; the stairs, headhouse and appurtenances; the sentry post |
 | **12** | **Openings, blast doors, escape hatches and closures** — every hole through the protective boundary |
 | **13** | Reinforcement register and quantities |
-| **14** | Drawings and drawing quality |
+| **14** | **Drawings** — the index only; the drawings themselves are a separate spiral-bound book of A3 pages |
 | **15** | **HVAC, CBRN filtration and the sealed atmosphere** |
 | **16** | **Water, sewage and drainage** |
 | **17** | **Electrical and power** |
@@ -4339,149 +4343,26 @@ HH WALLS    T16 @ 150 EF EW  .  T12 4L @ 250                             59 %
 `[N]`); and the ventilation / CBRN duct penetrations (no penetration schedule exists).
 **All three are NOT DETERMINABLE from the information the project holds, and none is fabricated.**
 
-# PART 14 — DRAWINGS AND DRAWING QUALITY
+# PART 14 — DRAWINGS
 
-## 14.1 Two distinct DXF sets — do not confuse them
+## 14.1 The drawings are presented as a separate book
 
-| Set | Origin | Revision | Purpose |
-|---|---|---|---|
-| **Input set** (10 files) | Supplied by the project owner | **Rev F** | Architectural / civil geometry — **the primary geometry source.** Directly editable |
-| **Output set** (S-01 … S-08) | Generated in this project | **Phase 2 Rev A** | Structural drawings with reinforcement. **Generated — edit the script, never the DXF** |
-| Discipline sets | Generated in this project | per package | Structural CAD, drainage, HVAC, finishes, fire, concealment, EMP, electrical, site |
+**The drawings are not bound into this report. They are presented as a separate spiral-bound book
+of A3 pages**, and this Part carries only their index.
 
-## 14.2 The package as it stands: 80 DXF, 74 PASS
+> **Every scale is true at the drawing's own sheet size, not on the A3 page.** Each drawing is
+> prepared on the sheet size given against it in the index — A0, A1, A2 or A4 — and each view
+> carries the scale it is drawn to on that sheet. Printed on A3 the stated scale no longer holds.
+> **Read the dimensions; never scale off an A3 page.**
 
-| Discipline | Sheets |
-|---|---|
-| **Architectural / general — Rev F** | 11 (`A-101`…`A-301`, plus the services sheet `S-06`) |
-| Architectural — finishes | 3 (`A-601`, `A-611`, `A-612`) |
-| **Structural — reinforcement** | **30** (`R-001`…`R-805`) |
-| Drainage | 11 (`D-001`…`D-305`) + 2 handout |
-| HVAC | 6 (`M-001`…`M-203`) + 2 handout |
-| Fire and life safety | 2 (`F-101`, `F-102`) |
-| Site and concealment | 1 (`C-101`) |
-| EMP protection | 6 (`EM-001`…`EM-302`) |
-| Electrical | 1 (`E-001`) |
-| Site selection and geotechnical | 5 (`SG-001`…`SG-202`) |
-| **TOTAL** | **80 DXF · 75 A1 · 4 A4 · 1 A0** |
+**What is not in the book, and is not invented.** Seven structural sheets of the earlier output
+set — `S-01` to `S-05`, `S-07` and `S-08` — are not held in the project workspace, and the
+toolchain that generated them is absent, so they cannot be regenerated. They are not in the book
+and nothing is drawn in their place. `S-06` is present and current, and is indexed below.
 
-<!-- FIG: fig_drawing_package -->
+## 14.2 Drawing index
 
-**The drawing index is generated from the DXF files themselves**, so it cannot drift from the
-drawings. Filenames are deliberately unchanged — every document in the project cites the current
-filenames — so the drawing number lives in the title block and the index carries both.
-
-## 14.3 Drawing quality assurance
-
-The drawing package is held to a stated drafting standard, and the whole package is scanned
-against it by a tool rather than by eye. The scan covers drafting, annotation, sheet composition
-and title blocks only — **it makes no engineering judgement and changes no engineering value.**
-
-| Measure | Before | After |
-|---|---|---|
-| DXF inspected / edited in place | — | **65 / 65** |
-| **Text-on-text overlaps, all 65 drawings** | **67** | **2** |
-| · of which, the 54 generated sheets | 49 | **0** |
-| · of which, the 11 Rev F drawings | 18 | **2** |
-| Annotation crossing hard line work (Rev F sheets) | **50** | **10** |
-| A view drawn on top of its own notes panel | 3 sheets | **0** |
-| Entities outside the sheet border | 0 | **0** |
-| Drawings with a border and title block | 54 of 65 | **65 of 65** |
-| Panel / table body text below print size (1.4 mm on A1) | most of the package | **0** — floor is now 2.0 mm |
-| Generated packages rebuilding clean | 54/54 | **54/54, 0 errors** |
-
-> **No engineering value is changed anywhere by a quality pass.** No dimension, level, bar mark,
-> bar size, spacing, load, material grade, thickness or room size, and never the frozen staircase.
-> A drafting tool that can change an engineering value is a drafting tool nobody should run.
-
-**The package currently scans at 80 DXF, 74 PASS.**
-
-> **And one rule of this project exists because it was once broken.** A new drawing package
-> **must register itself with the QA tool** — add its `DXF/` prefix to `DISCIPLINE` in
-> `qa_report_data.py` and its name to `ORDER` in `make_index.py`, then re-run both. **Twelve
-> sheets can sit in the repository, correct and complete, and be invisible to the index for as
-> long as nobody thinks to look.** A generated index is only as honest as its own inclusion list.
-
-## 14.4 Sheet standard
-
-```
-SHEET SIZE     A1, 841 x 594 mm, DRAWN IN PAPER MILLIMETRES, PLOT 1:1
-               (one A0 -- the front elevation, which is 880 mm at 1:50 and
-                cannot fit A1;  four A4 handout sheets)
-DXF FORMAT     AutoCAD R12 ASCII -- opens in AutoCAD, DraftSight, BricsCAD,
-               LibreCAD and QCAD without translation
-BORDER         outer 0,0-841,594 ;  inner 10,10-831,584
-TITLE BLOCK    180 x 62 mm, bottom right, at x0 = 651, y0 = 10
-VIEW SCALES    each view carries its own scale note;  views are mapped from
-               model millimetres to paper millimetres by
-                  paper = origin + model / scale
-TEXT HEIGHTS   3.4 view titles | 2.4 panel headings | 2.0 scale notes
-               1.6-1.7 general | 1.55-1.62 panel body | 1.4-1.5 small
-VALIDATION     SECTION/ENDSEC balanced, EOF present, no undeclared layer,
-               all geometry within the sheet extents
-```
-
-**22 layers, identical in every generated file** — `CONC`, `CONC-HIDDEN`, `REINF-MAIN` (red),
-`REINF-DIST` (green), `REINF-LINK` (magenta), `REINF-SEC` (cyan), `DIM`, `TEXT`, `TEXT-TITLE`,
-`HATCH`, `GRID`, `SOIL`, `CENTRELINE`, `TITLEBLOCK`, `WATERPROOF` (orange), `STEELWORK` (yellow),
-`LEVELS`, `NOTES`, `TABLE`, `SERVICES`, `BLAST` (red), and `0`. **Dashed lines are drawn as
-explicit segments, not by linetype**, for maximum compatibility.
-
-## 14.5 Two drafting decisions that are worth reading
-
-> **The front elevation cannot be plotted at 1:50 on A1, and A0 is the only answer.** The
-> drawing is 880 mm wide at 1:50 against an A1 printable width of 821 mm. **The scale is a
-> measurement statement and must not be changed to fit the paper**, and splitting the sentry post
-> onto its own sheet would break a continuous 44 m elevation, which is the whole point of the
-> drawing. **A0 keeps both the scale and the drawing intact.**
->
-> **Six sheets do not fill their paper, and that is accepted as drawn.** Six sheets share
-> an empty strip. **Every one of them is correct, complete and legible; emptiness is not an
-> error.** Re-scaling would make the stated scale a layout variable instead of a measurement
-> statement — 1:20 is the right scale for a 400 mm wall section regardless of how much paper it
-> leaves. Combining or renumbering would break cross-references, the index and the sheet numbering
-> **for zero engineering benefit.** And reflowing the blocks **moves** the void, it does not remove
-> it.
-
-## 14.6 What cannot be regenerated, and is not invented
-
-> **Seven of the eight S-series structural sheets are ABSENT and CANNOT be regenerated.** Their
-> generator toolchain — `proj.py`, `dxflib.py` and the eight sheet generators — is **not in the
-> workspace**. `S-01` … `S-05`, `S-07` and `S-08` therefore cannot be rebuilt, and **they are not
-> fabricated, and nothing in this report is a substitute for them.** **`S-06` is present and is
-> current.**
->
-> **Also not in this workspace and not invented:** the Phase 1 Rev D report, `SK02_Underground_Plan.png`,
-> and the nineteen STAAD screen captures.
->
-> **And the sentry post beams, columns and footings are not yet drawn.** A future sheet `S-09`
-> would carry B1 4-T16 / 2-T16, B2 3-T20 / 2-T20, C1 8-T16 with T10 confining hoops @ 85, and F1
-> 1500² × 600 with T12 @ 150 B/W. **Everything it needs is in Part 11; the sheet does not exist.**
-
-## 14.7 The drainage items on the architectural sheets, and the question drawing them raised
-
-The drainage items are carried on the Rev F architectural sheets: the sump pit on the side
-section, the septic tank and soak pit on the front elevation beyond a break, the sump pit's
-**cover** at (−)6.100, and a **1:200 key plan** carrying the sump, the septic tank and the soak
-pit at true project X **and** Y.
-
-> **Drawing them asked a question the text had never had to answer.** The mat is genuinely
-> interrupted over the clean sump — the reinforcement register trims a **1 500 × 1 500 opening**
-> with 4-T20 each face each side, the bar schedule calls it an opening, and the bill measures the
-> mat gross by its 1.35 m³. **A 1 500 × 1 500 hole through the floor is what the project records,
-> so that is what was drawn — and then Bay 5 is 1 560 mm clear and the pit is 1 500 of it.**
->
-> **With the opening open there is no route past it** to the two filter trains, the CO₂/O₂ plant or
-> the dehumidifier; and the room finish schedule falls that room **1:80 direct to the sump**, so
-> whatever closes it has to pass water. **A cover is not optional here — and the project contains
-> no cover: no type, no depth, no duty, no fixing, no lifting arrangement, in any schedule,
-> drawing or document.** The cover is drawn as one diagrammatic line, tagged `[A]`, with its
-> specification tagged `[N]`, and it is carried as open item `DR-A2-V1`. **Nothing is invented to
-> fill the gap, and the drawing does not pretend to specify what the project does not hold.**
->
-> **This is what drawing something does that writing about it does not.** Two `[C]` facts — a
-> 1 500 opening and a 1 560 mm room — sat in two different schedules for four revisions and never
-> met. They met on a sheet.
+<!-- DRAWING INDEX -->
 
 # PART 15 — HVAC, CBRN FILTRATION AND THE SEALED ATMOSPHERE
 
@@ -4798,6 +4679,31 @@ battery. Both filter fans keep their hand crank for the same reason.
 > light is good for the pumps and bad for confidence: **at that duty a failed standby would never
 > be discovered by use.** A witnessed monthly test of the standby path *and* of the hand pump is
 > therefore a maintenance requirement of this design, not an operator's discretion.
+
+### 16.4.1 The sump cover — open item `DR-A2-V1`
+
+The drainage items are carried on the Rev F architectural sheets: the sump pit on the side
+section, the septic tank and soak pit on the front elevation beyond a break, the sump pit's
+**cover** at (−)6.100, and a **1:200 key plan** carrying the sump, the septic tank and the soak
+pit at true project X **and** Y.
+
+> **Drawing them asked a question the text had never had to answer.** The mat is genuinely
+> interrupted over the clean sump — the reinforcement register trims a **1 500 × 1 500 opening**
+> with 4-T20 each face each side, the bar schedule calls it an opening, and the bill measures the
+> mat gross by its 1.35 m³. **A 1 500 × 1 500 hole through the floor is what the project records,
+> so that is what was drawn — and then Bay 5 is 1 560 mm clear and the pit is 1 500 of it.**
+>
+> **With the opening open there is no route past it** to the two filter trains, the CO₂/O₂ plant or
+> the dehumidifier; and the room finish schedule falls that room **1:80 direct to the sump**, so
+> whatever closes it has to pass water. **A cover is not optional here — and the project contains
+> no cover: no type, no depth, no duty, no fixing, no lifting arrangement, in any schedule,
+> drawing or document.** The cover is drawn as one diagrammatic line, tagged `[A]`, with its
+> specification tagged `[N]`, and it is carried as open item `DR-A2-V1`. **Nothing is invented to
+> fill the gap, and the drawing does not pretend to specify what the project does not hold.**
+>
+> **This is what drawing something does that writing about it does not.** Two `[C]` facts — a
+> 1 500 opening and a 1 560 mm room — sat in two different schedules for four revisions and never
+> met. They met on a sheet.
 
 ## 16.5 The three hydraulic zones
 
@@ -6294,7 +6200,7 @@ A8   structural seepage 0.5 L/m2/day        packer permeability tests
 
 | Ref | Item |
 |---|---|
-| **`DR-A2-V1`** | **The clean sump has no cover, and Bay 5 cannot be crossed without one** (Part 14.7). Needs the cover itself: type, depth, **imposed load duty**, frame and rebate, fixing, and how it is lifted to withdraw the pumps |
+| **`DR-A2-V1`** | **The clean sump has no cover, and Bay 5 cannot be crossed without one** (Part 16.4.1). Needs the cover itself: type, depth, **imposed load duty**, frame and rebate, fixing, and how it is lifted to withdraw the pumps |
 
 ### 24.3.6 A declared scope boundary — not a gap
 
@@ -6415,7 +6321,7 @@ UNEXPLAINED FAIL                  0
 | **Every `[ASSUMED]` value** | An assumption is not an arithmetic error. **k<sub>s</sub>, the design water table, the safe bearing capacity, K₀, the soak-pit absorption rate, the seepage rate and the rockhead band are all tests, not sums** |
 | **Vendor performance** | Blast doors, blast valves, filter trains, the shielded door, the PCI, the honeycomb, the escape hatches |
 | **Anything tagged `[N]`** | There is nothing to check. **The projection dimension, the ambient design temperature, the opening heights, the pipe materials, the entry plate's level and size, the sump cover, the fan's five vendor loss components** |
-| **The drawings themselves** | Checked by the drawing QA tool, not by this report — Part 14.3 |
+| **The drawings themselves** | Checked by the drawing QA tool, not by this report — `DRAWING QAQC/QAQC_REPORT.md` |
 
 ## 25.5 Consistency checks made against the project record
 
@@ -6427,10 +6333,11 @@ Beyond the arithmetic, the following were checked by reading:
    item is converted, downgraded or deleted anywhere in this report.
 3. **The open-item and assumption counts in Part 24 agree with their own tables** — 9 + 2 + 6 + 1 =
    18 open, 18 + 16 + 1 = 35 rows, 7 + 7 = 14 assumptions.
-3a. **Every one of the forty-four figures is bounds-checked**, and every one carries a caption in
+3a. **Every one of the fifty-six figures is bounds-checked**, and every one carries a caption in
    the register that numbers it. The gate is **zero primitives outside a frame** and **zero
    strings past the text measure**, and it is enforced by code rather than by eye — Appendix C.
-4. **The drawing counts in Part 14 sum to 80**, and the sheet sizes 75 A1 + 4 A4 + 1 A0 sum to 80.
+4. **The drawing index in Part 14 lists every drawing the QA tool indexes** — its seventeen group
+   counts sum to **90**, and the sheet sizes 75 A1 + 10 A2 + 4 A4 + 1 A0 sum to 90.
 5. **The frozen staircase geometry is reproduced exactly** — 24 risers, 170.8333 mm, 280 mm tread,
    3 flights × 8, total rise 4 100 mm — **and nothing in this report changes any of it.**
 6. **Every code clause cited here appears in the project's own register.** No clause was added, and
@@ -6555,8 +6462,12 @@ Beyond the arithmetic, the following were checked by reading:
 Project Report/
    Documentation/MASTER_PROJECT_REPORT.md      the report SOURCE -- edit this
    Scripts/report_render.py                    Markdown -> PDF typesetter
-   Scripts/report_figures.py                   the 44 drawn figures
+   Scripts/report_figures.py                   the 56 drawn figures
+   Scripts/report_frontmatter.py               hard cover, certificate, approval
+                                               sheet, declaration, acknowledgement
+   Scripts/report_crest.py                     prepares the two crest images
    Scripts/report_verify.py                    independent recomputation
+   Assets/crest_gold.png, crest_colour.png     the crest, as the pages use it
    Calculations/REPORT_VERIFICATION_OUTPUT.txt its output
    MASTER_PROJECT_REPORT.pdf                   the deliverable
 
@@ -6566,9 +6477,10 @@ Project Report/
 
 **Never edit the PDF.** Edit the Markdown and re-run the renderer. The renderer adds no content of
 its own beyond the cover, the running head and foot, the automatically paginated contents list and
-the list of figures.
+the list of figures — and the front matter, whose every particular is held in one block, `FM`, at
+the top of `report_frontmatter.py`, and the drawing index, which it reads from the QA tool.
 
-**The figures are code, not images.** `report_figures.py` draws all forty-four from the `GEOM`,
+**The figures are code, not images.** `report_figures.py` draws all fifty-six from the `GEOM`,
 `LEV` and `COVER` constants at the top of the file, in **project coordinates** — so changing a
 dimension there changes every figure that uses it, and no figure can drift from the geometry it is
 drawn from. Three directives place them in the source:
@@ -6577,6 +6489,9 @@ drawn from. Three directives place them in the source:
 <!-- FIG: fig_name -->   a numbered, captioned figure, in document order
 <!-- LOF -->             the list of figures
 <!-- PAGEBREAK -->       a forced page break
+<!-- HARDCOVER -->       the black hard cover
+<!-- FRONTMATTER -->     certificate, approval sheet, declaration, acknowledgement
+<!-- DRAWING INDEX -->   the drawing index, read from DRAWING QAQC/qa_index.json
 ```
 
 **Every figure is bounds-checked before it is published.** `report_figures.check_all()` walks each
@@ -6587,7 +6502,8 @@ figure silently bleeds onto whatever follows it. **The gate is zero.**
 > **The figures are NOT the issued drawings.** They carry no title block, no revision box and no
 > bar mark, they are drawn at reading scale rather than at a plotting scale, and they must never be
 > used for setting out or for fabrication. They are also **not** reconstructions of the seven
-> absent S-series sheets (Part 14.6). The issued package is the 80 DXF of Part 14.
+> absent S-series sheets (Part 14.1). The issued drawings are the 90 DXF indexed in Part 14, bound
+> separately as a book of A3 pages.
 
 ## C.2 The project
 
@@ -6596,7 +6512,7 @@ figure silently bleeds onto whatever follows it. **The gate is zero.**
 | A discipline drawing package | `cd "<Package>/Scripts" && python3 <prefix>_build_all.py`. **Edit the generator, never the DXF** |
 | The drawing index and QA report | Re-run `qa_report_data.py` then `make_index.py`. **A new package must first register its `DXF/` prefix in `DISCIPLINE` and its name in `ORDER`** |
 | The works management package | `wm_build_all.py` regenerates everything from `wm_data.py` + `wm_content.py` |
-| The S-series structural sheets | **Not possible.** The toolchain is not in the workspace (Part 14.6) and **must not be fabricated** |
+| The S-series structural sheets | **Not possible.** The toolchain is not in the workspace (Part 14.1) and **must not be fabricated** |
 | Any STAAD result | **Not possible.** STAAD.Pro is not available in this environment |
 
 **The ten Rev F architectural DXFs are source, not build artefacts, and may be edited directly.**
@@ -6649,7 +6565,8 @@ generator and be certain that nothing else moved.
 | **RC10** | 12 Sep 2026 | **What the rulings left stale in the packages** — six artefacts, register raised, **not yet applied** |
 | **DR-A2** | 12 Sep 2026 | The sump pit head and a key plan; **`DR-A2-V1` opened** |
 | **PR1** | 13 Sep 2026 | The master project report, first issue — 19 parts. No design value changed; 498 checks executed; four differences reported and none corrected |
-| **PR2** | **13 Sep 2026** | **This report.** Re-voiced as a single as-built statement of the design; **25 parts and 44 drawn figures**; the soil report, the M35 and M30 mix designs, the openings and closures, the five services parts, the works management expansion and the environmental management plan added. **No design value changed** |
+| **PR2** | **13 Sep 2026** | Re-voiced as a single as-built statement of the design; **25 parts and 57 drawn figures**; the soil report, the M35 and M30 mix designs, the openings and closures, the five services parts, the works management expansion and the environmental management plan added. **No design value changed** |
+| **PR3** | **26 Sep 2026** | **This report.** The College of Military Engineering front matter added — hard cover, certificate, approval sheet, declaration and acknowledgement; the front matter numbered i, ii, iii … and Part 1 restarting at page 1; **Part 14 reduced to the drawing index**, read from the drawing QA tool, **with the drawings presented as a separate spiral-bound book of A3 pages**; the sump cover discussion moved to Part 16.4.1. **No design value changed** |
 
 ## D.2 The conflicts and the rulings that closed them
 

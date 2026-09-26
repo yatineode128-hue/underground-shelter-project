@@ -3,12 +3,19 @@ report_render.py -- renders Documentation/MASTER_PROJECT_REPORT.md to
 Project Report/MASTER_PROJECT_REPORT.pdf.
 
 Underground CBRN-hardened blast-resistant protective structure + sentry post, Pune.
-Project Report package, revision PR2.
+Project Report package, revision PR3.
 
 The report SOURCE is the Markdown file.  This script is only the typesetter:
 it adds no content, no number and no heading of its own beyond the cover page,
-the running head/foot and the automatically paginated contents list.  Edit the
-Markdown and re-run; never edit the PDF.
+the running head/foot and the automatically paginated contents list -- plus,
+from PR3, the College of Military Engineering front matter drawn by
+report_frontmatter.py and the drawing index read from the QA tool's own
+DRAWING QAQC/qa_index.json.  Edit the Markdown and re-run; never edit the PDF.
+
+Page numbering (PR3): the hard cover and the title page carry no number; the
+front matter from the certificate to the list of figures runs i, ii, iii ...
+(the certificate's i is counted, not printed); Part 1 starts again at page 1.
+The PDF's own page labels match what is printed.
 
     python3 "Project Report/Scripts/report_render.py"
 
@@ -32,8 +39,15 @@ Markdown subset supported -- deliberately small, and the report is written to it
     <!-- FIG: name --> a drawn figure from report_figures.py, numbered and
                        captioned in document order
     <!-- LOF -->       the list of figures
+    <!-- HARDCOVER -->   the black hard cover            (report_frontmatter)
+    <!-- COVER -->       the title page
+    <!-- FRONTMATTER --> certificate, approval sheet, declaration and
+                         acknowledgement                 (report_frontmatter)
+    <!-- DRAWING INDEX --> the drawing index, from DRAWING QAQC/qa_index.json
 """
 
+import importlib.util
+import json
 import os
 import re
 import sys
@@ -61,15 +75,25 @@ try:
     import report_figures as FIGS
 except ImportError:                                          # pragma: no cover
     sys.exit("report_figures.py must sit beside report_render.py")
+try:
+    import report_frontmatter as FRONT
+except ImportError:                                          # pragma: no cover
+    sys.exit("report_frontmatter.py must sit beside report_render.py")
 
 PKG = os.path.abspath(os.path.join(HERE, ".."))
 SRC = os.path.join(PKG, "Documentation", "MASTER_PROJECT_REPORT.md")
 OUT = os.path.join(PKG, "MASTER_PROJECT_REPORT.pdf")
+QAQC = os.path.abspath(os.path.join(PKG, "..", "DRAWING QAQC"))
+QA_INDEX = os.path.join(QAQC, "qa_index.json")
+MAKE_INDEX = os.path.join(QAQC, "Scripts", "make_index.py")
 
 # ---------------------------------------------------------------- page setup
 PW, PH = A4
 LM, RM, TM, BM = 20 * mm, 16 * mm, 20 * mm, 18 * mm
 BODY_W = PW - LM - RM
+# the formal front-matter pages: a wider binding margin, no running head/foot
+FL, FR, FT, FB = 28 * mm, 24 * mm, 24 * mm, 30 * mm
+FRONT_W, FRONT_H = PW - FL - FR, PH - FT - FB
 
 INK = colors.Color(0.09, 0.10, 0.13)
 MID = colors.Color(0.36, 0.38, 0.43)
@@ -81,7 +105,7 @@ CODEBG = colors.Color(0.972, 0.972, 0.965)
 ACCENT = colors.Color(0.14, 0.28, 0.46)
 BAND = colors.Color(0.977, 0.980, 0.986)
 
-DOCREF = "UG-CBRN-PUNE / MASTER PROJECT REPORT / PR2"
+DOCREF = "UG-CBRN-PUNE / MASTER PROJECT REPORT / PR3"
 
 # ------------------------------------------------------------------- fonts
 FONTDIR = "/usr/share/fonts/truetype/freefont"
@@ -397,6 +421,12 @@ def parse(md):
             blocks.append(("cover", None)); i += 1; continue
         if s == "<!-- LOF -->":
             blocks.append(("lof", None)); i += 1; continue
+        if s == "<!-- HARDCOVER -->":
+            blocks.append(("hardcover", None)); i += 1; continue
+        if s == "<!-- FRONTMATTER -->":
+            blocks.append(("frontmatter", None)); i += 1; continue
+        if s == "<!-- DRAWING INDEX -->":
+            blocks.append(("drawindex", None)); i += 1; continue
         m = re.match(r"^<!--\s*FIG:\s*([A-Za-z0-9_]+)\s*-->$", s)
         if m:
             blocks.append(("fig", m.group(1))); i += 1; continue
@@ -541,31 +571,85 @@ class PartHead(Table):
 
 
 # ---------------------------------------------------------------- document
+ROMAN = [(1000, "m"), (900, "cm"), (500, "d"), (400, "cd"), (100, "c"),
+         (90, "xc"), (50, "l"), (40, "xl"), (10, "x"), (9, "ix"), (5, "v"),
+         (4, "iv"), (1, "i")]
+
+
+def roman(n):
+    out = ""
+    for v, r in ROMAN:
+        while n >= v:
+            out += r
+            n -= v
+    return out
+
+
 class Report(BaseDocTemplate):
-    def __init__(self, path, meta):
+    def __init__(self, path, meta, first="cover"):
         BaseDocTemplate.__init__(self, path, pagesize=A4,
                                  leftMargin=LM, rightMargin=RM,
                                  topMargin=TM, bottomMargin=BM,
                                  title=meta["title"], author=meta["author"],
                                  subject=meta["subject"], creator=DOCREF)
         self.meta = meta
-        frame = Frame(LM, BM, BODY_W, PH - TM - BM, id="body",
-                      leftPadding=0, rightPadding=0,
-                      topPadding=0, bottomPadding=0)
-        blank = Frame(LM, BM, BODY_W, PH - TM - BM, id="blank",
-                      leftPadding=0, rightPadding=0,
-                      topPadding=0, bottomPadding=0)
-        self.addPageTemplates([
-            PageTemplate(id="cover", frames=[blank],
-                         onPage=self.cover_furniture),
-            PageTemplate(id="main", frames=[frame],
-                         onPageEnd=self.furniture)])
+        pad = dict(leftPadding=0, rightPadding=0, topPadding=0,
+                   bottomPadding=0)
+        frame = Frame(LM, BM, BODY_W, PH - TM - BM, id="body", **pad)
+        blank = Frame(LM, BM, BODY_W, PH - TM - BM, id="blank", **pad)
+        board = Frame(0, 0, PW, PH, id="board", **pad)
+        formal = Frame(FL, FB, FRONT_W, FRONT_H, id="formal", **pad)
+        tpls = {"hardcover": PageTemplate(id="hardcover", frames=[board],
+                                          onPageEnd=self.board_label),
+                "cover": PageTemplate(id="cover", frames=[blank],
+                                      onPage=self.cover_furniture),
+                "front": PageTemplate(id="front", frames=[formal],
+                                      onPageEnd=self.front_furniture),
+                "main": PageTemplate(id="main", frames=[frame],
+                                     onPageEnd=self.furniture)}
+        # the first template in the list is the one page 1 is laid out on
+        order = [first] + [k for k in tpls if k != first]
+        self.addPageTemplates([tpls[k] for k in order])
         self.part = ""
+        self.front_start = None
+        self.body_start = None
 
     def beforeDocument(self):
         # multiBuild runs the story twice; the running head must not carry
         # the last part of the previous pass into the first pages of this one
         self.part = ""
+        self.front_start = None
+        self.body_start = None
+
+    # ---- page numbering: covers unnumbered, front matter i, ii ..., body 1..
+    def logical(self, page):
+        """The number printed on a body page."""
+        return page - self.body_start + 1 if self.body_start else page
+
+    def _front_no(self, c):
+        page = c.getPageNumber()
+        if self.front_start is None:
+            self.front_start = page
+            c.addPageLabel(page - 1, style="ROMAN_LOWER", start=1)
+        return page - self.front_start + 1
+
+    def page_label(self, c):
+        page = c.getPageNumber()
+        if self.body_start and page >= self.body_start:
+            return "Page %d" % self.logical(page)
+        return "Page %s" % roman(self._front_no(c))
+
+    def board_label(self, c, doc):
+        c.addPageLabel(c.getPageNumber() - 1, prefix="Hard cover")
+
+    def front_furniture(self, c, doc):
+        n = self._front_no(c)
+        if n > 1:                       # the certificate's i is not printed
+            c.saveState()
+            c.setFont("FMSerif", 11)
+            c.setFillColor(INK)
+            c.drawCentredString(PW / 2.0, 17 * mm, roman(n))
+            c.restoreState()
 
     # running head / foot
     def furniture(self, c, doc):
@@ -581,11 +665,12 @@ class Report(BaseDocTemplate):
         c.line(LM, BM - 7, PW - RM, BM - 7)
         c.setFont("RepSans", 6.8)
         c.drawString(LM, BM - 15, sanitize(self.meta["footer"]))
-        c.drawRightString(PW - RM, BM - 15, "Page %d" % c.getPageNumber())
+        c.drawRightString(PW - RM, BM - 15, self.page_label(c))
         c.restoreState()
 
     def cover_furniture(self, c, doc):
         c.saveState()
+        c.addPageLabel(c.getPageNumber() - 1, prefix="Title page")
         c.setFillColor(ACCENT)
         c.rect(0, PH - 34 * mm, PW, 34 * mm, stroke=0, fill=1)
         c.setFillColor(colors.Color(0.86, 0.66, 0.20))
@@ -601,7 +686,8 @@ class Report(BaseDocTemplate):
             clean = sanitize(re.sub(r"[*`]", "", cap))
             self.canv.bookmarkPage(key)
             self.notify("FIGEntry",
-                        (0, "Figure %d   %s" % (num, clean), self.page, key))
+                        (0, "Figure %d   %s" % (num, clean),
+                         self.logical(self.page), key))
             return
         entry = getattr(flowable, "_tocEntry", None)
         if entry is None:
@@ -609,17 +695,139 @@ class Report(BaseDocTemplate):
         lvl, txt, key = entry
         clean = sanitize(re.sub(r"[*`]", "", txt))
         if lvl == 0:                                   # part banner
+            if self.body_start is None:                # Part 1 is page 1
+                self.body_start = self.page
+                self.canv.addPageLabel(self.page - 1, style="ARABIC", start=1)
             self.part = clean
             self.canv.bookmarkPage(key)
             self.canv.addOutlineEntry(clean, key, 0, 0)
         if lvl <= 1:          # parts and sections only -- h3 stays a bookmark
-            self.notify("TOCEntry", (lvl, clean, self.page, key))
+            self.notify("TOCEntry",
+                        (lvl, clean, self.logical(self.page), key))
+
+
+# ------------------------------------------------------------ drawing index
+def _index_order():
+    """make_index.ORDER -- the QA tool's own discipline order, read from the
+    tool rather than copied, so the report's index groups as the tool does."""
+    spec = importlib.util.spec_from_file_location("make_index", MAKE_INDEX)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return list(mod.ORDER)
+
+
+def _scale(s):
+    t = s.strip().rstrip(".").strip()
+    if t in ("-", ""):
+        return "\u2014"
+    if t.lower() == "not to scale":
+        return "NOT TO SCALE"
+    return t
+
+
+INDEX_STATS = {}
+
+
+def drawing_index():
+    """The drawing index as a report table, read at build time from the QA
+    tool's qa_index.json -- which the tool reads from the DXF files -- so the
+    report's index cannot drift from the drawings.  A discipline missing from
+    make_index.ORDER is NOT dropped (the H.25 failure): it is appended and
+    reported."""
+    with open(QA_INDEX, encoding="utf-8") as fh:
+        rows = json.load(fh)
+    order = _index_order()
+    extra = sorted({r["discipline"] for r in rows} - set(order))
+    groups = [(d, sorted([r for r in rows if r["discipline"] == d],
+                         key=lambda r: r["number"]))
+              for d in order + extra]
+    groups = [(d, rs) for d, rs in groups if rs]
+    sizes = {}
+    for r in rows:
+        sizes[r["size"]] = sizes.get(r["size"], 0) + 1
+    listed = sum(len(rs) for _, rs in groups)
+    INDEX_STATS.update(total=len(rows), listed=listed, groups=len(groups),
+                       sizes=sizes, unregistered=extra)
+
+    head = ["No.", "Drawing No.", "Title", "Scale", "Sheet size"]
+    data = [[para(inline(h), ST["th"]) for h in head]]
+    cmds = [("BACKGROUND", (0, 0), (-1, 0), HDRBG),
+            ("LINEBELOW", (0, 0), (-1, 0), 0.7, MID),
+            ("GRID", (0, 0), (-1, -1), 0.3, RULE),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("LEFTPADDING", (0, 0), (-1, -1), 3.6),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 3.6),
+            ("TOPPADDING", (0, 0), (-1, -1), 2.4),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 2.4)]
+    n = 0
+    for disc, rs in groups:
+        name = disc.replace(" - ", " \u2014 ")
+        data.append([para(inline("**%s** (%d)" % (name, len(rs))), ST["th"]),
+                     "", "", "", ""])
+        i = len(data) - 1
+        cmds += [("SPAN", (0, i), (-1, i)),
+                 ("BACKGROUND", (0, i), (-1, i), BAND),
+                 ("TOPPADDING", (0, i), (-1, i), 3.4)]
+        for r in rs:
+            n += 1
+            data.append([para(str(n), ST["td"]),
+                         para(inline("**%s**" % r["number"]), ST["td"]),
+                         para(inline(r["title"]), ST["td"]),
+                         para(inline(_scale(r["scale"])), ST["td"]),
+                         para(r["size"], ST["td"])])
+    cw = [10 * mm, 21 * mm, 0, 25 * mm, 18 * mm]
+    cw[2] = BODY_W - sum(cw)
+    t = Table(data, colWidths=cw, repeatRows=1)
+    t.setStyle(TableStyle(cmds))
+
+    size_txt = " · ".join("%d %s" % (k, s) for s, k in
+                          sorted(sizes.items(), key=lambda kv: -kv[1]))
+    intro = ("**%d drawings** · %s, in %d groups. Read at build time from "
+             "`DRAWING QAQC/qa_index.json`, which the drawing QA tool "
+             "generates from the DXF files themselves, so this index cannot "
+             "drift from the drawings." % (len(rows), size_txt, len(groups)))
+    note = ("\u2014 in the Scale column: no single scale is stated in the "
+            "sheet's title block; see the sheet. Every scale is true at the "
+            "sheet size given, **not** on the A3 page.")
+    return [para(inline(intro), ST["body"]), Spacer(1, 2), t, Spacer(1, 4),
+            para(inline(note), ST["cap"])]
+
+
+NUMWORDS = ("zero one two three four five six seven eight nine ten eleven "
+            "twelve thirteen fourteen fifteen sixteen seventeen eighteen "
+            "nineteen").split()
+TENS = "_ _ twenty thirty forty fifty sixty seventy eighty ninety".split()
+
+
+def words(n):
+    if n < 20:
+        return NUMWORDS[n]
+    t, u = divmod(n, 10)
+    return TENS[t] + ("-" + NUMWORDS[u] if u else "")
+
+
+def counts(blocks):
+    """Parts, appendices and figures, counted from the source -- the cover
+    states them, and a stated count must follow the document it counts."""
+    h1 = [p for k, p in blocks if k == "h1"]
+    return (sum(1 for p in h1 if p.upper().startswith("PART ")),
+            sum(1 for p in h1 if p.upper().startswith("APPENDIX ")),
+            sum(1 for k, _ in blocks if k == "fig"))
 
 
 def build(md, meta):
     register_fonts()
+    FRONT.setup()
     blocks = parse(md)
     story = []
+    nparts, napps, nfigs = counts(blocks)
+    meta = dict(meta)
+    meta["cover_notes"] = [n.replace("{COUNTS}", "%s parts, %s appendices and "
+                                     "%s drawn figures" % (
+                                         words(nparts).capitalize(),
+                                         words(napps), words(nfigs)))
+                           for n in meta["cover_notes"]]
+    kinds = [k for k, _ in blocks]
     nkey = [0]
 
     def key():
@@ -641,9 +849,25 @@ def build(md, meta):
             return
         story.append(PageBreak())
 
-    for kind, payload in blocks:
-        if kind == "cover":
-            story += cover_page(meta)
+    for bi, (kind, payload) in enumerate(blocks):
+        nxt = kinds[bi + 1] if bi + 1 < len(kinds) else None
+        if kind == "hardcover":
+            story.append(FRONT.HardCover(PW, PH))
+            story.append(NextPageTemplate("cover" if nxt == "cover"
+                                          else "main"))
+            story.append(PageBreak())
+        elif kind == "cover":
+            story += cover_page(meta, "front" if nxt == "frontmatter"
+                                else "main")
+        elif kind == "frontmatter":
+            sheets = FRONT.front_pages(FRONT_W, FRONT_H)
+            for k, sh in enumerate(sheets):
+                story.append(sh)
+                if k == len(sheets) - 1:
+                    story.append(NextPageTemplate("main"))
+                story.append(PageBreak())
+        elif kind == "drawindex":
+            story += drawing_index()
         elif kind == "toc":
             story.append(Paragraph(inline("CONTENTS"), ST["h2"]))
             story.append(Rule(BODY_W))
@@ -690,12 +914,13 @@ def build(md, meta):
         elif kind == "quote":
             story += quote_box(payload)
 
-    doc = Report(OUT, meta)
+    doc = Report(OUT, meta, first=kinds[0] if kinds and kinds[0] in
+                 ("hardcover", "cover") else "main")
     doc.multiBuild(story)
     return doc.page
 
 
-def cover_page(meta):
+def cover_page(meta, next_template="main"):
     out = [Spacer(1, 26 * mm)]
     out.append(Paragraph(inline(meta["title"]), ST["cvt"]))
     out.append(Spacer(1, 5))
@@ -710,7 +935,7 @@ def cover_page(meta):
     for para in meta["cover_notes"]:
         out.append(Paragraph(inline(para), ST["cvn"]))
         out.append(Spacer(1, 3.4))
-    out.append(NextPageTemplate("main"))
+    out.append(NextPageTemplate(next_template))
     out.append(PageBreak())
     return out
 
@@ -723,17 +948,22 @@ META = {
     "subject": "Design basis, engineering science, calculations, drawings, "
                "services and works management",
     "shorttitle": "MASTER PROJECT REPORT \u00b7 FRONT MATTER",
-    "footer": "Master project report · revision PR2 · "
+    "footer": "Master project report · revision PR3 · "
               "FOR REVIEW — NOT FOR CONSTRUCTION",
     "cover_rows": [
         ["Item", "State"],
-        ["Report revision", "**PR2** · 13 September 2026"],
+        ["Report revision", "**PR3** · 26 September 2026"],
         ["Architectural revision", "**Rev F**"],
         ["Structural revision", "**Phase 2 Rev A + M1**"],
         ["Design report revision (historical)", "Rev D"],
-        ["Latest project revisions",
+        ["Design content current to",
          "RC10 (package impact register) · DR-A2 (sump pit head), "
-         "12 September 2026"],
+         "12 September 2026. **Later revisions — WM4, SR1/SR2, MEP1/MEP2 — "
+         "are recorded in the master and are not yet carried into this "
+         "report**, except the drawing index of Part 14"],
+        ["Drawing index", "Read from the drawing QA tool at build time — "
+         "current to **MEP2A**, 18 September 2026. **The drawings themselves "
+         "are a separate spiral-bound book of A3 pages**"],
         ["Governing authority",
          "`master/MASTER_PROJECT_STATE.md` — Parts A, B, F and L"],
         ["Status", "**FOR REVIEW — NOT FOR CONSTRUCTION**"],
@@ -748,7 +978,7 @@ META = {
         "it got there.** Every value carries the evidence class the master "
         "gives it. Where the project does not hold a number, this report says "
         "so in the same sentence rather than filling it in.",
-        "**Twenty-five parts, four appendices and forty-four drawn figures.** "
+        "**{COUNTS}.** "
         "The figures are generated from the confirmed geometry in project "
         "coordinates. They are **not** the issued drawings and must never be "
         "used for setting out or fabrication.",
@@ -774,6 +1004,23 @@ def main():
               % len(BADMARKUP))
         for txt, err in BADMARKUP:
             print("   %s | %s" % (txt, err))
+    if INDEX_STATS:
+        print("index   %d drawings in %d groups, %d listed%s"
+              % (INDEX_STATS["total"], INDEX_STATS["groups"],
+                 INDEX_STATS["listed"],
+                 ("  -- NOT REGISTERED in make_index.ORDER, appended: "
+                  + ", ".join(INDEX_STATS["unregistered"]))
+                 if INDEX_STATS["unregistered"] else ""))
+    if FRONT.OVERFLOW:
+        for name, over in FRONT.OVERFLOW:
+            print("FRONT MATTER OVERFLOW  %s by %.1f mm" % (name, over))
+    if FRONT.PENDING:
+        print("FRONT MATTER -- %d particulars still to be supplied "
+              "(printed in red):" % len(FRONT.PENDING))
+        for label in FRONT.PENDING:
+            print("   [%s]" % label)
+    else:
+        print("front   every particular supplied")
     if MISSING:
         print("SUBSTITUTED (no face carries these): %s"
               % ", ".join("U+%04X x%d" % (ord(c), n)

@@ -606,13 +606,19 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
         the revised estimate has no R-14 discrepancy
 
 ==============================================================================
-  20  REGISTER ARITHMETIC   (report Part 24)
+  20  REGISTER ARITHMETIC   (report Parts 14 and 24)
 ==============================================================================
   open items: narrowed + unchanged + new                      18.00  vs      18.00  PASS   
   register rows: open + closed + moved                        35.00  vs      35.00  PASS   
   assumptions: closed + open                                  14.00  vs      14.00  PASS   
-  drawings: sum of the discipline counts                      80.00  vs      80.00  PASS   
-  sheet sizes: A1 + A4 + A0                                   80.00  vs      80.00  PASS   
+  drawings: sum of the index's group counts                   90.00  vs      90.00  PASS   
+  drawings: groups that print (non-empty)                     17.00  vs      17.00  PASS   
+  drawings: in no printed group                              0.0000  vs     0.0000  PASS   
+  sheet sizes: A1 + A2 + A4 + A0                              90.00  vs      90.00  PASS   
+  sheet sizes: A1                                             75.00  vs      75.00  PASS   
+  sheet sizes: A2                                             10.00  vs      10.00  PASS   
+  sheet sizes: A4                                             4.000  vs      4.000  PASS   
+  sheet sizes: A0                                             1.000  vs      1.000  PASS   
 
 ==============================================================================
   21  CONCRETE MIX DESIGN   (report Part 6.5)
@@ -698,8 +704,8 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
 ==============================================================================
   RESULT
 ==============================================================================
-  checks executed                 559
-  PASS                            553
+  checks executed                 565
+  PASS                            559
   KNOWN / RECORDED difference     6
   UNEXPLAINED FAIL                0
 
@@ -743,4 +749,4 @@ Reproduce:  python3 "Project Report/Scripts/report_verify.py"
   offered to the master, not a change, and NONE of them moves a
   dimension, load, thickness, bar, quantity, rate, date or float.
 
-  Generated 2026-09-14 05:29 by Scripts/report_verify.py
+  Generated 2026-09-26 06:20 by Scripts/report_verify.py

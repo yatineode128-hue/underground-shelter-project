@@ -249,6 +249,20 @@ specified"*; **RC4 superseded that** (A.4.9 / H.28) — ladder only, fall-arrest
 the sheet draws and schedules the ruled ladder. `DRAWING_INDEX.md` now reads **90 drawings,
 84 PASS**, with the series split across four disciplines by filename prefix.
 
+Updated **26 Sep 2026** for **PR3** (master Part **H.44**) — **the project report gets the College
+of Military Engineering front matter**: a black-and-gold **hard cover**, then the existing title
+page, then **certificate, approval sheet, declaration and acknowledgement**, drawn to the owner's
+photographs of a CME report. **Part 14 is now only the drawing index** — read at build time from
+`DRAWING QAQC/qa_index.json`, 90 drawings in 17 groups — **and states that the drawings are
+presented as a separate spiral-bound book of A3 pages** (scales true at the original sheet size,
+never on A3). Front matter is numbered i, ii, iii …; **Part 1 is page 1**; 157 pages.
+**No design value moved.** The guides are the owner's; **the syndicate number, members, leader,
+EODE number and date are NOT held and print as red placeholders** — fill them in `FM` in
+`Project Report/Scripts/report_frontmatter.py` and re-run the renderer. **`PR3-F1` `[U]`: master
+A.1 says "B.E. Civil", the CME format says "B.Tech (Civil), JNU"** — printed in red until ruled.
+`PR3-F2`: the report is not current beyond RC10 / DR-A2 except Part 14. The crest is a
+reconstruction from the photograph; official artwork is `[N]`.
+
 ---
 
 ## Identity and revisions

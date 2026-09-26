@@ -18,7 +18,7 @@
 **Site and ground:** **SG1** (11 Sep 2026, Part **H.22**) — **the project's first site selection and geotechnical section.** Two owner-supplied documents recorded, checked against each other and against this master. **It resolves nothing: not one `K.2` assumption is closed.** Its governing finding — **the sub-soil investigation reached about 1.5 m; the structure founds at (−)6.800** — and the first written **provenance of the design GWT (−)2.000**. Ten new open items `SG-V1…V10`.
 **Drainage on the architectural sheets:** **DR-A1** (11 Sep 2026, Part **H.24**) — `SU-01` drawn on `A-202`, `ST-01` and `SK-01` drawn on `A-301` beyond a break. **No design value changed.** It raises **`DR-A1-V1`**: the project holds **two different assumed sentry-post positions**, and the elevation's would stand inside `SG2`'s external works reserve. · **DR-A2** (12 Sep 2026, Part **H.35**) — **`SU-01`'s cover** drawn on `A-202` at (−)6.100, and a **1:200 key plan** on `A-301` putting `SU-01`, `ST-01` and `SK-01` at true project X **and Y**. **No design value changed.** It raises **`DR-A2-V1`**: **the project records a 1500 × 1500 opening through the mat and nothing that closes it**, in a bay 1560 wide.
 **Site layout:** **SG2** (11 Sep 2026, Part **H.23**) — **the project's first site layout plan.** On a coordinate and a 50 m envelope the owner supplied, master `H.9`'s *"not determinable"* external works positions, **four of five pipe lengths** and **two of three IS 2470 offsets** are **determined**. Site orientation fixed: **+X = EAST**. Principal finding **`SG2-F1` — the soak pit's problem is DEPTH, not arithmetic**: 21–43 % of its required area is above the design water table and its only permeable horizon is 0.2–0.5 m thick, so the fallback dispersion field is reserved rather than the pit re-sized. **`SG-V9` closed · `SG-V3` ruled · `SG-V5` amended · five new items `SG2-V1…V5` · master gap D3 PARTIALLY closed.**
-**Master project report:** **PR2** (13 September 2026, Part **H.37**) — `Project Report/MASTER_PROJECT_REPORT.pdf`, **151 pages, 25 parts, 4 appendices and 57 drawn figures**, the project stated once and in full as a single as-built design, with the engineering science, the calculations, the citations, the soil report, the M35 and M30 mix designs, the openings and closures, the five services parts, works management and an environmental management plan. **It changes no design value**; its 559-check verification pass holds the two PR1 findings **`PR1-F1`** and **`PR1-F2`** and adds two, **`PR2-F1`** and **`PR2-F2`**, all **recorded and NOT corrected**. PR1 (89 pages, 19 parts) is at Part **H.36**.
+**Master project report:** **PR3** (26 September 2026, Part **H.44**) — the College of Military Engineering front matter (hard cover, certificate, approval sheet, declaration, acknowledgement) added, and **Part 14 reduced to the drawing index, with the drawings presented as a separate spiral-bound book of A3 pages**; 157 pages. **Seven front-matter particulars are still red placeholders** and **`PR3-F1` (the degree wording) is `[U]`**. Before it: **PR2** (13 September 2026, Part **H.37**) — `Project Report/MASTER_PROJECT_REPORT.pdf`, **151 pages, 25 parts, 4 appendices and 57 drawn figures**, the project stated once and in full as a single as-built design, with the engineering science, the calculations, the citations, the soil report, the M35 and M30 mix designs, the openings and closures, the five services parts, works management and an environmental management plan. **It changes no design value**; its 559-check verification pass holds the two PR1 findings **`PR1-F1`** and **`PR1-F2`** and adds two, **`PR2-F1`** and **`PR2-F2`**, all **recorded and NOT corrected**. PR1 (89 pages, 19 parts) is at Part **H.36**.
 **A2 presentation sheets:** **SR1** (16 Sep 2026, Part **H.39**) — **two A2 structural reinforcement sheets, `STR006` SHEET 06 (roof slab + mat foundation) and `STR007` SHEET 07 (600 shear wall + main staircase)**, drawn in the frame and title block of the owner's Revit A2 architectural set `ARCH001…ARCH005` so they read as the next two sheets of it. Every bar mark is read from `rebar_data.py`; **no design value, level, thickness, bar or spacing changed** and **the main staircase is untouched**. Finding **`SR1-F1`**: the request asked for IS 13920 detailing; **IS 13920 Cl. 10.4 was checked for the box and is NOT triggered** (τ = 0.063 N/mm²), the box is IS 456 + IS 4991 + IS 3370, and the project's IS 13920 detailing is the **sentry post frame**, which is not on these sheets. Both sheets **PASS** the drafting QA with **zero text overlaps**.
 **A2 sentry-post sheets:** **SR2** (16 Sep 2026, Part **H.40**) — **two more A2 sheets in the same series, `STR008` SHEET 08 (sentry post beams B1 / B2 and column C1) and `STR009` SHEET 09 (isolated footing F1 and slab S1)**. **This is the project's IS 13920:2016 sheet pair** — the box is not a ductile-detailing element (Cl. 10.4 checked, not triggered) and the sentry post frame is, so STR008 carries a 14-clause IS 13920 compliance table. **No design value moved and no analysis was run.** Because the sentry post is EXCLUDED from `rebar_data.py`, SR2 builds a separate register `sentry_data.py` to the same rule. Principal finding **`SR2-F1` — the master contradicts itself on B2's top steel at the ROOF joint**: B.8.6 checks that joint with **2-T20** and passes it marginally, F.4 schedules **3-T20 at supports** without distinguishing level, and 3-T20 there makes IS 13920 Cl. 7.2.1 **FAIL** (1.4 ΣM<sub>b</sub> 195.7 > ΣM<sub>c</sub> 101). **Both cannot be true, so SHEET 08 details the FIRST-FLOOR frame only** and the roof frame is left undrawn until it is ruled on. Six further open items `SR2-V1…V6`, plus `SR2-F2` — a legibility finding on the existing sheet STR007, **recorded and NOT acted on**. Both new sheets **PASS** the drafting QA. **Amended the same day as `SR2A` (Part H.40.8), by instruction: the design-basis and declared-decisions panels DELETED from both sheets and `REV A` removed from their header — no view, scale, dimension, bar or count changed, and the schedules were grown to fill the freed column. The open items are unchanged and now live in the master only.**
 **A2 header/panel cleanup:** **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire revision line (**"STRUCTURAL - PHASE 2 REV A + M1"**) deleted from the header — asked directly which reading was meant, and the whole line was the answer. **No design value moved; STR008/STR009 are byte-identical to before.** The freed column is filled by the `table_stack()` helper SR2A introduced. Found and fixed a real bug in `a2_lib.py` along the way: `table()`'s row-height shrink loop could quantise one step below `MIN_TXT_H`; fixed with a floor clamp, verified not to change STR008/STR009. **This also CLOSES `SR2-F2`**, the STR007 legibility finding recorded and deliberately left unfixed at SR2A. `DRAWING_INDEX.md`: 84 drawings, 78 PASS.
@@ -6034,6 +6034,150 @@ not appear on this sheet.**
 
 ---
 
+## H.44 The report's CME front matter, and the drawings as a separate A3 book — revision PR3 — 26 September 2026
+
+> **PR3 is a DOCUMENT, not a design change.** It changes no dimension, level, load, thickness,
+> bar, quantity, rate, date or float; it touches no `.std` file; STAAD.Pro was not run; no drawing
+> was edited and no drawing generator re-run; the main staircase is untouched; and **no `[C]`,
+> `[R]`, `[A]`, `[U]` or `[N]` tag is converted, downgraded or deleted anywhere in it.**
+
+### H.44.1 What was asked
+
+The owner supplied photographs of a College of Military Engineering project report — its black
+hard cover (*"Black is hard cover of the book"*), certificate, approval sheet, declaration and
+acknowledgement — and asked: ***"Add the other pages like this. Also just include the drawings
+index and write that it is presented as a separate spiral bind book of A3 pages."*** During the
+work the owner sent **the list of guides** (a photograph) and ***"You can keep that cover page
+also"*** — read as: keep the report's existing title page as well, after the new hard cover.
+
+### H.44.2 What was produced — all under `Project Report/`
+
+| File | Change |
+|---|---|
+| `MASTER_PROJECT_REPORT.pdf` | **157 pages** (PR2: 151), 1 459 kB. Hard cover · title page · certificate · approval sheet · declaration · acknowledgement · contents · list of figures · Parts 1–25 · Appendices A–D |
+| **`Scripts/report_frontmatter.py`** | **NEW.** The hard cover and the four formal pages, drawn to the photographed format. **Every particular is in one block, `FM`, and nowhere else** |
+| **`Scripts/report_crest.py`** | **NEW.** A one-off preparation step (numpy, scipy, Pillow) that traces the crest from the owner's photograph. The renderer does not import it |
+| **`Assets/`** | **NEW.** `crest_source_photo.png` (a 380 × 405 px crop of the owner's photograph of the hard cover), and the two images traced from it, `crest_gold.png` and `crest_colour.png` |
+| `Scripts/report_render.py` | Directives `<!-- HARDCOVER -->`, `<!-- FRONTMATTER -->`, `<!-- DRAWING INDEX -->`; the board and formal-page templates; roman front-matter numbering with Part 1 restarting at page 1, and PDF page labels to match; the drawing index table; the cover's part/appendix/figure counts now counted from the source; `PR2` → `PR3` in the running head, foot and title page |
+| `Documentation/MASTER_PROJECT_REPORT.md` | Part 14 rewritten as the drawing index; its 14.7 moved to **16.4.1**; cross-references and counts brought into line (H.44.5); Appendix C and D updated |
+| `Scripts/report_verify.py` | Section 20's two hard-coded drawing checks (80 DXF) replaced by **eight checks read from the QA tool's own `qa_index.json`** |
+| `Calculations/REPORT_VERIFICATION_OUTPUT.txt` | Regenerated — **565 checks: 559 PASS · 6 KNOWN/RECORDED · 0 UNEXPLAINED** (PR2: 559 checks, 553 PASS) |
+| `Documentation/00_README.md` | Rewritten for PR3 |
+
+### H.44.3 The particulars — what the pages carry, and on what evidence
+
+| Particular | Status on the pages | Class |
+|---|---|---|
+| Guides — **Maj Ashish Dubey, FGS · Dr IR Chaudhuri · Dr Uttam Awari · Lt Col APS Chauhan · Sh Tilak Sharma, Jt Dir (C), FCM** | Printed, in the owner's order and spelling | `[C]` owner-supplied, 26 Sep 2026 |
+| Title | *"PLANNING AND DESIGN OF AN UNDERGROUND CBRN-HARDENED, BLAST-RESISTANT PROTECTIVE STRUCTURE WITH SENTRY POST AT PUNE"* — master **A.1**'s title set in the CME cover format. **The registered project title is not held in the project**; it is one line in `FM` | `[A]` wording |
+| Syndicate number · members (rank and name) · syndicate leader · leader's EODE number · month and year of submission | **RED BRACKETED PLACEHOLDERS** — never guessed | `[N]` |
+| Degree | Printed **in red** — see `PR3-F1` | `[U]` |
+| College officials thanked | **By appointment only** — Commander, Faculty of Civil Engineering; Dean and Deputy Commandant; Commandant. Names are optional in `FM`; with none, each sentence is complete without one | — |
+| Declaration text | The CME declaration as photographed, verbatim. The certificate follows its photographed wording closely, with its slip *"a record o their own work"* written as *"of"* | — |
+
+**The renderer lists every placeholder still on the pages each time it builds**, so a PDF with a
+red bracket in it cannot be mistaken for a finished one. At PR3 there are **seven**.
+
+### H.44.4 `PR3-F1` — the degree: two confirmed statements that disagree, NOT resolved
+
+> **Master A.1 records the academic context as "B.E. Civil Engineering" `[CONFIRMED]`.** The CME
+> certificate and approval sheet the owner supplied as the model say *"Bachelor of Technology
+> (Civil) of College of Military Engineering, Pune, affiliated to the Jawaharlal Nehru University,
+> New Delhi"*. **They cannot both be the wording on this project's certificate.** The pages carry
+> the CME format's wording **in red**, as a placeholder does, and `FM["degree_confirmed"]` turns it
+> black once the owner says which is right. **A.1 is not edited** — M.6 forbids resolving it by
+> inference. **`[U]`, offered to the owner as a ruling item.**
+
+### H.44.5 Part 14 is the index only — and where its old content went
+
+**Part 14 now says that the drawings are not bound into the report, that they are presented as a
+separate spiral-bound book of A3 pages, and carries their index — nothing else.** Two short
+paragraphs stay with it because the index is wrong without them:
+
+- **the scale caution** — every scale is true at the drawing's own sheet size (A0/A1/A2/A4),
+  **not on the A3 page; never scale off an A3 print**; and
+- **what is not in the book** — `S-01`…`S-05`, `S-07`, `S-08` are absent and cannot be
+  regenerated (Part E, I.1); nothing is drawn in their place.
+
+**The index is not copied into the report.** The renderer reads `DRAWING QAQC/qa_index.json` —
+which the QA tool generates from the DXF files — and groups it by `make_index.ORDER`, read from
+the tool itself. **A discipline missing from `ORDER` is appended and reported, not dropped** — the
+H.25 failure cannot recur through the report. At PR3: **90 drawings in 17 groups, 90 listed** —
+75 A1 · 10 A2 · 4 A4 · 1 A0. Scale entries are shown as the title blocks give them (case and a
+trailing full stop normalised only); `-` prints as an em dash with a note that no single scale is
+stated.
+
+**What left Part 14, and where it went:**
+
+| PR2 section | Now |
+|---|---|
+| 14.1 two DXF sets · 14.2 *"80 DXF, 74 PASS"* · 14.3 QA before/after | **Replaced by the index.** All three were stale — the package has been 90 DXF since MEP2 (H.43) — and the QA record stays in `DRAWING QAQC/` and H.11 / H.25 |
+| 14.4 sheet standard · 14.5 the A0 and empty-sheet decisions | **Removed from the report.** Recorded in the master (Part E, H.11) and unchanged there |
+| 14.6 the absent S-series | **One paragraph in 14.1.** Its sentence that the sentry post frame *"is not yet drawn"* was stale since SR2 (`STR008`/`STR009`) and is not carried |
+| **14.7 the sump cover and `DR-A2-V1`** | **Moved verbatim to 16.4.1** — it is a finding about the clean sump, not about drawings, and it is the only place the report explains `DR-A2-V1` |
+| Figure *"the drawing package"* (80-DXF composition) | **Dropped from the report.** Its function `fig_drawing_package` stays in `report_figures.py`, now unused; the file is **unchanged** |
+
+**Cross-references moved with it:** 1.1 and 1.2 (*"80 DXF"* → the 90 indexed in Part 14, bound
+separately as an A3 book) · 1.7 rule 8 · 1.8 · 24.3 `DR-A2-V1` → Part 16.4.1 · 25.4 → the QA
+report · 25.5 item 4 (80 → 90 = 75 + 10 + 4 + 1, now checked by the verifier) · Appendix C (file
+list, directives, three references to 14.6).
+
+**Counts corrected:** the report said **forty-four** figures in four places (1.1, the title page,
+25.5, Appendix C) against PR2's own **fifty-seven** (H.37); with one figure dropped it has
+**fifty-six**, and the title page now **counts** parts, appendices and figures from the source so
+it cannot drift again. Appendix D's PR2 row said 44; it now says 57, per H.37.
+
+### H.44.6 Page numbering
+
+Hard cover and title page: **unnumbered**. Certificate to list of figures: **i, ii, iii …** — the
+certificate's *i* is counted but not printed, as on the photographed original. **Part 1 is page 1.**
+The PDF's page labels match what is printed (*Hard cover*, *Title page*, *i* …, *1* …), so a
+viewer's page box and the contents list agree. **Every contents-list page number therefore
+changes by construction** — no content moved.
+
+### H.44.7 The crest — a reconstruction, and it says so
+
+> **No official artwork of the CME crest is held in this project `[N]`.** The gold crest is traced
+> from the owner's photograph of the hard cover (380 × 405 px, 5× trace, thin lines judged
+> against their neighbourhood so the parapet, windows and cupolas survive). The colour crest is
+> **reconstructed from the same trace** — the colour crest in the photographs is only about 205 px
+> and too small to trace — using the photograph for the navy/maroon field and its split (0.49 of
+> the shield height): the towers keep their gold masonry, and everything else is gold line-work
+> on the field, as on the printed crest. **Replace `Assets/crest_gold.png` and
+> `Assets/crest_colour.png` with the official artwork when it is available**; the renderer reads
+> only those two files.
+
+### H.44.8 Other findings — recorded, NOT corrected
+
+| Ref | Finding |
+|---|---|
+| **`PR3-F2`** | **The report is not current beyond RC10 / DR-A2 except for Part 14.** WM4 (the SSR-priced bill), SR1/SR1A, SR2/SR2A (including the **UNRESOLVED `SR2-F1`**), MEP1 and MEP2/MEP2A post-date PR2 and are **not carried into Parts 1–13 and 15–25** — e.g. Part 21 does not state WM4's bill, and Part 24's counts are PR2's. **The title page now says so in a row of its own.** Bringing the report forward is a separate task |
+| **`PR3-F3`** | **Appendix B's clause index cites "Parts 14.1.4, 14.2, 14.3, 14.4, 14.5" for five services clauses** (IS 2470, IS 4991, NBC 2016 Pt 4, MIL-STD-188-125-1, IEEE 142 / IS 3043). Those are **PR1's numbers** — PR1's Part 14 was services, which PR2 moved to Parts 15–19 without updating Appendix B. Pre-existing; after PR3 they point at the drawing index. Not corrected |
+| **`PR3-F4`** | **The figure bounds gate returns 6, not 0.** `report_figures.check_all()` reports six strings past the text measure — `fig_critical_path` ×2, `fig_penetrations` ×3, `fig_regimes` ×1 — on the **unchanged** `report_figures.py`, under reportlab **4.5.1 and 5.0.1 alike**. **Nothing bleeds on the page**: each of the three is drawn wider than the measure and `figure_block()` scales it to the text width (inspected, `fig_penetrations`, page 106). PR2's *"the gate is zero, and it is met"* (H.37.2, report 25.5 item 3a and Appendix C) **is not reproduced**; the statement is left as written |
+
+### H.44.9 What was verified, and how
+
+- **`report_verify.py`: 565 checks — 559 PASS · 6 KNOWN · 0 UNEXPLAINED.** The six known
+  differences are PR2's six, unchanged. The eight new drawing checks read `qa_index.json`: group
+  sum 90, 17 printing groups, **0 drawings in no printed group**, and 75 A1 / 10 A2 / 4 A4 / 1 A0.
+- **`report_render.py`**: 157 pages; *"90 drawings in 17 groups, 90 listed"*; every character a
+  real glyph; no markup fallback; **no front-matter overflow**; seven placeholders listed.
+- **By eye**, rasterised: the hard cover, title page, all four formal pages, the first contents
+  page, the three index pages, the first page of Part 15 and 16.4.1. PDF page labels read
+  *Hard cover, Title page, i … xii, 1 … 143*.
+- **PR2's PDF is not kept beside PR3's** — M.11 is satisfied by git, as H.10 records for WM1.
+
+### H.44.10 What PR3 did NOT do
+
+**No design value, evidence tag, quantity, rate, date or float changed. No `.std` file touched and
+no analysis run. No drawing edited, no drawing generator re-run, and `qa_index.json`,
+`DRAWING_INDEX.md` and every QA script are untouched** — the report only reads them. **No open
+item closed, opened, narrowed or reclassified.** `report_figures.py` is unchanged. **No name,
+number or date was guessed for the front matter.** **The main staircase is untouched** — 24
+risers, 170.8333 mm riser, 280 mm tread, 3 flights × 8, total rise 4 100 mm.
+
+---
+
 # PART I — PROJECT FILE MANIFEST
 
 ## I.1 CURRENT FILES — input (user-supplied)
@@ -6270,6 +6414,15 @@ not appear on this sheet.**
 | **`Project Report/Scripts/report_figures.py`** | **Added by PR2 (H.37) — the 44 drawn report figures**, generated from `GEOM` / `LEV` / `COVER` in project coordinates, with the bounds checker. **NOT the issued drawings, and NOT reconstructions of the absent S-series sheets** |
 | `Project Report/Scripts/report_verify.py` | **498 independent recomputations** of the figures the report reproduces |
 | `Project Report/Calculations/REPORT_VERIFICATION_OUTPUT.txt` | Their output — **494 PASS, 4 differences, 0 unexplained** — and the two new findings `PR1-F1` and `PR1-F2`, **reported, not corrected** |
+
+### Added by PR3, 26 September 2026 — see H.44
+
+| Folder / file | Contents |
+|---|---|
+| **`Project Report/Scripts/report_frontmatter.py`** | The CME front matter — hard cover, certificate, approval sheet, declaration, acknowledgement. **Every particular in one block, `FM`**; an unsupplied one prints as a red placeholder |
+| `Project Report/Scripts/report_crest.py` | One-off preparation of the two crest images from the owner's photograph (numpy, scipy, Pillow). Not imported by the renderer |
+| `Project Report/Assets/crest_source_photo.png` | 380 × 405 px crop of the owner's photograph of a CME hard cover — the only crest source in the project |
+| `Project Report/Assets/crest_gold.png`, `crest_colour.png` | The crest as the pages use it. **Reconstructions — replace with official artwork when available** |
 
 ## I.3 SUPERSEDED / ARCHIVED
 

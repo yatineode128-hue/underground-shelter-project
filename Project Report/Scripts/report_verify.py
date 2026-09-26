@@ -3,7 +3,8 @@ report_verify.py -- independent numerical verification of every figure the
 master project report reproduces.
 
 Underground CBRN-hardened blast-resistant protective structure + sentry post, Pune.
-Project Report package, revision PR2.
+Project Report package, revision PR3 (PR3 changed only section 20: the drawing
+counts are now checked against the QA tool's own index, qa_index.json).
 
 WHAT THIS IS.  Each check below recomputes a quoted value FROM ITS OWN INPUTS
 and compares it with the value the report prints.  Nothing is copied from the
@@ -1043,14 +1044,38 @@ chk("the RC1 revised estimate reconciles to the rupee", tot2, 29790913.0,
     note="the revised estimate has no R-14 discrepancy")
 
 # ====================================================================== 20
-sect("20  REGISTER ARITHMETIC   (report Part 24)")
+sect("20  REGISTER ARITHMETIC   (report Parts 14 and 24)")
 
 chk("open items: narrowed + unchanged + new", 9 + 2 + 6 + 1, 18.0, 0.001)
 chk("register rows: open + closed + moved", 18 + 16 + 1, 35.0, 0.001)
 chk("assumptions: closed + open", 7 + 7, 14.0, 0.001)
-chk("drawings: sum of the discipline counts",
-    11 + 3 + 30 + 11 + 2 + 6 + 2 + 2 + 1 + 6 + 1 + 5, 80.0, 0.001)
-chk("sheet sizes: A1 + A4 + A0", 75 + 4 + 1, 80.0, 0.001)
+# Part 14 is the drawing index, read by the renderer from the QA tool's own
+# qa_index.json.  The report states 90 drawings, 75 A1 + 10 A2 + 4 A4 + 1 A0,
+# in seventeen groups:  check the statement against the tool, and check that
+# every drawing falls in a group the index prints (make_index.ORDER), so none
+# can be dropped from the index the way H.25 found twelve dropped.
+import json as _json
+_qa = os.path.abspath(os.path.join(PKG, "..", "DRAWING QAQC"))
+with open(os.path.join(_qa, "qa_index.json"), encoding="utf-8") as _fh:
+    _rows = _json.load(_fh)
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location(
+    "make_index", os.path.join(_qa, "Scripts", "make_index.py"))
+_mi = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_mi)
+_order = _mi.ORDER
+_groups = [sum(1 for r in _rows if r["discipline"] == d) for d in _order]
+_size = lambda z: sum(1 for r in _rows if r["size"] == z)
+chk("drawings: sum of the index's group counts", sum(_groups), 90.0, 0.001)
+chk("drawings: groups that print (non-empty)",
+    sum(1 for g in _groups if g), 17.0, 0.001)
+chk("drawings: in no printed group", len(_rows) - sum(_groups), 0.0, 0.0)
+chk("sheet sizes: A1 + A2 + A4 + A0",
+    _size("A1") + _size("A2") + _size("A4") + _size("A0"), 90.0, 0.001)
+chk("sheet sizes: A1", _size("A1"), 75.0, 0.001)
+chk("sheet sizes: A2", _size("A2"), 10.0, 0.001)
+chk("sheet sizes: A4", _size("A4"), 4.0, 0.001)
+chk("sheet sizes: A0", _size("A0"), 1.0, 0.001)
 
 sect("21  CONCRETE MIX DESIGN   (report Part 6.5)")
 

@@ -47,7 +47,15 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   (master H.3 / H.14 / K.1); A.4.7 carries the corrected clause. *This line previously read
   "is not resolved"; corrected by RC3, master H.27.* The open items that remain are the
   **thirty-three in master K.1b** — read that, not this line.
-- Latest revision: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
+- Latest revision: **PR3** (26 Sep 2026, master **H.44**) — **the report's College of Military
+  Engineering front matter** (hard cover, certificate, approval sheet, declaration,
+  acknowledgement, from the owner's photographs) and **Part 14 reduced to the drawing index,
+  with the drawings presented as a separate spiral-bound book of A3 pages.** No design value
+  moved. **Every front-matter particular is in `FM` in `Project Report/Scripts/report_frontmatter.py`;
+  the syndicate number, members, leader, EODE number and date are NOT held and print as red
+  placeholders — never guess them.** `PR3-F1` `[U]`: the degree wording (master A.1 "B.E." vs
+  the CME format "B.Tech (Civil), JNU") prints in red until the owner rules.
+  Before it: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
   presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
   plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,
   the owner's own sheets 1 and 2, same views and scales, **every dimension and level brought
