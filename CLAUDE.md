@@ -50,7 +50,7 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   **thirty-three in master K.1b** — read that, not this line.
 - Latest revision: **PR3** (25 Sep 2026, master **H.44**) — the **final-submission project report**,
   `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, in the
-  owner's service-writing layout (1 / 1.1 / 1.1.1, Arial 12, black, no header), WM3 cost only.
+  owner's service-writing layout (now in the CME Appx 'C' format, PR3F), WM3 cost only.
   **By instruction it omits the open-item register — it closes nothing; K.1b stands.** Edit
   `Source/*.txt` and re-run `Scripts/sw_render.py`. No design value moved. Amended **PR3B**
   (H.44.10): P1-deck site slides in Chapter 2 (`Images/`), Appendix C = sheets 01–15 only,
@@ -62,6 +62,10 @@ The master tags every value `[CONFIRMED]` / `[RECONSTRUCTED]` / `[ASSUMED]` /
   `PR3D-F1` before touching the sentry post** — the owner's STAAD captures are of a different
   model from `Sentry_Post_Framed_Seismic.std`; and the MS1 peak does **not** converge.
   Amended **PR3E** (H.44.13): the red frame is drawn on the first page only.
+  Amended **PR3F** (H.44.14): **the course format, Appx 'C', governs the report** — Times New
+  Roman 12, 1.5 lines, margins 37.5/25/25/25 mm, titles in sentence case numbered 3.1 / 3.1.1,
+  page number centred. The editable `.docx` is built by `Scripts/sw_word.py` from the same
+  source; the PDF is the submission copy.
   Before it: **MEP2** (18 Sep 2026, master **H.43**) — **four more A2 sheets; the
   presentation series is now TEN.** New: **`FLS012`** (SHEET 12, fire and life safety escape
   plan) and **`WMS013`** (SHEET 13, works management). **Redrawn: `ARCH001` and `ARCH002`**,

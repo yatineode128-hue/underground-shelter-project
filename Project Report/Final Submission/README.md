@@ -1,10 +1,13 @@
-# Final Submission Report — revision PR3, amended PR3A to PR3E (master Part H.44)
+# Final Submission Report — revision PR3, amended PR3A to PR3F (master Part H.44)
 
-`CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf` — the project report in the owner's
-service-writing layout: red double-rule frame on the first page only, page number centred at the
-foot of every other page, decimal paragraph numbering 1 / 1.1 / 1.1.1 restarting in each chapter,
-Arial 12, black text, no running header.
-120 A4 pages, 18 chapters, appendices A (reinforcement), B (bill of quantities, WM3),
+`CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf` — the project report in the CME project
+report format (Appx 'C'): A4, margins left 37.5 / right, top, bottom 25 mm, Times New Roman 12 at
+1.5 lines, page headings 14 bold, chapter number and name 12 capital bold, titles 12 bold in
+sentence case numbered within the chapter (3.1 / 3.1.1), figure names below and table titles
+above in 12 point, page number centred at the foot; black text; red frame on the first page only.
+`CBRN_Hardened_Underground_Ops_Room_Project_Report.docx` is the same report as an editable Word
+document (the PDF is the submission copy).
+152 A4 pages, 18 chapters, appendices A (reinforcement), B (bill of quantities, WM3),
 C (drawing index — the fifteen sheets 01 to 15; the drawings themselves are a separate spiral-bound
 A3 book), D (references). The front pages (certificate, approval sheet, declaration, acknowledgement)
 follow a CME sample.
@@ -23,7 +26,9 @@ covers for the binder (`Scripts/sw_covers.py`).
 ## Rebuild
 
 ```
-python3 "Project Report/Final Submission/Scripts/sw_render.py"
+python3 "Project Report/Final Submission/Scripts/sw_render.py"   # the PDF
+python3 "Project Report/Final Submission/Scripts/sw_word.py"     # the Word copy
+python3 "Project Report/Final Submission/Scripts/sw_covers.py"   # the two hard covers
 ```
 
 - `Source/*.txt` — the report text, read in file-name order. Markup is described at the top of
@@ -41,8 +46,11 @@ python3 "Project Report/Final Submission/Scripts/sw_render.py"
   `sw_figures.PHOTOS` crops the slide's edge and title bar at build time, nothing else.
 - Figures come from `../Scripts/report_figures.py` through `Scripts/sw_figures.py`, which restates
   or drops review-style annotation and blackens lettering; geometry is untouched.
-- Needs `reportlab` and `pillow` (the slide crops and the one-pixel spacer image). Uses Arial from
-  `/usr/share/fonts/truetype/msttcorefonts/` if installed, otherwise Liberation Sans
-  (metric-identical). The Arial files are not in the repository.
+- `Scripts/sw_case.py` puts titles, captions and table heads into sentence case (Appx 'C' para 2).
+- `Scripts/sw_export.py` writes the laid-out report to JSON and figure images; `Scripts/sw_docx.js`
+  (Node, `npm install -g docx`) builds the .docx from it; `sw_word.py` runs both.
+- Needs `reportlab`, `pillow` and `pymupdf`. Uses Times New Roman (report) and Arial (covers) from
+  `/usr/share/fonts/truetype/msttcorefonts/` if installed, otherwise Liberation Serif / Sans
+  (metric-identical). The font files are not in the repository.
 
 Main staircase unchanged: 24R @ 170.8333, 280 tread, 3 flights × 8, total rise 4 100.

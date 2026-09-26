@@ -2,19 +2,19 @@
 
 C **COLLEGE OF MILITARY ENGINEERING, PUNE**
 
-#vspace 8
+#crest 24
 
-#crest 32
-
-#vspace 16
+#vspace 4
 
 T This is to certify that the project entitled **'CBRN HARDENED UNDERGROUND OPS ROOM'** submitted by six officers of Syndicate 01, in partial fulfilment of the requirements for the award of the degree of Bachelor of Technology (Civil) of College of Military Engineering, Pune, affiliated to the Jawaharlal Nehru University, New Delhi, is a record of their own work.
 
-#vspace 34
+#cols SYNDICATE 01 | 1. Maj Yatin | 2. Capt Sonu Sharma | 3. Capt Sukender Singh ||   | 4. Capt Balbanka Tiwary | 5. Capt DV Ghanashyama | 6. Capt Siddharth Sinha
 
-#cols SYNDICATE 01 | 1. Maj Yatin | 2. Capt Sonu Sharma | 3. Capt Sukender Singh | 4. Capt Balbanka Tiwary | 5. Capt DV Ghanashyama | 6. Capt Siddharth Sinha || GUIDES :- | 1. Maj Ashish Dubey, FGS | 2. Dr I R Chaudhuri | 3. Dr Uttam Awari | 4. Lt Col APS Chauhan | 5. Sh Tilak Sharma, Jt Dir (C), FCM
+C **GUIDES**
 
-#vspace 24
+#sigs Maj Ashish Dubey, FGS || Dr I R Chaudhuri || Dr Uttam Awari || Lt Col APS Chauhan || Sh Tilak Sharma, Jt Dir (C), FCM
+
+#sigs Shri AV Sangamnerkar, Assoc Prof | Chief Project Coordinator
 
 T Date : ________ Sep 2026
 
@@ -22,11 +22,9 @@ T Place : CME Pune
 
 #plainfront APPROVAL SHEET
 
-#vspace 2
+#crest 24
 
-#crest 30
-
-#vspace 8
+#vspace 3
 
 C This Project Entitled
 
@@ -42,11 +40,9 @@ C is Approved for the Degree of
 
 C Bachelor of Technology (Civil)<br/>of<br/>Jawaharlal Nehru University<br/>at<br/>Faculty of Civil Engineering<br/>College of Military Engineering, Pune
 
-#vspace 6
-
 #examiners
 
-#vspace 12
+#vspace 4
 
 T Date : ________ Sep 2026
 

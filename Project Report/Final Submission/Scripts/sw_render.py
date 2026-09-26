@@ -44,6 +44,7 @@ until a blank line or the next directive):
     #cols Head | a | b || Head | c          side-by-side lists
     #right - | line | line                 right-hand signature block
     #examiners                             examiners' signature lines
+    #sigs name | post || name | post       signature lines, three to a row
 
 Inline: **bold**, *italic*, <sub>..</sub>, <sup>..</sup>.
 """
@@ -70,28 +71,41 @@ ROOT = os.path.abspath(os.path.join(PKG, "..", ".."))
 SRC_DIR = os.path.join(PKG, "Source")
 OUT = os.path.join(PKG, "CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf")
 sys.path.insert(0, HERE)
+from sw_case import sentence                                   # noqa: E402
 
 # ---------------------------------------------------------------- fonts
 LIB = "/usr/share/fonts/truetype/liberation"
 FREE = "/usr/share/fonts/truetype/freefont"
 MS = "/usr/share/fonts/truetype/msttcorefonts"
 
-# Arial where it is installed (msttcorefonts); otherwise Liberation Sans, which
-# is metrically identical to Arial.
+# The report is set in Times New Roman (CME format, Appx 'C' para 1(f)); where
+# msttcorefonts is not installed, Liberation Serif, which is metrically
+# identical.  Arial (or Liberation Sans) is kept for the hard covers.
+if os.path.exists(os.path.join(MS, "times.ttf")):
+    BODY_FACES = [(MS, "times.ttf"), (MS, "timesbd.ttf"), (MS, "timesi.ttf"),
+                  (MS, "timesbi.ttf")]
+else:
+    BODY_FACES = [(LIB, "LiberationSerif-Regular.ttf"),
+                  (LIB, "LiberationSerif-Bold.ttf"),
+                  (LIB, "LiberationSerif-Italic.ttf"),
+                  (LIB, "LiberationSerif-BoldItalic.ttf")]
 if os.path.exists(os.path.join(MS, "arial.ttf")):
-    BODY_FACES = [(MS, "arial.ttf"), (MS, "arialbd.ttf"), (MS, "ariali.ttf"),
+    SANS_FACES = [(MS, "arial.ttf"), (MS, "arialbd.ttf"), (MS, "ariali.ttf"),
                   (MS, "arialbi.ttf")]
 else:
-    BODY_FACES = [(LIB, "LiberationSans-Regular.ttf"),
+    SANS_FACES = [(LIB, "LiberationSans-Regular.ttf"),
                   (LIB, "LiberationSans-Bold.ttf"),
                   (LIB, "LiberationSans-Italic.ttf"),
                   (LIB, "LiberationSans-BoldItalic.ttf")]
 
 
 def register_fonts():
-    faces = [("Arial",) + BODY_FACES[0], ("Arial-Bold",) + BODY_FACES[1],
-             ("Arial-Italic",) + BODY_FACES[2],
-             ("Arial-BoldItalic",) + BODY_FACES[3],
+    faces = [("Body",) + BODY_FACES[0], ("Body-Bold",) + BODY_FACES[1],
+             ("Body-Italic",) + BODY_FACES[2],
+             ("Body-BoldItalic",) + BODY_FACES[3],
+             ("Arial",) + SANS_FACES[0], ("Arial-Bold",) + SANS_FACES[1],
+             ("Arial-Italic",) + SANS_FACES[2],
+             ("Arial-BoldItalic",) + SANS_FACES[3],
              # the drawn figures use these names
              ("RepSans", FREE, "FreeSans.ttf"),
              ("RepSans-Bold", FREE, "FreeSansBold.ttf"),
@@ -102,6 +116,9 @@ def register_fonts():
     for name, d, fn in faces:
         if name not in pdfmetrics.getRegisteredFontNames():
             pdfmetrics.registerFont(TTFont(name, os.path.join(d, fn)))
+    pdfmetrics.registerFontFamily("Body", normal="Body", bold="Body-Bold",
+                                  italic="Body-Italic",
+                                  boldItalic="Body-BoldItalic")
     pdfmetrics.registerFontFamily("Arial", normal="Arial", bold="Arial-Bold",
                                   italic="Arial-Italic",
                                   boldItalic="Arial-BoldItalic")
@@ -123,12 +140,11 @@ def missing_glyphs(text):
 
 # ---------------------------------------------------------------- page
 PW, PH = A4
-FR_IN = 11 * mm            # frame inset from the paper edge
-PAD = 7 * mm               # text inset from the frame
-TXT_L = FR_IN + PAD
-TXT_W = PW - 2 * TXT_L     # 174 mm
-TXT_B = FR_IN + 10 * mm
-TXT_T = PH - FR_IN - 8 * mm
+FR_IN = 11 * mm            # first-page frame inset from the paper edge
+TXT_L = 37.5 * mm          # left margin (binding side)
+TXT_W = PW - TXT_L - 25 * mm   # right margin 25 mm: 147.5 mm measure
+TXT_B = 25 * mm            # bottom margin
+TXT_T = PH - 25 * mm       # top margin
 
 RED = colors.Color(0.78, 0.09, 0.11)       # frame only -- all text is black
 INK = colors.black
@@ -184,7 +200,7 @@ def draw_frame(c, odd, with_number=None):
         c.setLineWidth(0.5)
         c.circle(cx, cy, rr, stroke=1, fill=1)
         c.setFillColor(INK)
-        c.setFont("Arial", 9 if len(with_number) < 3 else 8)
+        c.setFont("Body", 9 if len(with_number) < 3 else 8)
         c.drawCentredString(cx, cy - 3.1, with_number)
     c.restoreState()
 
@@ -224,9 +240,9 @@ class Doc(BaseDocTemplate):
     def _plain(self, c, d):
         """No frame: the page number alone, centred at the foot."""
         c.saveState()
-        c.setFont("Arial", 11)
+        c.setFont("Body", 12)
         c.setFillColor(INK)
-        c.drawCentredString(PW / 2.0, 12 * mm, self.page_label())
+        c.drawCentredString(TXT_L + TXT_W / 2.0, 12.5 * mm, self.page_label())
         c.restoreState()
 
     def _main(self, c, d):
@@ -258,44 +274,51 @@ class Marker(Flowable):
 
 
 # ---------------------------------------------------------------- styles
-BODY_SIZE, BODY_LEAD = 12.0, 16.2
-TABLE_SIZE = 10.0
+# Times New Roman 12 at 1.5 lines (Word's 1.5 lines = 1.5 x 1.15 x 12 pt)
+BODY_SIZE, BODY_LEAD = 12.0, 20.7
+TABLE_SIZE = 12.0           # table text; wide tables step down, not below 9
+TABLE_MIN = 9.0
 
 
 def styles():
     s = {}
-    s["body"] = ParagraphStyle("body", fontName="Arial", fontSize=BODY_SIZE,
+    s["body"] = ParagraphStyle("body", fontName="Body", fontSize=BODY_SIZE,
                                leading=BODY_LEAD, alignment=TA_JUSTIFY,
-                               textColor=INK, spaceAfter=6.5)
-    s["chap"] = ParagraphStyle("chap", fontName="Arial-Bold", fontSize=14,
+                               textColor=INK, spaceAfter=6)
+    # page headings (Certificate, Contents ...): 14 point bold, Appx 'C' 1(j)
+    s["front"] = ParagraphStyle("front", fontName="Body-Bold", fontSize=14,
+                                leading=20, alignment=TA_CENTER,
+                                textColor=INK, spaceAfter=8)
+    # chapter number and name: 12 point capital bold, Appx 'C' 2(a), (b)
+    s["chap"] = ParagraphStyle("chap", fontName="Body-Bold", fontSize=12,
                                leading=18, alignment=TA_CENTER,
-                               textColor=INK, spaceAfter=1.5)
-    s["sub"] = ParagraphStyle("sub", parent=s["chap"], fontSize=12,
-                              leading=16, spaceAfter=12)
-    s["head"] = ParagraphStyle("head", fontName="Arial-Bold", fontSize=12,
-                               leading=16, textColor=INK, spaceBefore=6,
+                               textColor=INK, spaceAfter=2)
+    s["sub"] = ParagraphStyle("sub", parent=s["chap"], spaceAfter=14)
+    s["head"] = ParagraphStyle("head", fontName="Body-Bold", fontSize=12,
+                               leading=18, textColor=INK, spaceBefore=6,
                                spaceAfter=6, keepWithNext=1)
-    s["th"] = ParagraphStyle("th", fontName="Arial-Bold", fontSize=TABLE_SIZE,
+    s["th"] = ParagraphStyle("th", fontName="Body-Bold", fontSize=TABLE_SIZE,
                              leading=TABLE_SIZE * 1.2, textColor=INK)
-    s["td"] = ParagraphStyle("td", fontName="Arial", fontSize=TABLE_SIZE,
+    s["td"] = ParagraphStyle("td", fontName="Body", fontSize=TABLE_SIZE,
                              leading=TABLE_SIZE * 1.2, textColor=INK)
-    s["tcap"] = ParagraphStyle("tcap", fontName="Arial-Bold", fontSize=11,
-                               leading=14, alignment=TA_CENTER,
+    # table title above, figure name below: 12 point, sentence case
+    s["tcap"] = ParagraphStyle("tcap", fontName="Body-Bold", fontSize=12,
+                               leading=16, alignment=TA_CENTER,
                                textColor=INK, spaceBefore=4, spaceAfter=4,
                                keepWithNext=1)
-    s["fcap"] = ParagraphStyle("fcap", fontName="Arial-Bold", fontSize=11,
-                               leading=14, alignment=TA_CENTER,
+    s["fcap"] = ParagraphStyle("fcap", fontName="Body-Bold", fontSize=12,
+                               leading=16, alignment=TA_CENTER,
                                textColor=INK, spaceBefore=3, spaceAfter=9)
-    s["calc"] = ParagraphStyle("calc", fontName="Arial", fontSize=11,
-                               leading=14, textColor=INK)
+    s["calc"] = ParagraphStyle("calc", fontName="Body", fontSize=12,
+                               leading=16, textColor=INK)
     s["calcr"] = ParagraphStyle("calcr", parent=s["calc"],
                                 alignment=TA_RIGHT)
-    s["toc1"] = ParagraphStyle("toc1", fontName="Arial-Bold", fontSize=12,
-                               leading=15.5, textColor=INK)
-    s["toc2"] = ParagraphStyle("toc2", fontName="Arial", fontSize=11,
-                               leading=14, textColor=INK)
-    s["tocr"] = ParagraphStyle("tocr", fontName="Arial", fontSize=11,
-                               leading=14, alignment=TA_RIGHT)
+    s["toc1"] = ParagraphStyle("toc1", fontName="Body-Bold", fontSize=12,
+                               leading=17, textColor=INK)
+    s["toc2"] = ParagraphStyle("toc2", fontName="Body", fontSize=12,
+                               leading=16, textColor=INK)
+    s["tocr"] = ParagraphStyle("tocr", fontName="Body", fontSize=12,
+                               leading=16, alignment=TA_RIGHT)
     s["center"] = ParagraphStyle("center", parent=s["body"],
                                  alignment=TA_CENTER)
     return s
@@ -315,8 +338,8 @@ def inline(t):
 
 
 # paragraph number geometry: (number indent, text tab) for levels 1..3
-TAB = {1: (0.0, 10.5 * mm), 2: (10.5 * mm, 24.5 * mm),
-       3: (24.5 * mm, 41.5 * mm), 0: (0.0, 0.0)}
+TAB = {1: (0.0, 12.5 * mm), 2: (12.5 * mm, 30.0 * mm),
+       3: (30.0 * mm, 50.0 * mm), 0: (0.0, 0.0)}
 
 _BLANK = None
 
@@ -337,12 +360,16 @@ def numbered(level, number, title, text):
     st = ParagraphStyle("p%d" % level, parent=S["body"], leftIndent=ind)
     body = ""
     if number:
-        nw = pdfmetrics.stringWidth(number, "Arial", BODY_SIZE)
+        # a titled paragraph is a main title / sub title: number and title
+        # in bold (Appx 'C' 2(c), (d)); an untitled item keeps a plain number
+        face = "Body-Bold" if title else "Body"
+        nw = pdfmetrics.stringWidth(number, face, BODY_SIZE)
         gap = max(tab - ind - nw, 2.2 * mm)
+        num = "<b>%s</b>" % number if title else number
         body = '%s<img src="%s" width="%.2f" height="1"/>' % (
-            number, _blank_png(), gap)
+            num, _blank_png(), gap)
     if title:
-        body += "<b>%s</b>. " % inline(title)
+        body += "<b>%s</b>. " % inline(sentence(title))
     body += inline(text)
     return Paragraph(body, st)
 
@@ -350,7 +377,56 @@ def numbered(level, number, title, text):
 # ---------------------------------------------------------------- tables
 
 
-def make_table(caption, rows, widths=None, align=None, font=TABLE_SIZE,
+PAD_X = 3.2
+
+
+def _plain_words(cell):
+    t = re.sub(r"<sub>(.*?)</sub>|<sup>(.*?)</sup>",
+               lambda m: (m.group(1) or m.group(2) or "")[:1], cell)
+    t = re.sub(r"\*\*|\*|<[^>]+>", "", t)
+    return [w for w in re.split(r"\s+", t) if w]
+
+
+def _need(rows, header, f):
+    """Width each column needs at size f: its longest unbreakable word."""
+    need = [0.0] * len(rows[0])
+    for ri, r in enumerate(rows):
+        if ri and r[0].strip().startswith("=="):
+            continue
+        face = "Body-Bold" if (header and ri == 0) else "Body"
+        for ci, cell in enumerate(r):
+            for w in _plain_words(cell):
+                need[ci] = max(need[ci], pdfmetrics.stringWidth(w, face, f)
+                               + 2 * PAD_X + 2.0)    # 2 pt against rounding
+    return need
+
+
+def fit_table(rows, cw, header=True):
+    """Largest size from 12 down to TABLE_MIN at which every word fits its
+    column (Appx 'C' 2(e): 12 point, reduced only where a table cannot be
+    set otherwise).  A column too narrow for its longest word is widened at
+    the expense of columns with room to spare, keeping the author's
+    proportions otherwise.  Returns (size, column widths)."""
+    total = sum(cw)
+    f = TABLE_SIZE
+    while True:
+        need = _need(rows, header, f)
+        if sum(need) <= total + 0.01 or f <= TABLE_MIN:
+            break
+        f -= 0.5
+    short = [max(n - c, 0.0) for n, c in zip(need, cw)]
+    deficit = sum(short)
+    if deficit > 0.01:
+        spare = [max(c - n, 0.0) for n, c in zip(need, cw)]
+        room = sum(spare)
+        if room > 0:
+            k = min(1.0, deficit / room)
+            cw = [max(c, n) if n > c else c - sp * k
+                  for c, n, sp in zip(cw, need, spare)]
+    return f, cw
+
+
+def make_table(caption, rows, widths=None, align=None, font=None,
                header=True, repeat=True):
     ncol = max(len(r) for r in rows)
     rows = [r + [""] * (ncol - len(r)) for r in rows]
@@ -359,6 +435,9 @@ def make_table(caption, rows, widths=None, align=None, font=TABLE_SIZE,
         cw = [TXT_W * w / tot for w in widths]
     else:
         cw = [TXT_W / ncol] * ncol
+    if header:
+        rows = [[sentence(c) for c in rows[0]]] + rows[1:]
+    font, cw = fit_table(rows, cw, header)
     align = align or ["L"] * ncol
     alm = {"L": TA_LEFT, "C": TA_CENTER, "R": TA_RIGHT}
     data = []
@@ -378,7 +457,8 @@ def make_table(caption, rows, widths=None, align=None, font=TABLE_SIZE,
         if ri and r[0].strip().startswith("==") and \
                 not any(x.strip() for x in r[1:]):
             data[ri][0] = Paragraph("<b>%s</b>" % inline(
-                r[0].strip()[2:].strip()), S["td"])
+                r[0].strip()[2:].strip()), ParagraphStyle(
+                    "g", parent=S["td"], fontSize=font, leading=font * 1.2))
             groups.append(ri)
     t = Table(data, colWidths=cw, repeatRows=1 if (header and repeat) else 0,
               hAlign="CENTER")
@@ -386,8 +466,8 @@ def make_table(caption, rows, widths=None, align=None, font=TABLE_SIZE,
           ("VALIGN", (0, 0), (-1, -1), "TOP"),
           ("TOPPADDING", (0, 0), (-1, -1), 2.2),
           ("BOTTOMPADDING", (0, 0), (-1, -1), 2.6),
-          ("LEFTPADDING", (0, 0), (-1, -1), 3.2),
-          ("RIGHTPADDING", (0, 0), (-1, -1), 3.2)]
+          ("LEFTPADDING", (0, 0), (-1, -1), PAD_X),
+          ("RIGHTPADDING", (0, 0), (-1, -1), PAD_X)]
     if header:
         ts.append(("BACKGROUND", (0, 0), (-1, 0), HEAD_BG))
     for ri in groups:
@@ -898,10 +978,10 @@ def story(blocks, entries, cover_fn):
                     st.append(Marker("front"))
                 first_front = False
                 title = b["arg"].strip()
-                st.append(Paragraph("<u>%s</u>" % inline(title), S["chap"]))
-                st.append(Spacer(1, 8))
+                st.append(Paragraph("<u>%s</u>" % inline(title), S["front"]))
+                st.append(Spacer(1, 6))
                 if title not in ("CONTENTS",):
-                    st.append(Entry("toc", 1, fix_case(title.title())
+                    st.append(Entry("toc", 1, sentence(fix_case(title.title()))
                                     if title.isupper() else title))
                 chap = None
             else:
@@ -918,17 +998,18 @@ def story(blocks, entries, cover_fn):
                     label = "CHAPTER %d" % chap
                     title, sub = parts[0], (parts[1] if len(parts) > 1
                                             else "")
-                    tocname = "Chapter %d : %s" % (chap, title.title())
+                    tocname = "Chapter %d : %s" % (
+                        chap, sentence(fix_case(title.title())))
                 else:
                     chap = parts[0]
                     label = "APPENDIX %s" % parts[0]
                     title, sub = parts[1], (parts[2] if len(parts) > 2
                                             else "")
-                    tocname = "Appendix %s : %s" % (parts[0], title.title())
-                tocname = fix_case(tocname)
+                    tocname = "Appendix %s : %s" % (
+                        parts[0], sentence(fix_case(title.title())))
                 st.append(Entry("toc", 1, tocname))
-                st.append(Paragraph("%s : %s" % (label, inline(title)),
-                                    S["chap"]))
+                st.append(Paragraph(label, S["chap"]))
+                st.append(Paragraph(inline(title), S["chap"]))
                 if sub:
                     st.append(Paragraph(inline(sub), S["sub"]))
                 else:
@@ -938,7 +1019,7 @@ def story(blocks, entries, cover_fn):
             continue
         if k == "head":
             st.append(CondPageBreak(40 * mm))
-            st.append(Paragraph(inline(b["arg"]), S["head"]))
+            st.append(Paragraph(inline(sentence(b["arg"])), S["head"]))
             continue
         if k == "pagebreak":
             st.append(PageBreak())
@@ -964,6 +1045,9 @@ def story(blocks, entries, cover_fn):
         if k == "right":
             st.append(right_block(b["arg"]))
             continue
+        if k == "sigs":
+            st.append(signature_grid(b["arg"]))
+            continue
         if k == "examiners":
             st.append(examiners_block())
             continue
@@ -979,10 +1063,10 @@ def story(blocks, entries, cover_fn):
                 nums[lev - 1] += 1
                 for j in range(lev, 3):
                     nums[j] = 0
-                if lev == 1:
-                    number = "%d." % nums[0]
-                else:
-                    number = ".".join(str(n) for n in nums[:lev])
+                # 3.1 / 3.1.1 / 3.1.1.1 -- numbered within the chapter
+                # (Appx 'C' 2(c), (d)); A.1 in an appendix
+                number = ".".join([str(chap)] +
+                                  [str(n) for n in nums[:lev]])
                 last_level = lev
                 p = numbered(lev, number, b["title"], b["text"])
             else:
@@ -999,23 +1083,21 @@ def story(blocks, entries, cover_fn):
         if k == "table":
             tcount += 1
             num = "%s.%d" % (chap, tcount) if chap else str(tcount)
-            cap = "Table %s : %s" % (num, b["cap"])
             rows = b["rows"]
             capt = b["cap"]
             m = re.match(r"^@(\w+)\s*(.*)$", capt)
             if m:
                 rows = SPECIAL[m.group(1)]()
                 capt = m.group(2)
-                cap = "Table %s : %s" % (num, capt)
+            cap = "Table %s : %s" % (num, sentence(capt))
             if capt.strip() == "-":
                 tcount -= 1
                 t = make_table("", rows, b["widths"], b["align"],
-                               b["font"] or TABLE_SIZE,
                                header=not b["nohead"])
                 st += [t, Spacer(1, 7)]
                 continue
             t = make_table(cap, rows, b["widths"], b["align"],
-                           b["font"] or TABLE_SIZE, header=not b["nohead"])
+                           header=not b["nohead"])
             capp = Paragraph(inline(cap), S["tcap"])
             ent = Entry("lot", 2, inline_plain(cap))
             if len(rows) <= 14:
@@ -1031,7 +1113,7 @@ def story(blocks, entries, cover_fn):
             name, cap = [x.strip() for x in b["arg"].split("|", 1)]
             fcount += 1
             num = "%s.%d" % (chap, fcount) if chap else str(fcount)
-            capt = "Fig %s : %s" % (num, cap)
+            capt = "Fig %s : %s" % (num, sentence(cap))
             st.append(KeepTogether([Entry("lof", 2, capt), Spacer(1, 3)] +
                                    grid_figure(SF, name) +
                                    [Paragraph(inline(capt), S["fcap"])]))
@@ -1043,7 +1125,7 @@ def story(blocks, entries, cover_fn):
             box = FigBox(SF.figure(name)) if k == "fig" else \
                 PhotoBox(*SF.photo(name),
                          maxh=SF.PHOTO_MAXH.get(name, 86) * mm)
-            capt = "Fig %s : %s" % (num, cap)
+            capt = "Fig %s : %s" % (num, sentence(cap))
             st.append(KeepTogether([Entry("lof", 2, capt), Spacer(1, 3),
                                     box,
                                     Paragraph(inline(capt), S["fcap"])]))
@@ -1154,16 +1236,50 @@ def right_block(arg):
     return t
 
 
+def signature_grid(arg):
+    """Signature lines, three to a row: 'name | appointment || ...'.  A
+    single entry is set in the right-hand third."""
+    slots = [[x.strip() for x in part.split("|")] for part in arg.split("||")]
+    st = ParagraphStyle("sg", parent=S["body"], fontSize=11, leading=14,
+                        alignment=TA_CENTER, spaceAfter=0)
+    gap = 6 * mm
+    w = (TXT_W - 2 * gap) / 3.0
+    if len(slots) == 1:
+        slots = [["", ""], ["", ""]] + slots
+    rows, ts = [], [("VALIGN", (0, 0), (-1, -1), "TOP"),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 0),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+                    ("TOPPADDING", (0, 0), (-1, -1), 1.5)]
+    for r0 in range(0, len(slots), 3):
+        grp = slots[r0:r0 + 3]
+        grp += [["", ""]] * (3 - len(grp))
+        rows.append(["", "", "", "", ""])
+        cells = []
+        for name, *rest in grp:
+            txt = "<br/>".join(inline(x) for x in [name] + rest if x)
+            cells.append(Paragraph(txt, st))
+        rows.append([cells[0], "", cells[1], "", cells[2]])
+        ri = len(rows) - 1
+        for ci, (name, *_rest) in zip((0, 2, 4), grp):
+            if name:
+                ts.append(("LINEABOVE", (ci, ri), (ci, ri), 0.7, INK))
+    t = Table(rows, colWidths=[w, gap, w, gap, w],
+              rowHeights=[13 * mm if i % 2 == 0 else None
+                          for i in range(len(rows))])
+    t.setStyle(TableStyle(ts))
+    return t
+
+
 def examiners_block():
     """Examiners, name and signature lines, as on the owner's sample."""
     b = ParagraphStyle("ex", parent=S["body"], leading=15)
-    hb = ParagraphStyle("exh", parent=b, fontName="Arial-Bold")
+    hb = ParagraphStyle("exh", parent=b, fontName="Body-Bold")
     rows = [[Paragraph("Examiners", hb), Paragraph("Name", hb),
              Paragraph("Signatures", hb)],
             [Paragraph("1.&nbsp;&nbsp;&nbsp;External Examiner", b), "", ""],
             [Paragraph("2.&nbsp;&nbsp;&nbsp;Guide", b), "", ""]]
     t = Table(rows, colWidths=[TXT_W * 0.34, TXT_W * 0.36, TXT_W * 0.30],
-              rowHeights=[9 * mm, 13 * mm, 13 * mm])
+              rowHeights=[8 * mm, 12 * mm, 12 * mm])
     t.setStyle(TableStyle([
         ("VALIGN", (0, 0), (-1, -1), "BOTTOM"),
         ("LEFTPADDING", (0, 0), (-1, -1), 0),
@@ -1209,11 +1325,11 @@ def two_columns(names, style):
 def cover():
     import sw_figures as SF
     out = []
-    big = ParagraphStyle("big", fontName="Arial-Bold", fontSize=19,
+    big = ParagraphStyle("big", fontName="Body-Bold", fontSize=19,
                          leading=25, alignment=TA_CENTER, textColor=INK)
-    mid = ParagraphStyle("mid", fontName="Arial-Bold", fontSize=13,
+    mid = ParagraphStyle("mid", fontName="Body-Bold", fontSize=13,
                          leading=17, alignment=TA_CENTER, textColor=INK)
-    small = ParagraphStyle("sm", fontName="Arial", fontSize=11, leading=15,
+    small = ParagraphStyle("sm", fontName="Body", fontSize=12, leading=15,
                            alignment=TA_CENTER, textColor=INK)
     out.append(Spacer(1, 3 * mm))
     out.append(Paragraph("COLLEGE OF MILITARY ENGINEERING, PUNE", mid))

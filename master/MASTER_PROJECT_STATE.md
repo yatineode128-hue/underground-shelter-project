@@ -22,7 +22,7 @@
 **A2 presentation sheets:** **SR1** (16 Sep 2026, Part **H.39**) — **two A2 structural reinforcement sheets, `STR006` SHEET 06 (roof slab + mat foundation) and `STR007` SHEET 07 (600 shear wall + main staircase)**, drawn in the frame and title block of the owner's Revit A2 architectural set `ARCH001…ARCH005` so they read as the next two sheets of it. Every bar mark is read from `rebar_data.py`; **no design value, level, thickness, bar or spacing changed** and **the main staircase is untouched**. Finding **`SR1-F1`**: the request asked for IS 13920 detailing; **IS 13920 Cl. 10.4 was checked for the box and is NOT triggered** (τ = 0.063 N/mm²), the box is IS 456 + IS 4991 + IS 3370, and the project's IS 13920 detailing is the **sentry post frame**, which is not on these sheets. Both sheets **PASS** the drafting QA with **zero text overlaps**.
 **A2 sentry-post sheets:** **SR2** (16 Sep 2026, Part **H.40**) — **two more A2 sheets in the same series, `STR008` SHEET 08 (sentry post beams B1 / B2 and column C1) and `STR009` SHEET 09 (isolated footing F1 and slab S1)**. **This is the project's IS 13920:2016 sheet pair** — the box is not a ductile-detailing element (Cl. 10.4 checked, not triggered) and the sentry post frame is, so STR008 carries a 14-clause IS 13920 compliance table. **No design value moved and no analysis was run.** Because the sentry post is EXCLUDED from `rebar_data.py`, SR2 builds a separate register `sentry_data.py` to the same rule. Principal finding **`SR2-F1` — the master contradicts itself on B2's top steel at the ROOF joint**: B.8.6 checks that joint with **2-T20** and passes it marginally, F.4 schedules **3-T20 at supports** without distinguishing level, and 3-T20 there makes IS 13920 Cl. 7.2.1 **FAIL** (1.4 ΣM<sub>b</sub> 195.7 > ΣM<sub>c</sub> 101). **Both cannot be true, so SHEET 08 details the FIRST-FLOOR frame only** and the roof frame is left undrawn until it is ruled on. Six further open items `SR2-V1…V6`, plus `SR2-F2` — a legibility finding on the existing sheet STR007, **recorded and NOT acted on**. Both new sheets **PASS** the drafting QA. **Amended the same day as `SR2A` (Part H.40.8), by instruction: the design-basis and declared-decisions panels DELETED from both sheets and `REV A` removed from their header — no view, scale, dimension, bar or count changed, and the schedules were grown to fill the freed column. The open items are unchanged and now live in the master only.**
 **A2 header/panel cleanup:** **SR1A** (16 Sep 2026, master **H.41**) — by instruction, on the owner's own copies of `STR006` / `STR007`: the **DESIGN BASIS** panel deleted from both, and the entire revision line (**"STRUCTURAL - PHASE 2 REV A + M1"**) deleted from the header — asked directly which reading was meant, and the whole line was the answer. **No design value moved; STR008/STR009 are byte-identical to before.** The freed column is filled by the `table_stack()` helper SR2A introduced. Found and fixed a real bug in `a2_lib.py` along the way: `table()`'s row-height shrink loop could quantise one step below `MIN_TXT_H`; fixed with a floor clamp, verified not to change STR008/STR009. **This also CLOSES `SR2-F2`**, the STR007 legibility finding recorded and deliberately left unfixed at SR2A. `DRAWING_INDEX.md`: 84 drawings, 78 PASS.
-**Final-submission report:** **PR3** (25 Sep 2026, Part **H.44**) — `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, 114 pages in the owner's service-writing format, WM3 cost Rs 2,97,90,913. **By instruction it omits the open-item register; nothing in K.1b or K.2 is closed by it** — H.44.2 lists what a reader will not see. Amended **PR3A** (H.44.9) and **PR3B** (H.44.10): the five P1-deck site slides in Chapter 2, Appendix C = the fifteen A2 sheets 01–15, the syndicate and guides named, and the guide's name spelt *Chaudhuri* by owner ruling (the drawing title blocks still read *CHAUDHARI*). **PR3C** (H.44.11): front pages in the form of a CME sample (certificate, approval sheet, declaration, acknowledgement; borderless), degree B.Tech (Civil) / JNU, drawings as a separate A3 spiral book, and two black hard covers (`Hard_Cover_Report_A4.pdf`, `Hard_Cover_Drawings_A3_Landscape.pdf`). **PR3D** (H.44.12): STAAD.Pro captures and the owner's mesh-study results in Chapter 6 — **the peak does not converge (`[C]` as reported), and the sentry captures are of a different model, `PR3D-F1` `[UNRESOLVED]`.** **PR3E** (H.44.13): the frame on the first page only.
+**Final-submission report:** **PR3** (25 Sep 2026, Part **H.44**) — `Project Report/Final Submission/CBRN_Hardened_Underground_Ops_Room_Project_Report.pdf`, 114 pages in the owner's service-writing format, WM3 cost Rs 2,97,90,913. **By instruction it omits the open-item register; nothing in K.1b or K.2 is closed by it** — H.44.2 lists what a reader will not see. Amended **PR3A** (H.44.9) and **PR3B** (H.44.10): the five P1-deck site slides in Chapter 2, Appendix C = the fifteen A2 sheets 01–15, the syndicate and guides named, and the guide's name spelt *Chaudhuri* by owner ruling (the drawing title blocks still read *CHAUDHARI*). **PR3C** (H.44.11): front pages in the form of a CME sample (certificate, approval sheet, declaration, acknowledgement; borderless), degree B.Tech (Civil) / JNU, drawings as a separate A3 spiral book, and two black hard covers (`Hard_Cover_Report_A4.pdf`, `Hard_Cover_Drawings_A3_Landscape.pdf`). **PR3D** (H.44.12): STAAD.Pro captures and the owner's mesh-study results in Chapter 6 — **the peak does not converge (`[C]` as reported), and the sentry captures are of a different model, `PR3D-F1` `[UNRESOLVED]`.** **PR3E** (H.44.13): the frame on the first page only. **PR3F** (H.44.14): the CME report format (Appx 'C') — Times New Roman 12 at 1.5 lines, margins 37.5 / 25 / 25 / 25, titles 12 bold in sentence case numbered 3.1 / 3.1.1, page number centred — the certificate signed by the guides and **Shri AV Sangamnerkar, Assoc Prof, Chief Project Coordinator**, and an editable Word copy.
 **Next phase:** Phase 3 — non-linear SDOF verification, site investigation close-out, and a ruling on **`SR2-F1`** before the sentry post roof beams can be detailed.
 
 ---
@@ -6404,6 +6404,76 @@ call `_plain`; `draw_frame` is used by the first page only.
 other hit, page 93, is the zone boundary drawn inside Fig 13.1, the single-line diagram); page
 labels read i … and 1 … 108 as before; pages 1, vi, 1 and 39 inspected as renders. **Main
 staircase unchanged.**
+
+### H.44.14 PR3F — the CME project report format (Appx 'C'), a wording recheck, and an editable Word copy, 26 September 2026
+
+The owner supplied the course's own format instruction, **Appx 'C', *Project Report***, and asked:
+*"Recheck as per this and see that anywhere it should not feel it is AI generated or any things
+which are open. Then render a pdf and editable word document also."* **No design value moved. No
+analysis was run.** H.44.1–H.44.13 are preserved as issued (M.11); where they say *Arial 12*,
+*1. / 1.1 / 1.1.1 restarting in each chapter* or *the certificate carries no signatures*, this
+revision supersedes them.
+
+**Three rulings were asked for and given** `[C]`:
+
+| Question | Owner's answer |
+|---|---|
+| Appx 'C' contradicts itself: 1(h) *"Right aligned at footer"*, item 3 *"page number at bottom margin at center"* | **Centre** (item 3) |
+| 2(e) says all other matter 12 point; the wide tables do not fit at 12 in a 147.5 mm measure | **12 point, reduced only where a table cannot fit, not below 9** |
+| Item 7: the certificate must carry the signatures of the Guides and the **Chief Project Coordinator**, whose name the record did not have | **Shri AV Sangamnerkar, Assoc Prof** |
+
+**Appx 'C' applied, item by item.**
+
+| Item | Requirement | As set |
+|---|---|---|
+| 1(a)–(e) | A4; margins left 37.5, right 25, top 25, bottom 25 mm | as required; text measure **147.5 mm** (was 174). The first-page frame stays (H.44.13) |
+| 1(f), (g) | Times New Roman 12; 1.5 lines | **Times New Roman** throughout the report (the hard covers keep their gold Arial); 1.5 lines = 20.7 pt, as Word sets it |
+| 1(h), 3 | page number, 12 point, at the foot | **centred** in the bottom margin, 12 point (ruling above) |
+| 1(j) | headings 14 point bold | the **page headings** — Certificate, Approval Sheet, Declaration, Acknowledgement, Abstract, Contents, the lists, Abbreviations — at 14 bold. *Read together with 2(a)–(b), which set the chapter number and name at 12; recorded as an interpretation* |
+| 2(a), (b) | chapter number and chapter name, 12 capital bold | *CHAPTER 3* and the name on separate lines, 12 capital bold; the parenthetical subtitle kept, also 12 capital bold |
+| 2(c), (d) | main titles (1.1, 3.4) and sub titles (1.1.4, 2.5.3), 12 bold, **sentence case** | paragraphs now numbered **within the chapter — 3.1, 3.1.1, 3.1.1.1** (A.1 in an appendix); a titled paragraph has its number and title in bold. Every title, side heading, caption and table head put into sentence case by the new `Scripts/sw_case.py` (acronyms, codes, variables, months, proper names and *Zone 2 / Part I / Appendix A* references keep their capitals); all 409 conversions were read before use |
+| 2(e) | all other matter 12 point, sentence case | body, calculations, lists and table text at 12. **Tables:** each column is widened, at the expense of columns with room, until its longest word fits at 12; only **three** tables still step down — soil tests (Table 2.3) **10.5**, meteorological data (Table 2.7) **10**, bill of quantities (Table B.1) **11.5**. The lettering inside figures (and the panel labels of the STAAD figures, 10 point) is figure content |
+| 4 | no blank sheet | **none** — every page checked |
+| 5, 6 | figure name below, table title above, 12, sentence case | as required (set in bold) |
+| 7 | certificate to the group; signatures of Guides and Chief Project Coordinator | certificate names Syndicate 01 and its six officers, then **signature lines for the five guides and for Shri AV Sangamnerkar, Assoc Prof, Chief Project Coordinator** |
+| 8 | black, golden embossing | the PR3C hard covers |
+| 9 | diary; three copies | not report content |
+
+**The recheck for AI-sounding or open wording found nothing to change.** Every source file was
+scanned for the usual tells (*robust, comprehensive, seamless, leverage, crucial, delve, notably,
+furthermore, in conclusion …*), for pending language (*to be confirmed / decided / verified,
+pending, provisional, future, further study, not yet, subject to, recommended, assumed,
+approximate, open …*), for every *should / may / might / will / would*, and for em dashes, curly
+quotes and ellipses. The only hits are engineering usage (*"ensured by the detailing"*,
+*"seamless coved finish"*, *"open ground"*, *"assumed in the portal method"*) and quotations from
+SEMT/67/15. The conclusion chapter has no future-scope or open-issue section.
+
+**The Word copy.** `CBRN_Hardened_Underground_Ops_Room_Project_Report.docx`, built by the new
+`Scripts/sw_export.py` (the same parse, numbering, sentence case, table fitting and figure sizes
+as the PDF, written to JSON with the figures as 220 dpi PNG) and `Scripts/sw_docx.js` (docx-js
+9.7.2), run together by `Scripts/sw_word.py`. It is an editable document, not a picture of the
+PDF: real paragraphs, numbered text, Word tables, and the contents, figure and table lists as
+**Word fields built from TC entries**. The fields are pre-filled with the PDF's entries, and Word
+is set to ask to update fields on opening, after which the page numbers are Word's own. **Word
+lays out differently from the PDF** (LibreOffice renders it at 138 pages against the PDF's 152).
+**The PDF is the submission copy; the .docx is for editing.** Two things Word cannot reproduce:
+the rounded corners and the red corner tab of the first-page frame (Word page borders are
+rectangular).
+
+**Environment, not in the repository:** Times New Roman from the msttcorefonts `times32.exe`,
+the `docx` npm package installed globally, and LibreOffice Writer, installed only to render the
+.docx for inspection.
+
+**Verified.** PDF rebuilt: 152 pages; no blank page; every footer is exactly one centred page
+number; text spans are Times New Roman at 12 except the three tables above, sub- and superscripts,
+the first page and the 14-point page headings; **all 1 678 table words checked intact — no word
+split across lines** (a first build split *Sample* and *2,04,420*, fixed by a 2 pt margin in the
+column fitting); every text span black. The .docx passes the OOXML schema validator; 66 drawings
+carry unique ids; 30 contents, 43 figure and 80 table TC entries; one font, Times New Roman;
+rendered through LibreOffice and inspected (first page, certificate, chapters 1, 2 and 6,
+Tables 2.7 and B.1, Appendix C). The whole-text scan of both files finds only PR3's four
+engineering uses of *"assumed"* / *"defect"*, and no *Chaudhari*, *Bachelor of Engineering* or
+*Arial*. **Main staircase unchanged.**
 
 ---
 
